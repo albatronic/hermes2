@@ -1,0 +1,26 @@
+{# ARBOL DE CONTENIDOS DE "N" NIVELES #}
+
+<ul class="arbol">
+{% for keyPadre,padre in arbol %}
+    <li class="arbol">
+        {% include 'GconContenidos/arbolPadre.html.twig' with {'key':keyPadre,'seccion': padre, 'subtemplate':subtemplate} %}
+    </li>
+    {% include 'GconContenidos/arbol.html.twig' with {'arbol': padre.hijos, 'subtemplate':'arbolEditar.html.twig'} %}    
+    {#
+    <ul class="arbol">
+        {% for keyHijo,hijo in padre.hijos %}
+            <li class="arbol">
+                {% include 'GconContenidos/arbolPadre.html.twig' with {'key':keyHijo,'seccion': hijo, 'subtemplate':subtemplate} %}
+            </li>
+            <ul class="arbol">
+                {% for keyNieto,nieto in hijo.hijos %}
+                    <li class="arbol">
+                        {% include 'GconContenidos/arbolPadre.html.twig' with {'key':keyNieto,'seccion': nieto, 'subtemplate':subtemplate} %}
+                    </li>
+                {% endfor %}
+            </ul>                        
+        {% endfor %}
+    </ul>
+    #}
+{% endfor %}
+</ul>

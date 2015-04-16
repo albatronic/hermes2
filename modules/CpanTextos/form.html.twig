@@ -1,0 +1,17 @@
+{#
+  Module: CpanTextos
+  Document : modules\CpanTextos\form.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 01.02.2014 21:09:46
+#}
+
+
+{{ macro.select(values.atributos.Lang,'Etiqueta',values.controller ~ '[Lang]',values.controller ~ '_Lang',200,datos.Lang,values.idiomas,'Select') }}
+{{ macro.select(values.atributos.Controller,'Etiqueta',values.controller ~ '[Controller]',values.controller ~ '_Controller',200,datos.Controller,values.controllers,'Select') }}
+{{ macro.input(values.atributos.Clave,'Etiqueta','text',values.controller ~ '[Clave]',values.controller ~ '_Clave',datos.Clave,'50','CampoTextoLargo','3') }}
+{{ macro.textarea(values.atributos.Observations,'Etiqueta',values.controller ~ '[Observations]',values.controller ~ '_Observations',datos.Observations,none,none,'textarea',100)}} 
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_Lang') }}

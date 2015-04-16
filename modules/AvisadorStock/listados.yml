@@ -1,0 +1,26 @@
+# Module: AvisadorStock
+# Document : modules\AvisadorStock\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 19.07.2014 02:26:08
+#
+---
+listados:
+  -
+    title: AvisadorStock
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      IDCliente: { field: IDCliente, title: IDCliente, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Email: { field: Email, title: Email, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      IDArticulo: { field: IDArticulo, title: IDArticulo, length: '11', align: R, type: integer, total: NO, formula: null, format: null }

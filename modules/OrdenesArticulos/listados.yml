@@ -1,0 +1,25 @@
+# Module: ErpOrdenesArticulos
+# Document : modules\ErpOrdenesArticulos\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 09.02.2013 11:28:32
+#
+---
+listados:
+  -
+    title: ErpOrdenesArticulos
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      IdRegla: { title: IdRegla, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IdArticulo: { title: IdArticulo, length: '11', align: R, type: integer, total: NO, formula: null, format: null }

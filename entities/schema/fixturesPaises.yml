@@ -1,0 +1,2000 @@
+# VALORES POR DEFECTO PARA LA TABLA PAISES DE LA APP Comm.
+#
+ErpPaises:
+  -
+    IDPais: 1
+    Codigo: "AD"
+    Pais: "Andorra"
+    IdMoneda: 49
+    IdZonaHoraria: 1
+    Latitud: 42.5
+    Longitud: 1.5
+  -
+    IDPais: 2
+    Codigo: "AE"
+    Pais: "United Arab Emirates"
+    IdMoneda: 1
+    IdZonaHoraria: 2
+    Latitud: 24
+    Longitud: 54
+  -
+    IDPais: 3
+    Codigo: "AF"
+    Pais: "Afghanistan"
+    IdMoneda: 2
+    IdZonaHoraria: 3
+    Latitud: 33
+    Longitud: 65
+  -
+    IDPais: 4
+    Codigo: "AG"
+    Pais: "Antigua and Barbuda"
+    IdMoneda: 168
+    IdZonaHoraria: 4
+    Latitud: 17.05
+    Longitud: -61.8
+  -
+    IDPais: 5
+    Codigo: "AI"
+    Pais: "Anguilla"
+    IdMoneda: 168
+    IdZonaHoraria: 5
+    Latitud: 18.25
+    Longitud: -63.1667
+  -
+    IDPais: 6
+    Codigo: "AL"
+    Pais: "Albania"
+    IdMoneda: 3
+    IdZonaHoraria: 6
+    Latitud: 41
+    Longitud: 20
+  -
+    IDPais: 7
+    Codigo: "AM"
+    Pais: "Armenia"
+    IdMoneda: 4
+    IdZonaHoraria: 7
+    Latitud: 40
+    Longitud: 45
+  -
+    IDPais: 8
+    Codigo: "AO"
+    Pais: "Angola"
+    IdMoneda: 6
+    IdZonaHoraria: 8
+    Latitud: -12.5
+    Longitud: 18.5
+  -
+    IDPais: 9
+    Codigo: "AQ"
+    Pais: "Antarctica"
+    IdZonaHoraria: 220
+    Latitud: -90
+    Longitud: 0
+  -
+    IDPais: 10
+    Codigo: "AR"
+    Pais: "Argentina"
+    IdMoneda: 7
+    IdZonaHoraria: 223
+    Latitud: -34
+    Longitud: -64
+  -
+    IDPais: 11
+    Codigo: "AS"
+    Pais: "American Samoa"
+    IdMoneda: 151
+    IdZonaHoraria: 9
+    Latitud: -14.3333
+    Longitud: -170
+  -
+    IDPais: 12
+    Codigo: "AT"
+    Pais: "Austria"
+    IdMoneda: 49
+    IdZonaHoraria: 10
+    Latitud: 47.3333
+    Longitud: 13.3333
+  -
+    IDPais: 13
+    Codigo: "AU"
+    Pais: "Australia"
+    IdMoneda: 8
+    IdZonaHoraria: 224
+    Latitud: -27
+    Longitud: 133
+  -
+    IDPais: 14
+    Codigo: "AW"
+    Pais: "Aruba"
+    IdMoneda: 9
+    IdZonaHoraria: 11
+    Latitud: 12.5
+    Longitud: -69.9667
+  -
+    IDPais: 15
+    Codigo: "AX"
+    Pais: "Åland Islands"
+    IdMoneda: 49
+    IdZonaHoraria: 12
+    Latitud: 60.177
+    Longitud: 19.915
+  -
+    IDPais: 16
+    Codigo: "AZ"
+    Pais: "Azerbaijan"
+    IdMoneda: 10
+    IdZonaHoraria: 13
+    Latitud: 40.5
+    Longitud: 47.5
+  -
+    IDPais: 17
+    Codigo: "BA"
+    Pais: "Bosnia and Herzegovina"
+    IdMoneda: 11
+    IdZonaHoraria: 14
+    Latitud: 44
+    Longitud: 18
+  -
+    IDPais: 18
+    Codigo: "BB"
+    Pais: "Barbados"
+    IdMoneda: 12
+    IdZonaHoraria: 15
+    Latitud: 13.1667
+    Longitud: -59.5333
+  -
+    IDPais: 19
+    Codigo: "BD"
+    Pais: "Bangladesh"
+    IdMoneda: 13
+    IdZonaHoraria: 16
+    Latitud: 24
+    Longitud: 90
+  -
+    IDPais: 20
+    Codigo: "BE"
+    Pais: "Belgium"
+    IdMoneda: 49
+    IdZonaHoraria: 17
+    Latitud: 50.8333
+    Longitud: 4
+  -
+    IDPais: 21
+    Codigo: "BF"
+    Pais: "Burkina Faso"
+    IdMoneda: 171
+    IdZonaHoraria: 18
+    Latitud: 13
+    Longitud: -2
+  -
+    IDPais: 22
+    Codigo: "BG"
+    Pais: "Bulgaria"
+    IdMoneda: 14
+    IdZonaHoraria: 19
+    Latitud: 43
+    Longitud: 25
+  -
+    IDPais: 23
+    Codigo: "BH"
+    Pais: "Bahrain"
+    IdMoneda: 15
+    IdZonaHoraria: 20
+    Latitud: 26
+    Longitud: 50.55
+  -
+    IDPais: 24
+    Codigo: "BI"
+    Pais: "Burundi"
+    IdMoneda: 16
+    IdZonaHoraria: 21
+    Latitud: -3.5
+    Longitud: 30
+  -
+    IDPais: 25
+    Codigo: "BJ"
+    Pais: "Benin"
+    IdMoneda: 171
+    IdZonaHoraria: 22
+    Latitud: 9.5
+    Longitud: 2.25
+  -
+    IDPais: 26
+    Codigo: "BL"
+    Pais: "Saint Barthélemy"
+    IdMoneda: 49
+    IdZonaHoraria: 23
+    Latitud: 17.9
+    Longitud: -62.8333
+  -
+    IDPais: 27
+    Codigo: "BM"
+    Pais: "Bermuda"
+    IdMoneda: 17
+    IdZonaHoraria: 24
+    Latitud: 32.3333
+    Longitud: -64.75
+  -
+    IDPais: 28
+    Codigo: "BN"
+    Pais: "Brunei"
+    IdMoneda: 18
+    IdZonaHoraria: 25
+    Latitud: 4.5
+    Longitud: 114.667
+  -
+    IDPais: 29
+    Codigo: "BO"
+    Pais: "Bolivia"
+    IdMoneda: 19
+    IdZonaHoraria: 26
+    Latitud: -17
+    Longitud: -65
+  -
+    IDPais: 30
+    Codigo: "BQ"
+    Pais: "Bonaire, Sint Eustatius and Saba"
+    IdMoneda: 151
+    IdZonaHoraria: 27
+    Latitud: 12.1784
+    Longitud: -68.2385
+  -
+    IDPais: 31
+    Codigo: "BR"
+    Pais: "Brazil"
+    IdMoneda: 21
+    IdZonaHoraria: 233
+    Latitud: -10
+    Longitud: -55
+  -
+    IDPais: 32
+    Codigo: "BS"
+    Pais: "Bahamas"
+    IdMoneda: 22
+    IdZonaHoraria: 28
+    Latitud: 24.25
+    Longitud: -76
+  -
+    IDPais: 33
+    Codigo: "BT"
+    Pais: "Bhutan"
+    IdMoneda: 23
+    IdZonaHoraria: 29
+    Latitud: 27.5
+    Longitud: 90.5
+  -
+    IDPais: 34
+    Codigo: "BV"
+    Pais: "Bouvet Island"
+    IdMoneda: 109
+    IdZonaHoraria: 146
+    Latitud: -54.4333
+    Longitud: 3.4
+  -
+    IDPais: 35
+    Codigo: "BW"
+    Pais: "Botswana"
+    IdMoneda: 24
+    IdZonaHoraria: 30
+    Latitud: -22
+    Longitud: 24
+  -
+    IDPais: 36
+    Codigo: "BY"
+    Pais: "Belarus"
+    IdMoneda: 25
+    IdZonaHoraria: 31
+    Latitud: 53
+    Longitud: 28
+  -
+    IDPais: 37
+    Codigo: "BZ"
+    Pais: "Belize"
+    IdMoneda: 26
+    IdZonaHoraria: 32
+    Latitud: 17.25
+    Longitud: -88.75
+  -
+    IDPais: 38
+    Codigo: "CA"
+    Pais: "Canada"
+    IdMoneda: 27
+    IdZonaHoraria: 251
+    Latitud: 60
+    Longitud: -95
+  -
+    IDPais: 39
+    Codigo: "CC"
+    Pais: "Cocos Islands"
+    IdMoneda: 8
+    IdZonaHoraria: 33
+    Latitud: -12.5
+    Longitud: 96.8333
+  -
+    IDPais: 40
+    Codigo: "CD"
+    Pais: "DR Congo"
+    IdMoneda: 28
+    IdZonaHoraria: 255
+    Latitud: 0
+    Longitud: 25
+  -
+    IDPais: 41
+    Codigo: "CF"
+    Pais: "Central African Republic"
+    IdMoneda: 161
+    IdZonaHoraria: 34
+    Latitud: 7
+    Longitud: 21
+  -
+    IDPais: 42
+    Codigo: "CG"
+    Pais: "Congo"
+    IdMoneda: 161
+    IdZonaHoraria: 35
+    Latitud: -1
+    Longitud: 15
+  -
+    IDPais: 43
+    Codigo: "CH"
+    Pais: "Switzerland"
+    IdMoneda: 29
+    IdZonaHoraria: 36
+    Latitud: 47
+    Longitud: 8
+  -
+    IDPais: 44
+    Codigo: "CI"
+    Pais: "Côte d'Ivoire"
+    IdMoneda: 171
+    IdZonaHoraria: 37
+    Latitud: 8
+    Longitud: -5
+  -
+    IDPais: 45
+    Codigo: "CK"
+    Pais: "Cook Islands"
+    IdMoneda: 111
+    IdZonaHoraria: 38
+    Latitud: -21.2333
+    Longitud: -159.767
+  -
+    IDPais: 46
+    Codigo: "CL"
+    Pais: "Chile"
+    IdMoneda: 32
+    IdZonaHoraria: 257
+    Latitud: -30
+    Longitud: -71
+  -
+    IDPais: 47
+    Codigo: "CM"
+    Pais: "Cameroon"
+    IdMoneda: 161
+    IdZonaHoraria: 39
+    Latitud: 6
+    Longitud: 12
+  -
+    IDPais: 48
+    Codigo: "CN"
+    Pais: "China"
+    IdMoneda: 34
+    IdZonaHoraria: 259
+    Latitud: 35
+    Longitud: 105
+  -
+    IDPais: 49
+    Codigo: "CO"
+    Pais: "Colombia"
+    IdMoneda: 35
+    IdZonaHoraria: 40
+    Latitud: 4
+    Longitud: -72
+  -
+    IDPais: 50
+    Codigo: "CR"
+    Pais: "Costa Rica"
+    IdMoneda: 37
+    IdZonaHoraria: 41
+    Latitud: 10
+    Longitud: -84
+  -
+    IDPais: 51
+    Codigo: "CU"
+    Pais: "Cuba"
+    IdMoneda: 38
+    IdZonaHoraria: 42
+    Latitud: 21.5
+    Longitud: -80
+  -
+    IDPais: 52
+    Codigo: "CV"
+    Pais: "Cape Verde"
+    IdMoneda: 40
+    IdZonaHoraria: 43
+    Latitud: 16
+    Longitud: -24
+  -
+    IDPais: 53
+    Codigo: "CW"
+    Pais: "Curaçao"
+    IdMoneda: 5
+    IdZonaHoraria: 44
+    Latitud: 12.1696
+    Longitud: -68.99
+  -
+    IDPais: 54
+    Codigo: "CX"
+    Pais: "Christmas Island"
+    IdMoneda: 8
+    IdZonaHoraria: 45
+    Latitud: -10.5
+    Longitud: 105.667
+  -
+    IDPais: 55
+    Codigo: "CY"
+    Pais: "Cyprus"
+    IdMoneda: 49
+    IdZonaHoraria: 46
+    Latitud: 35
+    Longitud: 33
+  -
+    IDPais: 56
+    Codigo: "CZ"
+    Pais: "Czech Republic"
+    IdMoneda: 41
+    IdZonaHoraria: 47
+    Latitud: 49.75
+    Longitud: 15.5
+  -
+    IDPais: 57
+    Codigo: "DE"
+    Pais: "Germany"
+    IdMoneda: 49
+    IdZonaHoraria: 48
+    Latitud: 51
+    Longitud: 9
+  -
+    IDPais: 58
+    Codigo: "DJ"
+    Pais: "Djibouti"
+    IdMoneda: 42
+    IdZonaHoraria: 49
+    Latitud: 11.5
+    Longitud: 43
+  -
+    IDPais: 59
+    Codigo: "DK"
+    Pais: "Denmark"
+    IdMoneda: 43
+    IdZonaHoraria: 50
+    Latitud: 56
+    Longitud: 10
+  -
+    IDPais: 60
+    Codigo: "DM"
+    Pais: "Dominica"
+    IdMoneda: 168
+    IdZonaHoraria: 51
+    Latitud: 15.4167
+    Longitud: -61.3333
+  -
+    IDPais: 61
+    Codigo: "DO"
+    Pais: "Dominican Republic"
+    IdMoneda: 44
+    IdZonaHoraria: 52
+    Latitud: 19
+    Longitud: -70.6667
+  -
+    IDPais: 62
+    Codigo: "DZ"
+    Pais: "Algeria"
+    IdMoneda: 45
+    IdZonaHoraria: 53
+    Latitud: 28
+    Longitud: 3
+  -
+    IDPais: 63
+    Codigo: "EC"
+    Pais: "Ecuador"
+    IdMoneda: 151
+    IdZonaHoraria: 262
+    Latitud: -2
+    Longitud: -77.5
+  -
+    IDPais: 64
+    Codigo: "EE"
+    Pais: "Estonia"
+    IdMoneda: 49
+    IdZonaHoraria: 54
+    Latitud: 59
+    Longitud: 26
+  -
+    IDPais: 65
+    Codigo: "EG"
+    Pais: "Egypt"
+    IdMoneda: 46
+    IdZonaHoraria: 55
+    Latitud: 27
+    Longitud: 30
+  -
+    IDPais: 66
+    Codigo: "EH"
+    Pais: "Western Sahara"
+    IdMoneda: 91
+    IdZonaHoraria: 56
+    Latitud: 24.5
+    Longitud: -13
+  -
+    IDPais: 67
+    Codigo: "ER"
+    Pais: "Eritrea"
+    IdMoneda: 47
+    IdZonaHoraria: 57
+    Latitud: 15
+    Longitud: 39
+  -
+    IDPais: 68
+    Codigo: "ES"
+    Pais: "España"
+    IdMoneda: 49
+    IdZonaHoraria: 263
+    Latitud: 40
+    Longitud: -4
+  -
+    IDPais: 69
+    Codigo: "ET"
+    Pais: "Ethiopia"
+    IdMoneda: 48
+    IdZonaHoraria: 58
+    Latitud: 8
+    Longitud: 38
+  -
+    IDPais: 70
+    Codigo: "EU"
+    Pais: "European Union"
+    IdMoneda: 49
+    IdZonaHoraria: 63
+    Latitud: 47
+    Longitud: 8
+  -
+    IDPais: 71
+    Codigo: "FI"
+    Pais: "Finland"
+    IdMoneda: 49
+    IdZonaHoraria: 59
+    Latitud: 64
+    Longitud: 26
+  -
+    IDPais: 72
+    Codigo: "FJ"
+    Pais: "Fiji"
+    IdMoneda: 50
+    IdZonaHoraria: 60
+    Latitud: -18
+    Longitud: 175
+  -
+    IDPais: 73
+    Codigo: "FK"
+    Pais: "Falkland Islands"
+    IdMoneda: 51
+    IdZonaHoraria: 61
+    Latitud: -51.75
+    Longitud: -59
+  -
+    IDPais: 74
+    Codigo: "FM"
+    Pais: "Micronesia"
+    IdMoneda: 151
+    IdZonaHoraria: 221
+    Latitud: 6.9167
+    Longitud: 158.25
+  -
+    IDPais: 75
+    Codigo: "FO"
+    Pais: "Faroe Islands"
+    IdMoneda: 43
+    IdZonaHoraria: 62
+    Latitud: 62
+    Longitud: -7
+  -
+    IDPais: 76
+    Codigo: "FR"
+    Pais: "France"
+    IdMoneda: 49
+    IdZonaHoraria: 63
+    Latitud: 46
+    Longitud: 2
+  -
+    IDPais: 77
+    Codigo: "GA"
+    Pais: "Gabon"
+    IdMoneda: 161
+    IdZonaHoraria: 64
+    Latitud: -1
+    Longitud: 11.75
+  -
+    IDPais: 78
+    Codigo: "GB"
+    Pais: "United Kingdom"
+    IdMoneda: 52
+    IdZonaHoraria: 65
+    Latitud: 54
+    Longitud: -2
+  -
+    IDPais: 79
+    Codigo: "GD"
+    Pais: "Grenada"
+    IdMoneda: 168
+    IdZonaHoraria: 66
+    Latitud: 12.1167
+    Longitud: -61.6667
+  -
+    IDPais: 80
+    Codigo: "GE"
+    Pais: "Georgia"
+    IdMoneda: 53
+    IdZonaHoraria: 67
+    Latitud: 42
+    Longitud: 43.5
+  -
+    IDPais: 81
+    Codigo: "GF"
+    Pais: "French Guiana"
+    IdMoneda: 49
+    IdZonaHoraria: 68
+    Latitud: 4
+    Longitud: -53
+  -
+    IDPais: 82
+    Codigo: "GG"
+    Pais: "Guernsey"
+    IdMoneda: 52
+    IdZonaHoraria: 69
+    Latitud: 49.4657
+    Longitud: -2.58528
+  -
+    IDPais: 83
+    Codigo: "GH"
+    Pais: "Ghana"
+    IdMoneda: 54
+    IdZonaHoraria: 70
+    Latitud: 8
+    Longitud: -2
+  -
+    IDPais: 84
+    Codigo: "GI"
+    Pais: "Gibraltar"
+    IdMoneda: 55
+    IdZonaHoraria: 71
+    Latitud: 36.1833
+    Longitud: -5.3667
+  -
+    IDPais: 85
+    Codigo: "GL"
+    Pais: "Greenland"
+    IdMoneda: 43
+    IdZonaHoraria: 265
+    Latitud: 72
+    Longitud: -40
+  -
+    IDPais: 86
+    Codigo: "GM"
+    Pais: "Gambia"
+    IdMoneda: 56
+    IdZonaHoraria: 72
+    Latitud: 13.4667
+    Longitud: -16.5667
+  -
+    IDPais: 87
+    Codigo: "GN"
+    Pais: "Guinea"
+    IdMoneda: 57
+    IdZonaHoraria: 73
+    Latitud: 11
+    Longitud: -10
+  -
+    IDPais: 88
+    Codigo: "GP"
+    Pais: "Guadeloupe"
+    IdMoneda: 49
+    IdZonaHoraria: 74
+    Latitud: 16.25
+    Longitud: -61.5833
+  -
+    IDPais: 89
+    Codigo: "GQ"
+    Pais: "Equatorial Guinea"
+    IdMoneda: 161
+    IdZonaHoraria: 75
+    Latitud: 2
+    Longitud: 10
+  -
+    IDPais: 90
+    Codigo: "GR"
+    Pais: "Greece"
+    IdMoneda: 49
+    IdZonaHoraria: 76
+    Latitud: 39
+    Longitud: 22
+  -
+    IDPais: 91
+    Codigo: "GS"
+    Pais: "South Georgia and the South Sandwich Islands"
+    IdZonaHoraria: 77
+    Latitud: -54.5
+    Longitud: -37
+  -
+    IDPais: 92
+    Codigo: "GT"
+    Pais: "Guatemala"
+    IdMoneda: 58
+    IdZonaHoraria: 78
+    Latitud: 15.5
+    Longitud: -90.25
+  -
+    IDPais: 93
+    Codigo: "GU"
+    Pais: "Guam"
+    IdMoneda: 151
+    IdZonaHoraria: 79
+    Latitud: 13.4667
+    Longitud: 144.783
+  -
+    IDPais: 94
+    Codigo: "GW"
+    Pais: "Guinea  -Bissau"
+    IdMoneda: 171
+    IdZonaHoraria: 80
+    Latitud: 12
+    Longitud: -15
+  -
+    IDPais: 95
+    Codigo: "GY"
+    Pais: "Guyana"
+    IdMoneda: 59
+    IdZonaHoraria: 81
+    Latitud: 5
+    Longitud: -59
+  -
+    IDPais: 96
+    Codigo: "HK"
+    Pais: "Hong Kong"
+    IdMoneda: 60
+    IdZonaHoraria: 82
+    Latitud: 22.25
+    Longitud: 114.167
+  -
+    IDPais: 97
+    Codigo: "HM"
+    Pais: "Heard Island and McDonald Islands"
+    IdMoneda: 8
+    IdZonaHoraria: 190
+    Latitud: -53.1
+    Longitud: 72.5167
+  -
+    IDPais: 98
+    Codigo: "HN"
+    Pais: "Honduras"
+    IdMoneda: 61
+    IdZonaHoraria: 83
+    Latitud: 15
+    Longitud: -86.5
+  -
+    IDPais: 99
+    Codigo: "HR"
+    Pais: "Croatia"
+    IdMoneda: 62
+    IdZonaHoraria: 84
+    Latitud: 45.1667
+    Longitud: 15.5
+  -
+    IDPais: 100
+    Codigo: "HT"
+    Pais: "Haiti"
+    IdMoneda: 63
+    IdZonaHoraria: 85
+    Latitud: 19
+    Longitud: -72.4167
+  -
+    IDPais: 101
+    Codigo: "HU"
+    Pais: "Hungary"
+    IdMoneda: 64
+    IdZonaHoraria: 86
+    Latitud: 47
+    Longitud: 20
+  -
+    IDPais: 102
+    Codigo: "ID"
+    Pais: "Indonesia"
+    IdMoneda: 65
+    IdZonaHoraria: 268
+    Latitud: -5
+    Longitud: 120
+  -
+    IDPais: 103
+    Codigo: "IE"
+    Pais: "Ireland"
+    IdMoneda: 49
+    IdZonaHoraria: 87
+    Latitud: 53
+    Longitud: -8
+  -
+    IDPais: 104
+    Codigo: "IL"
+    Pais: "Israel"
+    IdMoneda: 66
+    IdZonaHoraria: 88
+    Latitud: 31.5
+    Longitud: 34.75
+  -
+    IDPais: 105
+    Codigo: "IM"
+    Pais: "Isle of Man"
+    IdMoneda: 52
+    IdZonaHoraria: 89
+    Latitud: 54.2361
+    Longitud: -4.54806
+  -
+    IDPais: 106
+    Codigo: "IN"
+    Pais: "India"
+    IdMoneda: 67
+    IdZonaHoraria: 90
+    Latitud: 20
+    Longitud: 77
+  -
+    IDPais: 107
+    Codigo: "IO"
+    Pais: "British Indian Ocean Territory"
+    IdMoneda: 151
+    IdZonaHoraria: 91
+    Latitud: -6
+    Longitud: 71.5
+  -
+    IDPais: 108
+    Codigo: "IQ"
+    Pais: "Iraq"
+    IdMoneda: 68
+    IdZonaHoraria: 92
+    Latitud: 33
+    Longitud: 44
+  -
+    IDPais: 109
+    Codigo: "IR"
+    Pais: "Iran"
+    IdMoneda: 69
+    IdZonaHoraria: 93
+    Latitud: 32
+    Longitud: 53
+  -
+    IDPais: 110
+    Codigo: "IS"
+    Pais: "Iceland"
+    IdMoneda: 70
+    IdZonaHoraria: 94
+    Latitud: 65
+    Longitud: -18
+  -
+    IDPais: 111
+    Codigo: "IT"
+    Pais: "Italy"
+    IdMoneda: 49
+    IdZonaHoraria: 95
+    Latitud: 42.8333
+    Longitud: 12.8333
+  -
+    IDPais: 112
+    Codigo: "JE"
+    Pais: "Jersey"
+    IdMoneda: 52
+    IdZonaHoraria: 96
+    Latitud: 49.2138
+    Longitud: -2.13577
+  -
+    IDPais: 113
+    Codigo: "JM"
+    Pais: "Jamaica"
+    IdMoneda: 71
+    IdZonaHoraria: 97
+    Latitud: 18.25
+    Longitud: -77.5
+  -
+    IDPais: 114
+    Codigo: "JO"
+    Pais: "Jordan"
+    IdMoneda: 72
+    IdZonaHoraria: 98
+    Latitud: 31
+    Longitud: 36
+  -
+    IDPais: 115
+    Codigo: "JP"
+    Pais: "Japan"
+    IdMoneda: 73
+    IdZonaHoraria: 99
+    Latitud: 36
+    Longitud: 138
+  -
+    IDPais: 116
+    Codigo: "KE"
+    Pais: "Kenya"
+    IdMoneda: 74
+    IdZonaHoraria: 100
+    Latitud: 1
+    Longitud: 38
+  -
+    IDPais: 117
+    Codigo: "KG"
+    Pais: "Kyrgyzstan"
+    IdMoneda: 75
+    IdZonaHoraria: 101
+    Latitud: 41
+    Longitud: 75
+  -
+    IDPais: 118
+    Codigo: "KH"
+    Pais: "Cambodia"
+    IdMoneda: 76
+    IdZonaHoraria: 102
+    Latitud: 13
+    Longitud: 105
+  -
+    IDPais: 119
+    Codigo: "KI"
+    Pais: "Kiribati"
+    IdMoneda: 8
+    IdZonaHoraria: 270
+    Latitud: 1.4167
+    Longitud: 173
+  -
+    IDPais: 120
+    Codigo: "KM"
+    Pais: "Comoros"
+    IdMoneda: 77
+    IdZonaHoraria: 103
+    Latitud: -12.1667
+    Longitud: 44.25
+  -
+    IDPais: 121
+    Codigo: "KN"
+    Pais: "Saint Kitts and Nevis"
+    IdMoneda: 168
+    IdZonaHoraria: 104
+    Latitud: 17.3333
+    Longitud: -62.75
+  -
+    IDPais: 122
+    Codigo: "KP"
+    Pais: "North Korea"
+    IdMoneda: 78
+    IdZonaHoraria: 105
+    Latitud: 40
+    Longitud: 127
+  -
+    IDPais: 123
+    Codigo: "KR"
+    Pais: "South Korea"
+    IdMoneda: 79
+    IdZonaHoraria: 106
+    Latitud: 37
+    Longitud: 127.5
+  -
+    IDPais: 124
+    Codigo: "KW"
+    Pais: "Kuwait"
+    IdMoneda: 80
+    IdZonaHoraria: 107
+    Latitud: 29.3375
+    Longitud: 47.6581
+  -
+    IDPais: 125
+    Codigo: "KY"
+    Pais: "Cayman Islands"
+    IdMoneda: 81
+    IdZonaHoraria: 108
+    Latitud: 19.5
+    Longitud: -80.5
+  -
+    IDPais: 126
+    Codigo: "KZ"
+    Pais: "Kazakhstan"
+    IdMoneda: 82
+    IdZonaHoraria: 271
+    Latitud: 48
+    Longitud: 68
+  -
+    IDPais: 127
+    Codigo: "LA"
+    Pais: "Laos"
+    IdMoneda: 83
+    IdZonaHoraria: 109
+    Latitud: 18
+    Longitud: 105
+  -
+    IDPais: 128
+    Codigo: "LB"
+    Pais: "Lebanon"
+    IdMoneda: 84
+    IdZonaHoraria: 110
+    Latitud: 33.8333
+    Longitud: 35.8333
+  -
+    IDPais: 129
+    Codigo: "LC"
+    Pais: "Saint Lucia"
+    IdMoneda: 168
+    IdZonaHoraria: 111
+    Latitud: 13.8833
+    Longitud: -61.1333
+  -
+    IDPais: 130
+    Codigo: "LI"
+    Pais: "Liechtenstein"
+    IdMoneda: 30
+    IdZonaHoraria: 112
+    Latitud: 47.1667
+    Longitud: 9.5333
+  -
+    IDPais: 131
+    Codigo: "LK"
+    Pais: "Sri Lanka"
+    IdMoneda: 85
+    IdZonaHoraria: 113
+    Latitud: 7
+    Longitud: 81
+  -
+    IDPais: 132
+    Codigo: "LR"
+    Pais: "Liberia"
+    IdMoneda: 86
+    IdZonaHoraria: 114
+    Latitud: 6.5
+    Longitud: -9.5
+  -
+    IDPais: 133
+    Codigo: "LS"
+    Pais: "Lesotho"
+    IdMoneda: 87
+    IdZonaHoraria: 115
+    Latitud: -29.5
+    Longitud: 28.5
+  -
+    IDPais: 134
+    Codigo: "LT"
+    Pais: "Lithuania"
+    IdMoneda: 88
+    IdZonaHoraria: 116
+    Latitud: 56
+    Longitud: 24
+  -
+    IDPais: 135
+    Codigo: "LU"
+    Pais: "Luxembourg"
+    IdMoneda: 49
+    IdZonaHoraria: 117
+    Latitud: 49.75
+    Longitud: 6.1667
+  -
+    IDPais: 136
+    Codigo: "LV"
+    Pais: "Latvia"
+    IdMoneda: 89
+    IdZonaHoraria: 118
+    Latitud: 57
+    Longitud: 25
+  -
+    IDPais: 137
+    Codigo: "LY"
+    Pais: "Libya"
+    IdMoneda: 90
+    IdZonaHoraria: 119
+    Latitud: 25
+    Longitud: 17
+  -
+    IDPais: 138
+    Codigo: "MA"
+    Pais: "Morocco"
+    IdMoneda: 91
+    IdZonaHoraria: 120
+    Latitud: 32
+    Longitud: -5
+  -
+    IDPais: 139
+    Codigo: "MC"
+    Pais: "Monaco"
+    IdMoneda: 49
+    IdZonaHoraria: 121
+    Latitud: 43.7333
+    Longitud: 7.4
+  -
+    IDPais: 140
+    Codigo: "MD"
+    Pais: "Moldova"
+    IdMoneda: 92
+    IdZonaHoraria: 122
+    Latitud: 47
+    Longitud: 29
+  -
+    IDPais: 141
+    Codigo: "ME"
+    Pais: "Montenegro"
+    IdMoneda: 49
+    IdZonaHoraria: 123
+    Latitud: 42
+    Longitud: 19
+  -
+    IDPais: 142
+    Codigo: "MF"
+    Pais: "Saint Martin"
+    IdMoneda: 49
+    IdZonaHoraria: 124
+    Latitud: 18.0525
+    Longitud: -63.0737
+  -
+    IDPais: 143
+    Codigo: "MG"
+    Pais: "Madagascar"
+    IdMoneda: 93
+    IdZonaHoraria: 125
+    Latitud: -20
+    Longitud: 47
+  -
+    IDPais: 144
+    Codigo: "MH"
+    Pais: "Marshall Islands"
+    IdMoneda: 151
+    IdZonaHoraria: 276
+    Latitud: 9
+    Longitud: 168
+  -
+    IDPais: 145
+    Codigo: "MK"
+    Pais: "Macedonia"
+    IdMoneda: 94
+    IdZonaHoraria: 126
+    Latitud: 41.8333
+    Longitud: 22
+  -
+    IDPais: 146
+    Codigo: "ML"
+    Pais: "Mali"
+    IdMoneda: 171
+    IdZonaHoraria: 127
+    Latitud: 17
+    Longitud: -4
+  -
+    IDPais: 147
+    Codigo: "MM"
+    Pais: "Myanmar"
+    IdMoneda: 95
+    IdZonaHoraria: 128
+    Latitud: 22
+    Longitud: 98
+  -
+    IDPais: 148
+    Codigo: "MN"
+    Pais: "Mongolia"
+    IdMoneda: 96
+    IdZonaHoraria: 277
+    Latitud: 46
+    Longitud: 105
+  -
+    IDPais: 149
+    Codigo: "MO"
+    Pais: "Macao"
+    IdMoneda: 97
+    IdZonaHoraria: 129
+    Latitud: 22.1667
+    Longitud: 113.55
+  -
+    IDPais: 150
+    Codigo: "MP"
+    Pais: "Northern Mariana Islands"
+    IdMoneda: 151
+    IdZonaHoraria: 130
+    Latitud: 15.2
+    Longitud: 145.75
+  -
+    IDPais: 151
+    Codigo: "MQ"
+    Pais: "Martinique"
+    IdMoneda: 49
+    IdZonaHoraria: 131
+    Latitud: 14.6667
+    Longitud: -61
+  -
+    IDPais: 152
+    Codigo: "MR"
+    Pais: "Mauritania"
+    IdMoneda: 98
+    IdZonaHoraria: 132
+    Latitud: 20
+    Longitud: -12
+  -
+    IDPais: 153
+    Codigo: "MS"
+    Pais: "Montserrat"
+    IdMoneda: 168
+    IdZonaHoraria: 133
+    Latitud: 16.75
+    Longitud: -62.2
+  -
+    IDPais: 154
+    Codigo: "MT"
+    Pais: "Malta"
+    IdMoneda: 49
+    IdZonaHoraria: 134
+    Latitud: 35.8333
+    Longitud: 14.5833
+  -
+    IDPais: 155
+    Codigo: "MU"
+    Pais: "Mauritius"
+    IdMoneda: 99
+    IdZonaHoraria: 135
+    Latitud: -20.2833
+    Longitud: 57.55
+  -
+    IDPais: 156
+    Codigo: "MV"
+    Pais: "Maldives"
+    IdMoneda: 100
+    IdZonaHoraria: 136
+    Latitud: 3.25
+    Longitud: 73
+  -
+    IDPais: 157
+    Codigo: "MW"
+    Pais: "Malawi"
+    IdMoneda: 101
+    IdZonaHoraria: 137
+    Latitud: -13.5
+    Longitud: 34
+  -
+    IDPais: 158
+    Codigo: "MX"
+    Pais: "Mexico"
+    IdMoneda: 102
+    IdZonaHoraria: 278
+    Latitud: 23
+    Longitud: -102
+  -
+    IDPais: 159
+    Codigo: "MY"
+    Pais: "Malaysia"
+    IdMoneda: 104
+    IdZonaHoraria: 287
+    Latitud: 2.5
+    Longitud: 112.5
+  -
+    IDPais: 160
+    Codigo: "MZ"
+    Pais: "Mozambique"
+    IdMoneda: 105
+    IdZonaHoraria: 138
+    Latitud: -18.25
+    Longitud: 35
+  -
+    IDPais: 161
+    Codigo: "NA"
+    Pais: "Namibia"
+    IdMoneda: 106
+    IdZonaHoraria: 139
+    Latitud: -22
+    Longitud: 17
+  -
+    IDPais: 162
+    Codigo: "NC"
+    Pais: "New Caledonia"
+    IdMoneda: 173
+    IdZonaHoraria: 140
+    Latitud: -21.5
+    Longitud: 165.5
+  -
+    IDPais: 163
+    Codigo: "NE"
+    Pais: "Niger"
+    IdMoneda: 171
+    IdZonaHoraria: 141
+    Latitud: 16
+    Longitud: 8
+  -
+    IDPais: 164
+    Codigo: "NF"
+    Pais: "Norfolk Island"
+    IdMoneda: 8
+    IdZonaHoraria: 142
+    Latitud: -29.0333
+    Longitud: 167.95
+  -
+    IDPais: 165
+    Codigo: "NG"
+    Pais: "Nigeria"
+    IdMoneda: 107
+    IdZonaHoraria: 143
+    Latitud: 10
+    Longitud: 8
+  -
+    IDPais: 166
+    Codigo: "NI"
+    Pais: "Nicaragua"
+    IdMoneda: 108
+    IdZonaHoraria: 144
+    Latitud: 13
+    Longitud: -85
+  -
+    IDPais: 167
+    Codigo: "NL"
+    Pais: "Netherlands"
+    IdMoneda: 49
+    IdZonaHoraria: 145
+    Latitud: 52.5
+    Longitud: 5.75
+  -
+    IDPais: 168
+    Codigo: "NO"
+    Pais: "Norway"
+    IdMoneda: 109
+    IdZonaHoraria: 146
+    Latitud: 62
+    Longitud: 10
+  -
+    IDPais: 169
+    Codigo: "NP"
+    Pais: "Nepal"
+    IdMoneda: 110
+    IdZonaHoraria: 147
+    Latitud: 28
+    Longitud: 84
+  -
+    IDPais: 170
+    Codigo: "NR"
+    Pais: "Nauru"
+    IdMoneda: 8
+    IdZonaHoraria: 148
+    Latitud: -0.5333
+    Longitud: 166.917
+  -
+    IDPais: 171
+    Codigo: "NU"
+    Pais: "Niue"
+    IdMoneda: 111
+    IdZonaHoraria: 149
+    Latitud: -19.0333
+    Longitud: -169.867
+  -
+    IDPais: 172
+    Codigo: "NZ"
+    Pais: "New Zealand"
+    IdMoneda: 111
+    IdZonaHoraria: 289
+    Latitud: -41
+    Longitud: 174
+  -
+    IDPais: 173
+    Codigo: "OM"
+    Pais: "Oman"
+    IdMoneda: 112
+    IdZonaHoraria: 150
+    Latitud: 21
+    Longitud: 57
+  -
+    IDPais: 174
+    Codigo: "PA"
+    Pais: "Panama"
+    IdMoneda: 113
+    IdZonaHoraria: 151
+    Latitud: 9
+    Longitud: -80
+  -
+    IDPais: 175
+    Codigo: "PE"
+    Pais: "Peru"
+    IdMoneda: 114
+    IdZonaHoraria: 152
+    Latitud: -10
+    Longitud: -76
+  -
+    IDPais: 176
+    Codigo: "PF"
+    Pais: "French Polynesia"
+    IdMoneda: 173
+    IdZonaHoraria: 290
+    Latitud: -15
+    Longitud: -140
+  -
+    IDPais: 177
+    Codigo: "PG"
+    Pais: "Papua New Guinea"
+    IdMoneda: 115
+    IdZonaHoraria: 153
+    Latitud: -6
+    Longitud: 147
+  -
+    IDPais: 178
+    Codigo: "PH"
+    Pais: "Philippines"
+    IdMoneda: 116
+    IdZonaHoraria: 154
+    Latitud: 13
+    Longitud: 122
+  -
+    IDPais: 179
+    Codigo: "PK"
+    Pais: "Pakistan"
+    IdMoneda: 117
+    IdZonaHoraria: 155
+    Latitud: 30
+    Longitud: 70
+  -
+    IDPais: 180
+    Codigo: "PL"
+    Pais: "Poland"
+    IdMoneda: 118
+    IdZonaHoraria: 156
+    Latitud: 52
+    Longitud: 20
+  -
+    IDPais: 181
+    Codigo: "PM"
+    Pais: "Saint Pierre and Miquelon"
+    IdMoneda: 49
+    IdZonaHoraria: 157
+    Latitud: 46.8333
+    Longitud: -56.3333
+  -
+    IDPais: 182
+    Codigo: "PN"
+    Pais: "Pitcairn"
+    IdMoneda: 111
+    IdZonaHoraria: 158
+    Latitud: -24.7036
+    Longitud: -127.439
+  -
+    IDPais: 183
+    Codigo: "PR"
+    Pais: "Puerto Rico"
+    IdMoneda: 151
+    IdZonaHoraria: 159
+    Latitud: 18.25
+    Longitud: -66.5
+  -
+    IDPais: 184
+    Codigo: "PS"
+    Pais: "Palestine"
+    IdZonaHoraria: 291
+    Latitud: 32
+    Longitud: 35.25
+  -
+    IDPais: 185
+    Codigo: "PT"
+    Pais: "Portugal"
+    IdMoneda: 49
+    IdZonaHoraria: 292
+    Latitud: 39.5
+    Longitud: -8
+  -
+    IDPais: 186
+    Codigo: "PW"
+    Pais: "Palau"
+    IdMoneda: 151
+    IdZonaHoraria: 160
+    Latitud: 7.5
+    Longitud: 134.5
+  -
+    IDPais: 187
+    Codigo: "PY"
+    Pais: "Paraguay"
+    IdMoneda: 119
+    IdZonaHoraria: 161
+    Latitud: -23
+    Longitud: -58
+  -
+    IDPais: 188
+    Codigo: "QA"
+    Pais: "Qatar"
+    IdMoneda: 120
+    IdZonaHoraria: 162
+    Latitud: 25.5
+    Longitud: 51.25
+  -
+    IDPais: 189
+    Codigo: "RE"
+    Pais: "Réunion"
+    IdMoneda: 49
+    IdZonaHoraria: 163
+    Latitud: -21.1
+    Longitud: 55.6
+  -
+    IDPais: 190
+    Codigo: "RO"
+    Pais: "Romania"
+    IdMoneda: 121
+    IdZonaHoraria: 164
+    Latitud: 46
+    Longitud: 25
+  -
+    IDPais: 191
+    Codigo: "RS"
+    Pais: "Serbia"
+    IdMoneda: 122
+    IdZonaHoraria: 165
+    Latitud: 44
+    Longitud: 21
+  -
+    IDPais: 192
+    Codigo: "RU"
+    Pais: "Russia"
+    IdMoneda: 123
+    IdZonaHoraria: 298
+    Latitud: 60
+    Longitud: 100
+  -
+    IDPais: 193
+    Codigo: "RW"
+    Pais: "Rwanda"
+    IdMoneda: 124
+    IdZonaHoraria: 166
+    Latitud: -2
+    Longitud: 30
+  -
+    IDPais: 194
+    Codigo: "SA"
+    Pais: "Saudi Arabia"
+    IdMoneda: 125
+    IdZonaHoraria: 167
+    Latitud: 25
+    Longitud: 45
+  -
+    IDPais: 195
+    Codigo: "SB"
+    Pais: "Solomon Islands"
+    IdMoneda: 126
+    IdZonaHoraria: 168
+    Latitud: -8
+    Longitud: 159
+  -
+    IDPais: 196
+    Codigo: "SC"
+    Pais: "Seychelles"
+    IdMoneda: 127
+    IdZonaHoraria: 169
+    Latitud: -4.5833
+    Longitud: 55.6667
+  -
+    IDPais: 197
+    Codigo: "SD"
+    Pais: "Sudan"
+    IdMoneda: 128
+    IdZonaHoraria: 170
+    Latitud: 15
+    Longitud: 30
+  -
+    IDPais: 198
+    Codigo: "SE"
+    Pais: "Sweden"
+    IdMoneda: 129
+    IdZonaHoraria: 171
+    Latitud: 62
+    Longitud: 15
+  -
+    IDPais: 199
+    Codigo: "SG"
+    Pais: "Singapore"
+    IdMoneda: 130
+    IdZonaHoraria: 172
+    Latitud: 1.3667
+    Longitud: 103.8
+  -
+    IDPais: 200
+    Codigo: "SH"
+    Pais: "Saint Helena, Ascension and Tristan da Cunha"
+    IdMoneda: 131
+    IdZonaHoraria: 173
+    Latitud: -15.9333
+    Longitud: -5.7
+  -
+    IDPais: 201
+    Codigo: "SI"
+    Pais: "Slovenia"
+    IdMoneda: 49
+    IdZonaHoraria: 174
+    Latitud: 46
+    Longitud: 15
+  -
+    IDPais: 202
+    Codigo: "SJ"
+    Pais: "Svalbard and Jan Mayen"
+    IdMoneda: 109
+    IdZonaHoraria: 175
+    Latitud: 78
+    Longitud: 20
+  -
+    IDPais: 203
+    Codigo: "SK"
+    Pais: "Slovakia"
+    IdMoneda: 49
+    IdZonaHoraria: 176
+    Latitud: 48.6667
+    Longitud: 19.5
+  -
+    IDPais: 204
+    Codigo: "SL"
+    Pais: "Sierra Leone"
+    IdMoneda: 132
+    IdZonaHoraria: 177
+    Latitud: 8.5
+    Longitud: -11.5
+  -
+    IDPais: 205
+    Codigo: "SM"
+    Pais: "San Marino"
+    IdMoneda: 49
+    IdZonaHoraria: 178
+    Latitud: 43.9333
+    Longitud: 12.4667
+  -
+    IDPais: 206
+    Codigo: "SN"
+    Pais: "Senegal"
+    IdMoneda: 171
+    IdZonaHoraria: 179
+    Latitud: 14
+    Longitud: -14
+  -
+    IDPais: 207
+    Codigo: "SO"
+    Pais: "Somalia"
+    IdMoneda: 133
+    IdZonaHoraria: 180
+    Latitud: 10
+    Longitud: 49
+  -
+    IDPais: 208
+    Codigo: "SR"
+    Pais: "SuriPais"
+    IdMoneda: 134
+    IdZonaHoraria: 181
+    Latitud: 4
+    Longitud: -56
+  -
+    IDPais: 209
+    Codigo: "SS"
+    Pais: "South Sudan"
+    IdMoneda: 135
+    IdZonaHoraria: 182
+    Latitud: 7.96309
+    Longitud: 30.1589
+  -
+    IDPais: 210
+    Codigo: "ST"
+    Pais: "Sao Tome and Principe"
+    IdMoneda: 136
+    IdZonaHoraria: 183
+    Latitud: 1
+    Longitud: 7
+  -
+    IDPais: 211
+    Codigo: "SV"
+    Pais: "El Salvador"
+    IdMoneda: 151
+    IdZonaHoraria: 184
+    Latitud: 13.8333
+    Longitud: -88.9167
+  -
+    IDPais: 212
+    Codigo: "SX"
+    Pais: "Sint Maarten"
+    IdMoneda: 5
+    IdZonaHoraria: 185
+    Latitud: 18.0273
+    Longitud: -63.0501
+  -
+    IDPais: 213
+    Codigo: "SY"
+    Pais: "Syrian Arab Republic"
+    IdMoneda: 138
+    IdZonaHoraria: 186
+    Latitud: 35
+    Longitud: 38
+  -
+    IDPais: 214
+    Codigo: "SZ"
+    Pais: "Swaziland"
+    IdMoneda: 139
+    IdZonaHoraria: 187
+    Latitud: -26.5
+    Longitud: 31.5
+  -
+    IDPais: 215
+    Codigo: "TC"
+    Pais: "Turks and Caicos Islands"
+    IdMoneda: 151
+    IdZonaHoraria: 188
+    Latitud: 21.75
+    Longitud: -71.5833
+  -
+    IDPais: 216
+    Codigo: "TD"
+    Pais: "Chad"
+    IdMoneda: 161
+    IdZonaHoraria: 189
+    Latitud: 15
+    Longitud: 19
+  -
+    IDPais: 217
+    Codigo: "TF"
+    Pais: "French Southern Territories"
+    IdMoneda: 49
+    IdZonaHoraria: 190
+    Latitud: -43
+    Longitud: 67
+  -
+    IDPais: 218
+    Codigo: "TG"
+    Pais: "Togo"
+    IdMoneda: 171
+    IdZonaHoraria: 191
+    Latitud: 8
+    Longitud: 1.1667
+  -
+    IDPais: 219
+    Codigo: "TH"
+    Pais: "Thailand"
+    IdMoneda: 140
+    IdZonaHoraria: 192
+    Latitud: 15
+    Longitud: 100
+  -
+    IDPais: 220
+    Codigo: "TJ"
+    Pais: "Tajikistan"
+    IdMoneda: 141
+    IdZonaHoraria: 193
+    Latitud: 39
+    Longitud: 71
+  -
+    IDPais: 221
+    Codigo: "TK"
+    Pais: "Tokelau"
+    IdMoneda: 111
+    IdZonaHoraria: 194
+    Latitud: -9
+    Longitud: -172
+  -
+    IDPais: 222
+    Codigo: "TL"
+    Pais: "Timor  -Leste"
+    IdMoneda: 151
+    IdZonaHoraria: 195
+    Latitud: -8.87422
+    Longitud: 125.728
+  -
+    IDPais: 223
+    Codigo: "TM"
+    Pais: "Turkmenistan"
+    IdMoneda: 142
+    IdZonaHoraria: 196
+    Latitud: 40
+    Longitud: 60
+  -
+    IDPais: 224
+    Codigo: "TN"
+    Pais: "Tunisia"
+    IdMoneda: 143
+    IdZonaHoraria: 197
+    Latitud: 34
+    Longitud: 9
+  -
+    IDPais: 225
+    Codigo: "TO"
+    Pais: "Tonga"
+    IdMoneda: 144
+    IdZonaHoraria: 198
+    Latitud: -20
+    Longitud: -175
+  -
+    IDPais: 226
+    Codigo: "TR"
+    Pais: "Turkey"
+    IdMoneda: 145
+    IdZonaHoraria: 199
+    Latitud: 39
+    Longitud: 35
+  -
+    IDPais: 227
+    Codigo: "TT"
+    Pais: "Trinidad and Tobago"
+    IdMoneda: 146
+    IdZonaHoraria: 200
+    Latitud: 11
+    Longitud: -61
+  -
+    IDPais: 228
+    Codigo: "TV"
+    Pais: "Tuvalu"
+    IdMoneda: 8
+    IdZonaHoraria: 201
+    Latitud: -8
+    Longitud: 178
+  -
+    IDPais: 229
+    Codigo: "TW"
+    Pais: "Taiwan"
+    IdMoneda: 147
+    IdZonaHoraria: 202
+    Latitud: 23.5
+    Longitud: 121
+  -
+    IDPais: 230
+    Codigo: "TZ"
+    Pais: "Tanzania"
+    IdMoneda: 148
+    IdZonaHoraria: 203
+    Latitud: -6
+    Longitud: 35
+  -
+    IDPais: 231
+    Codigo: "UA"
+    Pais: "Ukraine"
+    IdMoneda: 149
+    IdZonaHoraria: 309
+    Latitud: 49
+    Longitud: 32
+  -
+    IDPais: 232
+    Codigo: "UG"
+    Pais: "Uganda"
+    IdMoneda: 150
+    IdZonaHoraria: 204
+    Latitud: 1
+    Longitud: 32
+  -
+    IDPais: 233
+    Codigo: "UM"
+    Pais: "U.S. Minor Outlying Islands"
+    IdMoneda: 151
+    IdZonaHoraria: 222
+    Latitud: 19.2833
+    Longitud: 166.6
+  -
+    IDPais: 234
+    Codigo: "US"
+    Pais: "United States"
+    IdMoneda: 151
+    IdZonaHoraria: 318
+    Latitud: 38
+    Longitud: -97
+  -
+    IDPais: 235
+    Codigo: "UY"
+    Pais: "Uruguay"
+    IdMoneda: 154
+    IdZonaHoraria: 205
+    Latitud: -33
+    Longitud: -56
+  -
+    IDPais: 236
+    Codigo: "UZ"
+    Pais: "Uzbekistan"
+    IdMoneda: 156
+    IdZonaHoraria: 321
+    Latitud: 41
+    Longitud: 64
+  -
+    IDPais: 237
+    Codigo: "VA"
+    Pais: "Vatican City"
+    IdMoneda: 49
+    IdZonaHoraria: 206
+    Latitud: 41.9
+    Longitud: 12.45
+  -
+    IDPais: 238
+    Codigo: "VC"
+    Pais: "Saint Vincent and the Grenadines"
+    IdMoneda: 168
+    IdZonaHoraria: 207
+    Latitud: 13.25
+    Longitud: -61.2
+  -
+    IDPais: 239
+    Codigo: "VE"
+    Pais: "Venezuela"
+    IdMoneda: 157
+    IdZonaHoraria: 208
+    Latitud: 8
+    Longitud: -66
+  -
+    IDPais: 240
+    Codigo: "VG"
+    Pais: "British Virgin Islands"
+    IdMoneda: 151
+    IdZonaHoraria: 209
+    Latitud: 18.5
+    Longitud: -64.5
+  -
+    IDPais: 241
+    Codigo: "VI"
+    Pais: "U.S. Virgin Islands"
+    IdMoneda: 151
+    IdZonaHoraria: 210
+    Latitud: 18.3333
+    Longitud: -64.8333
+  -
+    IDPais: 242
+    Codigo: "VN"
+    Pais: "Vietnam"
+    IdMoneda: 158
+    IdZonaHoraria: 211
+    Latitud: 16
+    Longitud: 106
+  -
+    IDPais: 243
+    Codigo: "VU"
+    Pais: "Vanuatu"
+    IdMoneda: 159
+    IdZonaHoraria: 212
+    Latitud: -16
+    Longitud: 167
+  -
+    IDPais: 244
+    Codigo: "WF"
+    Pais: "Wallis and Futuna"
+    IdMoneda: 173
+    IdZonaHoraria: 213
+    Latitud: -13.3
+    Longitud: -176.2
+  -
+    IDPais: 245
+    Codigo: "WS"
+    Pais: "Samoa"
+    IdMoneda: 160
+    IdZonaHoraria: 214
+    Latitud: -13.5833
+    Longitud: -172.333
+  -
+    IDPais: 246
+    Codigo: "YE"
+    Pais: "Yemen"
+    IdMoneda: 179
+    IdZonaHoraria: 215
+    Latitud: 15
+    Longitud: 48
+  -
+    IDPais: 247
+    Codigo: "YT"
+    Pais: "Mayotte"
+    IdMoneda: 49
+    IdZonaHoraria: 216
+    Latitud: -12.8333
+    Longitud: 45.1667
+  -
+    IDPais: 248
+    Codigo: "ZA"
+    Pais: "South Africa"
+    IdMoneda: 180
+    IdZonaHoraria: 217
+    Latitud: -29
+    Longitud: 24
+  -
+    IDPais: 249
+    Codigo: "ZM"
+    Pais: "Zambia"
+    IdMoneda: 181
+    IdZonaHoraria: 218
+    Latitud: -15
+    Longitud: 30
+  -
+    IDPais: 250
+    Codigo: "ZW"
+    Pais: "Zimbabwe"
+    IdMoneda: 182
+    IdZonaHoraria: 219
+    Latitud: -20
+    Longitud: 30

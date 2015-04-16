@@ -1,0 +1,238 @@
+{# Template list.html.twig for RecibosClientes #}
+{# -------------------------------------------------------#}
+{% extends 'RecibosClientes/index.html.twig' %}
+
+{% set puedeRemesar = (user.IDRol.IDTipo == 0 or user.IDRol.IDTipo == 9) %}
+
+{% block listado %}
+<div class='Listado'>
+
+	{% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'RecibosClientes','position':'izq'}%}
+    
+       <table width='100%'>
+            <tr class='Titulos'>
+                <td></td>
+                <td class='Item'>Factura</td>
+                <td class='Item'>Fecha</td>
+                <td class='Item'>Vencimiento</td>
+                <td class='Item'>Cliente</td>
+                <td class='Item'>Importe</td>
+                <td class='Item'>IBAN</td>
+                <td class='Item'>Concepto</td>
+                <td class='Item'>Remesa</td>
+                <td class='Item'>Estado</td>
+                <td></td>
+            </tr>
+
+            <tbody class="Cuerpo">
+            <form name="recibos" id="recibos" action="" method="POST" enctype="multipart/form-data">
+                <input name="controller" value="RecibosClientes" type="hidden" />
+                <input name="action" id="action" value="Guardar" type="hidden" />
+                <input name="idReciboDesdoblar" id="idReciboDesdoblar" value="" type="hidden" />
+                <input name="idRemesaCobrar" id="idRemesaCobrar" value="{{values.filtroRemesa}}" type="hidden" />
+                <input name="idFP" id="idFP" type="hidden" />
+                <input name="fechaCobro" id="fechaCobro" type="hidden" />
+                {% include "_global/FiltroOculto.html.twig" with {'filter': values.listado.filter} %}
+
+            {% for key,objeto in values.listado.data %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+            <tr class="{{classFila}}">
+                <td>
+                    <input name="RecibosClientes[{{key}}][IDRecibo]" value="{{objeto.IDRecibo}}" type="hidden" />
+                    <a href='{{app.path}}/RecibosClientes/Edit/{{objeto.PrimaryKeyMD5}}' title='Editar Recibo ...'>
+                        <img src="{{app.path}}/images/botoneditar.png" width="16px" height="16px" />
+                    <a>
+                </td>
+                <td><a href="{{app.path}}/FemitidasCab/edit/{{objeto.IDFactura.PrimaryKeyMD5}}" target="_blank" title="Editar Factura ...">{{objeto.IDFactura.NumeroFactura}}</a></td>
+                <td>{{objeto.Fecha}}</td>
+                <td>{{ macro.fecha(none,none,'RecibosClientes['~key~'][Vencimiento]','RecibosClientes_Vencimiento'~key,objeto.Vencimiento) }}</td>
+                <td>{{objeto.IDCliente.RazonSocial|slice(0,18)}}</td>
+                <td align="right"><input name="RecibosClientes[{{key}}][Importe]" id="RecibosClientes_Importe{{key}}" value="{{objeto.Importe}}" class="CampoImporte"/></td>
+                <td><input name="RecibosClientes[{{key}}][Iban]" id="RecibosClientes_Iban{{key}}" value="{{objeto.Iban}}" maxlength="34" class="CampoTextoMedio" style="width: 180px;"/></td>
+                <td><input name="RecibosClientes[{{key}}][Concepto]" id="RecibosClientes_Concepto{{key}}" value="{{objeto.Concepto}}" maxlength="255" class="CampoTextoMedio" style="width: 100px;" /></td>
+                <td>
+                    <div style="float: left;">
+                    <input name="RecibosClientes[{{key}}][IDRemesa]" id="RecibosClientes_IDRemesa{{key}}" value="{{objeto.IDRemesa}}" maxlength="14" class="CampoImporte" style="width: 50px;"/>
+                    </div>                    
+                    <div style="width: 16px; float: left;">
+                    {% if objeto.IDRemesa %}
+                    <img src="{{app.path}}/images/clip.png" style="cursor: pointer;"
+                         onclick="
+                             $('#filter_valuesSelected_11').val('{{objeto.IDRemesa}}');
+                             $('#filtro').submit();
+                         "/>
+                    {% else %}
+                        &nbsp;
+                    {% endif %}
+                    </div>
+                    <div style="width: 16px; float: left;">
+                    {% if puedeRemesar %}
+                    {{ macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'Remesar',objeto.Remesar.IDTipo,'Marcar para remesar',"actualizaTotalRemesa('"~objeto.PrimaryKeyValue~"','"~key~"');")}}
+                    {% endif %}               
+                    </div>
+                </td>
+                <td>{{ macro.select(none,none,'RecibosClientes['~key~'][IDEstado]','RecibosClientes_IDEstado'~key,80,objeto.IDEstado.IDTipo,objeto.IDEstado.fetchAll,'Select60') }}</td>
+                <td>
+                    <input type="image" src="{{app.path}}/images/detalle.png" alt="Desdoblar" title="Desdoblar Recibo ..."
+                           onclick="
+                               $('#action').val('Desdoblar');
+                                $('#idReciboDesdoblar').val('{{objeto.IDRecibo}}');
+                                $('#recibos').submit(); "/>
+                </td>
+            </tr>
+            {% endfor %}
+
+            {% if values.listado.data is not empty %}
+            <tr>
+                <td colspan="6" align="right">Total recibos <span style="font-weight: bold;">{{values.listado.importeRecibos|number_format}}</span></td>
+                <td colspan="3" align="right">Total remesa  <span style="font-weight: bold;" id="totalRemesa">{{values.listado.importeRemesa}}</span></td>
+            </tr>
+            <tr><td colspan="11" align="center">
+                    <input value="Guardar" class="Comando" type="submit" style="cursor: pointer;" title="Guardar Cambios" />
+                    {% if values.filtroRemesa %}
+                    <input id="botonCobrar" value="Cobrar" class="Comando" type="buttom" title="Cobrar Remesa"/>
+                    {% endif %}
+                    <input id="botonRemesar" value="Generar Remesa" class="Comando" type="buttom" style="{%if values.listado.importeRemesa<=0%}display: none;{%endif%}" title="Generar Remesa"/>                    
+            </td></tr>
+            {% endif %}
+
+            </form>
+            </tbody>
+        </table>
+
+</div>
+
+<div id="dialogCobrar" class="FormManto" title="Cobrar Remesa">
+    <div class="Cuerpo">
+        <div id="mensajeCobro"></div>
+        {{ macro.select('Forma de Cobro','Etiqueta','idFormaPago','idFormaPago',200,none,values.formasPago.fetchAll('Descripcion'),'Select') }}
+        <div style="margin-top: 10px;"></div>
+        {{ macro.fecha('Fecha de Cobro','Etiqueta','FechaCobro','FechaCobro',none,'10','CampoFecha') }}
+        <div style="clear:both;text-align: center;">    
+        <input type="submit" value="Cobrar" class="Comando" style="margin-top: 20px;" alt="Cobrar" title="Cobrar Remesa"
+            onclick=" if ( $('#idFormaPago').val() !== '' ) {
+                $('#action').val('Cobrar');
+                $('#idFP').val( $('#idFormaPago').val() );
+                $('#fechaCobro').val( $('#FechaCobro').val() );
+                $('#recibos').submit();
+                } else {
+                    $('#mensajeCobro').html('<p class=\'alerta\'>Debe indicar la forma de cobro</p>');
+                    return false;
+                }
+            "
+        />
+        </div>
+    </div>    
+</div>
+<div id="dialogRemesar" class="FormManto" title="Generar Remesa">
+    <div class="Cuerpo">
+    <div id="mensajeRemesar"></div>        
+    <form name="formRemesar" id="formRemesar" action="" method="POST" enctype="multipart/form-data">
+        <input name="controller" value="RecibosClientes" type="hidden" />
+        <input name="action" id="action" value="Remesar" type="hidden" />
+        {% include "_global/FiltroOculto.html.twig" with {'filter': values.listado.filter} %}        
+        {{ macro.input({'caption':'Cif','visible':'1','varEnv':'0'},'Etiqueta','text','remesa[cif]','remesa_cif',emp.Cif,'15','CampoTextoCorto') }}
+        {{ macro.input({'caption':'Razón Social','visible':'1','varEnv':'0'},'Etiqueta','text','remesa[razonSocial]','remesa_razonSocial',emp.RazonSocial,'50','CampoTextoLargo') }}
+        {{ macro.input({'caption':'Entidad Receptora','visible':'1','varEnv':'0'},'Etiqueta','text','remesa[entidad]','remesa_entidad',emp.Banco,'4','CampoImporte') }}
+        {{ macro.input({'caption':'Oficina Receptora','visible':'1','varEnv':'0'},'Etiqueta','text','remesa[oficina]','remesa_oficina',emp.Oficina,'4','CampoImporte') }}
+        {{ macro.input({'caption':'Sufijo','visible':'1','varEnv':'0'},'Etiqueta','text','remesa[sufijo]','remesa_sufijo',emp.SufijoRemesas,'3','CampoImporte') }}
+        <div style="margin-top: 10px;"></div>
+        {{ macro.fecha('Fecha de Remesa','Etiqueta','remesa[fechaRemesa]','remesa_fechaRemesa',none,'10','CampoFecha') }}
+        {{ macro.fecha('Fecha de Cobro','Etiqueta','remesa[fechaCobro]','remesa_fechaCobro',none,'10','CampoFecha') }}
+        <div style="margin-top: 10px;"></div>
+        {{ macro.fecha('Desde fecha Vcto','Etiqueta','remesa[desdeFecha]','remesa_desdeFecha',values.listado.filter.valuesSelected[8],'10','CampoFecha','readonly') }}
+        {{ macro.fecha('Hasta fecha Vcto','Etiqueta','remesa[hastaFecha]','remesa_hastaFecha',values.listado.filter.valuesSelected[9],'10','CampoFecha','readonly') }}
+        {{ macro.select('Cliente','Etiqueta','remesa[idCliente]','remesa_idCliente',200,none,values.clientes.fetchAll(true),'Select') }}   
+        {{ macro.select('Estado Recibo','Etiqueta','remesa[idEstado]','remesa_idEstado',200,none,values.estadosRecibos.fetchAll(true),'Select') }}   
+        <div style="margin-top: 10px;"></div>        
+        {{ macro.input('Agrupar recibos por cliente','EtiquetaMedia','checkbox','remesa[agrupar]','remesa_agrupar',1,'1','CampoTextoMedio','20')}}              
+        {{ macro.select('Pasar los recibos al estado de','EtiquetaMedia','remesa[idEstadoFin]','remesa_idEstadoFin',200,none,values.estadosRecibos.fetchAll(false),'Select') }}        
+        <div id="divBotonRemesar" style="clear:both;text-align: center;">
+        <input type="submit" id="botonSubmitRemesar" value="Remesar" class="Comando" style="margin-top: 20px;" alt="Remesar" title="Generar Remesa"/>
+        </div>
+    </form>
+    </div>
+</div>
+
+<script language='JavaScript' type='text/javascript'>
+    $(function() {
+        
+        $('#botonCobrar').click(function(){
+            $('#dialogCobrar').dialog('open');            
+        });
+        
+        $('#botonRemesar').click(function(){
+            $('#dialogRemesar').dialog('open');            
+        });
+        
+        // Validar el formulario de remesar
+        $('#botonSubmitRemesar').click(function(){
+            var valida = true;
+            
+            if ($('#remesa_cif').val() === '') {$('#spanVisibilidadremesa_cif').addClass('errorValida'); valida = false;}
+            if ($('#remesa_razonSocial').val() === '') {$('#spanVisibilidadremesa_razonSocial').addClass('errorValida'); valida = false;}
+            if ($('#remesa_entidad').val() === '') {$('#spanVisibilidadremesa_entidad').addClass('errorValida'); valida = false;}
+            if ($('#remesa_oficina').val() === '') {$('#spanVisibilidadremesa_oficina').addClass('errorValida'); valida = false;}
+            if ($('#remesa_sufijo').val() === '') {$('#spanVisibilidadremesa_sufijo').addClass('errorValida'); valida = false;}
+            if ($('#remesa_fechaRemesa').val() === '') {$('#spanVisibilidadremesa_fechaRemesa').addClass('errorValida'); valida = false;}
+            if ($('#remesa_fechaCobro').val() === '') {$('#spanVisibilidadremesa_fechaCobro').addClass('errorValida'); valida = false;}
+            
+            if (valida) {
+                $('#formRemesar').submit();                
+            } else {              
+                return false;
+            }
+        });
+               
+        $( "#dialogCobrar" ).dialog({
+            autoOpen: false,
+            width: 400,
+            height: 180,
+            position: ['center'],
+            closeOnEscape: true,
+            resizable: false,
+            draggable:true,
+            show: "slide",
+            modal: true,
+        });
+        
+        $( "#dialogRemesar" ).dialog({
+            autoOpen: false,
+            width: 500,
+            height: 390,
+            position: ['center'],
+            closeOnEscape: true,
+            resizable: false,
+            draggable:true,
+            show: "slide",
+            modal: true,
+        });
+    });
+    
+        
+    function actualizaTotalRemesa(id,key) {
+        
+        var importe = eval($('#RecibosClientes_Importe'+key).val());
+        var estado = eval($('#checkRecibosClientes'+id+'Remesar').val());
+        var totalRemesa = eval($('#totalRemesa').html());
+
+        if (estado === 1) {
+            totalRemesa = eval(totalRemesa + importe);
+        } else {
+            totalRemesa = eval(totalRemesa - importe);
+        }
+
+        $('#totalRemesa').html(totalRemesa.toFixed(2));
+        
+        // Mostrar/ocultar el botón para generar la remesa
+        if (totalRemesa>0)
+            $('#botonRemesar').css('display','');
+        else
+            $('#botonRemesar').css('display','none');            
+    }    
+</script>
+{% endblock %}

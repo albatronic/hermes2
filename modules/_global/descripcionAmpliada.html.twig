@@ -1,0 +1,58 @@
+{# _global/descripcionAmpliada.html.twig 
+
+    SE UTILIZA PARA LA DESCRIPCIÓN AMPLIADA DE LAS LÍNEAS
+    DE PRESUPUESTOS Y ALBARANES
+
+#}
+
+<div id="dialogDescripAmpliada" title="Descripción ampliada (Esc para cerrar)">
+    <input id="idDestino" value="" type="hidden"/>
+    <input id="idArticulo" value="" type="hidden"/>
+    <input id="entidadAmpliada" value="" type="hidden"/>
+    <input id="idEntidadAmpliada" value="" type="hidden"/>
+    <p>Puede pegar de la ficha del producto el <a href="#" id="cogerResumen"><span class="subrrayado">resumen</span></a>, <a href="#" id="cogerCaracteristicas"><span class="subrrayado" onclick="">características</span></a></p>
+    <textarea id="descripcionAmpliada" style="width:760px;height: 210px;"></textarea>
+</div>
+
+<script language='JavaScript' type='text/javascript'>
+    $(function() {
+	$( "#dialogDescripAmpliada" ).dialog({
+            autoOpen: false,
+            width: 790,
+            height: 290,
+            position: ['center','center'],
+            closeOnEscape: true,
+            show: 'slide',
+            close: function() {
+                var id = $('#idDestino').val();
+                $("#"+id).val($('#descripcionAmpliada').val());
+
+                // Guardar cambios en BD
+                actualizaColumna(
+                    $('#entidadAmpliada').val(),
+                    $('#idEntidadAmpliada').val(),
+                    'Observations',
+                    $('#descripcionAmpliada').val()
+                );
+            },
+        });
+
+        $('#cogerResumen').click(function(){
+            var url = appPath +"/lib/getObjeto.php?formato=JSON&entidad=Articulos&idEntidad="+$('#idArticulo').val();
+            
+            $.getJSON( url, function( data ) {
+                var valorActual = $('#descripcionAmpliada').val();
+                $('#descripcionAmpliada').val(valorActual + data['Resumen']);                 
+            });
+        });
+        
+        $('#cogerCaracteristicas').click(function(){
+            var url = appPath +"/lib/getObjeto.php?formato=JSON&entidad=Articulos&idEntidad="+$('#idArticulo').val();
+
+            $.getJSON( url, function( data ) {
+                var valorActual = $('#descripcionAmpliada').val();                
+                $('#descripcionAmpliada').val(valorActual + data['Caracteristicas']);                 
+            });         
+        });
+    });
+</script>

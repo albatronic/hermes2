@@ -1,0 +1,16 @@
+{#
+  Module: ErpAvisadorStock
+  Document : modules\ErpAvisadorStock\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 19.07.2014 02:26:08
+#}
+
+{{ macro.input(values.atributos.IDCliente,'Etiqueta','text',values.controller ~ '[IDCliente]',values.controller ~ '_IDCliente',datos.IDCliente.RazonSocial,'50','CampoTextoLargo','2') }}
+{{ macro.input(values.atributos.Email,'Etiqueta','text',values.controller ~ '[Email]',values.controller ~ '_Email',datos.Email,'50','CampoTextoLargo','2') }}
+{{ macro.input(values.atributos.IDArticulo,'Etiqueta','text',values.controller ~ '[IDArticulo]',values.controller ~ '_IDArticulo',datos.IDArticulo.Descripcion,'50','CampoTextoLargo','2') }}
+
+{# include '_global/fieldsComunes.html.twig' #}
+
+{{ macro.foco(values.controller ~ '_IDCliente') }}

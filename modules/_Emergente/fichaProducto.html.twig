@@ -1,0 +1,22 @@
+{# empty Twig template #}
+{% extends '_Emergente/index.html.twig' %}
+
+{% block listado %}
+
+{% set imagen = values.producto.PathNameImagenN(2) %}
+
+<div style="margin: 15px;">
+    
+    <h2>{{values.producto.Descripcion}}</h2>
+
+    <div style="float: left; margin: 10px;">
+        {% if imagen %}
+            <img src="{{project.url}}/{{imagen}}">
+        {% endif %}
+    </div>
+
+    <div style="float: left; margin-top: 10px;">{% autoescape false%}{{values.producto.Caracteristicas}}{% endautoescape%}
+
+    </div>
+</div>
+{% endblock %}

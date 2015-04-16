@@ -1,0 +1,30 @@
+{# Muestra los familias #}
+
+<span class="arbol conContenido" 
+      title="Ver/Ocultar servicios de esta familia" 
+      onclick="switchDisplay('familiasDe_{{familias.id}}');">
+    {{familias.titulo}} ({{ familias.nServicios}})
+    <a href="{{app.path}}/{{values.controller}}/de/ServFamilias/IdFamilia/{{key}}" alt="Añadir servicio" title="Añadir servicio de {{familias.titulo}}"><img src="{{app.path}}/images/detalle.png"/></a>        
+</span>
+
+<div id='familiasDe_{{familias.id}}' style="display: none;">
+    <ul>
+
+    {% for servicio in familias.servicios %}
+        <li>
+            {% if familias.nServicios > 1%}
+                {{ macro.ordenarPopup(values.controller,'IdFamilia',familias.id) }}
+            {% endif %}
+            {{ macro.actualizaColumna(values.controller,servicio.Id,'Publish',servicio.Publish,'Publicar/Despublicar')}}               
+          
+            {% if (servicio.Id == values.datos.Id) %}
+                <img class="arbol" src="{{app.path}}/images/botoneditar.png"/>
+                <script>switchDisplay('familiasDe_{{familias.id}}');</script>
+            {% endif %}
+                
+            <a href="{{app.path}}/{{values.controller}}/edit/{{servicio.PrimaryKeyMD5}}" title="Editar..." class="arbol">{{servicio.Value}}</a>  
+        </li>
+    {% endfor%}
+       
+    </ul>
+</div>

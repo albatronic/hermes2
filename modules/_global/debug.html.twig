@@ -1,0 +1,8 @@
+{# VALORES DEL DEBUG #}
+{% if values._debugMode %}
+    <div class="debug">
+        {% if values._debugMode %}
+        <pre>{{values._debugValues}}</pre>
+        {% endif %}
+    </div>
+{% endif %}

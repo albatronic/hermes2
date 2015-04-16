@@ -1,0 +1,64 @@
+{#
+  Module: ErpPedidosWebCab
+  Document : modules\ErpPedidosWebCab\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 12.07.2014 20:29:53
+#}
+
+{{ macro.select(values.atributos.IDSucursal,'Etiqueta',values.controller ~ '[IDSucursal]',values.controller ~ '_IDSucursal',none,datos.IDSucursal.IDSucursal,datos.IDSucursal.fetchAll('IDSucursal'),'chzn-select','1')}}
+{{ macro.select(values.atributos.Sesion,'Etiqueta',values.controller ~ '[Sesion]',values.controller ~ '_Sesion',none,datos.Sesion,datos.Sesion,'CampoTextoLargo','2')}}
+{{ macro.select(values.atributos.IDAlmacen,'Etiqueta',values.controller ~ '[IDAlmacen]',values.controller ~ '_IDAlmacen',none,datos.IDAlmacen.IDAlmacen,datos.IDAlmacen.fetchAll('IDAlmacen'),'chzn-select','2')}}
+{{ macro.select(values.atributos.IDAgente,'Etiqueta',values.controller ~ '[IDAgente]',values.controller ~ '_IDAgente',none,datos.IDAgente.IDAgente,datos.IDAgente.fetchAll('IDAgente'),'chzn-select','3')}}
+{{ macro.select(values.atributos.IDAfiliado,'Etiqueta',values.controller ~ '[IDAfiliado]',values.controller ~ '_IDAfiliado',none,datos.IDAfiliado.IDAfiliado,datos.IDAfiliado.fetchAll('RazonSocial'),'chzn-select','4')}}
+{{ macro.fecha(values.atributos.Fecha,'Etiqueta',values.controller ~ '[Fecha]',values.controller ~ '_Fecha',datos.Fecha,'10','datepicker','5')}}
+{{ macro.fecha(values.atributos.FechaEntrega,'Etiqueta',values.controller ~ '[FechaEntrega]',values.controller ~ '_FechaEntrega',datos.FechaEntrega,'10','datepicker','6')}}
+{{ macro.select(values.atributos.IDCliente,'Etiqueta',values.controller ~ '[IDCliente]',values.controller ~ '_IDCliente',none,datos.IDCliente.IDCliente,datos.IDCliente.fetchAll('IDCliente'),'chzn-select','7')}}
+{{ macro.select(values.atributos.IDDirec,'Etiqueta',values.controller ~ '[IDDirec]',values.controller ~ '_IDDirec',none,datos.IDDirec.IDDirec,datos.IDDirec.fetchAll('Id'),'chzn-select','8')}}
+{{ macro.input(values.atributos.Importe,'Etiqueta','text',values.controller ~ '[Importe]',values.controller ~ '_Importe',datos.Importe,'10','CampoImporte','9') }}
+{{ macro.input(values.atributos.Descuento,'Etiqueta','text',values.controller ~ '[Descuento]',values.controller ~ '_Descuento',datos.Descuento,'10','CampoImporte','10') }}
+{{ macro.input(values.atributos.BaseImponible1,'Etiqueta','text',values.controller ~ '[BaseImponible1]',values.controller ~ '_BaseImponible1',datos.BaseImponible1,'10','CampoImporte','11') }}
+{{ macro.input(values.atributos.Iva1,'Etiqueta','text',values.controller ~ '[Iva1]',values.controller ~ '_Iva1',datos.Iva1,'10','CampoImporte','12') }}
+{{ macro.input(values.atributos.CuotaIva1,'Etiqueta','text',values.controller ~ '[CuotaIva1]',values.controller ~ '_CuotaIva1',datos.CuotaIva1,'10','CampoImporte','13') }}
+{{ macro.input(values.atributos.Recargo1,'Etiqueta','text',values.controller ~ '[Recargo1]',values.controller ~ '_Recargo1',datos.Recargo1,'10','CampoImporte','14') }}
+{{ macro.input(values.atributos.CuotaRecargo1,'Etiqueta','text',values.controller ~ '[CuotaRecargo1]',values.controller ~ '_CuotaRecargo1',datos.CuotaRecargo1,'10','CampoImporte','15') }}
+{{ macro.input(values.atributos.BaseImponible2,'Etiqueta','text',values.controller ~ '[BaseImponible2]',values.controller ~ '_BaseImponible2',datos.BaseImponible2,'10','CampoImporte','16') }}
+{{ macro.input(values.atributos.Iva2,'Etiqueta','text',values.controller ~ '[Iva2]',values.controller ~ '_Iva2',datos.Iva2,'10','CampoImporte','17') }}
+{{ macro.input(values.atributos.CuotaIva2,'Etiqueta','text',values.controller ~ '[CuotaIva2]',values.controller ~ '_CuotaIva2',datos.CuotaIva2,'10','CampoImporte','18') }}
+{{ macro.input(values.atributos.Recargo2,'Etiqueta','text',values.controller ~ '[Recargo2]',values.controller ~ '_Recargo2',datos.Recargo2,'10','CampoImporte','19') }}
+{{ macro.input(values.atributos.CuotaRecargo2,'Etiqueta','text',values.controller ~ '[CuotaRecargo2]',values.controller ~ '_CuotaRecargo2',datos.CuotaRecargo2,'10','CampoImporte','20') }}
+{{ macro.input(values.atributos.BaseImponible3,'Etiqueta','text',values.controller ~ '[BaseImponible3]',values.controller ~ '_BaseImponible3',datos.BaseImponible3,'10','CampoImporte','21') }}
+{{ macro.input(values.atributos.Iva3,'Etiqueta','text',values.controller ~ '[Iva3]',values.controller ~ '_Iva3',datos.Iva3,'10','CampoImporte','22') }}
+{{ macro.input(values.atributos.CuotaIva3,'Etiqueta','text',values.controller ~ '[CuotaIva3]',values.controller ~ '_CuotaIva3',datos.CuotaIva3,'10','CampoImporte','23') }}
+{{ macro.input(values.atributos.Recargo3,'Etiqueta','text',values.controller ~ '[Recargo3]',values.controller ~ '_Recargo3',datos.Recargo3,'10','CampoImporte','24') }}
+{{ macro.input(values.atributos.CuotaRecargo3,'Etiqueta','text',values.controller ~ '[CuotaRecargo3]',values.controller ~ '_CuotaRecargo3',datos.CuotaRecargo3,'10','CampoImporte','25') }}
+{{ macro.input(values.atributos.TotalBases,'Etiqueta','text',values.controller ~ '[TotalBases]',values.controller ~ '_TotalBases',datos.TotalBases,'10','CampoImporte','26') }}
+{{ macro.input(values.atributos.TotalIva,'Etiqueta','text',values.controller ~ '[TotalIva]',values.controller ~ '_TotalIva',datos.TotalIva,'10','CampoImporte','27') }}
+{{ macro.input(values.atributos.TotalRecargo,'Etiqueta','text',values.controller ~ '[TotalRecargo]',values.controller ~ '_TotalRecargo',datos.TotalRecargo,'10','CampoImporte','28') }}
+{{ macro.input(values.atributos.RecargoFinanciero,'Etiqueta','text',values.controller ~ '[RecargoFinanciero]',values.controller ~ '_RecargoFinanciero',datos.RecargoFinanciero,'10','CampoImporte','29') }}
+{{ macro.input(values.atributos.CuotaRecargoFinanciero,'Etiqueta','text',values.controller ~ '[CuotaRecargoFinanciero]',values.controller ~ '_CuotaRecargoFinanciero',datos.CuotaRecargoFinanciero,'10','CampoImporte','30') }}
+{{ macro.input(values.atributos.Total,'Etiqueta','text',values.controller ~ '[Total]',values.controller ~ '_Total',datos.Total,'10','CampoImporte','31') }}
+{{ macro.select(values.atributos.IDEstado,'Etiqueta',values.controller ~ '[IDEstado]',values.controller ~ '_IDEstado',none,datos.IDEstado.IDEstado,datos.IDEstado.fetchAll('IDTipo'),'chzn-select','32')}}
+{{ macro.select(values.atributos.IDAlbaran,'Etiqueta',values.controller ~ '[IDAlbaran]',values.controller ~ '_IDAlbaran',none,datos.IDAlbaran.IDAlbaran,datos.IDAlbaran.fetchAll('IDAlbaran'),'chzn-select','33')}}
+{{ macro.textarea(values.atributos.Observaciones,'Etiqueta',values.controller ~ '[Observaciones]',values.controller ~ '_Observaciones',datos.Observaciones,none,none,'textarea','34')}}
+{{ macro.textarea(values.atributos.NotasInternas,'Etiqueta',values.controller ~ '[NotasInternas]',values.controller ~ '_NotasInternas',datos.NotasInternas,none,none,'textarea','35')}}
+{{ macro.input(values.atributos.Peso,'Etiqueta','text',values.controller ~ '[Peso]',values.controller ~ '_Peso',datos.Peso,'10','CampoImporte','36') }}
+{{ macro.input(values.atributos.Volumen,'Etiqueta','text',values.controller ~ '[Volumen]',values.controller ~ '_Volumen',datos.Volumen,'10','CampoImporte','37') }}
+{{ macro.input(values.atributos.Bultos,'Etiqueta','text',values.controller ~ '[Bultos]',values.controller ~ '_Bultos',datos.Bultos,'10','CampoImporte','38') }}
+{{ macro.input(values.atributos.Expedicion,'Etiqueta','text',values.controller ~ '[Expedicion]',values.controller ~ '_Expedicion',datos.Expedicion,'50','CampoTextoLargo','39') }}
+{{ macro.select(values.atributos.IDAgencia,'Etiqueta',values.controller ~ '[IDAgencia]',values.controller ~ '_IDAgencia',none,datos.IDAgencia.IDAgencia,datos.IDAgencia.fetchAll('IDAgencia'),'chzn-select','40')}}
+{{ macro.select(values.atributos.FlagFacturar,'Etiqueta',values.controller ~ '[FlagFacturar]',values.controller ~ '_FlagFacturar',none,datos.FlagFacturar.FlagFacturar,datos.FlagFacturar.fetchAll('IDTipo'),'chzn-select','41')}}
+{{ macro.select(values.atributos.IDFP,'Etiqueta',values.controller ~ '[IDFP]',values.controller ~ '_IDFP',none,datos.IDFP.IDFP,datos.IDFP.fetchAll('IDFP'),'chzn-select','42')}}
+{{ macro.select(values.atributos.IDZonaEnvio,'Etiqueta',values.controller ~ '[IDZonaEnvio]',values.controller ~ '_IDZonaEnvio',none,datos.IDZonaEnvio.IDZonaEnvio,datos.IDZonaEnvio.fetchAll('IDZona'),'chzn-select','43')}}
+{{ macro.input(values.atributos.GastosEnvio,'Etiqueta','text',values.controller ~ '[GastosEnvio]',values.controller ~ '_GastosEnvio',datos.GastosEnvio,'10','CampoImporte','44') }}
+{{ macro.input(values.atributos.PlazoEntrega,'Etiqueta','text',values.controller ~ '[PlazoEntrega]',values.controller ~ '_PlazoEntrega',datos.PlazoEntrega,'50','CampoTextoLargo','45') }}
+{{ macro.select(values.atributos.Envolver,'Etiqueta',values.controller ~ '[Envolver]',values.controller ~ '_Envolver',none,datos.Envolver.Envolver,datos.Envolver.fetchAll(),'chzn-select','46')}}
+{{ macro.input(values.atributos.TextoEnvolver,'Etiqueta','text',values.controller ~ '[TextoEnvolver]',values.controller ~ '_TextoEnvolver',datos.TextoEnvolver,'250','CampoTextoLargo','47') }}
+{{ macro.select(values.atributos.IDCupon,'Etiqueta',values.controller ~ '[IDCupon]',values.controller ~ '_IDCupon',none,datos.IDCupon.IDCupon,datos.IDCupon.fetchAll('Cupon'),'chzn-select','48')}}
+{{ macro.input(values.atributos.Key1Pasarela,'Etiqueta','text',values.controller ~ '[Key1Pasarela]',values.controller ~ '_Key1Pasarela',datos.Key1Pasarela,'100','CampoTextoLargo','49') }}
+{{ macro.input(values.atributos.Key2Pasarela,'Etiqueta','text',values.controller ~ '[Key2Pasarela]',values.controller ~ '_Key2Pasarela',datos.Key2Pasarela,'100','CampoTextoLargo','50') }}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_IDSucursal') }}

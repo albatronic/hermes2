@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO ErpEjerciciosContables
+#
+# Module: ErpEjerciciosContables
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright ARTICO ESTUDIO, SL
+# date 26-01-2014 21:12:08
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

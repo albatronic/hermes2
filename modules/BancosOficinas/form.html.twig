@@ -1,0 +1,27 @@
+{# TEMPLATE BancosOficinas/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{% set atributos = values.atributos %}
+
+{{ macro.input(atributos.IDOficina,'Etiqueta','text','BancosOficinas[IDOficina]','BancosOficinas_IDOficina',datos.IDOficina,'4','CampoTextoCorto') }}
+{{ macro.input(atributos.Digito,'Etiqueta','text','BancosOficinas[Digito]','BancosOficinas_Digito',datos.Digito,'1','CampoTextoCorto') }}
+{{ macro.input(atributos.Direccion,'Etiqueta','text','BancosOficinas[Direccion]','BancosOficinas_Direccion',datos.Direccion,'50','CampoTextoLargo') }}
+{{ macro.input(atributos.IDPais,'Etiqueta','text','BancosOficinas[IDPais]','BancosOficinas_IDPais',datos.IDPais.IDPais,'255','CampoTextoMedio','',"limpia('BancosOficinas_IDPais','BancosOficinas_IDProvincia');limpia('BancosOficinas_IDPais','BancosOficinas_IDPoblacion');",['paises','Pais',datos.IDPais.Pais]) }}
+{{ macro.input(atributos.IDProvincia,'Etiqueta','text','BancosOficinas[IDProvincia]','BancosOficinas_IDProvincia',datos.IDProvincia.IDProvincia,'255','CampoTextoLargo','',"limpia('BancosOficinas_IDProvincia','BancosOficinas_IDPoblacion');",['provincias','Provincia',datos.IDProvincia.Provincia,'BancosOficinas_IDPais']) }}
+{{ macro.input(atributos.IDPoblacion,'Etiqueta','text','BancosOficinas[IDPoblacion]','BancosOficinas_IDPoblacion',datos.IDPoblacion.IDMunicipio,'255','CampoTextoLargo','','',['municipios','Municipio',datos.IDPoblacion.Municipio,'BancosOficinas_IDProvincia']) }}       
+{{ macro.input(atributos.CodigoPostal,'Etiqueta','text','BancosOficinas[CodigoPostal]','BancosOficinas_CodigoPostal',datos.CodigoPostal,'10','CampoCPostal') }}
+{{ macro.input(atributos.Telefono,'Etiqueta','text','BancosOficinas[Telefono]','BancosOficinas_Telefono',datos.Telefono,'30','CampoTextoLargo') }}
+{{ macro.input(atributos.Fax,'Etiqueta','text','BancosOficinas[Fax]','BancosOficinas_Fax',datos.Fax,'30','CampoTextoLargo') }}
+{{ macro.input(atributos.EMail,'Etiqueta','text','BancosOficinas[EMail]','BancosOficinas_EMail',datos.EMail,'50','CampoTextoLargo') }}
+
+<script type="text/javascript">
+
+function limpia(idOrigen,idInput) {
+
+    if ( $('#'+idOrigen+'_valorAnterior').val() != $('#'+idOrigen).val() ) {
+        $('#'+idInput).val('');
+        $('#'+idInput+'_autoComplete').val('');  
+    }
+    
+}
+</script>

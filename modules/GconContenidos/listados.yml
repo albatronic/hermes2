@@ -1,0 +1,42 @@
+# Module: GconContenidos
+# Document : modules\GconContenidos\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 30.10.2012 18:45:39
+#
+---
+listados:
+  -
+    title: GconContenidos
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      IdSeccion: { title: IdSeccion, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Titulo: { title: Titulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Subtitulo: { title: Subtitulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Resumen: { title: Resumen, length: '500', align: L, type: string, total: NO, formula: null, format: null }
+      Desarrollo: { title: Desarrollo, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      MostrarTituloPortada: { title: MostrarTituloPortada, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarTituloContenido: { title: MostrarTituloContenido, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarSubtituloPortada: { title: MostrarSubtituloPortada, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarSubtituloContenido: { title: MostrarSubtituloContenido, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarResumenPortada: { title: MostrarResumenPortada, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarResumenContenido: { title: MostrarResumenContenido, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      BlogPublicar: { title: BlogPublicar, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      BlogMostrarEnPortada: { title: BlogMostrarEnPortada, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      BlogPermitirComentarios: { title: BlogPermitirComentarios, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      BlogOrden: { title: BlogOrden, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      NoticiaPublicar: { title: NoticiaPublicar, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      NoticiaMostrarEnPortada: { title: NoticiaMostrarEnPortada, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      NoticiaOrden: { title: NoticiaOrden, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      EsEvento: { title: EsEvento, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }

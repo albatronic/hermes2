@@ -1,0 +1,10 @@
+{# Template index.html.twig for FemitidasLineas #}
+{# -------------------------------------------------------#}
+{% extends popup %}
+
+{% block content %}
+    {% include "_global/alertas.html.twig" with {'alertas': values.alertas,'errores': values.errores} %}
+
+    {% block listado %}
+    {% endblock %}
+{% endblock %}

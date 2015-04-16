@@ -1,0 +1,49 @@
+{# empty Twig template #}
+<div>
+    <div style="float: left; width: 48%; margin-left: 10px;">
+        <iframe src='{{app.path}}/Relaciones/{{values.controller}}/{{datos.getPrimaryKeyValue}}' width='100%' height='300px' scrolling='yes'></iframe>
+    </div>
+        
+    {% set objetosRelacionados = values.datos.getObjetosRelacionados() %}
+    
+    {% if objetosRelacionados | length > 0 %}
+    <div style="float: left; width: 49%; margin-left: 10px;">    
+        <h3 class="listaOrdenh3">Pincha y desplaza los elementos a la ubicación deseada</h3>
+
+        <ul id="listaContenidos">
+            {% for objeto in objetosRelacionados %}
+            <li class="listaOrdenli">
+                <a href="{{app.path}}/{{objeto.getClassName}}/edit/{{objeto.getPrimaryKeyMD5}}" target="_blank">{{objeto}}</a>
+                <input name="acordeon[{{objeto.primaryKeyValue}}]" value="{{objeto.primaryKeyValue}}" type="hidden"/>
+            </li>
+            {% endfor %}
+        </ul>
+        
+        <div id="divGuardarOrden" style="margin-top: 10px; text-align: center; display: none;">
+            <div id="botonSubmit"></div>
+            <input id="botonGuardarOrden" value="Guardar nuevo orden" type="submit" class="Comando"/>  
+        </div>
+    </div> 
+    {% endif %}
+</div>
+
+<script>
+$(function(){
+    
+    $( "#listaContenidos" ).sortable({
+        cursor: "move",
+        stop: function( event, ui ) {
+            // IE doesn't register the blur when sorting
+            // so trigger focusout handlers to remove .ui-state-focus
+            ui.item.children( "li" ).triggerHandler( "focusout" );
+            $('#divGuardarOrden').show();
+        }        
+    });
+    
+    $('#botonGuardarOrden').click(function(){
+        loading('botonSubmit');  
+        $('#action_{{ values.controller }}').val('Reordenar');                      
+        submitForm('manto_{{values.controller}}');        
+    });    
+});
+</script>

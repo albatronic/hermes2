@@ -1,0 +1,16 @@
+{#
+  Module: CpanPlantillas
+  Document : modules\CpanPlantillas\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 02.02.2014 17:43:37
+#}
+
+{{ macro.input(values.atributos.Lang,'Etiqueta','text',values.controller ~ '[Lang]',values.controller ~ '_Lang',datos.Lang,'2','CampoTextoCorto','1') }}
+{{ macro.input(values.atributos.Controller,'Etiqueta','text',values.controller ~ '[Controller]',values.controller ~ '_Controller',datos.Controller,'50','CampoTextoLargo','2') }}
+{{ macro.input(values.atributos.Clave,'Etiqueta','text',values.controller ~ '[Clave]',values.controller ~ '_Clave',datos.Clave,'50','CampoTextoLargo','3') }}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_Lang') }}

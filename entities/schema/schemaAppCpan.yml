@@ -1,0 +1,153 @@
+# ESQUEMA DE LA APP Cpan.
+
+CpanAplicaciones:
+  engine:
+  charSet:
+  comment: Sub apps del Cpanel
+  columns:
+    CodigoApp:   {type: string(15), notnull: true, index: unique}
+    NombreApp:   {type: string(100), notnull: true}
+    Descripcion: {type: string(100), notnul: true}
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+
+CpanModulos:
+  columns:
+    CodigoApp:       { type: string(15), notnull: true, index: index, comment: 'db,CpanAplicaciones,CodigoApp' }
+    NombreModulo:    { type: string(255), notnull: true, index: unique }
+    Nivel:           { type: integer(4), notnull: true, default: 0 }
+    Titulo:          { type: string(100), notnull: true }
+    Descripcion:     { type: string(100), notnull: false, default: NULL }
+    Funcionalidades: { type: string(255), notnull: true }
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+    CodigoApp : { ForeignEntity: CpanAplicaciones, ForeignId: CodigoApp }
+
+CpanPerfiles:
+  columns:
+    Perfil: { type: string(50), notnull: true }
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+
+CpanPermisos:
+  columns:
+    IdPerfil:        { type: integer, notnull: true, index: index, comment: 'db,CpanPerfiles,Id' }
+    NombreModulo:    { type: string(255), notnull: true, index: index, comment: 'db,CpanModulos,NombreModulo' }
+    Funcionalidades: { type: string(255), notnull: true }
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+    IdPerfil:     { ForeignEntity: CpanPerfiles, ForeignId: Id }
+    NombreModulo: { ForeignEntity: CpanModulos, ForeignId: NombreModulo }
+
+CpanRoles:
+  columns:
+    Rol: { type: string(50), notnull: true }
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+
+CpanFuncionalidades:
+  columns:
+    Codigo:      { type: string(15), notnull: true, index: unique}
+    Titulo:      { type: string(100), notnull: true}
+    Descripcion: { type: string(100), notnull: false}
+    EsEstandar : { type: boolean, notnull: true, default: 0, index: index, comment: 'abstract,ValoresSN,IDTipo' }
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+    EsEstandar:  { ForeignEntity: ValoresSN, ForeignId: IDTipo }
+
+CpanUsuariosTipos:
+  columns:
+    Descripcion: { type: string(50), notnull: true}
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+
+CpanUsuarios:
+  columns:
+    IdUsuario:      { type: bigint(11), notnull: true, index: unique, comment: 'db,PcaeUsuarios,Id'}
+    IdPerfil:       { type: bigint(11), notnull: true, index: index, comment: 'db,CpanPerfiles,Id' }
+    IdRol:          { type: bigint(11), notnull: true, index: index, comment: 'db,CpanRoles,Id' }
+    IdTipoUsuario:  { type: bigint(11), notnull: true, index: index, comment: 'db,CpanUsuariosTipos,Id' }
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+    IdUsuario:      { ForeignEntity: PcaeUsuarios, ForeignId: Id}
+    IdPerfil:       { ForeignEntity: CpanPerfiles, ForeignId: Id}
+    IdRol:          { ForeignEntity: CpanRoles, ForeignId: Id}
+    IdTipoUsuario:  { ForeignEntity: CpanUsuariosTipos, ForeignId: Id}
+
+CpanUrlAmigables:
+  columns:
+    Idioma:        { type: tinyint(1),  notnull: true, default: 0 }
+    UrlFriendly:   { type: string(255), notnull: true, index: Unique }
+    Controller:    { type: string(255), notnull: true }
+    Action:        { type: string(255), notnull: true }
+    Template:      { type: string(255), notnull: false, default: NULL }
+    Parameters:    { type: string(255), notnull: false, default: NULL }
+    Entity:        { type: string(255), notnull: true}
+    IdEntity:      { type: integer(11), notnull: true}
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+
+# VARIABLES DE ENTORNO Y WEB DEL PROYECTO, SUBAPPS Y MODULOS
+CpanVariables:
+  comment: Variables de entorno y web del proyecto, subapps y modulos
+  columns:
+    IdProyectosApps: { type: bigint(11), notnull: true, index: index }
+    Variable:        { type: string(255), notnull: true, index: index }
+    Yml:             { type: text}
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+
+# RELACIONES N A M ENTRE ENTIDADES
+CpanRelaciones:
+  comment: Relaciones entre entidades
+  columns:
+    EntidadOrigen: { type: string(50), notnull: true, index: index }
+    IdEntidadOrigen: { type: string(50), notnull: true, default: 0 }
+    EntidadDestino: { type: string(50), notnull: true, index: index }
+    IdEntidadDestino: { type: string(50), notnull: true, default: 0 }
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+
+CpanDocs:
+  columns:
+    Idioma:      { type: tinyint(1), notnull: true, default: 0 }
+    Entity:      { type: string(255), notnull: true}
+    IdEntity:    { type: integer(11), notnull: true}
+    Type:        { type: string(10), notnull: true, index: index, comment: 'Abstract,TiposDocs,IDTipo' }
+    IsThumbnail: { type: boolean, notnull: true, default: 0, index: index, comment: 'Abstract,ValoresSN,IDTipo' }
+    PathName:    { type: string(255), notnull: true, default: ''}
+    Name:        { type: string(255), notnull: true, default: ''}
+    Extension:   { type: string(10), notnull: false, default: ''}
+    Title:       { type: string(255), notnull: false}
+    ShowCaption: { type: boolean, notnull: true, default: 0, index: index, comment: 'Abstract,ValoresSN,IDTipo' }
+    MimeType:    { type: string(50), notnull: false }
+    Size:        { type: int(11), notnull: true, default: 0}
+    Height:      { type: int(11), notnull: true, default: 0}
+    Width:       { type: int(11), notnull: true, default: 0}
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:
+    IdMimeType: { ForeignEntity: TiposMime, ForeignId: IDTipo }
+    
+# PERFILES PARA LOS USUARIOS WEB
+WebPerfiles:
+  columns:
+    Perfil: { type: string(50), notnull: true }
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations: 
+
+# TABLAS DE BUSQUEDAS
+CpanSearch:
+  columns:
+    Texto:       { type: varchar(500), notnull: true }
+    Entity:      { type: string(255), notnull: true }
+    IdEntity:    { type: bigint(11), notnull: true }    
+    <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
+  relations:     
+      
+# Traducciones
+CpanTextos:
+  comment: Traducciones de los textos web
+  columns:   
+    Controller:  { type: string(50), notnull: true }
+    Idioma:      { type: char(2), notnull: true, default: 'es' }
+    <?php include '../Hermes/entities/schema/schemaColumnsCommon.yml'; echoln('');?>      

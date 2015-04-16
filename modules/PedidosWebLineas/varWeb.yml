@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO PedidosWebLineas
+#
+# Module: PedidosWebLineas
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 12-07-2014 20:31:56
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

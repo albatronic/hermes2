@@ -1,0 +1,15 @@
+{#
+  Module: ErpIdiomas
+  Document : modules\ErpIdiomas\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 02.02.2014 01:32:22
+#}
+
+{{ macro.input(values.atributos.Codigo,'Etiqueta','text',values.controller ~ '[Codigo]',values.controller ~ '_Codigo',datos.Codigo,'2','CampoTextoCorto','1') }}
+{{ macro.input(values.atributos.Idioma,'Etiqueta','text',values.controller ~ '[Idioma]',values.controller ~ '_Idioma',datos.Idioma,'255','CampoTextoLargo','2') }}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_Codigo') }}

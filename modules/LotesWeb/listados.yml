@@ -1,0 +1,26 @@
+# Module: LotesWeb
+# Document : modules\LotesWeb\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 20.06.2014 18:30:08
+#
+---
+listados:
+  -
+    title: LotesWeb
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Titulo: { field: Titulo, title: Titulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Subtitulo: { field: Subtitulo, title: Subtitulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Resumen: { field: Resumen, title: Resumen, length: '500', align: L, type: string, total: NO, formula: null, format: null }

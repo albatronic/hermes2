@@ -1,0 +1,18 @@
+{#
+  Module: EvenEventos
+  Document : modules\EvenEventos\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 08.12.2012 01:14:51
+#}
+
+{{ macro.input(atributos.Entidad,'field_title','text',values.controller ~ '[Entidad]',values.controller ~ '_Entidad',datos.Entidad,'50','CampoTextoLargo','1') }}
+{{ macro.input(atributos.IdEntidad,'field_title','text',values.controller ~ '[IdEntidad]',values.controller ~ '_IdEntidad',datos.IdEntidad,'11','CampoImporte','2') }}
+{{ macro.fecha(atributos.Fecha,'field_title',values.controller ~ '[Fecha]',values.controller ~ '_Fecha',datos.Fecha,'10','datepicker','3')}}
+{{ macro.input(atributos.HoraInicio,'field_title','text',values.controller ~ '[HoraInicio]',values.controller ~ '_HoraInicio',datos.HoraInicio,'10','','4') }}
+{{ macro.input(atributos.HoraFin,'field_title','text',values.controller ~ '[HoraFin]',values.controller ~ '_HoraFin',datos.HoraFin,'10','','5') }}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_Entidad') }}

@@ -1,0 +1,118 @@
+{# ESCANDALLO DE ARRTICULO #}
+{% extends popup %}
+
+{% block content %}
+
+{% if values.bloqueo %}
+<div class="alertaMargen">
+    El artículo tiene existencias, no puede modificar su escandallo ni cambiarlo a "no compuesto". Para modificar su composición debe desagruparlo previamente a través del menú "Almacén".
+</div>
+{% endif %}
+
+<div class='Listado'>        
+    <table width='100%'>     
+        <tr class='Titulos'>
+            <td class='Item'>Artículo</td>
+            <td class='Item'>Descripción</td>
+            <td class='Item'>Unidades</td>
+            <td class='Item'>P.Medio Costo</td>
+            <td class='Item'>PVP</td>
+            {% if not values.bloqueo %}
+            <td>&nbsp;</td>
+            {% endif %}
+        </tr>
+
+        <tbody class="Cuerpo">
+            {% for key,objeto in values.articulos %}
+                {% set puntero = key %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+
+                <form name="linea{{puntero}}" action="" method="POST" enctype="multipart/form-data">
+                <input name="controller" value="ArticulosEscandallos" type="hidden" />
+                <input name="action" id="action" value="edit" type="hidden" />
+                <input name="ArticulosEscandallos[Id]" value="{{objeto.Id}}" type="hidden" />
+                <input name="ArticulosEscandallos[IDArticuloOrigen]" value="{{values.IDArticuloOrigen}}" type="hidden" />
+                <input name="accion" id="accion{{puntero}}" value="" type="hidden" />
+                <tr class='{{classFila}}'>
+                        <td>
+                            <input name="ArticulosEscandallos[IDArticuloDestino]" value="{{objeto.IDArticuloDestino.IDArticulo}}" id="ArticulosEscandallos_IDArticuloDestino{{puntero}}" type="hidden" />
+                            <input value="{{objeto.IDArticuloDestino.Codigo}}" id="Codigo{{puntero}}" type="text" maxlength="25" style="width:130px;"
+                            onkeyup="autoCompletar('Codigo{{puntero}}','ArticulosEscandallos_IDArticuloDestino{{puntero}}','ArticulosEscandallos_Descripcion{{puntero}}','articulos','simples','');"/>
+                        </td>
+                        <td>
+                            <input name="ArticulosEscandallos[Descripcion]" id="ArticulosEscandallos_Descripcion{{puntero}}" value="{{objeto.IDArticuloDestino.Descripcion}}" type="text" maxlength="255" style="width:400px;" readonly />
+                        </td>
+                        <td>
+                            <input name="ArticulosEscandallos[Unidades]" id="Unidades{{puntero}}" value="{{objeto.Unidades}}" type="text" style="width:50px;text-align:right;" />
+                            {{objeto.IDArticuloDestino.UnidadMedidaArticulo}}
+                        </td>
+                        <td style="text-align: right;">{{objeto.ImporteCosto|number_format(2)}}</td>
+                        <td style="text-align: right;">{{objeto.ImporteVenta|number_format(2)}}</td>
+                     {% if not values.bloqueo %}   
+                     <td align="center">
+                        {% if objeto.Id > 0 %}
+                        <input type="image" src="{{app.path}}/images/botonsave.png" onclick="getElementById('accion{{puntero}}').value='G'; return valida({{puntero}});" alt="Guardar" title="Guardar Linea" />
+                        <input type="image" src="{{app.path}}/images/papelera.gif" onclick="if (!confirm('Desea eliminar la línea?')) {return false;} else {getElementById('accion{{puntero}}').value='B';}" alt="Borrar" title="Borrar Linea" />
+                            {% else %}
+                        <input type="image" src="{{app.path}}/images/nuevo.png" onclick="getElementById('action').value='new'; return valida({{puntero}});" alt="Nuevo" title="Crear Linea" />
+                        {% endif %}
+                    </td>
+                    {% endif %}
+                </tr>
+                </form>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if values.totales %}
+    <div style="float:right;width:180px; margin-right: 10px;padding: 5px;">
+        <div>
+            <span style="float: left;width: 130px;">Total Productos:</span>
+            <span style="float:left;width: 50px; text-align: right;">{{values.totales.Unidades|number_format(2)}}</span>
+        </div>
+        <div>
+            <span style="float: left;width: 130px;">Total Costo:</span>
+            <span style="float:left;width: 50px; text-align: right;">{{values.totales.ImporteCosto|number_format(2)}}</span>
+        </div>
+        <div>
+            <span style="float: left;width: 130px;">Total Venta:</span>
+            <span style="float:left;width: 50px; text-align: right;">{{values.totales.ImporteVenta|number_format(2)}}</span>
+        </div>
+        <div>
+            <span style="float: left;width: 130px;">Total Peso:</span>
+            <span style="float:left;width: 50px; text-align: right;">{{values.totales.Peso|number_format(2)}}</span>
+        </div>
+        <div>
+            <span style="float: left;width: 130px;">Total Volumen:</span>
+            <span style="float:left;width: 50px; text-align: right;">{{values.totales.Volumen|number_format(2)}}</span>
+        </div>
+    </div>
+{% endif %}
+
+<script>
+$('#Codigo0').focus();
+
+// REFRESCAR LOS PRECIOS EN LA FICHA DEL ARTICULO ORIGEN
+parent.document.getElementById('Articulos_Pvd').value = {{values.articuloOrigen.Pvd}};
+parent.document.getElementById('Articulos_Pvp').value = {{values.articuloOrigen.Pvp}};
+parent.document.getElementById('Articulos_Margen').value = {{values.articuloOrigen.Margen}};
+parent.document.getElementById('pvpconiva').value = {{values.articuloOrigen.PrecioVentaConImpuestos}};
+
+function valida(id) {
+    if ($('#Codigo'+id).val() === '') {
+        alert('Debe indicar un artículo');
+        return false;
+    }
+    if ($('#Unidades'+id).val() < 0 || $('#Unidades'+id).val() === '') {
+        alert('Debe indicar las unidades');
+        return false;
+    }    
+    return true;
+}
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{#
+  Module: EvenEventos
+  Document : modules\EvenEventos\form.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 08.12.2012 01:14:51
+#}
+
+{% extends values.controller ~ '/index.html.twig' %}
+
+{% if values.datos.getPrimaryKeyValue == '' %} {% set action = 'new' %} {% else %} {% set action = 'edit' %} {% endif %}
+{% block mantenimiento %}
+<div class="grid_container">
+	<div class="grid_12 full_block">
+		<div class="widget_wrap">
+		<div class="widget_content">
+		<form name="manto_{{ values.controller}}" id="manto_{{ values.controller }}" action="" method="POST" enctype="multipart/form-data" class="form_container left_label">
+			<input name="controller" value="{{ values.controller }}" type="hidden" />
+			<input name="action" id="action_{{ values.controller }}" value="{{action}}" type="hidden" />
+			<input name="accion" id="accion_{{ values.controller }}" value="" type="hidden" />
+			<input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />
+			<input name="{{ values.controller }}[{{values.datos.getPrimaryKeyName}}]" value="{{values.datos.getPrimaryKeyValue}}" type="hidden" />
+
+			<ul>
+				{% include values.controller ~ "/fields.html.twig" with {'datos' : values.datos, 'atributos' : values.atributos } %}
+			</ul>
+		</form>
+		</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

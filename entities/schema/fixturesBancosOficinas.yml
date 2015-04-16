@@ -1,0 +1,8 @@
+# VALORES POR DEFECTO PARA BANCOS Y OFICINAS BANCARIAS
+#
+ErpBancos:
+  001: { CodigoBanco: 2100, Banco: 'La Caixa' }
+  002: { CodigoBanco: 2031, Banco: 'Caja Granada' }
+
+ErpBancosOficinas:
+  001: { IDBanco: 2100, IDOficina: 2497, Digito: 0, IDPais: 68, IDProvincia: 18, IDPoblacion: 4327, Direccion: 'Cmno. de Albolote, 1'}

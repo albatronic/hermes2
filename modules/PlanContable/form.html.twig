@@ -1,0 +1,15 @@
+{#
+  Module: PlanContable
+  Document : modules\PlanContable\form.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 26.01.2014 19:54:31
+#}
+
+{{ macro.select(values.atributos.IDEjercicio,'Etiqueta',values.controller ~ '[Ejercicio]',values.controller ~ '_Ejercicio',200,datos.IDEjercicio.Id,datos.IDEjercicio.fetchAll('Titulo',false),'Select') }}
+{{ macro.input(values.atributos.Cuenta,'Etiqueta','text',values.controller ~ '[Cuenta]',values.controller ~ '_Cuenta',datos.Cuenta,'10','CampoTextoCorto',none,none,none,'2') }}
+{{ macro.input(values.atributos.Titulo,'Etiqueta','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'100','CampoTextoLargo',none,none,none,'3') }}
+{{ macro.input(values.atributos.Debe,'Etiqueta','text',values.controller ~ '[Debe]',values.controller ~ '_Debe',datos.Debe,'15','CampoTextoCorto','readonly',none,none,'4') }}
+{{ macro.input(values.atributos.Haber,'Etiqueta','text',values.controller ~ '[Haber]',values.controller ~ '_Haber',datos.Haber,'15','CampoTextoCorto','readonly',none,none,'5') }}
+{{ macro.input(values.atributos.Saldo,'Etiqueta','text',values.controller ~ '[Saldo]',values.controller ~ '_Saldo',datos.Saldo,'15','CampoTextoCorto','readonly',none,none,'6') }}

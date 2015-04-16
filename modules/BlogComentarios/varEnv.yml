@@ -1,0 +1,11 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO BlogComentarios
+#
+# Module: BlogComentarios
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 21-02-2013 21:32:01
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

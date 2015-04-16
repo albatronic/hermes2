@@ -1,0 +1,352 @@
+{# Cuerpo del ticket #}
+
+{% set bloqueado = (albaran.IDEstado.IDTipo > 0) %}
+{% set lineas = values.lineas %}
+{% set pvpConIva = varEnvMod.especificas.pvpConImpuestos %}
+
+<div class="ticketCuerpo FormManto">
+    <input id="IDAlbaran" value="{{albaran.IDAlbaran}}" type="hidden">
+    <input id="IDComercial" value="{{albaran.IDComercial.IDAgente}}" type="hidden">
+    <input id='IDCliente' value='{{albaran.IDCliente.IDCliente}}' type='hidden'>    
+    <div>
+        <div class="TituloCodigo">Código</div>
+        <div class="TituloLargo">Artículo</div>
+        <div class="TituloImportesLinea">Udes</div>
+        <div class="TituloImportesLinea">Precio</div>
+        <div class="TituloDctoLinea">Dcto</div>
+        <div class="TituloImportesLinea">Importe</div>
+        {#<div class="ticketTituloCorto">Comercial</div>#}
+        <div class="botoneraLinea">&nbsp;</div>
+    </div>
+
+    {# NUEVA LINEA #}
+    {% if not bloqueado %}
+    <div id="linea" class="ticketLinea">
+        <div class="ticketCodigo">
+            <input id="IDArticulo" value="" type="hidden" />
+            <input value="" id="Codigo" type="text" maxlength="25" onblur="buscaArticulo('', this.value, '');"/>           
+        </div>
+        <div class="ticketTituloLargo">
+            <input id="Descripcion" value="" type="text" style="width:260px;" maxlength="255"
+                   onkeyup="autoCompletar('Descripcion', 'IDArticulo', 'Descripcion', 'articulos', '', '');"
+                   onblur="if ($('#IDArticulo').val() !== '') {
+                               crearLinea();
+                           }"/>
+        </div>
+        <div class="ticketImportesLinea"><input id="Unidades" value="1" type="text" size="4" onchange="recalculaLinea('');"></div>
+        <div class="ticketImportesLinea"><input id="Precio" value="" type="text" size="6" onchange="recalculaLinea('');"/></div>
+        <div class="ticketDctoLinea"><input id="Descuento" value="0.00" type="text" size="4" onchange="recalculaLinea('');"/></div>
+        <div class="ticketImportesLinea"><input id="Importe" value="" type="text" size="6" readonly></div>
+        <input id="Iva" value="0" type="hidden"/>
+            {#<div class="ticketTituloCorto"><?php DesplegableAgentes('LIDAgente',$lineas['IDAgente'],'','select',"width:100px");?></div>#}
+        <div class="botoneraLinea"><input type="image" src="{{app.path}}/images/nuevo.png" onclick="crearLinea();" onblur="crearLinea();" alt="Nuevo" title="Crear Linea" /></div>
+    </div>
+    {% endif %}
+    {# FIN NUEVA LINEA#}
+
+    <div id="lineas">    
+    {% for linea in lineas %}
+        {% set key = linea.IDLinea %}
+        {% if pvpConIva == '1' %}
+            {% set precio = linea.Precio*(1+linea.Iva/100)%}
+            {% set importe = linea.Importe*(1+linea.Iva/100) %}
+        {% else %}
+            {% set precio = linea.Precio %}
+            {% set importe = linea.Importe %}
+        {% endif %}
+        <div id="linea{{key}}" class="ticketLinea">
+            <input id="IDLinea{{key}}" value="{{linea.IDLinea}}" type="hidden">            
+            <div class="ticketCodigo">
+                <input id="IDArticulo{{key}}" value="{{linea.IDArticulo.IDArticulo}}" type="hidden" />
+                <input value="{{linea.IDArticulo.Codigo}}" id="Codigo{{key}}" type="text" maxlength="25" onblur="buscaArticulo('', this.value, '{{key}}');"/>
+    {#
+                {% if linea.IDArticulo.IDArticulo %}
+                    {{ macro.historicoVentas(app.path,linea.IDArticulo.IDArticulo,linea.IDAlbaran.IDCliente.IDCliente) }}
+                {% endif %}
+                {% if linea.IDPromocion.IDPromocion %}
+                    {% include "_Emergente/dialogoPromocion.html.twig" with {'linea': linea} %}
+                {% endif %}   
+    #}         
+            </div>
+            <div class="ticketTituloLargo">
+                <input id="Descripcion{{key}}" value="{{linea.Descripcion}}" type="text" style="width:260px;" maxlength="255"
+                       onkeyup="autoCompletar('Descripcion{{key}}', 'IDArticulo{{key}}', 'Descripcion{{key}}', 'articulos', '', '');"
+                       />                       
+            </div>
+            <div class="ticketImportesLinea"><input id="Unidades{{key}}" value="{{linea.Unidades}}" type="text" size="4" onchange="recalculaLinea('{{key}}');"></div>
+            <div class="ticketImportesLinea"><input id="Precio{{key}}" value="{{precio|number_format(2,'.','')}}" type="text" size="6" onchange="recalculaLinea('{{key}}');"/></div>
+            <div class="ticketDctoLinea"><input id="Descuento{{key}}" value="{{linea.Descuento|number_format(2,'.','')}}" type="text" size="4" onchange="recalculaLinea('{{key}}');"/></div>
+            <div class="ticketImportesLinea"><input id="Importe{{key}}" value="{{importe|number_format(2,'.','')}}" type="text" size="6" readonly></div>
+            <input id="Iva{{key}}" value="{{linea.Iva}}" type="hidden"/>
+            {#<div><?php DesplegableAgentes('LIDAgente',$lineas['IDAgente'],'','select',"width:100px");?></div>#}
+            <div class="botoneraLinea">
+                {% if (not bloqueado) %}               
+                <input type="image" src="{{app.path}}/images/botonsave.png" onclick="guardarLinea('{{key}}');" onblur="guardarLinea('{{key}}');" alt="Guardar" title="Guardar Linea" />&nbsp;
+                <input type="image" src="{{app.path}}/images/papelera.gif" onclick="borrarLinea('{{key}}');" alt="Borrar" title="Borrar Linea" />&nbsp;
+                {% endif %}
+                {{ macro.fichaProducto(app.path,linea.IDArticulo.IDArticulo) }}                    
+            </div>
+        </div>
+    {% endfor %}
+    </div>        
+
+    <div id="mensajes" title="Mensajes"></div>
+</div>
+
+<script>
+    $(function() {
+        $('#Codigo').focus();
+
+        $("#mensajes").dialog({
+            autoOpen: false,
+            width: 400,
+            height: 180,
+            position: ['center'],
+            closeOnEscape: true,
+            resizable: true,
+            draggable: true,
+            show: "slide",
+            modal: true,
+        });
+    });
+
+    function crearLinea() {
+
+        if ($('#IDArticulo').val() === '')
+            return;
+
+        var datos = {
+            'IDAlbaran': $('#IDAlbaran').val(),
+            'IDComercial': $('#IDComercial').val(),
+            'IDArticulo': $('#IDArticulo').val(),
+            'Descripcion': $('#Descripcion').val(),
+            'Unidades': $('#Unidades').val(),
+            'Precio': $('#Precio').val(),
+            'Descuento': $('#Descuento').val(),
+            'Iva': $('#Iva').val()
+        };
+
+        $.ajax({
+            url: appPath + '/lib/ticket.php',
+            dataType: 'html',
+            type: 'post',
+            data: {'parametros': {'accion': 'crear', 'datos': datos, 'pvpConIva': '{{pvpConIva}}'}},
+            success: function(resultado) {
+                var datos = $.parseJSON(resultado);
+                if (datos.status === 'error') {
+                    $('#mensajes').html(datos.errores);
+                    $('#mensajes').dialog('open');
+                } else {
+                    if ((datos.alertas !== null) || (datos.errores !== null)) {
+                        if (datos.alertas !== null) {
+                            $('#mensajes').html("<p>" + datos.alertas + "</p>");
+                        }
+                        if (datos.errores !== null) {
+                            $('#mensajes').html("<p>" + datos.errores + "</p>");
+                        }
+                        $('#mensajes').dialog('open');
+                    }
+                    // Limpiar la linea nueva
+                    $('#IDArticulo').val('');
+                    $('#Codigo').val('');
+                    $('#Descripcion').val('');
+                    $('#Unidades').val('1');
+                    $('#Precio').val('');
+                    $('#Descuento').val('0.00');
+                    $('#Importe').val('');
+                    $('#Iva').val('0');
+                    $('#Codigo').focus();
+
+                    // Añadir la linea creada
+                    var linea = datos.linea;
+                    // Calcular el precio e importe y redondear a dos decimales
+                    {% if pvpConIva == '1' %}
+                        var precio = linea.Precio * (1 + linea.Iva / 100);
+                        var importe = linea.Importe * (1 + linea.Iva / 100);
+                    {% else %}
+                        var precio = linea.Precio;
+                        var importe = linea.Importe;
+                    {% endif %}
+
+                    precio = Math.round(precio * 100) / 100;
+                    importe = Math.round(importe * 100) / 100;
+
+                    var html =
+                            "<div id='linea" + linea.IDLinea + "' class='ticketLinea'>" +
+                            "<input id='IDLinea" + linea.IDLinea + "' value='" + linea.IDLinea + "' type='hidden'>" +
+                            "<div class='ticketCodigo'>" +
+                            "<input id='IDArticulo" + linea.IDLinea + "' value='" + linea.IDArticulo + "' type='hidden' />" +
+                            "<input value='" + linea.Codigo + "' id='Codigo" + linea.IDLinea + "' type='text' maxlength='25' onblur=\"buscaArticulo('',this.value,'" + linea.IDLinea + "');\"/>" +
+                            "</div>" +
+                            "<div class='ticketTituloLargo'>" +
+                            "<input id=\"Descripcion" + linea.IDLinea + "\" value=\"" + linea.Descripcion + "\" type='text' style='width:260px;' maxlength='255'" +
+                            "onkeyup=\"autoCompletar('Descripcion" + linea.IDLinea + "','IDArticulo" + linea.IDLinea + "','Descripcion" + linea.IDLinea + "','articulos','','');\"/>" +
+                            "</div>" +
+                            "<div class='ticketImportesLinea'><input id='Unidades" + linea.IDLinea + "' value='" + linea.Unidades + "' type='text' size='4' style='text-align: right;' onchange='recalculaLinea(\"" + linea.IDLinea + "\");'></div>" +
+                            "<div class='ticketImportesLinea'><input id='Precio" + linea.IDLinea + "' value='" + precio + "' type='text' size='6' style='text-align: right;' onchange='recalculaLinea(\"" + linea.IDLinea + "\");'></div>" +
+                            "<div class='ticketDctoLinea'><input id='Descuento" + linea.IDLinea + "' value='" + linea.Descuento + "' type='text' size='4' style='text-align: right;' onchange='recalculaLinea(\"" + linea.IDLinea + "\");'></div>" +
+                            "<div class='ticketImportesLinea'><input id='Importe" + linea.IDLinea + "' value='" + importe + "' type='text' size='6' style='text-align: right;' readonly></div>" +
+                            "<input id='Iva"+linea.IDLinea+"' value='"+linea.Iva+"' type='hidden'/>"+
+                            "<div class='botoneraLinea'>" +
+                            "<input type='image' src='" + appPath + "/images/botonsave.png' onclick=\"guardarLinea('" + linea.IDLinea + "');\" onblur=\"guardarLinea('" + linea.IDLinea + "');\" alt='Guardar' title='Guardar Linea' />&nbsp;" +
+                            "<input type='image' src='" + appPath + "/images/papelera.gif' onclick=\"borrarLinea('" + linea.IDLinea + "');\" alt='Borrar' title='Borrar línea'/>&nbsp;" +
+                            "</div>" +
+                            "</div>";
+
+                    $('#lineas').append(html);
+                    $('#totalLiteral').html(datos.albaran.Total);
+                    $('#total').html(datos.albaran.Total);
+                }
+            }
+        });
+    }
+
+    function guardarLinea(idLinea) {
+
+        var datos = {
+            'IDAlbaran': $('#IDAlbaran').val(),
+            'IDLinea': $('#IDLinea' + idLinea).val(),
+            'IDComercial': $('#IDComercial').val(),
+            'IDArticulo': $('#IDArticulo' + idLinea).val(),
+            'Descripcion': $('#Descripcion' + idLinea).val(),
+            'Unidades': $('#Unidades' + idLinea).val(),
+            'Precio': $('#Precio' + idLinea).val(),
+            'Descuento': $('#Descuento' + idLinea).val(),
+            'Iva': $('#Iva' + idLinea).val()
+        };
+
+        $.ajax({
+            url: appPath + '/lib/ticket.php',
+            dataType: 'html',
+            type: 'post',
+            data: {'parametros': {'accion': 'guardar', 'datos': datos, 'pvpConIva': '{{pvpConIva}}'}},
+            success: function(resultado) {
+                var datos = $.parseJSON(resultado);
+                if (datos.status === 'error') {
+                    $('#mensajes').html(datos.errores);
+                    $('#mensajes').dialog('open');
+                } else {
+                    if ((datos.alertas !== null) || (datos.errores !== null)) {
+                        if (datos.alertas !== null) {
+                            $('#mensajes').html("<p>" + datos.alertas + "</p>");
+                        }
+                        if (datos.errores !== null) {
+                            $('#mensajes').html("<p>" + datos.errores + "</p>");
+                        }
+                        $('#mensajes').dialog('open');
+                    }
+                    // Actualizar la linea creada
+
+                    // Calcular el precio e importe y redondear
+                    // a dos decimales
+                    var linea = datos.linea;
+                    {% if pvpConIva == '1' %}
+                    var precio = datos.linea.Precio * (1 + datos.linea.Iva / 100);
+                    var importe = datos.linea.Importe * (1 + datos.linea.Iva / 100);
+                    {% else %}
+                    var precio = datos.linea.Precio;
+                    var importe = datos.linea.Importe;
+                    {% endif %}
+
+                    var keyLinea = linea.IDLinea;
+
+                    precio = Math.round(precio * 100) / 100;
+                    importe = Math.round(importe * 100) / 100;
+
+                    $('#Codigo' + keyLinea).val(linea.Codigo);
+                    $('#IDArticulo' + keyLinea).val(linea.IDArticulo);
+                    $('#Descripcion' + keyLinea).val(linea.Descripcion);
+                    $('#Precio' + keyLinea).val(precio);
+                    $('#Descuento' + keyLinea).val(linea.Descuento);
+                    $('#Importe' + keyLinea).val(importe);
+                    $('#Iva' + keyLinea).val(linea.Iva);
+
+                    $('#totalLiteral').html(datos.albaran.Total);
+                    $('#total').html(datos.albaran.Total);
+                    $('#Codigo').focus();
+                }
+            }
+        });
+    }
+
+    function borrarLinea(idLinea) {
+
+        var datos = {
+            'IDAlbaran': $('#IDAlbaran').val(),
+            'IDLinea': $('#IDLinea' + idLinea).val()
+        };
+
+        $.ajax({
+            url: appPath + '/lib/ticket.php',
+            dataType: 'html',
+            type: 'post',
+            data: {'parametros': {'accion': 'borrar', 'datos': datos}},
+            success: function(resultado) {
+                var datos = $.parseJSON(resultado);
+                if (datos.status === 'error') {
+                    $('#mensajes').html(datos.errores);
+                    $('#mensajes').dialog('open');
+                } else {
+                    $('#linea' + idLinea).remove();
+                    $('#total').html(datos.albaran.Total);
+                    $('#totalLiteral').html(datos.albaran.Total);
+                    $('#Codigo').focus();
+                }
+            }
+        });
+
+    }
+
+    /**
+     * Busca un articulo en base a la pareja columna-valor
+     * Si lo encuentra y estoy en la primera línea, lo inserta
+     * 
+     * @param string columna
+     * @param string valor
+     * @param string keyLinea
+     * @returns void  
+     */
+    function buscaArticulo(columna, valor, keyLinea) {
+
+        if (valor !== '') {
+            var url = appPath + "/lib/getArticulo.php?formato=JSON&columna=" + columna + "&valor=" + valor;
+            var precio;
+            
+            $.getJSON(url, function(data) {
+                if (data['IDArticulo'] > 0) {
+                    {% if pvpConIva == '1' %}
+                        precio = data.PvpConImpuestos;
+                    {% else %}
+                        precio = data.Pvp;
+                    {% endif %}                    
+                    $('#IDArticulo' + keyLinea).val(data['IDArticulo']);
+                    $('#Codigo' + keyLinea).val(data['Codigo']);
+                    $('#Descripcion' + keyLinea).val(data['Descripcion']);
+                    $('#Precio' + keyLinea).val(precio);
+                    $('#Iva' + keyLinea).val(data['Iva']);
+                    recalculaLinea(keyLinea);
+                    if (keyLinea === '')
+                        crearLinea();
+                } else {
+                    alert("No existe ese artículo o está descatalogado");
+                    $('#Codigo' + keyLinea).focus();
+                }
+            });
+        }
+    }
+
+    /*
+     * Recalcula la línea cada vez que se cambian las unidades
+     * el precio unitario o el descuento
+     */
+    function recalculaLinea(keyLinea) {
+        var unidades, precio, descuento, importe;
+
+        unidades = $('#Unidades' + keyLinea).val();
+        precio = $('#Precio' + keyLinea).val();
+        descuento = $('#Descuento' + keyLinea).val();
+        importe = unidades * precio * (1 - descuento / 100);
+        importe = Math.round(importe * 100) / 100;
+        $('#Importe' + keyLinea).val(importe);
+    }
+</script>

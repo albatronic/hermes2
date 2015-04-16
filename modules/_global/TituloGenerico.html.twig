@@ -1,0 +1,55 @@
+{# empty Twig template #}
+
+<div class="page_title">
+    
+    <h3>
+        {# BOTON PARA REGISTROS NUEVO#}
+        {% if values.permisos.permisosModulo['IN'] %}
+            <div style="float: left; width: 50px;">        
+            <a href="{{app.path}}/{{controller}}/new/{{linkValue}}" title="Nuevo">
+                <span class="title_icon"><span class="list_image"></span></span>
+            </a>
+            </div>
+        {% endif %}
+        
+        <div style="float: left; margin-left: 10px;">
+            {% if (varEnvMod.translatable == 1)%}
+            <img src="{{app.path}}/lang/{{idiomas.disponibles[idiomas.actual].codigo}}.gif" alt="{{idiomas.disponibles[idiomas.actual].texto}}" title="{{idiomas.disponibles[idiomas.actual].texto}}"/>
+            {% endif %}
+            {{ values.titulo }}
+        </div>
+        
+        <div style="float: right;"> 
+            
+            {# VARIABLES DE ENTORNO Y WEB #}
+
+            {%if controller != "CpanVariables" %}
+            {% if user.IDPerfil.IDPerfil == '1' %}
+                <a href="{{app.path}}/CpanVariables/Env/Pro" title="Variables de entorno del proyecto">VEP</a>
+                <a href="{{app.path}}/CpanVariables/Web/Pro" title="Variables web del proyecto">VWP</a>           
+                <a href="{{app.path}}/CpanVariables/Env/Mod/{{values.controller}}" title="Variables de entorno del módulo">VEM</a>
+            {% endif %}
+            {% if user.IDPerfil.IDPerfil == '1' or values.permisos.permisosModulo['VW'] == '1' %}                
+                <a href="{{app.path}}/CpanVariables/Web/Mod/{{values.controller}}" title="Variables web del módulo">VWM</a>
+            {% endif %}       
+            {% endif %}
+        
+            {# BANDERAS DE IDIOMAS #}
+            {% if ((varEnvMod.translatable == 1) and (idiomas.disponibles|length > 1) )%}
+                [
+                {% for key,idioma in idiomas.disponibles %}
+                    {% if key != idiomas.actual %}
+                        <a href="{{app.path}}/{{values.controller}}/lang/{{key}}/{{values.datos.getPrimaryKeyMD5}}"><img src="{{app.path}}/lang/{{idioma.codigo}}.gif" alt="{{idioma.texto}}" title="{{idioma.texto}}"/></a>
+                    {% endif %}
+                {% endfor%}
+                ]
+            {% endif %}
+     
+            {# AYUDA #}
+            <img src='{{app.path}}/images/interrogacion.png' width="22px" height="22px" onclick="window.open('{{app.path}}/{{controller}}/help','Ayuda','width=850,height=610,scrollbars=1,location=0,menubar=1,resizable=1');" style="cursor: pointer;" alt="Ayuda" title="Ayuda"/>
+            {# AÑADIR A FAVORITOS #}
+            <a href="{{app.path}}/{{values.controller}}/Favoritos/add"><img src='{{app.path}}/images/favorito.gif' width="22px" height="22px" alt="Favoritos" title="Añadir a favoritos"/></a>
+        </div>                        
+    </h3>
+</div>
+<div class="salto"></div>

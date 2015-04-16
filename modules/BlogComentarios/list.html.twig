@@ -1,0 +1,56 @@
+{#
+  Module: BlogComentarios
+  Document : modules\BlogComentarios\list.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 21.02.2013 21:32:01
+#}
+
+{% extends values.controller  ~ '/index.html.twig' %}
+
+{% block listado %}
+
+<div class='Listado'>
+    {% include '_global/paginacion.html.twig' with {'filter': values.listado.filter, 'controller': values.controller, 'position': 'izq'}%}
+
+    <div id="Listado">
+    <table width='100%'>
+        <tr class='Titulos'>
+            <td class='Item'>&nbsp;</td>            
+            <td class='Item'>Contenido</td>
+            <td class='Item'>Título</td>
+            <td class='Item'>Usuario</td> 
+            <td class='Item'>Fecha</td>             
+            <td class='Item'>Ip</td>   
+            <td class='Item'>Publicar</td> 
+            <td class='Item'>Chequeado</td> 
+            <td class='Item'>Comentario</td> 
+        </tr>
+
+        <tbody class='Cuerpo'>
+        {% for key,objeto in values.listado.data %}
+            <tr style="height: 20px;">
+                <td>
+                    <a href='{{app.path}}/{{values.controller}}/Edit/{{objeto.PrimaryKeyMD5}}' title='Editar ...'>
+                        <img src="{{app.path}}/images/botoneditar.png" width="16px" height="16px" />
+                    <a>
+                </td>
+                <td class="item">{{objeto.Entidad}}</td>  
+                <td class="item">{{macro.recortaTexto(objeto.objetoAsociado,35)}}</td>  
+                <td class="item">{{objeto.Nombre}}</td> 
+                <td class="item">{{objeto.TiempoUnix|date('d-m-Y H:i')}}</td>                
+                <td class="item">{{objeto.IpAddress}}</td>                                
+                <td class="item">{{ macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'Publish',objeto.Publish.IDTipo,'Publicar/Despublicar')}} </td>                                              
+                <td class="item">{{ macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'Checked',objeto.Checked.IDTipo,'Validar')}} </td>                                              
+                <td class="item">{{objeto.Comentario}}</td>                  
+            </tr>
+            {% else %}
+            <tr><td colspan='8'>No hay información que cumpla esos criterios</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>        
+</div>
+</div>
+{% endblock %}

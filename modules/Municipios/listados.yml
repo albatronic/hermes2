@@ -1,0 +1,28 @@
+# Module: Municipios
+# Document : modules\Municipios\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 02.02.2014 01:19:34
+#
+---
+listados:
+  -
+    title: Municipios
+    order_by: IDMunicipio
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      IDPais: { field: IDPais, title: IDPais, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDProvincia: { field: IDProvincia, title: IDProvincia, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Codigo: { field: Codigo, title: Codigo, length: '5', align: L, type: string, total: NO, formula: null, format: null }
+      DigitoControl: { field: DigitoControl, title: DigitoControl, length: '2', align: L, type: string, total: NO, formula: null, format: null }
+      Municipio: { field: Municipio, title: Municipio, length: '2555', align: L, type: string, total: NO, formula: null, format: null }

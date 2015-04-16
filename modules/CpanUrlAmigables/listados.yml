@@ -1,0 +1,30 @@
+# Module: CpanUrlAmigables
+# Document : modules\CpanUrlAmigables\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 30.09.2012 16:42:34
+#
+---
+listados:
+  -
+    title: CpanUrlAmigables
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Controller: { title: Controller, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Action: { title: Action, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Template: { title: Template, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Parameters: { title: Parameters, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Entity: { title: Entity, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      IdEntity: { title: IdEntity, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      SortOrder: { title: SortOrder, length: '11', align: R, type: integer, total: NO, formula: null, format: null }

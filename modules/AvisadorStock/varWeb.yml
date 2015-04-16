@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO AvisadorStock
+#
+# Module: AvisadorStock
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 19-07-2014 02:26:08
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

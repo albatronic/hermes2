@@ -1,0 +1,20 @@
+{#
+  Module: BolEnvios
+  Document : modules\BolEnvios\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 12.07.2013 12:30:18
+#}
+
+{{ macro.select(atributos.IDBoletin,'field_title',values.controller ~ '[IDBoletin]',values.controller ~ '_IDBoletin',none,datos.IDBoletin.IDBoletin,datos.IDBoletin.fetchAll('Id'),'chzn-select','1')}}
+{{ macro.textarea(atributos.Para,'field_title',values.controller ~ '[Para]',values.controller ~ '_Para',datos.Para,none,none,'textarea','2')}}
+{{ macro.textarea(atributos.Cc,'field_title',values.controller ~ '[Cc]',values.controller ~ '_Cc',datos.Cc,none,none,'textarea','3')}}
+{{ macro.textarea(atributos.Cco,'field_title',values.controller ~ '[Cco]',values.controller ~ '_Cco',datos.Cco,none,none,'textarea','4')}}
+{{ macro.select(atributos.Estado,'field_title',values.controller ~ '[Estado]',values.controller ~ '_Estado',none,datos.Estado.Estado,datos.Estado.fetchAll(),'chzn-select','5')}}
+{{ macro.textarea(atributos.Errores,'field_title',values.controller ~ '[Errores]',values.controller ~ '_Errores',datos.Errores,none,none,'textarea','6')}}
+{{ macro.input(atributos.ArchivoHtml,'field_title','text',values.controller ~ '[ArchivoHtml]',values.controller ~ '_ArchivoHtml',datos.ArchivoHtml,'255','CampoTextoLargo','7') }}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_IDBoletin') }}

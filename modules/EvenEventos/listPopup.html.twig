@@ -1,0 +1,55 @@
+{# MANTENIMIENTO DE EVENTOS EN POPUP #}
+
+{% extends '_global/layoutPopup.html.twig' %}
+
+{% block content %}
+
+{% include '_global/formErrores.html.twig' with {'errores': values.errores} %}
+{% include '_global/alertas.html.twig' with {'alertas': values.alertas} %}
+
+<table class="Listado">
+    <tr class='Titulos'>
+        <td class='Item'>Fecha</td>
+        <td class='Item'>Hora Inicio</td>
+        <td class='Item'>Hora Fin</td>
+        <td class='Item'>Publicar</td>        
+        <td>&nbsp;</td>
+    </tr>    
+
+    <tbody class="Cuerpo">
+    {% for key,evento in values.eventos %}
+            
+        <form name="linea{{key}}" id="linea{{key}}" action="" method="POST">
+            <input name="controller" value="{{values.controller}}" type="hidden" />
+            <input name="action" id="action" value="edit" type="hidden" />
+            <input name="accion" id="accion{{key}}" value="" type="hidden" />
+            <input name="EvenEventos[Entidad]" value="{{evento.Entidad}}" type="hidden" />
+            <input name="EvenEventos[IdEntidad]" value="{{evento.IdEntidad}}" type="hidden" />
+            <input name="EvenEventos[Id]" value="{{evento.Id}}" type="hidden" />
+        <tr>
+            <td><input name="EvenEventos[Fecha]" value="{{evento.Fecha}}" type="text" class="datepicker" style="width: 80px;"/></td>
+            <td><input name="EvenEventos[HoraInicio]" value="{{evento.HoraInicio}}" type="time" style="width: 60px;"/></td>
+            <td><input name="EvenEventos[HoraFin]" value="{{evento.HoraFin}}" type="time" style="width: 60px;"/></td>
+            <td style="text-align: center;">
+                {{ macro.actualizaColumna(values.controller,evento.Id,'Publish',evento.Publish.IDTipo) }}
+            </td>
+
+            <td align="center">
+                {% if evento.Id > 0 %}
+                    {% if permisosModulo['UP'] %}
+                        <input type="image" src="{{app.path}}/images/botonsave.png" onclick="$('#accion{{key}}').val('G');" alt="Guardar" title="Guardar Evento" />
+                    {% endif%}
+                    {% if permisosModulo['DE'] %}
+                        <input type="image" src="{{app.path}}/images/papelera.gif" onclick="if (!confirm('Desea eliminar el evento?')) {return false;} else {$('#accion{{key}}').val('B');}" alt="Borrar" title="Borrar Evento" />
+                    {% endif%}                
+                {% elseif permisosModulo['IN'] %}
+                    <input type="image" src="{{app.path}}/images/nuevo.png" onclick="$('#action').val('new');" alt="Nuevo" title="Crear Evento" />
+                {% endif %}            
+            </td>
+        </tr>
+        </form>
+
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

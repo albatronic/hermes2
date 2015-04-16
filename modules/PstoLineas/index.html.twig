@@ -1,0 +1,11 @@
+{# Template index.html.twig for PstoLineas #}
+{# -------------------------------------------------------#}
+{% extends popup %}
+
+{% block content %}
+    {% include "_global/alertas.html.twig" with {'errores': values.errores,'alertas': values.alertas} %}
+
+    {% block listado %}
+    {% endblock %}
+
+{% endblock %}

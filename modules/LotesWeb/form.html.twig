@@ -1,0 +1,49 @@
+{#
+  Module: ErpLotesWeb
+  Document : modules\ErpLotesWeb\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 20.06.2014 18:30:08
+#}
+
+{% set atributos = values.atributos %}
+    
+<div id="tabs">
+    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
+    <ul>
+        <li>
+            <a href="#general">{%if datos.Titulo%}<b>{{macro.recortaTexto(datos.Titulo,40)}}</b>{%else%}Lote{%endif%}</a>
+            {{ macro.publicar(atributos.Publish,values.controller ~ '[Publish]',values.controller ~ '_Publish',datos.Publish.IDTipo) }}            
+        </li>  
+        {% if datos.PrimaryKeyValue %}
+        <li>
+            <a href="#articulos">Artículos ({{datos.getArrayObjetosArticulos|length}})</a>
+        </li>
+        {% endif %} 
+        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+        <li>
+            <a href="#fieldsComunes">Más detalles...</a>
+        </li>        
+        {% endif %}         
+    </ul>
+
+    <div id="general">
+        {{ macro.input(atributos.MostrarEnPortada,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarEnPortada]',values.controller ~ '_MostrarEnPortada',datos.MostrarEnPortada.IDTipo,'255','CampoTextoLargo') }}
+        {{ macro.input(atributos.Titulo,'EtiquetaMedia','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'255','CampoTextoLargo','1') }}
+        {{ macro.input(atributos.Subtitulo,'EtiquetaMedia','text',values.controller ~ '[Subtitulo]',values.controller ~ '_Subtitulo',datos.Subtitulo,'255','CampoTextoLargo','2') }}
+        {{ macro.input(atributos.Resumen,'EtiquetaMedia','text',values.controller ~ '[Resumen]',values.controller ~ '_Resumen',datos.Resumen,'500','CampoTextoLargo','3') }}
+        {{ macro.textarea(atributos.Desarrollo,'EtiquetaMedia',values.controller ~ '[Desarrollo]',values.controller ~ '_Desarrollo',datos.Desarrollo,none,none,'textarea','5')}}          
+    </div>  
+
+    {% if datos.PrimaryKeyValue %}
+        <div id="articulos">
+            {% include values.controller ~ '/articulos.html.twig'%}
+        </div>
+    {% endif %}
+    
+    {% include '_global/fieldsComunes.html.twig' %}       
+
+</div>  
+
+{{ macro.foco(values.controller ~ '_Titulo') }}

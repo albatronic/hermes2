@@ -1,0 +1,60 @@
+{# Cuerpo del ticket #}
+
+{% set bloqueado = (albaran.IDEstado.IDTipo > 0) %}
+
+<div class="ticketCuerpo">
+<table id="CUERPO" width="100%" cellpadding=0 cellspacing=0>
+    <tr>
+        <th>Código</th>
+        <th>Artículo</th>
+        <th>Udes</th>
+    	<th>Precio</th>
+    	<th>Dcto</th>
+        <th>Importe</th>
+        <th>Comercial</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    {% for key,linea in values.lineas %}
+    <form name="linea{{key}}" action="" method="POST">
+        <input name="controller" value="Tpv" type="hidden">
+        <input name="formulario" value="linea{{key}}" type="hidden">
+        <input name="IDAlbaran" value="{{albaran.IDAlbaran}}" type="hidden">
+        <input name="IDLinea" value="{{linea.IDLinea}}" type="hidden">
+        <input name='IDCliente' value='{{albaran.IDCliente.IDCliente}}' type='hidden'>
+
+	<tr>
+        <td>
+            <input name="AlbaranesLineas[IDArticulo]" value="{{linea.IDArticulo.IDArticulo}}" id="AlbaranesLineas_IDArticulo{{key}}" type="hidden" />
+            <input value="{{linea.IDArticulo.Codigo}}" id="Codigo{{key}}" type="text" maxlength="25" style="width:100px;"
+            onkeyup="autoCompletar('Codigo{{key}}','AlbaranesLineas_IDArticulo{{key}}','AlbaranesLineas_Descripcion{{key}}','articulos','','');"/>
+
+            {% if linea.IDArticulo.IDArticulo %}
+                {{ macro.historicoVentas(app.path,linea.IDArticulo.IDArticulo,linea.IDAlbaran.IDCliente.IDCliente) }}
+            {% endif %}
+            {% if linea.IDPromocion.IDPromocion %}
+                {% include "_Emergente/dialogoPromocion.html.twig" with {'linea': linea} %}
+            {% endif %}            
+        </td>
+        <td><input name="AlbaranesLineas[Descripcion]" id="AlbaranesLineas_Descripcion{{key}}" value="{{linea.Descripcion}}" type="text" size="37" maxlength="255"></td>
+	<td align="right"><input name="AlbaranesLineas[Unidades]" value="{{linea.Unidades}}" type="text" size="4" style="text-align: right;"></td>
+        <td align="right"><input name="AlbaranesLineas[Precio]" value="{{(linea.Precio*(1+linea.Iva)/100)|number_format(2)}}" type="text" size="6" style="text-align: right;"/></td>
+        <td align="right"><input name="AlbaranesLineas[Descuento]" value="{{linea.Descuento|number_format(2)}}" type="text" size="4" style="text-align: right;"/></td>
+        <td align="right"><input name="AlbaranesLineas[Importe]" value="{{(linea.Importe*(1+linea.Iva)/100)|number_format(2)}}" type="text" size="6" style="text-align: right;" readonly></td>
+        <td><?php DesplegableAgentes('LIDAgente',$lineas['IDAgente'],'','select',"width:100px");?></td>
+    	<td align="center">
+            {% if (not bloqueado) %}
+                {% if linea.IDLinea == 0%}
+                    <input id="botonCrearLinea" value="Crear" type="button" class="ticketBotonNavegador">  
+                {% endif %}
+                <input name="accion" value="G" type="submit" class="formularios">
+		<input name="accion" value="B" type="submit" class="formularios" onclick="return Confirma('Desea Eliminar la linea');">
+            {% endif %}
+	</td>
+	</tr>
+    </form>
+    {% endfor %}
+
+</table>
+
+</div>

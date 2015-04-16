@@ -1,0 +1,56 @@
+{# TEMPLATE Empresas/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{% set atributos = values.atributos %}
+
+<div class="Izquierda" style="width:49%;">
+    {{ macro.input(atributos.RazonSocial,'Etiqueta','text','PcaeEmpresas[RazonSocial]','PcaeEmpresas_RazonSocial',datos.RazonSocial,'50','CampoTextoLargo') }}
+    {{ macro.cif(atributos.Cif,'Etiqueta','text','PcaeEmpresas[Cif]','PcaeEmpresas_Cif',datos.Cif,'CampoCif') }}
+    {{ macro.input(atributos.Direccion,'Etiqueta','text','PcaeEmpresas[Direccion]','PcaeEmpresas_Direccion',datos.Direccion,'50','CampoTextoLargo') }}
+    {{ macro.input(atributos.IdPais,'Etiqueta','text','PcaeEmpresas[IdPais]','PcaeEmpresas_IdPais',datos.IdPais.IdPais,'255','CampoTextoMedio','',"limpia('PcaeEmpresas_IdPais','PcaeEmpresas_IdProvincia');limpia('PcaeEmpresas_IdPais','PcaeEmpresas_IdMunicipio');",['paises','Pais',datos.IdPais.Pais]) }}
+    {{ macro.input(atributos.IdProvincia,'Etiqueta','text','PcaeEmpresas[IdProvincia]','PcaeEmpresas_IdProvincia',datos.IdProvincia.IdProvincia,'255','CampoTextoLargo','',"limpia('PcaeEmpresas_IdProvincia','PcaeEmpresas_IdMunicipio');",['provincias','Provincia',datos.IdProvincia.Provincia,'PcaeEmpresas_IdPais']) }}
+    {{ macro.input(atributos.IdMunicipio,'Etiqueta','text','PcaeEmpresas[IdMunicipio]','PcaeEmpresas_IdMunicipio',datos.IdMunicipio.IdMunicipio,'255','CampoTextoLargo','','',['municipios','Municipio',datos.IdMunicipio.Municipio,'PcaeEmpresas_IdProvincia']) }}       
+    {{ macro.input(atributos.CodigoPostal,'Etiqueta','text','PcaeEmpresas[CodigoPostal]','PcaeEmpresas_CodigoPostal',datos.CodigoPostal,'10','CampoCPostal') }}
+    {{ macro.input(atributos.Telefono,'Etiqueta','text','PcaeEmpresas[Telefono]','PcaeEmpresas_Telefono',datos.Telefono,'30','CampoTextoLargo') }}
+    {{ macro.input(atributos.Fax,'Etiqueta','text','PcaeEmpresas[Fax]','PcaeEmpresas_Fax',datos.Fax,'30','CampoTextoLargo') }}
+    {{ macro.input(atributos.EMail,'Etiqueta','text','PcaeEmpresas[EMail]','PcaeEmpresas_EMail',datos.EMail,'50','CampoTextoLargo') }}
+    {{ macro.input(atributos.Web,'Etiqueta','text','PcaeEmpresas[Web]','PcaeEmpresas_Web',datos.Web,'50','CampoTextoLargo') }} 
+    {{ macro.cc(atributos.Banco,'Etiqueta','cc','PcaeEmpresas',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) }}
+    {{ macro.input(atributos.Iban,'Etiqueta','text','PcaeEmpresas[Iban]','PcaeEmpresas_Iban',datos.Iban,'34','CampoTextoMedio') }}
+    {{ macro.input(atributos.Bic,'Etiqueta','text','PcaeEmpresas[Bic]','PcaeEmpresas_Bic',datos.Bic,'11','CampoTextoCorto') }}
+    {{ macro.input(atributos.SufijoRemesas,'Etiqueta','text','PcaeEmpresas[SufijoRemesas]','PcaeEmpresas_SufijoRemesas',datos.SufijoRemesas,'3','CampoUnidades') }}
+    {{ macro.input(atributos.DigitosCuentaContable,'Etiqueta','text','PcaeEmpresas[DigitosCuentaContable]','PcaeEmpresas_DigitosCuentaContable',datos.DigitosCuentaContable,'3','CampoUnidades') }}
+    {{ macro.input(atributos.IdCNAE,'Etiqueta','text','PcaeEmpresas[IdCNAE]','PcaeEmpresas_IdCNAE',datos.IdCNAE.Id,'255','CampoTextoLargo',none,none,['cnae','Actividad',datos.IdCNAE.Actividad]) }}
+    {{ macro.input(atributos.RegistroMercantil,'Etiqueta','text','PcaeEmpresas[RegistroMercantil]','PcaeEmpresas_RegistroMercantil',datos.RegistroMercantil,'255','CampoTextoLargo') }}
+    {{ macro.input(atributos.LicenciaActividad,'Etiqueta','text','PcaeEmpresas[LicenciaActividad]','PcaeEmpresas_LicenciaActividad',datos.LicenciaActividad,'50','CampoTextoMedio') }}
+
+</div>
+
+<div class="Derecha" style="width:49%;">
+
+    {% if datos.Id %}
+            <div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+                <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                    <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tabs-1">Sucursales</a></li>
+                </ul>
+                <div id="tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+                    <iframe width="100%" height="330" scrolling="yes" style="border: 0px dotted grey;"
+                            src="{{app.path}}/Sucursales/list">
+                    </iframe>
+                </div>
+            </div>
+    {% endif %}
+
+</div>
+
+<script type="text/javascript">
+
+function limpia(idOrigen,idInput) {
+
+    if ( $('#'+idOrigen+'_valorAnterior').val() !== $('#'+idOrigen).val() ) {
+        $('#'+idInput).val('');
+        $('#'+idInput+'_autoComplete').val('');  
+    }
+    
+}
+</script>

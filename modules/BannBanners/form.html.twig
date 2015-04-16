@@ -1,0 +1,78 @@
+{#
+  Module: BannBanners
+  Document : modules\BannBanners\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 09.12.2012 08:36:04
+#}
+{% set atributos = values.atributos %}
+<div id="tabs">
+    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />      
+    <ul>
+        <li>
+            <a href="#arbol">Árbol de Banners</a>
+        </li>
+        <li>
+            <a href="#general">{%if datos.Titulo%}<b>{{macro.recortaTexto(datos.Titulo,40)}}</b>{%else%}Banner{%endif%}</a>
+            {{ macro.publicar(values.varEnvMod.columns.Publish,values.controller ~ '[Publish]',values.controller ~ '_Publish',datos.Publish.IDTipo) }}
+        </li>
+           
+        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+        <li>
+            <a href="#fieldsComunes">Más detalles...</a>
+        </li>        
+        {% endif %}
+    </ul>
+
+    <div id="arbol">
+        <ul>
+            {% for keyZona,zona in values.objetoController.arbolZonasBanners %}
+                <li style="font-weight: bold;">{{zona.titulo}}</li>
+                <ul>                  
+                    {% for banner in zona.banners %}
+                        <li style="margin-left: 30px;">
+                            {% if zona.nBanners > 1%}
+                                {{ macro.ordenarPopup(values.controller,'IdZona',keyZona) }}                                                      
+                            {% endif %}                              
+                            {% if values.varEnvMod.columns.Publish.visible == '1' %}
+                                {{ macro.actualizaColumna(values.controller,banner.Id,'Publish',banner.Publish.IDTipo,'Publicar/Despublicar')}}
+                            {% endif %}
+                            <a href="{{app.path}}/{{values.controller}}/edit/{{banner.primaryKeyMD5}}" onclick="$('#solapaActiva').val('1');">{{banner.Titulo}} ({{banner.IdTipo.Descripcion}})</a>
+                        </li>
+                    {% endfor %}                          
+                </ul>
+            {% endfor %}
+        </ul>
+    </div>
+        
+    <div id="general">
+        {{ macro.select(atributos.IdZona,'Etiqueta',values.controller ~ '[IdZona]',values.controller ~ '_IdZona',200,datos.IdZona.Id,datos.IdZona.fetchAll('Titulo',0),'chzn-select')}}
+        {{ macro.input(atributos.Titulo,'Etiqueta','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'255','CampoTextoLargo','2') }}
+        {{ macro.input(atributos.Subtitulo,'Etiqueta','text',values.controller ~ '[Subtitulo]',values.controller ~ '_Subtitulo',datos.Subtitulo,'255','CampoTextoLargo','3') }}
+        {{ macro.textarea(atributos.Resumen,'Etiqueta',values.controller ~ '[Resumen]',values.controller ~ '_Resumen',datos.Resumen,none,none,'textarea','4')}}
+        {{ macro.radio(atributos.IdTipo,'Etiqueta',values.controller ~ '[IdTipo]',values.controller ~ '_IdTipo',datos.IdTipo.IDTipo,datos.IdTipo.fetchAll(0),'chzn-radio','5') }}
+        {{ macro.input(atributos.MostrarEnListado,'Etiqueta','checkbox',values.controller ~ '[MostrarEnListado]',values.controller ~ '_MostrarEnListado',datos.MostrarEnListado.IDTipo,'255','CampoTextoLargo','5') }}
+        {# macro.input(atributos.OrdenMostrarEnListado,'Etiqueta','text',values.controller ~ '[OrdenMostrarEnListado]',values.controller ~ '_OrdenMostrarEnListado',datos.OrdenMostrarEnListado,'4','CampoUnidades','6') #}
+        {# macro.input(atributos.Entidad,'Etiqueta','text',values.controller ~ '[Entidad]',values.controller ~ '_Entidad',datos.Entidad,'255','CampoTextoLargo','7') #}
+        {# macro.input(atributos.IdEntidad,'Etiqueta','text',values.controller ~ '[IdEntidad]',values.controller ~ '_IdEntidad',datos.IdEntidad,'11','CampoImporte','8') #}
+        {% if datos.primaryKeyMD5 %}
+            <div style="clear:both;"></div>
+            {{ macro.labelPopup('Click aquí para Enlazar con...', app.path ~ '/'  ~ values.controller ~ '/enlazar/' ~ datos.primaryKeyMD5,datos.objetoEnlazado,600) }}
+        {% endif %}
+    </div>      
+            
+    {% include '_global/fieldsComunes.html.twig' %}        
+</div>
+<script>
+
+    $(function(){
+
+        if ($('#solapaActiva').val() === '0') {
+            $('#solapaActiva').val('1');
+        }
+        $("#tabs").tabs({ active: $('#solapaActiva').val() });        
+    });
+    
+</script> 
+{{ macro.foco(values.controller ~ '_IdZona') }}

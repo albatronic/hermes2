@@ -1,0 +1,73 @@
+# Module: PedidosWebCab
+# Document : modules\PedidosWebCab\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 12.07.2014 20:29:53
+#
+---
+listados:
+  -
+    title: PedidosWebCab
+    order_by: IDPedido
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      IDSucursal: { field: IDSucursal, title: IDSucursal, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDAlmacen: { field: IDAlmacen, title: IDAlmacen, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDAgente: { field: IDAgente, title: IDAgente, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDComercial: { field: IDComercial, title: IDComercial, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Fecha: { field: Fecha, title: Fecha, length: 10, align: R, type: date, total: NO, formula: null, format: null }
+      FechaEntrega: { field: FechaEntrega, title: FechaEntrega, length: 10, align: R, type: date, total: NO, formula: null, format: null }
+      IDCliente: { field: IDCliente, title: IDCliente, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDDirec: { field: IDDirec, title: IDDirec, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Importe: { field: Importe, title: Importe, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Descuento: { field: Descuento, title: Descuento, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      BaseImponible1: { field: BaseImponible1, title: BaseImponible1, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Iva1: { field: Iva1, title: Iva1, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      CuotaIva1: { field: CuotaIva1, title: CuotaIva1, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Recargo1: { field: Recargo1, title: Recargo1, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      CuotaRecargo1: { field: CuotaRecargo1, title: CuotaRecargo1, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      BaseImponible2: { field: BaseImponible2, title: BaseImponible2, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Iva2: { field: Iva2, title: Iva2, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      CuotaIva2: { field: CuotaIva2, title: CuotaIva2, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Recargo2: { field: Recargo2, title: Recargo2, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      CuotaRecargo2: { field: CuotaRecargo2, title: CuotaRecargo2, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      BaseImponible3: { field: BaseImponible3, title: BaseImponible3, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Iva3: { field: Iva3, title: Iva3, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      CuotaIva3: { field: CuotaIva3, title: CuotaIva3, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Recargo3: { field: Recargo3, title: Recargo3, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      CuotaRecargo3: { field: CuotaRecargo3, title: CuotaRecargo3, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      TotalBases: { field: TotalBases, title: TotalBases, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      TotalIva: { field: TotalIva, title: TotalIva, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      TotalRecargo: { field: TotalRecargo, title: TotalRecargo, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      RecargoFinanciero: { field: RecargoFinanciero, title: RecargoFinanciero, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      CuotaRecargoFinanciero: { field: CuotaRecargoFinanciero, title: CuotaRecargoFinanciero, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Total: { field: Total, title: Total, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      IDEstado: { field: IDEstado, title: IDEstado, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      IDAlbaran: { field: IDAlbaran, title: IDAlbaran, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Observaciones: { field: Observaciones, title: Observaciones, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      NotasInternas: { field: NotasInternas, title: NotasInternas, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      Peso: { field: Peso, title: Peso, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Volumen: { field: Volumen, title: Volumen, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Bultos: { field: Bultos, title: Bultos, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Expedicion: { field: Expedicion, title: Expedicion, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      IDAgencia: { field: IDAgencia, title: IDAgencia, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      FlagFacturar: { field: FlagFacturar, title: FlagFacturar, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      IDFP: { field: IDFP, title: IDFP, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDZonaEnvio: { field: IDZonaEnvio, title: IDZonaEnvio, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      GastosEnvio: { field: GastosEnvio, title: GastosEnvio, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      PlazoEntrega: { field: PlazoEntrega, title: PlazoEntrega, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      Envolver: { field: Envolver, title: Envolver, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      TextoEnvolver: { field: TextoEnvolver, title: TextoEnvolver, length: '250', align: L, type: string, total: NO, formula: null, format: null }
+      IDCupon: { field: IDCupon, title: IDCupon, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Key1Pasarela: { field: Key1Pasarela, title: Key1Pasarela, length: '100', align: L, type: string, total: NO, formula: null, format: null }
+      Key2Pasarela: { field: Key2Pasarela, title: Key2Pasarela, length: '100', align: L, type: string, total: NO, formula: null, format: null }

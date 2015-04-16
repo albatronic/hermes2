@@ -1,0 +1,106 @@
+{# Template filtro.html.twig for EnlaceConta #}
+{# -------------------------------------------------------#}
+<div class='FormManto'>
+ 
+    <div class="Cuerpo" style="width:30%;padding:5px;">    
+    <form name='filtro' id='fromTrasvase' action='' method='POST'>   
+	<input name='controller' value='{{values.controller}}' type='hidden' />
+	<input name='action' value='Trasvase' type='hidden' />
+
+            {% include "_global/FormErrores.html.twig" with {'errores': values.errores} %}
+            
+            {{ macro.select('Sucursal','Etiqueta','IDSucursal','IDSucursal',none,suc,user.getSucursales(''),'Select',none,none) }}
+            
+            <div id="div_Emitidas" class="Item">
+                <div class="Etiqueta">Facturas Emitidas</div>
+                <input name="Emitidas" id="Emitidas" type="checkbox" />
+            </div>
+
+            <div id="div_Recibidas" class="Item">
+                <div class="Etiqueta">Facturas Recibidas</div>
+                <input name="Recibidas" id="Recibidas" type="checkbox" />
+            </div>
+
+            <div id="div_Cobros" class="Item">
+                <div class="Etiqueta">Cobros</div>
+                <input name="Cobros" id="Cobros" type="checkbox" onchange="if (this.value == 'on') getElementById('IDEstadoCobros').style.display=''; else getElementById('IDEstadoCobros').style.display='none';"/>
+                <select name="IDEstadoCobros" id="IDEstadoCobros" style="display:none;">
+                    {% for estado in values.estadosRecibos.fetchAll('Descripcion') %}
+                    <option value="{{estado.Id}}"{% if estado.Id=='6'%} SELECTED{% endif %}>{{estado.Value}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div id="div_Pagos" class="Item">
+                <div class="Etiqueta">Pagos</div>
+                <input name="Pagos" id="Pagos" type="checkbox" onchange="if (this.value == 'on') getElementById('IDEstadoPagos').style.display=''; else getElementById('IDEstadoPagos').style.display='none';" />
+                <select name="IDEstadoPago" id="IDEstadoPagos" style="display:none;" >
+                    {% for estado in values.estadosRecibos.fetchAll('Descripcion') %}
+                    <option value="{{estado.Id}}"{% if estado.Id=='6'%} SELECTED{% endif %}>{{estado.Value}}</option>
+                    {% endfor %}
+                </select>                
+            </div>
+
+            {{ macro.fecha('Desde Fecha','Etiqueta','DesdeFecha','DesdeFecha',none,'10','CampoFecha') }}
+            {{ macro.fecha('Hasta Fecha','Etiqueta','HastaFecha','HastaFecha',none,'10','CampoFecha') }}
+
+            <div id="divBoton" style="margin-top: 10px; text-align: center;">
+            <input id="botonTrasvase" value="Trasvase" type="button" class="Comando" style="width: 150px;"/>
+            </div>
+    </form>                
+    </div>
+        
+    <div class='Listado' style="float: right; padding: 5px; margin-left: 0px;">
+
+        {% if values.traspasos %}
+        <table width='100%'>
+            <tr class='Titulos'>
+                <td class='Item'>Día</td>
+                <td class='Item'>Hora</td>
+                <td class='Item'>Desde Fecha</td>
+                <td class='Item'>Hasta Fecha</td>
+                <td class='Item'>Emitidas</td>
+                <td class='Item'>Recibidas</td>
+                <td class='Item'>Cobros</td>
+                <td class='Item'>Pagos</td>
+                <td class='Item'>Asientos</td>
+                <td class='Item'>Subcuentas</td>
+                <td class='Item'>Archivos generados</td>
+                <td></td>
+            </tr>
+            {% for key,traspaso in values.traspasos %}
+            <tr>
+                <td class='Item'>{{traspaso.Dia}}</td>
+                <td class='Item'>{{traspaso.Hora}}</td>
+                <td class='Item'>{{traspaso.DesdeFecha}}</td>
+                <td class='Item'>{{traspaso.HastaFecha}}</td>
+                <td class='Item' align="right">{{traspaso.Emitidas}}</td>
+                <td class='Item' align="right">{{traspaso.Recibidas}}</td>
+                <td class='Item' align="right">{{traspaso.Cobros}}</td>
+                <td class='Item' align="right">{{traspaso.Pagos}}</td>
+                <td class='Item' align="right">{{traspaso.Asientos}}</td>
+                <td class='Item' align="right">{{traspaso.Subcuentas}}</td>
+                <td class='Item'>
+                    <p><a href="{{traspaso.ArchivoDiario}}" target="_blank">Diario</a></p>
+                    <p><a href="{{traspaso.ArchivoSubcuentas}}" target="_blank">Subcuentas</a></p>                    
+                </td>                
+                <td>
+                    <a href='{{app.path}}/{{values.controller}}/BorrarLog/{{key}}' title='Borrar Log ...'>
+                        <img src="{{app.path}}/images/botonborrar.png" width="16px" height="16px" />
+                    <a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+            
+</div>
+<script>
+    $(function(){
+        $('#botonTrasvase').click(function(){
+            $('#botonTrasvase').hide("slow");
+            $('#fromTrasvase').submit();
+        });
+    });
+</script>

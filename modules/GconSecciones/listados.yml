@@ -1,0 +1,47 @@
+# Module: GconSecciones
+# Document : modules\GconSecciones\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 30.10.2012 18:44:57
+#
+---
+listados:
+  -
+    title: GconSecciones
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Titulo: { title: Titulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Subtitulo: { title: Subtitulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Introduccion: { title: Introduccion, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      MostrarTitulo: { title: MostrarTitulo, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarSubtitulo: { title: MostrarSubtitulo, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarIntroduccion: { title: MostrarIntroduccion, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarEnMenu1: { title: MostrarEnMenu1, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarEnMenu2: { title: MostrarEnMenu2, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarEnMenu3: { title: MostrarEnMenu3, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarEnMenu4: { title: MostrarEnMenu4, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarEnMenu5: { title: MostrarEnMenu5, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      EtiquetaWeb1: { title: EtiquetaWeb1, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      EtiquetaWeb2: { title: EtiquetaWeb2, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      EtiquetaWeb3: { title: EtiquetaWeb3, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      EtiquetaWeb4: { title: EtiquetaWeb4, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      EtiquetaWeb5: { title: EtiquetaWeb5, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      OrdenMenu1: { title: OrdenMenu1, length: '4', align: R, type: integer, total: NO, formula: null, format: null }
+      OrdenMenu2: { title: OrdenMenu2, length: '4', align: R, type: integer, total: NO, formula: null, format: null }
+      OrdenMenu3: { title: OrdenMenu3, length: '4', align: R, type: integer, total: NO, formula: null, format: null }
+      OrdenMenu4: { title: OrdenMenu4, length: '4', align: R, type: integer, total: NO, formula: null, format: null }
+      OrdenMenu5: { title: OrdenMenu5, length: '4', align: R, type: integer, total: NO, formula: null, format: null }
+      ModoMostrarContenidos: { title: ModoMostrarContenidos, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      CriterioOrdenContenidosHijos: { title: CriterioOrdenContenidosHijos, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      MostrarSubsecciones: { title: MostrarSubsecciones, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }

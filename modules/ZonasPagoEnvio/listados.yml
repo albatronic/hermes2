@@ -1,0 +1,33 @@
+# Module: ZonasPagoEnvio
+# Document : modules\ZonasPagoEnvio\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 14.03.2014 23:46:54
+#
+---
+listados:
+  -
+    title: Zonas - Pago - Envio
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: L
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      IDZona: { field: IDZona, title: Zona, length: '20', align: L, type: integer, total: NO, formula: null, format: null }
+      IDFP: { field: IDFP, title: Forma Pago, length: '20', align: L, type: integer, total: NO, formula: null, format: null }
+      IDAgencia: { field: IDAgencia, title: Agencia, length: '25', align: L, type: integer, total: NO, formula: null, format: null }
+      PlazoEntrega: { field: PlazoEntrega, title: Plazo Entrega, length: '30', align: L, type: string, total: NO, formula: null, format: null }
+      ImportePedidoMinimo: { field: ImportePedidoMinimo, title: Pedido Mínimo, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      ImportePedidoMaximo: { field: ImportePedidoMaximo, title: Pedido Máximo, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      DesdeGramos: { field: DesdeGramos, title: Desde Gramos, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      HastaGramos: { field: HastaGramos, title: Hasta Gramos, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Gastos: { field: Gastos, title: Gastos, length: '6', align: R, type: integer, total: NO, formula: null, format: null }
+      Uso: { field: Uso, title: Uso, length: '15', align: L, type: integer, total: NO, formula: null, format: null }

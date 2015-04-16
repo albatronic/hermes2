@@ -1,0 +1,72 @@
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="{{app.path}}/"><img src="{{app.path}}/docs/docs{{emp.Id}}/images/logo.jpg"  height="39" title="Inicio" alt="Logo Empresa" class="logo-default"/></a>
+            <div class="menu-toggler sidebar-toggler hide"></div>
+        </div>
+       
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-left">
+                <li class="dropdown dropdown-user dropdown-user dropdown-stores">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <span class="username username-hide-on-mobile"> {{suc.Value}}</span>
+                        <i class="fa fa-angle-down"></i>
+                     </a>
+                     <ul class="dropdown-menu dropdown-menu-default">
+                        {% for tienda in user.Sucursales %}
+                            <li>
+                                <a href="{{app.path}}/index/cambiaTienda/{{tienda.Id}}">
+                                    {% if tienda.Id == suc.Id %}{% endif %}
+                                    {{tienda.Value}}
+                                </a>
+                            </li>
+                        {% endfor %}                        
+                     </ul>
+                 </li>
+            </ul>
+      
+           <ul class="nav navbar-nav pull-right">
+                <li class="dropdown dropdown-user">
+                    <a href="#" class="dropdown-toggle btn-help"><i class="fa fa-question-circle"></i>Ayuda</a>
+                </li>
+                <li class="dropdown dropdown-user">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                     <i class="icon-user"></i>
+                     <span class="username username-hide-on-mobile">{{user.Nombre}}</span>
+                     <i class="fa fa-angle-down"></i>
+                     </a>
+                     <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="{{app.path}}/Index/logout"><i class="icon-key"></i>Salir</a>
+                        </li>
+                     </ul>
+                 </li>
+                 <!-- END USER LOGIN DROPDOWN -->
+                 <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                 <li class="dropdown dropdown-quick-sidebar-toggler">
+                     <a href="javascript:;" class="dropdown-toggle" id="abrirMinicarrito">
+                         <i class="icon-basket"></i>
+                        {% if values.carrito.totales.Unidades > 0 %}
+                        <span class="basket-items" id="unidadesMinicarrito">
+                            {{ macro.numero(values.carrito.totales.Unidades) }}
+                        </span>
+                        {% endif %}
+                    </a>
+                 </li>
+                 <!-- END QUICK SIDEBAR TOGGLER -->
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->

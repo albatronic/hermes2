@@ -1,0 +1,570 @@
+
+
+{# label: MUESTRA UN <DIV> CONTENIENDO EL TEXTO value Y APLICANDO LA CLASE class #}
+{# ----------------------------------------------------------------------------- #}
+{% macro label(atributos, class, name, id) %}
+<span class="{{ class|default('Etiqueta') }}" title="{{atributos.help}}">
+    {% if (atributos.varEnv == '') and (user.getIDPerfil.IDPerfil == '1') and (idiomas.actual == 0) %}
+        <input
+            title="Poner/Quitar visibilidad"
+            id="checkVisibilidad{{id}}"
+            type="checkbox"
+            value="{{atributos.visible}}"
+            {% if (atributos.visible == '1') %} checked {% endif %}
+            onchange="
+              if ($('#checkVisibilidad{{id}}').is(':checked')) {
+                  $('#checkVisibilidad{{id}}').val('1');
+                  $('#spanVisibilidad{{id}}').removeClass('invisible');
+              } else {
+                  $('#checkVisibilidad{{id}}').val('0');
+                  $('#spanVisibilidad{{id}}').addClass('invisible');
+              }
+              actualizaVarEntorno('{{id}}_visible',$('#checkVisibilidad{{id}}').val());
+            "
+        />
+        <input
+            title="Poner/Quitar multi idioma"
+            id="checkMultiIdioma{{id}}"
+            type="checkbox"
+            value="{{atributos.translatable}}"
+            {% if (atributos.translatable > '0') %} checked {% endif %}
+            onchange="
+              if ($('#checkMultiIdioma{{id}}').is(':checked')) {
+                  $('#checkMultiIdioma{{id}}').val('1');
+              } else {
+                  $('#checkMultiIdioma{{id}}').val('0');
+              }
+              actualizaVarEntorno('{{id}}_translatable',$('#checkMultiIdioma{{id}}').val());
+            "
+        />           
+    {% endif %}         
+    <span id="spanVisibilidad{{id}}" 
+        {% if (user.getIDPerfil.IDPerfil == '1') and (atributos.visible == '0') and (atributos.varEnv == '') %} class="invisible"{% endif %}
+        {% if (atributos.varEnv == '') and (user.getIDPerfil.IDPerfil == '1') and (idiomas.actual == 0) %}
+             style="cursor: pointer;"
+             onclick="popUpVariablesEnv('Env','Mod','{{id}}');"
+        {% endif %}              >            
+        {{ atributos.caption }}
+    </span>
+</span>
+{% endmacro %}
+
+{% macro labelPopup(caption, url, objetoEnlazado, ancho, alto, class) %}
+<li>
+    <div class="form_grid_12">
+        <label class="{{ class|default('field_title') }}"
+             style="cursor: pointer;"
+             onclick="window.open('{{url}}','{{caption}}','width={{ancho|default(400)}},height={{alto|default(580)}}');"
+             title='{{caption}}'
+            >
+            {{ caption }}
+        </label>
+        <div id="enlace" class="form_input">
+            <span>{{objetoEnlazado}} ({{objetoEnlazado.UrlFriendly}})</span>
+        </div>    
+    </div>
+</li>        
+{% endmacro %}
+
+{# MUESTRA EL DIALOGO DE ORDENAR SI EL PERFIL TIENE PERMISO #}
+{% macro ordenarPopup(controller,columna,key,columnaMostrar) %}
+{% if permisosModulo['MO'] %}
+<a href="javascript:;" onclick="popUpOrdenar('{{controller}}','{{columna}}','{{key}}','{{columnaMostrar|default('Titulo')}}');">
+    <img src="{{appPath}}/images/boton-ordenar.png" width="18px;" alt="Ordenar" title="Ordenar"/>
+</a>
+{% endif %}
+{% endmacro%}
+
+{# ACTUALIZA VIA AJAX LA columna DE LA entidad e idEntidad PONIENDO EL VALOR valor #}
+{% macro actualizaColumna(entidad,idEntidad,columna,valor,titulo,accionAdicional) %}
+<input
+    title="{{titulo}}"
+    id="check{{entidad}}{{idEntidad}}{{columna}}"
+    type="checkbox"
+    value="{{valor}}"
+    {% if (valor == '1') %} checked {% endif %}
+    onchange="
+      if ($('#check{{entidad}}{{idEntidad}}{{columna}}').is(':checked')) {$('#check{{entidad}}{{idEntidad}}{{columna}}').val('1');} else {$('#check{{entidad}}{{idEntidad}}{{columna}}').val('0');}
+      actualizaColumna('{{entidad}}','{{idEntidad}}','{{columna}}',$('#check{{entidad}}{{idEntidad}}{{columna}}').val());
+      {{accionAdicional}}
+    "
+/> 
+{% endmacro%}
+
+{# ACTUALIZA VIA AJAX LA RELACION N A M entre entidades e id de entidades #}
+{% macro actualizaRelacion(entidadOrigen,idOrigen,entidadDestino,idDestino,valor) %}
+<input
+    title="Poner/Quitar relación"
+    id="check{{entidadDestino}}{{idDestino}}"
+    type="checkbox"
+    value="{{valor}}"
+    {% if (valor != '') %} checked {% endif %}
+    onchange="
+      if ($('#check{{entidadDestino}}{{idDestino}}').is(':checked')) {$('#check{{entidadDestino}}{{idDestino}}').val('1');} else {$('#check{{entidadDestino}}{{idDestino}}').val('0');}
+      actualizaRelacion('{{entidadOrigen}}','{{idOrigen}}','{{entidadDestino}}','{{idDestino}}',$('#check{{entidadDestino}}{{idDestino}}').val());
+    "
+/> 
+{% endmacro%}
+
+{% macro publicar(atributos,name,id,value) %}
+{% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and (atributos.translatable == '1' or idiomas.actual == '0') %}
+<input name="{{name}}" id="{{ id|default(name)}}" type="hidden" value="{{value}}" />
+<input type="checkbox"
+       name="checkbox_{{ name }}"
+       id="checkbox_{{ id|default(name)}}"
+       value="{{ value }}"
+        {% if (value == '1') %} CHECKED {% endif %}
+       class="tip_top" title="{{ atributos.help }}"
+       onchange="
+            {{ _self.alertSave }}
+            if ($('#checkbox_{{ id|default(name)}}').is(':checked')) {$('#{{ id|default(name)}}').val('1');} else {$('#{{ id|default(name)}}').val('0');}
+            actualiza;
+       "
+       {{extra}}
+       {% if atributos.updatable == '0' %} disabled {% endif %}
+/>
+{% endif %}
+{% endmacro %}
+
+{# input: MUESTRA UN <INPUT> #}
+{# ------------------------- #}
+{% macro input(atributos,classLabel, type, name, id, value, maxLength, class, extra, onchange, autoComplete, tabIndex) %}
+{% if not(atributos is iterable) %}
+    {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
+{% endif %}
+{% if atributos.editorTiny != '1' %}
+<div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="Item"{% else %}class="oculto"{% endif %}>
+    {% if atributos.caption %}
+        {{ _self.label(atributos,classLabel, name, id) }}
+    {% endif %}
+        
+    {% if not autoComplete %}
+        {% if (type == 'checkbox') %}
+        <input name="{{name}}" id="{{ id|default(name)}}" type="hidden" value="{{value}}" />
+        <input type="checkbox"              
+               id="checkbox_{{ id|default(name)}}"
+               value="{{ value }}"
+                {% if (value == '1') %} CHECKED {% endif %}
+               class="tip_top" title="{{ atributos.help }}" tabindex="{{ tabIndex }}"
+               onchange="
+                    {{ onchange }} {{ _self.alertSave }}
+                    if ($('#checkbox_{{ id|default(name)}}').is(':checked')) {$('#{{ id|default(name)}}').val('1');} else {$('#{{ id|default(name)}}').val('0');}
+               "
+               {{extra}}
+               {% if atributos.updatable == '0' %} disabled {% endif %}
+        />
+        {% else %}
+        <input type="{{ type|default('text') }}"
+               name="{{ name }}"
+               id="{{ id|default(name)}}"
+               value="{{ value }}" maxlength="{{ maxLength|default(20) }}"
+               class="{{class}}" {{extra}} title="{{ atributos.help }}" tabindex="{{ tabIndex }}"
+               onchange="{{ onchange }} {{ _self.alertSave }}"
+               {{extra}}
+               {% if atributos.updatable == '0' %} disabled {% endif %}
+        />
+        {% endif %}
+    {% else %}
+        <input type="hidden"
+               id="{{ id|default(name)}}_valorAnterior"
+               value="{{ value }}" maxlength="{{ maxLength|default(20) }}"
+        />
+        <input type="hidden"
+               name="{{ name }}"
+               id="{{ id|default(name)}}"
+               value="{{ value }}" maxlength="{{ maxLength|default(20) }}"
+        />        
+        <input type="{{ type|default('text') }}"
+               id="{{ id|default(name)}}_autoComplete"
+               value="{{ autoComplete[2] }}" maxlength="{{ maxLength|default(20) }}"
+               class="{{class}}" title="{{ atributos.help }}" tabindex="{{ tabIndex }}"
+               onkeyup="autoComplete('{{ id|default(name)}}_autoComplete','{{ id|default(name)}}','{{ id|default(name)}}_autoComplete','{{autoComplete[0]}}','{{autoComplete[1]}}',$('#{{autoComplete[3]}}').val());"
+               onchange = "{{ _self.alertSave }}"
+               onblur = "{{onchange}}"
+         />
+    {% endif %}            
+    {#    
+    <input type="{{ type|default('text') }}" name="{{ name }}" id="{{ id|default(name)}}"
+           value="{{ value }}" maxlength="{{ maxLength|default(20) }}"
+           class="{{ class }}" {{extra}} onchange="{{ onchange }}"/>
+    #}  
+</div>
+{% else %}
+    {{ _self.textarea(atributos, classLabel, name, id, value, rows, cols, 'textarea', tabIndex) }}
+{% endif %}
+{% endmacro %}
+
+{# ------------------------
+   INPUT RADIO 
+---------------------------#}
+{% macro radio(atributos, classLabel, name, id, valueSelected, arrayOptions, class, tabIndex, extra, onchange) %}
+
+<div id="div_{{id|default(name)}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="Item"{% else %}class="oculto"{% endif %}>
+
+    {% if atributos.caption %}
+        {{ _self.label(atributos, classLabel, name, id) }}
+    {% endif %}
+
+    <div class="form_input">
+        {% for value in arrayOptions %}
+        <input  
+           type="radio"
+           name="{{ name }}"
+           id="{{ id|default(name)}}"
+           value="{{value.Id}}"
+           class="{{ class |default('input_grow') }}"
+           tabindex="{{ tabindex }}"
+           onchange="{{ onchange}} {{ _self.alertSave }}"
+           {% if atributos.updatable == '0' %} disabled {% endif %}
+           {{extra}}
+           {% if valueSelected == value.Id %} checked{% endif %}
+        />&nbsp;{{value.Value}}&nbsp;
+        {% endfor %}
+    </div>
+</div>
+   
+{% endmacro %}
+
+{# cc: CUENTA CORRIENTE #}
+{# -------------------- #}
+{% macro cc(atributos,classLabel,id,entidad,banco,oficina,digitoControl,cuentaCorriente) %}
+<div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="Item"{% else %}class="oculto"{% endif %}>
+    {% if atributos.caption %}
+        {{ _self.label(atributos,classLabel, name, id) }}
+    {% endif %}
+    <input type="text" name="{{entidad}}[Banco]" id="{{entidad}}_Banco"
+           value="{{ banco }}" maxlength="4" class="CampoBanco"
+    />-
+    <input type="text" name="{{entidad}}[Oficina]" id="{{entidad}}_Oficina"
+           value="{{ oficina }}" maxlength="4" class="CampoOficina"
+    />-
+    <input type="text" name="{{entidad}}[Digito]" id="{{entidad}}_Digito"
+           value="{{ digitoControl }}" maxlength="2" class="CampoDigitoControl" readonly
+    />-
+    <input type="text" name="{{entidad}}[Cuenta]" id="{{entidad}}_Cuenta"
+           value="{{ cuentaCorriente }}" maxlength="10" class="CampoCuentaCorriente"
+    />
+</div>
+{% endmacro %}
+
+{# etiqueta: MUESTRA UNA ETIQUETA NO EDITABLE #}
+{# ------------------------------------------ #}
+{% macro etiqueta(atributos, classLabel, text, id) %}
+{% if not(atributos is iterable) %}
+    {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
+{% endif %}
+<div class="Item" id="div_{{id}}">
+    {% if atributos.caption %}
+        {{ _self.label(atributos,classLabel,none,id) }}
+    {% endif %}
+    <p class="Literal">{% autoescape false%}{{ text }}{% endautoescape %} </p>
+</div>
+{% endmacro %}
+
+{# cif: MUESTRA UN <INPUT> #}
+{# ------------------------- #}
+{% macro cif(atributos,classLabel, type, name, id, value, class) %}
+<div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="Item"{% else %}class="oculto"{% endif %}>
+    {% if atributos.caption %}
+        {{ _self.label(atributos,classLabel, name, id) }}
+    {% endif %}
+    <input type="{{ type|default('text') }}" name="{{ name }}"  id="{{ id|default(name)}}"
+           value="{{ value }}" class="{{ class }}" maxlength="15"
+           onchange="ValidaNif('{{ id|default(name)}}'); {{ _self.alertSave }}" />
+</div>
+{% endmacro %}
+
+{# textarea: MUESTRA UN <TEXTAREA> #}
+{# ------------------------------- #}
+{% macro textarea(atributos, classLabel, name, id, value, rows, cols, class) %}
+{% if not(atributos is iterable) %}
+    {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
+{% endif %}
+
+<div {% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="Item"{% else %}class="oculto"{% endif %} id="div_{{id|default(name)}}">
+    {% if atributos.caption %}
+        {{ _self.label(atributos, classLabel, name, id) }}
+    {% endif %}
+    <div style="float: left;margin-bottom: 5px;">
+    <textarea  name="{{ name }}"
+               id="{{ id|default(name)}}"
+               class="TextArea{% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and atributos.editorTiny == '1' and (atributos.translatable or idiomas.actual == 0) %}tiny{% endif %}" title="{{ atributos.help }}"
+               rows="{{ rows|default(5) }}"
+               cols="{{ cols|default(75) }}"
+               tabindex="{{ tabindex }}"
+               onchange="{{ _self.alertSave }}"
+               {% if atributos.updatable == '0' %} disabled {% endif %}
+               >{{value}}</textarea>  
+    </div>
+</div>
+{% endmacro %}
+
+{# select: MUESTRA UN <SELECT> #}
+{# --------------------------- #}
+{% macro select(atributos, classLabel, name, id, width, defecto, opciones, class, popup, onchange, onblur) %}
+    {% if not(atributos is iterable) %}
+        {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
+    {% endif %}
+    <div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="Item"{% else %}class="oculto"{% endif %}>
+    {% if atributos.caption %}
+        {{ _self.label(atributos, classLabel, name, id) }}
+    {% endif %}
+    {% if (atributos.updatable == '0') %}
+        <input type="hidden" name="{{ name }}" value="{{ defecto }}" />
+    {% endif %}
+    <div id="select_{{id}}">
+        <select
+                {% if (atributos.updatable == '1') %}
+                name="{{ name }}" id="{{ id|default(name)}}"
+                {% endif %}
+                {% if (atributos.updatable == '0') %}
+                disabled
+                {% endif %}
+                style="width:{{width|default(100)}}px;"
+                class="{{ class|default('Select') }}"
+                onchange="{{onchange}}"
+                onblur="{{onblur}} {{ _self.alertSave }}"
+                tabindex="{{tabindex}}"
+        >
+            {% for value in opciones %}
+            <option value="{{ value.Id }}" {% if (value.Id==defecto) %} SELECTED {% endif %}>
+                {{value.Value}}
+            </option>
+            {% endfor %}
+        </select> 
+    {% if popup %}
+        {{ _self.linkimg(popup) }}
+    {% endif %}
+    </div>            
+</div>
+{% endmacro %}
+
+{# selectGroup: MUESTRA UN <SELECT> AGRUPADO #}
+{# --------------------------- #}
+{% macro selectGroup(atributos, classLabel, name, id, width, defecto, opciones, class, tabindex, popup, onchange, onblur) %}
+<div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="Item"{% else %}class="oculto"{% endif %}>
+    {% if atributos.caption %}
+        {{ _self.label(atributos, classLabel, name, id) }}
+    {% endif %}
+    {% if (atributos.updatable == '0') %}
+        <input type="hidden" name="{{ name }}" value="{{ defecto }}" />
+    {% endif %}
+    <div id="select_{{id}}">
+        <select
+                {% if (atributos.updatable == '1') %}
+                name="{{ name }}" id="{{ id|default(name)}}"
+                {% endif %}
+                {% if (atributos.updatable == '0') %}
+                disabled
+                {% endif %}
+                style="width:{{width|default(100)}}px;"
+                class="{{ class|default('Select') }}"
+                onchange="{{onchange}}"
+                onblur="{{onblur}} {{ _self.alertSave }}"
+                tabindex="{{tabindex}}"
+        >
+            {% for value in opciones %}
+                <optgroup label="{{value.Titulo}}">
+                    {% for opcion in value.items %}
+                        <option value="{{ opcion.Id }}" {% if (opcion.Id==defecto) %} SELECTED {% endif %}>
+                        {{opcion.Value}}
+                        </option>
+                    {% endfor%}
+                </optgroup>
+            {% endfor %}
+        </select>
+    </div> 
+    {% if popup %}
+        {{ _self.linkimg(popup) }}
+    {% endif %}
+</div>
+
+{% endmacro %}
+
+{# img: MUESTRA UNA IMAGEN #}
+{% macro img(url,width,height,alt) %}
+    <img src="{{ url }}" width="{{ width|default('') }}" alt="{{alt|default('Image')}}"/>
+{% endmacro%}
+
+{# linkimg: MUESTRA UN LINK CON LUPA COMO IMAGEN #}
+{# opciones es un array:
+        Elemento 0 : app.path
+        Elemento 1 : El nombre del controlador
+        Elemento 2 : El titulo de la ventana que se mostrará
+        Elemento 3 : Ancho de la ventana
+        Elemento 4 : Alto de la ventana
+#}
+{% macro linkimg(opciones) %}
+    {#<a href="javascript:;" onClick="window.open('{{app.path}}/{{controller}}/list','{{controller}}','width=590,height=400,resizable=yes,scrollbars=yes')"><img src="{{app.path}}/images/lupa.png" width="16px" height="16px" alt="Editar..."></a>#}
+    <a class="thickbox" title= "{{ opciones[2]|default("Ventana") }}" href="{{opciones[0]}}/{{opciones[1]}}/list/?TB_iframe=true&height={{ opciones[3]|default("500") }}&width={{ opciones[4]|default("600") }}">
+        <img src="{{opciones[0]}}/images/lupa.png" width="16px" height="16px" alt="Editar...">
+    </a>
+{% endmacro%}
+
+{# fecha: MUESTRA UN INPUT DE TIPO FECHA. UTILIZA UN POPUP DE CALENDARIO #}
+{% macro fecha(atributos,classLabel,name,id,value,size,class,extra) %}
+{% if not(atributos is iterable) %}
+    {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
+{% endif %}
+<div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.IDPerfil == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="Item"{% else %}class="oculto"{% endif %}>    
+    <div class="Item">
+    {% if atributos.caption %}
+        {{ _self.label(atributos,classLabel, name, id) }}
+    {% endif %}
+        <script>
+            $(function() {
+                    $( "#{{id|default(label)}}" ).datepicker(
+                        {dateFormat: "dd-mm-yy",changeMonth: true, changeYear: true, showWeek: true, firstDay: 1, showAnim: "drop"}
+                    );}
+             );
+        </script>
+        <input name="{{name}}" type="text" id="{{id|default(label)}}" value="{{value}}"
+               size="{{size|default("10")}}" class="{{class|default("calendario")}}"
+               onKeyUp="" {{extra}}
+        />
+    </div>
+</div>
+{% endmacro %}
+
+{# foco: PONE EL FOCO EN EL ID INDICADO #}
+{% macro foco(id) %}
+<script language='JavaScript' type='text/javascript'>
+$('#{{id}}').focus();
+</script>
+{% endmacro %}
+
+{# botonThickBox: ABRE UNA VENTANA THICKBOX RENDERIZANDO EL RESULTADO DEL CONTROLADOR Y ACTION INDICADO EN RUTA #}
+{% macro botonThickBox(path,ruta,ventanaTitulo,ventanaAlto,ventanaAncho)%}
+<a class="thickbox" title= "{{ventanaTitulo|default("Informe")}}" href="{{path}}/{{ruta}}/?TB_iframe=true&height={{ ventanaAlto|default("500") }}&width={{ ventanaAncho|default("600") }}">
+    <img src="{{path}}/images/botonreport.png" width="16px" height="16px" alt="{{ventanaTitulo|default("Informe")}}">
+</a>
+{% endmacro %}
+
+{# linkThickBox: ABRE UNA VENTANA THICKBOX RENDERIZANDO EL RESULTADO DEL CONTROLADOR Y ACTION INDICADO EN RUTA #}
+{% macro linkThickBox(path,textoLink,ruta,ventanaTitulo,ventanaAlto,ventanaAncho)%}
+<a class="thickbox" title= "{{ventanaTitulo|default("Informe")}}" href="{{path}}/{{ruta}}/?TB_iframe=true&height={{ ventanaAlto|default("500") }}&width={{ ventanaAncho|default("600") }}">
+    {{textoLink}}
+</a>
+{% endmacro %}
+
+{# botonDocumento: ABRE UNA VENTANA EMERGENTE MOSTRANDO LOS POSIBLES FORMATOS DEL DOCUMENTO #}
+{% macro botonDocumento(path,controller,id)%}
+<a href="javascript:;" title= "Imprimir" onclick="window.open('{{path}}/_Emergente/formatosDocumentos/{{controller}}/{{id}}','{{controller}}','width=690,height=600,status=false,resizable=1');">
+    <img src="{{path}}/images/print_cmd.png" width="24px" height="24px" alt="Imprimir">
+</a>
+{% endmacro %}
+
+{# historicoVentas: ABRE UNA VENTANA EMERGENTE MOSTRANDO EL HISTORICO DE VENTAS DEL ARTICULO Y CLIENTE #}
+{% macro historicoVentas(path,idArticulo,idCliente) %}
+<a href="javascript:;" onClick="window.open('{{path}}/_Emergente/HistoricoVentas/{{idArticulo}}/{{idCliente}}','HistoricoVentas','width=950,height=500,resizable=yes,scrollbars=yes');">
+    <img src="{{path}}/images/historico.png" width="16px" height="16px" alt="Historico" title="Historico de Ventas...">
+</a>
+{% endmacro %}
+
+{# historicoCompras: ABRE UNA VENTANA EMERGENTE MOSTRANDO EL HISTORICO DE COMPRAS DEL ARTICULO Y PROVEEDOR #}
+{% macro historicoCompras(path,idArticulo,idProveedor) %}
+<a href="javascript:;" onClick="window.open('{{path}}/_Emergente/HistoricoCompras/{{idArticulo}}/{{idProveedor}}','HistoricoCompras','width=850,height=500,resizable=yes,scrollbars=yes');">
+    <img src="{{path}}/images/historico.png" width="16px" height="16px" alt="Historico" title="Historico de Compras...">
+</a>
+{% endmacro %}
+
+{# fichaProducto: ABRE UNA VENTANA EMERGENTE MOSTRANDO LA FICHA DE UN PRODUCTO #}
+{% macro fichaProducto(path,idArticulo) %}
+<a href="javascript:;" onClick="window.open('{{path}}/_Emergente/fichaProducto/{{idArticulo}}','HistoricoCompras','width=850,height=500,resizable=yes,scrollbars=yes');">
+    <img src="{{path}}/images/icon_interrogacion.gif" alt="Ficha producto" title="Ficha del producto...">
+</a>
+{% endmacro %}
+
+{# promosVigentesCliente: Muesta un diálogo jquery con las promociones vigentes para el cliente #}
+{% macro promosVigentesCliente(path,cliente,fecha) %}
+<a href="javascript:;" onclick="$('#dialogPromo').dialog('open');">
+    <img src="{{path}}/images/botonreport.png" width="16px" height="16px" alt="Promociones" title="Promociones...">
+</a>
+{% include "Clientes/promosVigentesCliente.html.twig" with {'cliente': cliente, 'fecha': fecha} %}
+{% endmacro %}
+
+{# rutasVentaRepartoCliente: Muesta un diálogo jquery con las rutas de venta y de reparto para el cliente #}
+{% macro rutasVentaRepartoCliente(path, cliente) %}
+<a href="javascript:;" onclick="$('#dialogRutasVentaReparto').dialog('open');">
+    <img src="{{path}}/images/botonreport.png"  width="24px" alt="Rutas de Venta y Reparto" title="Rutas de Venta y Reparto...">
+</a>
+{% include "Clientes/rutasVentaReparto.html.twig" with {'cliente' : cliente }%}
+{% endmacro %}
+
+{# detalleRecepcionLinea: Muesta un diálogo jquery con el detalle de la recepcion de la linea de una entidad  #}
+{% macro detalleRecepcionLinea(path,lineaEntidad) %}
+<a href="javascript:;" onclick="$('#dialog{{lineaEntidad.IDLinea}}').dialog('open');">
+    <img src="{{path}}/images/botonreport.png" width="16px" height="16px" alt="Detalle Recepción" title="Detalle Recepción...">
+</a>
+{% include "RecepcionarLineas/detalleRecepcion.html.twig" with {'lineaEntidad': lineaEntidad} %}
+{% endmacro %}
+
+{# detalleExpedicionLinea: Muesta un diálogo jquery con el detalle de la expedicion de la linea de una entidad #}
+{% macro detalleExpedicionLinea(path,lineaEntidad) %}
+<a href="javascript:;" onclick="$('#dialog{{lineaEntidad.IDLinea}}').dialog('open');">
+    <img src="{{path}}/images/botonreport.png" width="16px" height="16px" alt="Detalle Expedición" title="Detalle Expedición...">
+</a>
+{% include "ExpedirLineas/detalleExpedicion.html.twig" with {'lineaEntidad': lineaEntidad} %}
+{% endmacro %}
+
+{# Muestra los documentos de la entidad#}
+{% macro documentos(entidad,idEntidad) %}
+    <iframe src='{{appPath}}/CpanDocs/listPopup/{{entidad}}/{{idEntidad}}/document/1' width='100%' height='270' scrolling='yes' style='border: 0px dotted grey;'></iframe>
+{% endmacro %}
+
+{# Muestra los documentos de la entidad#}
+{% macro documentosXXXX(entidad,idEntidad) %}
+<div>
+    <input name="document" type="file" id="document" size="20" class="Comando">
+    <input name="accion" type="submit" value="Enviar" class="Comando" onclick="$('#action').val('Documento')">
+    <input name="documentoBorrar" id="documentoBorrar" value="" type="hidden" />
+</div>
+<div id="Documentos" style="margin-top: 10px;"></div>
+<script>documentos('{{entidad}}', '{{idEntidad}}', 'Documentos');</script>
+<div style="clear:both;"></div>
+{% endmacro %}
+
+{# MUESTRA EL ICONO DE ALERTA PARA SALVAR EL REGISTRO #}
+{# ESTA MACRO ES LLAMADA POR EL EVENTO ONCHANGE DE TODOS LOS TAGS (input,select, chekbox, select, etc #}
+{% macro alertSave() %}
+$('.title_icon span').css('background','url({{appPath}}/images/alert.png)');
+{% endmacro%}
+
+{# MUESTRA UN VIDEO/AUDIO INCRUSTADO #}
+{% macro embedMedia(media,width,height) %}
+{% if media %}
+<embed bgcolor='#505050'
+       width='{{ width|default('250')}}'
+       height='{{ height|default('250')}}'
+       {#type='application/x-shockwave-flash'#}
+       allowScriptAccess='always'
+       src='{{media}}'
+       {#pluginspage='http://www.adobe.com/go/getflashplayer'#}
+       allowFullScreen='true'
+/>
+{% endif %}
+{% endmacro %}
+
+{#
+    MACRO PARA RECORTAR TEXTOS
+
+    Pinta los primeros 'nCaracteres' del 'texto' y si la longitud del texto
+    es mayor al número de caracteres recortados, pinta también puntos suspensivos
+
+    USO:    
+        {{ macro.recortaTexto('Hola buenos días',6)}}
+        esto pinta: Hola b ...
+
+    @param string texto El texto a recortar
+    @param int nCaracteres el número de caracteres a mostrar
+#}
+{% macro recortaTexto (texto, nCaracteres) %}
+    {% if texto|length > nCaracteres %}
+        {% set puntos = " ..." %}
+    {% endif %}
+    {{texto|slice(0,nCaracteres)}}{{puntos}}
+{% endmacro %}
+
+{% macro moneda(importe, nDecimales, separadorMiles, separadorDecimales, simbolo)%}
+    {{importe | number_format(nDecimales|default(2), separadorDecimales|default('.'), separadorMiles|default(','))}} {{simbolo|default('€')}}
+{% endmacro%}

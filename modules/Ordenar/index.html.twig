@@ -1,0 +1,79 @@
+{#
+    ACORDEON CON LOS ELEMENTOS A ORDENAR. PUEDEN SER:
+
+    Contenidos, álbumes, vídeos, banners, sliders, etc
+
+#}
+{% extends '_global/layoutPopup.html.twig' %}
+
+{% block content %}
+    
+<form name="form{{values.controller}}" id="form{{values.controller}}" action="" method="POST" enctype="multipart/form-data">
+    <input name="controller" value="{{values.controller}}" type="hidden" />
+    <input name="action" id="action" value="" type="hidden" />
+    <input name="entidad" id="entidad" value="{{values.entidad}}" type="hidden" />
+    <input name="filtro" id="filtro" value="{{values.filtro}}" type="hidden" />
+    <input name="columnaMostrar" id="columnaMostrar" value="{{values.columnaMostrar}}" type="hidden" />
+
+    {% if values.criteriosOrden|length > 1%}
+    <div style="margin-top: 10px; text-align: center;">
+        Ordenar por:
+        <select name="criterioOrden" id="criterioOrden">
+            {% for key,criterio in values.criteriosOrden %}
+                <option value="{{key}}" {% if key == values.criterioOrden %} SELECTED{% endif %}>{{criterio.caption}}</option>
+            {% endfor %}
+        </select>
+        <img src="{{app.path}}/images/lupa.png" onclick="$('#criterioOrden').change();"/>
+    </div>
+    {% else %}
+        <input name="criterioOrden" value="{{values.criterioOrden}}" type="hidden"/>
+    {% endif%}
+
+    <div id="divGuardarOrden" style="margin-top: 10px; text-align: center; display: none;">
+        <div id="botonSubmit"></div>
+        <input id="botonGuardarOrden" value="Guardar nuevo orden" type="submit" class="Comando"/>  
+    </div>
+        
+    {% if values.datos is not empty %}
+        <h3 class="listaOrdenh3">Pincha y desplaza los elementos a la ubicación deseada</h3>
+
+        <ul id="lista">
+            {% for valor in values.datos %}
+                <li class="listaOrdenli">{{valor.Value}}
+                    <input name="acordeon[{{valor.Id}}]" value="{{valor.Id}}" type="hidden"/>
+                </li>                    
+            {% endfor %}
+        </div>
+
+    {% else %}
+        <p>No hay elementos para ordenar. Tenga en cuenta que aquí solo se muestran los items que tienen la marca de 'Publicar'</p>
+    {% endif %}
+        
+</form>
+
+<script>
+$(function(){
+    
+    $( "#lista" ).sortable({
+        cursor: "move",
+        stop: function( event, ui ) {
+            // IE doesn't register the blur when sorting
+            // so trigger focusout handlers to remove .ui-state-focus
+            ui.item.children( "li" ).triggerHandler( "focusout" );
+            $('#divGuardarOrden').show();
+        }
+    });
+    
+    $('#criterioOrden').change(function(){
+        $('#action').val('Index');                      
+        submitForm('form{{values.controller}}');          
+    });
+    
+    $('#botonGuardarOrden').click(function(){
+        loading('botonSubmit');  
+        $('#action').val('Reordenar');                      
+        submitForm('form{{values.controller}}');        
+    });
+});
+</script>
+{% endblock %}

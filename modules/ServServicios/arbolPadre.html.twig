@@ -1,0 +1,8 @@
+{# empty Twig template #}
+
+{% if familia.nServicios > 0 %}
+    {% include 'ServServicios/' ~ subtemplate with {'familias': familia} %}
+{% else %}
+    <span>{{familia.titulo}}</span>  
+    <a href="{{app.path}}/{{values.controller}}/de/ServFamilias/IdFamilia/{{key}}" alt="Añadir servicio" title="Añadir servicio"><img src="{{app.path}}/images/detalle.png"/></a>    
+{% endif %}

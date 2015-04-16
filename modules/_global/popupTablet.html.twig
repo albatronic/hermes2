@@ -1,0 +1,39 @@
+{% import "_global/macros.html.twig" as macro %}
+{% spaceless %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-ES" lang="es-ES">
+    <head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>.: {{ app.name }} {% block title %} {{ titulo }} {% endblock %}</title>
+        <link rel="shortcut icon" href="favicon.ico" />
+
+        <!-- Para que esté disponible el path de la app en todos los java scripts -->
+        <script type="text/javascript">var appPath = "{{app.path}}";</script>
+
+        {% include "_global/css.html.twig" %}
+        {% include "_global/js.html.twig" %} >
+
+    </head>
+    <body style="background:#eeeeee;">
+        <div id="contenedor_popup">
+            <div id="contenido">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+
+        <div id="notificacion" title="Notificación"></div>
+        <div id="dialogoVarEnv" title="Propiedades del elemento"></div>
+        <div id="dialogOrdenar" title="Cambiar orden"></div>
+        <div class="pieizq">
+            <div class="debug">
+            {% if values._debugMode %}
+                <pre>{{values._debugValues}}</pre>
+            {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
+{% endspaceless %}

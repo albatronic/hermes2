@@ -1,0 +1,22 @@
+{# Template new.html.twig for ErpAfiliados #}
+{# -------------------------------------------------------#}
+{# CREAR UN REGISTRO NUEVO                                #}
+{# -------------------------------------------------------#}
+{% extends values.controller ~ '/index.html.twig' %}
+
+{% block navegador %}{% endblock %}
+
+{% block mantenimiento %}
+<div class="FormManto">
+	<form name="manto_{{values.controller}}" id="manto_{{values.controller}}" action="" method="POST" enctype="multipart/form-data">
+		<input name="controller" value="{{ values.controller }}" type="hidden" />
+		<input name="action" id="action" value="new" type="hidden" />
+		<input name="{{ values.controller }}[{{values.datos.getPrimaryKeyName}}]" value="{{ values.datos.getPrimaryKeyValue}}" type="hidden" />
+		{% include '_global/comandosCreate.html.twig' %}
+		<div class="Cuerpo">
+			{% include '_global/alertas.html.twig' with {'alertas': values.alertas,'errores': values.errores} %}
+			{% include values.controller ~ "/form.html.twig" with {'datos': values.datos} %}
+		</div>
+	</form>
+</div>
+{% endblock %}

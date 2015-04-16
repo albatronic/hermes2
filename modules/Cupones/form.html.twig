@@ -1,0 +1,28 @@
+{#
+  Module: ErpCupones
+  Document : modules\ErpCupones\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 12.04.2014 18:24:51
+#}
+
+<div style="float:left; width: 50%">
+{{ macro.input(values.atributos.Publish,'EtiquetaMedia','checkbox',values.controller ~ '[Publish]',values.controller ~ '_Publish',datos.Publish.IDTipo,'255',none,'12') }}
+{{ macro.input(values.atributos.Cupon,'EtiquetaMedia','text',values.controller ~ '[Cupon]',values.controller ~ '_Cupon',datos.Cupon,'25','CampoTextoMedio','1') }}
+{{ macro.input(values.atributos.NumeroUsos,'EtiquetaMedia','text',values.controller ~ '[NumeroUsos]',values.controller ~ '_NumeroUsos',datos.NumeroUsos,'4','CampoUnidades','2') }}
+{{ macro.input(values.atributos.LimiteUsos,'EtiquetaMedia','text',values.controller ~ '[LimiteUsos]',values.controller ~ '_LimiteUsos',datos.LimiteUsos,'4','CampoUnidades','3') }}
+{{ macro.fecha(values.atributos.ActiveFrom,'EtiquetaMedia',values.controller ~ '[ActiveFrom]',values.controller ~ '_ActiveFrom',datos.ActiveFrom,'19','datepicker',104) }}
+{{ macro.fecha(values.atributos.ActiveTo,'EtiquetaMedia',values.controller ~ '[ActiveTo]',values.controller ~ '_ActiveTo',datos.ActiveTo,'19','datepicker',105) }}  
+{{ macro.input(values.atributos.ImporteMinimo,'EtiquetaMedia','text',values.controller ~ '[ImporteMinimo]',values.controller ~ '_ImporteMinimo',datos.ImporteMinimo,'4','CampoUnidades','2') }}
+{{ macro.select(values.atributos.Tipo,'EtiquetaMedia',values.controller ~ '[Tipo]',values.controller ~ '_Tipo',150,datos.Tipo.IDTipo,datos.Tipo.fetchAll('',false),'Select') }}
+{{ macro.input(values.atributos.Valor,'EtiquetaMedia','text',values.controller ~ '[Valor]',values.controller ~ '_Valor',datos.Valor,'4','CampoUnidades','3') }}
+{{ macro.select(values.atributos.AplicaA,'EtiquetaMedia',values.controller ~ '[AplicaA]',values.controller ~ '_AplicaA',150,datos.AplicaA.IDTipo,datos.AplicaA.fetchAll('',false),'Select') }}
+</div>
+
+<div style="float:left; width: 45%; margin-left: 10px;">
+{{ macro.textarea(values.atributos.Observations,'EtiquetaMedia',values.controller ~ '[Observations]',values.controller ~ '_Observations',datos.Observations,none,none,'TextArea')}}                
+</div>
+{# include '_global/fieldsComunes.html.twig' #}
+
+{{ macro.foco(values.controller ~ '_Cupon') }}

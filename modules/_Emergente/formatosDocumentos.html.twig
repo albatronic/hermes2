@@ -1,0 +1,39 @@
+{# Desplegale con los formatos de documentos #}
+
+{% extends '_Emergente/index.html.twig' %}
+
+{% block listado %}
+
+{% if values.numeroDeFormatos > 0 %}
+<div class="FormManto">
+    <form name="manto_{{values.controller}}" id="manto_{{values.controller}}" action="" method="POST" enctype="multipart/form-data">
+        <input name="controller" value="{{values.controlador}}" type="hidden" />
+        <input name="action" id="action" value="Imprimir" type="hidden" />
+        <input name="tipoDocumento" id="tipoDocumento" value="{{values.tipoDocumento}}" type="hidden" />
+        <input name="idDocumento" id="idDocumento" value="{{values.idDocumento}}" type="hidden" />
+        <div class='Cuerpo'>
+            <div style="float:left;">
+                {{ macro.select({'caption':'Formato:','visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','formato','formato',200,'',values.formatos,'Select',none,'submit();') }}
+            </div>
+            <div style="float: left;">
+                <input class="Comandos" type="submit" value="Imprimir"/>
+            </div>
+        </div>
+    </form>
+</div>
+{% endif %}
+
+{% if values.numeroDeFormatos == 0 %}
+<div class="MensajeError">
+    <p class="TituloError">No se han definido formatos para este documento, o bien no tiene permisos.</p>
+</div>
+{% endif %}
+
+{% if values.numeroDeFormatos == 1 %}
+<script language='JavaScript' type='text/javascript'>
+    $(function(){
+        $('#manto_{{values.controller}}').submit();        
+    });
+</script>
+{% endif %}
+{% endblock %}

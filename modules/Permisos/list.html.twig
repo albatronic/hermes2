@@ -1,0 +1,117 @@
+{# Template list.html.twig for Permisos #}
+{# -------------------------------------------------------#}
+{% extends 'Permisos/index.html.twig' %}
+
+{% import '_global/macros.html.twig' as macro %}
+
+{% block listado %}
+<div class='Listado'>
+
+    <div class="Izquierda" style="width:30%;">
+    <div class='Subtitulo'>:: MÓDULOS</div>
+    <table width='100%'>
+            <tbody class="Cuerpo">
+
+            {% for key,objeto in values.listado.opciones %}
+            <form name="opcion{{objeto.Id}}" action="" method="POST" enctype="multipart/form-data">
+                <input name="controller" value="Permisos" type="hidden">
+                <input name="action" value="listopciones" type="hidden">
+                <input name="IDPerfil" value="{{values.linkBy.value}}" type="hidden">
+                <input name="IDOpcion" value="{{objeto.Id}}" type="hidden">
+
+                <tr class="ItemListado">
+                    <td align="center"><input type="image" img src="{{app.path}}/images/botonborrar.png" alt="Borrar Opción" onclick="if (confirm('Desea eliminar la opcion {{objeto.Value}}')) {action.value='borraropcion'; submit();} else return(false);"></td>
+                    <td>{{objeto.Value}}</td>
+                    <td align="center"><input type='image' img src='{{app.path}}/images/lupa.png' width="16px" height="16px" alt="Editar Opcion"></td>
+                </tr>
+            </form>
+            {% endfor %}
+            
+            </tbody>
+    </table>
+
+    <form name="opcion0" action="" method="POST" enctype="multipart/form-data">
+        <input name="controller" value="Permisos" type="hidden">
+        <input name="action" value="anadiropcion" type="hidden">
+        <input name="IDPerfil" value="{{values.linkBy.value}}" type="hidden">
+        {{ macro.select('Añadir Módulo','Etiqueta','IDOpcion','IDOpcion',none,none,values.opciones,'Select',none,'submit();') }}
+    </form>
+    </div>
+
+    {% if values.IDOpcion %}
+
+    <div class="Derecha" style="width:69%; border-left: 1px dotted; padding-left: 3px;">
+    <div class='Subtitulo'>:: OPCIONES DE '{{values.opciones.Titulo}}'</div>
+
+    <table width='100%'>
+
+        <tr style="text-color: black; border-bottom: 1px dotted #525252;">
+            <th>&nbsp;</th>
+            <th align="center" style="color: black;">Opción</th>
+            <th>
+                <select onchange="if (this.value != '') {$('#action{{objeto.Id}}').val(this.value);$('#subopcion{{objeto.Id}}').submit();}">
+                    <option value="">:: Accion</option>
+                    <option value="PonerTodo">Poner Todo</option>
+                    <option value="QuitarTodo">Quitar Todo</option>
+                </select>
+            </th>           
+            {% for funcionalidad in values.funcionalidades %}
+                <th align="center" style="color: black;"><span title="{{funcionalidad.Value}}">{{funcionalidad.Id}}</span></th>
+            {% endfor %}
+        </tr>
+
+        <tbody class="Cuerpo">
+
+        {% for key,objeto in values.listado.subopciones %}
+            <form name="subopcion{{objeto.Id}}" id="subopcion{{objeto.Id}}" action="" method="POST">
+                <input name="controller" value="Permisos" type="hidden">
+                <input name="action" id="action{{objeto.Id}}" value="borrarsubopcion" type="hidden">
+                <input name="IDPerfil" value="{{values.linkBy.value}}" type="hidden">
+                <input name="IDSubopcion" value="{{objeto.Id}}" type="hidden">
+
+            <tr class="ItemListado">
+                <td align="center"><input type="image" img src="{{app.path}}/images/botonborrar.png" alt="Borrar Opción" onclick="if (confirm('Desea eliminar la subopcion {{objeto.Value}}')) $('#subopcion{{objeto.Id}}').submit(); else return(false);"></td>
+                <td>{{objeto.Value}}</td>
+                <td>
+                    <select onchange="if (this.value != '') {$('#action{{objeto.Id}}').val(this.value);$('#subopcion{{objeto.Id}}').submit();}">
+                        <option value="">:: Accion</option>
+                        <option value="PonerTodo">Poner Todo</option>
+                        <option value="QuitarTodo">Quitar Todo</option>
+                    </select>
+                </td>
+                {% for keyPermiso,valor in objeto.Permisos %}
+                    {% set clave = key ~ keyPermiso %}
+                    <td align="center">
+                        <input id="{{clave}}" name="{{keyPermiso}}" type="checkbox" 
+                               value="{{valor}}"
+                               {% if valor=='1'%} CHECKED  {% endif %}
+                                onchange="
+                                  if ($('#{{clave}}').is(':checked')) {
+                                      $('#{{clave}}').val('1');
+                                  } else {
+                                      $('#{{clave}}').val('0');
+                                  }
+                              actualizaPermiso('{{values.linkBy.value}}','{{objeto.Id}}','{{keyPermiso}}',$('#{{clave}}').val());"                                   
+                        />
+                    </td>
+                {% endfor %}
+            </tr>
+            </form>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <form name="subopcion0" action="" method="POST" enctype="multipart/form-data">
+        <input name="controller" value="Permisos" type="hidden">
+        <input name="action" value="anadirsubopcion" type="hidden">
+        <input name="IDPerfil" value="{{values.linkBy.value}}" type="hidden">
+        <input name="IDOpcion" value="{{values.IDOpcion}}" type="hidden">
+        {{ macro.select('Añadir Opción','Etiqueta','IDSubopcion','IDSubopcion',none,none,values.subopciones,'Select',none,'submit();') }}
+    </form>
+
+    </div>
+
+    {% endif %}
+</div>
+
+{% endblock %}

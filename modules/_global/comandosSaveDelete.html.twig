@@ -1,0 +1,8 @@
+{# Template para los comandos Guardar y Borrar registro #}
+
+    <input name="accion" id="accion_{{values.controller}}" value="" type="hidden" />
+    <div class="row detail-actions">
+        {% include "_global/comandosSave.html.twig" %}
+        {% include "_global/comandosDelete.html.twig" %}   
+        {% include '_global/comandosAuditoria.html.twig' with {'controller': values.controller} %}
+    </div>

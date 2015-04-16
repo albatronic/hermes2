@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO CpanPlantillas
+#
+# Module: CpanPlantillas
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 02-02-2014 17:43:37
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

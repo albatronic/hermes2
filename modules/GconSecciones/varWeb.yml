@@ -1,0 +1,29 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO GconSecciones
+#
+# Module: GconSecciones
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 30-10-2012 18:44:56
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: EL caption de la variable
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---    
+NumSeccionesNoticiasHome:
+  caption: Número secciones noticias en el Home
+  default: 2
+    
+NumSeccionesNoticiasPorPagina:
+  caption: Número secciones noticas por página
+  default: 5
+    
+NumSeccionesBlogHome:
+  caption: Número secciones blog en el Home
+  default: 5
+    
+NumSeccionesBlogPorPagina:
+  caption: Número secciones blog por página
+  default: 8

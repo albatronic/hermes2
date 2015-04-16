@@ -1,0 +1,36 @@
+{# FILTRO GENERICO: SON LOS CAMPOS QUE SE INCLUYEN EN EL FORMULARIO DE FILTRO #}
+
+<div>
+    <div class="form-group">
+        <input class="form-control" name="filter[valuesSelected][0]" id="filter_valuesSelected_0" value="{{ filter.valuesSelected.0 }}" type="text" placeholder="Buscar" />
+    </div>
+    <div class="form-group">   
+        <select class="form-control" name="filter[columnsSelected][0]">
+            {% for index,column in filter.columns %}
+            <option value="{{ index }}" {% if (index == filter.columnsSelected[0])%} SELECTED {%endif%}>{{column}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>   
+    {% if filter.aditional %}
+        <a class="advanced-search" data-toggle="modal" href="#basic"><i class="fa fa-caret-right"></i>Búsqueda avanzada</a>
+    {% endif %}
+
+    <div class="list-order">
+        Orden:
+        <select class="form-control" name="filter[orderBy]" onChange="submit();">
+            {% for criterio in filter.columnsOrder %}
+            <option value="{{ criterio.criteria }}" {% if (criterio.criteria == filter.orderBy)%} SELECTED {%endif%}>{{criterio.title}}</option>
+            {% endfor %}
+        </select>
+        Mostrar:
+        <input class="form-control" name="filter[recordsPerPage]" type="text" size="3" value="{{ filter.recordsPerPage }}"/>
+
+        <input name="filter[page]" value="1" type="hidden"/>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+{{ macro.foco('filter_valuesSelected_0') }}

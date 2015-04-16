@@ -1,0 +1,15 @@
+## Relaciones/config.yml
+---
+Relaciones:
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: NO
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Relaciones
+  id_video: relaciones
+  url_video: null
+  conection: ''
+  entity: CpanRelaciones

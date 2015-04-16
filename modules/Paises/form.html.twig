@@ -1,0 +1,9 @@
+{# TEMPLATE Paises/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{{ macro.input(values.atributos.Codigo,'Etiqueta','text','Paises[Codigo]','Paises_Codigo',datos.Codigo,'6','CampoTextoCorto') }}
+{{ macro.input(values.atributos.Pais,'Etiqueta','text','Paises[Pais]','Paises_Pais',datos.Pais,'2','CampoTextoLargo') }}
+{{ macro.select(values.atributos.IDMoneda,'Etiqueta','Paises[IDMoneda]','Paises_IDMoneda',200,datos.IDMoneda.IDMoneda,datos.IDMoneda.fetchAll('Moneda',false),'Select')}}
+{{ macro.select(values.atributos.IDZonaHoraria,'Etiqueta','Paises[IDZonaHoraria]','Paises_IDZonaHoraria',200,datos.IDZonaHoraria.IDZona,datos.IDZonaHoraria.fetchAll('Zona',false),'Select')}}
+{{ macro.input(values.atributos.Latitud,'Etiqueta','text','Paises[Latitud]','Paises_Latitud',datos.Latitud,'3','CampoTextoCorto') }}
+{{ macro.input(values.atributos.Longitud,'Etiqueta','text','Paises[Longitud]','Paises_Longitud',datos.Longitud,'80','CampoTextoCorto') }}

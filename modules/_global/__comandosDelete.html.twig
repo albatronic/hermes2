@@ -1,0 +1,26 @@
+{# COMANDO PARA BORRAR UN REGISTRO #}
+{% if values.permisos.permisosModulo['DE'] %}
+<div id="confirmacionBorrado" title="Borrar registro"><p>¿Realmente desea borrar el registro?</p></div>
+<a href="#" title="Borrar" onclick="$('#confirmacionBorrado').dialog('open');">
+    <img src="{{app.path}}/images/trash_cmd.png" alt="Borrar" title="Borrar" />
+</a>
+<script>   
+    $("#confirmacionBorrado").dialog({
+        autoOpen: false,
+        dialogClass: "",
+        resizable: false,
+        height: 150,
+        modal: true,
+        buttons: {
+            Aceptar: function() {
+                $('#accion_{{values.controller}}').val('Borrar');
+                submitForm('manto_{{ values.controller}}');                
+                $( this ).dialog( "close" );
+            },          
+            Cancelar: function() {
+                $( this ).dialog( "close" );
+            }
+        }
+    });
+</script>            
+{% endif %} 

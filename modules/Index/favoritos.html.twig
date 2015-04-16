@@ -1,0 +1,14 @@
+{# Favoritos #}
+{% if values.favoritos|length %}
+<div class="favoritos">
+    <p>Mis favoritos</p>
+    <ul style="margin-top: 5px;">
+    {% for favorito in values.favoritos %}
+        <li>
+            <a href="{{app.path}}/{{favorito.Controller}}/favoritos/delete"><img src="{{app.path}}/images/botonborrar.png" width="13px;" alt="Quitar de favoritos" title="Quitar de favoritos"/></a>
+            <a href="{{app.path}}/{{favorito.Controller}}">{{favorito.Titulo}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}

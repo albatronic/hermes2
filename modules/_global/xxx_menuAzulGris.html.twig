@@ -1,0 +1,58 @@
+{#-- MENU DESPLEGABLE: Necesita menuAzulGris.css -------------------------------#}
+{# Recibe un array (menu) con dos dimensiones para contruir el menu desplegable #}
+{#------------------------------------------------------------------------------#}
+
+<!--MENU-->
+    <ul class="menu">
+    {% for opcion in menu %}
+        <li>
+            <a href='#' title="{{opcion.Titulo}}">{{ opcion.Titulo }}</a>
+
+            <ul>
+            {% for hijo in opcion.hijos %}                    
+                <li>
+                    {% if hijo.hijos %}
+                        <div style="float: left; width: 23px;">>></div>
+                        <div style="float: left;">
+                            <a href='#' title="{{hijo.Titulo}}">{{ hijo.Titulo }}</a>   
+                        </div>
+                    {% else %}
+                        <div style="float: left; width: 23px;">
+                            <a href='{{app.path}}/{{ hijo.NombreModulo }}' target='_blank' title='Ventana Nueva'><img src='{{app.path}}/images/bolamenu.png' width='12px' height='12px' /></a>
+                        </div>
+                        <div style="float: left;">
+                            <a href='{{app.path}}/{{ hijo.NombreModulo }}' {% if hijo.emergente %}target='_blank'{% endif %}>{{ hijo.Titulo }}</a>
+                        </div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+            </ul>  
+
+        </li>
+    {% endfor %}
+    </ul>
+<!-- FIN MENU-->
+
+{#
+                        {% if hijo.hijos %}
+                        <ul id="menu" style="width: 300px;">
+                            {% for nieto in hijo.hijos %}
+                            <li>
+                                <div style="float: left; width: 23px;">
+                                    <a href='{{app.path}}/{{ nieto.NombreModulo }}' target='_blank' title='Ventana Nueva'><img src='{{app.path}}/images/bolamenu.png' width='12px' height='12px' /></a>
+                                </div>
+                                <div style="float: left;">
+                                    <a href='{{app.path}}/{{ nieto.NombreModulo }}' {% if nieto.emergente %}target='_blank'{% endif %}>{{ nieto.Titulo }}</a>
+                                </div>                                
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+<script>
+
+    $(function(){
+        $('#menu1').menu();
+    });
+    
+</script> 
+#}

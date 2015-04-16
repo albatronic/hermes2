@@ -1,0 +1,32 @@
+{#
+  Module: SldSliders
+  Document : modules\SldSliders\help.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 10.12.2012 17:38:34
+#}
+
+{% extends '_help/layout.html.twig' %}
+
+{% block titulo %}<h2>{{ values.title }}</h2>{% endblock %}
+
+{% block contenido %}
+<h2>Objetivo</h2>
+
+<h2>Operatoria</h2>
+<p>Desde el punto de vista de la ubicación, un slider puede ser:</p>
+<li>Variable</li>
+<li>Fijo para toda la WEB</li>
+<li>Fijo sólo para el HOME</li>
+<li>Fijo para toda la WEB excepto para el HOME</li>
+    
+<p>De tal forma que se seguirán las siguientes reglas:</p>
+<li>No hay límite de sliders variables</li>
+<li>Podrá haber UN ÚNICO slider fijo para toda la WEB</li>
+<li>Podrá haber UN ÚNICO slider fijo para el HOME, siempre que no lo haya fijo para la WEB</li>
+<li>Si hay un slider fijo para toda la WEB, no podrá haber otro del tipo 'Fijo para la WEB excepto para el HOME'</li>
+<h2>FAQ</h2>
+
+{# macro.embedVideo(values.idVideo,none,none)#}
+{% endblock %}

@@ -1,0 +1,17 @@
+{#
+  Module: EjerciciosContables
+  Document : modules\EjerciciosContables\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 26.01.2014 21:12:08
+#}
+
+{{ macro.input(values.atributos.Titulo,'Etiqueta','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'50','CampoTextoLargo','1') }}
+{{ macro.fecha(values.atributos.FechaInicio,'Etiqueta',values.controller ~ '[FechaInicio]',values.controller ~ '_FechaInicio',datos.FechaInicio,'10','datepicker','2')}}
+{{ macro.fecha(values.atributos.FechaFin,'Etiqueta',values.controller ~ '[FechaFin]',values.controller ~ '_FechaFin',datos.FechaFin,'10','datepicker','3')}}
+{{ macro.input(values.atributos.Activo,'Etiqueta','checkbox',values.controller ~ '[Activo]',values.controller ~ '_Activo',datos.Activo.IDTipo,'255','CampoTextoLargo','20')}}
+{{ macro.input(values.atributos.Cerrado,'Etiqueta','checkbox',values.controller ~ '[Cerrado]',values.controller ~ '_Cerrado',datos.Cerrado.IDTipo,'255','CampoTextoLargo','20')}} 
+{# include '_global/fieldsComunes.html.twig' #}
+
+{{ macro.foco(values.controller ~ '_Titulo') }}

@@ -1,0 +1,92 @@
+{# VARIABLES DE ENTORNO A NIVEL DE APLICACION #}
+
+{# author Sergio Pérez <sergio.perez@albatronic.com> #}
+{# copyright Informática ALBATRONIC, SL #}
+{# 12.sep.2012 11:16 #}
+
+{% extends 'CpanVariables/form.html.twig' %}
+
+{% block template %}
+
+<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+        <li class="ui-state-default ui-corner-top"><a href="#tabs-global">Globales</a></li>
+        <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tabs-especificas">Específicas</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#tabs-varWeb">Visibilidad Var Web</a></li>        
+    </ul>
+
+    {# VARIABLES WEB GLOBALES A TODOS LOS MODULOS #}
+    <div id="tabs-global" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        {{ macro.input(
+            {'caption':'[globales][title] Título','visible':'1','varEnv':'0'},
+            'field_title',
+            'text',
+            'd[globales][title]',
+            'd_globales_title',
+            values.d.globales.title,
+            '50',
+            'CampoTextoCorto',
+            '1')
+        }}
+        {{ macro.input(
+            {'caption':'[globales][url] Url','visible':'1','varEnv':'0'},
+            'field_title',
+            'text',
+            'd[globales][url]',
+            'd_globales_url',
+            values.d.globales.url,
+            '50',
+            'CampoTextoCorto',
+            '1')
+        }}
+        {{ macro.input(
+            {'caption':'[globales][urlPrefix] Prefijo de la Url','visible':'1','varEnv':'0'},
+            'field_title',
+            'text',
+            'd[globales][urlPrefix]',
+            'd_globales_urlPrefix',
+            values.d.globales.urlPrefix,
+            '50',
+            'CampoTextoCorto',
+            '1')
+        }}
+    </div>
+
+    {# VARIABLES WEB ESPECIFICAS AL MODULO EN CURSO nombreModulo/varWeb.yml #}
+    <div id="tabs-especificas" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        {% for nombre,atributos in values.d.especificas %}
+            {{ macro.input(
+                {'caption':'[especificas]['~nombre~'] '~atributos.caption,'visible':'1','varEnv':'0'},
+                'field_title',
+                'text',
+                'd[especificas]['~nombre~']',
+                'd_especificas_'~nombre,
+                atributos.value,
+                '50',
+                'CampoTextoCorto'
+                )
+            }}
+        {% endfor %}
+    </div>
+
+    {# CONTROL VISIBILIDAD VARIABLES WEB #}
+    <div id="tabs-varWeb" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        <h5>Control de visibilidad de variables web</h5>
+        <div id="acordeonVW" style="margin-top:10px;">
+            <h3>Globales [showVarWeb][globales]</h3>
+            <div>
+                {% for nombre,valor in values.d.showVarWeb.globales %}
+                    {{ macro.input({'caption':'['~nombre~']','visible':'1','updatable':'1','varEnv':'0'},'field_title','checkbox','d[showVarWeb][globales]['~nombre~']','d_showVarWeb_globales_'~nombre,valor)}}
+                {% endfor %}            
+            </div>
+
+            <h3>Específicas [showVarWeb][especificas]</h3>
+            <div>
+            {% for nombre,valor in values.d.showVarWeb.especificas %}
+                {{ macro.input({'caption':'['~nombre~']','visible':'1','updatable':'1','varEnv':'0'},'field_title','checkbox','d[showVarWeb][especificas]['~nombre~']','d_showVarWeb_especificas_'~nombre,valor)}}
+            {% endfor %}
+            </div>
+        </div>
+    </div>        
+</div>
+{% endblock %}

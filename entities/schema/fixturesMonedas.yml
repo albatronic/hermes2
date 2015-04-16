@@ -1,0 +1,834 @@
+# VALORES POR DEFECTO PARA LA TABLA MONEDAS
+#
+ErpMonedas:
+  -
+    IDMoneda: 1
+    Codigo: "AED"
+    Moneda: "UAE Dirham"
+  -
+    IDMoneda: 2
+    Codigo: "AFN"
+    Moneda: "Afghani"
+    Simbolo: "/t؋"
+  -
+    IDMoneda: 3
+    Codigo: "ALL"
+    Moneda: "Lek"
+    Simbolo: "Lek"
+  -
+    IDMoneda: 4
+    Codigo: "AMD"
+    Moneda: "Armenian Dram"
+  -
+    IDMoneda: 5
+    Codigo: "ANG"
+    Moneda: "Netherlands Antillean Guilder"
+    Simbolo: "ƒ"
+  -
+    IDMoneda: 6
+    Codigo: "AOA"
+    Moneda: "Kwanza"
+  -
+    IDMoneda: 7
+    Codigo: "ARS"
+    Moneda: "Argentine Peso"
+    Simbolo: "$"
+  -
+    IDMoneda: 8
+    Codigo: "AUD"
+    Moneda: "Australian Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 9
+    Codigo: "AWG"
+    Moneda: "Aruban Florin"
+    Simbolo: "ƒ"
+  -
+    IDMoneda: 10
+    Codigo: "AZN"
+    Moneda: "Azerbaijanian Manat"
+    Simbolo: "ман"
+  -
+    IDMoneda: 11
+    Codigo: "BAM"
+    Moneda: "Convertible Mark"
+    Simbolo: "KM"
+  -
+    IDMoneda: 12
+    Codigo: "BBD"
+    Moneda: "Barbados Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 13
+    Codigo: "BDT"
+    Moneda: "Taka"
+  -
+    IDMoneda: 14
+    Codigo: "BGN"
+    Moneda: "Bulgarian Lev"
+    Simbolo: "лв"
+  -
+    IDMoneda: 15
+    Codigo: "BHD"
+    Moneda: "Bahraini Dinar"
+  -
+    IDMoneda: 16
+    Codigo: "BIF"
+    Moneda: "Burundi Franc"
+  -
+    IDMoneda: 17
+    Codigo: "BMD"
+    Moneda: "Bermudian Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 18
+    Codigo: "BND"
+    Moneda: "Brunei Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 19
+    Codigo: "BOB"
+    Moneda: "Boliviano"
+    Simbolo: "$b"
+  -
+    IDMoneda: 20
+    Codigo: "BOV"
+    Moneda: "Mvdol"
+  -
+    IDMoneda: 21
+    Codigo: "BRL"
+    Moneda: "Brazilian Real"
+    Simbolo: "R$"
+  -
+    IDMoneda: 22
+    Codigo: "BSD"
+    Moneda: "Bahamian Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 23
+    Codigo: "BTN"
+    Moneda: "Ngultrum"
+  -
+    IDMoneda: 24
+    Codigo: "BWP"
+    Moneda: "Pula"
+    Simbolo: "P"
+  -
+    IDMoneda: 25
+    Codigo: "BYR"
+    Moneda: "Belarussian Ruble"
+    Simbolo: "p."
+  -
+    IDMoneda: 26
+    Codigo: "BZD"
+    Moneda: "Belize Dollar"
+    Simbolo: "BZ$"
+  -
+    IDMoneda: 27
+    Codigo: "CAD"
+    Moneda: "Canadian Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 28
+    Codigo: "CDF"
+    Moneda: "Congolese Franc"
+  -
+    IDMoneda: 29
+    Codigo: "CHE"
+    Moneda: "WIR Euro"
+  -
+    IDMoneda: 30
+    Codigo: "CHF"
+    Moneda: "Swiss Franc"
+  -
+    IDMoneda: 31
+    Codigo: "CHW"
+    Moneda: "WIR Franc"
+  -
+    IDMoneda: 32
+    Codigo: "CLF"
+    Moneda: "Unidades de fomento"
+  -
+    IDMoneda: 33
+    Codigo: "CLP"
+    Moneda: "Chilean Peso"
+    Simbolo: "$"
+  -
+    IDMoneda: 34
+    Codigo: "CNY"
+    Moneda: "Yuan Renminbi"
+    Simbolo: "¥"
+  -
+    IDMoneda: 35
+    Codigo: "COP"
+    Moneda: "Colombian Peso"
+    Simbolo: "$"
+  -
+    IDMoneda: 36
+    Codigo: "COU"
+    Moneda: "Unidad de Valor Real"
+  -
+    IDMoneda: 37
+    Codigo: "CRC"
+    Moneda: "Costa Rican Colon"
+    Simbolo: "₡"
+  -
+    IDMoneda: 38
+    Codigo: "CUC"
+    Moneda: "Peso Convertible"
+  -
+    IDMoneda: 39
+    Codigo: "CUP"
+    Moneda: "Cuban Peso"
+    Simbolo: "₱"
+  -
+    IDMoneda: 40
+    Codigo: "CVE"
+    Moneda: "Cape Verde Escudo"
+  -
+    IDMoneda: 41
+    Codigo: "CZK"
+    Moneda: "Czech Koruna"
+    Simbolo: "Kč"
+  -
+    IDMoneda: 42
+    Codigo: "DJF"
+    Moneda: "Djibouti Franc"
+  -
+    IDMoneda: 43
+    Codigo: "DKK"
+    Moneda: "Danish Krone"
+    Simbolo: "kr"
+  -
+    IDMoneda: 44
+    Codigo: "DOP"
+    Moneda: "Dominican Peso"
+    Simbolo: "RD$"
+  -
+    IDMoneda: 45
+    Codigo: "DZD"
+    Moneda: "Algerian Dinar"
+  -
+    IDMoneda: 46
+    Codigo: "EGP"
+    Moneda: "Egyptian Pound"
+    Simbolo: "£"
+  -
+    IDMoneda: 47
+    Codigo: "ERN"
+    Moneda: "Nakfa"
+  -
+    IDMoneda: 48
+    Codigo: "ETB"
+    Moneda: "Ethiopian Birr"
+  -
+    IDMoneda: 49
+    Codigo: "EUR"
+    Moneda: "Euro"
+    Simbolo: "€"
+  -
+    IDMoneda: 50
+    Codigo: "FJD"
+    Moneda: "Fiji Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 51
+    Codigo: "FKP"
+    Moneda: "Falkland Islands Pound"
+    Simbolo: "£"
+  -
+    IDMoneda: 52
+    Codigo: "GBP"
+    Moneda: "Pound Sterling"
+    Simbolo: "£"
+  -
+    IDMoneda: 53
+    Codigo: "GEL"
+    Moneda: "Lari"
+  -
+    IDMoneda: 54
+    Codigo: "GHS"
+    Moneda: "Ghana Cedi"
+  -
+    IDMoneda: 55
+    Codigo: "GIP"
+    Moneda: "Gibraltar Pound"
+    Simbolo: "£"
+  -
+    IDMoneda: 56
+    Codigo: "GMD"
+    Moneda: "Dalasi"
+  -
+    IDMoneda: 57
+    Codigo: "GNF"
+    Moneda: "Guinea Franc"
+  -
+    IDMoneda: 58
+    Codigo: "GTQ"
+    Moneda: "Quetzal"
+    Simbolo: "Q"
+  -
+    IDMoneda: 59
+    Codigo: "GYD"
+    Moneda: "Guyana Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 60
+    Codigo: "HKD"
+    Moneda: "Hong Kong Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 61
+    Codigo: "HNL"
+    Moneda: "Lempira"
+    Simbolo: "L"
+  -
+    IDMoneda: 62
+    Codigo: "HRK"
+    Moneda: "Croatian Kuna"
+    Simbolo: "kn"
+  -
+    IDMoneda: 63
+    Codigo: "HTG"
+    Moneda: "Gourde"
+  -
+    IDMoneda: 64
+    Codigo: "HUF"
+    Moneda: "Forint"
+    Simbolo: "Ft"
+  -
+    IDMoneda: 65
+    Codigo: "IDR"
+    Moneda: "Rupiah"
+    Simbolo: "Rp"
+  -
+    IDMoneda: 66
+    Codigo: "ILS"
+    Moneda: "New Israeli Sheqel"
+    Simbolo: "₪"
+  -
+    IDMoneda: 67
+    Codigo: "INR"
+    Moneda: "Indian Rupee"
+  -
+    IDMoneda: 68
+    Codigo: "IQD"
+    Moneda: "Iraqi Dinar"
+  -
+    IDMoneda: 69
+    Codigo: "IRR"
+    Moneda: "Iranian Rial"
+    Simbolo: "/t﷼"
+  -
+    IDMoneda: 70
+    Codigo: "ISK"
+    Moneda: "Iceland Krona"
+    Simbolo: "kr"
+  -
+    IDMoneda: 71
+    Codigo: "JMD"
+    Moneda: "Jamaican Dollar"
+    Simbolo: "J$"
+  -
+    IDMoneda: 72
+    Codigo: "JOD"
+    Moneda: "Jordanian Dinar"
+  -
+    IDMoneda: 73
+    Codigo: "JPY"
+    Moneda: "Yen"
+    Simbolo: "¥"
+  -
+    IDMoneda: 74
+    Codigo: "KES"
+    Moneda: "Kenyan Shilling"
+  -
+    IDMoneda: 75
+    Codigo: "KGS"
+    Moneda: "Som"
+    Simbolo: "лв"
+  -
+    IDMoneda: 76
+    Codigo: "KHR"
+    Moneda: "Riel"
+    Simbolo: "៛"
+  -
+    IDMoneda: 77
+    Codigo: "KMF"
+    Moneda: "Comoro Franc"
+  -
+    IDMoneda: 78
+    Codigo: "KPW"
+    Moneda: "North Korean Won"
+    Simbolo: "₩"
+  -
+    IDMoneda: 79
+    Codigo: "KRW"
+    Moneda: "Won"
+    Simbolo: "₩"
+  -
+    IDMoneda: 80
+    Codigo: "KWD"
+    Moneda: "Kuwaiti Dinar"
+  -
+    IDMoneda: 81
+    Codigo: "KYD"
+    Moneda: "Cayman Islands Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 82
+    Codigo: "KZT"
+    Moneda: "Tenge"
+    Simbolo: "лв"
+  -
+    IDMoneda: 83
+    Codigo: "LAK"
+    Moneda: "Kip"
+    Simbolo: "₭"
+  -
+    IDMoneda: 84
+    Codigo: "LBP"
+    Moneda: "Lebanese Pound"
+    Simbolo: "£"
+  -
+    IDMoneda: 85
+    Codigo: "LKR"
+    Moneda: "Sri Lanka Rupee"
+    Simbolo: "₨"
+  -
+    IDMoneda: 86
+    Codigo: "LRD"
+    Moneda: "Liberian Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 87
+    Codigo: "LSL"
+    Moneda: "Loti"
+  -
+    IDMoneda: 88
+    Codigo: "LTL"
+    Moneda: "Lithuanian Litas"
+    Simbolo: "Lt"
+  -
+    IDMoneda: 89
+    Codigo: "LVL"
+    Moneda: "Latvian Lats"
+    Simbolo: "Ls"
+  -
+    IDMoneda: 90
+    Codigo: "LYD"
+    Moneda: "Libyan Dinar"
+  -
+    IDMoneda: 91
+    Codigo: "MAD"
+    Moneda: "Moroccan Dirham"
+  -
+    IDMoneda: 92
+    Codigo: "MDL"
+    Moneda: "Moldovan Leu"
+  -
+    IDMoneda: 93
+    Codigo: "MGA"
+    Moneda: "Malagasy Ariary"
+  -
+    IDMoneda: 94
+    Codigo: "MKD"
+    Moneda: "Denar"
+    Simbolo: "ден"
+  -
+    IDMoneda: 95
+    Codigo: "MMK"
+    Moneda: "Kyat"
+  -
+    IDMoneda: 96
+    Codigo: "MNT"
+    Moneda: "Tugrik"
+    Simbolo: "₮"
+  -
+    IDMoneda: 97
+    Codigo: "MOP"
+    Moneda: "Pataca"
+  -
+    IDMoneda: 98
+    Codigo: "MRO"
+    Moneda: "Ouguiya"
+  -
+    IDMoneda: 99
+    Codigo: "MUR"
+    Moneda: "Mauritius Rupee"
+    Simbolo: "₨"
+  -
+    IDMoneda: 100
+    Codigo: "MVR"
+    Moneda: "Rufiyaa"
+  -
+    IDMoneda: 101
+    Codigo: "MWK"
+    Moneda: "Kwacha"
+  -
+    IDMoneda: 102
+    Codigo: "MXN"
+    Moneda: "Mexican Peso"
+    Simbolo: "$"
+  -
+    IDMoneda: 103
+    Codigo: "MXV"
+    Moneda: "Mexican Unidad de Inversion (UDI)"
+  -
+    IDMoneda: 104
+    Codigo: "MYR"
+    Moneda: "Malaysian Ringgit"
+    Simbolo: "RM"
+  -
+    IDMoneda: 105
+    Codigo: "MZN"
+    Moneda: "Mozambique Metical"
+    Simbolo: "MT"
+  -
+    IDMoneda: 106
+    Codigo: "NAD"
+    Moneda: "Namibia Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 107
+    Codigo: "NGN"
+    Moneda: "Naira"
+    Simbolo: "₦"
+  -
+    IDMoneda: 108
+    Codigo: "NIO"
+    Moneda: "Cordoba Oro"
+    Simbolo: "C$"
+  -
+    IDMoneda: 109
+    Codigo: "NOK"
+    Moneda: "Norwegian Krone"
+    Simbolo: "kr"
+  -
+    IDMoneda: 110
+    Codigo: "NPR"
+    Moneda: "Nepalese Rupee"
+    Simbolo: "₨"
+  -
+    IDMoneda: 111
+    Codigo: "NZD"
+    Moneda: "New Zealand Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 112
+    Codigo: "OMR"
+    Moneda: "Rial Omani"
+    Simbolo: "/t﷼"
+  -
+    IDMoneda: 113
+    Codigo: "PAB"
+    Moneda: "Balboa"
+    Simbolo: "B/."
+  -
+    IDMoneda: 114
+    Codigo: "PEN"
+    Moneda: "Nuevo Sol"
+    Simbolo: "S/."
+  -
+    IDMoneda: 115
+    Codigo: "PGK"
+    Moneda: "Kina"
+  -
+    IDMoneda: 116
+    Codigo: "PHP"
+    Moneda: "Philippine Peso"
+    Simbolo: "₱"
+  -
+    IDMoneda: 117
+    Codigo: "PKR"
+    Moneda: "Pakistan Rupee"
+    Simbolo: "₨"
+  -
+    IDMoneda: 118
+    Codigo: "PLN"
+    Moneda: "Zloty"
+    Simbolo: "zł"
+  -
+    IDMoneda: 119
+    Codigo: "PYG"
+    Moneda: "Guarani"
+    Simbolo: "Gs"
+  -
+    IDMoneda: 120
+    Codigo: "QAR"
+    Moneda: "Qatari Rial"
+    Simbolo: "/t﷼"
+  -
+    IDMoneda: 121
+    Codigo: "RON"
+    Moneda: "New Romanian Leu"
+    Simbolo: "lei"
+  -
+    IDMoneda: 122
+    Codigo: "RSD"
+    Moneda: "Serbian Dinar"
+    Simbolo: "Дин."
+  -
+    IDMoneda: 123
+    Codigo: "RUB"
+    Moneda: "Russian Ruble"
+    Simbolo: "руб"
+  -
+    IDMoneda: 124
+    Codigo: "RWF"
+    Moneda: "Rwanda Franc"
+  -
+    IDMoneda: 125
+    Codigo: "SAR"
+    Moneda: "Saudi Riyal"
+    Simbolo: "/t﷼"
+  -
+    IDMoneda: 126
+    Codigo: "SBD"
+    Moneda: "Solomon Islands Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 127
+    Codigo: "SCR"
+    Moneda: "Seychelles Rupee"
+    Simbolo: "₨"
+  -
+    IDMoneda: 128
+    Codigo: "SDG"
+    Moneda: "Sudanese Pound"
+  -
+    IDMoneda: 129
+    Codigo: "SEK"
+    Moneda: "Swedish Krona"
+    Simbolo: "kr"
+  -
+    IDMoneda: 130
+    Codigo: "SGD"
+    Moneda: "Singapore Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 131
+    Codigo: "SHP"
+    Moneda: "Saint Helena Pound"
+    Simbolo: "£"
+  -
+    IDMoneda: 132
+    Codigo: "SLL"
+    Moneda: "Leone"
+  -
+    IDMoneda: 133
+    Codigo: "SOS"
+    Moneda: "Somali Shilling"
+    Simbolo: "S"
+  -
+    IDMoneda: 134
+    Codigo: "SRD"
+    Moneda: "Surinam Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 135
+    Codigo: "SSP"
+    Moneda: "South Sudanese Pound"
+  -
+    IDMoneda: 136
+    Codigo: "STD"
+    Moneda: "Dobra"
+  -
+    IDMoneda: 137
+    Codigo: "SVC"
+    Moneda: "El Salvador Colon"
+    Simbolo: "$"
+  -
+    IDMoneda: 138
+    Codigo: "SYP"
+    Moneda: "Syrian Pound"
+    Simbolo: "£"
+  -
+    IDMoneda: 139
+    Codigo: "SZL"
+    Moneda: "Lilangeni"
+  -
+    IDMoneda: 140
+    Codigo: "THB"
+    Moneda: "Baht"
+    Simbolo: "฿"
+  -
+    IDMoneda: 141
+    Codigo: "TJS"
+    Moneda: "Somoni"
+  -
+    IDMoneda: 142
+    Codigo: "TMT"
+    Moneda: "Turkmenistan New Manat"
+  -
+    IDMoneda: 143
+    Codigo: "TND"
+    Moneda: "Tunisian Dinar"
+  -
+    IDMoneda: 144
+    Codigo: "TOP"
+    Moneda: "Pa'anga"
+  -
+    IDMoneda: 145
+    Codigo: "TRY"
+    Moneda: "Turkish Lira"
+    Simbolo: "TL"
+  -
+    IDMoneda: 146
+    Codigo: "TTD"
+    Moneda: "Trinidad and Tobago Dollar"
+    Simbolo: "TT$"
+  -
+    IDMoneda: 147
+    Codigo: "TWD"
+    Moneda: "New Taiwan Dollar"
+    Simbolo: "NT$"
+  -
+    IDMoneda: 148
+    Codigo: "TZS"
+    Moneda: "Tanzanian Shilling"
+  -
+    IDMoneda: 149
+    Codigo: "UAH"
+    Moneda: "Hryvnia"
+    Simbolo: "₴"
+  -
+    IDMoneda: 150
+    Codigo: "UGX"
+    Moneda: "Uganda Shilling"
+  -
+    IDMoneda: 151
+    Codigo: "USD"
+    Moneda: "US Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 152
+    Codigo: "USN"
+    Moneda: "US Dollar (Next day)"
+  -
+    IDMoneda: 153
+    Codigo: "USS"
+    Moneda: "US Dollar (Same day)"
+  -
+    IDMoneda: 154
+    Codigo: "UYI"
+    Moneda: "Uruguay Peso en Unidades Indexadas (URUIURUI)"
+  -
+    IDMoneda: 155
+    Codigo: "UYU"
+    Moneda: "Peso Uruguayo"
+    Simbolo: "$U"
+  -
+    IDMoneda: 156
+    Codigo: "UZS"
+    Moneda: "Uzbekistan Sum"
+    Simbolo: "лв"
+  -
+    IDMoneda: 157
+    Codigo: "VEF"
+    Moneda: "Bolivar Fuerte"
+    Simbolo: "Bs"
+  -
+    IDMoneda: 158
+    Codigo: "VND"
+    Moneda: "Dong"
+    Simbolo: "₫"
+  -
+    IDMoneda: 159
+    Codigo: "VUV"
+    Moneda: "Vatu"
+  -
+    IDMoneda: 160
+    Codigo: "WST"
+    Moneda: "Tala"
+  -
+    IDMoneda: 161
+    Codigo: "XAF"
+    Moneda: "CFA Franc BEAC"
+  -
+    IDMoneda: 162
+    Codigo: "XAG"
+    Moneda: "Silver"
+  -
+    IDMoneda: 163
+    Codigo: "XAU"
+    Moneda: "Gold"
+  -
+    IDMoneda: 164
+    Codigo: "XBA"
+    Moneda: "Bond Markets Unit European Composite Unit (EURCO)"
+  -
+    IDMoneda: 165
+    Codigo: "XBB"
+    Moneda: "Bond Markets Unit European Monetary Unit (E.M.U.  -6)"
+  -
+    IDMoneda: 166
+    Codigo: "XBC"
+    Moneda: "Bond Markets Unit European Unit of Account 9 (E.U.A.  -9)"
+  -
+    IDMoneda: 167
+    Codigo: "XBD"
+    Moneda: "Bond Markets Unit European Unit of Account 17 (E.U.A.  -17)"
+  -
+    IDMoneda: 168
+    Codigo: "XCD"
+    Moneda: "East Caribbean Dollar"
+    Simbolo: "$"
+  -
+    IDMoneda: 169
+    Codigo: "XDR"
+    Moneda: "SDR (Special Drawing Right)"
+  -
+    IDMoneda: 170
+    Codigo: "XFU"
+    Moneda: "UIC  -Franc"
+  -
+    IDMoneda: 171
+    Codigo: "XOF"
+    Moneda: "CFA Franc BCEAO"
+  -
+    IDMoneda: 172
+    Codigo: "XPD"
+    Moneda: "Palladium"
+  -
+    IDMoneda: 173
+    Codigo: "XPF"
+    Moneda: "CFP Franc"
+  -
+    IDMoneda: 174
+    Codigo: "XPT"
+    Moneda: "Platinum"
+  -
+    IDMoneda: 175
+    Codigo: "XSU"
+    Moneda: "Sucre"
+  -
+    IDMoneda: 176
+    Codigo: "XTS"
+    Moneda: "Codes specifically reserved for testing purposes"
+  -
+    IDMoneda: 177
+    Codigo: "XUA"
+    Moneda: "ADB Unit of Account"
+  -
+    IDMoneda: 178
+    Codigo: "XXX"
+    Moneda: "The Codigos assigned for transactions where no currency is involved"
+  -
+    IDMoneda: 179
+    Codigo: "YER"
+    Moneda: "Yemeni Rial"
+    Simbolo: "/t﷼"
+  -
+    IDMoneda: 180
+    Codigo: "ZAR"
+    Moneda: "Rand"
+    Simbolo: "R"
+  -
+    IDMoneda: 181
+    Codigo: "ZMK"
+    Moneda: "Zambian Kwacha"
+  -
+    IDMoneda: 182
+    Codigo: "ZWL"
+    Moneda: "Zimbabwe Dollar"

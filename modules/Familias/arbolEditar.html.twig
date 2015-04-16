@@ -1,0 +1,21 @@
+{# 
+    ErpFamilias/arbolEditar.html.twig 
+
+    Muestra los botones de ordenación para cada nivel
+    El check de publicar/despublicar
+    El link para editar la familia, y
+    El link de crear subfamilia
+#}
+
+<a href="#">
+    <span onclick="location.href='{{app.path}}/{{values.controller}}/belongsTo/{{key}}'" alt="Añadir subelemento" title="Añadir subelemento"><img src="{{app.path}}/images/detalle.png" width="16px;"/></span>     
+    <span>
+        {% if item.nivelJerarquico >= 1 or nHermanos > 1 %}
+            <img src="{{appPath}}/images/boton-ordenar.png" width="16px;" alt="Ordenar" title="Ordenar" onclick="popUpOrdenar('{{values.controller}}','BelongsTo','{{item.belongsTo}}','Familia');" />         
+        {% else %}
+            <img src="{{app.path}}/images/espacio.gif" width="22px"/>
+        {% endif %}
+        {{ macro.actualizaColumna(values.controller,item.id,'Publish',item.publish,'Publicar/Despublicar')}}      
+    </span>
+    <span onclick="location.href='{{app.path}}/{{values.controller}}/edit/{{key}}'">{{item.titulo}}</span>
+</a>    

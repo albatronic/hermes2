@@ -1,0 +1,98 @@
+# Module: Perfiles
+#
+# @author Sergio Perez <sergio.perez@albatronic.com>
+# @copyright Informatica ALBATRONIC
+# @since: 27-11-2011
+#
+---
+Perfiles:
+  app: ''
+  isModuleRoot: 0
+  linkModule:
+    fromColumn: ''
+    toEntity: ''
+    toColumn: ''
+  translatable: false
+  searchable: false
+  showCommonFields: false
+  numMaxRecords: ''
+  numberOfImages: '0'
+  withGalery: '0'
+  withDocuments: '0'
+  withVideos: 0
+  withAudios: '0'
+  maxSizes:
+    image: '400000'
+    document: ''
+    video: ''
+    audio: ''
+  galery:
+    maxWidthImage: '500'
+    maxHeightImage: '400'
+    generateThumbnail: '0'
+    widthThumbnail: '50'
+    heightThumbnail: '50'
+  urlFriendlyManagement: false
+  fieldGeneratorUrlFriendly: Perfil
+  metatagTitleManagement: false
+  fieldGeneratorMetatagTitle: Perfil
+  controller: Perfiles
+  action: Index
+  template: index.html.twig
+  parametros: ''
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: YES
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Perfiles de usuarios
+  id_video: perfiles
+  url_video: null
+  feature_list: YES
+  conection: ''
+  entity: Perfiles
+  table: ErpPerfiles
+  primarykey: IDPerfil
+  linkBy: ''
+  records_per_page: 15
+  order_by:
+    -
+      title: Perfil a-z
+      criteria: Perfil ASC
+    -
+      title: Perfil z-a
+      criteria: Perfil DESC
+  search_default: Perfil  
+  columns:
+    IDPerfil:
+      title: IDPerfil
+      filter: NO
+      list: NO
+      link:
+        route: null
+        param: null
+        title: null
+        target: null
+      default: null
+      validator: null
+    Perfil:
+      title: Perfil
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      link:
+        route: null
+        param: null
+        title: null
+        target: null
+      default: null
+      validator:
+        nullable: NO
+        type: string
+        length: 50
+        min: null
+        max: null
+        message: Valor Requerido

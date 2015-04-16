@@ -1,0 +1,74 @@
+{#
+  Module: EnlEnlaces
+  Document : modules\EnlEnlaces\form.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 05.12.2012 00:20:32
+#}
+{% set atributos = values.atributos %}
+
+<div id="tabs">
+    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
+    <ul>
+        <li>
+            <a href="#arbol">Árbol de Enlaces</a>
+        </li>
+        <li>
+            <a href="#general">{%if datos.Titulo%}<b>{{macro.recortaTexto(datos.Titulo,40)}}</b>{%else%}Enlace de interés{%endif%}</a>
+            {{ macro.publicar(values.varEnvMod.columns.Publish,values.controller ~ '[Publish]',values.controller ~ '_Publish',datos.Publish.IDTipo) }}
+        </li>
+           
+        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+        <li>
+            <a href="#fieldsComunes">Más detalles...</a>
+        </li>        
+        {% endif %}
+    </ul>
+
+    <div id="arbol">
+        <ul>
+            {% for keySeccion,seccion in values.objetoController.arbolSeccionesEnlaces %}
+                <li style="font-weight: bold;">{{seccion.titulo}}</li>
+                <ul>
+                    {% for enlace in seccion.enlaces %}
+                        <li style="margin-left: 30px;">
+                            {% if seccion.nEnlaces > 1%}
+                                {{ macro.ordenarPopup(values.controller,'IdSeccion',keySeccion) }}                                                      
+                            {% endif %}                              
+                            {% if values.varEnvMod.columns.Publish.visible == '1' %}
+                                {{ macro.actualizaColumna(values.controller,enlace.Id,'Publish',enlace.Publish.IDTipo,'Publicar/Despublicar')}}
+                            {% endif %}
+                            <a href="{{app.path}}/{{values.controller}}/edit/{{enlace.primaryKeyMD5}}" onclick="$('#solapaActiva').val('1');">{{enlace.titulo}}</a>
+                        </li>
+                    {% endfor %}                       
+                </ul>
+            {% endfor %}
+        </ul>
+    </div>
+        
+    <div id="general">
+        {{ macro.select(atributos.IdSeccion,'Etiqueta',values.controller ~ '[IdSeccion]',values.controller ~ '_IdSeccion',200,datos.IdSeccion.Id,datos.IdSeccion.fetchAll('Titulo',0),'chzn-select')}}
+        {{ macro.input(atributos.Titulo,'Etiqueta','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'255','CampoTextoLargo','2') }}
+        {{ macro.input(atributos.Subtitulo,'Etiqueta','text',values.controller ~ '[Subtitulo]',values.controller ~ '_Subtitulo',datos.Subtitulo,'255','CampoTextoLargo','3') }}
+        {{ macro.textarea(atributos.Resumen,'Etiqueta',values.controller ~ '[Resumen]',values.controller ~ '_Resumen',datos.Resumen,none,none,'textarea','4')}}          
+    </div>
+
+    {% if (values.datos.getPrimaryKeyValue) %}
+        <div id="etiquetas"></div>
+    {% endif %}
+        
+    {% include '_global/fieldsComunes.html.twig' %}        
+</div>
+<script>
+
+    $(function(){
+
+        if ($('#solapaActiva').val() === '0') {
+            $('#solapaActiva').val('1');
+        }
+        $("#tabs").tabs({ active: $('#solapaActiva').val() });        
+    });
+    
+</script> 
+{{ macro.foco(values.controller ~ '_IdSeccion') }}    

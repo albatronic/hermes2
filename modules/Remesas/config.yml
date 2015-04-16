@@ -1,0 +1,21 @@
+# Module: Remesas
+#
+# @author Sergio Perez <sergio.perez@albatronic.com>
+# @copyright Informatica ALBATRONIC
+# @since: 7-10-2013
+#
+---
+Remesas:
+  login_required: YES
+  permission_control: YES
+  favourite_control: YES
+  help_file: help.html.twig
+  title: Generación de remesas
+  conection: 
+  entity: 
+  table: 
+  primarykey: 
+  records_per_page: 
+  order_by:
+  search_default:
+  columns:

@@ -1,0 +1,51 @@
+{# Template list.html.twig for Familias #}
+{# -------------------------------------------------------#}
+{% extends 'Familias/index.html.twig' %}
+
+{% block listado %}
+<div class='Listado'>
+
+	{% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':values.controller,'position':'izq'}%}
+        <div id="Listado">
+        <table width="100%">
+            <tr class='Titulos'>
+                <td></td>
+                <td class='Item'>Familia</td>
+                <td class='Item'>Publicar Web</td>
+                <td class='Item'>Mostrar en Portada Web</td>
+                <td class='Item'>Mostrar en Tpv</td>
+            </tr>
+
+            <tbody class='Cuerpo'>
+            {% for key,objeto in values.listado.data %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+            <tr class='{{classFila}}'>
+                <td class='Item'>                    
+                    <a href="{{app.path}}/Familias/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">
+                        <img src="{{app.path}}/images/botoneditar.png" width="16px" height="16px" />
+                    </a>
+                </td>
+                <td class='Item'>{% for i in 1..(objeto.NivelJerarquico-1)%}&nbsp;&nbsp;&nbsp;&nbsp;{%endfor%}{{objeto.Familia}}</td>
+                <td class='Item' align="center">
+                    {{ macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'Publish',objeto.Publish.IDTipo,'Publicar/Despublicar')}}  
+                </td>
+                <td class='Item' align="center">
+                    {{ macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'MostrarPortada',objeto.MostrarPortada.IDTipo,'Mostrar en la portada de la web')}}  
+                </td>
+                <td class='Item' align="center">
+                    {{ macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'MostrarEnTpv',objeto.MostrarEnTpv.IDTipo,'Mostrar en el tpv')}}  
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan='2'>No hay informaci&oacute;n que cumpla esos criterios</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+
+</div>
+{% endblock %}

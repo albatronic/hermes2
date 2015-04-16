@@ -1,0 +1,18 @@
+{#
+  Module: ErpMunicipios
+  Document : modules\ErpMunicipios\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 02.02.2014 01:19:34
+#}
+
+{{ macro.select(values.atributos.IDPais,'Etiqueta',values.controller ~ '[IDPais]',values.controller ~ '_IDPais',150,datos.IDPais.IDPais,datos.IDPais.fetchAll('Pais'),'chzn-select')}}
+{{ macro.select(values.atributos.IDProvincia,'Etiqueta',values.controller ~ '[IDProvincia]',values.controller ~ '_IDProvincia',150,datos.IDProvincia.IDProvincia,datos.IDProvincia.fetchAll('Provincia'),'chzn-select')}}
+{{ macro.input(values.atributos.Codigo,'Etiqueta','text',values.controller ~ '[Codigo]',values.controller ~ '_Codigo',datos.Codigo,'5','CampoTextoCorto','3') }}
+{{ macro.input(values.atributos.DigitoControl,'Etiqueta','text',values.controller ~ '[DigitoControl]',values.controller ~ '_DigitoControl',datos.DigitoControl,'2','CampoTextoCorto','4') }}
+{{ macro.input(values.atributos.Municipio,'Etiqueta','text',values.controller ~ '[Municipio]',values.controller ~ '_Municipio',datos.Municipio,'2555','CampoTextoLargo','5') }}
+
+{# include '_global/fieldsComunes.html.twig' #}
+
+{{ macro.foco(values.controller ~ '_IDPais') }}

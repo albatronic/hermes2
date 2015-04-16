@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO BolTipos
+#
+# Module: BolTipos
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright ARTICO ESTUDIO, SL
+# date 06-07-2013 15:53:22
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

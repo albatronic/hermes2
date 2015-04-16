@@ -1,0 +1,23 @@
+{# ARBOL DE SERVICIOS #}
+
+<ul class="arbol">
+{% for keyPadre,padre in arbol %}
+    <li class="arbol">
+        {% include 'ServServicios/arbolPadre.html.twig' with {'key':keyPadre,'familia': padre, 'subtemplate':subtemplate} %}
+    </li>
+    <ul class="arbol">
+        {% for keyHijo,hijo in padre.hijos %}
+            <li class="arbol">
+                {% include 'ServServicios/arbolPadre.html.twig' with {'key':keyHijo,'familia': hijo, 'subtemplate':subtemplate} %}
+            </li>
+            <ul class="arbol">
+                {% for keyNieto,nieto in hijo.hijos %}
+                    <li class="arbol">
+                        {% include 'ServServicios/arbolPadre.html.twig' with {'key':keyNieto,'familia': nieto, 'subtemplate':subtemplate} %}
+                    </li>
+                {% endfor %}
+            </ul>                        
+        {% endfor %}
+    </ul>
+{% endfor %}
+</ul>

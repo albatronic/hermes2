@@ -1,0 +1,121 @@
+{% import "_global/macros.html.twig" as macro %}
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="es" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="es" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="es">
+<!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-ES" lang="es-ES">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>    
+    <title>{{ app.name }} {% block title %} {{ titulo }} {% endblock %}</title>
+    <meta content="ERP gestión Empresarial" name="description"/>
+    <meta content="Informática ALBATRONIC" name="author"/>    
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Para que esté disponible el path de la app en todos los java scripts -->
+    <script type="text/javascript">var appPath = "{{app.path}}";</script>      
+
+    {% {% include values.archivoCss %} %}
+    {% include "_global/js.html.twig" %}
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content page-style-square">     
+{% include '_global/header.html.twig' %}
+
+<div class="clearfix"></div>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    {% include '_global/sidebarLeft.html.twig' %}        
+    <div class="page-content-wrapper">
+        <div class="page-content" style="min-height:1029px">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    {% include '_global/sidebarRight.html.twig' %}
+</div>
+<!-- END CONTAINER -->
+
+{% include '_global/footer.html.twig' %}
+{% include values.archivoJs %}
+</body>
+<!--
+<body>
+
+    <div id="pgWidth">
+
+        <div id="Header">
+        {% block header %}
+            <div id="Head">
+            {% if emp %}
+            <div id="headleft">
+                <a href="{{app.path}}/Index"><img src="{{app.path}}/docs/docs{{emp.Id}}/images/logo.jpg" border="0px;" height="59" title="Inicio" alt="Logo Empresa"/></a>
+            </div>
+            {% endif %}
+
+            <div id="headcenter">
+                <form name="empresa" action="" method="POST" enctype="multipart/form-data">
+                <input name="controller" value="Index" type="hidden" />
+		<input name="action" id="action1" value="" type="hidden" />
+                <div style="float:left;">
+                    <h4>{{emp.RazonSocial}}</h4>
+                {# macro.select('Empresa','Etiqueta','Empresa','Empresa',none,emp.IDEmpresa,user.Empresas,'Select',none,"getElementById('action1').value='Empresa'; submit();") #}
+                </div>
+                <div style="float:left;margin-left:20px;">
+                {% if emp %}
+                    {{ macro.select('Sucursal','Etiqueta','Sucursal','Sucursal',none,suc,user.Sucursales('',false),'Select',none,"getElementById('action1').value='Sucursal'; submit();") }}
+                {% endif %}
+                </div>
+                {% if tpv.IDTpv %}
+                    <div style="float:left;margin-left:20px;">
+                    Tpv: <h4>{{tpv.Nombre}}</h4>
+                    </div>
+                {% endif %}
+                </form>
+            </div>
+
+            <div id="headright">
+                <h4>{{user.NombreApellidos}}</h4>
+                <a href="{{app.urlParent}}/return">
+                    <img src="{{app.path}}/images/logout.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+                </a>
+            </div>
+            </div>
+        {% endblock %}
+        <div style="clear: both;"></div>
+        {% block menu %}
+            {% include "_global/menuAzulGris.html.twig" with {'menu': menu} %}
+        {% endblock %}
+
+        </div>
+    </div>
+
+    <div id="Layout">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div id="notificacion" title="Mensaje"></div>
+    <div id="dialogoVarEnv" title="Propiedades del elemento"></div>
+    <div id="dialogOrdenar" title="Cambiar orden"></div>
+        
+    <div id="Footer">
+        <div id="footleft">
+            <div class="debug">
+            {% if values._debugMode %}
+                <pre>{{values._debugValues}}</pre>
+            {% endif %}
+            </div>
+        </div>
+
+        <div id="footright">
+            &copy; Powered by Albatronic, SL 2006-{{now|date('Y')}}
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</body>
+-->
+</html>

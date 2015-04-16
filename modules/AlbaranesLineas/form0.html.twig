@@ -1,0 +1,112 @@
+{# AlbaranesLineas/form0.html.twig #}
+{# TEMPLATE PARA LAS LINEAS DE ALBARANES EN LA VERSION ESTANDAR #}
+{% extends 'AlbaranesLineas/index.html.twig' %}
+
+{% block listado %}
+
+{% include '_global/descripcionAmpliada.html.twig' %}
+{% include '_global/escandallo.html.twig' %}
+
+<div class='Listado'>
+    <div style="position: fixed; z-index:1000; height: 16px; width: 100%; background:whitesmoke;clear:both;">
+        <div style="float:right;">
+            <input name="precios" id="precios" size="30" value="" disabled/>
+        </div>
+    </div>
+
+    <div style="position:relative; top:18px;clear:both;">
+    <table width='100%'>
+        <tr class='Titulos'>
+            <td class='Item'>{{values.atributos.IDArticulo.caption}}</td>
+            <td class='Item'>{{values.atributos.Descripcion.caption}}</td>
+            <td class='Item'>{{values.atributos.Unidades.caption}}</td>
+            <td class='Item'>{{values.atributos.Precio.caption}}</td>
+            <td class='Item'>{{values.atributos.Descuento.caption}}</td>
+            <td class='Item'>{{values.atributos.Iva.caption}}</td>
+            <td class='Item'>{{values.atributos.Importe.caption}}</td>
+            <td>&nbsp;</td>
+        </tr>
+
+        <tbody class="Cuerpo">
+            {% for key,objeto in values.listado.data %}
+            {% set puntero = key %}
+            {% set beneficioLinea = objeto.Importe - objeto.ImporteCosto %}
+            <form name="linea{{puntero}}" action="" method="POST" enctype="multipart/form-data">
+                <input name="controller" value="AlbaranesLineas" type="hidden" />
+                <input name="action" id="action" value="edit" type="hidden" />
+                <input name="AlbaranesLineas[IDAlbaran]" value="{{ values.linkBy.value }}" type="hidden" />
+                <input name="AlbaranesLineas[IDLinea]" value="{{ objeto.IDLinea }}" type="hidden" />
+                <input name="AlbaranesLineas[IDEstado]" value="{{ objeto.IDEstado.IDTipo }}" type="hidden" />
+                <input name="AlbaranesLineas[IDAgente]" value="{{ objeto.IDAgente.IDAgente }}" type="hidden" />
+                <input name="accion" id="accion{{puntero}}" value="" type="hidden" />
+                <tr class="ItemListado"
+                    onmouseover="getElementById('precios').value='[{{objeto.Importe}}][{{objeto.ImporteCosto}}][{{beneficioLinea}}]';"
+                    onmouseout="getElementById('precios').value='';" >
+                    <td>
+                        <input name="AlbaranesLineas[IDArticulo]" value="{{objeto.IDArticulo.IDArticulo}}" id="AlbaranesLineas_IDArticulo{{puntero}}" type="hidden" />
+                        <input value="{{objeto.IDArticulo.Codigo}}" id="Codigo{{puntero}}" type="text" maxlength="25" style="width:100px;"
+                        onkeyup="autoCompletar('Codigo{{puntero}}','AlbaranesLineas_IDArticulo{{puntero}}','AlbaranesLineas_Descripcion{{puntero}}','articulos','','');"/>
+                        {% if objeto.IDPromocion.IDPromocion %}
+                            {% include "_Emergente/dialogoPromocion.html.twig" with {'linea': objeto} %}
+                        {% endif %}
+                        {% if objeto.IDArticulo.IDArticulo %}
+                            {{ macro.fichaProducto(app.path,objeto.IDArticulo.IDArticulo) }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <input name="AlbaranesLineas[Descripcion]" id="AlbaranesLineas_Descripcion{{puntero}}" value="{{objeto.Descripcion}}" type="text" maxlength="255" style="width:340px;"  />
+                        <textarea name="AlbaranesLineas[Observations]" id="AlbaranesLineas_Observations{{puntero}}" style="display:none;">{{objeto.Observations}}</textarea>                 
+                    </td>
+                    <td>
+                        <input name="AlbaranesLineas[Unidades]" value="{{objeto.Unidades}}" type="text" style="width:50px;text-align:right;" />
+                        {{objeto.UnidadMedidaArticulo}}
+                    </td>
+                    <td><input name="AlbaranesLineas[Precio]" value="{{objeto.Precio}}" type="text" style="width:60px;text-align:right;" /></td>
+                    <td><input name="AlbaranesLineas[Descuento]" value="{{objeto.Descuento}}" type="text" style="width:40px;text-align:right;" /></td>
+                    <td><input name="AlbaranesLineas[Iva]" value="{{objeto.Iva}}" type="text" style="width:35px;text-align:right;" /></td>
+                    <td><input name="AlbaranesLineas[Importe]" value="{{objeto.Importe}}" type="text" style="width:60px;text-align:right;" disabled /></td>
+                    <td align="center">
+                        {% if objeto.IDLinea > 0 %}
+                        <input type="image" src="{{app.path}}/images/botonsave.png" onclick="getElementById('accion{{puntero}}').value='G';" alt="Guardar" title="Guardar Linea" />
+                        <input type="image" src="{{app.path}}/images/papelera.gif" onclick="if (!confirm('Desea eliminar la línea?')) {return false;} else {getElementById('accion{{puntero}}').value='B';}" alt="Borrar" title="Borrar Linea" />
+                        <a href="#" alt="Descripción ampliada" title="Descripción ampliada" onclick="
+                            $('#dialogDescripAmpliada').dialog('open');
+                            $('#idArticulo').val($('#AlbaranesLineas_IDArticulo{{puntero}}').val());
+                            $('#idDestino').val('AlbaranesLineas_Observations{{puntero}}');
+                            $('#entidadAmpliada').val('AlbaranesLineas');
+                            $('#idEntidadAmpliada').val('{{objeto.IDLinea}}');                            
+                            $('#descripcionAmpliada').val($('#AlbaranesLineas_Observations{{puntero}}').val());">
+                            {% if objeto.Observations != ''%}+{% endif %}
+                            <img src="{{app.path}}/images/linespacing.png" width="16px" height="16px">
+                        </a>
+                        {% if objeto.IDArticulo.AllowsChildren.IDTipo %}
+                        <a href="#" alt="Escandallo" title="Escandallo" onclick="$('#dialogEscandallo').dialog('open');cargaEscandallo($('#AlbaranesLineas_IDArticulo{{puntero}}').val());">
+                            <img src="{{app.path}}/images/sumatorio.png" width="16px" height="16px">
+                        </a>      
+                        {% endif %}
+                        {{ macro.historicoVentas(app.path,objeto.IDArticulo.IDArticulo,objeto.IDAlbaran.IDCliente.IDCliente) }}                     
+                        {% else %}
+                        <input id="botonNuevaLinea" type="image" src="{{app.path}}/images/nuevo.png" alt="Nuevo" title="Crear Linea" />
+                        {% endif %}
+                    </td>
+                </tr>
+            </form>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{{ macro.foco('Codigo0') }}
+<script language='JavaScript' type='text/javascript'>
+    
+    $(function(){
+        $('#botonNuevaLinea').blur(function(){$(this).click();});
+        $('#botonNuevaLinea').click(function(){
+            $('#action').val('new');
+        });
+    });
+    
+    pintaTotales('AlbaranesCab','{{values.linkBy.value}}');
+</script>
+{% endblock %}

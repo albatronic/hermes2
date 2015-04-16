@@ -1,0 +1,19 @@
+{# Template para el comando Ayuda #}
+<div style="float: right;">
+    <div>
+    {% if user.IDPerfil.Id == '1' %}        
+    <a href="{{app.path}}/Variables/Env/Pro" title="Variables de entorno del proyecto">VEP</a>
+    {% endif %}    
+    <a href="{{app.path}}/Variables/Web/Pro" title="Variables web del proyecto">VWP</a>     
+    {% if user.IDPerfil.Id == '1' and values.controller != "Variables" %}        
+        <a href="{{app.path}}/Variables/Env/Mod/{{values.controller}}" title="Variables de entorno del módulo">VEM</a>
+        <a href="{{app.path}}/Variables/Web/Mod/{{values.controller}}" title="Variables web del módulo">VWM</a>        
+    {% endif %}
+    </div>
+    <div style="float:left; margin-left: 10px;"
+        <img src='{{app.path}}/images/interrogacion.png' width="22px" height="22px" onclick="window.open('{{app.path}}/{{controller}}/help','Ayuda','width=850,height=610,scrollbars=1,location=0,menubar=1,resizable=1');" alt="Ayuda" title="Ayuda"/>
+    </div>
+    <div style="float:left; margin-left: 10px;"
+        <img src='{{app.path}}/images/favorito.gif' width="22px" height="22px" onclick="window.open('{{app.path}}/{{controller}}/help','Ayuda','width=850,height=610,scrollbars=1,location=0,menubar=1,resizable=1');" alt="Ayuda" title="Ayuda"/>
+    </div>
+</div>

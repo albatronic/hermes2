@@ -1,0 +1,15 @@
+{# ASIDE TICKETS #}
+
+<div id="acordeonAside">
+    {% include 'Tpv/favoritos.html.twig' %}
+    {% include 'Tpv/categorias.html.twig' %}
+</div>
+
+<script>
+$( "#acordeonAside" ).accordion({
+    header: "> div > h3",
+    collapsible: true,
+    autoHeight: false,
+    active: 0,
+}).sortable({cursor: "move"});     
+</script>

@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO PedidosWebLog
+#
+# Module: PedidosWebLog
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 20-09-2014 17:49:23
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

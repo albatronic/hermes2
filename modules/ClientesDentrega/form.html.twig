@@ -1,0 +1,29 @@
+{# TEMPLATE ClientesDentrega/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+{% set atributos = values.atributos %}
+{{ macro.input(atributos.Nombre,'Etiqueta','text','ClientesDentrega[Nombre]','ClientesDentrega_Nombre',datos.Nombre,'50','CampoTextoMedio') }}
+{{ macro.input(atributos.Direccion,'Etiqueta','text','ClientesDentrega[Direccion]','ClientesDentrega_Direccion',datos.Direccion,'50','CampoTextoMedio') }}
+{{ macro.input(atributos.IDPais,'Etiqueta','text','ClientesDentrega[IDPais]','ClientesDentrega_IDPais',datos.IDPais.IDPais,'255','CampoTextoMedio','',"limpia('ClientesDentrega_IDPais','ClientesDentrega_IDProvincia');limpia('ClientesDentrega_IDPais','ClientesDentrega_IDPoblacion');",['paises','Pais',datos.IDPais.Pais]) }}
+{{ macro.input(atributos.IDProvincia,'Etiqueta','text','ClientesDentrega[IDProvincia]','ClientesDentrega_IDProvincia',datos.IDProvincia.IDProvincia,'255','CampoTextoLargo','',"limpia('ClientesDentrega_IDProvincia','ClientesDentrega_IDPoblacion');",['provincias','Provincia',datos.IDProvincia.Provincia,'ClientesDentrega_IDPais']) }}
+{{ macro.input(atributos.IDPoblacion,'Etiqueta','text','ClientesDentrega[IDPoblacion]','ClientesDentrega_IDPoblacion',datos.IDPoblacion.IDMunicipio,'255','CampoTextoLargo','','',['municipios','Municipio',datos.IDPoblacion.Municipio,'ClientesDentrega_IDProvincia']) }}       
+{{ macro.input(atributos.CodigoPostal,'Etiqueta','text','ClientesDentrega[CodigoPostal]','ClientesDentrega_CodigoPostal',datos.CodigoPostal,'10','CampoCPostal') }}
+{{ macro.input(atributos.Telefono,'Etiqueta','text','ClientesDentrega[Telefono]','ClientesDentrega_Telefono',datos.Telefono,'20','CampoTextoMedio') }}
+{{ macro.input(atributos.Movil,'Etiqueta','text','ClientesDentrega[Movil]','ClientesDentrega_Movil',datos.Movil,'30','CampoTextoMedio') }}
+{{ macro.input(atributos.Fax,'Etiqueta','text','ClientesDentrega[Fax]','ClientesDentrega_Fax',datos.Fax,'20','CampoTextoMedio') }}
+{{ macro.input(atributos.EMail,'Etiqueta','text','ClientesDentrega[EMail]','ClientesDentrega_EMail',datos.EMail,'50','CampoTextoMedio') }}
+{{ macro.select(atributos.IDComercial,'Etiqueta','ClientesDentrega[IDComercial]','ClientesDentrega_IDComercial',200,datos.IDComercial.IDAgente,datos.IDComercial.getComerciales('','',false),'Select220')}}
+{{ macro.input(atributos.Responsable,'Etiqueta','text','ClientesDentrega[Responsable]','ClientesDentrega_Responsable',datos.Responsable,'50','CampoTextoMedio') }}
+{{ macro.input(atributos.HorarioLlamadas,'Etiqueta','text','ClientesDentrega[HorarioLlamadas]','ClientesDentrega_HorarioLlamadas',datos.HorarioLlamadas,'50','CampoTextoMedio') }}
+{{ macro.input(atributos.Horario,'Etiqueta','text','ClientesDentrega[Horario]','ClientesDentrega_Horario',datos.Horario,'50','CampoTextoMedio') }}
+{{ macro.select(atributos.IDZona,'Etiqueta','ClientesDentrega[IDZona]','ClientesDentrega_IDZona',200,datos.IDZona.IDZona,datos.IDZona.fetchAll('','Zona',false),'Select')}}
+{{ macro.input(atributos.Vigente,'Etiqueta','checkbox','ClientesDentrega[Vigente]','ClientesDentrega_Vigente',datos.Vigente.IDTipo,'255','CampoTextoLargo','20')}}   
+<script type="text/javascript">
+function limpia(idOrigen,idInput) {
+
+    if ( $('#'+idOrigen+'_valorAnterior').val() != $('#'+idOrigen).val() ) {
+        $('#'+idInput).val('');
+        $('#'+idInput+'_autoComplete').val('');  
+    }
+    
+}
+</script>

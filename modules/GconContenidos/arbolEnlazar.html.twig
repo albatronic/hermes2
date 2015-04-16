@@ -1,0 +1,23 @@
+{# Muestra los contenidos para enlazar#}
+
+<span class="arbol" 
+      title="Ver/Ocultar contenidos de esta sección" 
+      onclick="switchDisplay('contenidosDe_{{contenidos.id}}');">
+    <img src="{{app.path}}/images/js-tree/folder-closed.gif"/>
+    {{contenidos.titulo}} ({{ contenidos.nContenidos}})
+</span>
+<div id='contenidosDe_{{contenidos.id}}' style="display: none;">
+    <ul>
+    {% for key,contenido in contenidos.contenidos %}
+        <li>
+            <a href="javascript:;" title="Enlazar con el contenido" class="arbol" onclick="$('#idEntidadDestino').val('{{contenido.Id}}'); window.parent.window.opener.$('#enlace').html('{{contenido.Value}}'); submitForm('formEnlace');">
+            {{contenido.Value}}
+            </a>
+            {% if (values.entidadEnlazada == values.entidadDestino.getClassName) and (contenido.Id == values.idEntidadDestino) %}
+                <img class="arbol" src="{{app.path}}/images/candado.png" title="Quitar enlace" onclick="$('#accion').val('quitar'); window.parent.window.opener.$('#enlace').html(''); submitForm('formEnlace');"/>
+                <script>switchDisplay('contenidosDe_{{contenidos.id}}');</script>
+            {% endif %}                  
+        </li>
+    {% endfor%}
+    </ul>
+</div>

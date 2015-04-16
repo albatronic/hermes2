@@ -1,0 +1,74 @@
+{# TEMPLATE PropiedadesValores/form.html.twig #}
+{# Muestra los campos editables de la entidad #}
+
+{% extends 'PropiedadesValores/index.html.twig' %}
+
+{% set puntero = 0 %}
+{% set conColor = values.listado.data[0].IDPropiedad.IDTipo.IDTipo == '3' %}
+
+{% block listado %}
+
+<div class='Listado'> 
+    <table width='100%'>
+        <tr class='Titulos'>
+            <td class='Item'>Valor</td>
+            {% if conColor %}
+            <td class='Item'>Color</td>
+            {% endif %}
+            <td>&nbsp;</td>
+        </tr>
+
+        <tbody class="Cuerpo">
+            {% for key,objeto in values.listado.data %}
+                {% set puntero = key %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+
+            <form name="linea{{puntero}}" action="" method="POST" enctype="multipart/form-data">
+            <input name="controller" value="PropiedadesValores" type="hidden" />
+            <input name="action" id="action" value="edit" type="hidden" />
+            <input name="PropiedadesValores[IDPropiedad]" value="{{ values.linkBy.value }}" type="hidden" />
+            <input name="PropiedadesValores[Id]" value="{{ objeto.Id }}" type="hidden" />
+            <input name="accion" id="accion{{puntero}}" value="" type="hidden" />
+            <tr class='{{classFila}}'>
+                <td align="center">{{ macro.input(none,'Etiqueta','text','PropiedadesValores[Valor]','PropiedadesValores_Valor' ~ puntero,objeto.Valor,'15','CampoTextoCorto') }}</td>
+                {% if conColor %}
+                <td align="center">{{ macro.input(none,'Etiqueta','color','PropiedadesValores[Color]','PropiedadesValores_Color' ~ puntero,objeto.Color,'15','CampoTextoCorto') }}</td>
+                <script type="text/javascript">$('#{{'PropiedadesValores_Color' ~ puntero}}').css('color','{{objeto.Color}}');</script>
+                {% endif %}
+                 <td align="center">
+                    {% if objeto.Id > 0 %}
+                    <input type="image" src="{{app.path}}/images/botonsave.png" onclick="getElementById('accion{{puntero}}').value='G';" alt="Guardar" title="Guardar Linea" />
+                    <input type="image" src="{{app.path}}/images/papelera.gif" onclick="if (!confirm('Desea eliminar la línea?')) {return false;} else {getElementById('accion{{puntero}}').value='B';}" alt="Borrar" title="Borrar Linea" />
+                        {% else %}
+                    <input type="image" src="{{app.path}}/images/nuevo.png" onclick="getElementById('action').value='new';" alt="Nuevo" title="Crear Linea" />
+                    {% endif %}
+                </td>
+            </tr>
+            </form>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{{ macro.foco('PropiedadesValores_Valor0') }}
+
+<script>
+$(function(){    
+    $('#PropiedadesValores_Color0, #PropiedadesValores_Color1, #PropiedadesValores_Color2').ColorPicker({
+            onSubmit: function(hsb, hex, rgb, el) {
+                    $(el).val(hex);
+                    $(el).ColorPickerHide();
+            },
+            onBeforeShow: function () {
+                    $(this).ColorPickerSetColor(this.value);
+            }
+    })
+    .bind('keyup', function(){
+            $(this).ColorPickerSetColor(this.value);
+    });
+});
+</script>
+{% endblock %}

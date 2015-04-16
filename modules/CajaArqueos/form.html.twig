@@ -1,0 +1,57 @@
+{# TEMPLATE CajaArqueos/form.html.twig #}
+{# Muestra los campos editables de la entidad #}
+
+{% if (not datos.IDSucursal.IDSucursal) %}
+    {% set IDSucursal = suc %}
+{% else %}
+    {% set IDSucursal = datos.IDSucursal.IDSucursal %}
+{% endif %}
+
+{% set atributos = values.atributos %}
+
+<div>
+{% if datos.IDArqueo %}
+    {{ macro.etiqueta(atributos.IDSucursal,'Etiqueta',datos.IDSucursal)}}
+    {{ macro.etiqueta(atributos.IDTpv,'Etiqueta',datos.IDTpv)}}
+    {{ macro.etiqueta(atributos.Dia,'Etiqueta',datos.Dia)}}
+{% else %}
+    {{ macro.select(atributos.IDSucursal,'Etiqueta','CajaArqueos[IDSucursal]','CajaArqueos_IDSucursal',none,IDSucursal,user.getSucursales,'Select',none,"DesplegableAjax('div_CajaArqueos_IDTpv','CajaArqueos_IDTpv','CajaArqueos[IDTpv]','tpvs',this.value);")}}
+    {{ macro.select(atributos.IDTpv,'Etiqueta','CajaArqueos[IDTpv]','CajaArqueos_IDTpv',none,datos.IDTpv.IDTpv,datos.IDTpv.fetchAll,'Select')}}
+    {{ macro.fecha(atributos.Dia,'Etiqueta','CajaArqueos[Dia]','CajaArqueos_Dia',datos.Dia,'10','CampoFecha') }}
+{% endif %}
+</div>
+
+{% if datos.IDArqueo %}
+<div style="margin-top: 10px; font-size:11px;">
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Movimientos</a></li>
+            <li><a href="#tabs-2">Arqueo</a></li>
+            <li><a href="#tabs-3">{% if datos.Observaciones %}<b>{% endif %}Observaciones{% if datos.Observaciones %}</b>{% endif %}</a></li>
+            <li><a href="#tabs-4">Documentos</a></li>
+            {% if not datos.CajaCerrada.IDTipo %}
+            <li><a href="#tabs-5">Traspaso</a></li>
+            {% endif %}
+        </ul>
+        <div id="tabs-1">
+            <iframe width="100%" height="250" scrolling="yes" style="margin-top:5px; border:0;"
+                    src="{{app.path}}/CajaLineas/list/{{datos.IDArqueo}}">
+            </iframe>
+        </div>
+        <div id="tabs-2">
+            {% include values.controller ~ "/arqueo.html.twig" with {'datos': datos}%}
+        </div>
+        <div id="tabs-3">
+            {{ macro.textarea(none,'Etiqueta','CajaArqueos[Observaciones]','CajaArqueos_Observaciones',datos.Observaciones,none,none,'TextArea')}}
+        </div>
+        <div id="tabs-4">
+            {{ macro.documentos(values.controller,datos.getPrimaryKeyValue)}}
+        </div>
+        {% if not datos.CajaCerrada.IDTipo %}
+        <div id="tabs-5">
+            {% include values.controller ~ "/traspaso.html.twig" with {'datos': datos}%}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}

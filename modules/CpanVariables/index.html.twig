@@ -1,0 +1,64 @@
+{#
+  Module: CpanVariables
+  Document : modules\CpanVariables\index.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 27.08.2012 20:59:40
+#}
+
+{% extends layout %}
+
+{% block title parent() ~ ' - '  ~ values.titulo %}
+
+{% block content %}
+
+    <div class='Titulo'>
+        <div style="float: left; margin-right: 20px;">
+        {% if values.nombre %}<a href="{{app.path}}/{{values.nombre}}">{%endif%}
+            {{ values.titulo }}
+        {% if values.nombre %}</a>{%endif%}
+        </div>
+        <div style="float: left;">
+            {% include "_global/comandosSave.html.twig" %}
+            {% include "_global/comandosDelete.html.twig" %}               
+        </div>
+    {% include '_global/comandosHelp.html.twig' with {'controller': values.controller} %}
+    </div>
+
+    {% block filtro %}
+    {% if values.permisos.permisosModulo['CO'] and values.tieneListado %}
+            {% include '_global/filtroGenericoWrapper.html.twig' with {'filter': values.listado.filter} %}
+    {% endif %}
+    {% endblock %}
+
+    <div id='div_listado'>
+    {% block listado %}
+    {% endblock %}
+    </div>
+
+    {% block mantenimiento %}
+    {% endblock %}
+
+<script>
+   
+    $("#confirmacionBorrado").dialog({
+        autoOpen: false,
+        dialogClass: "",
+        resizable: false,
+        height: 150,
+        modal: true,
+        buttons: {
+            Aceptar: function() {
+                $('#accion_{{values.controller}}').val('Borrar');
+                submitForm('manto_{{ values.controller}}');                
+                $( this ).dialog( "close" );
+            },          
+            Cancelar: function() {
+                $( this ).dialog( "close" );
+            }
+        }
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,108 @@
+{# PIE DEL TICKET #}
+
+<div class="ticketPie">
+<table ID="PIE" width="100%" border=0>
+    <tr>
+        <td width="80%">
+            <table width="100%">
+                <input name="AlbaranesCab[IDAlbaran]" value="{{albaran.IDAlbaran}}" type="hidden">
+            <tr>
+                <td colspan="3" align="left">
+                    Forma de Pago:&nbsp;
+                    <select id="formaPago" style="font-size: 16px;">
+                        {% for formaPago in albaran.IDFP.fetchAll('Descripcion',false)%}
+                            <option value="{{formaPago.Id}}">{{formaPago.Value}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">Entrega:&nbsp;<input name="entrega" id="entrega" value="" type="text" size="6" style="font-size: 18px;" onchange="Evalua();"></td>
+                <td align="left">
+                    <div id="divCambio" class="oculto">
+                    Cambio:&nbsp;<input name="cambio" id="cambio" value="0" type="text" size="6" readonly style="font-size: 18px;">
+                    </div>
+                </td>                        
+                <td align="left">
+                    <div id="divPendiente" class="oculto">
+                    Pendiente:&nbsp;<input name="pendiente" id="pendiente" value="0" type="text" size="6" readonly style="font-size: 18px; background-color: red">
+                    </div>                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;">
+                {% if (albaran.IDEstado.IDTipo=='0') %}
+                    <div id="divCierre" class="oculto">
+                    <input id="cierraVenta" value="Cierre Venta" type="button" accesskey="C" class="Comando">
+                    </div>
+                {% endif %}
+                &nbsp;
+                <input type="button" value="Imprimir" class="Comando" id="botonImprimir" />
+                </td>
+            </tr>
+            </table>
+        </td>
+        <td align="center" valign="middle" style="background-color: antiquewhite; font-size: 20px; font-weight: bold;">
+                <input id="total" value="{{albaran.Total}}" type="hidden">            
+                <p>TOTAL</p><div id="totalLiteral" style="margin-top: 10px;">{{albaran.Total}}</div>
+        </td>
+    </tr>
+	<tr><td colspan="2"><br></td></tr>
+	<TR><TD colspan="2" align="center"><b>Gracias por su visita</b></TD></TR>
+	<TR><TD colspan="2" align="center"><?php echo DameParametro('PIETI','');?></TD></TR>
+</table>
+</div>
+
+<script>
+    $(function() {
+	$( "#botonImprimir" ).click(function(){
+            window.open(appPath+'/_Emergente/formatosDocumentos/Tpv/{{albaran.IDAlbaran}}','Tpv','width=100,height=200,status=false,resizable=1');           
+        });
+        
+        $('#cierraVenta').click(function(){
+        
+            var datos ={
+                'IDAlbaran':$('#IDAlbaran').val(),
+            };
+
+            $.ajax({
+                url: appPath + '/lib/ticket.php',
+                dataType: 'html',
+                type: 'post',
+                data: {'parametros':{'accion':'cierre','datos': datos}
+                },
+                success: function(resultado) {
+                    var datos = $.parseJSON(resultado);
+                    if (datos.status === 'error') 
+                        $('#mensajes').html(resultado);
+                    else {
+                   
+                    }
+                }
+            });            
+        });
+        
+    });
+    
+function Evalua(){
+    $('#cambio').val('0');
+    $('#pendiente').val('0');
+
+    var entrega = eval($('#entrega').val());
+    var total = eval($('#total').val());
+    
+    if (entrega > total) $('#cambio').val(Redondear(entrega-total,2));
+    if (entrega < total) $('#pendiente').val(Redondear(total-entrega,2));
+    
+    if ($('#cambio').val() > 0) {
+        $('#divCierre').removeClass('oculto').addClass('visible');
+        $('#divCambio').removeClass('oculto').addClass('visible');
+        $('#divPendiente').removeClass('visible').addClass('oculto');
+    }
+    if ($('#pendiente').val() > 0) {
+        $('#divPendiente').removeClass('oculto').addClass('visible');
+        $('#divCambio').removeClass('visible').addClass('oculto');
+        $('#divCierre').removeClass('visible').addClass('oculto');
+    }
+}    
+</script>

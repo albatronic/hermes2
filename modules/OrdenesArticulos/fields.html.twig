@@ -1,0 +1,15 @@
+{#
+  Module: ErpOrdenesArticulos
+  Document : modules\ErpOrdenesArticulos\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 09.02.2013 11:28:32
+#}
+
+{{ macro.input(atributos.IdRegla,'field_title','text',values.controller ~ '[IdRegla]',values.controller ~ '_IdRegla',datos.IdRegla,'11','CampoImporte','1') }}
+{{ macro.select(atributos.IdArticulo,'field_title',values.controller ~ '[IdArticulo]',values.controller ~ '_IdArticulo',none,datos.IdArticulo.IdArticulo,datos.IdArticulo.fetchAll('Id'),'chzn-select','2')}}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_IdRegla') }}

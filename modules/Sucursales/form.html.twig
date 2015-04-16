@@ -1,0 +1,30 @@
+{# TEMPLATE Sucursales/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{% set digitosCta = datos.IDEmpresa.DigitosCuentaContable %}
+{% set atributos = values.atributos %}
+
+{{ macro.input(atributos.Nombre,'Etiqueta','text','Sucursales[Nombre]','Sucursales_Nombre',datos.Nombre,'50','CampoTextoMedio') }}
+{{ macro.input(atributos.Direccion,'Etiqueta','text','Sucursales[Direccion]','Sucursales_Direccion',datos.Direccion,'50','CampoTextoMedio') }}
+{{ macro.input(atributos.IDPais,'Etiqueta','text','Sucursales[IDPais]','Sucursales_IDPais',datos.IDPais.IDPais,'255','CampoTextoMedio','',"limpia('Sucursales_IDPais','Sucursales_IDProvincia');limpia('Sucursales_IDPais','Sucursales_IDPoblacion');",['paises','Pais',datos.IDPais.Pais]) }}
+{{ macro.input(atributos.IDProvincia,'Etiqueta','text','Sucursales[IDProvincia]','Sucursales_IDProvincia',datos.IDProvincia.IDProvincia,'255','CampoTextoMedio','',"limpia('Sucursales_IDProvincia','Sucursales_IDPoblacion');",['provincias','Provincia',datos.IDProvincia.Provincia,'Sucursales_IDPais']) }}
+{{ macro.input(atributos.IDPoblacion,'Etiqueta','text','Sucursales[IDPoblacion]','Sucursales_IDPoblacion',datos.IDPoblacion.IDMunicipio,'255','CampoTextoMedio','','',['municipios','Municipio',datos.IDPoblacion.Municipio,'Sucursales_IDProvincia']) }}       
+{{ macro.input(atributos.CodigoPostal,'Etiqueta','text','Sucursales[CodigoPostal]','Sucursales_CodigoPostal',datos.CodigoPostal,'10','CampoCPostal') }}
+{{ macro.input(atributos.Telefono,'Etiqueta','text','Sucursales[Telefono]','Sucursales_Telefono',datos.Telefono,'30','CampoTextoMedio') }}
+{{ macro.input(atributos.Fax,'Etiqueta','text','Sucursales[Fax]','Sucursales_Fax',datos.Fax,'30','CampoTextoMedio') }}
+{{ macro.input(atributos.EMail,'Etiqueta','text','Sucursales[EMail]','Sucursales_EMail',datos.EMail,'50','CampoTextoMedio') }}
+{{ macro.select(atributos.IDResponsable,'Etiqueta','Sucursales[IDResponsable]','Sucursales_IDResponsable',200,datos.IDResponsable.IDAgente,datos.IDResponsable.fetchAll('Nombre',false),'Select') }}
+{{ macro.input(atributos.CtaContableClientes,'Etiqueta','text','Sucursales[CtaContableClientes]','Sucursales_CtaContableClientes',datos.CtaContableClientes,'3','CampoTextoCorto') }}
+{{ macro.input(atributos.CtaContableVentas,'Etiqueta','text','Sucursales[CtaContableVentas]','Sucursales_CtaContableVentas',datos.CtaContableVentas,digitosCta,'CampoTextoCorto') }}
+{{ macro.input(atributos.CtaContableCompras,'Etiqueta','text','Sucursales[CtaContableCompras]','Sucursales_CtaContableCompras',datos.CtaContableCompras,digitosCta,'CampoTextoCorto') }}
+
+<script type="text/javascript">
+function limpia(idOrigen,idInput) {
+
+    if ( $('#'+idOrigen+'_valorAnterior').val() != $('#'+idOrigen).val() ) {
+        $('#'+idInput).val('');
+        $('#'+idInput+'_autoComplete').val('');  
+    }
+    
+}
+</script>

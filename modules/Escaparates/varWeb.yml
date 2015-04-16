@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO Escaparates
+#
+# Module: Escaparates
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 07-02-2013 15:32:56
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

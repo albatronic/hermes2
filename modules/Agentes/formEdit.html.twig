@@ -1,0 +1,43 @@
+{# TEMPLATE Agentes/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{% set atributos = values.atributos %}
+
+<div style="float: left; width: 45%;">
+{{ macro.etiqueta({'caption':'Nombre','visible':1},'Etiqueta',datos.IDAgente.Nombre) }}
+{{ macro.etiqueta({'caption':'Apellidos','visible':1},'Etiqueta',datos.IDAgente.Apellidos) }}
+
+{#
+{{ macro.input({'caption':'Nombre','visible':1},'Etiqueta','text','PcaeUsuarios[Nombre]','PcaeUsuarios_Nombre',datos.IDAgente.Nombre,'50','CampoTextoLargo','1') }}
+{{ macro.input({'caption':'Apellidos','visible':1},'Etiqueta','text','PcaeUsuarios[Apellidos]','PcaeUsuarios_Apellidos',datos.IDAgente.Apellidos,'50','CampoTextoLargo','2') }}
+{{ macro.input({'caption':'DNI','visible':1},'Etiqueta','text','PcaeUsuarios[DNI]','PcaeUsuarios_DNI',datos.IDAgente.DNI,'15','CampoTextoCorto','3') }}
+{{ macro.input({'caption':'Dirección','visible':1},'Etiqueta','text','PcaeUsuarios[Direccion]','PcaeUsuarios_Direccion',datos.IDAgente.Direccion,'100','CampoTextoLargo','4') }}
+{{ macro.input({'caption':'País','visible':1},'Etiqueta','text','PcaeUsuarios[IdPais]','PcaeUsuarios_IdPais',datos.IDAgente.IdPais.Id,'255','CampoTextoLargo','5','','',['paises','Pais',datos.IDAgente.IdPais.Pais]) }}
+{{ macro.input({'caption':'Provincia','visible':1},'Etiqueta','text','PcaeUsuarios[IdProvincia]','PcaeUsuarios_IdProvincia',datos.IDAgente.IdProvincia.Id,'255','CampoTextoLargo','6','','',['provincias','Provincia',datos.IDAgente.IdProvincia.Provincia,'PcaeUsuarios_IdPais']) }}
+{{ macro.input({'caption':'Municipio','visible':1},'Etiqueta','text','PcaeUsuarios[IdMunicipio]','PcaeUsuarios_IdMunicipio',datos.IDAgente.IdMunicipio.Id,'255','CampoTextoLargo','7','','',['municipios','Municipio',datos.IDAgente.IdMunicipio.Municipio,'PcaeUsuarios_IdProvincia']) }}
+{{ macro.input({'caption':'Código Postal','visible':1},'Etiqueta','text','PcaeUsuarios[CodigoPostal]','PcaeUsuarios_CodigoPostal',datos.IDAgente.CodigoPostal,'10','CampoTextoCorto','8') }}
+{{ macro.input({'caption':'Teléfono','visible':1},'Etiqueta','text','PcaeUsuarios[Telefono]','PcaeUsuarios_Telefono',datos.IDAgente.Telefono,'50','CampoTextoLargo','9') }}
+{{ macro.input({'caption':'Email','visible':1},'Etiqueta','text','PcaeUsuarios[EMail]','PcaeUsuarios_EMail',datos.IDAgente.EMail,'100','CampoTextoLargo','10') }}
+{{ macro.input({'caption':'Password','visible':1},'Etiqueta','text','PcaeUsuarios[Password]','PcaeUsuarios_Password',none,'100','CampoTextoLargo','11') }}
+{{ macro.input({'caption':'Número de Logins','visible':1,'updatable':0},'Etiqueta','text','PcaeUsuarios[NLogin]','PcaeUsuarios_NLogin',datos.IDAgente.NLogin,'4','CampoUnidades','12') }}
+{{ macro.fecha({'caption':'Último Login','visible':1,'updatable':0},'Etiqueta','PcaeUsuarios[UltimoLogin]','PcaeUsuarios_UltimoLogin',datos.IDAgente.UltimoLogin,'19','CampoFecha','13')}}    
+#}
+
+{{ macro.input(atributos.Activo,'Etiqueta','checkbox','Agentes[Activo]','Agentes_Activo',datos.Activo.IDTipo,'255','CampoTextoLargo','20')}}          
+{{ macro.select(atributos.IDRol,'Etiqueta','Agentes[IDRol]','Agentes_IDRol',200,datos.IDRol.IDTipo,datos.IDRol.fetchAll(false),'Select') }}
+{{ macro.select(atributos.IDPerfil,'Etiqueta','Agentes[IDPerfil]','Agentes_IDPerfil',200,datos.IDPerfil.IDPerfil,datos.IDPerfil.fetchAll('Perfil',false),'Select') }}
+{{ macro.select(atributos.IDSucursal,'Etiqueta','Agentes[IDSucursal]','Agentes_IDSucursal',200,datos.IDSucursal.IDSucursal,datos.IDSucursal.fetchAll('Nombre'),'Select') }}
+{{ macro.select(atributos.IDAlmacen,'Etiqueta','Agentes[IDAlmacen]','Agentes_IDAlmacen',200,datos.IDAlmacen.IDAlmacen,datos.IDAlmacen.fetchAll(datos.IDEmpresa.IDEmpresa,'Nombre'),'Select') }}
+{{ macro.etiqueta({'caption':'Número de Logins','visible':1},'Etiqueta',datos.IDAgente.NLogin) }}
+{{ macro.etiqueta({'caption':'Último Login','visible':1},'Etiqueta',datos.IDAgente.UltimoLogin) }}
+</div>
+
+<div style="float: left; margin-right: 20px;">
+<h3>Configuración de la cuenta de correo electrónico</h3>
+{{ macro.etiqueta({'caption':'EMail','visible':1},'Etiqueta',datos.IDAgente.EMail) }}
+{{ macro.etiqueta({'caption':'Servidor de correo','visible':1},'Etiqueta',datos.IDAgente.EMailHost) }}
+{{ macro.etiqueta({'caption':'Sockect','visible':1},'Etiqueta',datos.IDAgente.EMailSocket) }}
+{{ macro.etiqueta({'caption':'Puerto','visible':1},'Etiqueta',datos.IDAgente.EMailPort) }}
+{{ macro.etiqueta({'caption':'Con autenticación','visible':1},'Etiqueta',datos.IDAgente.EMailSmtpAuth) }}
+{{ macro.etiqueta({'caption':'Contraseña','visible':1},'Etiqueta',datos.IDAgente.EMailPassword) }}
+</div>

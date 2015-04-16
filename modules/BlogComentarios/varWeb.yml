@@ -1,0 +1,20 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO BlogComentarios
+#
+# Module: BlogComentarios
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright INFORMATICA ALBATRONIC, SL
+# date 21-02-2013 21:32:01
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---
+censurar:
+  caption: ¿Censurar comentarios?
+  values:
+    - {'Id':'0','Value':'No, se publican directamente'} 
+    - {'Id':'1','Value':'Sí, los publica el web master'}
+  default: '1'

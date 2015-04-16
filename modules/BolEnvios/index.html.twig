@@ -1,0 +1,30 @@
+{#
+  Module: BolEnvios
+  Document : modules\BolEnvios\index.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 12.07.2013 12:30:18
+#}
+
+{% extends layout %}
+
+{% block title parent() ~ ' - '  ~ values.titulo %}
+
+{% block content %}
+	{% include '_global/formErrores.html.twig' with {'errores': values.errores} %}
+	{% include '_global/alertas.html.twig' with {'alertas': values.alertas} %}
+	{% block filtro %}
+	{% if values.permisos.permisosModulo['CO'] and values.tieneListado %}
+		{% include '_global/filtroGenericoWrapper.html.twig' with {'filter': values.listado.filter} %}
+	{% endif %}
+	{% endblock %}
+
+	<div id='div_listado'>
+	{% block listado %}
+	{% endblock %}
+	</div>
+
+	{% block mantenimiento %}
+	{% endblock %}
+{% endblock %}

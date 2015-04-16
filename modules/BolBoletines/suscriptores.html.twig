@@ -1,0 +1,21 @@
+{# USUARIOS SUSCRITOS AL BOLETIN #}
+<table>
+    <thead>
+        <tr><th>Quitar</th><th width="40%">Nombre</th><th width="40%">Email</th><th>Fecha Suscripción</th></tr>
+    </thead>
+    <tbody>
+        {% for suscriptor in values.suscriptores %}
+        <tr>
+            <td>
+                <input type="checkbox" checked 
+                       onclick="
+                               $(this).val($(this).is(':checked') ? '1' : '0');
+                               actualizaRelacion('Clientes', '{{suscriptor.objeto.IDCliente}}', 'BolBoletines', '{{values.datos.Id}}', $(this).val());"/>                 
+            </td>
+            <td>{{suscriptor.objeto.RazonSocial}}</td>
+            <td>{{suscriptor.objeto.Email}}</td>
+            <td>{{suscriptor.fechaRelacion|date('d-m-Y H:i:s')}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

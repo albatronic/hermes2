@@ -1,0 +1,24 @@
+{# EXISTENCIAS #}
+<div>
+    <h3>Existencias</h3>
+    <div class='Listado'> 
+        <table style="width: 100%">
+            <tr class="Titulos">
+                <td class='Item'>Almacén</td>
+                <td class='Item'>Disponible</td>
+                <td class='Item'>Reales</td>
+                <td class='Item'>Reservadas</td>
+                <td class='Item'>Entrando</td>
+            </tr>
+        {% for almacen in datos.getExistencias %}
+            <tr>
+                <td>{{almacen.Nombre}}</td>
+                <td style="text-align: right;">{{almacen.Reales-almacen.Reservadas}}</td>
+                <td style="text-align: right;">{{almacen.Reales}}</td>
+                <td style="text-align: right;">{{almacen.Reservadas}}</td>
+                <td style="text-align: right;">{{almacen.Entrando}}</td>
+            </tr> 
+        {% endfor %}            
+        </table>
+    </div>
+</div>

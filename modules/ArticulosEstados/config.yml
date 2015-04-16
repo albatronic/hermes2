@@ -1,0 +1,103 @@
+# Module: ErpArticulosEstados
+# Document : modules/ErpArticulosEstados/config.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: Informática ALBATRONIC SL
+# @date 25.03.2013 20:02:24
+#
+---
+ArticulosEstados:
+  app: ''
+  isModuleRoot: 0
+  linkModule:
+    fromColumn: ''
+    toEntity: ''
+    toColumn: ''
+  translatable: true
+  searchable: true
+  showCommonFields: false
+  numMaxRecords: ''
+  numberOfImages: '0'
+  withGalery: '0'
+  withDocuments: '0'
+  withVideos: 0
+  withAudios: '0'
+  maxSizes:
+    image: '400000'
+    document: ''
+    video: ''
+    audio: ''
+  galery:
+    maxWidthImage: '500'
+    maxHeightImage: '400'
+    generateThumbnail: '0'
+    widthThumbnail: '50'
+    heightThumbnail: '50'
+  urlFriendlyManagement: false
+  fieldGeneratorUrlFriendly: Estado
+  metatagTitleManagement: false
+  fieldGeneratorMetatagTitle: Estado
+  controller: ArticulosEstados
+  action: Index
+  template: index.html.twig
+  parametros: ''
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: YES
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Estados de los artículos
+  id_video: articulosestados
+  url_video: null
+  feature_list: YES
+  conection: ''
+  entity: ArticulosEstados
+  table: ErpArticulosEstados
+  primarykey: IDEstado
+  linkBy: ''
+  records_per_page: 15
+  order_by:
+    -
+      title: 'Estado a-z'
+      criteria: 'Estado ASC'
+    -
+      title: 'Estado z-a'
+      criteria: 'Estado DESC'
+  search_default: Estado
+  referenced_entities:
+    - ValoresSN
+    - ValoresPrivacy
+    - ValoresDchaIzq
+    - ValoresChangeFreq
+    - RequestMethods
+    - RequestOrigins
+    - CpanAplicaciones
+  columns:
+    IDEstado:
+      title: IDEstado
+      visible: false
+      updatable: false
+      filter: NO
+      list: NO
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+    Estado:
+      title: Estado
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+

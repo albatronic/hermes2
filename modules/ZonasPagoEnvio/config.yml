@@ -1,0 +1,232 @@
+# Module: ZonasPagoEnvio
+# Document : modules/ZonasPagoEnvio/config.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: Informática ALBATRONIC SL
+# @date 14.03.2014 23:46:54
+#
+---
+ZonasPagoEnvio:
+  app: ''
+  isModuleRoot: 0
+  linkModule:
+    fromColumn: ''
+    toEntity: ''
+    toColumn: ''
+  modulosRelacionables: ''
+  translatable: false
+  searchable: false
+  showCommonFields: false
+  numMaxRecords: ''
+  numberOfImages: '0'
+  withMetadata: '0'
+  addMetadata: '0'
+  deleteMetadata: '0'
+  withGalery: '0'
+  withDocuments: '0'
+  withVideos: 0
+  withAudios: '0'
+  maxSizes:
+    image: '400000'
+    document: ''
+    video: ''
+    audio: ''
+  galery:
+    maxWidthImage: '500'
+    maxHeightImage: '400'
+    generateThumbnail: '0'
+    widthThumbnail: '50'
+    heightThumbnail: '50'
+  urlFriendlyManagement: false
+  fieldGeneratorUrlFriendly: IDZona
+  metatagTitleManagement: false
+  fieldGeneratorMetatagTitle: IDZona
+  fieldGeneratorMetatagDescription: IDZona
+  fieldGeneratorMetatagKeywords: IDZona
+  controller: ZonasPagoEnvio
+  action: Index
+  template: index.html.twig
+  parametros: ''
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: YES
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Zonas - Pago - Forma envío
+  id_video: zonaspagoenvio
+  url_video: null
+  feature_list: YES
+  conection: ''
+  entity: ZonasPagoEnvio
+  table: ErpZonasPagoEnvio
+  primarykey: Id
+  linkBy: ''
+  records_per_page: 15
+  order_by:
+    -
+      title: 'Zona a-z'
+      criteria: 'IDZona ASC,IDFP ASC,IDAgencia ASC'
+    -
+      title: 'Zona z-a'
+      criteria: 'IDZona DESC,IDFP DESC,IDAgencia DESC'
+  search_default: Id
+  referenced_entities:
+    - ZonasTransporte
+    - FormasPago
+    - Agencias
+    - ValoresSN
+    - ValoresPrivacy
+    - ValoresDchaIzq
+    - ValoresChangeFreq
+    - RequestMethods
+    - RequestOrigins
+    - CpanAplicaciones
+  columns:
+    Id:
+      title: Id
+      visible: false
+      updatable: false
+      filter: NO
+      list: NO
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+    IDZona:
+      title: Zona de envío
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 1, caption: Zona envío, entity: ZonasTransporte, method: fetchAll, params: Zona, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '25', min: null, max: null, message: 'Valor Requerido' }
+    IDFP:
+      title: Forma de pago
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 2, caption: Forma Pago, entity: FormasPago, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '25', min: null, max: null, message: 'Valor Requerido' }
+    IDAgencia:
+      title: Agencia / Forma de envío
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 3, caption: Forma envío, entity: Agencias, method: fetchAll, params: Agencia, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '25', min: null, max: null, message: 'Valor Requerido' }
+    PlazoEntrega:
+      title: Plazo de entrega
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+    ImportePedidoMinimo:
+      title: Importe Pedido Mínimo
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: '0.00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    ImportePedidoMaximo:
+      title: Importe Pedido Máximo
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: '0.00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    DesdeGramos:
+      title: Desde Gramos
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: '0.00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    HastaGramos:
+      title: Hasta Gramos
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: '0.00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    Gastos:
+      title: Gastos de envío
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: '0.00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    Uso:
+      title: Disponible en
+      filter: NO
+      list: true
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 4, caption: Disponible en, entity: UsoWeb, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: tinyint, length: '15', min: null, max: null, message: 'Valor Requerido' }       

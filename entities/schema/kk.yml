@@ -1,0 +1,13 @@
+# Log de Pedidos Web
+ErpPedidosWebLog:
+  comment: Log de pedidos web
+  columns:
+    IDPedido:          { type: bigint(11), notnull: true, default: 0, index: index, comment: 'db,PedidosWebCab,IDPedido' }
+    Fecha:             { type: datetime, notnull: true, default: null }
+    IpAddress:         { type: string(20), notnull: true }
+    Accion:            { type: string(100), notnull: true }
+    IDEstado:          { type: boolean, notnull: true, default: 0, index: index, comment: 'Abstract,EstadosPedidosWeb,IDTipo' }  
+    Pasarela:          { type: string(50), notnull: true }
+    ResultadoPasarela: { type: text, notnull: true }
+    <?php include '../Hermes/entities/schema/schemaColumnsCommon.yml'; echoln('');?>         
+  relations:

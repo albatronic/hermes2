@@ -1,0 +1,376 @@
+# Module: ErpRecibosProveedores
+# Document : modules/ErpRecibosProveedores/config.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: Informática ALBATRONIC SL
+# @date 25.03.2013 20:02:29
+#
+---
+RecibosProveedores:
+  app: ''
+  isModuleRoot: 0
+  linkModule:
+    fromColumn: ''
+    toEntity: ''
+    toColumn: ''
+  translatable: false
+  searchable: false
+  showCommonFields: true
+  numMaxRecords: ''
+  numberOfImages: '0'
+  withGalery: '0'
+  withDocuments: '1'
+  withVideos: 0
+  withAudios: '0'
+  maxSizes:
+    image: '400000'
+    document: ''
+    video: ''
+    audio: ''
+  galery:
+    maxWidthImage: '500'
+    maxHeightImage: '400'
+    generateThumbnail: '0'
+    widthThumbnail: '50'
+    heightThumbnail: '50'
+  urlFriendlyManagement: false
+  fieldGeneratorUrlFriendly: Recibo
+  metatagTitleManagement: false
+  fieldGeneratorMetatagTitle: Recibo
+  controller: RecibosProveedores
+  action: Index
+  template: index.html.twig
+  parametros: ''
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: YES
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Recibos de Proveedores
+  id_video: recibosproveedores
+  url_video: null
+  feature_list: YES
+  conection: ''
+  entity: RecibosProveedores
+  table: ErpRecibosProveedores
+  primarykey: IDRecibo
+  linkBy: ''
+  records_per_page: 15
+  order_by:
+    -
+      title: Vencimiento z-a
+      criteria: Vencimiento DESC
+    -
+      title: Vencimiento a-z
+      criteria: Vencimiento ASC
+    -
+      title: Factura a-z
+      criteria: IDFactura ASC
+    -
+      title: Factura z-a
+      criteria: IDFactura DESC
+  search_default: IDRecibo
+  referenced_entities:
+    - Sucursales
+    - FrecibidasCab
+    - Proveedores
+    - EstadosRecibos
+    - ValoresSN
+    - ValoresPrivacy
+    - ValoresDchaIzq
+    - ValoresChangeFreq
+    - RequestMethods
+    - RequestOrigins
+    - CpanAplicaciones
+  columns:
+    IDRecibo:
+      title: IDRecibo
+      visible: false
+      updatable: false
+      filter: NO
+      list: NO
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+    Recibo:
+      title: Recibo
+      filter: YES
+      list: NO
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '4', min: null, max: null, message: 'Valor Requerido' }
+    IDSucursal:
+      title: Sucursal
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 0
+        caption: Sucursal
+        entity: 'Agentes,<?php echo $_SESSION['usuarioPortal']['Id'];?>'
+        method: getSucursales
+        type: select
+        event: null
+      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+    IDFactura:
+      title: Factura
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 1
+        caption: N. Factura (%)
+        entity: FemitidasCab
+        method: null
+        params: NumeroFactura
+        type: input
+        event: null
+      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+    IDProveedor:
+      title: Proveedor
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 2
+        caption: Proveedor (%)
+        entity: Proveedores
+        method: null
+        params: RazonSocial
+        type: input
+        event: null
+      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+    Fecha:
+      title: Fecha
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0000-00-00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 3
+        caption: Fecha Ftra
+        entity: null
+        type: range
+        default: '<?php echo '01/01/'.date('Y').',31/12/'.date('Y');?>'
+        operator: '>='
+      validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
+    Vencimiento:
+      title: Vencimiento
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0000-00-00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 5
+        caption: Fecha Vcto
+        entity: null
+        type: range
+        default: '<?php echo '01/01/'.date('Y').',31/12/'.date('Y');?>'
+        operator: '>='
+      validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
+    Importe:
+      title: Importe
+      filter: YES
+      list: NO
+      visible: true
+      updatable: true
+      default: '0.00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    Iban:
+      title: Iban
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: YES, type: string, length: '34', min: null, max: null, message: 'Valor Requerido' }
+    Bic:
+      title: Bic
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: YES, type: string, length: '1', min: null, max: null, message: 'Valor Requerido' }      
+    Mandato:
+      title: Mandato
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: YES, type: string, length: '35', min: null, max: null, message: 'Valor Requerido' }      
+    FechaMandato:
+      title: Fecha de mandato
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0000-00-00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      #aditional_filter: { order: 13, caption: FechaMandato, type: range, operator: '>=' }
+      validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' } 
+    Asiento:
+      title: Asiento
+      filter: YES
+      list: NO
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: integer, length: '6', min: null, max: null, message: 'Valor Requerido' }
+    Concepto:
+      title: Concepto
+      filter: YES
+      list: NO
+      visible: true
+      updatable: true
+      default: ''
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+    IDEstado:
+      title: Estado
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 7
+        caption: Estado
+        entity: EstadosRecibos
+        method: fetchAll
+        params: Tipo
+        type: select
+        event: null
+        default: 0
+      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+    IDRemesa:
+      title: Remesa
+      filter: YES
+      list: NO
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 8
+        caption: Remesa
+        entity: null
+        method: null
+        params: null
+        type: input
+        event: null      
+      validator: { nullable: YES, type: string, length: '14', min: null, max: null, message: 'Valor Requerido' }
+    Remesar:
+      title: Remesar
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '1'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      #aditional_filter: { order: 9, caption: Remesar, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+    CContable:
+      title: Cta. Contable
+      filter: YES
+      list: NO
+      visible: true
+      updatable: true
+      default: '0000000000'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '10', min: null, max: null, message: 'Valor Requerido' }

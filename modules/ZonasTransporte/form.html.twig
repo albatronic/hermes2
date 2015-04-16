@@ -1,0 +1,5 @@
+{# TEMPLATE ZonasTransporte/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{{ macro.input(values.atributos.Zona,'Etiqueta','text','ZonasTransporte[Zona]','ZonasTransporte_Zona',datos.Zona,'50','CampoTextoLargo') }}
+{{ macro.select(values.atributos.Uso,'Etiqueta','ZonasTransporte[Uso]','ZonasTransporte_Uso',150,datos.Uso.IDTipo,datos.Uso.fetchAll('',false),'Select') }}

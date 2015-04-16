@@ -1,0 +1,103 @@
+{#
+  Module: GconSecciones
+  Document : modules\GconSecciones\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 30.10.2012 18:44:57
+#}
+<script>
+
+    $(function(){
+        $('#menuArbol').menu();      
+    });
+    
+</script> 
+
+{% set atributos = values.atributos %}
+
+<div id="tabs">
+    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />      
+    <ul>
+        <li><a href="#arbol">Árbol de Secciones</a></li>
+        <li>
+            <a href="#general">{%if datos.Titulo%}<b>{{datos.Titulo|slice(0,40)}}</b> ...{%else%}Sección{%endif%}</a>
+            {{ macro.publicar(atributos.Publish,values.controller ~ '[Publish]',values.controller ~ '_Publish',datos.Publish.IDTipo) }}
+        </li>     
+        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+        <li>
+            <a href="#fieldsComunes">Más detalles...</a>
+        </li>        
+        {% endif %}                      
+    </ul>
+
+    <div id="arbol">
+        {% include values.controller ~ '/arbol.html.twig' with {'arbol': datos.getArbolHijos, 'subtemplate':'arbolEditar.html.twig'} %}        
+    </div> 
+        
+    <div id="general">
+        {{ macro.input(atributos.Titulo,'EtiquetaMedia','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'255','CampoTextoLargo','1') }}
+        {{ macro.input(atributos.Subtitulo,'EtiquetaMedia','text',values.controller ~ '[Subtitulo]',values.controller ~ '_Subtitulo',datos.Subtitulo,'255','CampoTextoLargo','2') }}
+        {{ macro.textarea(atributos.Introduccion,'EtiquetaMedia',values.controller ~ '[Introduccion]',values.controller ~ '_Introduccion',datos.Introduccion,none,none,'textarea','3')}}
+        {{ macro.input(atributos.MostrarTitulo,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarTitulo]',values.controller ~ '_MostrarTitulo',datos.MostrarTitulo.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.MostrarSubtitulo,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarSubtitulo]',values.controller ~ '_MostrarSubtitulo',datos.MostrarSubtitulo.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.MostrarIntroduccion,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarIntroduccion]',values.controller ~ '_MostrarIntroduccion',datos.MostrarIntroduccion.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.MostrarSubsecciones,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarSubsecciones]',values.controller ~ '_MostrarSubsecciones',datos.MostrarSubsecciones.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.radio(atributos.ModoMostrarContenidos,'EtiquetaMedia',values.controller ~ '[ModoMostrarContenidos]',values.controller ~ '_ModoMostrarContenidos',datos.ModoMostrarContenidos.IDTipo,datos.ModoMostrarContenidos.fetchAll(Descripcion,0),'chzn-radio','22')}}
+        {{ macro.select(atributos.CriterioOrdenContenidosHijos,'EtiquetaMedia',values.controller ~ '[CriterioOrdenContenidosHijos]',values.controller ~ '_CriterioOrdenContenidosHijos',200,datos.CriterioOrdenContenidosHijos.IDTipo,datos.CriterioOrdenContenidosHijos.fetchAll(none,0),'chzn-select')}}
+        {% include '_global/metaDatos.html.twig' %}         
+        {% if values.varEnvMod.especificas.numMenus > 0  or user.IDPerfil.IDPerfil == 1 %}
+            {# 
+                Solapas de MOSTRAR EN MENU N 
+
+                Se muestran tantas solapas como las indicadas en la
+                la variable de entorno especifica de este módulo 'numMenus'
+
+                Como máximo se deberán mostrar 5 solapas, ya que la tabla GconSecciones
+                solo permite gestionar hasta 5 'MostrarEnMenuN'
+            #}
+            <div style="clear: both;"></div>
+            <p style="margin-top: 10px;">Indique en qué menús de la web debe aparecer esta sección:</p>        
+            <div id="tabsMostrarEnMenu" style="width: 900px;">
+                <ul>
+                    {% for nMenu in 1 .. values.varEnvMod.especificas.numMenus %}
+                    <li>
+                        <a href="#mostrarEnMenu{{nMenu}}" {% if (datos.getMostrarEnMenuN(nMenu) == '1') %} style="font-weight: bold;"{% endif %}>{{atributos['MostrarEnMenu'~nMenu].caption}}</a>
+                    </li>
+                    {% endfor %}            
+                </ul>
+
+                {% for nMenu in 1 .. values.varEnvMod.especificas.numMenus %}
+                <div id="mostrarEnMenu{{nMenu}}">
+                    <p>
+                    {{ macro.input(atributos['MostrarEnMenu'~nMenu],'EtiquetaMedia','checkbox',values.controller ~ '[MostrarEnMenu'~nMenu~']',values.controller ~ '_MostrarEnMenu'~nMenu,datos.getMostrarEnMenuN(nMenu),'255','CampoTextoLargo','12') }}
+                    {{ macro.input(atributos['EtiquetaWeb'~nMenu],'EtiquetaMedia','text',values.controller ~ '[EtiquetaWeb'~nMenu~']',values.controller ~ '_EtiquetaWeb'~nMenu,datos.getEtiquetaWebN(nMenu),'255','CampoTextoLargo','13') }}
+                    {{ macro.input(atributos['SubetiquetaWeb'~nMenu],'EtiquetaMedia','text',values.controller ~ '[SubetiquetaWeb'~nMenu~']',values.controller ~ '_SubetiquetaWeb'~nMenu,datos.getSubetiquetaWebN(nMenu),'255','CampoTextoLargo','13') }}                            
+                    </p>
+                </div>
+                {% endfor %}   
+
+            </div>
+
+        {% endif %}
+
+        {#
+        {{ macro.input(atributos.OrdenMenu1,'EtiquetaMedia','text',values.controller ~ '[OrdenMenu1]',values.controller ~ '_OrdenMenu1',datos.OrdenMenu1,'4','CampoUnidades','17') }}
+        {{ macro.input(atributos.OrdenMenu2,'EtiquetaMedia','text',values.controller ~ '[OrdenMenu2]',values.controller ~ '_OrdenMenu2',datos.OrdenMenu2,'4','CampoUnidades','18') }}
+        {{ macro.input(atributos.OrdenMenu3,'EtiquetaMedia','text',values.controller ~ '[OrdenMenu3]',values.controller ~ '_OrdenMenu3',datos.OrdenMenu3,'4','CampoUnidades','19') }}
+        {{ macro.input(atributos.OrdenMenu4,'EtiquetaMedia','text',values.controller ~ '[OrdenMenu4]',values.controller ~ '_OrdenMenu4',datos.OrdenMenu4,'4','CampoUnidades','20') }}
+        {{ macro.input(atributos.OrdenMenu5,'EtiquetaMedia','text',values.controller ~ '[OrdenMenu5]',values.controller ~ '_OrdenMenu5',datos.OrdenMenu5,'4','CampoUnidades','21') }}
+        #}
+
+    </div>
+
+    {% include '_global/fieldsComunes.html.twig' %}
+</div>
+
+<script>
+    if ($('#solapaActiva').val() === '0') {
+        $('#solapaActiva').val('1');
+    }
+    $("#tabs").tabs({ active: $('#solapaActiva').val() });
+
+</script>

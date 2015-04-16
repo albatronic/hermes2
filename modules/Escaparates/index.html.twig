@@ -1,0 +1,24 @@
+{#
+  Module: Escaparates
+  Document : modules\Escaparates\index.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 07.02.2013 15:32:56
+#}
+
+{% extends layout %}
+
+{% block title parent() ~ ' - '  ~ values.titulo %}
+
+{% block content %}
+	{% include '_global/TituloGenerico.html.twig' with {'controller': values.controller, 'linkValue': values.linkBy.value} %}
+	{% include '_global/FormErrores.html.twig' with {'errores': values.errores} %}
+	{% include '_global/alertas.html.twig' with {'alertas': values.alertas} %}
+
+	<div id='div_listado'>
+	{% block listado %}
+	{% endblock %}
+	</div>
+
+{% endblock %}

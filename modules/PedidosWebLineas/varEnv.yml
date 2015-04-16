@@ -1,0 +1,11 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO PedidosWebLineas
+#
+# Module: PedidosWebLineas
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 12-07-2014 20:31:56
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

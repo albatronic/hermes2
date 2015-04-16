@@ -1,0 +1,137 @@
+{# FAVORITOS TPV #}
+<div class="ticketFavoritos">
+    {% if (albaran.IDEstado.IDTipo == 0) %}
+    <h3>FAVORITOS</h3>
+    <div class="addFavorito">
+        <input id="IDArticuloFavorito" type="hidden" />
+        <input id="DescripcionFavorito" value="Añadir favorito" type="text" style="width:150px; padding: 2px;" maxlength="255"
+            onkeyup="autoCompletar('DescripcionFavorito','IDArticuloFavorito','DescripcionFavorito','articulos','','');"
+            onfocus="this.value='';"
+            onblur="favoritosAdd('{{tpv.IDTpv}}',$('#IDArticuloFavorito').val(),$('#DescripcionFavorito').val());"/>        
+
+        <ul id="favoritos">
+            {% for favorito in values.favoritos %}
+                <li id="favorito{{favorito.Id}}" title="{{favorito.Descripcion}}">     
+                    <img id="borrar{{favorito.IDArticulo}}" src="{{app.path}}/images/botonborrar.png" onclick="favoritosRemove('{{favorito.Id}}');">
+                    <span onclick="addTicket('favorito{{favorito.Id}}','{{favorito.IDArticulo}}');">               
+                        {{favorito.Descripcion|slice(0,20)}}
+                    </span>    
+                </li>
+            {% endfor %}
+        </ul>
+    </div>        
+    {% endif %}
+</div>
+
+<script>
+$(function(){
+    $('#favoritos').sortable({
+        cursor: "move",        
+        update: function(event,ui){
+            
+            // Crea un array con el nuevo orden.
+            // El índice el array es el orden y el valor es el id
+            // del objeto que ocupará ese orden
+            var datos = [];
+            var id;
+            $('#favoritos li').each(function(key,objetoLi){
+                id = $(objetoLi).attr("id").replace("favorito","");
+                datos.push(id);
+            });
+
+            // Actualizar en la base de datos
+            $.ajax({
+                url: appPath + '/lib/actualizaOrden.php',
+                dataType: 'html',
+                type: 'post',
+                data: {'entidad': 'FavoritosTpv', 'sortBy': 'SortOrder', 'orden': datos}
+            });
+        }
+    });
+});
+
+    /**
+     * Añade el articulo idArticulo al ticket
+     * 
+     * @param string idDiv El div del favorito
+     * @param integer idArticulo
+     * @returns void
+     */
+    function addTicket(idDiv,idArticulo){
+        
+        var html = $('#'+idDiv).html();
+        $('#'+idDiv).html("<img src='"+appPath+"/images/loading.gif'>");
+
+        buscaArticulo('IDArticulo',idArticulo,'');
+        
+        $('#'+idDiv).html(html);        
+    }
+   
+   /**
+    * Borra el favorito cuyo Id es id
+    * 
+    * @param integer id El id del registro de favoritos
+    */
+    function favoritosRemove(id) {
+        var datos ={'Id':id};        
+        
+        $.ajax({
+            url: appPath + '/lib/ticketFavoritos.php',
+            dataType: 'html',
+            type: 'post',
+            data: {'parametros':{'accion':'remove','datos': datos}},
+            success: function(resultado) {
+                var datos = $.parseJSON(resultado);
+                if (datos.status === 'error') { 
+                    $('#mensajes').html(resultado);
+                } else {
+                    // Quitar el favorito
+                    $('#favorito'+id).remove();
+                }
+            }
+        });        
+    }
+    
+    /**
+     * Añade un artículo a los favoritos
+     * 
+     * @param integer idTpv
+     * @param integer idArticulo
+     * @param string descripcion
+     * @returns void
+     */
+    function favoritosAdd(idTpv,idArticulo,descripcion) {
+        
+        var datos ={
+            'IDTpv':idTpv,
+            'IDArticulo':idArticulo,
+            'Descripcion':descripcion
+        };        
+        
+        $.ajax({
+            url: appPath + '/lib/ticketFavoritos.php',
+            dataType: 'html',
+            type: 'post',
+            data: {'parametros':{'accion':'add','datos': datos}
+            },
+            success: function(resultado) {
+                var datos = $.parseJSON(resultado);
+                if (datos.status === 'error') { 
+                    $('#mensajes').html(resultado);
+                } else {
+                    // Limpiar autocompleted
+                    $('#IDArticuloFavorito').val('');
+                    $('#DescripcionFavorito').val('Añadir favorito');
+                    // Añadir la linea creada
+                    var html = "<li id=\"favorito"+datos.idCreado+"\" title=\""+descripcion+"\">" +
+                    "<img id=\"borrar"+idArticulo+"\" src=\""+appPath+"/images/botonborrar.png\" onclick=\"favoritosRemove('"+datos.idCreado+"');\"> " +
+                    "<span onclick=\"addTicket('favorito"+datos.idCreado+"','"+idArticulo+"');\">"+descripcion.substring(0,20)+"</span>" +
+                    "</li>";
+                    $('#favoritos').append(html);
+
+                }
+            }
+        });  
+    }
+    
+</script>

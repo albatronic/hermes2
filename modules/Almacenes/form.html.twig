@@ -1,0 +1,58 @@
+{# TEMPLATE Almacenes/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+<div id="tabs" style="font-size: 11px;">
+ 
+    <ul>
+        <li><a href="#tabs-1">Almacén</a></li>
+        {% if datos.IDAlmacen and datos.ControlUbicaciones.IDTipo %}
+        <li><a href="#tabs-2" onclick="cargaMapaAlmacen('tabs-2');">Ubicaciones de {{datos.Nombre}}</a></li>
+        {% endif %}
+        {% if datos.IDAlmacen %}
+        <li><a href="#tabs-3">Documentos de {{datos.Nombre}}</a></li>
+        {% endif %}
+    </ul>
+
+    <div id="tabs-1">
+        {{ macro.input(values.atributos.Nombre,'Etiqueta','text','Almacenes[Nombre]','Almacenes_Nombre',datos.Nombre,'50','CampoTextoLargo') }}
+        {{ macro.input(values.atributos.Direccion,'Etiqueta','text','Almacenes[Direccion]','Almacenes_Direccion',datos.Direccion,'50','CampoTextoLargo') }}
+        {{ macro.input(values.atributos.IDProvincia,'Etiqueta','text','Almacenes[IDProvincia]','Almacenes_IDProvincia',datos.IDProvincia.IDProvincia,'255','CampoTextoLargo','',"limpia('Almacenes_IDProvincia','Almacenes_IDPoblacion');",['provincias','Provincia',datos.IDProvincia.Provincia,'Almacenes_IDPais']) }}
+        {{ macro.input(values.atributos.IDPoblacion,'Etiqueta','text','Almacenes[IDPoblacion]','Almacenes_IDPoblacion',datos.IDPoblacion.IDMunicipio,'255','CampoTextoLargo','','',['municipios','Municipio',datos.IDPoblacion.Municipio,'Almacenes_IDProvincia']) }}       
+        {{ macro.input(values.atributos.CodigoPostal,'Etiqueta','text','Almacenes[CodigoPostal]','Almacenes_CodigoPostal',datos.CodigoPostal,'10','CampoCPostal') }}
+        {{ macro.input(values.atributos.Telefono,'Etiqueta','text','Almacenes[Telefono]','Almacenes_Telefono',datos.Telefono,'30','CampoTextoLargo') }}
+        {{ macro.input(values.atributos.Fax,'Etiqueta','text','Almacenes[Fax]','Almacenes_Fax',datos.Fax,'30','CampoTextoLargo') }}
+        {{ macro.input(values.atributos.EMail,'Etiqueta','text','Almacenes[EMail]','Almacenes_EMail',datos.EMail,'50','CampoTextoLargo') }}
+        {{ macro.select(values.atributos.Tipo,'Etiqueta','Almacenes[Tipo]','Almacenes_Tipo',none,datos.Tipo.IDTipo,datos.Tipo.fetchAll(none,false),'Select') }}
+        {{ macro.input(values.atributos.ControlUbicaciones,'Etiqueta','checkbox','Almacenes[ControlUbicaciones]','Almacenes_ControlUbicaciones',datos.ControlUbicaciones.IDTipo,'255','CampoTextoLargo','20')}}              
+    </div>
+
+    {% if datos.IDAlmacen and datos.ControlUbicaciones.IDTipo %}
+    <div id="tabs-2"></div>
+    {% endif %}
+
+    {% if datos.IDAlmacen %}
+    <div id="tabs-3">
+        {{ macro.documentos(values.controller,datos.getPrimaryKeyValue)}}
+    </div>
+    {% endif %}
+
+</div>
+
+
+<script type="text/javascript">
+function limpia(idOrigen,idInput) {
+
+    if ( $('#'+idOrigen+'_valorAnterior').val() !== $('#'+idOrigen).val() ) {
+        $('#'+idInput).val('');
+        $('#'+idInput+'_autoComplete').val('');  
+    }
+    
+}
+
+
+function cargaMapaAlmacen(idDiv) {
+
+    $('#'+idDiv).html("<iframe width='100%' height='330' scrolling='yes' style='margin-top:5px; border:0;' src='{{app.path}}/AlmacenesMapas/list/{{datos.IDAlmacen}}'></iframe>");
+
+}
+</script>

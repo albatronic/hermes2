@@ -1,0 +1,36 @@
+{# Template list.html.twig for Sucursales #}
+{# -------------------------------------------------------#}
+{% extends 'Sucursales/index.html.twig' %}
+
+{% block listado %}
+<div class='Listado'>
+
+        <table width='100%'>
+            <tr class='Titulos'>
+                <td class='Item'>Nombre</td>
+                <td class='Item'>País</td>
+                <td class='Item'>Provincia</td>
+                <td class='Item'>Poblacion</td>                
+            </tr>
+
+            <tbody class="Cuerpo">
+            {% for key,objeto in values.listado.data %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+            <tr class="{{classFila}}">
+                <td><a href="{{app.path}}/Sucursales/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Nombre}}</a></td>
+                <td>{{objeto.IDPais}}</td>                
+                <td>{{objeto.IDProvincia}}</td>
+                <td>{{objeto.IDPoblacion}}</td>                
+            </tr>
+            {% else %}
+            <tr><td colspan='2'>No hay información que cumpla esos criterios</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{#
+  Module: CpanDocs
+  Document : modules\CpanDocs\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 02.10.2012 18:58:03
+#}
+
+{{ macro.input(atributos.Entity,'field_title','text',values.controller ~ '[Entity]',values.controller ~ '_Entity',datos.Entity,'255','CampoTextoLargo','1') }}
+{{ macro.input(atributos.IdEntity,'field_title','text',values.controller ~ '[IdEntity]',values.controller ~ '_IdEntity',datos.IdEntity,'11','CampoImporte','2') }}
+{{ macro.input(atributos.Type,'field_title','text',values.controller ~ '[Type]',values.controller ~ '_Type',datos.Type,'10','CampoTextoCorto','3') }}
+{{ macro.select(atributos.IsThumbnail,'field_title',values.controller ~ '[IsThumbnail]',values.controller ~ '_IsThumbnail',none,datos.IsThumbnail.IsThumbnail,datos.IsThumbnail.fetchAll('IDTipo'),'chzn-select','4')}}
+{{ macro.input(atributos.PathName,'field_title','text',values.controller ~ '[PathName]',values.controller ~ '_PathName',datos.PathName,'255','CampoTextoLargo','5') }}
+{{ macro.input(atributos.Name,'field_title','text',values.controller ~ '[Name]',values.controller ~ '_Name',datos.Name,'255','CampoTextoLargo','6') }}
+{{ macro.input(atributos.Extension,'field_title','text',values.controller ~ '[Extension]',values.controller ~ '_Extension',datos.Extension,'10','CampoTextoCorto','7') }}
+{{ macro.input(atributos.Title,'field_title','text',values.controller ~ '[Title]',values.controller ~ '_Title',datos.Title,'255','CampoTextoLargo','8') }}
+{{ macro.select(atributos.ShowCaption,'field_title',values.controller ~ '[ShowCaption]',values.controller ~ '_ShowCaption',none,datos.ShowCaption.ShowCaption,datos.ShowCaption.fetchAll('IDTipo'),'chzn-select','9')}}
+{{ macro.input(atributos.MimeType,'field_title','text',values.controller ~ '[MimeType]',values.controller ~ '_MimeType',datos.MimeType,'50','CampoTextoLargo','10') }}
+{{ macro.input(atributos.Size,'field_title','text',values.controller ~ '[Size]',values.controller ~ '_Size',datos.Size,'11','CampoImporte','11') }}
+{{ macro.input(atributos.Height,'field_title','text',values.controller ~ '[Height]',values.controller ~ '_Height',datos.Height,'11','CampoImporte','12') }}
+{{ macro.input(atributos.Width,'field_title','text',values.controller ~ '[Width]',values.controller ~ '_Width',datos.Width,'11','CampoImporte','13') }}
+{{ macro.input(atributos.SortOrder,'field_title','text',values.controller ~ '[SortOrder]',values.controller ~ '_SortOrder',datos.SortOrder,'11','CampoImporte','14') }}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_Entity') }}

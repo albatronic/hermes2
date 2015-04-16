@@ -1,0 +1,82 @@
+{#
+  Module: AlbmAlbumes
+  Document : modules\AlbmAlbumes\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 05.12.2012 00:51:11
+#}
+
+{% set atributos = values.atributos %}
+
+<div id="tabs">
+    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />      
+    <ul>
+        <li >
+            <a href="#arbol" onclick='$( "#solapaActiva" ).val("arbol");'>Mapa Web</a>
+        </li>
+        <li>
+            <a href="#general">{%if datos.Titulo%}<b>{{datos.Titulo|slice(0,40)}}</b> ...{%else%}Álbum{%endif%}</a>
+            {{ macro.publicar(atributos.Publish,values.controller ~ '[Publish]',values.controller ~ '_Publish',datos.Publish.IDTipo) }}            
+        </li>
+        
+        {% if (values.datos.getPrimaryKeyValue) %}
+            {% if datos.getTieneEtiquetas() %}
+            <li>
+                <a href="#etiquetas" onclick="cargaEtiquetasRelacionadas('etiquetas','{{values.controller}}','{{datos.primaryKeyValue}}');">Etiquetas</a>
+            </li>
+            {% endif %}
+        {% endif %} 
+            
+        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+        <li>
+            <a href="#fieldsComunes">Más detalles...</a>
+        </li>        
+        {% endif %}
+    </ul>
+
+    <div id="arbol">
+        <ul>
+            {% for keySeccion,seccion in values.objetoController.arbolSeccionesAlbumes %}
+                <li style="font-weight: bold;">{{seccion.titulo}}</li>
+                <ul>
+                    {% for album in seccion.albumes %}
+                        <li style="margin-left: 30px;">
+                            {% if seccion.nAlbumes > 1%}
+                                {{ macro.ordenarPopup(values.controller,'IdSeccion',keySeccion) }}
+                            {% endif %}                             
+                            {% if values.varEnvMod.columns.Publish.visible == '1' %}
+                                {{ macro.actualizaColumna(values.controller,album.Id,'Publish',album.Publish.IDTipo,'Publicar/Despublicar')}} 
+                            {% endif %}
+                            <a href="{{app.path}}/{{values.controller}}/edit/{{album.primaryKeyMD5}}">{{album.Titulo}}</a>
+                        </li>
+                    {% endfor %}                        
+                </ul>
+            {% endfor %}
+        </ul>
+    </div>
+       
+    <div id="general">
+        {{ macro.select(atributos.IdSeccion,'Etiqueta',values.controller ~ '[IdSeccion]',values.controller ~ '_IdSeccion',200,datos.IdSeccion.Id,datos.IdSeccion.fetchAll('Titulo',0),'chzn-select')}}        
+        {{ macro.input(atributos.Titulo,'Etiqueta','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'255','CampoTextoLargo','1') }}
+        {{ macro.input(atributos.Subtitulo,'Etiqueta','text',values.controller ~ '[Subtitulo]',values.controller ~ '_Subtitulo',datos.Subtitulo,'255','CampoTextoLargo','2') }}
+        {{ macro.textarea(atributos.Resumen,'Etiqueta',values.controller ~ '[Resumen]',values.controller ~ '_Resumen',datos.Resumen,none,none,'textarea','4') }}
+        {{ macro.input(atributos.Autor,'Etiqueta','text',values.controller ~ '[Autor]',values.controller ~ '_Autor',datos.Autor,'50','CampoTextoLargo','4') }}
+        {{ macro.input(atributos.MostrarEnPortada,'Etiqueta','checkbox',values.controller ~ '[MostrarEnPortada]',values.controller ~ '_MostrarEnPortada',datos.MostrarEnPortada.IDTipo,'255','CampoTextoLargo','5') }}
+        {# macro.input(atributos.OrdenPortada,'Etiqueta','text',values.controller ~ '[OrdenPortada]',values.controller ~ '_OrdenPortada',datos.OrdenPortada,'4','CampoUnidades','6') #}
+    </div>
+
+    {% if (values.datos.getPrimaryKeyValue) %}
+        <div id="etiquetas" class="ui-tabs-panel ui-widget-content ui-corner-bottom"></div>
+    {% endif %}
+        
+    {% include '_global/fieldsComunes.html.twig' %}
+</div>
+{{ macro.foco(values.controller ~ '_Titulo') }}
+<script>
+    if ($('#solapaActiva').val() === '0') {
+        $('#solapaActiva').val('1');
+    }
+    $("#tabs").tabs({ active: $('#solapaActiva').val() });
+
+</script>

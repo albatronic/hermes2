@@ -1,0 +1,4827 @@
+# VALORES POR DEFECTO PARA LA TABLA DE ACTIVIDADES ECONOMICAS DE LA APP Comm
+#
+CommCnae:
+  -
+    Codigo: "A"
+    Actividad: "Agricultura, ganadería, caza y selvicultura"
+  -
+    Codigo: "AA"
+    Actividad: "Agricultura, ganadería, caza y selvicultura"
+  -
+    Codigo: "01"
+    Actividad: "Agricultura, ganadería, caza y actividades de los servicios relacionados con las mismas"
+  -
+    Codigo: "011"
+    Actividad: "Producción agrícola"
+  -
+    Codigo: "0111"
+    Actividad: "Cultivo de cereales y otros cultivos"
+  -
+    Codigo: "01110"
+    Actividad: "Cultivo de cereales y otros cultivos"
+  -
+    Codigo: "0112"
+    Actividad: "Cultivo de hortalizas, especialidades de horticultura y productos de vivero"
+  -
+    Codigo: "01121"
+    Actividad: "Cultivo de hortalizas"
+  -
+    Codigo: "01122"
+    Actividad: "Cultivo de flores y plantas ornamentales"
+  -
+    Codigo: "0113"
+    Actividad: "Cultivo de frutas, frutos secos, especias y cultivos para bebidas"
+  -
+    Codigo: "01131"
+    Actividad: "Cultivo de la vid"
+  -
+    Codigo: "01132"
+    Actividad: "Cultivo de agrios"
+  -
+    Codigo: "01133"
+    Actividad: "Cultivo del olivo"
+  -
+    Codigo: "01134"
+    Actividad: "Cultivo de otras frutas, frutos secos, especias y cultivos para bebidas"
+  -
+    Codigo: "012"
+    Actividad: "Producción ganadera"
+  -
+    Codigo: "0121"
+    Actividad: "Explotación de ganado bovino y producción de leche cruda"
+  -
+    Codigo: "01210"
+    Actividad: "Explotación de ganado bovino y producción de leche cruda"
+  -
+    Codigo: "0122"
+    Actividad: "Explotación de ganado ovino, caprino y equino"
+  -
+    Codigo: "01221"
+    Actividad: "Explotación de ganado ovino y caprino"
+  -
+    Codigo: "01222"
+    Actividad: "Explotación de ganado equino"
+  -
+    Codigo: "0123"
+    Actividad: "Explotación de ganado porcino"
+  -
+    Codigo: "01231"
+    Actividad: "Explotación de ganado porcino intensivo"
+  -
+    Codigo: "01232"
+    Actividad: "Explotación de ganado porcino extensivo"
+  -
+    Codigo: "0124"
+    Actividad: "Avicultura"
+  -
+    Codigo: "01240"
+    Actividad: "Avicultura"
+  -
+    Codigo: "0125"
+    Actividad: "Otras explotaciones de ganado"
+  -
+    Codigo: "01250"
+    Actividad: "Otras explotaciones de ganado"
+  -
+    Codigo: "013"
+    Actividad: "Producción agraria combinada con la producción ganadera"
+  -
+    Codigo: "0130"
+    Actividad: "Producción agraria combinada con la producción ganadera"
+  -
+    Codigo: "01300"
+    Actividad: "Producción agraria combinada con la producción ganadera"
+  -
+    Codigo: "014"
+    Actividad: "Actividades de servicios relacionados con la agricultura y ganadería, excepto actividades veterinarias; mantenimiento de jardines"
+  -
+    Codigo: "0141"
+    Actividad: "Actividades de servicios relacionados con la agricultura; mantenimiento de jardines"
+  -
+    Codigo: "01410"
+    Actividad: "Actividades de servicios relacionados con la agricultura; mantenimiento de jardines"
+  -
+    Codigo: "0142"
+    Actividad: "Actividades de servicios relacionados con la ganadería, excepto actividades veterinarias"
+  -
+    Codigo: "01420"
+    Actividad: "Actividades de servicios relacionados con la ganadería, excepto actividades veterinarias"
+  -
+    Codigo: "015"
+    Actividad: "Caza, captura de animales y repoblación cinegética, incluidas las actividades de los servicios relacionados con las mismas"
+  -
+    Codigo: "0150"
+    Actividad: "Caza, captura de animales y repoblación cinegética, incluidas las actividades de los servicios relacionados con las mismas"
+  -
+    Codigo: "01501"
+    Actividad: "Caza y captura de animales"
+  -
+    Codigo: "01502"
+    Actividad: "Repoblación cinegética"
+  -
+    Codigo: "01503"
+    Actividad: "Actividades de los servicios relacionados con la caza"
+  -
+    Codigo: "02"
+    Actividad: "Selvicultura, explotación forestal y actividades de los servicios relacionados con las mismas"
+  -
+    Codigo: "020"
+    Actividad: "Selvicultura, explotación forestal y actividades de los servicios relacionadas con las mismas"
+  -
+    Codigo: "0201"
+    Actividad: "Selvicultura y explotación forestal"
+  -
+    Codigo: "02011"
+    Actividad: "Selvicultura"
+  -
+    Codigo: "02012"
+    Actividad: "Explotación forestal"
+  -
+    Codigo: "0202"
+    Actividad: "Actividades de los servicios relacionados con la selvicultura y explotación forestal"
+  -
+    Codigo: "02020"
+    Actividad: "Actividades de los servicios relacionados con la selvicultura y explotación forestal"
+  -
+    Codigo: "B"
+    Actividad: "Pesca"
+  -
+    Codigo: "BB"
+    Actividad: "Pesca"
+  -
+    Codigo: "05"
+    Actividad: "Pesca, acuicultura y actividades de los servicios relacionados con las mismas"
+  -
+    Codigo: "050"
+    Actividad: "Pesca, acuicultura y actividades de los servicios relacionados con las mismas"
+  -
+    Codigo: "0501"
+    Actividad: "Pesca"
+  -
+    Codigo: "05010"
+    Actividad: "Pesca"
+  -
+    Codigo: "0502"
+    Actividad: "Acuicultura"
+  -
+    Codigo: "05021"
+    Actividad: "Acuicultura de aguas continentales"
+  -
+    Codigo: "05022"
+    Actividad: "Acuicultura de aguas marinas"
+  -
+    Codigo: "C"
+    Actividad: "Industrias extractivas"
+  -
+    Codigo: "CA"
+    Actividad: "Extracción de productos energéticos"
+  -
+    Codigo: "10"
+    Actividad: "Extracción y aglomeración de antracita, hulla, lignito y turba"
+  -
+    Codigo: "101"
+    Actividad: "Extracción y aglomeración de antracita y hulla"
+  -
+    Codigo: "1010"
+    Actividad: "Extracción y aglomeración de antracita y hulla"
+  -
+    Codigo: "10101"
+    Actividad: "Extracción y aglomeración de antracita"
+  -
+    Codigo: "10102"
+    Actividad: "Extracción y aglomeración de hulla"
+  -
+    Codigo: "10103"
+    Actividad: "Extracción y aglomeración de hulla subituminosa"
+  -
+    Codigo: "102"
+    Actividad: "Extracción y aglomeración de lignito pardo"
+  -
+    Codigo: "1020"
+    Actividad: "Extracción y aglomeración de lignito pardo"
+  -
+    Codigo: "10200"
+    Actividad: "Extracción y aglomeración de lignito pardo"
+  -
+    Codigo: "103"
+    Actividad: "Extracción y aglomeración de turba"
+  -
+    Codigo: "1030"
+    Actividad: "Extracción y aglomeración de turba"
+  -
+    Codigo: "10300"
+    Actividad: "Extracción y aglomeración de turba"
+  -
+    Codigo: "11"
+    Actividad: "Extracción de crudos de petróleo y gas natural; actividades de los servicios relacionados con las explotaciones petrolíferas y de gas, excepto actividades de prospección"
+  -
+    Codigo: "111"
+    Actividad: "Extracción de crudos de petróleo y gas natural"
+  -
+    Codigo: "1110"
+    Actividad: "Extracción de crudos de petróleo y gas natural"
+  -
+    Codigo: "11100"
+    Actividad: "Extracción de crudos de petróleo y gas natural"
+  -
+    Codigo: "112"
+    Actividad: "Actividades de los servicios relacionados con las explotaciones petrolíferas y de gas, excepto actividades de prospección"
+  -
+    Codigo: "1120"
+    Actividad: "Actividades de los servicios relacionados con las explotaciones petrolíferas y de gas, excepto actividades de prospección"
+  -
+    Codigo: "11200"
+    Actividad: "Actividades de los servicios relacionados con las explotaciones petrolíferas y de gas, excepto actividades de prospección"
+  -
+    Codigo: "12"
+    Actividad: " extracción de minerales de uranio y torio"
+  -
+    Codigo: "120"
+    Actividad: "Extracción de minerales de uranio y torio"
+  -
+    Codigo: "1200"
+    Actividad: "Extracción de minerales de uranio y torio"
+  -
+    Codigo: "12000"
+    Actividad: "Extracción de minerales de uranio y torio"
+  -
+    Codigo: "CB"
+    Actividad: "Extracción de otros minerales excepto productos energéticos"
+  -
+    Codigo: "13"
+    Actividad: "Extracción de minerales metálicos"
+  -
+    Codigo: "131"
+    Actividad: "Extracción de minerales de hierro"
+  -
+    Codigo: "1310"
+    Actividad: "Extracción de minerales de hierro"
+  -
+    Codigo: "13100"
+    Actividad: "Extracción de minerales de hierro"
+  -
+    Codigo: "132"
+    Actividad: "Extracción de minerales metálicos no férreos, excepto minerales de uranio y torio"
+  -
+    Codigo: "1320"
+    Actividad: "Extracción de minerales metálicos no férreos, excepto minerales de uranio y torio"
+  -
+    Codigo: "13201"
+    Actividad: "Extracción de cobre, plomo y cinc"
+  -
+    Codigo: "13202"
+    Actividad: "Extracción de metales preciosos"
+  -
+    Codigo: "13203"
+    Actividad: "Extracción de otros minerales metálicos no férreos"
+  -
+    Codigo: "14"
+    Actividad: "Extracción de minerales no metálicos ni energéticos"
+  -
+    Codigo: "141"
+    Actividad: "Extracción de piedra"
+  -
+    Codigo: "1411"
+    Actividad: "Extracción de piedra ornamental y para la construcción"
+  -
+    Codigo: "14111"
+    Actividad: "Extracción de mármol"
+  -
+    Codigo: "14112"
+    Actividad: "Extracción de granito"
+  -
+    Codigo: "14113"
+    Actividad: "Extracción de otros tipos de piedra ornamental y para la construcción"
+  -
+    Codigo: "1412"
+    Actividad: "Extracción de piedra caliza, yeso y creta"
+  -
+    Codigo: "14121"
+    Actividad: "Extracción de yeso"
+  -
+    Codigo: "14122"
+    Actividad: "Extracción de creta"
+  -
+    Codigo: "14123"
+    Actividad: "Extracción de otras piedras"
+  -
+    Codigo: "1413"
+    Actividad: "Extracción de pizarras"
+  -
+    Codigo: "14130"
+    Actividad: "Extracción de pizarras"
+  -
+    Codigo: "142"
+    Actividad: "Extracción de arenas y arcillas"
+  -
+    Codigo: "1421"
+    Actividad: "Extracción de gravas y arenas"
+  -
+    Codigo: "14210"
+    Actividad: "Extracción de gravas y arenas"
+  -
+    Codigo: "1422"
+    Actividad: "Extracción de arcilla y caolín"
+  -
+    Codigo: "14221"
+    Actividad: "Extracción de caolín"
+  -
+    Codigo: "14222"
+    Actividad: "Extracción de arcilla"
+  -
+    Codigo: "143"
+    Actividad: "Extracción de minerales para abonos y productos químicos"
+  -
+    Codigo: "1430"
+    Actividad: "Extracción de minerales para abonos y productos químicos"
+  -
+    Codigo: "14301"
+    Actividad: "Extracción de fosfatos y nitratos"
+  -
+    Codigo: "14302"
+    Actividad: "Extracción de sales potásicas"
+  -
+    Codigo: "14303"
+    Actividad: "Extracción de piritas y azufre"
+  -
+    Codigo: "14304"
+    Actividad: "Extracción de fluorita"
+  -
+    Codigo: "14305"
+    Actividad: "Extracción de otros minerales no metálicos"
+  -
+    Codigo: "144"
+    Actividad: "Producción de sal"
+  -
+    Codigo: "1440"
+    Actividad: "Producción de sal"
+  -
+    Codigo: "14401"
+    Actividad: "Extracción de sal marina"
+  -
+    Codigo: "14402"
+    Actividad: "Extracción de sal manantial y sal gema"
+  -
+    Codigo: "145"
+    Actividad: "Extracción de otros minerales no metálicos ni energéticos"
+  -
+    Codigo: "1450"
+    Actividad: "Extracción de otros minerales no metálicos ni energéticos"
+  -
+    Codigo: "14501"
+    Actividad: "Extracción de feldespatos"
+  -
+    Codigo: "14502"
+    Actividad: "Extracción de otros minerales"
+  -
+    Codigo: "D"
+    Actividad: "Industria manufacturera"
+  -
+    Codigo: "DA"
+    Actividad: "Industria de la alimentación, bebidas y tabaco"
+  -
+    Codigo: "15"
+    Actividad: "Industria de productos alimenticios y bebidas"
+  -
+    Codigo: "151"
+    Actividad: "Industria cárnica"
+  -
+    Codigo: "1511"
+    Actividad: "Sacrificio de ganado y conservación de carne"
+  -
+    Codigo: "15110"
+    Actividad: "Sacrificio de ganado y conservación de carne"
+  -
+    Codigo: "1512"
+    Actividad: "Sacrificio y conservación de volatería"
+  -
+    Codigo: "15120"
+    Actividad: "Sacrificio y conservación de volatería"
+  -
+    Codigo: "1513"
+    Actividad: "Fabricación de productos cárnicos"
+  -
+    Codigo: "15130"
+    Actividad: "Fabricación de productos cárnicos"
+  -
+    Codigo: "152"
+    Actividad: "Elaboración y conservación de pescados y productos a base de pescado"
+  -
+    Codigo: "1520"
+    Actividad: "Elaboración y conservación de pescados y productos a base de pescado"
+  -
+    Codigo: "15201"
+    Actividad: "Elaboración de productos congelados o refrigerados de pescados y otros productos marinos"
+  -
+    Codigo: "15202"
+    Actividad: "Fabricación de conservas de pescado"
+  -
+    Codigo: "15203"
+    Actividad: "Elaboración de productos de la pesca ahumados"
+  -
+    Codigo: "153"
+    Actividad: "Preparación y conservación de frutas y hortalizas"
+  -
+    Codigo: "1531"
+    Actividad: "Preparación y conservación de patatas"
+  -
+    Codigo: "15310"
+    Actividad: "Preparación y conservación de patatas"
+  -
+    Codigo: "1532"
+    Actividad: "Fabricación de jugos de frutas y hortalizas"
+  -
+    Codigo: "15321"
+    Actividad: "Fabricación de jugo de uva"
+  -
+    Codigo: "15322"
+    Actividad: "Fabricación de otros jugos de frutas y hortalizas"
+  -
+    Codigo: "1533"
+    Actividad: "Fabricación de conservas de frutas y hortalizas"
+  -
+    Codigo: "15331"
+    Actividad: "Preparación de hortalizas congeladas"
+  -
+    Codigo: "15332"
+    Actividad: "Preparación y conservación de hortalizas no congeladas"
+  -
+    Codigo: "15333"
+    Actividad: "Preparación y conservación de aceitunas"
+  -
+    Codigo: "15334"
+    Actividad: "Fabricación de conservas de frutas"
+  -
+    Codigo: "154"
+    Actividad: "Fabricación de grasas y aceites (vegetales y animales)"
+  -
+    Codigo: "1541"
+    Actividad: "Fabricación de aceites y grasas sin refinar"
+  -
+    Codigo: "15411"
+    Actividad: "Obtención de aceite de oliva sin refinar"
+  -
+    Codigo: "15412"
+    Actividad: "Obtención de otras grasas y aceites vegetales sin refinar"
+  -
+    Codigo: "15413"
+    Actividad: "Obtención de otras grasas y aceites animales no comestibles"
+  -
+    Codigo: "1542"
+    Actividad: "Fabricación de aceites y grasas refinadas"
+  -
+    Codigo: "15420"
+    Actividad: "Fabricación de aceites y grasas refinadas"
+  -
+    Codigo: "1543"
+    Actividad: "Fabricación de margarina y grasas comestibles similares"
+  -
+    Codigo: "15430"
+    Actividad: "Fabricación de margarina y grasas comestibles similares"
+  -
+    Codigo: "155"
+    Actividad: "Industrias lácteas"
+  -
+    Codigo: "1551"
+    Actividad: "Fabricación de productos lácteos"
+  -
+    Codigo: "15511"
+    Actividad: "Preparación de leche, fabricación de mantequilla y otros productos lácteos"
+  -
+    Codigo: "15512"
+    Actividad: "Fabricación de quesos"
+  -
+    Codigo: "1552"
+    Actividad: "Elaboración de helados"
+  -
+    Codigo: "15520"
+    Actividad: "Elaboración de helados"
+  -
+    Codigo: "156"
+    Actividad: "Fabricación de productos de molinería, almidones y productos amiláceos"
+  -
+    Codigo: "1561"
+    Actividad: "Fabricación de productos de molinería"
+  -
+    Codigo: "15611"
+    Actividad: "Molturación de trigo"
+  -
+    Codigo: "15612"
+    Actividad: "Molturación de otros granos"
+  -
+    Codigo: "15613"
+    Actividad: "Fabricación de otros productos de molinería"
+  -
+    Codigo: "1562"
+    Actividad: "Fabricación de almidones y productos amiláceos"
+  -
+    Codigo: "15620"
+    Actividad: "Fabricación de almidones y productos amiláceos"
+  -
+    Codigo: "157"
+    Actividad: "Fabricación de productos para la alimentación animal"
+  -
+    Codigo: "1571"
+    Actividad: "Fabricación de productos para la alimentación de animales de granja"
+  -
+    Codigo: "15710"
+    Actividad: "Fabricación de productos para la alimentación de animales de granja"
+  -
+    Codigo: "1572"
+    Actividad: "Fabricación de productos para la alimentación de animales de compañía"
+  -
+    Codigo: "15720"
+    Actividad: "Fabricación de productos para la alimentación de animales de compañía"
+  -
+    Codigo: "158"
+    Actividad: "Fabricación de otros productos alimenticios"
+  -
+    Codigo: "1581"
+    Actividad: "Fabricación de pan y productos de panadería y pastelería frescos"
+  -
+    Codigo: "15811"
+    Actividad: "Fabricación de pan y otros productos de panadería frescos"
+  -
+    Codigo: "15812"
+    Actividad: "Fabricación de productos de pastelería"
+  -
+    Codigo: "1582"
+    Actividad: "Fabricación de galletas y de productos de panadería y pastelería de larga duración"
+  -
+    Codigo: "15821"
+    Actividad: "Fabricación de galletas"
+  -
+    Codigo: "15822"
+    Actividad: "Fabricación de productos de panadería y pastelería de larga duración"
+  -
+    Codigo: "1583"
+    Actividad: "Industria del azúcar"
+  -
+    Codigo: "15830"
+    Actividad: "Industria del azúcar"
+  -
+    Codigo: "1584"
+    Actividad: "Industria del cacao, chocolate y confitería"
+  -
+    Codigo: "15841"
+    Actividad: "Fabricación de cacao y chocolate"
+  -
+    Codigo: "15842"
+    Actividad: "Fabricación de productos de confitería"
+  -
+    Codigo: "1585"
+    Actividad: "Fabricación de pastas alimenticias"
+  -
+    Codigo: "15850"
+    Actividad: "Fabricación de pastas alimenticias"
+  -
+    Codigo: "1586"
+    Actividad: "Elaboración de café, té e infusiones"
+  -
+    Codigo: "15860"
+    Actividad: "Elaboración de café, té e infusiones"
+  -
+    Codigo: "1587"
+    Actividad: "Elaboración de especias, salsas y condimentos"
+  -
+    Codigo: "15870"
+    Actividad: "Elaboración de especias, salsas y condimentos"
+  -
+    Codigo: "1588"
+    Actividad: "Elaboración de preparados para la alimentación infantil y preparados dietéticos"
+  -
+    Codigo: "15881"
+    Actividad: "Elaboración de preparados para la alimentación infantil"
+  -
+    Codigo: "15882"
+    Actividad: "Elaboración de otros preparados dietéticos."
+  -
+    Codigo: "1589"
+    Actividad: "Elaboración de otros productos alimenticios"
+  -
+    Codigo: "15890"
+    Actividad: "Elaboración de otros productos alimenticios"
+  -
+    Codigo: "159"
+    Actividad: "Elaboración de bebidas"
+  -
+    Codigo: "1591"
+    Actividad: "Destilación de bebidas alcohólicas"
+  -
+    Codigo: "15911"
+    Actividad: "Obtención de aguardientes naturales"
+  -
+    Codigo: "15912"
+    Actividad: "Obtención de otras bebidas alcohólicas destiladas"
+  -
+    Codigo: "1592"
+    Actividad: "Destilación de alcohol etílico procedente de fermentación"
+  -
+    Codigo: "15920"
+    Actividad: "Destilación de alcohol etílico procedente de fermentación"
+  -
+    Codigo: "1593"
+    Actividad: "Elaboración de vinos"
+  -
+    Codigo: "15931"
+    Actividad: "Elaboración de cavas y vinos espumosos naturales"
+  -
+    Codigo: "15932"
+    Actividad: "Elaboración y crianza de vinos"
+  -
+    Codigo: "1594"
+    Actividad: "Elaboración de sidra y otras bebidas fermentadas a partir de frutas"
+  -
+    Codigo: "15940"
+    Actividad: "Elaboración de sidra y otras bebidas fermentadas a partir de frutas"
+  -
+    Codigo: "1595"
+    Actividad: "Elaboración de otras bebidas no destiladas, procedentes de fermentación"
+  -
+    Codigo: "15950"
+    Actividad: "Elaboración de otras bebidas no destiladas, procedentes de fermentación"
+  -
+    Codigo: "1596"
+    Actividad: "Fabricación de cerveza"
+  -
+    Codigo: "15960"
+    Actividad: "Fabricación de cerveza"
+  -
+    Codigo: "1597"
+    Actividad: "Fabricación de malta"
+  -
+    Codigo: "15970"
+    Actividad: "Fabricación de malta"
+  -
+    Codigo: "1598"
+    Actividad: "Producción de aguas minerales y bebidas analcohólicas"
+  -
+    Codigo: "15981"
+    Actividad: "Envasado de agua mineral natural, de manantial y potable preparada"
+  -
+    Codigo: "15982"
+    Actividad: "Producción de bebidas refrescantes sin alcohol"
+  -
+    Codigo: "16"
+    Actividad: "Industria del tabaco"
+  -
+    Codigo: "160"
+    Actividad: "Industria del tabaco"
+  -
+    Codigo: "1600"
+    Actividad: "Industria del tabaco"
+  -
+    Codigo: "16000"
+    Actividad: "Industria del tabaco"
+  -
+    Codigo: "DB"
+    Actividad: "Industria textil y de la confección"
+  -
+    Codigo: "17"
+    Actividad: "Industria textil"
+  -
+    Codigo: "171"
+    Actividad: "Preparación e hilado de fibras textiles"
+  -
+    Codigo: "1711"
+    Actividad: "Preparación e hilado de fibras de algodón y sus mezclas"
+  -
+    Codigo: "17110"
+    Actividad: "Preparación e hilado de fibras de algodón y sus mezclas"
+  -
+    Codigo: "1712"
+    Actividad: "Preparación e hilado de fibras de lana cardada y sus mezclas"
+  -
+    Codigo: "17120"
+    Actividad: "Preparación e hilado de fibras de lana cardada y sus mezclas"
+  -
+    Codigo: "1713"
+    Actividad: "Preparación e hilado de fibras de lana peinada y sus mezclas"
+  -
+    Codigo: "17130"
+    Actividad: "Preparación e hilado de fibras de lana peinada y sus mezclas"
+  -
+    Codigo: "1714"
+    Actividad: "Preparación e hilado de fibras de lino y sus mezclas"
+  -
+    Codigo: "17140"
+    Actividad: "Preparación e hilado de fibras de lino y sus mezclas"
+  -
+    Codigo: "1715"
+    Actividad: "Torcido y preparación de la seda; torcido y textura de filamentos sintéticos y artificiales"
+  -
+    Codigo: "17150"
+    Actividad: "Torcido y preparación de la seda; torcido y textura de filamentos sintéticos y artificiales"
+  -
+    Codigo: "1716"
+    Actividad: "Fabricación de hilo de coser"
+  -
+    Codigo: "17160"
+    Actividad: "Fabricación de hilo de coser"
+  -
+    Codigo: "1717"
+    Actividad: "Preparación e hilado de otras fibras textiles"
+  -
+    Codigo: "17170"
+    Actividad: "Preparación e hilado de otras fibras textiles"
+  -
+    Codigo: "172"
+    Actividad: "Fabricación de tejidos textiles"
+  -
+    Codigo: "1721"
+    Actividad: "Fabricación de tejidos de algodón y sus mezclas"
+  -
+    Codigo: "17210"
+    Actividad: "Fabricación de tejidos de algodón y sus mezclas"
+  -
+    Codigo: "1722"
+    Actividad: "Fabricación de tejidos de lana cardada y sus mezclas"
+  -
+    Codigo: "17220"
+    Actividad: "Fabricación de tejidos de lana cardada y sus mezclas"
+  -
+    Codigo: "1723"
+    Actividad: "Fabricación de tejidos de lana peinada y sus mezclas"
+  -
+    Codigo: "17230"
+    Actividad: "Fabricación de tejidos de lana peinada y sus mezclas"
+  -
+    Codigo: "1724"
+    Actividad: "Fabricación de tejidos de seda"
+  -
+    Codigo: "17240"
+    Actividad: "Fabricación de tejidos de seda"
+  -
+    Codigo: "1725"
+    Actividad: "Fabricación de otros tejidos textiles"
+  -
+    Codigo: "17250"
+    Actividad: "Fabricación de otros tejidos textiles"
+  -
+    Codigo: "173"
+    Actividad: "Acabado de textiles"
+  -
+    Codigo: "1730"
+    Actividad: "Acabado de textiles"
+  -
+    Codigo: "17301"
+    Actividad: "Teñido de textiles"
+  -
+    Codigo: "17302"
+    Actividad: "Estampación de textiles"
+  -
+    Codigo: "17303"
+    Actividad: "Otros acabados de textiles"
+  -
+    Codigo: "174"
+    Actividad: "Fabricación de otros artículos confeccionados con textiles, excepto prendas de vestir"
+  -
+    Codigo: "1740"
+    Actividad: "Fabricación de otros artículos confeccionados con textiles, excepto prendas de vestir"
+  -
+    Codigo: "17400"
+    Actividad: "Fabricación de otros artículos confeccionados con textiles, excepto prendas de vestir"
+  -
+    Codigo: "175"
+    Actividad: "Otras industrias textiles"
+  -
+    Codigo: "1751"
+    Actividad: "Fabricación de alfombras y moquetas"
+  -
+    Codigo: "17510"
+    Actividad: "Fabricación de alfombras y moquetas"
+  -
+    Codigo: "1752"
+    Actividad: "Fabricación de cuerdas, cordeles, bramantes y redes"
+  -
+    Codigo: "17520"
+    Actividad: "Fabricación de cuerdas, cordeles, bramantes y redes"
+  -
+    Codigo: "1753"
+    Actividad: "Fabricación de telas no tejidas y artículos confeccionados con éstas, excepto prendas de vestir"
+  -
+    Codigo: "17530"
+    Actividad: "Fabricación de telas no tejidas y artículos confeccionados con éstas, excepto prendas de vestir"
+  -
+    Codigo: "1754"
+    Actividad: "Fabricación de otros artículos textiles"
+  -
+    Codigo: "17541"
+    Actividad: "Fabricación de tejidos estrechos"
+  -
+    Codigo: "17542"
+    Actividad: "Fabricación de tejidos impregnados, endurecidos o recubiertos en materias plásticas"
+  -
+    Codigo: "17543"
+    Actividad: "Fabricación de otros artículos textiles"
+  -
+    Codigo: "176"
+    Actividad: "Fabricación de tejidos de punto"
+  -
+    Codigo: "1760"
+    Actividad: "Fabricación de tejidos de punto"
+  -
+    Codigo: "17600"
+    Actividad: "Fabricación de tejidos de punto"
+  -
+    Codigo: "177"
+    Actividad: "Fabricación de artículos en tejidos de punto"
+  -
+    Codigo: "1771"
+    Actividad: "Fabricación de calcetería"
+  -
+    Codigo: "17710"
+    Actividad: "Fabricación de calcetería"
+  -
+    Codigo: "1772"
+    Actividad: "Fabricación de otros artículos en tejidos de punto"
+  -
+    Codigo: "17720"
+    Actividad: "Fabricación de otros artículos en tejidos de punto"
+  -
+    Codigo: "18"
+    Actividad: "Industria de la confección y de la peletería"
+  -
+    Codigo: "181"
+    Actividad: "Confección de prendas de cuero"
+  -
+    Codigo: "1810"
+    Actividad: "Confección de prendas de cuero"
+  -
+    Codigo: "18100"
+    Actividad: "Confección de prendas de cuero"
+  -
+    Codigo: "182"
+    Actividad: "Confección de prendas de vestir en textiles y accesorios"
+  -
+    Codigo: "1821"
+    Actividad: "Confección de ropa de trabajo"
+  -
+    Codigo: "18210"
+    Actividad: "Confección de ropa de trabajo"
+  -
+    Codigo: "1822"
+    Actividad: "Confección de otras prendas exteriores"
+  -
+    Codigo: "18221"
+    Actividad: "Confección industrial"
+  -
+    Codigo: "18222"
+    Actividad: "Confección a medida"
+  -
+    Codigo: "1823"
+    Actividad: "Confección de ropa interior"
+  -
+    Codigo: "18231"
+    Actividad: "Confección de ropa interior masculina"
+  -
+    Codigo: "18232"
+    Actividad: "Confección de lencería femenina"
+  -
+    Codigo: "1824"
+    Actividad: "Confección de otras prendas de vestir y accesorios"
+  -
+    Codigo: "18241"
+    Actividad: "Confección de ropa para bebé y primera infancia"
+  -
+    Codigo: "18242"
+    Actividad: "Confección de ropa deportiva"
+  -
+    Codigo: "18243"
+    Actividad: "Confección de otras prendas de vestir y accesorios"
+  -
+    Codigo: "183"
+    Actividad: "Preparación y teñido de pieles de peletería; fabricación de artículos de peletería"
+  -
+    Codigo: "1830"
+    Actividad: "Preparación y teñido de pieles de peletería; fabricación de artículos de peletería"
+  -
+    Codigo: "18301"
+    Actividad: "Preparación, curtido y teñido de pieles de peletería"
+  -
+    Codigo: "18302"
+    Actividad: "Fabricación de artículos de peletería"
+  -
+    Codigo: "DC"
+    Actividad: "Industria del cuero y del calzado"
+  -
+    Codigo: "19"
+    Actividad: "Preparación curtido y acabado del cuero; fabricación de artículos de marroquinería y viaje; artículos de guarnicionería talabartería y zapatería"
+  -
+    Codigo: "191"
+    Actividad: "Preparación, curtido y acabado del cuero"
+  -
+    Codigo: "1910"
+    Actividad: "Preparación, curtido y acabado del cuero"
+  -
+    Codigo: "19100"
+    Actividad: "Preparación, curtido y acabado del cuero"
+  -
+    Codigo: "192"
+    Actividad: "Fabricación de artículos de marroquinería y viaje, artículos de guarnicionería y talabartería"
+  -
+    Codigo: "1920"
+    Actividad: "Fabricación de artículos de marroquinería y viaje, artículos de guarnicionería y talabartería"
+  -
+    Codigo: "19201"
+    Actividad: "Fabricación de artículos de marroquinería y viaje"
+  -
+    Codigo: "19202"
+    Actividad: "Fabricación de otros artículos de piel"
+  -
+    Codigo: "193"
+    Actividad: "Fabricación de calzado"
+  -
+    Codigo: "1930"
+    Actividad: "Fabricación de calzado"
+  -
+    Codigo: "19300"
+    Actividad: "Fabricación de calzado"
+  -
+    Codigo: "DD"
+    Actividad: "Industria de la madera y del corcho"
+  -
+    Codigo: "20"
+    Actividad: "Industria de la madera y del corcho, excepto muebles; cestería y espartería"
+  -
+    Codigo: "201"
+    Actividad: "Aserrado y cepillado de la madera ; preparación industrial de la madera"
+  -
+    Codigo: "2010"
+    Actividad: "Aserrado y cepillado de la madera ; preparación industrial de la madera"
+  -
+    Codigo: "20101"
+    Actividad: "Aserrado y cepillado de la madera"
+  -
+    Codigo: "20102"
+    Actividad: "Preparación industrial de la madera"
+  -
+    Codigo: "202"
+    Actividad: "Fabricación de chapas, tableros contrachapados, alistonados, de partículas aglomeradas, de fibras y otros tableros y paneles"
+  -
+    Codigo: "2020"
+    Actividad: "Fabricación de chapas, tableros contrachapados, alistonados, de partículas aglomeradas, de fibras y otros tableros y paneles"
+  -
+    Codigo: "20200"
+    Actividad: "Fabricación de chapas, tableros contrachapados, alistonados, de partículas aglomeradas, de fibras y otros tableros y paneles"
+  -
+    Codigo: "203"
+    Actividad: "Fabricación de estructuras de madera y piezas de carpintería y ebanistería para la construcción"
+  -
+    Codigo: "2030"
+    Actividad: "Fabricación de estructuras de madera y piezas de carpintería y ebanistería para la construcción"
+  -
+    Codigo: "20301"
+    Actividad: "Fabricación de piezas de carpintería y ebanistería para la construcción"
+  -
+    Codigo: "20302"
+    Actividad: "Fabricación de estructuras de madera"
+  -
+    Codigo: "204"
+    Actividad: "Fabricación de envases y embalajes de madera"
+  -
+    Codigo: "2040"
+    Actividad: "Fabricación de envases y embalajes de madera"
+  -
+    Codigo: "20400"
+    Actividad: "Fabricación de envases y embalajes de madera"
+  -
+    Codigo: "205"
+    Actividad: "Fabricación de otros productos de madera. Fabricación de productos de corcho, cestería y espartería"
+  -
+    Codigo: "2051"
+    Actividad: "Fabricación de otros productos de madera"
+  -
+    Codigo: "20510"
+    Actividad: "Fabricación de otros productos de madera"
+  -
+    Codigo: "2052"
+    Actividad: "Fabricación de productos de corcho, cestería y espartería"
+  -
+    Codigo: "20521"
+    Actividad: "Tratamiento del corcho bruto y fabricación de productos de corcho"
+  -
+    Codigo: "20522"
+    Actividad: "Fabricación de artículos de cestería y espartería"
+  -
+    Codigo: "DE"
+    Actividad: "Industria del papel; edición, artes gráficas y reproducción de soportes grabados"
+  -
+    Codigo: "21"
+    Actividad: "Industria del papel"
+  -
+    Codigo: "211"
+    Actividad: "Fabricación de pasta papelera, papel y cartón"
+  -
+    Codigo: "2111"
+    Actividad: "Fabricación de pasta papelera"
+  -
+    Codigo: "21111"
+    Actividad: "Fabricación de pasta papelera a partir de fibra virgen"
+  -
+    Codigo: "21112"
+    Actividad: "Fabricación de pasta papelera a partir de fibra regenerada"
+  -
+    Codigo: "2112"
+    Actividad: "Fabricación de papel y cartón"
+  -
+    Codigo: "21120"
+    Actividad: "Fabricación de papel y cartón"
+  -
+    Codigo: "212"
+    Actividad: "Fabricación de artículos de papel y de cartón"
+  -
+    Codigo: "2121"
+    Actividad: "Fabricación de papel y cartón ondulados; fabricación de envases y embalajes de papel y cartón"
+  -
+    Codigo: "21210"
+    Actividad: "Fabricación de papel y cartón ondulados; fabricación de envases y embalajes de papel y cartón"
+  -
+    Codigo: "2122"
+    Actividad: "Fabricación de artículos de papel y cartón para uso doméstico y sanitario"
+  -
+    Codigo: "21220"
+    Actividad: "Fabricación de artículos de papel y cartón para uso doméstico y sanitario"
+  -
+    Codigo: "2123"
+    Actividad: "Fabricación de artículos de papelería"
+  -
+    Codigo: "21230"
+    Actividad: "Fabricación de artículos de papelería"
+  -
+    Codigo: "2124"
+    Actividad: "Fabricación de papeles pintados"
+  -
+    Codigo: "21240"
+    Actividad: "Fabricación de papeles pintados"
+  -
+    Codigo: "2125"
+    Actividad: "Fabricación de otros artículos de papel y cartón"
+  -
+    Codigo: "21250"
+    Actividad: "Fabricación de otros artículos de papel y cartón"
+  -
+    Codigo: "22"
+    Actividad: "Edición, artes gráficas y reproducción de soportes grabados"
+  -
+    Codigo: "221"
+    Actividad: "Edición"
+  -
+    Codigo: "2211"
+    Actividad: "Edición de libros"
+  -
+    Codigo: "22110"
+    Actividad: "Edición de libros"
+  -
+    Codigo: "2212"
+    Actividad: "Edición de periódicos"
+  -
+    Codigo: "22120"
+    Actividad: "Edición de periódicos"
+  -
+    Codigo: "2213"
+    Actividad: "Edición de revistas"
+  -
+    Codigo: "22130"
+    Actividad: "Edición de revistas"
+  -
+    Codigo: "2214"
+    Actividad: "Edición de soportes de sonido grabado"
+  -
+    Codigo: "22140"
+    Actividad: "Edición de soportes de sonido grabado"
+  -
+    Codigo: "2215"
+    Actividad: "Otras actividades de edición"
+  -
+    Codigo: "22150"
+    Actividad: "Otras actividades de edición"
+  -
+    Codigo: "222"
+    Actividad: "Artes gráficas y actividades de los servicios relacionados con las mismas"
+  -
+    Codigo: "2221"
+    Actividad: "Impresión de periódicos"
+  -
+    Codigo: "22210"
+    Actividad: "Impresión de periódicos"
+  -
+    Codigo: "2222"
+    Actividad: "Otras actividades de impresión"
+  -
+    Codigo: "22220"
+    Actividad: "Otras actividades de impresión"
+  -
+    Codigo: "2223"
+    Actividad: "Encuadernación"
+  -
+    Codigo: "22230"
+    Actividad: "Encuadernación"
+  -
+    Codigo: "2224"
+    Actividad: "Actividades de preimpresión"
+  -
+    Codigo: "22240"
+    Actividad: "Actividades de preimpresión"
+  -
+    Codigo: "2225"
+    Actividad: "Actividades auxiliares relacionadas con la impresión"
+  -
+    Codigo: "22250"
+    Actividad: "Actividades auxiliares relacionadas con la impresión"
+  -
+    Codigo: "223"
+    Actividad: "Reproducción de soportes grabados"
+  -
+    Codigo: "2231"
+    Actividad: "Reproducción de soportes de sonido grabado"
+  -
+    Codigo: "22310"
+    Actividad: "Reproducción de soportes de sonido grabado"
+  -
+    Codigo: "2232"
+    Actividad: "Reproducción de soportes de vídeo grabado"
+  -
+    Codigo: "22320"
+    Actividad: "Reproducción de soportes de vídeo grabado"
+  -
+    Codigo: "2233"
+    Actividad: "Reproducción de soportes de informática grabados"
+  -
+    Codigo: "22330"
+    Actividad: "Reproducción de soportes de informática grabados"
+  -
+    Codigo: "DF"
+    Actividad: "Refino de petróleo y tratamiento de combustibles nucleares"
+  -
+    Codigo: "23"
+    Actividad: "Coquerías, refino de petróleo y tratamiento de combustibles nucleares"
+  -
+    Codigo: "231"
+    Actividad: "Coquerías"
+  -
+    Codigo: "2310"
+    Actividad: "Coquerías"
+  -
+    Codigo: "23100"
+    Actividad: "Coquerías"
+  -
+    Codigo: "232"
+    Actividad: "Refino de petróleo"
+  -
+    Codigo: "2320"
+    Actividad: "Refino de petróleo"
+  -
+    Codigo: "23200"
+    Actividad: "Refino de petróleo"
+  -
+    Codigo: "233"
+    Actividad: "Tratamiento de combustibles nucleares y residuos radiactivos"
+  -
+    Codigo: "2330"
+    Actividad: "Tratamiento de combustibles nucleares y residuos radiactivos"
+  -
+    Codigo: "23301"
+    Actividad: "Producción de combustibles nucleares e isótopos radiactivos"
+  -
+    Codigo: "23302"
+    Actividad: "Procesado de combustibles nucleares y gestión de residuos radiactivos"
+  -
+    Codigo: "DG"
+    Actividad: "Industria química"
+  -
+    Codigo: "24"
+    Actividad: "Industria química"
+  -
+    Codigo: "241"
+    Actividad: "Fabricación de productos químicos básicos"
+  -
+    Codigo: "2411"
+    Actividad: "Fabricación de gases industriales"
+  -
+    Codigo: "24110"
+    Actividad: "Fabricación de gases industriales"
+  -
+    Codigo: "2412"
+    Actividad: "Fabricación de colorantes y pigmentos"
+  -
+    Codigo: "24120"
+    Actividad: "Fabricación de colorantes y pigmentos"
+  -
+    Codigo: "2413"
+    Actividad: "Fabricación de productos básicos de química inorgánica"
+  -
+    Codigo: "24130"
+    Actividad: "Fabricación de productos básicos de química inorgánica"
+  -
+    Codigo: "2414"
+    Actividad: "Fabricación de productos básicos de química orgánica"
+  -
+    Codigo: "24141"
+    Actividad: "Fabricación de productos químicos orgánicos de origen petroquímico"
+  -
+    Codigo: "24142"
+    Actividad: "Fabricación de otros productos básicos de química orgánica"
+  -
+    Codigo: "2415"
+    Actividad: "Fabricación de abonos y compuestos nitrogenados fertilizantes"
+  -
+    Codigo: "24150"
+    Actividad: "Fabricación de abonos y compuestos nitrogenados fertilizantes"
+  -
+    Codigo: "2416"
+    Actividad: "Fabricación de primeras materias plásticas"
+  -
+    Codigo: "24160"
+    Actividad: "Fabricación de primeras materias plásticas"
+  -
+    Codigo: "2417"
+    Actividad: "Fabricación de caucho sintético en forma primaria"
+  -
+    Codigo: "24170"
+    Actividad: "Fabricación de caucho sintético en forma primaria"
+  -
+    Codigo: "242"
+    Actividad: "Fabricación de pesticidas y otros productos agroquímicos"
+  -
+    Codigo: "2420"
+    Actividad: "Fabricación de pesticidas y otros productos agroquímicos"
+  -
+    Codigo: "24200"
+    Actividad: "Fabricación de pesticidas y otros productos agroquímicos"
+  -
+    Codigo: "243"
+    Actividad: "Fabricación de pinturas, barnices y revestimientos similares; tintas de imprenta y masillas"
+  -
+    Codigo: "2430"
+    Actividad: "Fabricación de pinturas, barnices y revestimientos similares; tintas de imprenta y masillas"
+  -
+    Codigo: "24301"
+    Actividad: "Fabricación de pinturas, barnices y revestimientos similares"
+  -
+    Codigo: "24302"
+    Actividad: "Fabricación de tintas de imprenta"
+  -
+    Codigo: "244"
+    Actividad: "Fabricación de productos farmacéuticos"
+  -
+    Codigo: "2441"
+    Actividad: "Fabricación de productos farmacéuticos de base"
+  -
+    Codigo: "24410"
+    Actividad: "Fabricación de productos farmacéuticos de base"
+  -
+    Codigo: "2442"
+    Actividad: "Fabricación de preparaciones farmacéuticas y otros productos farmacéuticos de uso medicinal"
+  -
+    Codigo: "24421"
+    Actividad: "Fabricación de especialidades farmacéuticas"
+  -
+    Codigo: "24422"
+    Actividad: "Fabricación de otros productos de farmacia"
+  -
+    Codigo: "245"
+    Actividad: "Fabricación de jabones, detergentes y otros artículos de limpieza y abrillantamiento. Fabricación de perfumes y productos de belleza e higiene"
+  -
+    Codigo: "2451"
+    Actividad: "Fabricación de jabones, detergentes y otros artículos de limpieza y abrillantamiento"
+  -
+    Codigo: "24510"
+    Actividad: "Fabricación de jabones, detergentes y otros artículos de limpieza y abrillantamiento"
+  -
+    Codigo: "2452"
+    Actividad: "Fabricación de perfumes y productos de belleza e higiene"
+  -
+    Codigo: "24520"
+    Actividad: "Fabricación de perfumes y productos de belleza e higiene"
+  -
+    Codigo: "246"
+    Actividad: "Fabricación de otros productos químicos"
+  -
+    Codigo: "2461"
+    Actividad: "Fabricación de explosivos y artículos pirotécnicos"
+  -
+    Codigo: "24611"
+    Actividad: "Fabricación de explosivos"
+  -
+    Codigo: "24612"
+    Actividad: "Fabricación de artículos pirotécnicos"
+  -
+    Codigo: "2462"
+    Actividad: "Fabricación de colas y gelatinas"
+  -
+    Codigo: "24620"
+    Actividad: "Fabricación de colas y gelatinas"
+  -
+    Codigo: "2463"
+    Actividad: "Fabricación de aceites esenciales"
+  -
+    Codigo: "24630"
+    Actividad: "Fabricación de aceites esenciales"
+  -
+    Codigo: "2464"
+    Actividad: "Fabricación de material fotográfico virgen y preparados químicos para fotografía"
+  -
+    Codigo: "24640"
+    Actividad: "Fabricación de material fotográfico virgen y preparados químicos para fotografía"
+  -
+    Codigo: "2465"
+    Actividad: "Fabricación de soportes vírgenes para grabación"
+  -
+    Codigo: "24650"
+    Actividad: "Fabricación de soportes vírgenes para grabación"
+  -
+    Codigo: "2466"
+    Actividad: "Fabricación de otros productos químicos"
+  -
+    Codigo: "24661"
+    Actividad: "Tratamiento de aceites y grasas para usos industriales"
+  -
+    Codigo: "24662"
+    Actividad: "Fabricación de otros productos químicos"
+  -
+    Codigo: "247"
+    Actividad: "Fabricación de fibras artificiales y sintéticas"
+  -
+    Codigo: "2470"
+    Actividad: "Fabricación de fibras artificiales y sintéticas"
+  -
+    Codigo: "24700"
+    Actividad: "Fabricación de fibras artificiales y sintéticas"
+  -
+    Codigo: "DH"
+    Actividad: "Industria de la transformación del caucho y materias plásticas"
+  -
+    Codigo: "25"
+    Actividad: "Fabricación de productos de caucho y materias plásticas"
+  -
+    Codigo: "251"
+    Actividad: "Fabricación de productos de caucho"
+  -
+    Codigo: "2511"
+    Actividad: "Fabricación de neumáticos y cámaras de caucho"
+  -
+    Codigo: "25110"
+    Actividad: "Fabricación de neumáticos y cámaras de caucho"
+  -
+    Codigo: "2512"
+    Actividad: "Reconstrucción y recauchutado de neumáticos"
+  -
+    Codigo: "25120"
+    Actividad: "Reconstrucción y recauchutado de neumáticos"
+  -
+    Codigo: "2513"
+    Actividad: "Fabricación de otros productos de caucho"
+  -
+    Codigo: "25130"
+    Actividad: "Fabricación de otros productos de caucho"
+  -
+    Codigo: "252"
+    Actividad: "Fabricación de productos de materias plásticas"
+  -
+    Codigo: "2521"
+    Actividad: "Fabricación de placas, hojas, tubos y perfiles de materias plásticas"
+  -
+    Codigo: "25210"
+    Actividad: "Fabricación de placas, hojas, tubos y perfiles de materias plásticas"
+  -
+    Codigo: "2522"
+    Actividad: "Fabricación de envases y embalajes de materias plásticas"
+  -
+    Codigo: "25220"
+    Actividad: "Fabricación de envases y embalajes de materias plásticas"
+  -
+    Codigo: "2523"
+    Actividad: "Fabricación de productos de materias plásticas para la construcción"
+  -
+    Codigo: "25230"
+    Actividad: "Fabricación de productos de materias plásticas para la construcción"
+  -
+    Codigo: "2524"
+    Actividad: "Fabricación de otros productos de materias plásticas"
+  -
+    Codigo: "25241"
+    Actividad: "Fabricación de productos diversos en materias plásticas"
+  -
+    Codigo: "25242"
+    Actividad: "Fabricación de piezas técnicas en materias plásticas"
+  -
+    Codigo: "DI"
+    Actividad: "Industrias de otros productos minerales no metálicos"
+  -
+    Codigo: "26"
+    Actividad: "Fabricación de otros productos minerales no metálicos"
+  -
+    Codigo: "261"
+    Actividad: "Fabricación de vidrio y productos de vidrio"
+  -
+    Codigo: "2611"
+    Actividad: "Fabricación de vidrio plano"
+  -
+    Codigo: "26110"
+    Actividad: "Fabricación de vidrio plano"
+  -
+    Codigo: "2612"
+    Actividad: "Manipulado y transformación de vidrio plano"
+  -
+    Codigo: "26120"
+    Actividad: "Manipulado y transformación de vidrio plano"
+  -
+    Codigo: "2613"
+    Actividad: "Fabricación de vidrio hueco"
+  -
+    Codigo: "26130"
+    Actividad: "Fabricación de vidrio hueco"
+  -
+    Codigo: "2614"
+    Actividad: "Fabricación de fibra de vidrio"
+  -
+    Codigo: "26140"
+    Actividad: "Fabricación de fibra de vidrio"
+  -
+    Codigo: "2615"
+    Actividad: "Fabricación y manipulado de otro vidrio (incluido el vidrio técnico)"
+  -
+    Codigo: "26150"
+    Actividad: "Fabricación y manipulado de otro vidrio (incluido el vidrio técnico)"
+  -
+    Codigo: "262"
+    Actividad: "Fabricación de productos cerámicos no refractarios excepto los destinados a la construcción; fabricación de productos cerámicos refractarios"
+  -
+    Codigo: "2621"
+    Actividad: "Fabricación de artículos cerámicos de uso doméstico y ornamental"
+  -
+    Codigo: "26210"
+    Actividad: "Fabricación de artículos cerámicos de uso doméstico y ornamental"
+  -
+    Codigo: "2622"
+    Actividad: "Fabricación de aparatos sanitarios cerámicos"
+  -
+    Codigo: "26220"
+    Actividad: "Fabricación de aparatos sanitarios cerámicos"
+  -
+    Codigo: "2623"
+    Actividad: "Fabricación de aisladores y piezas aislantes de material cerámico"
+  -
+    Codigo: "26230"
+    Actividad: "Fabricación de aisladores y piezas aislantes de material cerámico"
+  -
+    Codigo: "2624"
+    Actividad: "Fabricación de otros productos cerámicos de uso técnico"
+  -
+    Codigo: "26240"
+    Actividad: "Fabricación de otros productos cerámicos de uso técnico"
+  -
+    Codigo: "2625"
+    Actividad: "Fabricación de otros productos cerámicos"
+  -
+    Codigo: "26250"
+    Actividad: "Fabricación de otros productos cerámicos"
+  -
+    Codigo: "2626"
+    Actividad: "Fabricación de productos cerámicos refractarios"
+  -
+    Codigo: "26260"
+    Actividad: "Fabricación de productos cerámicos refractarios"
+  -
+    Codigo: "263"
+    Actividad: "Fabricación de azulejos y baldosas de cerámica"
+  -
+    Codigo: "2630"
+    Actividad: "Fabricación de azulejos y baldosas de cerámica"
+  -
+    Codigo: "26300"
+    Actividad: "Fabricación de azulejos y baldosas de cerámica"
+  -
+    Codigo: "264"
+    Actividad: "Fabricación de ladrillos, tejas y productos de tierras cocidas para la construcción"
+  -
+    Codigo: "2640"
+    Actividad: "Fabricación de ladrillos, tejas y productos de tierras cocidas para la construcción"
+  -
+    Codigo: "26400"
+    Actividad: "Fabricación de ladrillos, tejas y productos de tierras cocidas para la construcción"
+  -
+    Codigo: "265"
+    Actividad: "Fabricación de cemento, cal y yeso"
+  -
+    Codigo: "2651"
+    Actividad: "Fabricación de cemento"
+  -
+    Codigo: "26510"
+    Actividad: "Fabricación de cemento"
+  -
+    Codigo: "2652"
+    Actividad: "Fabricación de cal"
+  -
+    Codigo: "26520"
+    Actividad: "Fabricación de cal"
+  -
+    Codigo: "2653"
+    Actividad: "Fabricación de yeso"
+  -
+    Codigo: "26530"
+    Actividad: "Fabricación de yeso"
+  -
+    Codigo: "266"
+    Actividad: "Fabricación de elementos de hormigón, yeso y cemento"
+  -
+    Codigo: "2661"
+    Actividad: "Fabricación de elementos de hormigón para la construcción"
+  -
+    Codigo: "26610"
+    Actividad: "Fabricación de elementos de hormigón para la construcción"
+  -
+    Codigo: "2662"
+    Actividad: "Fabricación de elementos de yeso para la construcción"
+  -
+    Codigo: "26620"
+    Actividad: "Fabricación de elementos de yeso para la construcción"
+  -
+    Codigo: "2663"
+    Actividad: "Fabricación de hormigón fresco"
+  -
+    Codigo: "26630"
+    Actividad: "Fabricación de hormigón fresco"
+  -
+    Codigo: "2664"
+    Actividad: "Fabricación de mortero"
+  -
+    Codigo: "26640"
+    Actividad: "Fabricación de mortero"
+  -
+    Codigo: "2665"
+    Actividad: "Fabricación de fibrocemento"
+  -
+    Codigo: "26650"
+    Actividad: "Fabricación de fibrocemento"
+  -
+    Codigo: "2666"
+    Actividad: "Fabricación de otros productos de hormigón, yeso y cemento"
+  -
+    Codigo: "26660"
+    Actividad: "Fabricación de otros productos de hormigón, yeso y cemento"
+  -
+    Codigo: "267"
+    Actividad: "Industria de la piedra ornamental y para la construcción"
+  -
+    Codigo: "2670"
+    Actividad: "Industria de la piedra ornamental y para la construcción"
+  -
+    Codigo: "26701"
+    Actividad: "Corte, tallado y acabado de la piedra"
+  -
+    Codigo: "26702"
+    Actividad: "Fabricación de piedras artificiales con ligantes sintéticos"
+  -
+    Codigo: "268"
+    Actividad: "Fabricación de productos minerales no metálicos diversos"
+  -
+    Codigo: "2681"
+    Actividad: "Fabricación de productos abrasivos"
+  -
+    Codigo: "26810"
+    Actividad: "Fabricación de productos abrasivos"
+  -
+    Codigo: "2682"
+    Actividad: "Fabricación de otros productos minerales no metálicos"
+  -
+    Codigo: "26820"
+    Actividad: "Fabricación de otros productos minerales no metálicos"
+  -
+    Codigo: "DJ"
+    Actividad: "Metalurgia y fabricación de productos metálicos"
+  -
+    Codigo: "27"
+    Actividad: "Metalurgia"
+  -
+    Codigo: "271"
+    Actividad: "Fabricación de productos básicos de hierro, acero y ferroaleaciones"
+  -
+    Codigo: "2710"
+    Actividad: "Fabricación de productos básicos de hierro, acero y ferroaleaciones"
+  -
+    Codigo: "27100"
+    Actividad: "Fabricación de productos básicos de hierro, acero y ferroaleaciones"
+  -
+    Codigo: "272"
+    Actividad: "Fabricación de tubos"
+  -
+    Codigo: "2721"
+    Actividad: "Fabricación de tubos de hierro"
+  -
+    Codigo: "27211"
+    Actividad: "Producción de tubos de hierro"
+  -
+    Codigo: "27212"
+    Actividad: "Producción de accesorios de tubos de hierro"
+  -
+    Codigo: "2722"
+    Actividad: "Fabricación de tubos de acero"
+  -
+    Codigo: "27221"
+    Actividad: "Producción de tubos de acero"
+  -
+    Codigo: "27222"
+    Actividad: "Producción de accesorios de tubos de acero"
+  -
+    Codigo: "273"
+    Actividad: "Otros procesos de primera transformación del hierro y el acero"
+  -
+    Codigo: "2731"
+    Actividad: "Estirado en frío"
+  -
+    Codigo: "27310"
+    Actividad: "Estirado en frío"
+  -
+    Codigo: "2732"
+    Actividad: "Laminación en frío"
+  -
+    Codigo: "27320"
+    Actividad: "Laminación en frío"
+  -
+    Codigo: "2733"
+    Actividad: "Producción de perfiles en frío por conformación con plegado"
+  -
+    Codigo: "27330"
+    Actividad: "Producción de perfiles en frío por conformación con plegado"
+  -
+    Codigo: "2734"
+    Actividad: "Trefilado en frío"
+  -
+    Codigo: "27340"
+    Actividad: "Trefilado en frío"
+  -
+    Codigo: "274"
+    Actividad: "Producción y primera transformación de metales preciosos y de otros metales no férreos"
+  -
+    Codigo: "2741"
+    Actividad: "Producción y primera transformación de metales preciosos"
+  -
+    Codigo: "27410"
+    Actividad: "Producción y primera transformación de metales preciosos"
+  -
+    Codigo: "2742"
+    Actividad: "Producción y primera transformación de aluminio"
+  -
+    Codigo: "27420"
+    Actividad: "Producción y primera transformación de aluminio"
+  -
+    Codigo: "2743"
+    Actividad: "Producción y primera transformación de plomo, zinc y estaño"
+  -
+    Codigo: "27431"
+    Actividad: "Producción y primera transformación de plomo"
+  -
+    Codigo: "27432"
+    Actividad: "Producción y primera transformación de zinc"
+  -
+    Codigo: "27433"
+    Actividad: "Producción y primera transformación de estaño"
+  -
+    Codigo: "2744"
+    Actividad: "Producción y primera transformación de cobre"
+  -
+    Codigo: "27440"
+    Actividad: "Producción y primera transformación de cobre"
+  -
+    Codigo: "2745"
+    Actividad: "Producción y primera transformación de otros metales no férreos"
+  -
+    Codigo: "27450"
+    Actividad: "Producción y primera transformación de otros metales no férreos"
+  -
+    Codigo: "275"
+    Actividad: "Fundición de metales"
+  -
+    Codigo: "2751"
+    Actividad: "Fundición de hierro"
+  -
+    Codigo: "27510"
+    Actividad: "Fundición de hierro"
+  -
+    Codigo: "2752"
+    Actividad: "Fundición de acero"
+  -
+    Codigo: "27520"
+    Actividad: "Fundición de acero"
+  -
+    Codigo: "2753"
+    Actividad: "Fundición de metales ligeros"
+  -
+    Codigo: "27530"
+    Actividad: "Fundición de metales ligeros"
+  -
+    Codigo: "2754"
+    Actividad: "Fundición de otros metales no férreos"
+  -
+    Codigo: "27540"
+    Actividad: "Fundición de otros metales no férreos"
+  -
+    Codigo: "28"
+    Actividad: "Fabricación de productos metálicos, excepto maquinaria y equipo"
+  -
+    Codigo: "281"
+    Actividad: "Fabricación de elementos metálicos para la construcción"
+  -
+    Codigo: "2811"
+    Actividad: "Fabricación de estructuras metálicas y sus partes"
+  -
+    Codigo: "28110"
+    Actividad: "Fabricación de estructuras metálicas y sus partes"
+  -
+    Codigo: "2812"
+    Actividad: "Fabricación de carpintería metálica"
+  -
+    Codigo: "28120"
+    Actividad: "Fabricación de carpintería metálica"
+  -
+    Codigo: "282"
+    Actividad: "Fabricación de cisternas, grandes depósitos y contenedores de metal; fabricación de radiadores y calderas para calefacción central"
+  -
+    Codigo: "2821"
+    Actividad: "Fabricación de cisternas, grandes depósitos y contenedores de metal"
+  -
+    Codigo: "28210"
+    Actividad: "Fabricación de cisternas, grandes depósitos y contenedores de metal"
+  -
+    Codigo: "2822"
+    Actividad: "Fabricación de radiadores y calderas para calefacción central"
+  -
+    Codigo: "28220"
+    Actividad: "Fabricación de radiadores y calderas para calefacción central"
+  -
+    Codigo: "283"
+    Actividad: "Fabricación de generadores de vapor"
+  -
+    Codigo: "2830"
+    Actividad: "Fabricación de generadores de vapor"
+  -
+    Codigo: "28300"
+    Actividad: "Fabricación de generadores de vapor"
+  -
+    Codigo: "284"
+    Actividad: "Forja, estampación y embutición de metales; metalurgia de polvos"
+  -
+    Codigo: "2840"
+    Actividad: "Forja, estampación y embutición de metales; metalurgia de polvos"
+  -
+    Codigo: "28401"
+    Actividad: "Forja y estampación de metales"
+  -
+    Codigo: "28402"
+    Actividad: "Troquelado y embutición de metales"
+  -
+    Codigo: "28403"
+    Actividad: "Metalurgia de polvos"
+  -
+    Codigo: "285"
+    Actividad: "Tratamiento y revestimiento de metales. Ingeniería mecánica general por cuenta de terceros"
+  -
+    Codigo: "2851"
+    Actividad: "Tratamiento y revestimiento de metales"
+  -
+    Codigo: "28510"
+    Actividad: "Tratamiento y revestimiento de metales"
+  -
+    Codigo: "2852"
+    Actividad: "Ingeniería mecánica general por cuenta de terceros"
+  -
+    Codigo: "28520"
+    Actividad: "Ingeniería mecánica general por cuenta de terceros"
+  -
+    Codigo: "286"
+    Actividad: "Fabricación de artículos de cuchillería y cubertería, herramientas y ferretería"
+  -
+    Codigo: "2861"
+    Actividad: "Fabricación de artículos de cuchillería y cubertería"
+  -
+    Codigo: "28610"
+    Actividad: "Fabricación de artículos de cuchillería y cubertería"
+  -
+    Codigo: "2862"
+    Actividad: "Fabricación de herramientas y de útiles intercambiables para máquinas herramienta"
+  -
+    Codigo: "28621"
+    Actividad: "Fabricación de herramientas manuales"
+  -
+    Codigo: "28622"
+    Actividad: "Fabricación de herramientas mecánicas"
+  -
+    Codigo: "2863"
+    Actividad: "Fabricación de cerraduras y herrajes"
+  -
+    Codigo: "28630"
+    Actividad: "Fabricación de cerraduras y herrajes"
+  -
+    Codigo: "287"
+    Actividad: "Fabricación de productos metálicos diversos, excepto muebles"
+  -
+    Codigo: "2871"
+    Actividad: "Fabricación de bidones y toneles de hierro o acero"
+  -
+    Codigo: "28710"
+    Actividad: "Fabricación de bidones y toneles de hierro o acero"
+  -
+    Codigo: "2872"
+    Actividad: "Fabricación de envases y embalajes ligeros, en metal"
+  -
+    Codigo: "28720"
+    Actividad: "Fabricación de envases y embalajes ligeros, en metal"
+  -
+    Codigo: "2873"
+    Actividad: "Fabricación de productos de alambre"
+  -
+    Codigo: "28730"
+    Actividad: "Fabricación de productos de alambre"
+  -
+    Codigo: "2874"
+    Actividad: "Fabricación de pernos, tornillos, cadenas y muelles"
+  -
+    Codigo: "28740"
+    Actividad: "Fabricación de pernos, tornillos, cadenas y muelles"
+  -
+    Codigo: "2875"
+    Actividad: "Fabricación de otros productos metálicos"
+  -
+    Codigo: "28751"
+    Actividad: "Fabricación de artículos metálicos de menaje doméstico"
+  -
+    Codigo: "28752"
+    Actividad: "Fabricación de cajas fuertes y puertas de seguridad"
+  -
+    Codigo: "28753"
+    Actividad: "Fabricación de otros productos metálicos diversos"
+  -
+    Codigo: "DK"
+    Actividad: "Industria de la construcción de maquinaria y equipo mecánico"
+  -
+    Codigo: "29"
+    Actividad: "Industria de la construcción de maquinaria y equipo mecánico"
+  -
+    Codigo: "291"
+    Actividad: "Fabricación de máquinas, equipo y material mecánico"
+  -
+    Codigo: "2911"
+    Actividad: "Fabricación de motores y turbinas, excepto los destinados a aeronaves, vehículos automóviles y ciclomotores"
+  -
+    Codigo: "29110"
+    Actividad: "Fabricación de motores y turbinas, excepto los destinados a aeronaves, vehículos automóviles y ciclomotores"
+  -
+    Codigo: "2912"
+    Actividad: "Fabricación de bombas, compresores y sistemas hidráulicos"
+  -
+    Codigo: "29121"
+    Actividad: "Fabricación de bombas"
+  -
+    Codigo: "29122"
+    Actividad: "Fabricación de compresores"
+  -
+    Codigo: "29123"
+    Actividad: "Fabricación de transmisiones hidráulicas y neumáticas"
+  -
+    Codigo: "2913"
+    Actividad: "Fabricación de válvulas y grifería"
+  -
+    Codigo: "29130"
+    Actividad: "Fabricación de válvulas y grifería"
+  -
+    Codigo: "2914"
+    Actividad: "Fabricación de cojinetes, engranajes y órganos mecánicos de transmisión"
+  -
+    Codigo: "29141"
+    Actividad: "Fabricación de rodamientos"
+  -
+    Codigo: "29142"
+    Actividad: "Fabricación de órganos mecánicos de transmisión"
+  -
+    Codigo: "292"
+    Actividad: "Fabricación de otra maquinaria, equipo y material mecánico de uso general"
+  -
+    Codigo: "2921"
+    Actividad: "Fabricación de hornos y quemadores"
+  -
+    Codigo: "29210"
+    Actividad: "Fabricación de hornos y quemadores"
+  -
+    Codigo: "2922"
+    Actividad: "Fabricación de maquinaria de elevación y manipulación"
+  -
+    Codigo: "29221"
+    Actividad: "Fabricación de ascensores, montacargas, escaleras mecánicas y similares"
+  -
+    Codigo: "29222"
+    Actividad: "Fabricación de otro material de elevación y manipulación"
+  -
+    Codigo: "2923"
+    Actividad: "Fabricación de maquinaria de ventilación y refrigeración no doméstica"
+  -
+    Codigo: "29230"
+    Actividad: "Fabricación de maquinaria de ventilación y refrigeración no doméstica"
+  -
+    Codigo: "2924"
+    Actividad: "Fabricación de otra maquinaria de uso general"
+  -
+    Codigo: "29241"
+    Actividad: "Fabricación de maquinaria y equipo de embalaje y acondicionamiento"
+  -
+    Codigo: "29242"
+    Actividad: "Fabricación de material para pesar"
+  -
+    Codigo: "29243"
+    Actividad: "Fabricación de otra maquinaria de uso general para la industria"
+  -
+    Codigo: "293"
+    Actividad: "Fabricación de maquinaria agraria"
+  -
+    Codigo: "2931"
+    Actividad: "Fabricación de tractores agrícolas"
+  -
+    Codigo: "29310"
+    Actividad: "Fabricación de tractores agrícolas"
+  -
+    Codigo: "2932"
+    Actividad: "Fabricación de otra maquinaria agraria"
+  -
+    Codigo: "29321"
+    Actividad: "Producción de otra maquinaria agraria"
+  -
+    Codigo: "29322"
+    Actividad: "Reparación de maquinaria y material agrario"
+  -
+    Codigo: "294"
+    Actividad: "Fabricación de máquinas-herramienta"
+  -
+    Codigo: "2941"
+    Actividad: "Fabricación de máquinas-herramienta eléctricas portátiles"
+  -
+    Codigo: "29410"
+    Actividad: "Fabricación de máquinas-herramienta eléctricas portátiles"
+  -
+    Codigo: "2942"
+    Actividad: "Fabricación de máquinas-herramienta para metales"
+  -
+    Codigo: "29420"
+    Actividad: "Fabricación de máquinas-herramienta para metales"
+  -
+    Codigo: "2943"
+    Actividad: "Fabricación de otras máquinas-herramienta"
+  -
+    Codigo: "29430"
+    Actividad: "Fabricación de otras máquinas-herramienta"
+  -
+    Codigo: "295"
+    Actividad: "Fabricación de maquinaria diversa para usos específicos"
+  -
+    Codigo: "2951"
+    Actividad: "Fabricación de maquinaria para la industria metalúrgica"
+  -
+    Codigo: "29510"
+    Actividad: "Fabricación de maquinaria para la industria metalúrgica"
+  -
+    Codigo: "2952"
+    Actividad: "Fabricación de maquinaria para las industrias extractivas y de la construcción"
+  -
+    Codigo: "29520"
+    Actividad: "Fabricación de maquinaria para las industrias extractivas y de la construcción"
+  -
+    Codigo: "2953"
+    Actividad: "Fabricación de maquinaria para la industria de la alimentación, bebidas y tabaco"
+  -
+    Codigo: "29530"
+    Actividad: "Fabricación de maquinaria para la industria de la alimentación, bebidas y tabaco"
+  -
+    Codigo: "2954"
+    Actividad: "Fabricación de maquinaria para la industria textil, de la confección y del cuero"
+  -
+    Codigo: "29541"
+    Actividad: "Fabricación de maquinaria para la industria textil y de la confección"
+  -
+    Codigo: "29542"
+    Actividad: "Fabricación de maquinaria de lavado y limpieza en seco"
+  -
+    Codigo: "29543"
+    Actividad: "Fabricación de maquinaria para la industria del cuero y del calzado"
+  -
+    Codigo: "2955"
+    Actividad: "Fabricación de maquinaria para la industria del papel y del cartón"
+  -
+    Codigo: "29550"
+    Actividad: "Fabricación de maquinaria para la industria del papel y del cartón"
+  -
+    Codigo: "2956"
+    Actividad: "Fabricación de otra maquinaria para usos específicos"
+  -
+    Codigo: "29561"
+    Actividad: "Fabricación de maquinaria y equipo para artes gráficas"
+  -
+    Codigo: "29562"
+    Actividad: "Fabricación de máquinas para trabajar el caucho y materias plásticas"
+  -
+    Codigo: "29563"
+    Actividad: "Fabricación de moldes"
+  -
+    Codigo: "29564"
+    Actividad: "Fabricación de otra maquinaria para usos específicos"
+  -
+    Codigo: "296"
+    Actividad: "Fabricación de armas y municiones"
+  -
+    Codigo: "2960"
+    Actividad: "Fabricación de armas y municiones"
+  -
+    Codigo: "29601"
+    Actividad: "Fabricación de armamento pesado"
+  -
+    Codigo: "29602"
+    Actividad: "Fabricación de armas ligeras"
+  -
+    Codigo: "297"
+    Actividad: "Fabricación de aparatos domésticos"
+  -
+    Codigo: "2971"
+    Actividad: "Fabricación de aparatos electrodomésticos"
+  -
+    Codigo: "29710"
+    Actividad: "Fabricación de aparatos electrodomésticos"
+  -
+    Codigo: "2972"
+    Actividad: "Fabricación de aparatos domésticos no eléctricos"
+  -
+    Codigo: "29720"
+    Actividad: "Fabricación de aparatos domésticos no eléctricos"
+  -
+    Codigo: "DL"
+    Actividad: "Industria de material y equipo eléctrico, electrónico y óptico"
+  -
+    Codigo: "30"
+    Actividad: "Fabricación de máquinas de oficina y equipos informáticos"
+  -
+    Codigo: "300"
+    Actividad: "Fabricación de máquinas de oficina y equipos informáticos"
+  -
+    Codigo: "3001"
+    Actividad: "Fabricación de máquinas de oficina"
+  -
+    Codigo: "30010"
+    Actividad: "Fabricación de máquinas de oficina"
+  -
+    Codigo: "3002"
+    Actividad: "Fabricación de ordenadores y otro equipo informático"
+  -
+    Codigo: "30020"
+    Actividad: "Fabricación de ordenadores y otro equipo informático"
+  -
+    Codigo: "31"
+    Actividad: "Fabricación de maquinaria y material eléctrico"
+  -
+    Codigo: "311"
+    Actividad: "Fabricación de motores eléctricos, transformadores y generadores"
+  -
+    Codigo: "3110"
+    Actividad: "Fabricación de motores eléctricos, transformadores y generadores"
+  -
+    Codigo: "31100"
+    Actividad: "Fabricación de motores eléctricos, transformadores y generadores"
+  -
+    Codigo: "312"
+    Actividad: "Fabricación de aparatos de distribución y control eléctricos"
+  -
+    Codigo: "3120"
+    Actividad: "Fabricación de aparatos de distribución y control eléctricos"
+  -
+    Codigo: "31200"
+    Actividad: "Fabricación de aparatos de distribución y control eléctricos"
+  -
+    Codigo: "313"
+    Actividad: "Fabricación de hilos y cables eléctricos aislados"
+  -
+    Codigo: "3130"
+    Actividad: "Fabricación de hilos y cables eléctricos aislados"
+  -
+    Codigo: "31300"
+    Actividad: "Fabricación de hilos y cables eléctricos aislados"
+  -
+    Codigo: "314"
+    Actividad: "Fabricación de acumuladores y pilas eléctricas"
+  -
+    Codigo: "3140"
+    Actividad: "Fabricación de acumuladores y pilas eléctricas"
+  -
+    Codigo: "31400"
+    Actividad: "Fabricación de acumuladores y pilas eléctricas"
+  -
+    Codigo: "315"
+    Actividad: "Fabricación de lámparas eléctricas y aparatos de iluminación"
+  -
+    Codigo: "3150"
+    Actividad: "Fabricación de lámparas eléctricas y aparatos de iluminación"
+  -
+    Codigo: "31501"
+    Actividad: "Fabricación de lámparas y tubos eléctricos"
+  -
+    Codigo: "31502"
+    Actividad: "Fabricación de aparatos de iluminación"
+  -
+    Codigo: "316"
+    Actividad: "Fabricación de otro equipo eléctrico"
+  -
+    Codigo: "3161"
+    Actividad: "Fabricación de material y equipo eléctrico para motores y vehículos"
+  -
+    Codigo: "31611"
+    Actividad: "Fabricación de aparatos y dispositivos eléctricos para motores de combustión interna"
+  -
+    Codigo: "31612"
+    Actividad: "Fabricación de aparatos eléctricos de iluminación y señalización para material de transporte"
+  -
+    Codigo: "3162"
+    Actividad: "Fabricación de otro equipo y material eléctrico"
+  -
+    Codigo: "31620"
+    Actividad: "Fabricación de otro equipo y material eléctrico"
+  -
+    Codigo: "32"
+    Actividad: "Fabricación de material electrónico; fabricación de equipo y aparatos de radio, televisión y comunicaciones"
+  -
+    Codigo: "321"
+    Actividad: "Fabricación de válvulas, tubos y otros componentes electrónicos"
+  -
+    Codigo: "3210"
+    Actividad: "Fabricación de válvulas, tubos y otros componentes electrónicos"
+  -
+    Codigo: "32100"
+    Actividad: "Fabricación de válvulas, tubos y otros componentes electrónicos"
+  -
+    Codigo: "322"
+    Actividad: "Fabricación de transmisores de radiodifusión y televisión y de aparatos para la radiotelefonía y radiotelegrafía con hilos"
+  -
+    Codigo: "3220"
+    Actividad: "Fabricación de transmisores de radiodifusión y televisión y de aparatos para la radiotelefonía y radiotelegrafía con hilos"
+  -
+    Codigo: "32201"
+    Actividad: "Fabricación de equipos de emisión de radio y televisión"
+  -
+    Codigo: "32202"
+    Actividad: "Fabricación de aparatos para la radiotelefonía y radiotelegrafía con hilos"
+  -
+    Codigo: "323"
+    Actividad: "Fabricación de aparatos de recepción, grabación y reproducción de sonido e imagen"
+  -
+    Codigo: "3230"
+    Actividad: "Fabricación de aparatos de recepción, grabación y reproducción de sonido e imagen"
+  -
+    Codigo: "32300"
+    Actividad: "Fabricación de aparatos de recepción, grabación y reproducción de sonido e imagen"
+  -
+    Codigo: "33"
+    Actividad: "Fabricación de equipo e instrumentos médico-quirúrgicos, de precisión, óptica y relojería"
+  -
+    Codigo: "331"
+    Actividad: "Fabricación de equipo e instrumentos médico quirúrgicos y de aparatos ortopédicos"
+  -
+    Codigo: "3310"
+    Actividad: "Fabricación de equipo e instrumentos medico quirúrgicos y de aparatos ortopédicos"
+  -
+    Codigo: "33100"
+    Actividad: "Fabricación de equipo e instrumentos medico quirúrgicos y de aparatos ortopédicos"
+  -
+    Codigo: "332"
+    Actividad: "Fabricación de instrumentos y aparatos de medida, verificación, control, navegación y otros fines, excepto equipos de control para procesos industriales"
+  -
+    Codigo: "3320"
+    Actividad: "Fabricación de instrumentos y aparatos de medida, verificación, control, navegación y otros fines, excepto equipos de control para procesos industriales"
+  -
+    Codigo: "33200"
+    Actividad: "Fabricación de instrumentos y aparatos de medida, verificación, control, navegación y otros fines, excepto equipos de control para procesos industriales"
+  -
+    Codigo: "333"
+    Actividad: "Fabricación de equipo de control de procesos industriales"
+  -
+    Codigo: "3330"
+    Actividad: "Fabricación de equipo de control de procesos industriales"
+  -
+    Codigo: "33300"
+    Actividad: "Fabricación de equipo de control de procesos industriales"
+  -
+    Codigo: "334"
+    Actividad: "Fabricación de instrumentos de óptica y de equipo fotográfico"
+  -
+    Codigo: "3340"
+    Actividad: "Fabricación de instrumentos de óptica y de equipo fotográfico"
+  -
+    Codigo: "33401"
+    Actividad: "Fabricación de lentes correctoras de la visión"
+  -
+    Codigo: "33402"
+    Actividad: "Fabricación de instrumentos fotográficos y ópticos"
+  -
+    Codigo: "335"
+    Actividad: "Fabricación de relojes"
+  -
+    Codigo: "3350"
+    Actividad: "Fabricación de relojes"
+  -
+    Codigo: "33500"
+    Actividad: "Fabricación de relojes"
+  -
+    Codigo: "DM"
+    Actividad: "Fabricación de material de transporte"
+  -
+    Codigo: "34"
+    Actividad: "Fabricación de vehículos de motor, remolques y semirremolques"
+  -
+    Codigo: "341"
+    Actividad: "Fabricación de vehículos de motor"
+  -
+    Codigo: "3410"
+    Actividad: "Fabricación de vehículos de motor"
+  -
+    Codigo: "34100"
+    Actividad: "Fabricación de vehículos de motor"
+  -
+    Codigo: "342"
+    Actividad: "Fabricación de carrocerías para vehículos de motor, de remolques y semirremolques"
+  -
+    Codigo: "3420"
+    Actividad: "Fabricación de carrocerías para vehículos de motor, de remolques y semirremolques"
+  -
+    Codigo: "34200"
+    Actividad: "Fabricación de carrocerías para vehículos de motor, de remolques y semirremolques"
+  -
+    Codigo: "343"
+    Actividad: "Fabricación de partes, piezas y accesorios no eléctricos para vehículos de motor y sus motores"
+  -
+    Codigo: "3430"
+    Actividad: "Fabricación de partes, piezas y accesorios no eléctricos para vehículos de motor y sus motores"
+  -
+    Codigo: "34300"
+    Actividad: "Fabricación de partes, piezas y accesorios no eléctricos para vehículos de motor y sus motores"
+  -
+    Codigo: "35"
+    Actividad: "Fabricación de otro material de transporte"
+  -
+    Codigo: "351"
+    Actividad: "Construcción y reparación naval"
+  -
+    Codigo: "3511"
+    Actividad: "Construcción y reparación de barcos (excepto recreo y deporte)"
+  -
+    Codigo: "35111"
+    Actividad: "Construcción y reparación de barcos"
+  -
+    Codigo: "35112"
+    Actividad: "Desguace naval"
+  -
+    Codigo: "3512"
+    Actividad: "Construcción y reparación de embarcaciones de recreo y deporte"
+  -
+    Codigo: "35120"
+    Actividad: "Construcción y reparación de embarcaciones de recreo y deporte"
+  -
+    Codigo: "352"
+    Actividad: "Fabricación de material ferroviario"
+  -
+    Codigo: "3520"
+    Actividad: "Fabricación de material ferroviario"
+  -
+    Codigo: "35200"
+    Actividad: "Fabricación de material ferroviario"
+  -
+    Codigo: "353"
+    Actividad: "Construcción aeronáutica y espacial"
+  -
+    Codigo: "3530"
+    Actividad: "Construcción aeronáutica y espacial"
+  -
+    Codigo: "35300"
+    Actividad: "Construcción aeronáutica y espacial"
+  -
+    Codigo: "354"
+    Actividad: "Fabricación de motocicletas y bicicletas"
+  -
+    Codigo: "3541"
+    Actividad: "Fabricación de motocicletas"
+  -
+    Codigo: "35410"
+    Actividad: "Fabricación de motocicletas"
+  -
+    Codigo: "3542"
+    Actividad: "Fabricación de bicicletas"
+  -
+    Codigo: "35420"
+    Actividad: "Fabricación de bicicletas"
+  -
+    Codigo: "3543"
+    Actividad: "Fabricación de vehículos para inválidos"
+  -
+    Codigo: "35430"
+    Actividad: "Fabricación de vehículos para inválidos"
+  -
+    Codigo: "355"
+    Actividad: "Fabricación de otro material de transporte"
+  -
+    Codigo: "3550"
+    Actividad: "Fabricación de otro material de transporte"
+  -
+    Codigo: "35500"
+    Actividad: "Fabricación de otro material de transporte"
+  -
+    Codigo: "DN"
+    Actividad: "Industrias manufactureras diversas"
+  -
+    Codigo: "36"
+    Actividad: "Fabricación de muebles; otras industrias manufactureras"
+  -
+    Codigo: "361"
+    Actividad: "Fabricación de muebles"
+  -
+    Codigo: "3611"
+    Actividad: "Fabricación de sillas y otros asientos"
+  -
+    Codigo: "36110"
+    Actividad: "Fabricación de sillas y otros asientos"
+  -
+    Codigo: "3612"
+    Actividad: "Fabricación de muebles de oficina y establecimientos comerciales"
+  -
+    Codigo: "36120"
+    Actividad: "Fabricación de muebles de oficina y establecimientos comerciales"
+  -
+    Codigo: "3613"
+    Actividad: "Fabricación de muebles de cocina y baño"
+  -
+    Codigo: "36130"
+    Actividad: "Fabricación de muebles de cocina y baño"
+  -
+    Codigo: "3614"
+    Actividad: "Fabricación de otros muebles"
+  -
+    Codigo: "36141"
+    Actividad: "Fabricación de muebles domésticos"
+  -
+    Codigo: "36142"
+    Actividad: "Fabricación de muebles de jardín"
+  -
+    Codigo: "36143"
+    Actividad: "Fabricación de otros muebles diversos"
+  -
+    Codigo: "36144"
+    Actividad: "Actividades relacionadas con la fabricación de muebles"
+  -
+    Codigo: "3615"
+    Actividad: "Fabricación de colchones"
+  -
+    Codigo: "36150"
+    Actividad: "Fabricación de colchones"
+  -
+    Codigo: "362"
+    Actividad: "Fabricación de artículos de joyería, orfebrería, platería y artículos similares"
+  -
+    Codigo: "3621"
+    Actividad: "Fabricación de monedas"
+  -
+    Codigo: "36210"
+    Actividad: "Fabricación de monedas"
+  -
+    Codigo: "3622"
+    Actividad: "Fabricación de artículos de joyería, orfebrería y platería"
+  -
+    Codigo: "36221"
+    Actividad: "Fabricación de artículos de joyería"
+  -
+    Codigo: "36222"
+    Actividad: "Fabricación de artículos de orfebrería y platería"
+  -
+    Codigo: "363"
+    Actividad: "Fabricación de instrumentos musicales"
+  -
+    Codigo: "3630"
+    Actividad: "Fabricación de instrumentos musicales"
+  -
+    Codigo: "36300"
+    Actividad: "Fabricación de instrumentos musicales"
+  -
+    Codigo: "364"
+    Actividad: "Fabricación de artículos de deporte"
+  -
+    Codigo: "3640"
+    Actividad: "Fabricación de artículos de deporte"
+  -
+    Codigo: "36400"
+    Actividad: "Fabricación de artículos de deporte"
+  -
+    Codigo: "365"
+    Actividad: "Fabricación de juegos y juguetes"
+  -
+    Codigo: "3650"
+    Actividad: "Fabricación de juegos y juguetes"
+  -
+    Codigo: "36500"
+    Actividad: "Fabricación de juegos y juguetes"
+  -
+    Codigo: "366"
+    Actividad: "Otras industrias manufactureras diversas"
+  -
+    Codigo: "3661"
+    Actividad: "Fabricación de bisutería"
+  -
+    Codigo: "36610"
+    Actividad: "Fabricación de bisutería"
+  -
+    Codigo: "3662"
+    Actividad: "Fabricación de escobas, brochas y cepillos"
+  -
+    Codigo: "36620"
+    Actividad: "Fabricación de escobas, brochas y cepillos"
+  -
+    Codigo: "3663"
+    Actividad: "Fabricación de otros artículos"
+  -
+    Codigo: "36630"
+    Actividad: "Fabricación de otros artículos"
+  -
+    Codigo: "37"
+    Actividad: "Reciclaje"
+  -
+    Codigo: "371"
+    Actividad: "Reciclaje de chatarra y desechos de metal"
+  -
+    Codigo: "3710"
+    Actividad: "Reciclaje de chatarra y desechos de metal"
+  -
+    Codigo: "37100"
+    Actividad: "Reciclaje de chatarra y desechos de metal"
+  -
+    Codigo: "372"
+    Actividad: "Reciclaje de desechos no metálicos"
+  -
+    Codigo: "3720"
+    Actividad: "Reciclaje de desechos no metálicos"
+  -
+    Codigo: "37200"
+    Actividad: "Reciclaje de desechos no metálicos"
+  -
+    Codigo: "E"
+    Actividad: "Producción y distribución de energía eléctrica, gas y agua"
+  -
+    Codigo: "EE"
+    Actividad: "Producción y distribución de energía eléctrica, gas y agua"
+  -
+    Codigo: "40"
+    Actividad: "Producción y distribución de energía eléctrica, gas, vapor y agua caliente"
+  -
+    Codigo: "401"
+    Actividad: "Producción y distribución de energía eléctrica"
+  -
+    Codigo: "4011"
+    Actividad: "Producción de energía eléctrica"
+  -
+    Codigo: "40111"
+    Actividad: "Producción de energía hidroeléctrica"
+  -
+    Codigo: "40112"
+    Actividad: "Producción de energía eléctrica de origen térmico"
+  -
+    Codigo: "40113"
+    Actividad: "Producción de energía eléctrica de origen nuclear"
+  -
+    Codigo: "40114"
+    Actividad: "Producción de energía eléctrica de origen eólico"
+  -
+    Codigo: "40115"
+    Actividad: "Producción de otra energía eléctrica"
+  -
+    Codigo: "4012"
+    Actividad: "Transporte de energía eléctrica"
+  -
+    Codigo: "40120"
+    Actividad: "Transporte de energía eléctrica"
+  -
+    Codigo: "4013"
+    Actividad: "Distribución y comercio de energía eléctrica"
+  -
+    Codigo: "40130"
+    Actividad: "Distribución y comercio de energía eléctrica"
+  -
+    Codigo: "402"
+    Actividad: "Producción de gas; distribución de combustibles gaseosos por conductos urbanos, excepto gaseoductos"
+  -
+    Codigo: "4021"
+    Actividad: "Producción de gas"
+  -
+    Codigo: "40210"
+    Actividad: "Producción de gas"
+  -
+    Codigo: "4022"
+    Actividad: "Distribución y comercio de combustibles gaseosos por conductos urbanos, excepto gaseoductos"
+  -
+    Codigo: "40220"
+    Actividad: "Distribución y comercio de combustibles gaseosos por conductos urbanos, excepto gaseoductos"
+  -
+    Codigo: "403"
+    Actividad: "Producción y distribución de vapor y agua caliente"
+  -
+    Codigo: "4030"
+    Actividad: "Producción y distribución de vapor y agua caliente"
+  -
+    Codigo: "40300"
+    Actividad: "Producción y distribución de vapor y agua caliente"
+  -
+    Codigo: "41"
+    Actividad: "Captación, depuración y distribución de agua"
+  -
+    Codigo: "410"
+    Actividad: "Captación, depuración y distribución de agua"
+  -
+    Codigo: "4100"
+    Actividad: "Captación, depuración y distribución de agua"
+  -
+    Codigo: "41000"
+    Actividad: "Captación, depuración y distribución de agua"
+  -
+    Codigo: "F"
+    Actividad: "Construcción"
+  -
+    Codigo: "FF"
+    Actividad: "Construcción"
+  -
+    Codigo: "45"
+    Actividad: "Construcción"
+  -
+    Codigo: "451"
+    Actividad: "Preparación de obras"
+  -
+    Codigo: "4511"
+    Actividad: "Demolición y movimiento de tierras"
+  -
+    Codigo: "45111"
+    Actividad: "Demolición y excavaciones"
+  -
+    Codigo: "45112"
+    Actividad: "Grandes movimientos de tierras"
+  -
+    Codigo: "4512"
+    Actividad: "Perforaciones y sondeos"
+  -
+    Codigo: "45120"
+    Actividad: "Perforaciones y sondeos"
+  -
+    Codigo: "452"
+    Actividad: "Construcción general de inmuebles y obras de ingeniería civil"
+  -
+    Codigo: "4521"
+    Actividad: "Construcción general de edificios y obras singulares de ingeniería civil (puentes, túneles..)"
+  -
+    Codigo: "45211"
+    Actividad: "Construcción de edificios"
+  -
+    Codigo: "45212"
+    Actividad: "Obras singulares de ingeniería civil en superficie y en altura"
+  -
+    Codigo: "45213"
+    Actividad: "Obras singulares de ingeniería civil subterránea"
+  -
+    Codigo: "45214"
+    Actividad: "Construcción de redes"
+  -
+    Codigo: "45215"
+    Actividad: "Construcción de tendidos eléctricos"
+  -
+    Codigo: "45216"
+    Actividad: "Construcción de líneas de telecomunicaciones"
+  -
+    Codigo: "45217"
+    Actividad: "Otros trabajos de construcción"
+  -
+    Codigo: "4522"
+    Actividad: "Construcción de cubiertas y de estructuras de cerramiento"
+  -
+    Codigo: "45221"
+    Actividad: "Construcción de cubiertas y tejados"
+  -
+    Codigo: "45222"
+    Actividad: "Trabajos de impermeabilización"
+  -
+    Codigo: "4523"
+    Actividad: "Construcción de autopistas, carreteras, campos de aterrizaje, vías férreas y centros deportivos"
+  -
+    Codigo: "45231"
+    Actividad: "Construcción y reparación de vías férreas"
+  -
+    Codigo: "45232"
+    Actividad: "Construcción de carreteras, autopistas, aeródromos e instalaciones deportivas"
+  -
+    Codigo: "4524"
+    Actividad: "Obras hidráulicas"
+  -
+    Codigo: "45240"
+    Actividad: "Obras hidráulicas"
+  -
+    Codigo: "4525"
+    Actividad: "Otras construcciones especializadas"
+  -
+    Codigo: "45251"
+    Actividad: "Montaje de armazones y estructuras metálicas"
+  -
+    Codigo: "45252"
+    Actividad: "Cimentaciones y pilotaje"
+  -
+    Codigo: "45253"
+    Actividad: "Otras obras especializadas"
+  -
+    Codigo: "453"
+    Actividad: "Instalaciones de edificios y obras"
+  -
+    Codigo: "4531"
+    Actividad: "Instalaciones eléctricas"
+  -
+    Codigo: "45310"
+    Actividad: "Instalaciones eléctricas"
+  -
+    Codigo: "4532"
+    Actividad: "Aislamiento térmico, acústico y antivibratorio"
+  -
+    Codigo: "45320"
+    Actividad: "Aislamiento térmico, acústico y antivibratorio"
+  -
+    Codigo: "4533"
+    Actividad: "Fontanería e instalación de climatización"
+  -
+    Codigo: "45331"
+    Actividad: "Fontanería"
+  -
+    Codigo: "45332"
+    Actividad: "Instalación de climatización"
+  -
+    Codigo: "4534"
+    Actividad: "Otras instalaciones de edificios y obras"
+  -
+    Codigo: "45340"
+    Actividad: "Otras instalaciones de edificios y obras"
+  -
+    Codigo: "454"
+    Actividad: "Acabado de edificios y obras"
+  -
+    Codigo: "4541"
+    Actividad: "Revocamiento"
+  -
+    Codigo: "45410"
+    Actividad: "Revocamiento"
+  -
+    Codigo: "4542"
+    Actividad: "Instalaciones de carpintería"
+  -
+    Codigo: "45421"
+    Actividad: "Carpintería de madera y materias plásticas"
+  -
+    Codigo: "45422"
+    Actividad: "Carpintería metálica. Cerrajería"
+  -
+    Codigo: "4543"
+    Actividad: "Revestimiento de suelos y paredes"
+  -
+    Codigo: "45430"
+    Actividad: "Revestimiento de suelos y paredes"
+  -
+    Codigo: "4544"
+    Actividad: "Acristalamiento y pintura"
+  -
+    Codigo: "45441"
+    Actividad: "Acristalamiento"
+  -
+    Codigo: "45442"
+    Actividad: "Pintura"
+  -
+    Codigo: "4545"
+    Actividad: "Otros trabajos de acabado de edificios y obras"
+  -
+    Codigo: "45450"
+    Actividad: "Otros trabajos de acabado de edificios y obras"
+  -
+    Codigo: "455"
+    Actividad: "Alquiler de equipo de construcción o demolición dotado de operario"
+  -
+    Codigo: "4550"
+    Actividad: "Alquiler de equipo de construcción o demolición dotado de operario"
+  -
+    Codigo: "45500"
+    Actividad: "Alquiler de equipo de construcción o demolición dotado de operario"
+  -
+    Codigo: "G"
+    Actividad: "Comercio; reparación de vehículos de motor, motocicletas y ciclomotores y artículos personales y de uso doméstico"
+  -
+    Codigo: "GG"
+    Actividad: "Comercio, reparación de vehículos de motor, motocicletas y ciclomotores y artículos personales y de uso doméstico"
+  -
+    Codigo: "50"
+    Actividad: "Venta, mantenimiento y reparación de vehículos de motor, motocicletas y ciclomotores; venta al por menor de combustible para vehículos de motor"
+  -
+    Codigo: "501"
+    Actividad: "Venta de vehículos de motor"
+  -
+    Codigo: "5010"
+    Actividad: "Venta de vehículos de motor"
+  -
+    Codigo: "50101"
+    Actividad: "Venta de vehículos automóviles"
+  -
+    Codigo: "50102"
+    Actividad: "Venta de camiones, autobuses y similares"
+  -
+    Codigo: "50103"
+    Actividad: "Venta de caravanas"
+  -
+    Codigo: "502"
+    Actividad: "Mantenimiento y reparación de vehículos de motor"
+  -
+    Codigo: "5020"
+    Actividad: "Mantenimiento y reparación de vehículos de motor"
+  -
+    Codigo: "50200"
+    Actividad: "Mantenimiento y reparación de vehículos de motor"
+  -
+    Codigo: "503"
+    Actividad: "Venta de repuestos y accesorios de vehículos de motor"
+  -
+    Codigo: "5030"
+    Actividad: "Venta de repuestos y accesorios de vehículos de motor"
+  -
+    Codigo: "50301"
+    Actividad: "Comercio al por mayor de repuestos y accesorios de vehículos de motor"
+  -
+    Codigo: "50302"
+    Actividad: "Comercio al por menor de repuestos y accesorios de vehículos de motor"
+  -
+    Codigo: "504"
+    Actividad: "Venta, mantenimiento y reparación de motocicletas y ciclomotores y de sus repuestos y accesorios"
+  -
+    Codigo: "5040"
+    Actividad: "Venta, mantenimiento y reparación de motocicletas y ciclomotores y de sus repuestos y accesorios"
+  -
+    Codigo: "50400"
+    Actividad: "Venta, mantenimiento y reparación de motocicletas y ciclomotores y de sus repuestos y accesorios"
+  -
+    Codigo: "505"
+    Actividad: "Venta al por menor de carburantes para la automoción"
+  -
+    Codigo: "5050"
+    Actividad: "Venta al por menor de carburantes para la automoción"
+  -
+    Codigo: "50500"
+    Actividad: "Venta al por menor de carburantes para la automoción"
+  -
+    Codigo: "51"
+    Actividad: "Comercio al por mayor e intermediarios del comercio, excepto de vehículos de motor y motocicletas"
+  -
+    Codigo: "511"
+    Actividad: "Intermediarios del comercio"
+  -
+    Codigo: "5111"
+    Actividad: "Intermediarios del comercio de materias primas agrarias, animales vivos, materias primas textiles y productos semielaborados"
+  -
+    Codigo: "51110"
+    Actividad: "Intermediarios del comercio de materias primas agrarias, animales vivos, materias primas textiles y productos semielaborados"
+  -
+    Codigo: "5112"
+    Actividad: "Intermediarios del comercio de combustibles, minerales, metales y productos químicos industriales"
+  -
+    Codigo: "51120"
+    Actividad: "Intermediarios del comercio de combustibles, minerales, metales y productos químicos industriales"
+  -
+    Codigo: "5113"
+    Actividad: "Intermediarios del comercio de la madera y materiales de construcción"
+  -
+    Codigo: "51130"
+    Actividad: "Intermediarios del comercio de la madera y materiales de construcción"
+  -
+    Codigo: "5114"
+    Actividad: "Intermediarios del comercio de maquinaria, equipo industrial, embarcaciones y aeronaves"
+  -
+    Codigo: "51140"
+    Actividad: "Intermediarios del comercio de maquinaria, equipo industrial, embarcaciones y aeronaves"
+  -
+    Codigo: "5115"
+    Actividad: "Intermediarios del comercio de muebles, artículos para el hogar y ferretería"
+  -
+    Codigo: "51150"
+    Actividad: "Intermediarios del comercio de muebles, artículos para el hogar y ferretería"
+  -
+    Codigo: "5116"
+    Actividad: "Intermediarios del comercio de textiles, prendas de vestir, calzado y artículos de cuero"
+  -
+    Codigo: "51160"
+    Actividad: "Intermediarios del comercio de textiles, prendas de vestir, calzado y artículos de cuero"
+  -
+    Codigo: "5117"
+    Actividad: "Intermediarios del comercio de productos alimenticios, bebidas y tabaco"
+  -
+    Codigo: "51170"
+    Actividad: "Intermediarios del comercio de productos alimenticios, bebidas y tabaco"
+  -
+    Codigo: "5118"
+    Actividad: "Intermediarios del comercio especializados en la venta de productos específicos o grupos de productos no mencionados anteriormente"
+  -
+    Codigo: "51180"
+    Actividad: "Intermediarios del comercio especializados en la venta de productos específicos o grupos de productos no mencionados anteriormente"
+  -
+    Codigo: "5119"
+    Actividad: "Intermediarios del comercio de productos diversos"
+  -
+    Codigo: "51190"
+    Actividad: "Intermediarios del comercio de productos diversos"
+  -
+    Codigo: "512"
+    Actividad: "Comercio al por mayor de materias primas agrarias y de animales vivos"
+  -
+    Codigo: "5121"
+    Actividad: "Comercio al por mayor de cereales, simientes y alimentos para el ganado"
+  -
+    Codigo: "51210"
+    Actividad: "Comercio al por mayor de cereales, simientes y alimentos para el ganado"
+  -
+    Codigo: "5122"
+    Actividad: "Comercio al por mayor de flores y plantas"
+  -
+    Codigo: "51220"
+    Actividad: "Comercio al por mayor de flores y plantas"
+  -
+    Codigo: "5123"
+    Actividad: "Comercio al por mayor de animales vivos"
+  -
+    Codigo: "51230"
+    Actividad: "Comercio al por mayor de animales vivos"
+  -
+    Codigo: "5124"
+    Actividad: "Comercio al por mayor de cueros y pieles"
+  -
+    Codigo: "51240"
+    Actividad: "Comercio al por mayor de cueros y pieles"
+  -
+    Codigo: "5125"
+    Actividad: "Comercio al por mayor de tabaco en rama"
+  -
+    Codigo: "51250"
+    Actividad: "Comercio al por mayor de tabaco en rama"
+  -
+    Codigo: "513"
+    Actividad: "Comercio al por mayor de productos alimenticios, bebidas y tabaco"
+  -
+    Codigo: "5131"
+    Actividad: "Comercio al por mayor de frutas, patatas y verduras"
+  -
+    Codigo: "51310"
+    Actividad: "Comercio al por mayor de frutas, patatas y verduras"
+  -
+    Codigo: "5132"
+    Actividad: "Comercio al por mayor de carne y productos cárnicos"
+  -
+    Codigo: "51321"
+    Actividad: "Comercio al por mayor de carne"
+  -
+    Codigo: "51322"
+    Actividad: "Comercio al por mayor de productos cárnicos"
+  -
+    Codigo: "51323"
+    Actividad: "Comercio al por mayor de volatería y otros animales de granja y caza"
+  -
+    Codigo: "5133"
+    Actividad: "Comercio al por mayor de productos lácteos, huevos, aceites y grasas comestibles"
+  -
+    Codigo: "51330"
+    Actividad: "Comercio al por mayor de productos lácteos, huevos, aceites y grasas comestibles"
+  -
+    Codigo: "5134"
+    Actividad: "Comercio al por mayor de bebidas"
+  -
+    Codigo: "51340"
+    Actividad: "Comercio al por mayor de bebidas"
+  -
+    Codigo: "5135"
+    Actividad: "Comercio al por mayor de productos del tabaco"
+  -
+    Codigo: "51350"
+    Actividad: "Comercio al por mayor de productos del tabaco"
+  -
+    Codigo: "5136"
+    Actividad: "Comercio al por mayor de azúcar, chocolate y confitería"
+  -
+    Codigo: "51360"
+    Actividad: "Comercio al por mayor de azúcar, chocolate y confitería"
+  -
+    Codigo: "5137"
+    Actividad: "Comercio al por mayor de café, té, cacao y especias"
+  -
+    Codigo: "51370"
+    Actividad: "Comercio al por mayor de café, té, cacao y especias"
+  -
+    Codigo: "5138"
+    Actividad: "Comercio al por mayor de pescados y mariscos y otros productos alimenticios"
+  -
+    Codigo: "51381"
+    Actividad: "Comercio al por mayor de pescados y mariscos"
+  -
+    Codigo: "51382"
+    Actividad: "Comercio al por mayor de otros productos alimenticios"
+  -
+    Codigo: "5139"
+    Actividad: "Comercio al por mayor, no especializado, de productos alimenticios, bebidas y tabaco"
+  -
+    Codigo: "51391"
+    Actividad: "Comercio al por mayor de productos alimenticios congelados"
+  -
+    Codigo: "51392"
+    Actividad: "Comercio al por mayor no especializado, de otros productos alimenticios, bebidas y tabaco"
+  -
+    Codigo: "514"
+    Actividad: "Comercio al por mayor de productos de consumo, distinto de los alimenticios"
+  -
+    Codigo: "5141"
+    Actividad: "Comercio al por mayor de textiles"
+  -
+    Codigo: "51410"
+    Actividad: "Comercio al por mayor de textiles"
+  -
+    Codigo: "5142"
+    Actividad: "Comercio al por mayor de prendas de vestir y calzado"
+  -
+    Codigo: "51421"
+    Actividad: "Comercio al por mayor de prendas de vestir (incluidas las prendas de cuero y peletería)"
+  -
+    Codigo: "51422"
+    Actividad: "Comercio al por mayor de calzado"
+  -
+    Codigo: "51423"
+    Actividad: "Comercio al por mayor de accesorios"
+  -
+    Codigo: "5143"
+    Actividad: "Comercio al por mayor de aparatos electrodomésticos y de aparatos de radio y televisión"
+  -
+    Codigo: "51430"
+    Actividad: "Comercio al por mayor de aparatos electrodomésticos y de aparatos de radio y televisión"
+  -
+    Codigo: "5144"
+    Actividad: "Comercio al por mayor de porcelana y cristalería, papeles pintados y artículos de limpieza"
+  -
+    Codigo: "51441"
+    Actividad: "Comercio al por mayor de porcelana y cristalería"
+  -
+    Codigo: "51442"
+    Actividad: "Comercio al por mayor de papeles pintados y artículos de limpieza"
+  -
+    Codigo: "5145"
+    Actividad: "Comercio al por mayor de perfumería y productos de belleza"
+  -
+    Codigo: "51450"
+    Actividad: "Comercio al por mayor de perfumería y productos de belleza"
+  -
+    Codigo: "5146"
+    Actividad: "Comercio al por mayor de productos farmacéuticos"
+  -
+    Codigo: "51460"
+    Actividad: "Comercio al por mayor de productos farmacéuticos"
+  -
+    Codigo: "5147"
+    Actividad: "Comercio al por mayor de otros bienes de consumo distinto de los alimenticios"
+  -
+    Codigo: "51471"
+    Actividad: "Comercio al por mayor de artículos de papelería, libros y similares"
+  -
+    Codigo: "51472"
+    Actividad: "Comercio al por mayor de juegos y juguetes"
+  -
+    Codigo: "51473"
+    Actividad: "Comercio al por mayor de relojes, joyería, platería"
+  -
+    Codigo: "51474"
+    Actividad: "Comercio al por mayor de artículos de marroquinería y viaje y otros artículos de cuero"
+  -
+    Codigo: "51475"
+    Actividad: "Comercio al por mayor de otros artículos de uso doméstico"
+  -
+    Codigo: "515"
+    Actividad: "Comercio al por mayor de productos no agrarios semielaborados, chatarra y productos de desecho"
+  -
+    Codigo: "5151"
+    Actividad: "Comercio al por mayor de combustibles sólidos, líquidos y gaseosos y productos similares"
+  -
+    Codigo: "51510"
+    Actividad: "Comercio al por mayor de combustibles sólidos, líquidos y gaseosos y productos similares"
+  -
+    Codigo: "5152"
+    Actividad: "Comercio al por mayor de metales y minerales metálicos"
+  -
+    Codigo: "51521"
+    Actividad: "Comercio al por mayor de minerales metálicos"
+  -
+    Codigo: "51522"
+    Actividad: "Comercio al por mayor de hierro y acero"
+  -
+    Codigo: "51523"
+    Actividad: "Comercio al por mayor de metales preciosos"
+  -
+    Codigo: "51524"
+    Actividad: "Comercio al por mayor de metales no férreos"
+  -
+    Codigo: "5153"
+    Actividad: "Comercio al por mayor de madera, materiales de construcción y aparatos sanitarios"
+  -
+    Codigo: "51531"
+    Actividad: "Comercio al por mayor de madera"
+  -
+    Codigo: "51532"
+    Actividad: "Comercio al por mayor de pinturas y barnices"
+  -
+    Codigo: "51533"
+    Actividad: "Comercio al por mayor de materiales básicos de construcción"
+  -
+    Codigo: "51534"
+    Actividad: "Comercio al por mayor de otros materiales de construcción para instalaciones de edificios"
+  -
+    Codigo: "5154"
+    Actividad: "Comercio al por mayor de ferretería, fontanería y calefacción"
+  -
+    Codigo: "51541"
+    Actividad: "Comercio al por mayor de ferretería"
+  -
+    Codigo: "51542"
+    Actividad: "Comercio al por mayor de materiales de fontanería y calefacción"
+  -
+    Codigo: "5155"
+    Actividad: "Comercio al por mayor de productos químicos"
+  -
+    Codigo: "51551"
+    Actividad: "Comercio al por mayor de fertilizantes y productos químicos para la agricultura"
+  -
+    Codigo: "51552"
+    Actividad: "Comercio al por mayor de caucho y materias plásticas en formas primarias"
+  -
+    Codigo: "51553"
+    Actividad: "Comercio al por mayor de productos químicos industriales"
+  -
+    Codigo: "5156"
+    Actividad: "Comercio al por mayor de otros productos semielaborados"
+  -
+    Codigo: "51560"
+    Actividad: "Comercio al por mayor de otros productos semielaborados"
+  -
+    Codigo: "5157"
+    Actividad: "Comercio al por mayor de chatarra y productos de desecho"
+  -
+    Codigo: "51571"
+    Actividad: "Comercio al por mayor de chatarra"
+  -
+    Codigo: "51572"
+    Actividad: "Comercio al por mayor de otros productos de desecho"
+  -
+    Codigo: "516"
+    Actividad: "Comercio al por mayor de maquinaria y equipo"
+  -
+    Codigo: "5160"
+    Actividad: "Comercio al por mayor de otros componentes y equipos electrónicos"
+  -
+    Codigo: "51600"
+    Actividad: "Comercio al por mayor de otros componentes y equipos electrónicos"
+  -
+    Codigo: "5161"
+    Actividad: "Comercio al por mayor de máquinas-herramienta"
+  -
+    Codigo: "51611"
+    Actividad: "Comercio al por mayor de maquinaria para trabajar la madera y el corcho"
+  -
+    Codigo: "51612"
+    Actividad: "Comercio al por mayor de máquinas-herramienta para trabajar los metales"
+  -
+    Codigo: "5162"
+    Actividad: "Comercio al por mayor de maquinaria para la minería, la construcción y la ingeniería civil"
+  -
+    Codigo: "51620"
+    Actividad: "Comercio al por mayor de maquinaria para la minería, la construcción y la ingeniería civil"
+  -
+    Codigo: "5163"
+    Actividad: "Comercio al por mayor de maquinaria para la industria textil, máquinas de coser y hacer punto"
+  -
+    Codigo: "51630"
+    Actividad: "Comercio al por mayor de maquinaria para la industria textil, máquinas de coser y hacer punto"
+  -
+    Codigo: "5166"
+    Actividad: "Comercio al por mayor de máquinas, accesorios y útiles agrícolas, incluidos los tractores"
+  -
+    Codigo: "51660"
+    Actividad: "Comercio al por mayor de máquinas, accesorios y útiles agrícolas, incluidos los tractores"
+  -
+    Codigo: "5167"
+    Actividad: "Comercio al por mayor de ordenadores, periféricos y programas informáticos"
+  -
+    Codigo: "51670"
+    Actividad: "Comercio al por mayor de ordenadores, periféricos y programas informáticos"
+  -
+    Codigo: "5168"
+    Actividad: "Comercio al por mayor de otras máquinas y equipos de oficina"
+  -
+    Codigo: "51680"
+    Actividad: "Comercio al por mayor de otras máquinas y equipos de oficina"
+  -
+    Codigo: "5169"
+    Actividad: "Comercio al por mayor de otra maquinaria para la industria, el comercio y la navegación"
+  -
+    Codigo: "51691"
+    Actividad: "Comercio al por mayor de otra maquinaria para la industria"
+  -
+    Codigo: "51692"
+    Actividad: "Comercio al por mayor de otra maquinaria para el comercio y la navegación"
+  -
+    Codigo: "517"
+    Actividad: "Otro comercio al por mayor"
+  -
+    Codigo: "5170"
+    Actividad: "Otro comercio al por mayor"
+  -
+    Codigo: "51700"
+    Actividad: "Otro comercio al por mayor"
+  -
+    Codigo: "52"
+    Actividad: "Comercio al por menor, excepto el comercio de vehículos de motor, motocicletas y ciclomotores; reparación de efectos personales y enseres domésticos"
+  -
+    Codigo: "521"
+    Actividad: "Comercio al por menor en establecimientos no especializados"
+  -
+    Codigo: "5211"
+    Actividad: "Comercio al por menor, con predominio de alimentos, bebidas y tabaco en establecimientos no especializados"
+  -
+    Codigo: "52111"
+    Actividad: "Hipermercados (más de 2.500 m2)"
+  -
+    Codigo: "52112"
+    Actividad: "Supermercados (entre 2.499 y 400 m2)"
+  -
+    Codigo: "52113"
+    Actividad: "Superservicios (entre 399 y 120 m2)"
+  -
+    Codigo: "52114"
+    Actividad: "Autoservicios (entre 119 y 40 m2)"
+  -
+    Codigo: "52115"
+    Actividad: "Otros establecimientos no especializados"
+  -
+    Codigo: "5212"
+    Actividad: "Comercio al por menor de otros productos en establecimientos no especializados"
+  -
+    Codigo: "52121"
+    Actividad: "Grandes almacenes"
+  -
+    Codigo: "52122"
+    Actividad: "Otro comercio al por menor en establecimientos no especializados"
+  -
+    Codigo: "522"
+    Actividad: "Comercio al por menor de alimentos, bebidas y tabaco en establecimientos especializados"
+  -
+    Codigo: "5221"
+    Actividad: "Comercio al por menor de frutas y verduras"
+  -
+    Codigo: "52210"
+    Actividad: "Comercio al por menor de frutas y verduras"
+  -
+    Codigo: "5222"
+    Actividad: "Comercio al por menor de carne y productos cárnicos"
+  -
+    Codigo: "52220"
+    Actividad: "Comercio al por menor de carne y productos cárnicos"
+  -
+    Codigo: "5223"
+    Actividad: "Comercio al por menor de pescados y mariscos"
+  -
+    Codigo: "52230"
+    Actividad: "Comercio al por menor de pescados y mariscos"
+  -
+    Codigo: "5224"
+    Actividad: "Comercio al por menor de pan y productos de panadería, confitería y pastelería"
+  -
+    Codigo: "52240"
+    Actividad: "Comercio al por menor de pan y productos de panadería, confitería y pastelería"
+  -
+    Codigo: "5225"
+    Actividad: "Comercio al por menor de bebidas"
+  -
+    Codigo: "52250"
+    Actividad: "Comercio al por menor de bebidas"
+  -
+    Codigo: "5226"
+    Actividad: "Comercio al por menor de productos de tabaco"
+  -
+    Codigo: "52260"
+    Actividad: "Comercio al por menor de productos de tabaco"
+  -
+    Codigo: "5227"
+    Actividad: "Otro comercio al por menor en establecimientos especializados en alimentación"
+  -
+    Codigo: "52271"
+    Actividad: "Comercio al por menor de productos lácteos"
+  -
+    Codigo: "52272"
+    Actividad: "Otro comercio al por menor en establecimientos especializados en alimentación"
+  -
+    Codigo: "523"
+    Actividad: "Comercio al por menor de productos farmacéuticos, artículos médicos, belleza e higiene"
+  -
+    Codigo: "5231"
+    Actividad: "Comercio al por menor de productos farmacéuticos"
+  -
+    Codigo: "52310"
+    Actividad: "Comercio al por menor de productos farmacéuticos"
+  -
+    Codigo: "5232"
+    Actividad: "Comercio al por menor de artículos médicos y ortopédicos"
+  -
+    Codigo: "52320"
+    Actividad: "Comercio al por menor de artículos médicos y ortopédicos"
+  -
+    Codigo: "5233"
+    Actividad: "Comercio al por menor de cosméticos y artículos de tocador"
+  -
+    Codigo: "52330"
+    Actividad: "Comercio al por menor de cosméticos y artículos de tocador"
+  -
+    Codigo: "524"
+    Actividad: "Otro comercio al por menor de artículos nuevos en establecimientos especializados"
+  -
+    Codigo: "5241"
+    Actividad: "Comercio al por menor de textiles"
+  -
+    Codigo: "52410"
+    Actividad: "Comercio al por menor de textiles"
+  -
+    Codigo: "5242"
+    Actividad: "Comercio al por menor de prendas de vestir"
+  -
+    Codigo: "52420"
+    Actividad: "Comercio al por menor de prendas de vestir"
+  -
+    Codigo: "5243"
+    Actividad: "Comercio al por menor de calzado y artículos de cuero"
+  -
+    Codigo: "52430"
+    Actividad: "Comercio al por menor de calzado y artículos de cuero"
+  -
+    Codigo: "5244"
+    Actividad: "Comercio al por menor de muebles; aparatos de iluminación y otros artículos para el hogar"
+  -
+    Codigo: "52440"
+    Actividad: "Comercio al por menor de muebles; aparatos de iluminación y otros artículos para el hogar"
+  -
+    Codigo: "5245"
+    Actividad: "Comercio al por menor de electrodomésticos, aparatos de radio, televisión y sonido"
+  -
+    Codigo: "52450"
+    Actividad: "Comercio al por menor de electrodomésticos, aparatos de radio, televisión y sonido"
+  -
+    Codigo: "5246"
+    Actividad: "Comercio al por menor de ferretería, pinturas y vidrio"
+  -
+    Codigo: "52461"
+    Actividad: "Comercio al por menor de ferretería y vidrio plano"
+  -
+    Codigo: "52462"
+    Actividad: "Comercio al por menor de materiales de bricolaje"
+  -
+    Codigo: "52463"
+    Actividad: "Comercio al por menor de materiales de construcción, pinturas y barnices, y material de saneamiento"
+  -
+    Codigo: "5247"
+    Actividad: "Comercio al por menor de libros, periódicos y papelería"
+  -
+    Codigo: "52470"
+    Actividad: "Comercio al por menor de libros, periódicos y papelería"
+  -
+    Codigo: "5248"
+    Actividad: "Otro comercio al por menor en establecimientos especializados"
+  -
+    Codigo: "52481"
+    Actividad: "Comercio al por menor de óptica, fotografía y precisión"
+  -
+    Codigo: "52482"
+    Actividad: "Comercio al por menor artículos de relojería, joyería y platería"
+  -
+    Codigo: "52483"
+    Actividad: "Comercio al por menor de juguetes y artículos de deporte"
+  -
+    Codigo: "52484"
+    Actividad: "Comercio al por menor de artículos de droguería, papeles pintados y revestimientos de suelos"
+  -
+    Codigo: "52485"
+    Actividad: "Comercio al por menor de semillas, flores, plantas y animales de compañía"
+  -
+    Codigo: "52486"
+    Actividad: "Comercio al por menor de combustibles (excepto para vehículos automóviles)"
+  -
+    Codigo: "52487"
+    Actividad: "Galerías de arte comerciales"
+  -
+    Codigo: "52488"
+    Actividad: "Otro comercio al por menor"
+  -
+    Codigo: "525"
+    Actividad: "Comercio al por menor de bienes de segunda mano, en establecimientos"
+  -
+    Codigo: "5250"
+    Actividad: "Comercio al por menor de bienes de segunda mano, en establecimientos"
+  -
+    Codigo: "52501"
+    Actividad: "Anticuarios"
+  -
+    Codigo: "52502"
+    Actividad: "Otro comercio al por menor de objetos de segunda mano"
+  -
+    Codigo: "526"
+    Actividad: "Comercio al por menor no realizado en establecimientos"
+  -
+    Codigo: "5261"
+    Actividad: "Comercio al por menor por correspondencia y por Internet"
+  -
+    Codigo: "52610"
+    Actividad: "Comercio al por menor por correspondencia y por Internet"
+  -
+    Codigo: "5262"
+    Actividad: "Comercio al por menor en puestos de venta y mercadillos"
+  -
+    Codigo: "52620"
+    Actividad: "Comercio al por menor en puestos de venta y mercadillos"
+  -
+    Codigo: "5263"
+    Actividad: "Otro comercio al por menor no realizado en establecimientos"
+  -
+    Codigo: "52631"
+    Actividad: "Venta domiciliaria"
+  -
+    Codigo: "52632"
+    Actividad: "Otro tipo de comercio al por menor no realizado en establecimientos"
+  -
+    Codigo: "527"
+    Actividad: "Reparación de efectos personales y enseres domésticos"
+  -
+    Codigo: "5271"
+    Actividad: "Reparación de calzado y otros artículos de cuero"
+  -
+    Codigo: "52710"
+    Actividad: "Reparación de calzado y otros artículos de cuero"
+  -
+    Codigo: "5272"
+    Actividad: "Reparación de aparatos domésticos eléctricos"
+  -
+    Codigo: "52720"
+    Actividad: "Reparación de aparatos domésticos eléctricos"
+  -
+    Codigo: "5273"
+    Actividad: "Reparación de relojes y joyería"
+  -
+    Codigo: "52730"
+    Actividad: "Reparación de relojes y joyería"
+  -
+    Codigo: "5274"
+    Actividad: "Otra reparación"
+  -
+    Codigo: "52740"
+    Actividad: "Otra reparación"
+  -
+    Codigo: "H"
+    Actividad: "Hostelería"
+  -
+    Codigo: "HH"
+    Actividad: "Hostelería"
+  -
+    Codigo: "55"
+    Actividad: "Hostelería"
+  -
+    Codigo: "551"
+    Actividad: "Hoteles"
+  -
+    Codigo: "5510"
+    Actividad: "Hoteles"
+  -
+    Codigo: "55101"
+    Actividad: "Hoteles y moteles"
+  -
+    Codigo: "55102"
+    Actividad: "Hostales y pensiones"
+  -
+    Codigo: "552"
+    Actividad: "Camping y otros tipos de hospedaje de corta duración"
+  -
+    Codigo: "5521"
+    Actividad: "Albergues juveniles y refugios de montaña"
+  -
+    Codigo: "55211"
+    Actividad: "Albergues juveniles"
+  -
+    Codigo: "55212"
+    Actividad: "Refugio de montaña"
+  -
+    Codigo: "5522"
+    Actividad: "Camping"
+  -
+    Codigo: "55220"
+    Actividad: "Camping"
+  -
+    Codigo: "5523"
+    Actividad: "Otros tipos de hospedaje"
+  -
+    Codigo: "55231"
+    Actividad: "Apartamentos turísticos"
+  -
+    Codigo: "55232"
+    Actividad: "Centros y colonias de vacaciones"
+  -
+    Codigo: "55233"
+    Actividad: "Otros alojamientos turísticos"
+  -
+    Codigo: "55234"
+    Actividad: "Otros alojamientos especiales no turísticos"
+  -
+    Codigo: "553"
+    Actividad: "Restaurantes"
+  -
+    Codigo: "5530"
+    Actividad: "Restaurantes"
+  -
+    Codigo: "55300"
+    Actividad: "Restaurantes"
+  -
+    Codigo: "554"
+    Actividad: "Establecimientos de bebidas"
+  -
+    Codigo: "5540"
+    Actividad: "Establecimientos de bebidas"
+  -
+    Codigo: "55400"
+    Actividad: "Establecimientos de bebidas"
+  -
+    Codigo: "555"
+    Actividad: "Comedores colectivos y provisión de comidas preparadas"
+  -
+    Codigo: "5551"
+    Actividad: "Comedores colectivos"
+  -
+    Codigo: "55510"
+    Actividad: "Comedores colectivos"
+  -
+    Codigo: "5552"
+    Actividad: "Provisión de comidas preparadas"
+  -
+    Codigo: "55521"
+    Actividad: "Provisión de comidas preparadas a empresas"
+  -
+    Codigo: "55522"
+    Actividad: "Otros actividades de provisión de comidas"
+  -
+    Codigo: "I"
+    Actividad: "Transporte, almacenamiento y comunicaciones"
+  -
+    Codigo: "II"
+    Actividad: "Transporte, almacenamiento y comunicaciones"
+  -
+    Codigo: "60"
+    Actividad: "Transporte terrestre; transporte por tuberías"
+  -
+    Codigo: "601"
+    Actividad: "Transporte por ferrocarril"
+  -
+    Codigo: "6010"
+    Actividad: "Transporte por ferrocarril"
+  -
+    Codigo: "60100"
+    Actividad: "Transporte por ferrocarril"
+  -
+    Codigo: "602"
+    Actividad: "Otros tipos de transporte terrestre"
+  -
+    Codigo: "6021"
+    Actividad: "Otros tipos de transporte terrestre regular de viajeros"
+  -
+    Codigo: "60211"
+    Actividad: "Transporte urbano y suburbano por ferrocarril (metro y superficie)"
+  -
+    Codigo: "60212"
+    Actividad: "Transporte urbano regular de viajeros"
+  -
+    Codigo: "60213"
+    Actividad: "Transporte regular de viajeros por carretera"
+  -
+    Codigo: "60214"
+    Actividad: "Otro transporte regular (teleférico, funicular y cremallera)"
+  -
+    Codigo: "6022"
+    Actividad: "Transporte por taxi"
+  -
+    Codigo: "60220"
+    Actividad: "Transporte por taxi"
+  -
+    Codigo: "6023"
+    Actividad: "Otros tipos de transporte terrestre discrecional de viajeros"
+  -
+    Codigo: "60230"
+    Actividad: "Otros tipos de transporte terrestre discrecional de viajeros"
+  -
+    Codigo: "6024"
+    Actividad: "Transporte de mercancías por carretera"
+  -
+    Codigo: "60241"
+    Actividad: "Mudanzas"
+  -
+    Codigo: "60242"
+    Actividad: "Transporte de otras mercancías por carretera"
+  -
+    Codigo: "60243"
+    Actividad: "Alquiler de camiones con conductor"
+  -
+    Codigo: "603"
+    Actividad: "Transporte por tubería"
+  -
+    Codigo: "6030"
+    Actividad: "Transporte por tubería"
+  -
+    Codigo: "60300"
+    Actividad: "Transporte por tubería"
+  -
+    Codigo: "61"
+    Actividad: "Transporte marítimo, de cabotaje y por vías de navegación interiores"
+  -
+    Codigo: "611"
+    Actividad: "Transporte marítimo"
+  -
+    Codigo: "6110"
+    Actividad: "Transporte marítimo"
+  -
+    Codigo: "61100"
+    Actividad: "Transporte marítimo"
+  -
+    Codigo: "612"
+    Actividad: "Transporte por vías de navegación interiores"
+  -
+    Codigo: "6120"
+    Actividad: "Transporte por vías de navegación interiores"
+  -
+    Codigo: "61200"
+    Actividad: "Transporte por vías de navegación interiores"
+  -
+    Codigo: "62"
+    Actividad: "Transporte aéreo y espacial"
+  -
+    Codigo: "621"
+    Actividad: "Transporte aéreo regular"
+  -
+    Codigo: "6210"
+    Actividad: "Transporte aéreo regular"
+  -
+    Codigo: "62100"
+    Actividad: "Transporte aéreo regular"
+  -
+    Codigo: "622"
+    Actividad: "Transporte aéreo discrecional"
+  -
+    Codigo: "6220"
+    Actividad: "Transporte aéreo discrecional"
+  -
+    Codigo: "62200"
+    Actividad: "Transporte aéreo discrecional"
+  -
+    Codigo: "623"
+    Actividad: "Transporte espacial"
+  -
+    Codigo: "6230"
+    Actividad: "Transporte espacial"
+  -
+    Codigo: "62300"
+    Actividad: "Transporte espacial"
+  -
+    Codigo: "63"
+    Actividad: "Actividades anexas a los transportes; actividades de agencias de viajes"
+  -
+    Codigo: "631"
+    Actividad: "Manipulación y depósito de mercancías"
+  -
+    Codigo: "6311"
+    Actividad: "Manipulación de mercancías"
+  -
+    Codigo: "63110"
+    Actividad: "Manipulación de mercancías"
+  -
+    Codigo: "6312"
+    Actividad: "Depósito y almacenamiento"
+  -
+    Codigo: "63121"
+    Actividad: "Depósito y almacenamiento frigorífico"
+  -
+    Codigo: "63122"
+    Actividad: "Depósito y almacenamiento de mercancías peligrosas"
+  -
+    Codigo: "63123"
+    Actividad: "Depósito y almacenamiento en silos"
+  -
+    Codigo: "63124"
+    Actividad: "Otros depósitos y almacenamientos"
+  -
+    Codigo: "632"
+    Actividad: "Otras actividades anexas a los transportes"
+  -
+    Codigo: "6321"
+    Actividad: "Otras actividades anexas al transporte terrestre"
+  -
+    Codigo: "63211"
+    Actividad: "Terminales y estaciones de ferrocarril"
+  -
+    Codigo: "63212"
+    Actividad: "Terminales de estaciones de autobuses de viajeros"
+  -
+    Codigo: "63213"
+    Actividad: "Autopistas de peaje y otras vías de peaje"
+  -
+    Codigo: "63214"
+    Actividad: "Aparcamientos"
+  -
+    Codigo: "63215"
+    Actividad: "Otras actividades anexas al transporte"
+  -
+    Codigo: "6322"
+    Actividad: "Otras actividades anexas al transporte marítimo"
+  -
+    Codigo: "63221"
+    Actividad: "Explotaciones de puertos y servicios portuarios"
+  -
+    Codigo: "63222"
+    Actividad: "Otras actividades anexas al transporte marítimo"
+  -
+    Codigo: "6323"
+    Actividad: "Otras actividades anexas al transporte aéreo"
+  -
+    Codigo: "63231"
+    Actividad: "Explotaciones de aeropuertos"
+  -
+    Codigo: "63232"
+    Actividad: "Otras actividades diversas anexas al transporte aéreo"
+  -
+    Codigo: "633"
+    Actividad: "Actividades de las agencias de viajes, operadores turísticos y otras actividades de apoyo turístico"
+  -
+    Codigo: "6330"
+    Actividad: "Actividades de las agencias de viajes, operadores turísticos y otras actividades de apoyo turístico"
+  -
+    Codigo: "63301"
+    Actividad: "Operadores turísticos"
+  -
+    Codigo: "63302"
+    Actividad: "Agencias de viajes"
+  -
+    Codigo: "63303"
+    Actividad: "Otras actividades de apoyo turístico"
+  -
+    Codigo: "634"
+    Actividad: "Organización del transporte de mercancías"
+  -
+    Codigo: "6340"
+    Actividad: "Organización del transporte de mercancías"
+  -
+    Codigo: "63400"
+    Actividad: "Organización del transporte de mercancías"
+  -
+    Codigo: "64"
+    Actividad: "Correos y telecomunicaciones"
+  -
+    Codigo: "641"
+    Actividad: "Actividades postales y de correo"
+  -
+    Codigo: "6411"
+    Actividad: "Actividades postales nacionales"
+  -
+    Codigo: "64110"
+    Actividad: "Actividades postales nacionales"
+  -
+    Codigo: "6412"
+    Actividad: "Actividades de correo distintas de las actividades postales nacionales"
+  -
+    Codigo: "64120"
+    Actividad: "Actividades de correo distintas de las actividades postales nacionales"
+  -
+    Codigo: "642"
+    Actividad: "Telecomunicaciones"
+  -
+    Codigo: "6420"
+    Actividad: "Telecomunicaciones"
+  -
+    Codigo: "64200"
+    Actividad: "Telecomunicaciones"
+  -
+    Codigo: "J"
+    Actividad: "Intermediación financiera"
+  -
+    Codigo: "JJ"
+    Actividad: "Intermediación financiera"
+  -
+    Codigo: "65"
+    Actividad: "Intermediación financiera, excepto seguros y planes de pensiones"
+  -
+    Codigo: "651"
+    Actividad: "Intermediación monetaria"
+  -
+    Codigo: "6511"
+    Actividad: "Banca Central"
+  -
+    Codigo: "65110"
+    Actividad: "Banca Central"
+  -
+    Codigo: "6512"
+    Actividad: "Otros tipos de intermediación monetaria"
+  -
+    Codigo: "65121"
+    Actividad: "Bancos"
+  -
+    Codigo: "65122"
+    Actividad: "Cajas de ahorros"
+  -
+    Codigo: "65123"
+    Actividad: "Cooperativas de crédito"
+  -
+    Codigo: "652"
+    Actividad: "Otros tipos de intermediación financiera"
+  -
+    Codigo: "6521"
+    Actividad: "Arrendamiento financiero"
+  -
+    Codigo: "65210"
+    Actividad: "Arrendamiento financiero"
+  -
+    Codigo: "6522"
+    Actividad: "Otros tipos de actividades crediticias"
+  -
+    Codigo: "65224"
+    Actividad: "Instituto de Crédito Oficial/ICO (en tanto que ejerce como agencia financiera del Gobierno)"
+  -
+    Codigo: "65225"
+    Actividad: "Establecimientos Financieros de Crédito, excepto los dedicados a la realización de actividades de arrendamiento financiero"
+  -
+    Codigo: "6523"
+    Actividad: "Otros tipos de intermediación financiera"
+  -
+    Codigo: "65232"
+    Actividad: "Sociedades y fondos de capital riesgo"
+  -
+    Codigo: "65234"
+    Actividad: "Fondos del mercado monetario"
+  -
+    Codigo: "65235"
+    Actividad: "Resto de instituciones de inversión colectiva de carácter financiero"
+  -
+    Codigo: "65236"
+    Actividad: "Otras sociedades de inversión en activos financieros"
+  -
+    Codigo: "66"
+    Actividad: "Seguros y planes de pensiones, excepto seguridad social obligatoria"
+  -
+    Codigo: "660"
+    Actividad: "Seguros y planes de pensiones, excepto seguridad social obligatoria"
+  -
+    Codigo: "6601"
+    Actividad: "Seguros de vida"
+  -
+    Codigo: "66011"
+    Actividad: "Entidades de seguros privados"
+  -
+    Codigo: "66012"
+    Actividad: "Entidades de previsión social"
+  -
+    Codigo: "6602"
+    Actividad: "Planes de pensiones"
+  -
+    Codigo: "66020"
+    Actividad: "Planes de pensiones"
+  -
+    Codigo: "6603"
+    Actividad: "Seguros no vida"
+  -
+    Codigo: "66031"
+    Actividad: "Seguros de daños"
+  -
+    Codigo: "66032"
+    Actividad: "Reaseguro"
+  -
+    Codigo: "67"
+    Actividad: "Actividades auxiliares a la intermediación financiera"
+  -
+    Codigo: "671"
+    Actividad: "Actividades auxiliares a la intermediación financiera, excepto seguros y planes de pensiones"
+  -
+    Codigo: "6711"
+    Actividad: "Administración de mercados financieros"
+  -
+    Codigo: "67110"
+    Actividad: "Administración de mercados financieros"
+  -
+    Codigo: "6712"
+    Actividad: "Servicios de intermediación en operaciones de valores y gestión de fondos"
+  -
+    Codigo: "67123"
+    Actividad: "Agencias de valores"
+  -
+    Codigo: "67124"
+    Actividad: "Entidades    gestoras"
+  -
+    Codigo: "67125"
+    Actividad: "Otras actividades de intermediación"
+  -
+    Codigo: "6713"
+    Actividad: "Actividades auxiliares a la intermediación financiera"
+  -
+    Codigo: "67131"
+    Actividad: "Sociedades de garantía recíproca y de reafianzamiento"
+  -
+    Codigo: "67132"
+    Actividad: "Sociedades de tasación"
+  -
+    Codigo: "67133"
+    Actividad: "Oficinas de cambio"
+  -
+    Codigo: "67134"
+    Actividad: "Fondos de garantía de depósito"
+  -
+    Codigo: "672"
+    Actividad: "Actividades auxiliares de seguros y planes de pensiones"
+  -
+    Codigo: "6720"
+    Actividad: "Actividades auxiliares de seguros y planes de pensiones"
+  -
+    Codigo: "67201"
+    Actividad: "Agentes y corredores de seguros"
+  -
+    Codigo: "67202"
+    Actividad: "Intermediarios de seguros"
+  -
+    Codigo: "67203"
+    Actividad: "Otras actividades auxiliares de seguros y planes de pensiones"
+  -
+    Codigo: "K"
+    Actividad: "Actividades inmobiliarias y de alquiler; servicios empresariales"
+  -
+    Codigo: "KK"
+    Actividad: "Actividades inmobiliarias y de alquiler; servicios empresariales"
+  -
+    Codigo: "70"
+    Actividad: "Actividades inmobiliarias"
+  -
+    Codigo: "701"
+    Actividad: "Actividades inmobiliarias por cuenta propia"
+  -
+    Codigo: "7011"
+    Actividad: "Promoción inmobiliaria por cuenta propia"
+  -
+    Codigo: "70111"
+    Actividad: "Promoción inmobiliaria de viviendas"
+  -
+    Codigo: "70112"
+    Actividad: "Otra promoción inmobiliaria"
+  -
+    Codigo: "7012"
+    Actividad: "Compraventa de bienes inmobiliarios por cuenta propia"
+  -
+    Codigo: "70120"
+    Actividad: "Compraventa de bienes inmobiliarios por cuenta propia"
+  -
+    Codigo: "702"
+    Actividad: "Alquiler de bienes inmobiliarios por cuenta propia"
+  -
+    Codigo: "7020"
+    Actividad: "Alquiler de bienes inmobiliarios por cuenta propia"
+  -
+    Codigo: "70201"
+    Actividad: "Alquiler de viviendas"
+  -
+    Codigo: "70202"
+    Actividad: "Alquiler de otros bienes inmobiliarios"
+  -
+    Codigo: "703"
+    Actividad: "Actividades inmobiliarias por cuenta de terceros"
+  -
+    Codigo: "7031"
+    Actividad: "Agentes de la propiedad inmobiliaria"
+  -
+    Codigo: "70310"
+    Actividad: "Agentes de la propiedad inmobiliaria"
+  -
+    Codigo: "7032"
+    Actividad: "Gestión y administración de la propiedad inmobiliaria"
+  -
+    Codigo: "70321"
+    Actividad: "Administración de inmuebles residenciales"
+  -
+    Codigo: "70322"
+    Actividad: "Administración de otros bienes inmobiliarios"
+  -
+    Codigo: "71"
+    Actividad: "Alquiler de maquinaria y equipo sin operario, de efectos personales y enseres domésticos"
+  -
+    Codigo: "711"
+    Actividad: "Alquiler de automóviles"
+  -
+    Codigo: "7110"
+    Actividad: "Alquiler de automóviles"
+  -
+    Codigo: "71100"
+    Actividad: "Alquiler de automóviles"
+  -
+    Codigo: "712"
+    Actividad: "Alquiler de otros medios de transporte"
+  -
+    Codigo: "7121"
+    Actividad: "Alquiler de otros medios de transporte terrestre"
+  -
+    Codigo: "71210"
+    Actividad: "Alquiler de otros medios de transporte terrestre"
+  -
+    Codigo: "7122"
+    Actividad: "Alquiler de medios de navegación"
+  -
+    Codigo: "71220"
+    Actividad: "Alquiler de medios de navegación"
+  -
+    Codigo: "7123"
+    Actividad: "Alquiler de medios de transporte aéreo"
+  -
+    Codigo: "71230"
+    Actividad: "Alquiler de medios de transporte aéreo"
+  -
+    Codigo: "713"
+    Actividad: "Alquiler de maquinaria y equipo"
+  -
+    Codigo: "7131"
+    Actividad: "Alquiler de maquinaria y equipo agrario"
+  -
+    Codigo: "71310"
+    Actividad: "Alquiler de maquinaria y equipo agrario"
+  -
+    Codigo: "7132"
+    Actividad: "Alquiler de maquinaria y equipo para la construcción e ingeniería civil"
+  -
+    Codigo: "71320"
+    Actividad: "Alquiler de maquinaria y equipo para la construcción e ingeniería civil"
+  -
+    Codigo: "7133"
+    Actividad: "Alquiler de máquinas y equipo de oficina (incluidos ordenadores)"
+  -
+    Codigo: "71331"
+    Actividad: "Alquiler de equipos informáticos"
+  -
+    Codigo: "71332"
+    Actividad: "Alquiler de otras máquinas y equipo de oficina"
+  -
+    Codigo: "7134"
+    Actividad: "Alquiler de otros tipos de maquinaria y equipo"
+  -
+    Codigo: "71340"
+    Actividad: "Alquiler de otros tipos de maquinaria y equipo"
+  -
+    Codigo: "714"
+    Actividad: "Alquiler de efectos personales y enseres domésticos"
+  -
+    Codigo: "7140"
+    Actividad: "Alquiler de efectos personales y enseres domésticos"
+  -
+    Codigo: "71401"
+    Actividad: "Alquiler de aparatos de radio, televisión y sonido"
+  -
+    Codigo: "71402"
+    Actividad: "Alquiler de vestuario"
+  -
+    Codigo: "71403"
+    Actividad: "Alquiler de equipo y material deportivo"
+  -
+    Codigo: "71404"
+    Actividad: "Alquiler de otros efectos personales"
+  -
+    Codigo: "72"
+    Actividad: "Actividades informáticas"
+  -
+    Codigo: "721"
+    Actividad: "Consulta de equipo informático"
+  -
+    Codigo: "7210"
+    Actividad: "Consulta de equipo informático"
+  -
+    Codigo: "72100"
+    Actividad: "Consulta de equipo informático"
+  -
+    Codigo: "722"
+    Actividad: "Consulta de aplicaciones informáticas y suministro de programas de informática"
+  -
+    Codigo: "7221"
+    Actividad: "Edición de programas informáticos"
+  -
+    Codigo: "72210"
+    Actividad: "Edición de programas informáticos"
+  -
+    Codigo: "7222"
+    Actividad: "Otras actividades de consultoría y suministro de programas informáticos"
+  -
+    Codigo: "72220"
+    Actividad: "Otras actividades de consultoría y suministro de programas informáticos"
+  -
+    Codigo: "723"
+    Actividad: "Proceso de datos"
+  -
+    Codigo: "7230"
+    Actividad: "Proceso de datos"
+  -
+    Codigo: "72300"
+    Actividad: "Proceso de datos"
+  -
+    Codigo: "724"
+    Actividad: "Actividades relacionadas con bases de datos"
+  -
+    Codigo: "7240"
+    Actividad: "Actividades relacionadas con bases de datos"
+  -
+    Codigo: "72400"
+    Actividad: "Actividades relacionadas con bases de datos"
+  -
+    Codigo: "725"
+    Actividad: "Mantenimiento y reparación de máquinas de oficina, contabilidad y equipo informático"
+  -
+    Codigo: "7250"
+    Actividad: "Mantenimiento y reparación de máquinas de oficina, contabilidad y equipo informático"
+  -
+    Codigo: "72500"
+    Actividad: "Mantenimiento y reparación de máquinas de oficina, contabilidad y equipo informático"
+  -
+    Codigo: "726"
+    Actividad: "Otras actividades relacionadas con la informática"
+  -
+    Codigo: "7260"
+    Actividad: "Otras actividades relacionadas con la informática"
+  -
+    Codigo: "72600"
+    Actividad: "Otras actividades relacionadas con la informática"
+  -
+    Codigo: "73"
+    Actividad: "Investigación y desarrollo"
+  -
+    Codigo: "731"
+    Actividad: "Investigación y desarrollo sobre ciencias naturales y técnicas"
+  -
+    Codigo: "7310"
+    Actividad: "Investigación y desarrollo sobre ciencias naturales y técnicas"
+  -
+    Codigo: "73100"
+    Actividad: "Investigación y desarrollo sobre ciencias naturales y técnicas"
+  -
+    Codigo: "732"
+    Actividad: "Investigación y desarrollo sobre ciencias sociales y humanidades"
+  -
+    Codigo: "7320"
+    Actividad: "Investigación y desarrollo sobre ciencias sociales y humanidades"
+  -
+    Codigo: "73200"
+    Actividad: "Investigación y desarrollo sobre ciencias sociales y humanidades"
+  -
+    Codigo: "74"
+    Actividad: "Otras actividades empresariales"
+  -
+    Codigo: "741"
+    Actividad: "Actividades jurídicas, de contabilidad, teneduría de libros, auditoría, asesoría fiscal, estudios de mercado y realización de encuestas de opinión pública; consulta y asesoramiento sobre dirección y gestión empresarial, gestión de sociedades"
+  -
+    Codigo: "7411"
+    Actividad: "Actividades jurídicas"
+  -
+    Codigo: "74111"
+    Actividad: "Consulta, asesoramiento y práctica legal del Derecho"
+  -
+    Codigo: "74112"
+    Actividad: "Notarías y registros"
+  -
+    Codigo: "74113"
+    Actividad: "Otras actividades jurídicas"
+  -
+    Codigo: "7412"
+    Actividad: "Actividades de contabilidad, teneduría de libros, auditoría y asesoría fiscal"
+  -
+    Codigo: "74120"
+    Actividad: "Actividades de contabilidad, teneduría de libros, auditoría y asesoría fiscal"
+  -
+    Codigo: "7413"
+    Actividad: "Estudio de mercado y realización de encuestas de opinión pública"
+  -
+    Codigo: "74130"
+    Actividad: "Estudio de mercado y realización de encuestas de opinión pública"
+  -
+    Codigo: "7414"
+    Actividad: "Consulta y asesoramiento sobre dirección y gestión empresarial"
+  -
+    Codigo: "74141"
+    Actividad: "Actividades de asesoramiento en dirección y gestión empresarial"
+  -
+    Codigo: "74142"
+    Actividad: "Relaciones públicas"
+  -
+    Codigo: "7415"
+    Actividad: "Gestión de sociedades de cartera (holdings)"
+  -
+    Codigo: "74150"
+    Actividad: "Gestión de sociedades de cartera (holdings)"
+  -
+    Codigo: "742"
+    Actividad: "Servicios técnicos de arquitectura e ingeniería y otras actividades relacionadas con el asesoramiento técnico"
+  -
+    Codigo: "7420"
+    Actividad: "Servicios técnicos de arquitectura e ingeniería y otras actividades relacionadas con el asesoramiento técnico"
+  -
+    Codigo: "74201"
+    Actividad: "Servicios técnicos de arquitectura"
+  -
+    Codigo: "74202"
+    Actividad: "Servicios técnicos de ingeniería"
+  -
+    Codigo: "74203"
+    Actividad: "Servicios técnicos de cartografía y topografía"
+  -
+    Codigo: "74204"
+    Actividad: "Otros servicios técnicos"
+  -
+    Codigo: "743"
+    Actividad: "Ensayos y análisis técnicos"
+  -
+    Codigo: "7430"
+    Actividad: "Ensayos y análisis técnicos"
+  -
+    Codigo: "74301"
+    Actividad: "Inspección técnica de vehículos"
+  -
+    Codigo: "74302"
+    Actividad: "Otros ensayos y análisis técnicos"
+  -
+    Codigo: "744"
+    Actividad: "Publicidad"
+  -
+    Codigo: "7440"
+    Actividad: "Publicidad"
+  -
+    Codigo: "74401"
+    Actividad: "Agencias y consultores de publicidad"
+  -
+    Codigo: "74402"
+    Actividad: "Gestión de soportes publicitarios"
+  -
+    Codigo: "745"
+    Actividad: "Selección y colocación de personal"
+  -
+    Codigo: "7450"
+    Actividad: "Selección y colocación de personal"
+  -
+    Codigo: "74501"
+    Actividad: "Selección de personal directivo y ejecutivo"
+  -
+    Codigo: "74502"
+    Actividad: "Agencias de colocación"
+  -
+    Codigo: "74503"
+    Actividad: "Agencias de suministro de personal"
+  -
+    Codigo: "746"
+    Actividad: "Servicios de investigación y seguridad"
+  -
+    Codigo: "7460"
+    Actividad: "Servicios de investigación y seguridad"
+  -
+    Codigo: "74601"
+    Actividad: "Investigación"
+  -
+    Codigo: "74602"
+    Actividad: "Vigilancia, protección y seguridad"
+  -
+    Codigo: "747"
+    Actividad: "Actividades industriales de limpieza"
+  -
+    Codigo: "7470"
+    Actividad: "Actividades industriales de limpieza"
+  -
+    Codigo: "74700"
+    Actividad: "Actividades industriales de limpieza"
+  -
+    Codigo: "748"
+    Actividad: "Actividades empresariales diversas"
+  -
+    Codigo: "7481"
+    Actividad: "Actividades de fotografía"
+  -
+    Codigo: "74811"
+    Actividad: "Laboratorios de revelado, impresión y ampliación fotográfica"
+  -
+    Codigo: "74812"
+    Actividad: "Estudios fotográficos y otras actividades de fotografía"
+  -
+    Codigo: "7482"
+    Actividad: "Actividades de envasado y empaquetado por cuenta de terceros"
+  -
+    Codigo: "74820"
+    Actividad: "Actividades de envasado y empaquetado por cuenta de terceros"
+  -
+    Codigo: "7483"
+    Actividad: "Actividades de secretaría y traducción"
+  -
+    Codigo: "74831"
+    Actividad: "Actividades de secretaría y reprografía"
+  -
+    Codigo: "74832"
+    Actividad: "Actividades de traducción"
+  -
+    Codigo: "74833"
+    Actividad: "Actividades anexas a la distribución publicitaria"
+  -
+    Codigo: "7484"
+    Actividad: "Otras actividades empresariales"
+  -
+    Codigo: "74841"
+    Actividad: "Diseño no industrial y decoración de interiores"
+  -
+    Codigo: "74842"
+    Actividad: "Organización de ferias, exhibiciones y congresos"
+  -
+    Codigo: "74843"
+    Actividad: "Otras actividades empresariales"
+  -
+    Codigo: "7486"
+    Actividad: "Actividades de centro de llamadas"
+  -
+    Codigo: "74860"
+    Actividad: "Actividades de centro de llamadas"
+  -
+    Codigo: "L"
+    Actividad: "Administración pública, defensa y seguridad social obligatoria"
+  -
+    Codigo: "LL"
+    Actividad: "Administración pública, defensa y seguridad social"
+  -
+    Codigo: "75"
+    Actividad: "Administración pública, defensa y seguridad social obligatoria"
+  -
+    Codigo: "751"
+    Actividad: "Administración Pública"
+  -
+    Codigo: "7511"
+    Actividad: "Actividades generales de la Administración Pública"
+  -
+    Codigo: "75111"
+    Actividad: "Actividades generales de la Administración Central"
+  -
+    Codigo: "75112"
+    Actividad: "Actividades generales de la Administración Autonómica"
+  -
+    Codigo: "75113"
+    Actividad: "Actividades generales de la Administración Local"
+  -
+    Codigo: "7512"
+    Actividad: "Regulación de las actividades sanitarias, educativas, culturales y otros servicios sociales, excepto seguridad social obligatoria"
+  -
+    Codigo: "75120"
+    Actividad: "Regulación de las Actividades sanitarias, educativas, culturales y otros servicios sociales, excepto Seguridad Social obligatoria"
+  -
+    Codigo: "7513"
+    Actividad: "Regulación de la actividad económica"
+  -
+    Codigo: "75130"
+    Actividad: "Regulación de la actividad económica"
+  -
+    Codigo: "7514"
+    Actividad: "Otras actividades auxiliares de servicios para la Administración Pública en general"
+  -
+    Codigo: "75140"
+    Actividad: "Otras actividades auxiliares de servicios para la Administración Pública en general"
+  -
+    Codigo: "752"
+    Actividad: "Prestación Pública de servicios a la comunidad en general"
+  -
+    Codigo: "7521"
+    Actividad: "Asuntos exteriores"
+  -
+    Codigo: "75210"
+    Actividad: "Asuntos exteriores"
+  -
+    Codigo: "7522"
+    Actividad: "Defensa"
+  -
+    Codigo: "75220"
+    Actividad: "Defensa"
+  -
+    Codigo: "7523"
+    Actividad: "Justicia"
+  -
+    Codigo: "75230"
+    Actividad: "Justicia"
+  -
+    Codigo: "7524"
+    Actividad: "Orden público y seguridad"
+  -
+    Codigo: "75240"
+    Actividad: "Orden público y seguridad"
+  -
+    Codigo: "7525"
+    Actividad: "Actividades de protección civil"
+  -
+    Codigo: "75250"
+    Actividad: "Actividades de protección civil"
+  -
+    Codigo: "753"
+    Actividad: "Seguridad social obligatoria"
+  -
+    Codigo: "7530"
+    Actividad: "Seguridad social obligatoria"
+  -
+    Codigo: "75300"
+    Actividad: "Seguridad social obligatoria"
+  -
+    Codigo: "M"
+    Actividad: "Educación"
+  -
+    Codigo: "MM"
+    Actividad: "Educación"
+  -
+    Codigo: "80"
+    Actividad: "Educación"
+  -
+    Codigo: "801"
+    Actividad: "Enseñanza primaria"
+  -
+    Codigo: "8010"
+    Actividad: "Enseñanza primaria"
+  -
+    Codigo: "80101"
+    Actividad: "Enseñanza infantil"
+  -
+    Codigo: "80102"
+    Actividad: "Enseñanza primaria"
+  -
+    Codigo: "802"
+    Actividad: "Enseñanza secundaria"
+  -
+    Codigo: "8021"
+    Actividad: "Enseñanza secundaria de formación general"
+  -
+    Codigo: "80210"
+    Actividad: "Enseñanza secundaria de formación general"
+  -
+    Codigo: "8022"
+    Actividad: "Enseñanza secundaria de formación técnica y profesional"
+  -
+    Codigo: "80221"
+    Actividad: "Enseñanza secundaria de formación profesional específica"
+  -
+    Codigo: "80222"
+    Actividad: "Otra enseñanza secundaria de formación técnica y profesional"
+  -
+    Codigo: "803"
+    Actividad: "Enseñanza superior"
+  -
+    Codigo: "8030"
+    Actividad: "Enseñanza superior"
+  -
+    Codigo: "80301"
+    Actividad: "Enseñanza superior no universitaria"
+  -
+    Codigo: "80302"
+    Actividad: "Enseñanza superior universitaria"
+  -
+    Codigo: "80303"
+    Actividad: "Enseñanza superior de especialización y postgrado"
+  -
+    Codigo: "804"
+    Actividad: "Formación permanente y otras actividades de enseñanza"
+  -
+    Codigo: "8041"
+    Actividad: "Enseñanza de las escuelas de conducción y pilotaje"
+  -
+    Codigo: "80411"
+    Actividad: "Escuelas de conducción de vehículos automóviles"
+  -
+    Codigo: "80412"
+    Actividad: "Escuelas de pilotaje"
+  -
+    Codigo: "8042"
+    Actividad: "Enseñanza para adultos y otro tipo de enseñanza"
+  -
+    Codigo: "80421"
+    Actividad: "Formación para adultos y formación profesional continua"
+  -
+    Codigo: "80422"
+    Actividad: "Academias"
+  -
+    Codigo: "80423"
+    Actividad: "Otras enseñanzas"
+  -
+    Codigo: "N"
+    Actividad: "Actividades sanitarias y veterinarias, servicio social"
+  -
+    Codigo: "NN"
+    Actividad: "Actividades sanitarias y veterinarias; servicios sociales"
+  -
+    Codigo: "85"
+    Actividad: "Actividades sanitarias y veterinarias, servicio social"
+  -
+    Codigo: "851"
+    Actividad: "Actividades sanitarias"
+  -
+    Codigo: "8511"
+    Actividad: "Actividades hospitalarias"
+  -
+    Codigo: "85110"
+    Actividad: "Actividades hospitalarias"
+  -
+    Codigo: "8512"
+    Actividad: "Actividades médicas"
+  -
+    Codigo: "85120"
+    Actividad: "Actividades médicas"
+  -
+    Codigo: "8513"
+    Actividad: "Actividades odontológicas"
+  -
+    Codigo: "85130"
+    Actividad: "Actividades odontológicas"
+  -
+    Codigo: "8514"
+    Actividad: "Otras actividades sanitarias"
+  -
+    Codigo: "85141"
+    Actividad: "Actividades sanitarias de profesionales independientes (excepto médicos)"
+  -
+    Codigo: "85142"
+    Actividad: "Actividades de servicio de ambulancia"
+  -
+    Codigo: "85143"
+    Actividad: "Laboratorios de análisis clínicos de anatomía patológica y similares"
+  -
+    Codigo: "85144"
+    Actividad: "Otras actividades sanitarias"
+  -
+    Codigo: "852"
+    Actividad: "Actividades veterinarias"
+  -
+    Codigo: "8520"
+    Actividad: "Actividades veterinarias"
+  -
+    Codigo: "85200"
+    Actividad: "Actividades veterinarias"
+  -
+    Codigo: "853"
+    Actividad: "Actividades de servicios sociales"
+  -
+    Codigo: "8531"
+    Actividad: "Actividades de prestación de servicios sociales con alojamiento"
+  -
+    Codigo: "85311"
+    Actividad: "Acogimiento de ancianos con alojamiento"
+  -
+    Codigo: "85312"
+    Actividad: "Acogimiento de personas con minusvalías con alojamiento"
+  -
+    Codigo: "85313"
+    Actividad: "Acogimiento de menores con alojamiento"
+  -
+    Codigo: "85314"
+    Actividad: "Acogimiento de mujeres con alojamiento"
+  -
+    Codigo: "85315"
+    Actividad: "Otro acogimiento con alojamiento"
+  -
+    Codigo: "8532"
+    Actividad: "Actividades de prestación de servicios sociales sin alojamiento"
+  -
+    Codigo: "85321"
+    Actividad: "Actividades de servicios sociales a personas con minusvalías"
+  -
+    Codigo: "85322"
+    Actividad: "Guarderías"
+  -
+    Codigo: "85323"
+    Actividad: "Actividades de servicios sociales a domicilio"
+  -
+    Codigo: "85324"
+    Actividad: "Promoción de la convivencia"
+  -
+    Codigo: "85325"
+    Actividad: "Otros servicios sociales sin alojamiento"
+  -
+    Codigo: "O"
+    Actividad: "Otras actividades sociales y de servicios prestados a la comunidad; servicios personales"
+  -
+    Codigo: "OO"
+    Actividad: "Otras actividades sociales y de servicios prestados a la comunidad; servicios personales"
+  -
+    Codigo: "90"
+    Actividad: "Actividades de saneamiento público"
+  -
+    Codigo: "900"
+    Actividad: "Actividades de saneamiento público"
+  -
+    Codigo: "9001"
+    Actividad: "Recogida y tratamiento de aguas residuales"
+  -
+    Codigo: "90010"
+    Actividad: "Recogida y tratamiento de aguas residuales"
+  -
+    Codigo: "9002"
+    Actividad: "Recogida y tratamiento de otros residuos"
+  -
+    Codigo: "90020"
+    Actividad: "Recogida y tratamiento de otros residuos"
+  -
+    Codigo: "9003"
+    Actividad: "Actividades de saneamiento, descontaminación y similares"
+  -
+    Codigo: "90030"
+    Actividad: "Actividades de saneamiento, descontaminación y similares"
+  -
+    Codigo: "91"
+    Actividad: "Actividades asociativas"
+  -
+    Codigo: "911"
+    Actividad: "Actividades de organizaciones empresariales, profesionales y patronales"
+  -
+    Codigo: "9111"
+    Actividad: "Actividades de organizaciones empresariales y patronales"
+  -
+    Codigo: "91110"
+    Actividad: "Actividades de organizaciones empresariales y patronales"
+  -
+    Codigo: "9112"
+    Actividad: "Actividades de organizaciones profesionales"
+  -
+    Codigo: "91120"
+    Actividad: "Actividades de organizaciones profesionales"
+  -
+    Codigo: "912"
+    Actividad: "Actividades sindicales"
+  -
+    Codigo: "9120"
+    Actividad: "Actividades sindicales"
+  -
+    Codigo: "91200"
+    Actividad: "Actividades sindicales"
+  -
+    Codigo: "913"
+    Actividad: "Actividades asociativas diversas"
+  -
+    Codigo: "9131"
+    Actividad: "Actividades de organizaciones religiosas"
+  -
+    Codigo: "91310"
+    Actividad: "Actividades de organizaciones religiosas"
+  -
+    Codigo: "9132"
+    Actividad: "Actividades de organizaciones políticas"
+  -
+    Codigo: "91320"
+    Actividad: "Actividades de organizaciones políticas"
+  -
+    Codigo: "9133"
+    Actividad: "Otras actividades asociativas"
+  -
+    Codigo: "91331"
+    Actividad: "Asociaciones juveniles"
+  -
+    Codigo: "91332"
+    Actividad: "Otro tipo de actividades asociativas"
+  -
+    Codigo: "92"
+    Actividad: "Actividades recreativas, culturales y deportivas"
+  -
+    Codigo: "921"
+    Actividad: "Actividades cinematográficas y de vídeo"
+  -
+    Codigo: "9211"
+    Actividad: "Producción cinematográfica y de vídeo"
+  -
+    Codigo: "92111"
+    Actividad: "Producción de películas"
+  -
+    Codigo: "92112"
+    Actividad: "Actividades de apoyo a la producción cinematográfica y de vídeo"
+  -
+    Codigo: "9212"
+    Actividad: "Distribución de películas"
+  -
+    Codigo: "92121"
+    Actividad: "Distribución de películas cinematográficas y cintas de vídeo"
+  -
+    Codigo: "92122"
+    Actividad: "Distribución de películas en cintas de vídeo"
+  -
+    Codigo: "9213"
+    Actividad: "Exhibición de películas"
+  -
+    Codigo: "92130"
+    Actividad: "Exhibición de películas"
+  -
+    Codigo: "922"
+    Actividad: "Actividades de radio y televisión"
+  -
+    Codigo: "9220"
+    Actividad: "Actividades de radio y televisión"
+  -
+    Codigo: "92201"
+    Actividad: "Actividades de radio"
+  -
+    Codigo: "92202"
+    Actividad: "Producción y distribución de televisión"
+  -
+    Codigo: "92203"
+    Actividad: "Emisión de programas de televisión"
+  -
+    Codigo: "923"
+    Actividad: "Otras actividades artísticas y de espectáculos"
+  -
+    Codigo: "9231"
+    Actividad: "Creación e interpretación artística y literaria"
+  -
+    Codigo: "92311"
+    Actividad: "Creación artística y literaria; interpretación de arte dramático, música y similares"
+  -
+    Codigo: "92312"
+    Actividad: "Producción de espectáculos"
+  -
+    Codigo: "92313"
+    Actividad: "Otras actividades relacionadas con el espectáculo"
+  -
+    Codigo: "9232"
+    Actividad: "Gestión de salas de espectáculos"
+  -
+    Codigo: "92320"
+    Actividad: "Gestión de salas de espectáculos"
+  -
+    Codigo: "9233"
+    Actividad: "Actividades de ferias y parques de atracciones"
+  -
+    Codigo: "92330"
+    Actividad: "Actividades de ferias y parques de atracciones"
+  -
+    Codigo: "9234"
+    Actividad: "Otras actividades de espectáculos"
+  -
+    Codigo: "92341"
+    Actividad: "Salas de baile, discotecas y actividades similares"
+  -
+    Codigo: "92342"
+    Actividad: "Espectáculos taurinos"
+  -
+    Codigo: "92343"
+    Actividad: "Otros espectáculos"
+  -
+    Codigo: "924"
+    Actividad: "Actividades de agencias de noticias"
+  -
+    Codigo: "9240"
+    Actividad: "Actividades de agencias de noticias"
+  -
+    Codigo: "92400"
+    Actividad: "Actividades de agencias de noticias"
+  -
+    Codigo: "925"
+    Actividad: "Actividades de bibliotecas, archivos, museos y otras instituciones culturales"
+  -
+    Codigo: "9251"
+    Actividad: "Actividades de bibliotecas y archivos"
+  -
+    Codigo: "92510"
+    Actividad: "Actividades de bibliotecas y archivos"
+  -
+    Codigo: "9252"
+    Actividad: "Actividades de museos y conservación de lugares y edificios históricos"
+  -
+    Codigo: "92521"
+    Actividad: "Actividades de museos"
+  -
+    Codigo: "92522"
+    Actividad: "Actividades de conservación de lugares y edificios históricos"
+  -
+    Codigo: "9253"
+    Actividad: "Actividades de jardines botánicos, zoológicos y parques nacionales"
+  -
+    Codigo: "92530"
+    Actividad: "Actividades de jardines botánicos, zoológicos y parques nacionales"
+  -
+    Codigo: "926"
+    Actividad: "Actividades deportivas"
+  -
+    Codigo: "9261"
+    Actividad: "Gestión de estadios y otras instalaciones deportivas"
+  -
+    Codigo: "92611"
+    Actividad: "Gestión de estadios y polideportivos"
+  -
+    Codigo: "92612"
+    Actividad: "Gestión de estaciones de esquí"
+  -
+    Codigo: "92613"
+    Actividad: "Gestión de otras instalaciones deportivas"
+  -
+    Codigo: "9262"
+    Actividad: "Otras actividades deportivas"
+  -
+    Codigo: "92621"
+    Actividad: "Clubes y escuelas deportivas"
+  -
+    Codigo: "92622"
+    Actividad: "Gestión de puertos deportivos"
+  -
+    Codigo: "92623"
+    Actividad: "Otras actividades relacionadas con el deporte"
+  -
+    Codigo: "927"
+    Actividad: "Actividades recreativas diversas"
+  -
+    Codigo: "9271"
+    Actividad: "Actividades relacionadas con los juegos de azar y apuestas"
+  -
+    Codigo: "92711"
+    Actividad: "Casinos y salas de juegos de azar"
+  -
+    Codigo: "92712"
+    Actividad: "Loterías y apuestas"
+  -
+    Codigo: "92713"
+    Actividad: "Otras actividades relacionadas con los juegos de azar"
+  -
+    Codigo: "9272"
+    Actividad: "Otras actividades recreativas"
+  -
+    Codigo: "92720"
+    Actividad: "Otras actividades recreativas"
+  -
+    Codigo: "93"
+    Actividad: "Actividades diversas de servicios personales"
+  -
+    Codigo: "930"
+    Actividad: "Actividades diversas de servicios personales"
+  -
+    Codigo: "9301"
+    Actividad: "Lavado, limpieza y teñido de prendas textiles y de piel"
+  -
+    Codigo: "93010"
+    Actividad: "Lavado, limpieza y teñido de prendas textiles y de piel"
+  -
+    Codigo: "9302"
+    Actividad: "Peluquería y otros tratamientos de belleza"
+  -
+    Codigo: "93020"
+    Actividad: "Peluquería y otros tratamientos de belleza"
+  -
+    Codigo: "9303"
+    Actividad: "Pompas fúnebres y actividades relacionadas con las mismas"
+  -
+    Codigo: "93030"
+    Actividad: "Pompas fúnebres y actividades relacionadas con las mismas"
+  -
+    Codigo: "9304"
+    Actividad: "Actividades de mantenimiento físico corporal"
+  -
+    Codigo: "93041"
+    Actividad: "Actividades termales y balnearios"
+  -
+    Codigo: "93042"
+    Actividad: "Otras actividades de mantenimiento físico corporal"
+  -
+    Codigo: "9305"
+    Actividad: "Otras actividades de servicios personales"
+  -
+    Codigo: "93050"
+    Actividad: "Otras actividades de servicios personales"
+  -
+    Codigo: "P"
+    Actividad: "Actividades de los hogares"
+  -
+    Codigo: "PP"
+    Actividad: "Actividades de los hogares"
+  -
+    Codigo: "95"
+    Actividad: "Actividades de los hogares como empleadores de personal doméstico"
+  -
+    Codigo: "950"
+    Actividad: "Actividades de los hogares como empleadores de personal doméstico"
+  -
+    Codigo: "9500"
+    Actividad: "Actividades de los hogares como empleadores de personal doméstico"
+  -
+    Codigo: "95000"
+    Actividad: "Actividades de los hogares como empleadores de personal doméstico"
+  -
+    Codigo: "Q"
+    Actividad: "Organismos extraterritoriales"
+  -
+    Codigo: "QQ"
+    Actividad: "Organismos extraterritoriales"
+  -
+    Codigo: "99"
+    Actividad: "Organismos extraterritoriales"
+  -
+    Codigo: "990"
+    Actividad: "Organismos extraterritoriales"
+  -
+    Codigo: "9900"
+    Actividad: "Organismos extraterritoriales"
+  -
+    Codigo: "99000"
+    Actividad: "Organismos extraterritoriales"

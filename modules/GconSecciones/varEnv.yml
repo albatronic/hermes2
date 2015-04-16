@@ -1,0 +1,16 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO GconSecciones
+#
+# Module: GconSecciones
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 30-10-2012 18:44:56
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   value: el valor por defecto
+---
+numMenus:
+  caption: Número de menús
+  value: 1

@@ -1,0 +1,10 @@
+{# Template filtro.html.twig for CpanPlantillas #}
+{# -------------------------------------------------------#}
+<div class='Filtro'>
+    <form name='filtro' id='filtro' action='' method='POST'>
+        <input name='controller' value='{{ values.controller }}' type='hidden' />
+        <input name='action' id='actionFiltro' value='list' type='hidden' />
+        {% include '_global/filtroGenerico.html.twig' with {'filter': filter} %}
+    </form>
+    {% include '_global/filtroAvanzado.html.twig' with {'filter': filter} %}
+</div>

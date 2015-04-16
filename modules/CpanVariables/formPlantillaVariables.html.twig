@@ -1,0 +1,96 @@
+{#
+    FORMULARIO POPUP DE EDICION DE LOS ATRIBUTOS
+    DE UNA VARIABLE DE ENTORNO
+#}
+
+{% set ValoresSN = { '0':{'Id':'0','Value':'No'}, '1':{'Id':'1','Value':'Si'} }  %}
+
+{% extends '_global/layoutPopup.html.twig' %}
+
+{% block content %}
+<div style="text-align: center;"><h4>{{values.titulo}}</h4></div>
+<div id="resultado"></div>
+<div class="FormManto">
+    <div class="Cuerpo">
+
+        <form name="plantillaVariables" id="plantillaVariables" action="" method="POST" enctype="multipart/form-data">
+        <input name="controller" value="CpanVariables" type="hidden" />
+        <input name="action" id="action_CpanVariables" value="EditNode" type="hidden" />
+        <input name="tipo" id="tipo" value="{{values.tipo}}" type="hidden" />
+        <input name="ambito" id="ambito" value="{{values.ambito}}" type="hidden" />
+        <input name="nombre" id="nombre" value="{{values.nombre}}" type="hidden" />
+        <input name="columna" id="columna" value="{{values.columna}}" type="hidden" />
+        <input name="archivoDatos" value="{{values.archivoDatos}}" type="hidden" readonly/>
+
+        {% include '_global/FormErrores.html.twig' with {'errores': values.errores} %}
+        {% include '_global/alertas.html.twig' with {'alertas': values.alertas} %}
+
+
+        {% set hayListaValores = (values.d.listaValores is iterable) %}
+
+        {% for variable,valor in values.d %}
+            {% if variable != 'listaValores' %}
+
+            {% if ( (hayListaValores and (variable == 'default') ) or ( (variable == 'visible') or (variable == 'updatable') or (variable == 'translatable') or (variable == 'searchable') or (variable == 'editorTiny') or (variable == 'filter') or (variable == 'list') ) ) %}
+
+                {% if (variable == 'default') %}
+                    {% set listaValores = values.d.listaValores %}
+                    {% set tipoTag = 'select' %}
+                {% else %}
+                    {% set listaValores = ValoresSN %}
+                    {% set tipoTag = 'checkbox' %}
+                {% endif %}
+
+                {% if tipoTag == 'select' %}
+                    {{ macro.select(
+                    {'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},
+                    'Etiqueta',
+                    'd['~variable~']',
+                    'd_'~ variable,
+                    none,
+                    valor,
+                    listaValores,
+                    'chzn-select'
+                    )
+                    }}
+                {% else %}
+                    {{ macro.input(
+                    {'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},
+                    'Etiqueta',
+                    'checkbox',
+                    'd['~variable~']',
+                    'd_'~ variable,
+                    valor,
+                    '255',
+                    'CampoTextoCorto'
+                    )
+                    }}
+                {% endif %}
+
+            {% else %}
+                {{ macro.input(
+                    {'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},
+                    'Etiqueta',
+                    'text',
+                    'd['~variable~']',
+                    'd_'~ variable,
+                    valor,
+                    '255',
+                    'CampoTextoMedio'
+                    )
+                }}
+            {% endif %}
+
+            {% endif %}
+        {% endfor %}
+
+
+        <div style="margin-top: 10px; margin-bottom: 5px; text-align: center;">
+            <input name="accion" value="Guardar" type ="submit" />
+        </div>
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

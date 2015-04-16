@@ -1,0 +1,22 @@
+{#
+  Module: ErpPedidosWebLog
+  Document : modules\ErpPedidosWebLog\help.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 20.09.2014 17:49:23
+#}
+
+{% extends '_help/layout.html.twig' %}
+
+{% block titulo %}<h2>{{ values.title }}</h2>{% endblock %}
+
+{% block contenido %}
+<h2>Objetivo</h2>
+
+<h2>Operatoria</h2>
+
+<h2>FAQ</h2>
+
+{{ macro.embedVideo(values.idVideo,none,none)}}
+{% endblock %}

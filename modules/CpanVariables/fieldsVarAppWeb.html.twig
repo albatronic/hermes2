@@ -1,0 +1,52 @@
+{# VARIABLES WEB A NIVEL DE APP  #}
+
+{# author Sergio Pérez <sergio.perez@albatronic.com> #}
+{# copyright Informática ALBATRONIC, SL #}
+{# 12.sep.2012 11:16 #}
+
+{% extends 'CpanVariables/form.html.twig' %}
+
+{% block template %}
+
+<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+        <li class="ui-state-default ui-corner-top"><a href="#tabs-global">Globales</a></li>
+        <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tabs-especificas">Específicas</a></li>
+    </ul>
+
+    {# VARIABLES WEB GLOBALES A TODOS LOS MODULOS #}
+    <div id="tabs-global" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        {% if user.IdPerfil.Id == '1' %} {% set prefijo = '[globales][webName]' %} {% else %} {% set prefijo = '' %} {% endif %}
+        {{ macro.input(
+            {'caption':prefijo~' Nombre de la Web','visible':'1','varEnv':'0'},
+            'field_title',
+            'text',
+            'd[globales][webName]',
+            'd_globales_webName',
+            values.d.globales.webName,
+            '50',
+            'CampoTextoCorto',
+            '1')
+        }}
+    </div>
+
+    {# VARIABLES WEB ESPECIFICAS AL MODULO EN CURSO nombreModulo/varWeb.yml #}
+    <div id="tabs-especificas" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        {% for nombre,atributos in values.d.especificas %}
+            {% if user.IdPerfil.Id == '1' %} {% set prefijo = '[especificas]['~nombre~']' %} {% else %} {% set prefijo = '' %} {% endif %}
+            {{ macro.input(
+                {'caption':prefijo~' '~atributos.caption,'visible':'1','varEnv':'0'},
+                'field_title',
+                'text',
+                'd[especificas]['~nombre~']',
+                'd_especificas_'~nombre,
+                atributos.value,
+                '50',
+                'CampoTextoCorto'
+                )
+            }}
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

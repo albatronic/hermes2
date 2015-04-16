@@ -1,0 +1,130 @@
+# Module: Tarifas
+# Document : modules/Tarifas/config.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: Informática ALBATRONIC SL
+# @date 25.03.2013 20:02:29
+#
+---
+Tarifas:
+  app: ''
+  isModuleRoot: 0
+  linkModule:
+    fromColumn: ''
+    toEntity: ''
+    toColumn: ''
+  translatable: false
+  searchable: false
+  showCommonFields: false
+  numMaxRecords: ''
+  numberOfImages: '0'
+  withGalery: '0'
+  withDocuments: '0'
+  withVideos: 0
+  withAudios: '0'
+  maxSizes:
+    image: '400000'
+    document: ''
+    video: ''
+    audio: ''
+  galery:
+    maxWidthImage: '500'
+    maxHeightImage: '400'
+    generateThumbnail: '0'
+    widthThumbnail: '50'
+    heightThumbnail: '50'
+  urlFriendlyManagement: false
+  fieldGeneratorUrlFriendly: Descripcion
+  metatagTitleManagement: false
+  fieldGeneratorMetatagTitle: Descripcion
+  controller: Tarifas
+  action: Index
+  template: index.html.twig
+  parametros: ''
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: YES
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Tarifas
+  id_video: tarifas
+  url_video: null
+  feature_list: YES
+  conection: ''
+  entity: Tarifas
+  table: ErpTarifas
+  primarykey: IDTarifa
+  linkBy: ''
+  records_per_page: 15
+  order_by:
+    -
+      title: 'Descripción a-z'
+      criteria: 'Descripcion ASC'
+    -
+      title: 'Descripción z-a'
+      criteria: 'Descripcion DESC'
+  search_default: Descripcion
+  referenced_entities:
+    - TarifasTipos
+    - ValoresSN
+    - ValoresPrivacy
+    - ValoresDchaIzq
+    - ValoresChangeFreq
+    - RequestMethods
+    - RequestOrigins
+    - CpanAplicaciones
+  columns:
+    IDTarifa:
+      title: IDTarifa
+      visible: false
+      updatable: false
+      filter: NO
+      list: NO
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+    Descripcion:
+      title: Descripción
+      filter: YES
+      list: true
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+    Tipo:
+      title: Tipo
+      filter: NO
+      list: true
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      #aditional_filter: { order: 1, caption: Tipo, entity: ErpTarifasTipos, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: tinyint, length: '8', min: null, max: null, message: 'Valor Requerido' }
+    Valor:
+      title: Valor
+      filter: YES
+      list: true
+      visible: true
+      updatable: true
+      default: '0.000'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }

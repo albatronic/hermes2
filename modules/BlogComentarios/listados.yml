@@ -1,0 +1,31 @@
+# Module: BlogComentarios
+# Document : modules\BlogComentarios\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 21.02.2013 21:32:01
+#
+---
+listados:
+  -
+    title: BlogComentarios
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Entidad: { title: Entidad, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      IdEntidad: { title: IdEntidad, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IpAddress: { title: IpAddress, length: '15', align: L, type: string, total: NO, formula: null, format: null }
+      IdUsuario: { title: IdUsuario, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Nombre: { title: Nombre, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      Email: { title: Email, length: '100', align: L, type: string, total: NO, formula: null, format: null }
+      TiempoUnix: { title: TiempoUnix, length: '20', align: R, type: integer, total: NO, formula: null, format: null }
+      Comentario: { title: Comentario, length: 20, align: L, type: string, total: NO, formula: null, format: null }

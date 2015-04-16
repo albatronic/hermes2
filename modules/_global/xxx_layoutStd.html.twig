@@ -1,0 +1,91 @@
+{% import "_global/macros.html.twig" as macro %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-ES" lang="es-ES">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>.: {{ app.name }} {% block title %} {{ titulo }} {% endblock %}</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Para que esté disponible el path de la app en todos los java scripts -->
+    <script type="text/javascript">var appPath = "{{app.path}}";</script>      
+
+    {% include "_global/css.html.twig" %}
+    {% include "_global/js.html.twig" %}
+</head>
+<body>
+
+    <div id="Layout">
+
+        <div id="Head">
+            {% if emp %}
+            <div id="headleft">
+                <a href="{{app.path}}/Index"><img src="{{app.path}}/docs/docs{{emp.Id}}/images/logo.jpg" border="0px;" height="59" title="Inicio" alt="Logo Empresa"/></a>
+            </div>
+            {% endif %}
+
+            <div id="headcenter">
+                <form name="empresa" action="" method="POST" enctype="multipart/form-data">
+                <input name="controller" value="Index" type="hidden" />
+		<input name="action" id="action1" value="" type="hidden" />
+                <div style="float:left;">
+                    <h4>{{emp.RazonSocial}}</h4>
+                {# macro.select('Empresa','Etiqueta','Empresa','Empresa',none,emp.IDEmpresa,user.Empresas,'Select',none,"getElementById('action1').value='Empresa'; submit();") #}
+                </div>
+                <div style="float:left;margin-left:20px;">
+                {% if emp %}
+                    {{ macro.select('Sucursal','Etiqueta','Sucursal','Sucursal',none,suc,user.Sucursales('',false),'Select',none,"getElementById('action1').value='Sucursal'; submit();") }}
+                {% endif %}
+                </div>
+                {% if tpv.IDTpv %}
+                    <div style="float:left;margin-left:20px;">
+                    Tpv: <h4>{{tpv.Nombre}}</h4>
+                    </div>
+                {% endif %}
+                </form>
+            </div>
+
+            <div id="headright">
+                <h4>{{user.NombreApellidos}}</h4>
+                <a href="{{app.urlParent}}/return">
+                    <img src="{{app.path}}/images/logout.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+                </a>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+          
+        <div id="Cuerpo">
+            <div style="float: left; width: 15%;">
+                {% include "_global/menuAzulGris.html.twig" with {'menu': menu} %}            
+            </div>
+
+            <div style="float: left; width: 85%;">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    
+        <div id="notificacion" title="Mensaje"></div>
+        <div id="dialogoVarEnv" title="Propiedades del elemento"></div>
+        <div id="dialogOrdenar" title="Cambiar orden"></div>
+
+        <div class="salto"></div>
+
+        <div id="Footer">
+            <div id="footleft">
+                <div class="debug">
+                {% if values._debugMode %}
+                    <pre>{{values._debugValues}}</pre>
+                {% endif %}
+                </div>
+            </div>
+
+            <div id="footright">
+                &copy; Powered by Albatronic, SL 2006-2013
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        
+    </div>    
+</body>
+</html>

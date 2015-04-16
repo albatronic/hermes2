@@ -1,0 +1,41 @@
+# Module: Afiliados
+# Document : modules\Afiliados\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 13.07.2014 17:39:52
+#
+---
+listados:
+  -
+    title: Afiliados
+    order_by: IDAfiliado
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      RazonSocial: { field: RazonSocial, title: RazonSocial, length: '100', align: L, type: string, total: NO, formula: null, format: null }
+      NombreComercial: { field: NombreComercial, title: NombreComercial, length: '100', align: L, type: string, total: NO, formula: null, format: null }
+      Cif: { field: Cif, title: Cif, length: '15', align: L, type: string, total: NO, formula: null, format: null }
+      Direccion: { field: Direccion, title: Direccion, length: '100', align: L, type: string, total: NO, formula: null, format: null }
+      IDPais: { field: IDPais, title: IDPais, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDProvincia: { field: IDProvincia, title: IDProvincia, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDPoblacion: { field: IDPoblacion, title: IDPoblacion, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      CodigoPostal: { field: CodigoPostal, title: CodigoPostal, length: '10', align: L, type: string, total: NO, formula: null, format: null }
+      Telefono: { field: Telefono, title: Telefono, length: '30', align: L, type: string, total: NO, formula: null, format: null }
+      Fax: { field: Fax, title: Fax, length: '30', align: L, type: string, total: NO, formula: null, format: null }
+      Movil: { field: Movil, title: Movil, length: '30', align: L, type: string, total: NO, formula: null, format: null }
+      EMail: { field: EMail, title: EMail, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      Web: { field: Web, title: Web, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      Comision: { field: Comision, title: Comision, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Iban: { field: Iban, title: Iban, length: '34', align: L, type: string, total: NO, formula: null, format: null }
+      Bic: { field: Bic, title: Bic, length: '11', align: L, type: string, total: NO, formula: null, format: null }
+      Mandato: { field: Mandato, title: Mandato, length: '35', align: L, type: string, total: NO, formula: null, format: null }
+      FechaMandato: { field: FechaMandato, title: FechaMandato, length: 10, align: R, type: date, total: NO, formula: null, format: null }

@@ -1,0 +1,101 @@
+{# LOGÍSTICA #}
+{% set item = values.dashBoard.logistica %}
+
+{% if item %}
+<div id="logistica" class="dashBoard item">
+    <p>Logística</p>
+    
+    <div><h3>{% if item.entradasRetrasadas %}<b>{%endif%}Entradas retrasadas{% if item.pendienteServir %}</b>{%endif%}</h3>
+        <div>
+        <table>
+            <tr><th>Pedido</th><th>Fecha</th><th>Proveedor</th><th>Importe</th></tr>
+            {% for pte in item.entradasRetrasadas %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+                <tr class="{{classFila}}">
+                    <td style="text-align: left;"><a href="{{app.path}}/PedidosCab/edit/{{pte.PrimaryKeyMD5}}">{{pte.IDPedido}}</a></td>
+                    <td style="text-align: left;">{{pte.Fecha|date('d/m/Y')}}</td>
+                    <td style="text-align: left;">{{pte.RazonSocial|slice(0,10)}}</td>
+                    <td style="text-align: right;">{{pte.TotalBases|number_format}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </div>
+    <div><h3>{% if item.entradasHoy %}<b>{%endif%}Entradas para hoy{% if item.pendienteServir %}</b>{%endif%}</h3>
+        <div>
+        <table>
+            <tr><th>Pedido</th><th>Proveedor</th><th>Importe</th></tr>
+            {% for pte in item.entradasHoy %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+                <tr class="{{classFila}}">
+                    <td style="text-align: left;"><a href="{{app.path}}/PedidosCab/edit/{{pte.PrimaryKeyMD5}}">{{pte.IDPedido}}</a></td>
+                    <td style="text-align: left;">{{pte.RazonSocial|slice(0,20)}}</td>
+                    <td style="text-align: right;">{{pte.TotalBases|number_format}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </div>
+    <div><h3>{% if item.roturasStock %}<b>{%endif%}Roturas de stock{% if item.pendienteServir %}</b>{%endif%}</h3>
+        <div>
+        <table>
+            <tr><th>Código</th><th>Producto</th><th>Ped.Mín</th></tr>
+            {% for key,pte in item.roturasStock %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+                <tr class="{{classFila}}">
+                    <td style="text-align: left;">{{pte.Codigo}}</td>
+                    <td style="text-align: left;">{{pte.Descripcion|slice(0,20)}}</td>
+                    <td style="text-align: right;">{{pte.pedidoMinimo|number_format}}</td>
+                </tr>
+            {% endfor %}               
+        </table>
+        </div>
+    </div>
+    <div><h3>{% if item.pendienteServir %}<b>{%endif%}Pendiente de servir{% if item.pendienteServir %}</b>{%endif%}</h3>
+        <div>
+        <table>
+            <tr><th>Albarán</th><th>Fecha</th><th>Cliente</th><th>Importe</th></tr>
+            {% for key,pte in item.pendienteServir %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+                <tr class="{{classFila}}">
+                    <td style="text-align: left;"><a href="{{app.path}}/AlbaranesCab/edit/{{pte.PrimaryKeyMD5}}">{{pte.NumeroAlbaran}}</a></td>
+                    <td style="text-align: left;">{{pte.Fecha|date('d/m/Y')}}</td>
+                    <td style="text-align: left;">{{pte.RazonSocial|slice(0,10)}}</td>
+                    <td style="text-align: right;">{{pte.TotalBases|number_format}}</td>
+                </tr>
+            {% endfor %}               
+        </table>
+        </div>
+    </div>
+</div>
+            
+<script type="text/javascript"> 
+$(function(){
+    $("#logistica")
+    .accordion({
+        header: "> div > h3",
+        collapsible: true,
+        autoHeight: false,
+        active: false
+    });
+    
+    $("#logistica").draggable({ cursor: "crosshair" });    
+});
+</script>
+{% endif %}

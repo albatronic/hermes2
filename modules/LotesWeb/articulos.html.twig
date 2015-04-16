@@ -1,0 +1,56 @@
+{# ARTICULOS QUE CONSTITUYEN EL LOTE #}
+
+<ul id="listaArticulos">
+    
+    <li style="margin-bottom: 25px;">
+        <p>Indique un artículo. Puede indicar parte de la descripción, el código o el código EAN</p>     
+        <input id="idArticulo" type="hidden" />
+        <input id="codigo" type="text" maxlength="25" style="width:350px;"
+        onkeyup="autoCompletar('codigo','idArticulo','codigo','articulos','','');"
+        />
+    </li>   
+    
+    {% for articulo in datos.getArrayObjetosArticulos %}
+        <li id="lista{{articulo.PrimaryKeyValue}}" style="clear: both;">
+            <div style="float: left;">
+            <input
+                title="Quitar del lote"
+                id="checkArticulos{{articulo.PrimaryKeyValue}}"
+                type="checkbox" value="{{articulo.PrimaryKeyValue}}" checked
+                onchange="
+                  actualizaRelacion('{{values.controller}}','{{datos.PrimaryKeyValue}}','Articulos','{{articulo.PrimaryKeyValue}}','0');
+                  $('#lista{{articulo.PrimaryKeyValue}}').remove();
+                "
+            /> 
+            </div>
+            <div style="float:left; margin-left: 20px;">{{articulo.Descripcion}} [{{articulo.Codigo}}]</div>
+        </li>
+    {% endfor %}
+</ul>
+
+<script>
+$(function(){
+    $('#codigo').blur(function(){
+        if ($('#idArticulo').val() !== '') {
+            actualizaRelacion('{{values.controller}}','{{datos.PrimaryKeyValue}}','Articulos',$('#idArticulo').val());
+            
+            // Añadir artículo a la lista
+            idArticulo = $('#idArticulo').val();
+            descripcion = $('#codigo').val();
+            html = "<li id='lista" + idArticulo + "' style='clear: both;'>";
+            html = html + "<div style='float: left;'>";
+            html = html + "<input title='Quitar del lote' id='checkArticulos"+idArticulo+"' type='checkbox' value='1' checked \n\
+                        onchange=\"actualizaRelacion(\'{{values.controller}}\',\'{{datos.PrimaryKeyValue}}\',\'Articulos\',\'"+idArticulo+"\',\'0\'); $(\'#lista"+idArticulo+"\').remove();\"/>";
+            html = html + "</div>";
+            html = html + "<div style='float:left; margin-left: 20px;'>" + descripcion + "</div>";
+            html = html + "</li>";
+            $('#listaArticulos').append(html); 
+            
+            // Limpiar los campos de autocompletado
+            $('#idArticulo').val('');
+            $('#codigo').val('');
+            $('#codigo').focus();
+        }
+    });
+});    
+</script>

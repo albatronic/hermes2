@@ -1,0 +1,14 @@
+{#
+  Module: WebPerfiles
+  Document : modules\WebPerfiles\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 18.03.2014 18:36:33
+#}
+
+{{ macro.input(values.atributos.Perfil,'Etiqueta','text',values.controller ~ '[Perfil]',values.controller ~ '_Perfil',datos.Perfil,'50','CampoTextoLargo','1') }}
+
+{# include '_global/fieldsComunes.html.twig' #}
+
+{{ macro.foco(values.controller ~ '_Perfil') }}

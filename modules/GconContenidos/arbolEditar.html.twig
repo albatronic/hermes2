@@ -1,0 +1,30 @@
+{# Muestra los contenidos #}
+
+<span class="arbol conContenido" 
+      title="Ver/Ocultar contenidos de esta sección" 
+      onclick="switchDisplay('contenidosDe_{{contenidos.id}}');">
+    {{contenidos.titulo}} ({{ contenidos.nContenidos}})
+    <a href="{{app.path}}/{{values.controller}}/de/GconSecciones/IdSeccion/{{key}}" alt="Añadir contenido" title="Añadir contenido"><img src="{{app.path}}/images/detalle.png"/></a>            
+</span>
+
+<div id='contenidosDe_{{contenidos.id}}' style="display: none;">
+    <ul>
+
+    {% for contenido in contenidos.contenidos %}
+        <li>
+            {% if contenidos.nContenidos > 1%}
+                {{ macro.ordenarPopup(values.controller,'IdSeccion',contenidos.id) }}
+            {% endif %}
+            {{ macro.actualizaColumna(values.controller,contenido.Id,'Publish',contenido.Publish,'Publicar/Despublicar')}}               
+          
+            {% if (contenido.Id == values.datos.Id) %}
+                <img class="arbol" src="{{app.path}}/images/botoneditar.png"/>
+                <script>switchDisplay('contenidosDe_{{contenidos.id}}');</script>
+            {% endif %}
+                
+            <a href="{{app.path}}/{{values.controller}}/edit/{{contenido.PrimaryKeyMD5}}" title="Editar..." class="arbol">{{contenido.Value}}</a>  
+        </li>
+    {% endfor%}
+       
+    </ul>
+</div>

@@ -1,0 +1,8 @@
+{# TEMPLATE Contadores/form.html.twig #}
+{# Muestra los campos editables de la entidad #}
+
+{{ macro.select(values.atributos.IDSucursal,'Etiqueta','Contadores[IDSucursal]','Contadores_IDSucursal',200,datos.IDSucursal.IDSucursal,datos.IDSucursal.fetchAll('Nombre',false),'Select')}}
+{{ macro.select(values.atributos.IDTipo,'Etiqueta','Contadores[IDTipo]','Contadores_IDTipo',200,datos.IDTipo.IDTipo,datos.IDTipo.fetchAll(false),'Select')}}
+{{ macro.input(values.atributos.Serie,'Etiqueta','text','Contadores[Serie]','Contadores_Serie',datos.Serie,'2','CampoTextoCorto') }}
+{{ macro.input(values.atributos.Contador,'Etiqueta','text','Contadores[Contador]','Contadores_Contador',datos.Contador,'8','CampoImporte') }}
+{{ macro.input(values.atributos.Predefinido,'Etiqueta','checkbox','Contadores[Predefinido]','Contadores_Predefinido',datos.Predefinido.IDTipo,'255','CampoTextoLargo','20')}}    

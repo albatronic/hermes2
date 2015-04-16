@@ -1,0 +1,98 @@
+{#
+  Module: CpanTextos
+  Document : modules\CpanTextos\list.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 01.02.2014 21:09:46
+#}
+
+{% extends values.controller  ~ '/index.html.twig' %}
+
+{% block listado %}
+
+{% set controladorAnterior = '#' %}
+{% set claveAnterior = '#' %}
+
+<div id='listadoTextos'>
+
+    {% for keyControlador,controlador in values.textos %}
+    <div>
+        <h3>
+            {% if keyControlador == '0'%}Introduce aquí textos nuevos{%else%}            
+            {% if keyControlador == ''%}Textos comunes a todas las páginas{%endif%}
+            {% endif %}
+            {% if keyControlador != '0' and keyControlador !=''%}{{keyControlador}}{%endif%}
+        </h3>
+        <div>
+        <table class="Listado">
+        <thead>
+        <tr class='Titulos'>
+            <td class='Item'>Página</td>
+            <td class='Item'>Clave</td>
+            <td class='Item'>Texto</td>               
+            <td>&nbsp;</td>
+        </tr>
+        </thead>
+        <tbody class="Cuerpo">
+        {% for keyClave,clave in controlador %}
+            
+            {% for keyIdioma,idioma in clave %}
+                <form name="linea{{keyControlador}}{{keyClave}}{{keyIdioma}}" id="linea{{keyControlador}}{{keyClave}}{{keyIdioma}}" action="" method="POST">
+                <input name="controller" value="{{values.controller}}" type="hidden" />
+                <input name="action" id="action" value="edit" type="hidden" />
+                <input name="accion" id="accion{{keyControlador}}{{keyClave}}{{keyIdioma}}" value="" type="hidden" />
+                <input name="{{values.controller}}[Lang]" value="{{keyIdioma}}" type="hidden" />
+                <input name="{{values.controller}}[Id]" value="{{idioma.Id}}" type="hidden" />
+                <input name="acordeonActivo" id="acordeonActivo" value="{{ values.acordeonActivo }}" type="hidden" />                
+                <tr>
+                <td>
+                    {% if not (keyControlador in controladorAnterior) %}
+                    <select name="{{values.controller}}[Controller]" style="width: 250px;"/>
+                        {% for controller in values.controllers %}
+                            <option value="{{controller.Id}}" {%if controller.Id==keyControlador%} SELECTED{%endif%}>{{controller.Value}}</option>
+                        {% endfor %}
+                    </select>
+                    {% else %}
+                    <input name="{{values.controller}}[Controller]" value="{{keyControlador}}" type="hidden" />
+                    {% endif %}
+                </td>
+                <td>               
+                    <input name="{{values.controller}}[Clave]" value="{{keyClave}}" type="{%if claveAnterior!=keyClave%}text{%else%}hidden{%endif%}" style="width: 265px;"/>
+                </td>
+                <td>              
+                    <textarea style="background: url({{app.path}}/lang/{{keyIdioma|lower}}.gif) no-repeat right bottom;" name="{{values.controller}}[Observations]" cols="58" rows="2"/>{{idioma.Observations}}</textarea>
+                </td>           
+                <td align="left">
+                    {% if keyItem == 0 %}
+                        <input type="image" src="{{app.path}}/images/botonsave.png" onclick="$('#accion{{keyControlador}}{{keyClave}}{{keyIdioma}}').val('G');" alt="Guardar" title="Guardar Texto" />                         
+                        {% if idioma.Id > 0 %}
+                        <input type="image" src="{{app.path}}/images/papelera.gif" onclick="if (!confirm('Desea eliminar el texto?')) {return false;} else {$('#accion{{keyControlador}}{{keyClave}}{{keyIdioma}}').val('B');}" alt="Borrar" title="Borrar el texto" />               
+                        {% endif %}   
+                    {% endif %}
+                </td>
+                </tr>
+                </form>                
+                {% set claveAnterior = keyClave %}      
+                {% set controladorAnterior = keyControlador %}            
+            {% endfor %}            
+  
+        <tr style="height: 8px;"></tr>        
+        {% endfor %}
+        </tbody>
+        </table>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+$( "#listadoTextos" ).accordion({
+    header: "> div > h3",        
+    autoHeight: false,
+    navigation: true,
+    collapsible: true,
+    active: parseInt($('#acordeonActivo').val(),10)        
+});     
+</script>
+{% endblock %}

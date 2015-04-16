@@ -1,0 +1,18 @@
+{#
+  Module: ErpAvisadorStock
+  Document : modules\ErpAvisadorStock\list.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 19.07.2014 02:26:08
+#}
+
+{% extends values.controller  ~ '/index.html.twig' %}
+
+{% block listado %}
+
+<div class='Listado'>
+	{% include '_global/paginacion.html.twig' with {'filter': values.listado.filter, 'controller': values.controller, 'position': 'izq'}%}
+	{% include '_global/listGenerico.html.twig' with {'listado': values.listado, 'controller': values.controller} %}
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+# Module: Carrito
+# Document : modules\Carrito\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 08.02.2014 19:37:17
+#
+---
+listados:
+  -
+    title: Carrito
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      sesion: { field: sesion, title: sesion, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      IpOrigen: { field: IpOrigen, title: IpOrigen, length: '20', align: L, type: string, total: NO, formula: null, format: null }
+      UserAgent: { field: UserAgent, title: UserAgent, length: '100', align: L, type: string, total: NO, formula: null, format: null }
+      IDArticulo: { field: IDArticulo, title: IDArticulo, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Descripcion: { field: Descripcion, title: Descripcion, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Unidades: { field: Unidades, title: Unidades, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      UnidadMedida: { field: UnidadMedida, title: UnidadMedida, length: '3', align: L, type: string, total: NO, formula: null, format: null }
+      Precio: { field: Precio, title: Precio, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Descuento: { field: Descuento, title: Descuento, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Importe: { field: Importe, title: Importe, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Iva: { field: Iva, title: Iva, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Recargo: { field: Recargo, title: Recargo, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Estado: { field: Estado, title: Estado, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }

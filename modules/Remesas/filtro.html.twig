@@ -1,0 +1,34 @@
+{# Template filtro.html.twig for ExpedirCab #}
+{# -----------------------------------------#}
+<div class='Filtro'>
+    <form name='filtro' id='filtro' action='' method='POST'>
+	<input name='controller' value='{{values.controller}}' type='hidden' />
+	<input name='action' value='list' type='hidden' />
+        <div>
+
+        <div style="float: left;">
+        {{ macro.select({'caption':'Sucursal','visible':'1','updatable':'1','varEnv':'0'},none,'filtro[idSucursal]','filtro_idSucursal',none,values.filtro.idSucursal,values.sucursales,'Select') }}
+        </div>
+
+        <div style="float: left; margin-left: 10px;">
+        {{ macro.fecha({'caption':'Desde fecha Vcto','visible':'1','updatable':'1','varEnv':'0'},none,'filtro[desdeFecha]','filtro_desdeFecha',values.filtro.desdeFecha) }}
+        </div>
+
+        <div style="float: left; margin-left: 10px;">
+        {{ macro.fecha({'caption':'Hasta fecha Vcto','visible':'1','updatable':'1','varEnv':'0'},none,'filtro[hastaFecha]','filtro_hastaFecha',values.filtro.hastaFecha) }}
+        </div>
+
+        <div style="float: left;">
+        {{ macro.select({'caption':'Estado recibo','visible':'1','updatable':'1','varEnv':'0'},none,'filtro[idEstado]','filtro_idEstado',none,values.filtro.idEstado,values.estados,'Select') }}
+        </div>
+            
+        <div style="float: left; margin-left: 0px; margin-top:15px;">
+            <input type="submit" value="Buscar Recibos" class="Comando" title="Buscar Recibos" alt="Buscar"/>
+        </div>
+
+        <div style="clear: both;"></div>
+
+        </div>
+    </form>
+    {{ macro.foco('filtro_desdeFecha')}}
+</div>

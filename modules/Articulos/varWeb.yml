@@ -1,0 +1,87 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO ErpArticulos
+#
+# Module: ErpArticulos
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright INFORMATICA ALBATRONIC, SL
+# date 25-03-2013 20:02:24
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---
+CriterioOrden:
+  caption: Criterio Orden Artículos
+  values:
+    - {'Id':'SortOrder ASC','Value':'Orden a-z'}    
+    - {'Id':'PublishedAt DESC','Value':'Lo nuevo'}    
+    - {'Id':'Descripcion ASC','Value':'Nombre a-z'} 
+    - {'Id':'Descripcion DESC','Value':'Nombre z-a'}
+    - {'Id':'Pvp ASC','Value': 'Precio más bajo'}
+    - {'Id':'Pvp DESC','Value': 'Precio más alto'}
+  default: 'SortOrder ASC'
+    
+NumArticulosListado:
+  caption: Productos por página
+  values:
+    - {'Id':'8','Value':'8'} 
+    - {'Id':'16','Value':'16'}
+    - {'Id':'24','Value':'24'}
+    - {'Id':'32','Value':'32'}
+    - {'Id':'0','Value':'Todos'}
+  default: '8'
+  
+NumArticulosRelacionados:
+  caption: Número de artículos relacionados a mostrar
+  values:
+    - {'Id':'0','Value':'0'} 
+    - {'Id':'2','Value':'2'} 
+    - {'Id':'3','Value':'3'} 
+    - {'Id':'4','Value':'4'} 
+    - {'Id':'5','Value':'5'}
+    - {'Id':'10','Value':'10'}
+  default: '0'
+  
+censurarArticulos:
+  caption: ¿Censurar productos subidos por los usuarios?
+  values:
+    - {'Id':'0','Value':'No, se publican directamente'} 
+    - {'Id':'1','Value':'Sí, los publica el web master'}
+  default: '1'  
+  
+notificarCreacionArticulo:
+  caption: ¿Notificar al webmaster cuando se crea un artículo?
+  values:
+    - {'Id':'0','Value':'No'} 
+    - {'Id':'1','Value':'Sí'}
+  default: '0'  
+  
+notificarModificacionArticulo:
+  caption: ¿Notificar al webmaster cuando se modifica un artículo?
+  values:
+    - {'Id':'0','Value':'No'} 
+    - {'Id':'1','Value':'Sí'}
+  default: '0'   
+  
+permitirComentariosWeb:
+  caption: ¿Permitir que se hagan comentarios en la web?
+  values:
+    - {'Id':'0','Value':'No'} 
+    - {'Id':'1','Value':'Sí'}
+  default: '0'   
+  
+censurarComentarios:
+  caption: ¿Censurar comentarios?
+  values:
+    - {'Id':'0','Value':'No, se publican directamente'} 
+    - {'Id':'1','Value':'Sí, los publica el web master'}
+  default: '1' 
+   
+notificarComentarioArticulo:
+  caption: ¿Notificar al webmaster cuando se hace un comentario al artículo?
+  values:
+    - {'Id':'0','Value':'No'} 
+    - {'Id':'1','Value':'Sí'}
+  default: '1'   

@@ -1,0 +1,74 @@
+{# TEMPLATE FemitidasCab/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{% set digitosCta = emp.DigitosCuentaContable %}
+{% set atributos = values.atributos %}
+
+<div class="CajaIzquierda" style="height: 220px;">
+    {{ macro.etiqueta(atributos.IDSucursal,'Etiqueta',datos.IDSucursal.Nombre) }}
+    {{ macro.fecha(atributos.Fecha,'Etiqueta','FemitidasCab[Fecha]','FemitidasCab_Fecha',datos.Fecha,'10','CampoFecha') }}
+    {{ macro.etiqueta(atributos.IDCliente,'Etiqueta',datos.IDCliente.RazonSocial) }}
+    {{ macro.etiqueta(atributos.IDComercial,'Etiqueta',datos.IDComercial.Nombre) }}
+    {{ macro.select(atributos.IDFP,'Etiqueta','FemitidasCab[IDFP]','FemitidasCab_IDFP',200,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion'),'Select',none,"if (!confirm('Si cambia la forma de pago, se regeneraran los vencimientos')) {return false;} else {$('#accion_"~values.controller~"').val('Guardar');submit();}") }}
+    {{ macro.input(atributos.Asiento,'Etiqueta','text','FemitidasCab[Asiento]','FemitidasCab_Asiento',datos.Asiento,'10','CampoUnidades') }}
+    {{ macro.input(atributos.CuentaVentas,'Etiqueta','text','FemitidasCab[CuentaVentas]','FemitidasCab_CuentaVentas',datos.CuentaVentas,digitosCta,'CampoTextoCorto') }}
+</div>
+
+<div class="CajaTotales" style="height: 220px;">
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Importes</a></li>
+            <li><a href="#tabs-3">Envío</a></li>
+            <li><a href="#tabs-4">{% if datos.Observaciones %}<b>{% endif %}Observ.{% if datos.Observaciones %}</b>{% endif %}</a></li>
+            <li><a href="#divVctos" id="vctos">Vctos</a></li>            
+            <li><a href="#divCaja" id="caja">Caja</a></li>            
+            {% if values.varEnvMod.withDocuments == '1' or user.IDPerfil.IDPerfil == '1' %}            
+            <li><a href="#divDocs" id="docs">Docs({{datos.getNumberOfDocuments('document')}})</a></li>
+            {% endif %}
+        </ul>
+        <div id="tabs-1">
+            {% include values.controller ~ "/totales.html.twig" with {'datos': datos}%}
+        </div>
+        <div id="tabs-3">
+                {{ macro.etiqueta(atributos.IDAgencia,'Etiqueta',datos.IDAgencia.Agencia ) }}
+                {{ macro.etiqueta(atributos.Peso,'Etiqueta',datos.Peso ) }}
+                {{ macro.etiqueta(atributos.Volumen,'Etiqueta',datos.Peso ) }}
+                {{ macro.etiqueta(atributos.Bultos,'Etiqueta',datos.Volumen ) }}
+                {{ macro.etiqueta(atributos.Expedicion,'Etiqueta',datos.Expedicion ) }}
+                <div style="clear: both;"></div>
+        </div>
+        <div id="tabs-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+            {{ macro.textarea(atributos.Observaciones,'Etiqueta','FemitidasCab[Observaciones]','FemitidasCab_Observaciones',datos.Observaciones,none,none,'TextArea')}}
+
+            {% set beneficio  = datos.getBeneficio() %}
+            <div style="text-align: center;">
+                Referencia [{{ beneficio.Venta}}] [{{ beneficio.Costo}}] [{{ beneficio.Beneficio }}]
+            </div>
+        </div>
+        <div id="divVctos"></div>            
+        <div id="divCaja"></div>        
+        <div id="divDocs"></div>
+    </div>
+</div>
+
+
+<iframe width="100%" height="327" scrolling="yes" style="margin-top:5px; border:0;"
+        src="{{app.path}}/FemitidasLineas/list/{{datos.IDFactura}}">
+</iframe>
+
+<script type="text/javascript">
+$('#vctos').click(function(){
+    url = "<iframe src='{{app.path}}/FemitidasCab/listVencimientos/{{datos.PrimaryKeyMD5}}' width='100%' height='156' scrolling='yes' style='border: 0px dotted grey;'></iframe>";
+    $("#divVctos").html(url);
+});
+
+$('#caja').click(function(){
+    url = "<iframe src='{{app.path}}/CajaArqueos/listMvtosEntidad/{{values.controller}}/{{datos.PrimaryKeyValue}}' width='100%' height='156' scrolling='yes' style='border: 0px dotted grey;'></iframe>";
+    $("#divCaja").html(url);
+});
+
+$("#docs").click(function(){
+    url = "<iframe src='{{app.path}}/CpanDocs/listPopup/{{values.controller}}/{{datos.PrimaryKeyValue}}/document/1' width='100%' height='270' scrolling='yes' style='border: 0px dotted grey;'></iframe>"; 
+    $("#divDocs").html(url);
+});
+</script>

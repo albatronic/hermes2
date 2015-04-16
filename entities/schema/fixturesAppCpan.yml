@@ -1,0 +1,95 @@
+# SECCIONES DE CONTENIDOS Y URLS AMIGABLES POR DEFECTO
+#
+
+WebPerfiles:
+  1: { Id: 1, Perfil: 'Estándar' }
+  
+CpanPerfiles:
+  1: { Id: 1, Perfil: 'SuperAdministrador' }
+  2: { Id: 2, Perfil: 'Administrador' }
+
+CpanUsuariosTipos:
+  1: { Id: 1, Descripcion: Usuario Cpanel }
+  2: { Id: 2, Descripcion: Usuario Web }
+
+CpanRoles:
+  1: { Id: 1, Rol: Estandar }
+
+CpanUsuarios:
+  1: { IdUsuario: 1, IdPerfil: 1, IdRol: 1, IdTipoUsuario: 1 }
+  2: { IdUsuario: 2, IdPerfil: 2, IdRol: 1, IdTipoUsuario: 1 }
+  
+CpanFuncionalidades:
+  AC: { Codigo: AC, Titulo: Acceder,        Descripcion: Permiso de Acceso, EsEstandar: 1}
+  IN: { Codigo: IN, Titulo: Insertar,       Descripcion: Insertar nuevos valores, EsEstandar: 1}
+  UP: { Codigo: UP, Titulo: Actualizar,     Descripcion: Actualizar información, EsEstandar: 1}
+  DE: { Codigo: DE, Titulo: Borrar,         Descripcion: Eliminar información, EsEstandar: 1}
+  LI: { Codigo: LI, Titulo: Listar,         Descripcion: Listado, EsEstandar: 1}
+  CO: { Codigo: CO, Titulo: Consultar,      Descripcion: Consultar información, EsEstandar: 1}
+  MO: { Codigo: MO, Titulo: Modifcar Orden, Descripcion: Modificar Orden Estandar, EsEstandar: 1}
+  VW: { Codigo: VW, Titulo: Variables WEB,  Descripcion: Variables WEB, EsEstandar: 1}
+  PC: { Codigo: PC, Titulo: Permisos Cpanel,Descripcion: Poder asignar permisos de acceso a nivel registro para los perfiles de usuario del CPanel, EsEstandar: 1}
+  PW: { Codigo: PW, Titulo: Permisos Web,   Descripcion: Poder asignar permisos de acceso a nivel registro para los perfiles de usuario de la web, EsEstandar: 1}
+  
+CpanUrlAmigables:
+  - { UrlFriendly: '/',            Controller: Index,      Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 1, Publish: 1 }
+  - { UrlFriendly: '/error404',    Controller: Error404,   Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 2, Publish: 1 }
+  - { UrlFriendly: '/oldbrowser',  Controller: OldBrowser, Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 3, Publish: 1, Privacy: 2 }
+  - { UrlFriendly: '/return',      Controller: Index,      Action: Return, Template: Index, Entity: GconSecciones, IdEntity: 4, Publish: 1, Privacy: 2 }  
+  - { UrlFriendly: '/logout',      Controller: Index,      Action: Logout, Template: Index, Entity: GconSecciones, IdEntity: 5, Publish: 1 }  
+  - { UrlFriendly: '/aviso-legal', Controller: AvisoLegal, Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 6, Publish: 1 }  
+  - { UrlFriendly: '/aviso-cookies', Controller: AvisoCookies, Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 7, Publish: 1 }  
+  - { UrlFriendly: '/olvido',      Controller: Olvido,     Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 8, Publish: 1 }  
+  - { UrlFriendly: '/contacto',    Controller: Contacto,   Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 9, Publish: 1 }
+  - { UrlFriendly: '/politica-de-privacidad',    Controller: PoliticaPrivacidad,   Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 10, Publish: 1 }      
+  - { UrlFriendly: '/noticias',   Controller: Noticias,   Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 11, Publish: 1 }      
+  - { UrlFriendly: '/eventos',    Controller: Eventos,    Action: Index,  Template: Index, Entity: GconSecciones, IdEntity: 12, Publish: 1 }      
+  - { UrlFriendly: '/rss',Controller: Rss, Action: Index, Template: index.html.twig, Entity: GconSecciones, IdEntity: 13, Publish: 1}
+  - { UrlFriendly: '/sitemap',Controller: Sitemap, Action: Index, Template: index.html.twig, Entity: GconSecciones, IdEntity: 14, Publish: 1}   
+  - { UrlFriendly: '/acs',Controller: Proyectos, Action: Index, Template: Index, Entity: PcaeEmpresas, IdEntity: 1, Publish: 1} 
+  
+GconSecciones:
+  - { Id: 1, Titulo: Inicio, Publish: 1, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: '', LockSlug: 1, UrlFriendly: '/' }
+  - { Id: 2, Titulo: Error404, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'error404', LockSlug: 1, UrlFriendly: '/error404' }
+  - { Id: 3, Titulo: OldBrowser, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'oldbrowser', LockSlug: 1, UrlFriendly: '/oldbrowser' }  
+  - { Id: 4, Titulo: Regresar al portal, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'return', LockSlug: 1, UrlFriendly: '/return' }
+  - { Id: 5, Titulo: Salir del portal, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'logout', LockSlug: 1, UrlFriendly: '/logout' }
+  - { Id: 6, Titulo: Aviso legal, Publish: 1, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'aviso-legal', LockSlug: 1, UrlFriendly: '/aviso-legal' }
+  - { Id: 7, Titulo: Aviso Cookies, Publish: 1, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'aviso-cookies', LockSlug: 1, UrlFriendly: '/aviso-cookies' }
+  - { Id: 8, Titulo: Olvido, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'olvido', LockSlug: 1, UrlFriendly: '/olvido' }
+  - { Id: 9, Titulo: Contacto, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'contacto', LockSlug: 1, UrlFriendly: '/contacto' }
+  - { Id: 10, Titulo: Politica de privacidad, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'politica-de-privacidad', LockSlug: 1, UrlFriendly: '/politica-de-privacidad' }  
+  - { Id: 11, Titulo: Noticias, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'noticias', LockSlug: 1, UrlFriendly: '/noticias' }  
+  - { Id: 12, Titulo: Eventos, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'eventos', LockSlug: 1, UrlFriendly: '/eventos' }  
+  - { Id: 13, Titulo: Rss, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'rss', LockSlug: 1, UrlFriendly: '/rss' }  
+  - { Id: 14, Titulo: SiteMap, NivelJerarquico: 1, IsDefault: 1, UrlPrefix: '/', LockUrlPrefix: 1, Slug: 'sitemap', LockSlug: 1, UrlFriendly: '/sitemap', ShowOnSitemap: 0 }  
+  
+# Crear la zona de álbumes predeterminada
+AlbmSecciones:
+  1 : { Titulo: 'Sección Predeterminada', IsDefault: true, IsSuper: true} 
+  
+# Crear la zona de banners predeterminada
+BannZonas:
+  1 : { Titulo: 'Zona Predeterminada', IsDefault: true, IsSuper: true}
+  
+# Crear el formato predeterminado
+BolFormatos:
+  1 : { Titulo: 'Estándar', PrivacidadContenidos: 2, PlantillaHtm: 'plantillaBoletin1.htm', Css: '#itemBoletin {}', Html: '<div id="itemBoletin">#ITEM#</div>', IsDefault: true }
+  
+# Crear la zona de álbumes predeterminada
+EnlSecciones:
+  1 : { Titulo: 'Sección Predeterminada', IsDefault: true, IsSuper: true}
+  
+# Crear la familia de servicios predeterminada
+ServFamilias:
+  1 : { Titulo: 'Familia Predeterminada', IsDefault: true, IsSuper: true}
+  
+# Crear la zona de slider predeterminada
+SldZonas:
+  1 : { Titulo: 'Zona Predeterminada', IsDefault: true, IsSuper: true}
+  
+# Crear la zona de álbumes predeterminada
+VidSecciones:
+  1 : { Titulo: 'Sección Predeterminada', IsDefault: true, IsSuper: true}
+  
+  

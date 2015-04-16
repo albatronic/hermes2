@@ -1,0 +1,53 @@
+{# Template filtro.html.twig for Etiquetas #}
+{# -------------------------------------------------------#}
+<div class='Filtro'>
+    <form name='filtro' id='filtro' action='' method='POST'>
+        <input name='controller' value='{{values.controller}}' type='hidden' />
+        <input name='action' id="action" value='cargar' type='hidden' />
+        
+        <div>
+            <div style="float:left;">
+                Pedido:
+                <select name="IdPedido" style="width: 290px;">
+                {% for pedido in values.pedidos %}
+                    <option value="{{pedido.Id}}">{{pedido.Value}}</option>
+                {% endfor %}
+                </select>
+                Fabricante:
+                <select name="IdFabricante">
+                {% for fabricante in values.fabricantes %}
+                    <option value="{{fabricante.Id}}">{{fabricante.Value}}</option>
+                {% endfor %}
+                </select>
+                Categoría:
+                <select name="IdCategoria">
+                {% for categoria in values.categorias %}
+                    <option value="{{ categoria.Id }}">{{categoria.Value}}</option>
+                {% endfor %}
+                </select>                
+            </div>
+
+        </div>
+        
+        <div style="clear:both;"></div>
+        
+        <div style="margin-top: 10px;">
+            <div style="float:left;">
+                Tener en cuenta las existencias del almacén:
+                <select name="IdAlmacen" style="width: 290px;">
+                {% for almacen in values.almacenes %}
+                    <option value="{{almacen.Id}}">{{almacen.Value}}</option>
+                {% endfor %}
+                </select>               
+            </div>
+                
+            <div style="float:right;">
+                <input style="margin-left: 5px;" type="submit" value="Cargar" onclick="$('#action').val('cargar');" />
+                {% if (values.etiquetas | length) > 1%}
+                    <input style="margin-left: 5px;" type="submit" value="Borrar" onclick="if (!confirm('Desea eliminar las etiquetas?')) {return false;} else {$('#action').val('borrar');}" />
+                    <a href="#" onclick="$('#dialogoImprimir').dialog('open');"><img width="24px" height="24px" alt="Imprimir" src="{{app.path}}/images/print_cmd.png"></img></a>                                
+                {% endif %}
+            </div>           
+        </div>   
+    </form>
+</div>

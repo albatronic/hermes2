@@ -1,0 +1,122 @@
+
+ErpPerfiles:
+  1: { IDPerfil: 1, Perfil: SuperAdministrador, IsDefault: 1, IsSuper: 1 }
+  2: { IDPerfil: 2, Perfil: Administrador }
+  3: { IDPerfil: 3, Perfil: Admon }
+  4: { IDPerfil: 4, Perfil: Comercial }
+  5: { IDPerfil: 5, Perfil: Repartidor }
+  6: { IDPerfil: 6, Perfil: Almacenero }
+  
+ErpUsuarios:
+  1: { IDAgente: 1, IDPerfil: 1, IDRol: 1, IDTipo: 1, IDSucursal: 1, IDAlmacen: 1, Activo: 1, IsDefault: 1, IsSuper: 1 }
+  
+ErpFuncionalidades:
+  AC: { Codigo: AC, Titulo: Acceder,        Descripcion: Permiso de Acceso, EsEstandar: 1}
+  IN: { Codigo: IN, Titulo: Insertar,       Descripcion: Insertar nuevos valores, EsEstandar: 1}
+  UP: { Codigo: UP, Titulo: Actualizar,     Descripcion: Actualizar información, EsEstandar: 1}
+  DE: { Codigo: DE, Titulo: Borrar,         Descripcion: Eliminar información, EsEstandar: 1}
+  LI: { Codigo: LI, Titulo: Listar,         Descripcion: Listado, EsEstandar: 1}
+  EX: { Codigo: EX, Titulo: Exportar,       Descripcion: Exportar, EsEstandar: 1} 
+  CO: { Codigo: CO, Titulo: Consultar,      Descripcion: Consultar información, EsEstandar: 1}
+  MO: { Codigo: MO, Titulo: Modifcar Orden, Descripcion: Modificar Orden Estandar, EsEstandar: 1}
+  VW: { Codigo: VW, Titulo: Variables WEB,  Descripcion: Variables WEB, EsEstandar: 1}
+  PC: { Codigo: PC, Titulo: Permisos Cpanel,Descripcion: Poder asignar permisos de acceso a nivel registro para los perfiles de usuario del CPanel, EsEstandar: 1}
+  PW: { Codigo: PW, Titulo: Permisos Web,   Descripcion: Poder asignar permisos de acceso a nivel registro para los perfiles de usuario de la web, EsEstandar: 1}
+
+ErpSucursales:
+  1: { IDSucursal: 1, Nombre: Central, Direccion: '.', IDPais: 68, IDProvincia: 18, IDPoblacion: 2747 }
+
+ErpAlmacenes:
+  1 : { IDAlmacen: 1, Nombre: Almacén Central, Direccion: '.', IDPais: 68, IDProvincia: 18, IDPoblacion: 2747 }
+  
+ErpTarifas:
+  1: { IDTarifa: 1, Descripcion: Estándar, Tipo: 0, Valor: '0.000' }
+  
+ErpTiposIva:
+  1 : { IDIva: 1, Tipo: 'Iva 21%', Iva: '21.00' }
+  
+ErpTpvs:
+  1: { IDTpv: 1, IDSucursal: 1, Nombre: Central, AperturaCajon: '', Estilo: 'Ticket' }
+
+ErpTiposVenta:
+  1: { IDVenta: 1, TipoVenta: Estándar }
+  
+ErpUnidadesMedida:
+  - { Id: 1, UnidadMedida: Unidad }
+  - { Id: 2, UnidadMedida: Kgrs }
+  - { Id: 3, UnidadMedida: Caja }
+  - { Id: 4, UnidadMedida: Bolsa }
+  - { Id: 5, UnidadMedida: Litro }
+  
+ErpFormasPago:
+  - { IDFP: 1, Descripcion: Contado, AnotarEnCaja: 1, EstadoRecibo: 6 }
+  - { IDFP: 2, Descripcion: 'Recibo a la vista', AnotarEnCaja: 0, EstadoRecibo: 0}  
+  - { IDFP: 3, Descripcion: 'Recibo 30 días F/F', NumeroVctos: 1, DiaPrimerVcto: 30, AnotarEnCaja: 0, EstadoRecibo: 0}  
+  - { IDFP: 4, Descripcion: 'Recibos 30,60 días F/F', NumeroVctos: 2, DiaPrimerVcto: 30, DiasIntervalo: 30, AnotarEnCaja: 0, EstadoRecibo: 0}  
+  
+ErpClientesTipos:
+  1: { IDTipo: 1, Tipo: Estándar }
+  
+ErpClientesGrupos:
+  1: { IDGrupo: 1, Grupo: Estándar }
+
+ErpTiposMvtosAlmacen:
+  1:  { Descripcion: 'Entrada Compras',          Signo: E, Uso: A, TipoDocumento: PedidosCab }
+  2:  { Descripcion: 'Salida Ventas',            Signo: S, Uso: A, TipoDocumento: AlbaranesCab }
+  3:  { Descripcion: 'Salida Traspaso',          Signo: S, Uso: A, TipoDocumento: TraspasosCab }
+  4:  { Descripcion: 'Entrada Traspaso',         Signo: E, Uso: A, TipoDocumento: TraspasosCab }
+  5:  { Descripcion: 'Salida Roturas',           Signo: S, Uso: A, TipoDocumento: MvtoManual }
+  6:  { Descripcion: 'Entrada Inventario',       Signo: E, Uso: A, TipoDocumento: InventariosCab }
+  7:  { Descripcion: 'Salida Inventario',        Signo: S, Uso: A, TipoDocumento: InventariosCab }
+  8:  { Descripcion: 'Entrada Cambio Ubicación', Signo: E, Uso: A, TipoDocumento: MvtoInterno }
+  9:  { Descripcion: 'Salida Cambio Ubicación',  Signo: S, Uso: A, TipoDocumento: MvtoInterno }
+  10: { Descripcion: 'Entrada Elaboración',      Signo: E, Uso: A, TipoDocumento: ManufacCab }
+  11: { Descripcion: 'Salida Elaboración',       Signo: S, Uso: A, TipoDocumento: ManufacCab }
+  
+ErpAgencias:
+  1: { Agencia: Nuestro medios }
+  2: { Agencia: Seur }
+  3: { Agencia: Ochoa }
+  4: { Agencia: Medur }
+  
+ErpContadores:
+  1 : { IDSucursal: 1, IDTipo: 0, Serie: P, Contador: 0, Predefinido: 1 }
+  2 : { IDSucursal: 1, IDTipo: 1, Serie: A, Contador: 0, Predefinido: 1 }
+  3 : { IDSucursal: 1, IDTipo: 2, Serie: F, Contador: 0, Predefinido: 1 }
+  4 : { IDSucursal: 1, IDTipo: 3, Serie: T, Contador: 0, Predefinido: 1 }
+  5 : { IDSucursal: 1, IDTipo: 4, Serie: F, Contador: 0, Predefinido: 1 }
+
+ErpArticulosEstados:
+  1 : { Estado: Oferta }
+  2 : { Estado: Novedad }
+  3 : { Estado: Liquidación }
+  4 : { Estado: Outlet }
+
+ErpZonas:
+  1 : { IDSucursal: 1, Zona: Genérica }
+  
+ErpZonasTransporte:
+  1 : { Zona: Andalucía }
+  2 : { Zona: Levante }
+  3 : { Zona: Centro }
+  4 : { Zona: Extremadura }
+  5 : { Zona: Cataluña }
+  6 : { Zona: Galacia }
+  7 : { Zona: Norte }
+  
+ErpFabricantes:
+  1 : { Titulo: Genérico }
+
+ErpFamilias:
+  1 : { Familia: Genérica, Publish: 1 }
+  
+<?php include '../Hermes/entities/schema/fixturesBancosOficinas.yml'; echoln('');?>  
+<?php include '../Hermes/entities/schema/fixturesCnae.yml'; echoln('');?>  
+<?php include '../Hermes/entities/schema/fixturesIdiomas.yml'; echoln('');?>  
+<?php include '../Hermes/entities/schema/fixturesMonedas.yml'; echoln('');?>  
+<?php include '../Hermes/entities/schema/fixturesMunicipiosSpain.yml'; echoln('');?>  
+<?php include '../Hermes/entities/schema/fixturesPaises.yml'; echoln('');?>  
+<?php include '../Hermes/entities/schema/fixturesProvinciasSpain.yml'; echoln('');?>  
+<?php include '../Hermes/entities/schema/fixturesZonasHorarias.yml'; echoln('');?>  
+<?php include '../Hermes/entities/schema/fixturesAppCpan.yml'; echoln('');?>  
+<?php include '../Hermes/entities/schema/modulosErp.yml'; echoln('');?>  

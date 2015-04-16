@@ -1,0 +1,35 @@
+{# MOVIMIENTOS DE ALMACÉN #}
+<div>
+    <h3>Movimientos de almacén</h3>
+    <div class='Listado'> 
+        <table style="width: 100%">
+            <tr class="Titulos">
+                <td class='Item'>Almacén</td>
+                <td class='Item'>Fecha</td>
+                <td class='Item'>Hora</td>
+                <td class='Item'>Descripción</td>
+                <td class='Item'>Entradas</td>
+                <td class='Item'>Salidas</td>
+            </tr>
+        {% set entradas = 0 %}
+        {% set salidas = 0 %}
+        {% for mvto in datos.getMvtosAlmacen() %}
+            {% set entradas = entradas + mvto.UnidadesE %}
+            {% set salidas = salidas + mvto.UnidadesS %}
+            <tr>
+                <td>{{mvto.Almacen}}</td>
+                <td>{{mvto.Fecha|date('d-m-Y')}}</td>
+                <td>{{mvto.Hora}}</td>
+                <td>{{mvto.Descripcion}}</td>
+                <td style="text-align: right;">{{mvto.UnidadesE}}</td>
+                <td style="text-align: right;">{{mvto.UnidadesS}}</td>
+            </tr> 
+        {% endfor %}
+            <tr class="Titulos">
+                <td colspan="4">Totales</td>
+                <td style="text-align: right;">{{entradas|number_format(3,'.')}}</td>
+                <td style="text-align: right;">{{salidas|number_format(3,'.')}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

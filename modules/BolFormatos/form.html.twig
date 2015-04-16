@@ -1,0 +1,35 @@
+{#
+  Module: BolFormatos
+  Document : modules\BolFormatos\form.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 11.07.2013 19:17:44
+#}
+
+{% set atributos = values.atributos %}
+
+<div id="tabs">
+    <ul>
+        <li class="ui-state-default ui-corner-top{%if values.solapaActiva == 'general'%}  ui-tabs-selected ui-state-active{%endif%}">
+            <a href="#general">{%if datos.Titulo%}<b>{{datos.Titulo|slice(0,40)}}</b> ...{%else%}Formato{%endif%}</a>
+        </li>
+        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+        <li class="ui-state-default ui-corner-top{%if values.solapaActiva == 'fieldsComunes'%}  ui-tabs-selected ui-state-active{%endif%}">
+            <a href="#fieldsComunes" onclick='$( "#solapaActiva" ).val("fieldsComunes");'>Más detalles...</a>
+        </li>        
+        {% endif %}
+    </ul>
+                
+    <div id="general">
+        {{ macro.input(atributos.Titulo,'EtiquetaMedia','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'255','CampoTextoLargo','1') }}
+        {{ macro.select(atributos.PrivacidadContenidos,'EtiquetaMedia',values.controller ~ '[PrivacidadContenidos]',values.controller ~ '_PrivacidadContenidos',200,datos.PrivacidadContenidos.IDTipo,datos.PrivacidadContenidos.fetchAll(false),'chzn-select')}}
+        {{ macro.input(atributos.PlantillaHtm,'EtiquetaMedia','text',values.controller ~ '[PlantillaHtm]',values.controller ~ '_PlantillaHtm',datos.PlantillaHtm,'255','CampoTextoLargo','3') }}
+        {{ macro.textarea(atributos.Css,'EtiquetaMedia',values.controller ~ '[Css]',values.controller ~ '_Css',datos.Css,none,none,'textarea','4')}}
+        {{ macro.textarea(atributos.Html,'EtiquetaMedia',values.controller ~ '[Html]',values.controller ~ '_Html',datos.Html,none,none,'textarea','5')}}
+    </div>
+        
+    {% include '_global/fieldsComunes.html.twig' %}        
+</div>
+
+{{ macro.foco(values.controller ~ '_Titulo') }}

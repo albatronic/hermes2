@@ -1,0 +1,323 @@
+# Module: ErpMvtosAlmacen
+# Document : modules/ErpMvtosAlmacen/config.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: Informática ALBATRONIC SL
+# @date 25.03.2013 20:02:27
+#
+---
+MvtosAlmacen:
+  app: ''
+  isModuleRoot: 0
+  linkModule:
+    fromColumn: ''
+    toEntity: ''
+    toColumn: ''
+  translatable: false
+  searchable: false
+  showCommonFields: false
+  numMaxRecords: ''
+  numberOfImages: '0'
+  withGalery: '0'
+  withDocuments: '1'
+  withVideos: 0
+  withAudios: '0'
+  maxSizes:
+    image: '400000'
+    document: ''
+    video: ''
+    audio: ''
+  galery:
+    maxWidthImage: '500'
+    maxHeightImage: '400'
+    generateThumbnail: '0'
+    widthThumbnail: '50'
+    heightThumbnail: '50'
+  urlFriendlyManagement: false
+  fieldGeneratorUrlFriendly: Fecha
+  metatagTitleManagement: false
+  fieldGeneratorMetatagTitle: Fecha
+  controller: MvtosAlmacen
+  action: Index
+  template: index.html.twig
+  parametros: ''
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: YES
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Movimientos de almacén
+  id_video: mvtosalmacen
+  url_video: null
+  feature_list: YES
+  conection: ''
+  entity: MvtosAlmacen
+  table: ErpMvtosAlmacen
+  primarykey: Id
+  linkBy: ''
+  records_per_page: 15
+  order_by:
+    -
+      title: Fecha z-a
+      criteria: Fecha DESC, Hora DESC
+    -
+      title: Fecha a-z
+      criteria: Fecha ASC, Hora ASC
+  search_default: Fecha
+  referenced_entities:
+    - Agentes
+    - Almacenes
+    - AlmacenesMapas
+    - Lotes
+    - Articulos
+    - TiposMvtosAlmacen
+    - ValoresSN
+    - ValoresPrivacy
+    - ValoresDchaIzq
+    - ValoresChangeFreq
+    - RequestMethods
+    - RequestOrigins
+    - CpanAplicaciones
+  columns:
+    Id:
+      title: Id
+      visible: false
+      updatable: false
+      filter: NO
+      list: NO
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+    Fecha:
+      title: Fecha
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0000-00-00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 1, caption: Fecha, default: '<?php echo '01/01/'.date('Y').',31/12/'.date('Y');?>', type: range, operator: '>=' }
+      validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
+    Hora:
+      title: Hora
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '00:00:00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: null, length: false, min: null, max: null, message: 'Valor Requerido' }
+    IDAgente:
+      title: Usuario
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 3, caption: Usuario, entity: 'Agentes,<?php echo $_SESSION['usuarioPortal']['Id'];?>', method: fetchAll, params: Nombre, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+    IDAlmacen:
+      title: Almacén
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 4, caption: Almacén, entity: 'Agentes,<?php echo $_SESSION['usuarioPortal']['Id'];?>', method: getAlmacenes, params: null, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '17', min: null, max: null, message: 'Valor Requerido' }
+    IDUbicacion:
+      title: Ubicación
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      #aditional_filter: { order: 5, caption: IDUbicacion, entity: AlmacenesMapas, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+    IDLote:
+      title: Lote
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 5, caption: Lote (%), entity: Lotes, method: null, params: Lote, type: input, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+    IDArticulo:
+      title: Artículo
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 6, caption: Artículo (%), entity: Articulos, method: null, params: Descripcion, type: input, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '45', min: null, max: null, message: 'Valor Requerido' }
+    Descripcion:
+      title: Descripción
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+    IDTipo:
+      title: Tipo
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 7, caption: Tipo, entity: TiposMvtosAlmacen, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '23', min: null, max: null, message: 'Valor Requerido' }
+    IDDocumento:
+      title: Documento
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+    UnidadesE:
+      title: UnidadesE
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0.000'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    PalesE:
+      title: PalesE
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0.000'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    CajasE:
+      title: CajasE
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0.000'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    UnidadesS:
+      title: UnidadesS
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0.000'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    PalesS:
+      title: PalesS
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0.000'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    CajasS:
+      title: CajasS
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: '0.000'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
+    Observaciones:
+      title: Observaciones
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }

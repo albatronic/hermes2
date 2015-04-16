@@ -1,0 +1,18 @@
+{#
+  Module: ErpZonasPagoEnvio
+  Document : modules\ErpZonasPagoEnvio\list.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 14.03.2014 23:46:54
+#}
+
+{% extends values.controller  ~ '/index.html.twig' %}
+
+{% block listado %}
+
+<div class='Listado'>
+	{% include '_global/paginacion.html.twig' with {'filter': values.listado.filter, 'controller': values.controller, 'position': 'izq'}%}
+	{% include '_global/listGenerico.html.twig' with {'listado': values.listado, 'controller': values.controller} %}
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{# ARBOL DE FAMILIAS DE SERVICIOS #}
+
+<ul class="arbol">
+{% for keyPadre,padre in arbol %}
+    <li class="arbol">
+        {% include 'ServFamilias/' ~ subtemplate with {'key':keyPadre,'item':padre} %}
+    </li>
+    <ul class="arbol">
+        {% for keyHijo,hijo in padre.hijos %}
+            <li class="arbol">
+                {% include 'ServFamilias/' ~ subtemplate with {'key':keyHijo,'item':hijo, 'nHermanos': padre.nHijos} %}
+            </li>
+            <ul class="arbol">
+                {% for keyNieto,nieto in hijo.hijos %}
+                    <li class="arbol">
+                        {% include 'ServFamilias/' ~ subtemplate with {'key':keyNieto,'item':nieto, 'nHermanos': hijo.nHijos} %}
+                    </li>
+                {% endfor %}
+            </ul>                        
+        {% endfor %}
+    </ul>
+{% endfor %}
+</ul>

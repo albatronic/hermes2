@@ -1,0 +1,27 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO Tpv
+#
+# Module: ErpUsuarios
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 25-03-2013 20:02:30
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---
+idCliente:
+  caption: Cliente por defecto
+  values:
+  default:
+  
+idFormaPago:
+  caption: Forma de pago por defecto
+  values:
+  default:
+
+pvpConImpuestos:
+  caption: Mostrar precios con impuestos incluidos
+  values:
+    - {'Id':'0','Value':'No'} 
+    - {'Id':'1','Value':'Sí'}
+  default: '1'  

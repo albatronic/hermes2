@@ -1,0 +1,17 @@
+{# TEMPLATE Lotes/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{{ macro.input(values.atributos.Lote,'Etiqueta','text','Lotes[Lote]','Lotes_Lote',datos.Lote,'25','CampoTextoMedio') }}
+<div class="Item" id="div_Lotes_IDArticulo">
+    {{ macro.label(values.atributos.IDArticulo,none,none,'Lotes_IDArticulo') }}
+    <input name="Lotes[IDArticulo]" id="Lotes_IDArticulo" value="{{datos.IDArticulo.IDArticulo}}" type="hidden" />
+    {% if (datos.IDLote>0) and datos.TieneMvtos %}
+        {{datos.IDArticulo.Descripcion}} (tiene mvtos, no se puede modificar)
+    {% else %}
+    <input value="{{datos.IDArticulo.Descripcion}}" id="Descripcion" type="text" maxlength="50" class="CampoTextoLargo"
+        onkeyup="autoCompletar('Descripcion','Lotes_IDArticulo','Descripcion','articulos','','');"/>
+    {% endif %}
+</div>
+{{ macro.fecha(values.atributos.FechaFabricacion,'Etiqueta','Lotes[FechaFabricacion]','Lotes_FechaFabricacion',datos.FechaFabricacion,'10','CampoFecha') }}
+{{ macro.fecha(values.atributos.FechaCaducidad,'Etiqueta','Lotes[FechaCaducidad]','Lotes_FechaCaducidad',datos.FechaCaducidad,'10','CampoFecha') }}
+{{ macro.input(values.atributos.Vigente,'Etiqueta','checkbox','Lotes[Vigente]','Lotes_Vigente',datos.Vigente.IDTipo,'255','CampoTextoLargo','20')}} 

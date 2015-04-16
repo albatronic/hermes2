@@ -1,0 +1,46 @@
+{# Template list.html.twig for Agentes #}
+{# -------------------------------------------------------#}
+{% extends 'Agentes/index.html.twig' %}
+
+{% block listado %}
+<div class='Listado'>
+
+	{% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'Agentes','position':'izq'}%}
+
+        <table width="100%">
+            <tr class='Titulos'>
+                <td class='Item'>Nombre</td>
+                <td class='Item'>Activo</td>
+                <td class='Item'>Rol</td>
+                <td class='Item'>Perfil</td>
+                <td class='Item'>Sucursal</td>
+                <td class='Item'>Almacen</td>
+                <td class='Item'>Logins</td>
+                <td class='Item'>Último Login</td>                
+            </tr>
+
+            <tbody class='Cuerpo'>
+            {% for key,objeto in values.listado.data %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+            <tr onclick="location.href='{{app.path}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}'>
+                <td class='Item'><a href="{{app.path}}/Agentes/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Nombre|slice(0,30)}}</a></td>
+                <td class='Item' align='center'>{{objeto.Activo.Descripcion}}</td>
+                <td class='Item'>{{objeto.IDRol.Descripcion}}</td>
+                <td class='Item'>{{objeto.IDPerfil.Perfil}}</td>
+                <td class="Item">{{objeto.IDSucursal.Nombre|slice(0,20)}}</td>
+                <td class="Item">{{objeto.IDAlmacen.Nombre|slice(0,20)}}</td>
+                <td class='Item' align='right'>{{objeto.IDAgente.NLogin}}</td>
+                <td class='Item' align='center'> {{objeto.IDAgente.UltimoLogin}}</td>                
+            </tr>
+            {% else %}
+            <tr><td colspan='10'>No hay información que cumpla esos criterios</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+</div>
+{% endblock %}

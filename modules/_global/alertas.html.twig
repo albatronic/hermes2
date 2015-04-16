@@ -1,0 +1,47 @@
+{# MUESTRAR LOS MENSAJES DE ALERTA DEL FORMULARIO           #}
+{# CONCATENA TODOS LOS ELEMENTOS DEL ARRAY alertas Y SE LOS #}
+{# PASA A LA FUNCION JS SEPARADOS POR EL CARACTER '#'       #}
+
+<script>
+    $(function() {
+	$( "#notificacion" ).dialog({
+            autoOpen: false,
+            width: 700,
+            height: 255,
+            position: ['center','center'],
+            closeOnEscape: true,
+            show: 'slide'
+        });
+        
+        var alertas='';
+        var errores='';
+
+        {% if alertas %}
+            {% set mensaje = none %}
+            {% for alerta in alertas %}
+                {% set mensaje = mensaje ~ alerta ~ '#' %}
+            {% endfor %}
+            var mensajeAlerta = '{{mensaje}}';
+            var items = mensajeAlerta.split("#");
+            alertas='<ul style="margin-top: 5px;"><b>Alertas</b>';
+            $.each(items,function(key,value){alertas+="<li>"+value+"</li>";});
+            alertas+="</ul>";
+        {% endif %}
+        {% if errores %}
+            {% set mensaje = none %}
+            {% for error in errores %}
+                {% set mensaje = mensaje ~ error ~ '#' %}
+            {% endfor %}
+            var mensajeError = '{{mensaje}}';
+            var items = mensajeError.split("#");
+            errores='<ul style="margin-top: 5px;"><b>Errores</b>';
+            $.each(items,function(key,value){errores+="<li>"+value+"</li>";});
+            errores+="</ul>";
+        {% endif %}
+            
+        {% if values.alertas or values.errores %}
+            $( "#notificacion" ).html(alertas+errores); 
+            $( "#notificacion" ).dialog('open'); 
+        {% endif %}
+    });
+</script>

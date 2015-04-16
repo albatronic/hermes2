@@ -1,0 +1,149 @@
+# Module: CpanPlantillas
+# Document : modules/CpanPlantillas/config.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: Informática ALBATRONIC SL
+# @date 01.02.2014 21:09:45
+#
+---
+CpanPlantillas:
+  app: ''
+  isModuleRoot: 0
+  linkModule:
+    fromColumn: ''
+    toEntity: ''
+    toColumn: ''
+  modulosRelacionables: ''
+  translatable: false
+  searchable: false
+  showCommonFields: false
+  numMaxRecords: ''
+  numberOfImages: '0'
+  withMetadata: '0'
+  addMetadata: '0'
+  deleteMetadata: '0'
+  withGalery: '0'
+  withDocuments: '0'
+  withVideos: 0
+  withAudios: '0'
+  maxSizes:
+    image: '400000'
+    document: ''
+    video: ''
+    audio: ''
+  galery:
+    maxWidthImage: '500'
+    maxHeightImage: '400'
+    generateThumbnail: '0'
+    widthThumbnail: '50'
+    heightThumbnail: '50'
+  urlFriendlyManagement: false
+  fieldGeneratorUrlFriendly: Lang
+  metatagTitleManagement: false
+  fieldGeneratorMetatagTitle: Lang
+  fieldGeneratorMetatagDescription: Lang
+  fieldGeneratorMetatagKeywords: Lang
+  controller: CpanPlantillas
+  action: Index
+  template: index.html.twig
+  parametros: ''
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: YES
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Plantillas de la web
+  id_video: plantillas
+  url_video: null
+  feature_list: YES
+  conection: ''
+  entity: CpanPlantillas
+  table: CpanPlantillas
+  primarykey: Id
+  linkBy: ''
+  records_per_page: 15
+  order_by:
+    -
+      title: 'Página a-z'
+      criteria: 'Controller ASC'
+    -
+      title: 'Página z-a'
+      criteria: 'Controller DESC'
+  search_default: Id
+  referenced_entities:
+    - ValoresSN
+    - ValoresPrivacy
+    - ValoresDchaIzq
+    - ValoresChangeFreq
+    - RequestMethods
+    - RequestOrigins
+    - CpanAplicaciones
+  columns:
+    Id:
+      title: Id
+      visible: false
+      updatable: false
+      filter: NO
+      list: NO
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+    Lang:
+      title: Idioma
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: es
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '2', min: null, max: null, message: 'Valor Requerido' }
+      aditional_filter: { order: 1, caption: Idioma, entity: Idiomas, method: getArrayIdiomas, params: true, type: select, operator: '=', event: null }      
+    Controller:
+      title: Página
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: ''
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: YES, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      aditional_filter: { order: 2, caption: Página, entity: CpanUrlAmigables, method: fetchAllAditional, params: Controller, type: select, operator: '=', event: null }        
+    Clave:
+      title: Clave
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+    Observations:
+      title: Texto
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }

@@ -1,0 +1,50 @@
+# Module: PedidosWebLineas
+# Document : modules\PedidosWebLineas\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 12.07.2014 20:31:56
+#
+---
+listados:
+  -
+    title: PedidosWebLineas
+    order_by: IDLinea
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      IDPedido: { field: IDPedido, title: IDPedido, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDArticulo: { field: IDArticulo, title: IDArticulo, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Descripcion: { field: Descripcion, title: Descripcion, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Unidades: { field: Unidades, title: Unidades, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      UnidadMedida: { field: UnidadMedida, title: UnidadMedida, length: '3', align: L, type: string, total: NO, formula: null, format: null }
+      Precio: { field: Precio, title: Precio, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      PvpVigente: { field: PvpVigente, title: PvpVigente, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Descuento: { field: Descuento, title: Descuento, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Importe: { field: Importe, title: Importe, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      ImporteCosto: { field: ImporteCosto, title: ImporteCosto, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      IDAlmacen: { field: IDAlmacen, title: IDAlmacen, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Iva: { field: Iva, title: Iva, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      Recargo: { field: Recargo, title: Recargo, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      ComisionAgente: { field: ComisionAgente, title: ComisionAgente, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      ComisionMontador: { field: ComisionMontador, title: ComisionMontador, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      IDVenta: { field: IDVenta, title: IDVenta, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Comisionar: { field: Comisionar, title: Comisionar, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      IDAgente: { field: IDAgente, title: IDAgente, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDComercial: { field: IDComercial, title: IDComercial, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDPromocion: { field: IDPromocion, title: IDPromocion, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      IDEstado: { field: IDEstado, title: IDEstado, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      AltoAl: { field: AltoAl, title: AltoAl, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      AnchoAl: { field: AnchoAl, title: AnchoAl, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      MtsAl: { field: MtsAl, title: MtsAl, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      AltoFa: { field: AltoFa, title: AltoFa, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      AnchoFa: { field: AnchoFa, title: AnchoFa, length: '10', align: R, type: integer, total: NO, formula: null, format: null }
+      MtsFa: { field: MtsFa, title: MtsFa, length: '10', align: R, type: integer, total: NO, formula: null, format: null }

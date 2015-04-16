@@ -1,0 +1,15 @@
+## Ordenar/config.yml
+---
+Ordenar:
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: NO
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Ordenación
+  id_video: ordenar
+  url_video: null
+  conection: ''
+  entity: ordenar

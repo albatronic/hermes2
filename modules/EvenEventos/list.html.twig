@@ -1,0 +1,51 @@
+{#
+  Module: EvenEventos
+  Document : modules\EvenEventos\list.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 08.12.2012 01:14:51
+#}
+
+{% extends values.controller  ~ '/index.html.twig' %}
+
+{% block listado %}
+
+<div class='Listado'>
+<div class='Listado'>
+
+    {% include '_global/paginacion.html.twig' with {'filter': values.listado.filter, 'controller': values.controller, 'position': 'izq'}%}
+    
+    <div id="Listado">
+    <table width='100%'>
+        <tr class='Titulos'>
+            <td width='16px'>&nbsp;</td>
+            <td class='Item'>Contenido</td>
+            <td class='Item'>Fecha</td>
+            <td class='Item'>Hora Inicio</td>
+            <td class='Item'>Hora Fin</td>
+        </tr>
+
+        <tbody class='Cuerpo'>
+        {% for key,evento in values.listado.data %}
+            <tr>
+                <td>
+                    <a href='{{app.path}}/{{evento.Entidad}}/Edit/{{evento.Objeto.PrimaryKeyMD5}}' title='Editar ...'>
+                        <img src="{{app.path}}/images/botoneditar.png" width="16px" height="16px" />
+                    <a>
+                </td>
+                <td class='Item'>{{evento.Objeto.Titulo}}</td>
+                <td class='Item'>{{evento.Fecha}}</td>
+                <td class='Item'>{{evento.HoraInicio}}</td>
+                <td class='Item'>{{evento.HoraFin}}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan='8'>No hay información que cumpla esos criterios</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    
+</div>
+</div>
+{% endblock %}

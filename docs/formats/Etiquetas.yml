@@ -1,0 +1,30 @@
+# FORMATOS DE ETIQUETAS.
+# docs/docsXXX/formats/Etiquetas.yml
+#
+# @author Sergio Perez <sergio.perez@albatronic.com>
+# @copyright Informatica ALBATRONIC
+# @since: 18-09-2013
+#
+---
+Etiquetas:
+  -
+    title: Etiquetas PVP 38x21 Salida 5 Altura 13
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '12,10,10,10'
+    columns: 5
+    rows: 13
+    width: 38
+    height: 21
+    marginX: 0
+    marginY: 0
+    Barcode: true
+    BarcodeType: 4
+    BarcodeHeight: 5
+    TextFooter: 
+    header:
+    body:
+    footer:
+   

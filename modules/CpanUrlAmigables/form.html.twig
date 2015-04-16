@@ -1,0 +1,22 @@
+{#
+  Module: CpanUrlAmigables
+  Document : modules\CpanUrlAmigables\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 30.09.2012 16:42:34
+#}
+
+{% set atributos = values.atributos %}
+
+{{ macro.input(atributos.UrlFriendly,'Etiqueta','text',values.controller ~ '[UrlFriendly]',values.controller ~ '_UrlFriendly',datos.UrlFriendly,'255','CampoTextoLargo') }}
+{{ macro.input(atributos.Controller,'Etiqueta','text',values.controller ~ '[Controller]',values.controller ~ '_Controller',datos.Controller,'255','CampoTextoLargo') }}
+{{ macro.input(atributos.Action,'Etiqueta','text',values.controller ~ '[Action]',values.controller ~ '_Action',datos.Action,'255','CampoTextoLargo') }}
+{{ macro.input(atributos.Template,'Etiqueta','text',values.controller ~ '[Template]',values.controller ~ '_Template',datos.Template,'255','CampoTextoLargo') }}
+{{ macro.input(atributos.Parameters,'Etiqueta','text',values.controller ~ '[Parameters]',values.controller ~ '_Parameters',datos.Parameters,'255','CampoTextoLargo') }}
+{{ macro.input(atributos.Entity,'Etiqueta','text',values.controller ~ '[Entity]',values.controller ~ '_Entity',datos.Entity,'255','CampoTextoLargo','readonly') }}
+{{ macro.input(atributos.IdEntity,'Etiqueta','text',values.controller ~ '[IdEntity]',values.controller ~ '_IdEntity',datos.IdEntity,'11','CampoImporte','readonly') }}
+
+{# include '_global/fieldsComunes.html.twig' #}
+
+{{ macro.foco(values.controller ~ '_UrlFriendly') }}

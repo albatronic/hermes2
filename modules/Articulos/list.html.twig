@@ -1,0 +1,79 @@
+{# Template list.html.twig for Articulos #}
+{# -------------------------------------------------------#}
+{% extends 'Articulos/index.html.twig' %}
+
+
+{# MI AMIGA KAREM DICE QUE SOLO DEBEN VER EL PVD LOS USUARIOS DEL ROL 9 #}
+
+{% block listado %}
+    <div class='Listado'>
+
+        {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller': values.controller,'position':'izq'}%}
+
+        <table class="table table-striped">
+            <thead>
+                <tr class='Titulos'>
+                    <th>Código</th>
+                    <th>Descripción</th>
+                    <th>CategorÍa</th>
+                    <th>Familia</th>
+                    {% if user.IDRol.IDTipo == '0'%}
+                    <th>PVD S/I</th>
+                    {% endif %}
+                    <th>PVP C/I</th>
+                    <th>IVA</th>
+                    <th>Estado1</th>
+                        {#<th>Estado2</th>#}
+                        {#<th>Fotos</th>#}
+                </tr>
+            </thead>
+
+            <tbody class='Cuerpo'>
+                {% for key,objeto in values.listado.data %}
+                    {% if (key is even) %}
+                        {% set classFila = 'Impar' %}
+                    {% else %}
+                        {% set classFila = 'Par' %}
+                    {% endif %}
+                    {% set urlAmigable = objeto.getHref.url %}
+                    <tr>
+                        <td class='Item'><a href="{{app.path}}/Articulos/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Codigo}}</a></td>
+                        <td class='Item'>
+                            {{ macro.actualizaColumna('Articulos',objeto.getPrimaryKeyValue,'Publish',objeto.Publish.IDTipo,'Publicar/Despublicar')}}  
+                            <a href="{{app.path}}/Articulos/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Descripcion|slice(0,30)}}</a>
+                        </td>
+                        <td class='Item'>{{objeto.IDCategoria.Familia|slice(0,25)}}</td>
+                        <td class='Item'>{{objeto.IDFamilia.Familia|slice(0,25)}}</td>
+                        {% if user.IDRol.IDTipo == '0'%}
+                            <td class='Item' align="right">
+                                {{objeto.Pvd|number_format(3, '.', ',')}}
+                            </td>
+                        {% endif %}
+                        <td class="Item" align="right">{{objeto.PrecioVentaConImpuestos('UMV',3)|number_format(3, '.', ',')}}</td>
+                        <td class="Item" align="right">{{objeto.IDIva.Iva}}</td>
+                        <td class="Item">
+                            <select id="IDEstado1{{key}}" style="width: 100px" onchange="actualizaColumna('Articulos', '{{objeto.PrimaryKeyValue}}', 'IDEstado1', $('#IDEstado1{{key}}').val());">
+                                {% for estado in objeto.IDEstado1.fetchAll('Estado') %}
+                                    <option value="{{estado.Id}}" {%if estado.Id == objeto.IDEstado1.IDEstado%} SELECTED{%endif%}>{{estado.Value}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        {#
+                        <td class="Item">
+                            <select id="IDEstado2{{key}}" style="width: 100px" onchange="actualizaColumna('Articulos','{{objeto.PrimaryKeyValue}}','IDEstado2',$('#IDEstado2{{key}}').val());">
+                                {% for estado in objeto.IDEstado2.fetchAll('Estado') %}
+                                    <option value="{{estado.Id}}" {%if estado.Id == objeto.IDEstado2.IDEstado%} SELECTED{%endif%}>{{estado.Value}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        #}              
+                        {#<td class="Item" align="right">{{objeto.getNumberOfDocuments}}</td>#}
+                    </tr>
+                {% else %}
+                    <tr><td colspan='8'>No hay informaci&oacute;n que cumpla esos criterios</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

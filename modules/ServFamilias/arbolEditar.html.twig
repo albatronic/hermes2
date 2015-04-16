@@ -1,0 +1,18 @@
+{# 
+    ServFamilias/arbolEditar.html.twig 
+
+    Muestra los botones de ordenación para cada nivel
+    El check de publicar/despublicar
+    El link para editar la familia, y
+    El link de crear subfamilia
+#}
+
+{% if item.nivelJerarquico == 1 or nHermanos > 1 %}
+    {{ macro.ordenarPopup(values.controller,'BelongsTo',item.belongsTo)}}
+{% else %}
+    <img src="{{app.path}}/images/espacio.gif" width="22px"/>
+{% endif %}
+
+{{ macro.actualizaColumna(values.controller,item.id,'Publish',item.publish,'Publicar/Despublicar')}}                      
+<a href="{{app.path}}/{{values.controller}}/edit/{{key}}">{{item.titulo}}</a>
+<a href="{{app.path}}/{{values.controller}}/belongsTo/{{key}}" alt="Añadir Subfamilia" title="Añadir Subfamilia"><img src="{{app.path}}/images/detalle.png"/></a>

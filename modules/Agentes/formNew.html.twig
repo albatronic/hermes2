@@ -1,0 +1,11 @@
+{# TEMPLATE Agentes/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{% set atributos = values.atributos %}
+
+{{ macro.select(atributos.IDAgente,'Etiqueta','Agentes[IDAgente]','Agentes_IDAgente',400,datos.IDAgente.Id,datos.IDAgente.getUsuariosEmpresa(emp.Id),'Select') }}
+{{ macro.input(atributos.Activo,'Etiqueta','checkbox','Agentes[Activo]','Agentes_Activo',datos.Activo.IDTipo,'255','CampoTextoLargo','20')}}          
+{{ macro.select(atributos.IDRol,'Etiqueta','Agentes[IDRol]','Agentes_IDRol',200,datos.IDRol.IDTipo,datos.IDRol.fetchAll,'Select') }}
+{{ macro.select(atributos.IDPerfil,'Etiqueta','Agentes[IDPerfil]','Agentes_IDPerfil',200,datos.IDPerfil.IDPerfil,datos.IDPerfil.fetchAll('Perfil'),'Select') }}
+{{ macro.select(atributos.IDSucursal,'Etiqueta','Agentes[IDSucursal]','Agentes_IDSucursal',200,datos.IDSucursal.IDSucursal,datos.IDSucursal.fetchAll('Nombre'),'Select') }}
+{{ macro.select(atributos.IDAlmacen,'Etiqueta','Agentes[IDAlmacen]','Agentes_IDAlmacen',200,datos.IDAlmacen.IDAlmacen,datos.IDAlmacen.fetchAll(datos.IDEmpresa.IDEmpresa,'Nombre'),'Select') }}

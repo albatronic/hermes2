@@ -1,0 +1,86 @@
+{#
+  Module: GconContenidos
+  Document : modules\GconContenidos\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 30.10.2012 18:45:39
+#}
+
+{% set atributos = values.atributos %}
+
+<div id="tabs">
+    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />       
+    <ul>
+        <li>
+            <a href="#arbol">Árbol de Contenidos</a>
+        </li>
+        <li>
+            <a href="#general">{%if datos.Titulo%}<b>{{datos.Titulo|slice(0,40)}}</b> ...{%else%}Contenido{%endif%}</a>
+            {{ macro.publicar(atributos.Publish,values.controller ~ '[Publish]',values.controller ~ '_Publish',datos.Publish.IDTipo) }}
+        </li>
+        
+        {% if (values.datos.getPrimaryKeyValue and values.datos.EsEvento.IDTipo) %}
+            <li>
+                <a href="#eventos" onclick="cargaEventos('eventos');">Eventos</a>
+            </li>
+        {% endif %}
+                
+        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+        <li>
+            <a href="#fieldsComunes">Más detalles...</a>
+        </li>        
+        {% endif %}              
+    </ul>
+        
+    {# ARBOL DE SECCIONES Y CONTENIDOS, TRES NIVELES #}
+    <div id="arbol">        
+        {% include values.controller ~ '/arbol.html.twig' with {'arbol': values.datos.getArbolHijos, 'subtemplate':'arbolEditar.html.twig'} %}
+    </div>
+        
+    <div id="general">     
+        {{ macro.select(atributos.IdSeccion,'EtiquetaMedia',values.controller ~ '[IdSeccion]',values.controller ~ '_IdSeccion',200,datos.IdSeccion.Id,datos.IdSeccion.fetchAll('Titulo',0),'chzn-select')}}
+        {{ macro.input(atributos.Titulo,'EtiquetaMedia','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'255','CampoTextoLargo','2') }}
+        {{ macro.input(atributos.Subtitulo,'EtiquetaMedia','text',values.controller ~ '[Subtitulo]',values.controller ~ '_Subtitulo',datos.Subtitulo,'255','CampoTextoLargo','3') }}
+        {{ macro.textarea(atributos.Resumen,'EtiquetaMedia',values.controller ~ '[Resumen]',values.controller ~ '_Resumen',datos.Resumen,none,none,'textarea','4') }}
+        {{ macro.textarea(atributos.Desarrollo,'EtiquetaMedia',values.controller ~ '[Desarrollo]',values.controller ~ '_Desarrollo',datos.Desarrollo,none,none,'textarea','5')}}
+        {{ macro.input(atributos.MostrarTituloPortada,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarTituloPortada]',values.controller ~ '_MostrarTituloPortada',datos.MostrarTituloPortada.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.MostrarTituloContenido,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarTituloContenido]',values.controller ~ '_MostrarTituloContenido',datos.MostrarTituloContenido.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.MostrarSubtituloPortada,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarSubtituloPortada]',values.controller ~ '_MostrarSubtituloPortada',datos.MostrarSubtituloPortada.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.MostrarSubtituloContenido,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarSubtituloContenido]',values.controller ~ '_MostrarSubtituloContenido',datos.MostrarSubtituloContenido.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.MostrarResumenPortada,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarResumenPortada]',values.controller ~ '_MostrarResumenPortada',datos.MostrarResumenPortada.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.MostrarResumenContenido,'EtiquetaMedia','checkbox',values.controller ~ '[MostrarResumenContenido]',values.controller ~ '_MostrarResumenContenido',datos.MostrarResumenContenido.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.BlogPublicar,'EtiquetaMedia','checkbox',values.controller ~ '[BlogPublicar]',values.controller ~ '_BlogPublicar',datos.BlogPublicar.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.BlogMostrarEnPortada,'EtiquetaMedia','checkbox',values.controller ~ '[BlogMostrarEnPortada]',values.controller ~ '_BlogMostrarEnPortada',datos.BlogMostrarEnPortada.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.BlogPermitirComentarios,'EtiquetaMedia','checkbox',values.controller ~ '[BlogPermitirComentarios]',values.controller ~ '_BlogPermitirComentarios',datos.BlogPermitirComentarios.IDTipo,'255','CampoTextoLargo','12') }}
+        {# macro.input(atributos.BlogOrden,'EtiquetaMedia','text',values.controller ~ '[BlogOrden]',values.controller ~ '_BlogOrden',datos.BlogOrden,'11','CampoImporte','15') #}
+        {{ macro.input(atributos.NoticiaPublicar,'EtiquetaMedia','checkbox',values.controller ~ '[NoticiaPublicar]',values.controller ~ '_NoticiaPublicar',datos.NoticiaPublicar.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.NoticiaMostrarEnPortada,'EtiquetaMedia','checkbox',values.controller ~ '[NoticiaMostrarEnPortada]',values.controller ~ '_NoticiaMostrarEnPortada',datos.NoticiaMostrarEnPortada.IDTipo,'255','CampoTextoLargo','12') }}
+        {# macro.input(atributos.NoticiaOrden,'EtiquetaMedia','text',values.controller ~ '[NoticiaOrden]',values.controller ~ '_NoticiaOrden',datos.NoticiaOrden,'11','CampoImporte','18') #}
+        {{ macro.input(atributos.EsEvento,'EtiquetaMedia','checkbox',values.controller ~ '[EsEvento]',values.controller ~ '_EsEvento',datos.EsEvento.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(atributos.EsWiki,'EtiquetaMedia','checkbox',values.controller ~ '[EsWiki]',values.controller ~ '_EsWiki',datos.EsWiki.IDTipo,'255','CampoTextoLargo','12') }}
+
+        {% include '_global/metaDatos.html.twig' %}       
+        </div>
+    
+    {% if (values.datos.getPrimaryKeyValue) and (values.datos.EsEvento.IDTipo) %}
+        <div id="eventos"></div>
+    {% endif %}
+
+    {% include '_global/fieldsComunes.html.twig' %}            
+</div>
+
+<script>
+    if ($('#solapaActiva').val() === '0') {
+        $('#solapaActiva').val('1');
+    }
+    $("#tabs").tabs({ active: $('#solapaActiva').val() });
+
+
+function cargaEventos(idDiv) {
+
+    var url = "<iframe src='{{appPath}}/EvenEventos/listPopup/{{values.controller}}/{{datos.Id}}' width='100%' height='520'><p>Tu navegador no soporta iframes</p></iframe>";
+
+    $('#'+idDiv).html(url);
+}
+</script>

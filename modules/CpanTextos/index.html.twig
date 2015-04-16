@@ -1,0 +1,30 @@
+{#
+  Module: CpanTextos
+  Document : modules\CpanTextos\index.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 01.02.2014 21:09:46
+#}
+
+{% extends layout %}
+
+{% block title parent() ~ ' - '  ~ values.titulo %}
+
+{% block content %}
+    {% include '_global/TituloGenerico.html.twig' with {'controller':values. controller, 'linkValue': values.linkBy.value} %}
+
+    {% block filtro %}
+        {% if values.permisos.permisosModulo['CO'] %}
+            {% include values.controller ~ '/filtro.html.twig' with {'filter':values.listado.filter} %}
+        {% endif %}
+    {% endblock %}
+
+    <div id="div_listado">
+    {% block listado %}
+    {% endblock %}
+    </div>
+
+    {% block mantenimiento %}
+    {% endblock %}
+{% endblock %}

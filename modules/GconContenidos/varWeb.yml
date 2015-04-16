@@ -1,0 +1,70 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO GconContenidos
+#
+# Module: GconContenidos
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 30-10-2012 18:45:39
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: EL caption de la variable
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---
+CriterioOrdenContenidos:
+  caption: Criterio Orden Contenidos
+  values:
+    - {'Id':'SortOrder ASC','Value':'Orden a-z'} 
+    - {'Id':'SortOrder DESC','Value':'Orden z-a'}
+    - {'Id':'PublishedAt ASC','Value':'Fecha Publicación a-z'}
+    - {'Id':'PublishedAt DESC','Value':'Fecha Publicación z-a'}
+  default: 'SortOrder ASC'
+  
+CriterioOrdenNoticias:
+  caption: Criterio Orden Noticias
+  values:
+    - {'Id':'SortOrder ASC','Value':'Orden a-z'} 
+    - {'Id':'SortOrder DESC','Value':'Orden z-a'}
+    - {'Id':'PublishedAt ASC','Value':'Fecha Publicación a-z'}
+    - {'Id':'PublishedAt DESC','Value':'Fecha Publicación z-a'}
+  default: 'SortOrder ASC'
+    
+NumNoticiasHome:
+  caption: Número noticias en el Home
+  default: 2
+    
+NumNoticiasPorPagina:
+  caption: Número noticas por página
+  default: 5
+    
+NumContenidosPorPaginaListado:
+  caption: Número contenidos por página listado
+  default: 6
+    
+NumContenidosPorPaginaDesarrollado:
+  caption: Número contenidos por página desarrollado
+  default: 7
+    
+NumArticulosBlogHome:
+  caption: Número de artículos blog en el Home
+  default: '22'
+    
+NumArticulosBlogPorPagina:
+  caption: Número de artículos blog por página
+  default: 8
+  
+NumArticulosWikiHome:
+  caption: Número de artículos wiki en el Home
+  default: 5
+    
+NumArticulosWikiPorPagina:
+  caption: Número de artículos wiki por página
+  default: 10
+  
+censurarWiki:
+  caption: Censurar términos de la wiki sugeridos
+  values:
+    - {'Id':'0','Value':'No, se publican directamente'} 
+    - {'Id':'1','Value':'Sí, los publica el web master'}
+  default: '1'  

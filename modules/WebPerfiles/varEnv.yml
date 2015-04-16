@@ -1,0 +1,11 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO WebPerfiles
+#
+# Module: WebPerfiles
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 18-03-2014 18:36:33
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

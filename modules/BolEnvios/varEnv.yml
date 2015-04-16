@@ -1,0 +1,11 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO BolEnvios
+#
+# Module: BolEnvios
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright ARTICO ESTUDIO, SL
+# date 12-07-2013 12:30:18
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

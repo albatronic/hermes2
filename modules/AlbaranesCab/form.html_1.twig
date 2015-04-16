@@ -1,0 +1,141 @@
+{# TEMPLATE AlbaranesCab/form.html.twig       #}
+{# Muestra los campos editables de la entidad #}
+
+{% set atributos = values.atributos %}
+
+{% if not datos.IDAlbaran %}
+    {% set sucursalDefecto = suc %}
+{% else %}
+    {% set sucursalDefecto = datos.IDSucursal.IDSucursal %}
+{% endif %}
+
+<div class="CajaIzquierda" style="height: 220px;">
+
+{% if datos.IDEstado.IDTipo == '0' %}
+    {% if datos.IDAlbaran %}
+    {{ macro.etiqueta(atributos.IDSucursal,'Etiqueta',datos.IDSucursal.Nombre) }}
+    {% else %}
+    <div class="Item" id="div_AlbaranesCab_IDSucursal">
+        {{ macro.label(atributos.IDSucursal,none,none,'AlbaranesCab_IDSucursal')}}
+        <select name="AlbaranesCab[IDSucursal]" id="AlbaranesCab_IDSucursal" size="1" class="Select"
+                onchange="DesplegableAjax('div_AlbaranesCab_IDContador','AlbaranesCab_IDContador','AlbaranesCab[IDContador]','contadorAlbaranes',this.value);
+                          DesplegableAjax('div_AlbaranesCab_IDComercial','AlbaranesCab_IDComercial','AlbaranesCab[IDComercial]','comercialAlbaranes',this.value);
+                          $('#AlbaranesCab_IDCliente').val('');
+                          $('#RazonSocial').val('');
+                         "
+        >
+        {% for value in datos.IDAgente.getSucursales(emp.IDEmpresa,false) %}
+            <option value="{{ value.Id }}" {% if (value.Id==sucursalDefecto) %} SELECTED {%endif%}>{{value.Value}}</option>
+        {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+
+    {% if not datos.IDAlbaran %}
+    {{ macro.select(atributos.IDContador,'Etiqueta','AlbaranesCab[IDContador]','AlbaranesCab_IDContador',40,datos.IDContador.IDContador,datos.IDContador.fetchAll(sucursalDefecto,1),'Select') }}
+    {% endif %}
+
+    {{ macro.fecha(atributos.Fecha,'Etiqueta','AlbaranesCab[Fecha]','AlbaranesCab_Fecha',datos.Fecha,'10','CampoFecha') }}
+    {{ macro.fecha(atributos.FechaEntrega,'Etiqueta','AlbaranesCab[FechaEntrega]','AlbaranesCab_FechaEntrega',datos.FechaEntrega,'10','CampoFecha','disabled') }}
+    {{ macro.select(atributos.IDAlmacen,'Etiqueta','AlbaranesCab[IDAlmacen]','AlbaranesCab_IDAlmacen',200,datos.IDAlmacen.IDAlmacen,datos.IDAgente.getAlmacenes('','',false),'Select') }}
+
+    <div class="Item" id="div_AlbaranesCab_RazonSocial">
+        {{ macro.label(atributos.IDCliente,none,none,'AlbaranesCab_IDCliente')}}
+        <input name="AlbaranesCab[IDCliente]" id="AlbaranesCab_IDCliente" value="{{datos.IDCliente.IDCliente}}" type="hidden"/>
+        <input value="{{datos.IDCliente.RazonSocial}}" id="RazonSocial" type="text" maxlength="50" class="CampoTextoLargo"
+               onkeyup="autoCompletar('RazonSocial','AlbaranesCab_IDCliente','RazonSocial','clientes',$('#AlbaranesCab_IDSucursal').val(),['subbloque_ajax_cliente_albaran','','','clientealbaran']);"/>
+
+        {% if datos.IDCliente.IDCliente %}
+        {{ macro.historicoVentas(app.path,0,datos.IDCliente.IDCliente) }}
+        {{ macro.promosVigentesCliente(app.path, datos.IDCliente, datos.getDate) }}
+        {% endif %}
+    </div>
+
+    <div id="subbloque_ajax_cliente_albaran">
+        {{ macro.select(atributos.IDComercial,'Etiqueta','AlbaranesCab[IDComercial]','AlbaranesCab_IDComercial',200,datos.IDComercial.IDAgente,datos.IDComercial.getComerciales('',sucursalDefecto),'Select') }}
+        {{ macro.select(atributos.IDDirec,'Etiqueta','AlbaranesCab[IDDirec]','AlbaranesCab_IDDirec',350,datos.IDDirec.IDDirec,datos.IDDirec.fetchAll(datos.IDCliente.IDCliente),'Select350') }}
+        {{ macro.select(atributos.IDFP,'Etiqueta','AlbaranesCab[IDFP]','AlbaranesCab_IDFP',300,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'Select') }}
+    </div>
+    {{ macro.etiqueta(atributos.Avisos,'Etiqueta',datos.IDCliente.Avisos) }}
+    {{ macro.foco('RazonSocial') }}
+{% else %}
+    {{ macro.etiqueta(atributos.IDSucursal,'Etiqueta',datos.IDSucursal.Nombre) }}
+    {{ macro.etiqueta(atributos.IDAlmacen,'Etiqueta',datos.IDAlmacen.Nombre) }}
+    {{ macro.etiqueta(atributos.Fecha,'Etiqueta',datos.Fecha ) }}
+    {{ macro.etiqueta(atributos.FechaEntrega,'Etiqueta',datos.FechaEntrega ) }}
+    {{ macro.etiqueta(atributos.IDCliente,'Etiqueta',datos.IDCliente.RazonSocial) }}
+    {{ macro.etiqueta(atributos.IDComercial,'Etiqueta',datos.IDComercial.Nombre) }}
+    {{ macro.etiqueta(atributos.IDDirec,'Etiqueta',datos.IDDirec.Direccion ~ " - " ~ datos.IDDirec.IDPoblacion ~ " (" ~ datos.IDDirec.IDProvincia.Provincia ~ ")") }}
+    {{ macro.etiqueta(atributos.IDFP,'Etiqueta',datos.IDFP.Descripcion,'AlbaranesCab_IDFP' ) }}
+    <div style="clear: both;"></div>    
+{% endif %}
+
+{{ macro.etiqueta(atributos.IDPsto,'Etiqueta',datos.IDPsto.NumeroPsto,'AlbaranesCab_IDPsto') }}
+</div>
+
+
+{% if datos.IDAlbaran %}
+<div class="CajaTotales" style="height: 220px;">
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Importes</a></li>
+            <li><a href="#tabs-2">Envío</a></li>
+            <li><a href="#tabs-3">{% if datos.Observaciones %}<b>{% endif %}Observaciones{% if datos.Observaciones %}</b>{% endif %}</a></li>
+            <li><a href="#tabs-4">{% if datos.NotasInternas %}<b>{% endif %}Notas{% if datos.NotasInternas %}</b>{% endif %}</a></li>
+            {% if (values.varEnvMod.withDocuments == '1' or user.IDPerfil.IDPerfil == '1') and (datos.PrimaryKeyValue ) %}            
+            <li><a href="#divDocs" id="docs">Docs ({{datos.getNumberOfDocuments('document')}})</a></li>
+            {% endif %}
+        </ul>
+        <div id="tabs-1">
+            {% include values.controller ~ "/totales.html.twig" with {'datos': datos}%}
+        </div>
+        <div id="tabs-2">
+            {% if datos.IDEstado.IDTipo < '2' %}
+                {{ macro.select(atributos.IDAgencia,'Etiqueta','AlbaranesCab[IDAgencia]','AlbaranesCab_IDAgencia',200,datos.IDAgencia.IDAgencia,datos.getAgencias(),'Select210') }}
+                {{ macro.select(atributos.IDRutaReparto,'Etiqueta','AlbaranesCab[IDRutaReparto]','AlbaranesCab_IDRutaReparto',200,datos.IDRutaReparto.IDRuta,datos.IDRutaReparto.fetchAll(datos.IDSucursal.IDSucursal),'Select210') }}
+                {{ macro.select(atributos.DiaReparto,'Etiqueta','AlbaranesCab[DiaReparto]','AlbaranesCab_DiaReparto',200,datos.DiaReparto.IDTipo,datos.DiaReparto.fetchAll,'Select') }}
+                {{ macro.select(atributos.IDRepartidor,'Etiqueta','AlbaranesCab[IDRepartidor]','AlbaranesCab_IDRepartidor',200,datos.IDRepartidor.IDAgente,datos.IDRepartidor.getRepartidores,'Select210') }}
+                {{ macro.input(atributos.Peso,'Etiqueta','text','AlbaranesCab[Peso]','AlbaranesCab_Peso',datos.Peso,'10','CampoUnidades') }}
+                {{ macro.input(atributos.Volumen,'Etiqueta','text','AlbaranesCab[Volumen]','AlbaranesCab_Volumen',datos.Volumen,'10','CampoUnidades') }}
+                {{ macro.input(atributos.Bultos,'Etiqueta','text','AlbaranesCab[Bultos]','AlbaranesCab_Bultos',datos.Bultos,'4','CampoUnidades') }}
+                {{ macro.input(atributos.Expedicion,'Etiqueta','text','AlbaranesCab[Expedicion]','AlbaranesCab_Expedicion',datos.Expedicion,'50','CampoTextoCorto') }}
+            {% else %}
+                {{ macro.etiqueta(atributos.IDAgencia,'Etiqueta',datos.IDAgencia.Agencia ) }}
+                {{ macro.etiqueta(atributos.IDRutaReparto,'Etiqueta',datos.IDRutaReparto.Descripcion ) }}
+                {{ macro.etiqueta(atributos.DiaReparto,'Etiqueta',datos.DiaReparto ) }}
+                {{ macro.etiqueta(atributos.IDRepartidor,'Etiqueta',datos.IDRepartidor.Nombre ) }}
+                {{ macro.etiqueta(atributos.Peso,'Etiqueta',datos.Peso ) }}
+                {{ macro.etiqueta(atributos.Volumen,'Etiqueta',datos.Volumen ) }}
+                {{ macro.etiqueta(atributos.Bultos,'Etiqueta',datos.Bultos ) }}
+                {{ macro.etiqueta(atributos.Expedicion,'Etiqueta',datos.Expedicion ) }}
+                <div style="clear: both;"></div>
+            {% endif %}
+        </div>
+        <div id="tabs-3">
+            {{ macro.textarea(atributos.Observaciones,'Etiqueta','AlbaranesCab[Observaciones]','AlbaranesCab_Observaciones',datos.Observaciones,none,none,'TextArea')}}
+            {% set beneficio  = datos.getBeneficio() %}
+            <div style="text-align: center;">
+                Referencia [{{ beneficio.Venta}}] [{{ beneficio.Costo}}] [{{ beneficio.Beneficio }}]
+            </div>
+        </div>
+        <div id="tabs-4">
+            {{ macro.textarea(atributos.NotasInternas,'Etiqueta','AlbaranesCab[NotasInternas]','AlbaranesCab_NotasInternas',datos.NotasInternas,none,none,'TextArea')}}
+        </div>
+        {% if (values.varEnvMod.withDocuments == '1' or user.IDPerfil.IDPerfil == '1') and (datos.PrimaryKeyValue ) %}               
+        <div id="divDocs"></div>
+        {% endif %}
+    </div>
+</div>
+
+
+<iframe width="100%" height="327" scrolling="yes" style="margin-top:5px; border:0;"
+        src="{{app.path}}/AlbaranesLineas/list/{{datos.IDAlbaran}}">
+</iframe>
+{% endif %}
+
+<script type="text/javascript"> 
+$("#docs").click(function(){
+    url = "<iframe src='{{app.path}}/CpanDocs/listPopup/{{values.controller}}/{{datos.PrimaryKeyValue}}/document/1' width='100%' height='270' scrolling='yes' style='border: 0px dotted grey;'></iframe>"; 
+    $("#divDocs").html(url);
+});
+</script>  

@@ -1,0 +1,11 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO ZonasPagoEnvio
+#
+# Module: ZonasPagoEnvio
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 14-03-2014 23:46:54
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

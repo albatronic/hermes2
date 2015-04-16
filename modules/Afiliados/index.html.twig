@@ -1,0 +1,29 @@
+{#
+  Module: ErpAfiliados
+  Document : modules\ErpAfiliados\index.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 13.07.2014 17:39:52
+#}
+
+{% extends layout %}
+
+{% block title parent() ~ ' - '  ~ values.titulo %}
+
+{% block content %}
+	{% include '_global/TituloGenerico.html.twig' with {'controller': values.controller, 'linkValue': values.linkBy.value} %}
+	{% block filtro %}
+	{% if values.permisos.permisosModulo['CO'] and values.tieneListado %}
+		{% include values.controller ~ '/filtro.html.twig' with {'filter': values.listado.filter} %}
+	{% endif %}
+	{% endblock %}
+
+	<div id='div_listado'>
+	{% block listado %}
+	{% endblock %}
+	</div>
+
+	{% block mantenimiento %}
+	{% endblock %}
+{% endblock %}

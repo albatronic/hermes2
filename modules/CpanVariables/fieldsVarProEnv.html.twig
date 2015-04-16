@@ -1,0 +1,135 @@
+{# VARIABLES DE ENTORNO A NIVEL DE PROYECTO #}
+
+{# author Sergio Pérez <sergio.perez@albatronic.com> #}
+{# copyright Informática ALBATRONIC, SL #}
+{# 12.sep.2012 11:16 #}
+
+{% extends 'CpanVariables/form.html.twig' %}
+
+{% block template %}
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-global">Global</a></li>
+        <li><a href="#tabs-shop">Tienda Online</a></li>
+        <li><a href="#tabs-visitas">Control Visitas</a></li>
+        <li><a href="#tabs-varWeb">Visibilidad Var Web</a></li>          
+    </ul>
+        
+    <div id="tabs-global" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        {{ macro.input({'caption':'[title] Título','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[title]','d_title',values.d.title,'50','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[url] Url de la web con http://','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[url]','d_url',values.d.url,'50','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[eMailWebMaster] EMail WebMaster','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[eMailWebMaster]','d_eMailWebMaster',values.d.eMailWebMaster,'50','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[eMailSuperAdministrator] EMail SuperAdministrador','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[eMailSuperAdministrator]','d_eMailSuperAdministrator',values.d.eMailSuperAdministrator,'50','CampoTextoMedio','1') }}
+        {{ macro.fecha({'caption':'[activeFrom] Vigente desde','visible':'1','varEnv':'0'},'EtiquetaLarga','d[activeFrom]','d_activeFrom',values.d.activeFrom,'19','datepicker') }}
+        {{ macro.fecha({'caption':'[activeTo] Vigente hasta','visible':'1','varEnv':'0'},'EtiquetaLarga','d[activeTo]','d_activeTo',values.d.activeTo,'19','datepicker') }}
+        {{ macro.input({'caption':'[maxLengthUrlsFriendly] Longitud máxima URLs y nombres amigables','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxLengthUrlsFriendly]','d_maxLengthUrlsFriendly',values.d.maxLengthUrlsFriendly,'3','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[allowTypes] Tipos de archivos permitidos (extensiones separadas por coma)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[allowTypes]','d_allowTypes',values.d.allowTypes,'100','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[exportTypes] Formatos de exportación permitidos (extensiones separadas por coma)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[exportTypes]','d_exportTypes',values.d.exportTypes,'100','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[numMaxPages] Núm. máximo de páginas','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[numMaxPages]','d_numMaxPages',values.d.numMaxPages,'6','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[numMaxDocuments] Núm. máx. Documentos','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[numMaxDocuments]','d_numMaxDocuments',values.d.numMaxDocuments,'6','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[numMaxGalery] Núm. máx. Imágenes Galeria','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[numMaxGalery]','d_numMaxGalery',values.d.numMaxGalery,'6','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[numMaxVideos] Núm. máx. Vídeos Galeria','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[numMaxVideos]','d_numMaxVideos',values.d.numMaxVideos,'6','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[numMaxAudios] Núm. máx. Audios Galeria','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[numMaxAudios]','d_numMaxAudios',values.d.numMaxAudios,'6','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[blockRobots] Bloquear Robots de busqueda','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[blockRobots]','d_blockRobots',values.d.blockRobots,'50','CampoTextoMedio','1') }}            
+        {{ macro.input({'caption':'[log] Generar archivo log','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[log]','d_log',values.d.log,'50','CampoTextoMedio','1') }}            
+    </div>
+    
+    <div id="tabs-shop" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        <div id="acordeonColumnas" style="margin-top:10px;">
+            <h3>General</h3>
+            <div>
+                {{ macro.input({'caption':'[shop][url] Url de la tienda online con http://','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[shop][url]','d_shop_url',values.d.shop.url,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[shop][eMailPedidos] EMail notificación de pedidos','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[shop][eMailPedidos]','d_shop_eMailPedidos',values.d.shop.eMailPedidos,'50','CampoTextoMedio','1') }}                              
+                {{ macro.input({'caption':'[shop][carruselPortada] Carrusel en portada','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][carruselPortada]','d_shop_carruselPortada',values.d.shop.carruselPortada,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][ivaIncluido] Iva incluido en los precios','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][ivaIncluido]','d_shop_ivaIncluido',values.d.shop.ivaIncluido,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][ivaIncluidoCarrito] Iva incluido en el carrito','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][ivaIncluidoCarrito]','d_shop_ivaIncluidoCarrito',values.d.shop.ivaIncluidoCarrito,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][cupones] Gestión de cupones','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][cupones]','d_shop_cupones',values.d.shop.cupones,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][boletines] Suscripción a boletines','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][boletines]','d_shop_boletines',values.d.shop.boletines,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][seguimientoVisitas] Seguimiento de las visitas de los clientes','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][seguimientoVisitas]','d_shop_seguimientoVisitas',values.d.shop.seguimientoVisitas,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][idChatZopim] ID chat online Zopim','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[shop][idChatZopim]','d_shop_idChatZopim',values.d.shop.idChatZopim,'50','CampoTextoMedio','1') }}                  
+            </div>
+            <h3>Stock</h3>
+            <div>
+                {{ macro.input({'caption':'[shop][mostrarStock] Mostrar existencias','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][mostrarStock]','d_shop_mostrarStock',values.d.shop.mostrarStock,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][mostrarSinStock] Mostrar artículos sin existencias','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][mostrarSinStock]','d_shop_mostrarSinStock',values.d.shop.mostrarSinStock,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][mostrarDisponibilidad] Mostrar leyendas con la disponibilidad','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][mostrarDisponibilidad]','d_shop_mostrarDisponibilidad',values.d.shop.mostrarDisponibilidad,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][avisadorStock] Mostrar avisador de stock','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][avisadorStock]','d_shop_avisadorStock',values.d.shop.avisadorStock,'50','CampoTextoMedio','1') }}               
+            </div>
+            <h3>Tpv Paypal</h3>
+            <div>
+                {{ macro.input({'caption':'[shop][paypal][modo] Modo real','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][paypal][modo]','d_shop_paypal_modo',values.d.shop.paypal.modo,'50','CampoTextoMedio','1') }}                
+                {{ macro.input({'caption':'[shop][paypal][business] Email (business)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[shop][paypal][business]','d_shop_paypal_business',values.d.shop.paypal.business,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[shop][paypal][currency_code] Código moneda (EUR)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[shop][paypal][currency_code]','d_shop_paypal_currency_code',values.d.shop.paypal.currency_code,'50','CampoTextoMedio','1') }}               
+            </div>
+            <h3>Tpv Redsys/Sermepa</h3>
+            <div>
+                {{ macro.input({'caption':'[shop][redsys][modo] Modo real','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][redsys][modo]','d_shop_redsys_modo',values.d.shop.redsys.modo,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[shop][redsys][claveTest] Clave modo test','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][redsys][claveTest]','d_shop_redsys_claveTest',values.d.shop.redsys.claveTest,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][redsys][claveReal] Clave modo real','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][redsys][claveReal]','d_shop_redsys_claveReal',values.d.shop.redsys.claveReal,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][redsys][nombre] Nombre Comercio','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][redsys][nombre]','d_shop_redsys_nombre',values.d.shop.redsys.nombre,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][redsys][codigo] Codigo Comercio','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][redsys][codigo]','d_shop_redsys_codigo',values.d.shop.redsys.codigo,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][redsys][terminal] Terminal (1)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][redsys][terminal]','d_shop_redsys_terminal',values.d.shop.redsys.terminal,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][redsys][moneda] Código Moneda (978)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][redsys][moneda]','d_shop_redsys_moneda',values.d.shop.redsys.moneda,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][redsys][tipoTransaccion] Tipo de transacción (0)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][redsys][tipoTransaccion]','d_shop_redsys_tipoTransaccion',values.d.shop.redsys.tipoTransaccion,'50','CampoTextoMedio','1') }}        
+            </div>            
+            <h3>Tpv CECA</h3>
+            <div>
+                {{ macro.input({'caption':'[shop][ceca][modo] Modo real','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][ceca][modo]','d_shop_ceca_modo',values.d.shop.ceca.modo,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[shop][ceca][claveTest] Clave modo test','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][ceca][claveTest]','d_shop_ceca_claveTest',values.d.shop.ceca.claveTest,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][ceca][claveReal] Clave modo real','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][ceca][claveReal]','d_shop_ceca_claveReal',values.d.shop.ceca.claveReal,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][ceca][MerchantID] Código Comercio','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][ceca][MerchantID]','d_shop_ceca_MerchantID',values.d.shop.ceca.MerchantID,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][ceca][AcquirerBIN] Caja','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][ceca][AcquirerBIN]','d_shop_ceca_AcquirerBIN',values.d.shop.ceca.AcquirerBIN,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][ceca][TerminalID] Terminal (00000003)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][ceca][TerminalID]','d_shop_ceca_TerminalID',values.d.shop.ceca.TerminalID,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][ceca][TipoModena] Código Moneda (978)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][ceca][TipoModena]','d_shop_ceca_TipoModena',values.d.shop.ceca.TipoModena,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][ceca][Exponente] Exponente (2)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][ceca][Exponente]','d_shop_ceca_Exponente',values.d.shop.ceca.Exponente,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][ceca][Pago_soportado] Pago soportado (SSL)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][ceca][Pago_soportado]','d_shop_ceca_Pago_soportado',values.d.shop.ceca.Pago_soportado,'50','CampoTextoMedio','1') }}        
+            </div>            
+            <h3>Tpv Pagantis</h3>
+            <div>
+                {{ macro.input({'caption':'[shop][pagantis][modo] Modo real','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][pagantis][modo]','d_shop_pagantis_modo',values.d.shop.pagantis.modo,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[shop][pagantis][claveTest] Clave modo test','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][pagantis][claveTest]','d_shop_pagantis_claveTest',values.d.shop.pagantis.claveTest,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][pagantis][claveReal] Clave modo real','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][pagantis][claveReal]','d_shop_pagantis_claveReal',values.d.shop.pagantis.claveReal,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][pagantis][nombre] Nombre Comercio','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][pagantis][nombre]','d_shop_pagantis_nombre',values.d.shop.pagantis.nombre,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][pagantis][codigo] Codigo Comercio','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][pagantis][codigo]','d_shop_pagantis_codigo',values.d.shop.pagantis.codigo,'50','CampoTextoMedio','1') }}        
+                {# macro.input({'caption':'[shop][pagantis][terminal] Terminal (1)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][pagantis][terminal]','d_shop_pagantis_terminal',values.d.shop.pagantis.terminal,'50','CampoTextoMedio','1') #}        
+                {{ macro.input({'caption':'[shop][pagantis][moneda] Código Moneda (EUR,USD,GBP)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][pagantis][moneda]','d_shop_pagantis_moneda',values.d.shop.pagantis.moneda,'50','CampoTextoMedio','1') }}              
+                {{ macro.input({'caption':'[shop][pagantis][idoma] Idioma (opcional) (ca,en,es,eu,fr,gl,it,pl,ru)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][pagantis][idioma]','d_shop_pagantis_idioma',values.d.shop.pagantis.idioma,'50','CampoTextoMedio','1') }}              
+            </div>    
+            <h3>Tpv Banwire</h3>
+            <div>
+                {{ macro.input({'caption':'[shop][banwire][modo] Modo real','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[shop][banwire][modo]','d_shop_banwire_modo',values.d.shop.banwire.modo,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[shop][banwire][userTest] Usuario modo test','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][banwire][userTest]','d_shop_banwire_userTest',values.d.shop.banwire.userTest,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][banwire][userReal] Usuario modo real','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][banwire][userReal]','d_shop_banwire_userReal',values.d.shop.banwire.userReal,'50','CampoTextoMedio','1') }}        
+                {{ macro.input({'caption':'[shop][banwire][pais] Código Iso3 País (MEX, USA)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][banwire][pais]','d_shop_banwire_pais',values.d.shop.banwire.pais,'50','CampoTextoMedio','1') }}                    
+                {{ macro.input({'caption':'[shop][banwire][moneda] Código Moneda (EUR,USD,MXN)','visible':'1','varEnv':'0'},'EtiquetaLarga','input','d[shop][banwire][moneda]','d_shop_banwire_moneda',values.d.shop.banwire.moneda,'50','CampoTextoMedio','1') }}                         
+            </div>            
+        </div>
+    </div>
+        
+    <div id="tabs-visitas" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        {{ macro.input({'caption':'[visitas][activo] Activo','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[visitas][activo]','d_visitas_activo',values.d.visitas.activo,'50','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[visitas][ws] Webservice','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[visitas][ws]','d_visitas_ws',values.d.visitas.ws,'50','CampoTextoMedio','1') }}
+        {{ macro.input({'caption':'[visitas][frecuenciaHorasBorrado] Horas Frecuencia Borrado','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[visitas][frecuenciaHorasBorrado]','d_visitas_frecuenciaHorasBorrado',values.d.visitas.frecuenciaHorasBorrado,'50','CampoTextoMedio','1') }}        
+    </div>
+        
+    {# CONTROL VISIBILIDAD VARIABLES WEB #}
+    <div id="tabs-varWeb" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        <h5>Control de visibilidad de variables web</h5>
+        <div id="acordeonVW" style="margin-top:10px;">
+            <h3>Globales [showVarWeb][globales]</h3>
+            <div>
+                {% for nombre,valor in values.d.showVarWeb.globales %}
+                    {{ macro.input({'caption':'['~nombre~']','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showVarWeb][globales]['~nombre~']','d_showVarWeb_globales_'~nombre,valor)}}
+                {% endfor %}            
+            </div>
+
+            <h3>Específicas [showVarWeb][especificas]</h3>
+            <div>
+            {% for nombre,valor in values.d.showVarWeb.especificas %}
+                {{ macro.input({'caption':'['~nombre~']','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showVarWeb][especificas]['~nombre~']','d_showVarWeb_especificas_'~nombre,valor)}}
+            {% endfor %}
+            </div>
+        </div>
+    </div>        
+</div>
+{% endblock %}

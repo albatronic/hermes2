@@ -1,0 +1,137 @@
+{# CATEGORIAS DE PRODUCTOS TPV #}
+
+{% set pvpConIva = varEnvMod.especificas.pvpConImpuestos %}
+
+<div class="ticketFavoritos">
+    {% if (albaran.IDEstado.IDTipo == 0) %}
+    <h3 id="h3Categorias">CATEGORIAS</h3>
+    <div class="addFavorito">      
+        <ul id="categorias">
+        </ul>
+    </div>        
+    {% endif %}
+</div>
+
+<script>
+   var ruta = [];
+// Pintar el arbol de categorias
+function pintaArbol(movimiento,nodo) {
+    var html = "";
+    var rama = arbol;
+    var titulo;
+
+    if (movimiento === 'd') {
+        ruta.push(nodo);
+    } else {
+        ruta.pop();
+    }
+    profundidad = ruta.length-1;
+    if (profundidad === 0){
+        titulo = "CATEGORIAS";
+    } else {
+        for(var i=1;i<=profundidad; i++){
+            //alert(ruta.length+" "+i+" "+ruta[i]);            
+            titulo = rama[ruta[i]].titulo;
+            rama = rama[ruta[i]].hijos;
+        }
+    }
+
+    $('#h3Categorias').html(titulo);
+    
+    if (profundidad>0) {
+        nodoPadre = ruta[profundidad-1];
+        html = "<li onclick=\"pintaArbol('u','"+nodoPadre+"');$('#articulos').html('');\">ANTERIOR</li>";        
+    }
+
+    
+    $.each( rama, function( key, familia ) {
+        if (familia.nHijos>0) {
+            html = html + "<li id='categoria"+familia.id+"' title='"+familia.titulo+"'>"+
+                "<span onclick=\"pintaArbol('d','"+key+"');pintaArticulos('"+key+"');\" style='font-size: 13px !important;'>"+familia.titulo.substring(0,21)+" ("+familia.nArticulos+")</span>"+
+                "</li>";
+        } else {
+            html = html + "<li id='categoria"+familia.id+"' title='"+familia.titulo+"'>"+
+                "<span onclick=\"pintaArticulos('"+key+"');\" style='font-size: 13px !important;'>"+familia.titulo.substring(0,21)+" ("+familia.nArticulos+")</span>"+
+                "</li>";        
+        }
+    });
+    $('#categorias').html(html); 
+}
+    
+function pintaArticulos(key) {
+    
+    var html = "";
+    var nodo = arbol;
+    var articulos = [];
+    var precio;
+
+    for(var i=1;i<=profundidad;i++){
+        articulos = nodo[ruta[i]].articulos;
+        nodo = nodo[ruta[i]].hijos;        
+    }
+    if (key!==ruta[i]) {
+        articulos = nodo[key].articulos;
+    }
+    //if (nodo['nArticulos'] > 0) {
+        $.each(articulos,function(key,articulo) {
+            {% if pvpConIva == '1' %}
+                precio = Redondear(articulo.PvpConImpuestos,2);
+            {% else %}
+                precio = Redondear(articulo.Pvp,2);
+            {% endif %}            
+            html = html + 
+                    "<li class='frameArticulos' id='articulo"+articulo.Id+"'"+
+                    "<div><img style='cursor: pointer;' src='{{project.url}}/"+articulo.imagenes[2]+"' alt='"+articulo.Value+"' title='"+articulo.Value+"' onclick=\"addTicket('articulo"+articulo.Id+"','"+articulo.Id+"');\"/></div>"+
+                    "<div>"+
+                        "<div style='float:left;'>"+precio+"</div>"+
+                        "<div style='float:right;'>"+
+                        "<a onclick=\"window.open('"+appPath+"/_Emergente/fichaProducto/"+articulo.Id+"','FichaProducto','width=850,height=500,resizable=yes,scrollbars=yes');\" href='javascript:;'>"+
+                        "<img title='Ficha del producto...' alt='Ficha producto' src='/Hermes/images/icon_interrogacion.gif'></img>"+
+                        "</a>"+
+                        "</div>"+
+                    "</div>"+
+                    "</li>";
+        });
+    //}
+    $('#articulos').html(html);    
+    
+}
+
+$(function(){
+    
+    // Obtener el arbol de categorias
+    $.ajax({
+        url: appPath + '/lib/getArbolCategorias.php',
+        dataType: 'html',
+        type: 'post',
+        success: function(resultado){
+            arbol = $.parseJSON(resultado);
+            pintaArbol('d','0');
+        }
+    }); 
+    
+    $('#categorias').sortable({
+        cursor: "move",        
+        update: function(event,ui){
+            
+            // Crea un array con el nuevo orden.
+            // El índice el array es el orden y el valor es el id
+            // del objeto que ocupará ese orden
+            var datos = [];
+            var id;
+            $('#categorias li').each(function(key,objetoLi){
+                id = $(objetoLi).attr("id").replace("categoria","");
+                datos.push(id);
+            });
+
+            // Actualizar en la base de datos
+            $.ajax({
+                url: appPath + '/lib/actualizaOrden.php',
+                dataType: 'html',
+                type: 'post',
+                data: {'entidad': 'Familias', 'sortBy': 'OrdenTpv', 'orden': datos}
+            });
+        }
+    });
+});    
+</script>

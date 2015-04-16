@@ -1,0 +1,34 @@
+{# COMENTARIOS HECHOS EN LA WEB #}
+
+<div class='Listado'>
+    <h3>Comentarios realizados en la web</h3>
+    {% if comentarios | length > 0 %}
+        <div id="Listado">
+        <table width='100%'>
+            <tr class='Titulos'>           
+                <td class='Item'>Usuario</td> 
+                <td class='Item'>Fecha</td>             
+                <td class='Item'>Ip</td>   
+                <td class='Item'>Publicar</td> 
+                <td class='Item'>Chequeado</td> 
+                <td class='Item'>Comentario</td> 
+            </tr>
+
+            <tbody class='Cuerpo'>
+            {% for key,objeto in comentarios %}
+                <tr style="height: 20px;">
+                    <td class="item">{{objeto.Nombre}}</td> 
+                    <td class="item">{{objeto.TiempoUnix|date('d-m-Y H:i:s')}}</td>                
+                    <td class="item">{{objeto.IpAddress}}</td>                                
+                    <td class="item">{{ macro.actualizaColumna('BlogComentarios',objeto.getPrimaryKeyValue,'Publish',objeto.Publish.IDTipo,'Publicar/Despublicar')}} </td>                                              
+                    <td class="item">{{ macro.actualizaColumna('BlogComentarios',objeto.getPrimaryKeyValue,'Checked',objeto.Checked.IDTipo,'Validar')}} </td>                                              
+                    <td class="item">{{objeto.Comentario}}</td>                  
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {% else %}
+        <p>Aún no se ha hecho ningún comentario</p>
+    {% endif %}
+</div>

@@ -1,0 +1,101 @@
+{# empty Twig template #}
+
+{% set i = 0 %}
+<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Filtro avanzado de {{values.titulo}}</h4>
+            </div>
+            <form name='formFiltroAvanzado' id='formFiltroAvanzado' action='' method='POST' class="form-horizontal">
+                <input name='controller' value='{{values.controller}}' type='hidden' />
+                <input name='action' value='list' type='hidden' />              
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="orden" class="col-sm-4 control-label">Ordenar por</label>
+                        <div class="col-sm-4">
+                            <select name="filter[orderBy]" id="orden" class="form-control">
+                            {% for criterio in filter.columnsOrder %}
+                                <option value="{{ criterio.criteria }}" {% if (criterio.criteria == filter.orderBy)%} SELECTED {%endif%}>{{criterio.title}}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>                    
+
+                    <div class="form-group">        
+                        <label for="recordsPerPage" class="col-sm-4 control-label">Mostrar</label>
+                        <div class="col-sm-2">           
+                            <input name="filter[recordsPerPage]" id="recordsPerPage" value="{{ filter.recordsPerPage }}" type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    {% for key,value in filter.aditional %}
+
+                        {# SE MUESTRAN SOLO LAS COLUMNAS QUE SON VISIBLES SEGUN LAS VARIABLES DE ENTORNO #}
+                        {# ADEMÁS EL CAPTION SE QUE SE MUESTRA NO ES EL DEFINIDO CON EL CONFIG.YML SINO #}
+                        {# EL INDICADO EN LA VARIABLE DE ENTORNO #}
+                        {% if (values.varEnvMod.columns[value.field].visible) or (user.IdPerfil.Id == 1) %}
+
+                            {% set i = i+1 %}
+                            {% if filter.valuesSelected[i] %}
+                                {% set valor = filter.valuesSelected[i] %}
+                            {% else %}
+                                {% set valor = value.default %}
+                            {% endif %}
+                    
+                            <div class="form-group">
+                                <label for="orden" class="col-sm-4 control-label">{{value.caption}}</label>
+                                <div class="col-sm-4">
+                                    
+                                {% if value.type == 'select' %}
+                                    <input name="filter[columnsSelected][{{i}}]" value="{{value.field}}" type="hidden"/>
+                                    <select name="filter[valuesSelected][{{i}}]" id="filter_valuesSelected_{{i}}" {{ value.event }} class="form-control">
+                                        {% for objeto in value.values  %}
+                                        <option value="{{ objeto.Id }}" {% if objeto.Id == valor %} SELECTED {% endif %}>{{ objeto.Value }}</option>
+                                        {% endfor %}
+                                    </select>
+                                {% endif %}
+
+                                {% if value.type == 'input' %}
+                                    <input name="filter[columnsSelected][{{i}}]" value="{{value.field}}" type="hidden"/>
+                                    <input name="filter[valuesSelected][{{i}}]" id="filter_valuesSelected_{{i}}" value ="{{ valor }}" type="text" class="form-control" {{ value.event }}/>
+                                {% endif %}
+
+                                {% if value.type == 'range' %}
+                                    <input name="filter[columnsSelected][{{i}}]" value="{{value.field}}" type="hidden"/>
+                                    {% if value.data_type == 'date' %}
+                                        {{ macro.fecha(none,none,"filter[valuesSelected]["~i~"]","filter_valuesSelected_"~i,valor) }}
+                                    {% else %}
+                                        <input name="filter[valuesSelected][{{i}}]" id="filter_valuesSelected_{{i}}" value ="{{ valor }}" type="text" class="form-control" {{ value.event }}/>
+                                    {% endif %}
+                                {% endif %}
+
+                                {% if value.type == 'check' %}
+                                    <input name="filter[columnsSelected][{{i}}]" value="{{value.field}}" type="hidden"/>
+                                    <input name="filter[valuesSelected][{{i}}]" id="filter_valuesSelected_{{i}}"
+                                     {% if  valor != '' %}
+                                        {% if  valor == '1' %}
+                                           checked="checked"
+                                        {% endif %}
+                                     {%else%}
+                                        {% if  value.default == 'on' %}
+                                           checked="checked"
+                                        {% endif %}
+                                     {% endif %}
+                                           type="checkbox" {{ value.event }}/>
+                                {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="submit();">Consultar</button>
+                </div> 
+            </form>                
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO BolFormatos
+#
+# Module: BolFormatos
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright ARTICO ESTUDIO, SL
+# date 11-07-2013 19:17:44
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

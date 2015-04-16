@@ -1,0 +1,97 @@
+{#
+  Module: BolBoletines
+  Document : modules\BolBoletines\form.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 06.07.2013 15:53:44
+#}
+
+{% set atributos = values.atributos %}
+
+<div id="tabs">
+    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />      
+    <ul>
+        <li>
+            <a href="#arbol">Árbol de Boletines</a>
+        </li>        
+        <li>
+            <a href="#general">{%if datos.Titulo%}<b>{{macro.recortaTexto(datos.Titulo,40)}}</b>{%else%}Boletín{%endif%}</a>
+            {{ macro.publicar(values.varEnvMod.columns.Publish,values.controller ~ '[Publish]',values.controller ~ '_Publish',datos.Publish.IDTipo) }}
+        </li>
+        
+        {% if (values.datos.getPrimaryKeyValue) %}
+            <li>
+                <a href="#contenidos">Contenido del boletín</a>
+            </li>            
+            <li>
+                <a href="#envios">Envíos</a>
+            </li>            
+            <li>
+                <a href="#suscriptores">Suscriptores ({{values.suscriptores|length}})</a>
+            </li>            
+        {% endif %} 
+            
+        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+        <li>
+            <a href="#fieldsComunes">Más detalles...</a>
+        </li>        
+        {% endif %}
+    </ul>
+          
+    <div id="arbol">
+        <ul>
+            {% for keyTipo,tipo in values.objetoController.arbolTiposBoletines %}
+                <li style="font-weight: bold;">{{tipo.titulo}}</li>
+                <ul>
+                    {% for boletin in tipo.boletines %}
+                        <li style="margin-left: 30px;">
+                            {% if tipo.nBoletines > 1%}
+                                {{ macro.ordenarPopup(values.controller,'IDTipo',keyTipo) }}                                                      
+                            {% endif %}                              
+                            {% if values.varEnvMod.columns.Publish.visible == '1' %}
+                                {{ macro.actualizaColumna(values.controller,boletin.Id,'Publish',boletin.Publish.IDTipo,'Publicar/Despublicar')}}
+                            {% endif %}
+                            <a href="{{app.path}}/{{values.controller}}/edit/{{boletin.primaryKeyMD5}}" onclick="$('#solapaActiva').val('1');">{{boletin.titulo}}</a>
+                        </li>
+                    {% endfor %}                       
+                </ul>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div id="general">
+        {{ macro.select(atributos.IDTipo,'EtiquetaMedia',values.controller ~ '[IDTipo]',values.controller ~ '_IDTipo',300,datos.IDTipo.Id,datos.IDTipo.fetchAll('Titulo',0),'chzn-select')}}
+        {{ macro.select(atributos.IDFormato,'EtiquetaMedia',values.controller ~ '[IDFormato]',values.controller ~ '_IDFormato',300,datos.IDFormato.Id,datos.IDFormato.fetchAll('Titulo',0),'chzn-select')}}                        
+        {{ macro.input(atributos.Titulo,'EtiquetaMedia','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'255','CampoTextoLargo','2') }}
+        {{ macro.input(atributos.Subtitulo,'EtiquetaMedia','text',values.controller ~ '[Subtitulo]',values.controller ~ '_Subtitulo',datos.Subtitulo,'255','CampoTextoLargo','3') }}
+        {{ macro.textarea(atributos.Resumen,'EtiquetaMedia',values.controller ~ '[Resumen]',values.controller ~ '_Resumen',datos.Resumen,none,none,'textarea','4')}}            
+    </div>
+    
+    {% if (datos.getPrimaryKeyValue) %}
+        <div id="etiquetas"></div>
+        <div id="contenidos">
+            {% include values.controller ~ '/objetosRelacionados.html.twig' %}
+        </div>        
+        <div id="envios">
+            {% include values.controller ~ '/envios.html.twig' %}
+        </div>        
+        <div id="suscriptores">
+            {% include values.controller ~ '/suscriptores.html.twig' %}
+        </div>        
+    {% endif %}  
+        
+    {% include '_global/fieldsComunes.html.twig' %}        
+</div>
+<script>
+
+    $(function(){
+
+        if ($('#solapaActiva').val() === '0') {
+            $('#solapaActiva').val('1');
+        }
+        $("#tabs").tabs({ active: $('#solapaActiva').val() });        
+    });
+    
+</script> 
+{{ macro.foco(values.controller ~ '_Titulo') }}

@@ -1,0 +1,27 @@
+{# TEMPLATE BlogComentarios/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{% set atributos = values.atributos %}
+
+{% if not datos.PrimaryKeyValue  %}
+    {{ macro.input(atributos.Entidad,'Etiqueta','text',values.controller ~ '[Entidad]',values.controller ~ '_Entidad',datos.Entidad,'50','CampoTextoLargo','1') }}
+    {{datos.objetoAsociado}}
+    {{ macro.select(atributos.IdEntidad,'Etiqueta',values.controller ~ '[IdEntidad]',values.controller ~ '_IdEntidad',none,datos.IdEntidad.IdEntidad,datos.IdEntidad.fetchAll('Id'),'chzn-select','2')}}
+    {{ macro.input(atributos.IpAddress,'Etiqueta','text',values.controller ~ '[IpAddress]',values.controller ~ '_IpAddress',datos.IpAddress,'15','CampoTextoCorto','3') }}
+    {{ macro.select(atributos.IdUsuario,'Etiqueta',values.controller ~ '[IdUsuario]',values.controller ~ '_IdUsuario',none,datos.IdUsuario.IdUsuario,datos.IdUsuario.fetchAll('Id'),'chzn-select','4')}}
+    {{ macro.input(atributos.Nombre,'Etiqueta','text',values.controller ~ '[Nombre]',values.controller ~ '_Nombre',datos.Nombre,'50','CampoTextoLargo','5') }}
+    {{ macro.input(atributos.Email,'Etiqueta','text',values.controller ~ '[Email]',values.controller ~ '_Email',datos.Email,'100','CampoTextoLargo','6') }}
+    {{ macro.input(atributos.TiempoUnix,'Etiqueta','text',values.controller ~ '[TiempoUnix]',values.controller ~ '_TiempoUnix',datos.TiempoUnix,'20','CampoImporte','7') }}
+    {{ macro.textarea(atributos.Comentario,'Etiqueta',values.controller ~ '[Comentario]',values.controller ~ '_Comentario',datos.Comentario,none,none,'textarea','8')}}
+{% else %}
+    {{ macro.etiqueta(atributos.Entidad,'Etiqueta',datos.Entidad ) }}
+    {{ macro.etiqueta(atributos.IdEntidad,'Etiqueta',datos.objetoAsociado ) }}
+    <div style="clear:both;"></div>
+    {{ macro.etiqueta(atributos.IpAddress,'Etiqueta',datos.IpAddress ) }}
+    {{ macro.etiqueta(atributos.IdUsuario,'Etiqueta',datos.IdUsuario ) }}
+    {{ macro.etiqueta(atributos.Nombre,'Etiqueta',datos.Nombre ) }}
+    {{ macro.etiqueta(atributos.Email,'Etiqueta',datos.Email ) }}
+    {{ macro.etiqueta(atributos.TiempoUnix,'Etiqueta',datos.TiempoUnix|date('d/m/Y H:i:s') ) }}
+    {{ macro.textarea(atributos.Comentario,'Etiqueta',values.controller ~ '[Comentario]',values.controller ~ '_Comentario',datos.Comentario,none,none,'textarea','8')}}
+{% endif %}
+

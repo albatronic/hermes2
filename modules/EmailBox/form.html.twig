@@ -1,0 +1,55 @@
+{#
+  Module: EmailBox
+  Document : modules\EmailBox\form.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 05.10.2013 14:37:09
+#}
+{% set atributos = values.atributos %}
+
+<div style="float:left; width: 49%;">
+    {{ macro.etiqueta(atributos.Ok,'Etiqueta',datos.Ok) }}
+    <div style="clear: both;"></div>     
+    {{ macro.etiqueta(atributos.ModifiedAt,'Etiqueta',datos.ModifiedAt) }}
+    {{ macro.etiqueta(atributos.ModifiedBy,'Etiqueta',datos.ModifiedBy) }}
+    {{ macro.etiqueta(atributos.Ip,'Etiqueta',datos.Ip) }}
+    {{ macro.etiqueta(atributos.De,'Etiqueta',datos.De) }}
+    {{ macro.etiqueta(atributos.Para,'Etiqueta',datos.Para) }}
+    <div style="clear: both;"></div>
+    {{ macro.etiqueta(atributos.CC,'Etiqueta',datos.CC) }}
+    <div style="clear: both;"></div>
+    {{ macro.etiqueta(atributos.CCO,'Etiqueta',datos.CCO) }}
+    {{ macro.etiqueta(atributos.Asunto,'Etiqueta',datos.Asunto) }}
+    {{ macro.etiqueta(atributos.Mensaje,'Etiqueta',datos.Mensaje) }}
+
+    <div style="clear: both;"></div>
+    <p style="margin-top: 10px; margin-bottom: 10px;">Archivos adjuntos:</p>
+    <ul>
+    {% for adjunto in datos.Adjuntos%}
+        <li><a href="{{app.path}}/{{adjunto}}" target="_blank">{{adjunto}}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+
+<div style="float:left; width: 49%;">
+    {% if datos.Observations %}
+        {% autoescape false%}
+        {{ macro.etiqueta(atributos.Observations,'Etiqueta',datos.Observations) }}
+        {% endautoescape %}
+    {% endif %}
+</div>
+
+
+{#
+{{ macro.textarea(atributos.Para,'Etiqueta',values.controller ~ '[Para]',values.controller ~ '_Para',datos.Para,none,none,'textarea','3')}}
+{{ macro.textarea(atributos.CC,'Etiqueta',values.controller ~ '[CC]',values.controller ~ '_CC',datos.CC,none,none,'textarea','4')}}
+{{ macro.textarea(atributos.CCO,'Etiqueta',values.controller ~ '[CCO]',values.controller ~ '_CCO',datos.CCO,none,none,'textarea','5')}}
+{{ macro.input(atributos.Asunto,'Etiqueta','text',values.controller ~ '[Asunto]',values.controller ~ '_Asunto',datos.Asunto,'100','CampoTextoLargo','6') }}
+{{ macro.textarea(atributos.Mensaje,'Etiqueta',values.controller ~ '[Mensaje]',values.controller ~ '_Mensaje',datos.Mensaje,none,none,'textarea','7')}}
+{{ macro.textarea(atributos.Adjuntos,'Etiqueta',values.controller ~ '[Adjuntos]',values.controller ~ '_Adjuntos',datos.Adjuntos,none,none,'textarea','8')}}
+{{ macro.select(atributos.Ok,'Etiqueta',values.controller ~ '[Ok]',values.controller ~ '_Ok',none,datos.Ok.Ok,datos.Ok.fetchAll(),'chzn-select','9')}}
+{{ macro.textarea(atributos.Smtp,'Etiqueta',values.controller ~ '[Smtp]',values.controller ~ '_Smtp',datos.Smtp,none,none,'textarea','10')}}
+
+{{ macro.foco(values.controller ~ '_Ip') }}
+#}

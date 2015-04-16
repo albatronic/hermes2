@@ -1,0 +1,7 @@
+{# empty Twig template #}
+<li class="arbol">
+    <a class="arbol" title="Enlazar" href="javascript:;" onclick="$('#idEntidadDestino').val('{{seccion.id}}'); window.parent.window.opener.$('#enlace').html('{{seccion.titulo}}'); submitForm('formEnlace');">{{seccion.titulo}}</a>
+    {% if (values.entidadEnlazada == values.entidadDestino.getClassName) and (seccion.id == values.idEntidadDestino) %}
+        <img class="arbol" src="{{app.path}}/images/candado.png" title="Quitar enlace" onclick="$('#accion').val('quitar'); window.parent.window.opener.$('#enlace').html(''); submitForm('formEnlace');"/>
+    {% endif %}                
+</li>

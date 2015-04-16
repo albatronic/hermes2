@@ -1,0 +1,155 @@
+{#
+  Module: CpanDocs
+  Document : modules\CpanDocs\form.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 30.09.2012 21:04:21
+#}
+
+{% extends values.controller ~ '/indexPopup.html.twig' %}
+
+{% block listado %}
+
+{% include '_global/formErrores.html.twig' with {'errores': values.errores} %}
+{% include '_global/alertas.html.twig' with {'alertas': values.alertas} %}
+
+<div id="acordeonOrden">
+    
+{% for key,objeto in values.listado.data %}
+<div>
+    <h3>
+        {% if objeto.PathName != '' %}
+            {% if objeto.Type == 'video' or objeto.Type == 'audio'%}
+                <div>
+                    {% if objeto.Type == 'video'%}
+                        {{ macro.embedMedia(project.url~"/"~objeto.PathName,190,120)}}
+                    {% else %}
+                        {{ macro.embedMedia(project.url~"/"~objeto.PathName,190,50)}}
+                    {% endif %}
+                </div>            
+            {% else %}
+                <div style="margin-left: 25px;">
+                    <div style="margin-top:5px; width: 60px; overflow: hidden;">
+                    <img src="{{project.url}}/{{objeto.PathName}}" width="50px;" />
+                    </div>
+                    <div id="texto{{key}}">{{objeto.Title}}</div>
+                </div>
+            {% endif %}
+        {% else %}
+            {% if idiomas.actual == 0 %}
+            <span style="margin-left: 25px; font-weight: bold;">
+               {% if objeto.Type != 'video' and objeto.Type != 'audio'  and objeto.Type != 'document' %} 
+                   Nueva imagen ({{values.varEnvMod.galery.maxWidthImage}} X {{values.varEnvMod.galery.maxHeightImage}} px)
+               {% else %}
+                   Nuevo documento
+               {% endif %}
+            </span>
+            {% endif %}
+        {% endif %}        
+    </h3>
+    <div>
+    <form name="linea{{key}}" id="linea{{key}}" action="" method="POST" enctype="multipart/form-data" class="form_container left_label">
+    <input name="controller" value="{{values.controller}}" type="hidden" />
+    <input name="action" id="action{{key}}" value="edit" type="hidden" />
+    <input name="CpanDocs[Id]" class="{% if objeto.Id %}orden{% endif %}" value="{{ objeto.Id }}" type="hidden" />
+    <input name="CpanDocs[Entity]" value="{{ objeto.Entity }}" type="hidden" />
+    <input name="CpanDocs[IdEntity]" value="{{ objeto.IdEntity }}" type="hidden" />
+    <input name="CpanDocs[Type]" value="{{ objeto.Type }}" type="hidden" />
+    <input name="accion" id="accion{{key}}" value="" type="hidden" /> 
+
+    <div class="docsFoto">
+        {% if objeto.PathName != '' %}
+            {% if objeto.Type == 'video' or objeto.Type == 'audio'%}
+                <div>
+                    {% if objeto.Type == 'video'%}
+                        {{ macro.embedMedia(project.url~"/"~objeto.PathName,190,120)}}
+                    {% else %}
+                        {{ macro.embedMedia(project.url~"/"~objeto.PathName,190,50)}}
+                    {% endif %}
+                </div>            
+                <div style="text-align: center;">{{objeto.getSize}}</div>
+            {% else %}
+                <div id="foto{{key}}" style="text-align: center;">
+                    <img src="{{project.url}}/{{objeto.PathName}}" width="150px;" />  
+                </div>
+                <div style="text-align: center;">{{objeto.getSize}} bytes {% if objeto.Type != 'document' %}({{objeto.Width}} x {{objeto.Height}}){% endif %}</div>
+            {% endif %}
+        {% else %}
+            &nbsp;
+        {% endif %}
+        {% if idiomas.actual == 0 %}
+            <div>
+            <input name="MAX_FILE_SIZE" value="{{values.maxFileSize}}" type="hidden"  />
+            <input name="documento" id="documento{{key}}" type="file" />
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="docsItem">
+        {% if objeto.Id > 0 %}
+            {% set valorPublish = objeto.Publish.IDTipo %}
+        {% else %}
+            {% set valorPublish = values.varEnvMod[objeto.Type].valorDefectoPublicar %}        
+        {% endif %}
+        {{ macro.input({'caption':'Título','visible':values.varEnvMod[objeto.Type].mostrarTitulo,'varEnv':'0'},'field_title','text','CpanDocs[Title]','CpanDocs_Title',objeto.Title,255,none) }}                   
+        {{ macro.input({'caption':'Nombre','visible':values.varEnvMod[objeto.Type].mostrarNombre,'varEnv':'0'},'field_title','text','CpanDocs[Name]','CpanDocs_Name',objeto.Name,255,none) }}        
+        {{ macro.input({'caption':'Mostrar pie de foto','visible':values.varEnvMod[objeto.Type].mostrarPieDeFoto,'varEnv':'0'},'field_title','checkbox','CpanDocs[ShowCaption]','CpanDocs_ShowCaption'~key,objeto.ShowCaption.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input({'caption':'Publicar','visible':values.varEnvMod[objeto.Type].mostrarPublicar,'varEnv':'0'},'field_title','checkbox','CpanDocs[Publish]','CpanDocs_Publish'~key,valorPublish,'255','CampoTextoLargo','12') }}            
+            
+        {% if objeto.Type == 'tiny' and objeto.Id > 0%}
+        <div class="Item" style="margin-top: 10px;">
+            <p>{{project.url}}/{{objeto.PathName}}</p>
+        </div>
+        {% endif %}
+            
+        <div class="Item" id="botonera{{key}}">
+            {% if objeto.Id > 0 %}
+            <div id="loading{{key}}"></div>
+            <input type="image" src="{{app.path}}/images/botonsave.png" onclick="$('#accion{{key}}').val('G');submitForm('linea{{key}}');" alt="Guardar" title="Guardar Documento" />
+            {% if idiomas.actual == 0 %}
+                <input type="image" src="{{app.path}}/images/papelera.gif" onclick="if (!confirm('Desea eliminar el documento?')) {return false;} else {loading('botonera{{key}}');$('#accion{{key}}').val('B');submitForm('linea{{key}}');}" alt="Borrar" title="Borrar Documento" />
+            {% endif %}
+            {% else %}
+                {% if idiomas.actual == 0%}
+                <input type="image" src="{{app.path}}/images/nuevo.png" onclick="$('#action{{key}}').val('new'); submitForm('linea{{key}}');" alt="Nuevo" title="Crear Documento" />
+                {% endif%}
+            {% endif %}
+        </div>
+    </div>
+
+    </form>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+{% if not values.listado.data is iterable %}
+<div>
+    <form name="reordenar" id="reordenar" action="" method="POST" class="form_container left_label">
+    <input name="controller" value="{{values.controller}}" type="hidden" />
+    <input name="action" id="action" value="cambiarOrden" type="hidden" />
+    <input name="CpanDocs[Entity]" value="{{ values.listado.data[0].Entity }}" type="hidden" />
+    <input name="CpanDocs[IdEntity]" value="{{ values.listado.data[0].IdEntity }}" type="hidden" />
+    <input name="CpanDocs[Type]" value="{{ values.listado.data[0].Type }}" type="hidden" />  
+    <input name="nuevoOrden" id="nuevoOrden" value="" type="hidden" />
+    <div style="margin-top: 10px; text-align: center;">
+        <input value="Cambiar Orden" type="submit" 
+           onclick="
+                var campos;
+                
+                $('.orden').each(function(){
+                    if (campos)
+                        campos = campos + ',' + $(this).val();
+                    else
+                        campos = $(this).val();
+                });
+                $('#nuevoOrden').val(campos);
+                submitForm('reordenar');
+           "
+        />
+    </div>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

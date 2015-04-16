@@ -1,0 +1,95 @@
+{# Template list.html.twig for AlbaranesCab #}
+{# -------------------------------------------------------#}
+{% extends values.controller ~ '/index.html.twig' %}
+
+{% block listado %}
+<div class='Listado'>
+
+    {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':values.controller,'position':'izq'}%}
+    <div id="Listado">
+        <table width='100%'>
+            <tr class='Titulos'>
+                <td width='16px'><input id="imprimirTodo" type="checkbox"/></td>
+                <td width='16px'>&nbsp;</td>
+                <td class='Item'>Número</td>
+                <td class='Item'>Sucursal</td>
+                <td class='Item'>Fecha</td>
+                <td class='Item'>Cliente</td>
+                <td class='Item'>Comercial</td>
+                <td class='Item'>Estado</td>
+                <td class='Item'>Factura</td>
+                <td class='Item'>Total</td>
+            </tr>
+
+            <tbody class="Cuerpo">
+            {% for key,objeto in values.listado.data %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+                <tr>
+                    <td><input id="imprimir{{key}}" type="checkbox" class="checkImprimir" value="{{objeto.PrimaryKeyValue}}"/></td>
+                    <td>
+                        <a href='{{app.path}}/AlbaranesCab/Edit/{{objeto.PrimaryKeyMD5}}' title='Editar ...'>
+                            <img src="{{app.path}}/images/botoneditar.png" width="16px" height="16px"/>
+                        </a>
+                    </td>
+                    <td>{{objeto.NumeroAlbaran}}</td>
+                    <td>{{objeto.IDSucursal.Nombre|slice(0,20)}}</td>
+                    <td>{{objeto.Fecha}}</td>
+                    <td>{{objeto.IDCliente.RazonSocial|slice(0,40)}}</td>
+                    <td>{{objeto.IDComercial.Nombre|slice(0,25)}}</td>
+                    <td align="center">
+                    {% if objeto.IDEstado.IDTipo == '0' %}{% set img = "botonrojoparpadea.gif" %}{% endif %}
+                    {% if objeto.IDEstado.IDTipo == '1' %}{% set img = "bolanaranja.gif" %}{% endif %}
+                    {% if objeto.IDEstado.IDTipo >= '2' %}{% set img = "bolaverde.gif" %}{% endif %}
+                        <img src='{{app.path}}/images/{{img}}' width="10px" height="10px" alt='{{objeto.IDEstado}}' title='{{objeto.IDEstado}}'/>
+                    </td>
+                    <td>
+                    {% if objeto.IDFactura.IDFactura %}
+                        <a href="{{app.path}}/FemitidasCab/Edit/{{objeto.IDFactura.PrimaryKeyMD5}}" title='Editar Factura'>
+                            {{objeto.IDFactura.NumeroFactura}}
+                        </a>
+                    {% endif %}
+                    </td>
+                    <td align="right">{{objeto.Total}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div id="imprimirEmail" style="display: none;">
+        <span>Imprimir</span>
+        <span>Enviar por email</span>
+    </div>
+</div>
+
+<script>
+    var imprimir = false;
+    $(function() {
+        $('#imprimirTodo').click(function() {
+            $('.checkImprimir').each(function() {
+                if ($(this).is(":checked")) {
+                    $(this).removeAttr("checked", false);
+                } else {
+                    $(this).attr("checked", true);
+                }
+            });
+
+            $('.checkImprimir').each(function() {
+                if ($(this).is(":checked")) {
+                    imprimir = true;
+                    //break;
+                } else {
+                    imprimir = false;
+                }
+            });
+            if (imprimir) {
+                $('#imprimirEmail').show();
+            }
+        });
+    });
+</script>
+{% endblock %}

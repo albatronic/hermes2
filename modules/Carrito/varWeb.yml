@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO Carrito
+#
+# Module: Carrito
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 08-02-2014 19:37:17
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

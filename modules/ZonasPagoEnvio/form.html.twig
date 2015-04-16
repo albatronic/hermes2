@@ -1,0 +1,23 @@
+{#
+  Module: ErpZonasPagoEnvio
+  Document : modules\ErpZonasPagoEnvio\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 14.03.2014 23:46:54
+#}
+
+{{ macro.select(values.atributos.IDZona,'EtiquetaMedia',values.controller ~ '[IDZona]',values.controller ~ '_IDZona',200,datos.IDZona.IDZona,datos.IDZona.fetchAll('Zona',false),'chzn-select')}}
+{{ macro.select(values.atributos.IDFP,'EtiquetaMedia',values.controller ~ '[IDFP]',values.controller ~ '_IDFP',200,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'chzn-select')}}
+{{ macro.select(values.atributos.IDAgencia,'EtiquetaMedia',values.controller ~ '[IDAgencia]',values.controller ~ '_IDAgencia',200,datos.IDAgencia.IDAgencia,datos.IDAgencia.fetchAll('Agencia',false),'chzn-select')}}
+{{ macro.input(values.atributos.PlazoEntrega,'EtiquetaMedia','text',values.controller ~ '[PlazoEntrega]',values.controller ~ '_PlazoEntrega',datos.PlazoEntrega,'50','CampoTextoLargo','4') }}
+{{ macro.input(values.atributos.ImportePedidoMinimo,'EtiquetaMedia','text',values.controller ~ '[ImportePedidoMinimo]',values.controller ~ '_ImportePedidoMinimo',datos.ImportePedidoMinimo,'10','CampoImporte','5') }}
+{{ macro.input(values.atributos.ImportePedidoMaximo,'EtiquetaMedia','text',values.controller ~ '[ImportePedidoMaximo]',values.controller ~ '_ImportePedidoMaximo',datos.ImportePedidoMaximo,'10','CampoImporte','6') }}
+{{ macro.input(values.atributos.DesdeGramos,'EtiquetaMedia','text',values.controller ~ '[DesdeGramos]',values.controller ~ '_DesdeGramos',datos.DesdeGramos,'10','CampoImporte','7') }}
+{{ macro.input(values.atributos.HastaGramos,'EtiquetaMedia','text',values.controller ~ '[HastaGramos]',values.controller ~ '_HastaGramos',datos.HastaGramos,'10','CampoImporte','8') }}
+{{ macro.input(values.atributos.Gastos,'EtiquetaMedia','text',values.controller ~ '[Gastos]',values.controller ~ '_Gastos',datos.Gastos,'10','CampoImporte','9') }}
+{{ macro.select(values.atributos.Uso,'EtiquetaMedia',values.controller ~ '[Uso]',values.controller ~ '_Uso',150,datos.Uso.IDTipo,datos.Uso.fetchAll('',false),'Select') }}
+
+{# include '_global/fieldsComunes.html.twig' #}
+
+{{ macro.foco(values.controller ~ '_IDZona') }}

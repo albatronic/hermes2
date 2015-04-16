@@ -1,0 +1,34 @@
+# Module: ServServicios
+# Document : modules\ServServicios\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 04.02.2013 23:09:18
+#
+---
+listados:
+  -
+    title: ServServicios
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      IdFamilia: { title: IdFamilia, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Titulo: { title: Titulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Subtitulo: { title: Subtitulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Resumen: { title: Resumen, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      ResumenBreve: { title: ResumenBreve, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      MostrarPortada: { title: MostrarPortada, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarPortadaOrden: { title: MostrarPortadaOrden, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      MostrarEnListado: { title: MostrarEnListado, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MostrarEnListadoOrden: { title: MostrarEnListadoOrden, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      TieneDesarrollo: { title: TieneDesarrollo, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      MuestraEjemplos: { title: MuestraEjemplos, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }

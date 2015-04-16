@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO ErpEmailBox
+#
+# Module: ErpEmailBox
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 05-10-2013 14:37:09
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

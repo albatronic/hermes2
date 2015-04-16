@@ -1,0 +1,21 @@
+{# Muestra los contenidos #}
+
+<span class="arbol conContenido" 
+      title="Ver/Ocultar contenidos de esta sección" 
+      onclick="switchDisplay('contenidosDe_{{familias.id}}');">
+    <img src="{{app.path}}/images/js-tree/folder-closed.gif"/>
+    {{familias.titulo}} ({{ familias.nServicios}})
+</span>
+
+<div id='contenidosDe_{{familias.id}}' style="display: none;">
+    <ul>
+
+    {% for servicio in familias.servicios %}
+        <li>
+            {{ macro.actualizaRelacion(values.entidadOrigen,values.idOrigen,'ServServicios',servicio.Id,servicio.estaRelacionado) }}
+            {{servicio.Value}}
+        </li>
+    {% endfor%}
+       
+    </ul>
+</div>

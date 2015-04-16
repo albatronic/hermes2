@@ -1,0 +1,79 @@
+{% extends layout %}
+
+{% set albaran = values.albaran %}
+{% if not albaran.IDAlbaran %}
+    {% set sucursalDefecto = suc %}
+{% else %}
+    {% set sucursalDefecto = albaran.IDSucursal.IDSucursal %}
+{% endif %}
+
+{% block content %}
+<div class="ticket">
+    <!-- CABECERA DEL TICKET -->
+    {% include 'Tpv/cabecera.html.twig' %}
+
+    {% if albaran.IDAlbaran > 0 %}
+        <!-- CUERPO DEL TICKET -->
+        {% include 'Tpv/aside.html.twig' %}
+        {% include 'Tpv/cuerpo.html.twig' %}
+        {% include 'Tpv/articulos.html.twig' %}
+        <!-- PIE DEL TICKET -->
+        {% include 'Tpv/pie.html.twig'%}    
+    {% endif%}
+
+</div>
+
+<script>
+$(function() {    
+    $('#botonNuevo').click(function(){
+        $('#accion').val('nuevo');
+        $('#formCabecera').submit();
+    });
+    $('#botonCrear').click(function(){
+        $('#accion').val('crear');
+        $('#formCabecera').submit();
+    });
+    $('#botonBorrar').click(function(){
+        if (!confirm('¿Desea borrar el ticket {{albaran.NumeroAlbaran}}?')) {
+            return false;
+        } else {
+            $('#accion').val('borrar');
+            $('#formCabecera').submit();
+        }  
+    });
+    $('#botonCrearLinea').click(function(){
+        $('#accion').val('crearLinea');
+        $('#formCabecera').submit();
+    });
+    $('#botonGuardar').click(function(){
+        $('#accion').val('guardar');
+        $('#formCabecera').submit();
+    });
+    $('#botonBuscar').click(function(){
+        $('#accion').val('buscar');
+        $('#formCabecera').submit();
+    });
+    $('#botonLimpiar').click(function(){
+        $('#accion').val('limpiar');
+        $('#formCabecera').submit();
+    });
+    $('#botonPrimero').click(function(){
+        $('#accion').val('P');
+        $('#formCabecera').submit();
+    });
+    $('#botonSiguiente').click(function(){
+        $('#accion').val('S');
+        $('#formCabecera').submit();
+    });
+    $('#botonAnterior').click(function(){
+        $('#accion').val('A');
+        $('#formCabecera').submit();
+    });
+    $('#botonUltimo').click(function(){
+        $('#accion').val('U');
+        $('#formCabecera').submit();
+    });
+});
+</script>
+
+{% endblock %}

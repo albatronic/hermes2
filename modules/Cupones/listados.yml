@@ -1,0 +1,26 @@
+# Module: Cupones
+# Document : modules\Cupones\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 12.04.2014 18:24:51
+#
+---
+listados:
+  -
+    title: Cupones
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Cupon: { field: Cupon, title: Cupon, length: '25', align: L, type: string, total: NO, formula: null, format: null }
+      NumeroUsos: { field: NumeroUsos, title: Numero de Usos, length: '4', align: R, type: integer, total: NO, formula: null, format: null }
+      LimiteUsos: { field: LimiteUsos, title: Limite de Usos, length: '4', align: R, type: integer, total: NO, formula: null, format: null }

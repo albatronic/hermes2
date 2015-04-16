@@ -1,0 +1,25 @@
+# Module: Idiomas
+# Document : modules\Idiomas\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 02.02.2014 01:32:22
+#
+---
+listados:
+  -
+    title: Idiomas
+    order_by: IDIdioma
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Codigo: { field: Codigo, title: Codigo, length: '6', align: L, type: string, total: NO, formula: null, format: null }
+      Idioma: { field: Idioma, title: Idioma, length: '100', align: L, type: string, total: NO, formula: null, format: null }

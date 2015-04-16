@@ -1,0 +1,25 @@
+# Module: BannZonas
+# Document : modules\BannZonas\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 09.12.2012 08:35:28
+#
+---
+listados:
+  -
+    title: BannZonas
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Titulo: { title: Titulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      NumeroMaximoBanners: { title: NumeroMaximoBanners, length: '4', align: R, type: integer, total: NO, formula: null, format: null }

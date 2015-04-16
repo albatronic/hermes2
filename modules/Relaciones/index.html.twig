@@ -1,0 +1,36 @@
+{#
+    Formulario para establecer relaciones N a M entre 
+    entidades e id de entidades. La actualización se hace por Ajax
+
+#}
+{% extends '_global/layoutPopup.html.twig' %}
+
+{% block content %}
+
+{% if values.modulosRelacionables|length %}
+<form name="form{{values.controller}}" id="form{{values.controller}}" action="" method="POST">
+    <input name="controller" value="{{values.controller}}" type="hidden" />
+    <input name="action" id="action" value="" type="hidden" />
+    <input name="entidadOrigen" id="entidad" value="{{values.entidadOrigen}}" type="hidden" />
+    <input name="idOrigen" id="entidad" value="{{values.idOrigen}}" type="hidden" />    
+
+    <div style="margin-bottom: 10px;">
+        Relacionar con:
+        <select name="entidadDestino" id="entidadDestino">
+            {% for modulo,titulo in values.modulosRelacionables %}
+                <option value="{{modulo}}" {% if modulo == values.entidadDestino %} SELECTED{% endif %}>{{titulo}}</option>
+            {% endfor %}
+        </select>
+        <img src="{{app.path}}/images/lupa.png" onclick="$('#action').val('Index'); submitForm('form{{values.controller}}');"/>
+    </div>       
+</form>
+
+    {% if values.arbol|length%}
+        {% include values.entidadDestino ~ '/arbol.html.twig' with {'arbol': values.arbol, 'subtemplate':'arbolRelacionar.html.twig'} %}
+    {% endif %}
+
+{% else %}
+<p>No se ha definido ningún módulo con el que relacionar. Compruebe la variable de entorno 'modulosRelacionables'</p>
+{% endif %}
+
+{% endblock %}

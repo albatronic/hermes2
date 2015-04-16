@@ -1,0 +1,17 @@
+{# Description of  #}
+
+{# author Sergio Pérez <sergio.perez@albatronic.com> #}
+{# copyright Informática ALBATRONIC, SL #}
+{# date ${date} ${time} #}
+
+{% extends layout %}
+
+{% block title parent() ~ " - Inicio" %}
+
+{% block izquierda %}{% endblock %}
+{% block cabeceraDerecha %}{% endblock %}
+{% block navegador %}{% endblock %}
+
+{% block content %}
+    <h2>No está autorizado. Para entrar haga click <a href="{{app.urlParent}}/return">aquí</a></h2>
+{% endblock %}

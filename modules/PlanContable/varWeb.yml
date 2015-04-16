@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO ErpPlanContable
+#
+# Module: ErpPlanContable
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright ARTICO ESTUDIO, SL
+# date 26-01-2014 19:54:31
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

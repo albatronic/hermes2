@@ -1,0 +1,8 @@
+{# empty Twig template #}
+
+{% if seccion.nContenidos > 0 %}
+    {% include 'GconContenidos/' ~ subtemplate with {'contenidos': seccion} %}
+{% else %}
+    <span>{{seccion.titulo}}</span>
+    <a href="{{app.path}}/{{values.controller}}/de/GconSecciones/IdSeccion/{{key}}" alt="Añadir contenido" title="Añadir contenido"><img src="{{app.path}}/images/detalle.png"/></a>
+{% endif %}

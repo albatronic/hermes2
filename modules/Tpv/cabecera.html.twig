@@ -1,0 +1,115 @@
+{# Cabecera del ticket #}
+
+<div class="ticketCabecera FormManto">
+    <div class="ticketLogo">
+        <div><img width="150px" src="{{app.path}}/docs/docs{{emp.Id}}/images/logo.jpg" alt="logo"/></div>
+        {% if albaran.IDAlbaran %}
+            <div class="ticketNumero">Ticket N. {{albaran.NumeroAlbaran}}</div>
+            <div class="ticketNumero">
+                {% if albaran.IDEstado.IDTipo == 3 %}
+                    <a href="FemitidasCab/edit/{{albaran.IDFactura.IDFactura}}" target="_blank" title="Ver Factura">{{albaran.IDFactura.NumeroFactura}}</a>
+                {% else %}
+                    {{albaran.IDEstado.Descripcion}}
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="ticketDatosCabecera Cuerpo">
+        <form name="formCabecera" id="formCabecera" action="" method="post">
+        <input name="controller" value="{{values.controller}}" type="hidden">
+        <input name="action" id="action" value="Navegar" type="hidden"/>
+        <input name="accion" id="accion" value="" type="hidden"/>
+        <input name="AlbaranesCab[IDAlbaran]" value="{{albaran.IDAlbaran}}" type="hidden"/>
+
+        {% if albaran.IDEstado.IDTipo == '0' %}
+            {% if albaran.IDAlbaran %}
+                <input type="hidden" id="AlbaranesCab_IDSucursal" value="{{albaran.IDSucursal.IDSucursal}}" />
+                {{ macro.etiqueta('Sucursal','Etiqueta',albaran.IDSucursal.Nombre) }}
+            {% else %}
+            <div class="Item" id="div_AlbaranesCab_IDSucursal">
+                <div class="Etiqueta">Sucursal</div>
+                <select name="AlbaranesCab[IDSucursal]" id="AlbaranesCab_IDSucursal" size="1" class="Select"
+                        onchange="DesplegableAjax('div_AlbaranesCab_IDContador','AlbaranesCab_IDContador','AlbaranesCab[IDContador]','contadorAlbaranes',this.value);
+                                  DesplegableAjax('div_AlbaranesCab_IDComercial','AlbaranesCab_IDComercial','AlbaranesCab[IDComercial]','comercialAlbaranes',this.value);
+                                  $('#AlbaranesCab_IDCliente').val('');
+                                  $('#RazonSocial').val('');
+                                 "
+                >
+                {% for value in albaran.IDAgente.getSucursales(emp.Id) %}
+                    <option value="{{ value.Id }}" {% if (value.Id==sucursalDefecto) %} SELECTED {%endif%}>{{value.Value}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            {% endif %}
+
+            {% if not albaran.IDAlbaran %}
+            {{ macro.select('Serie','Etiqueta','AlbaranesCab[IDContador]','AlbaranesCab_IDContador',none,albaran.IDContador.IDContador,albaran.IDContador.fetchAll(sucursalDefecto,1),'Select') }}
+            {% else %}
+                <input name="AlbaranesCab[IDContador]" value="{{albaran.IDContador}}" type="hidden" />
+                <input name="AlbaranesCab[IDAlbaran]" value="{{albaran.IDAlbaran}}" type="hidden" />
+                <input name="AlbaranesCab[NumeroAlbaran]" value="{{albaran.NumeroAlbaran}}" type="hidden" />
+            {% endif %}
+
+            {{ macro.fecha('Fecha','Etiqueta','AlbaranesCab[Fecha]','AlbaranesCab_Fecha',albaran.Fecha,'10','CampoFecha') }}
+            {{ macro.fecha('Fecha Entrega','Etiqueta','AlbaranesCab[FechaEntrega]','AlbaranesCab_FechaEntrega',albaran.FechaEntrega,'10','CampoFecha','disabled') }}
+            {{ macro.select('Almacén','Etiqueta','AlbaranesCab[IDAlmacen]','AlbaranesCab_IDAlmacen',none,albaran.IDAlmacen.IDAlmacen,albaran.IDAgente.getAlmacenes(emp.IDEmpresa),'Select') }}
+
+            <div class="Item" id="div_AlbaranesCab_RazonSocial">
+                <div class="Etiqueta">Cliente</div>
+                <input name="AlbaranesCab[IDCliente]" id="AlbaranesCab_IDCliente" value="{{albaran.IDCliente.IDCliente}}" type="hidden"/>
+                <input value="{{albaran.IDCliente.RazonSocial}}" id="RazonSocial" type="text" maxlength="50" class="CampoTextoLargo"
+                       onkeyup="autoCompletar('RazonSocial','AlbaranesCab_IDCliente','RazonSocial','clientes',$('#AlbaranesCab_IDSucursal').val(),['subbloque_ajax_cliente_albaran','','','clientealbaran']);"/>
+
+                {% if albaran.IDCliente.IDCliente %}
+                {{ macro.historicoVentas(app.path,0,albaran.IDCliente.IDCliente) }}
+                {{ macro.promosVigentesCliente(app.path, albaran.IDCliente, albaran.getDate) }}
+                {% endif %}
+            </div>
+
+            <div id="subbloque_ajax_cliente_albaran">
+                {{ macro.select('Comercial','Etiqueta','AlbaranesCab[IDComercial]','AlbaranesCab_IDComercial',200,datos.IDComercial.IDAgente,datos.IDComercial.getComerciales('',sucursalDefecto),'Select') }}
+                {{ macro.select('Dirección de Entrega','Etiqueta','AlbaranesCab[IDDirec]','AlbaranesCab_IDDirec',none,albaran.IDDirec.IDDirec,albaran.IDDirec.fetchAll(albaran.IDCliente.IDCliente),'Select350') }}
+                {{ macro.select('Forma de Pago','Etiqueta','AlbaranesCab[IDFP]','AlbaranesCab_IDFP',none,albaran.IDFP.IDFP,albaran.IDFP.fetchAll('Descripcion'),'Select') }}
+            </div>
+            {{ macro.etiqueta('Avisos','Etiqueta',albaran.IDCliente.Avisos) }}
+            {{ macro.foco('RazonSocial') }}
+        {% else %}
+            {{ macro.etiqueta('Sucursal','Etiqueta',albaran.IDSucursal.Nombre) }}
+            {{ macro.etiqueta('Almacén','Etiqueta',albaran.IDAlmacen.Nombre) }}
+            {{ macro.etiqueta('Fecha','Etiqueta',albaran.Fecha ) }}
+            {{ macro.etiqueta('Fecha Entrega','Etiqueta',albaran.FechaEntrega ) }}
+            {{ macro.etiqueta('Cliente','Etiqueta',albaran.IDCliente.RazonSocial) }}
+            {{ macro.etiqueta('Comercial','Etiqueta',albaran.IDComercial.Nombre) }}
+            {{ macro.etiqueta('Dirección de Entrega','Etiqueta',albaran.IDDirec.Direccion ~ " - " ~ albaran.IDDirec.Poblacion ~ " (" ~ albaran.IDDirec.IDProvincia.Provincia ~ ")") }}
+            {{ macro.etiqueta('Forma de Pago','Etiqueta',albaran.IDFP.Descripcion ) }}
+        {% endif %}        
+        </form>
+    </div>
+
+    <!-- BOTONES NAVEGACION -->
+    <div class="ticketBotonesNavegador">
+        <div class="ticketBotoneraIzq">
+            {% if (tpv!='')%}
+                {#<div><input id="botonBuscar" value="Buscar" type="button" accesskey="B" class="ticketBotonNavegador"></div>#}              
+              
+                {% if albaran.IDAlbaran %}
+                    <div><input id="botonNuevo" value="Nuevo" type="button" accesskey="N" class="ticketBotonNavegador"></div>                  
+                    {% if albaran.IDEstado.IDTipo == '0'%}
+                        <div><input id="botonBorrar" value="Borrar" type="button" class="ticketBotonNavegador"></div>
+                        <div><input id="botonGuardar" value="Guardar" type="button" class="ticketBotonNavegador"></div>
+                    {% endif %}
+                {% else %}
+                    <div><input id="botonCrear" value="Crear" type="button" class="ticketBotonNavegador"></div>                            
+                {% endif %}
+            {%endif%}
+        </div>
+        <div class="ticketBotoneraDcha">
+            <div><input id="botonPrimero" value="P" type="button" class="ticketBotonNavegador"></div>
+            <div><input id="botonAnterior" value="A" type="button" class="ticketBotonNavegador"></div>
+            <div><input id="botonSiguiente" value="S" type="button" class="ticketBotonNavegador"></div>
+            <div><input id="botonUltimo" value="U" type="button" class="ticketBotonNavegador"></div>
+        </div>
+    </div>
+
+</div>

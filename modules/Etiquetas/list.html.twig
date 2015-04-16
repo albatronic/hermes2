@@ -1,0 +1,127 @@
+{# Template list.html.twig for Etiquetas #}
+{# -------------------------------------------------------#}
+{% extends 'Etiquetas/index.html.twig' %}
+
+{% block listado %}
+<div class='Listado'>
+    <div id="Listado">
+    <table width='100%'>
+        <tr class='Titulos'>
+            <td class='Item'>Artículo</td>
+            <td class='Item'>Descripción</td>
+            <td class='Item'>Unidades</td>
+            <td class='Item'>Precio</td>
+            <td>&nbsp;</td>        
+        </tr>
+
+        <tbody class="Cuerpo">
+            {% for key,objeto in values.etiquetas %}
+
+            <form name="linea{{key}}" id="linea{{key}}" action="" method="POST" enctype="multipart/form-data">
+                <input name="controller" value="Etiquetas" type="hidden" />
+                <input name="action" id="action{{key}}" value="edit" type="hidden" />
+                <input name="Etiquetas[Id]" value="{{ objeto.Id }}" type="hidden" />
+                <input name="Etiquetas[IDAgente]" value="{{ objeto.IDAgente.IDAgente }}" type="hidden" />
+                <input name="accion" id="accion{{key}}" value="G" type="hidden" />
+                <tr class="ItemListado">
+                    <td>
+                        <input name="Etiquetas[IDArticulo]" value="{{objeto.IDArticulo.IDArticulo}}" id="Etiquetas_IDArticulo{{key}}" type="hidden" />
+                        <input value="{{objeto.IDArticulo.Codigo}}" id="Codigo{{key}}" type="text" maxlength="25" style="width:100px;"
+                        onkeyup="autoCompletar('Codigo{{key}}','Etiquetas_IDArticulo{{key}}','Etiquetas_Descripcion{{key}}','articulos','','');"/>
+                    </td>
+                    <td><input name="Etiquetas[Descripcion]" id="Etiquetas_Descripcion{{key}}" value="{{objeto.Descripcion}}" type="text" maxlength="255" style="width:370px;"  /></td>
+                    <td><input name="Etiquetas[Unidades]" value="{{objeto.Unidades}}" type="text" style="width:50px;text-align:right;" /></td>
+                    <td><input name="Etiquetas[Precio]" value="{{objeto.Precio}}" type="text" style="width:65px;text-align:right;" /></td>
+                    <td align="center">
+                        {% if objeto.Id > 0 %}
+                        <input type="image" src="{{app.path}}/images/botonsave.png" onclick="$('#accion{{key}}').val('G'); $('#linea{{key}}').submit();" alt="Guardar" title="Guardar Linea" />
+                        <input type="image" src="{{app.path}}/images/papelera.gif" onclick="if (!confirm('Desea eliminar la línea?')) {return false;} else {$('#accion{{key}}').val('B'); $('#linea{{key}}').submit();}" alt="Borrar" title="Borrar Linea" />
+                        {% else %}
+                        <input id="botonNuevaLinea" type="image" src="{{app.path}}/images/nuevo.png"  alt="Nuevo" title="Crear Linea" />
+                        {% endif %}
+                    </td>
+                </tr>
+            </form>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+</div>
+
+{{ macro.foco('Codigo0') }}
+
+
+ <div id="dialogoImprimir" title="Imprimir etiquetas">
+    <form name="formImprimirEtiquetas" id="formImrpimirEtiquetas" action='' method='POST' >
+        <input name='controller' value='{{values.controller}}' type='hidden' />
+        <input name='action' value='imprimir' type='hidden' />
+    <div style="float:left;">
+        Formato de impresión:
+        <select name="IdFormato" style="width: 290px;">
+        {% for formato in values.formatos %}
+            <option value="{{formato.Id}}">{{formato.Value}}</option>
+        {% endfor %}
+        </select>               
+    </div>
+        
+    <div style="clear: both;"></div>
+    
+    <div style="float: left; margin-top: 10px;">
+        <div style="float: left;">Empezar en la etiqueta nº</div>
+        <div style="float: left; margin-left: 5px;"><input name="puntero" id="puntero" value="1" style="width: 30px;"/></div>
+    </div>
+        
+    <div style="clear: both;"></div>
+    
+    <div style="float: left; margin-top: 10px;">
+        <div style="float: left;">Imprimir PVP</div>
+        <div style="float: left; margin-left: 5px;">
+        <select name="printPvp" id="marco">
+            <option value="1">Sí</option>            
+            <option value="0">No</option>
+        </select>
+        </div>
+    </div>
+        
+    <div style="clear: both;"></div>
+    
+    <div style="float: left; margin-top: 10px;">
+        <div style="float: left;">Imprimir bordes</div>
+        <div style="float: left; margin-left: 5px;">
+        <select name="printBorder" id="marco">
+            <option value="0">No</option>
+            <option value="1">Sí</option>
+        </select>
+        </div>
+    </div>
+        
+    <div style="clear: both;"></div>
+    
+    <div style="float: left; margin-top: 10px;">        
+        <input style="margin-left: 5px;" type="submit" value="Imprimir" onclick="$('#dialogoImprimir').dialog('close');$('#formImprimirEtiquetas').submit();" />  
+    </div>
+    </form>
+</div>    
+
+<script language='JavaScript' type='text/javascript'>  
+    $(function() {
+        
+        $('#botonNuevaLinea').blur(function(){$(this).click();});
+        $('#botonNuevaLinea').click(function(){
+            $('#accion').val('G');
+        });
+        
+        $( "#dialogoImprimir" ).dialog({
+            autoOpen: false,
+            width: 330,
+            height: 200,
+            position: ['center'],
+            closeOnEscape: true,
+            resizable: false,
+            draggable:true,
+            //show: "slide",
+            });
+    });
+</script>
+{% endblock %}

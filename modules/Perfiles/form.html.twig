@@ -1,0 +1,15 @@
+{# TEMPLATE Perfiles/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+
+{{ macro.input(values.atributos.Perfil,'Etiqueta','text','Perfiles[Perfil]','Perfiles_Perfil',datos.Perfil,'50','CampoTextoLargo') }}
+
+{% if datos.IDPerfil %}
+
+<div style='margin-top:15px;width:98%;'>
+    <iframe width="100%" height="350" scrolling="yes" style="border: 1px dotted grey;"
+            src="{{app.path}}/Permisos/listopciones/{{datos.IDPerfil}}">
+    </iframe>
+</div>
+
+{% endif %}

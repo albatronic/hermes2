@@ -1,0 +1,988 @@
+# VALORES POR DEFECTO PARA LA TABLA ZONASHORARIAS
+#
+# ESTAN INCLUIDAS TODAS LAS ZONAS HORARIAS MUNDIALES
+ErpZonasHorarias:
+  -
+    IDZona: 1
+    Zona: "Europe/Andorra"
+  -
+    IDZona: 2
+    Zona: "Asia/Dubai"
+  -
+    IDZona: 3
+    Zona: "Asia/Kabul"
+  -
+    IDZona: 4
+    Zona: "America/Antigua"
+  -
+    IDZona: 5
+    Zona: "America/Anguilla"
+  -
+    IDZona: 6
+    Zona: "Europe/Tirane"
+  -
+    IDZona: 7
+    Zona: "Asia/Yerevan"
+  -
+    IDZona: 8
+    Zona: "Africa/Luanda"
+  -
+    IDZona: 9
+    Zona: "Pacific/Pago_Pago"
+  -
+    IDZona: 10
+    Zona: "Europe/Vienna"
+  -
+    IDZona: 11
+    Zona: "America/Aruba"
+  -
+    IDZona: 12
+    Zona: "Europe/Mariehamn"
+  -
+    IDZona: 13
+    Zona: "Asia/Baku"
+  -
+    IDZona: 14
+    Zona: "Europe/Sarajevo"
+  -
+    IDZona: 15
+    Zona: "America/Barbados"
+  -
+    IDZona: 16
+    Zona: "Asia/Dhaka"
+  -
+    IDZona: 17
+    Zona: "Europe/Brussels"
+  -
+    IDZona: 18
+    Zona: "Africa/Ouagadougou"
+  -
+    IDZona: 19
+    Zona: "Europe/Sofia"
+  -
+    IDZona: 20
+    Zona: "Asia/Bahrain"
+  -
+    IDZona: 21
+    Zona: "Africa/Bujumbura"
+  -
+    IDZona: 22
+    Zona: "Africa/Porto  -Novo"
+  -
+    IDZona: 23
+    Zona: "America/St_Barthelemy"
+  -
+    IDZona: 24
+    Zona: "Atlantic/Bermuda"
+  -
+    IDZona: 25
+    Zona: "Asia/Brunei"
+  -
+    IDZona: 26
+    Zona: "America/La_Paz"
+  -
+    IDZona: 27
+    Zona: "America/Kralendijk"
+  -
+    IDZona: 28
+    Zona: "America/Nassau"
+  -
+    IDZona: 29
+    Zona: "Asia/Thimphu"
+  -
+    IDZona: 30
+    Zona: "Africa/Gaborone"
+  -
+    IDZona: 31
+    Zona: "Europe/Minsk"
+  -
+    IDZona: 32
+    Zona: "America/Belize"
+  -
+    IDZona: 33
+    Zona: "Indian/Cocos"
+  -
+    IDZona: 34
+    Zona: "Africa/Bangui"
+  -
+    IDZona: 35
+    Zona: "Africa/Brazzaville"
+  -
+    IDZona: 36
+    Zona: "Europe/Zurich"
+  -
+    IDZona: 37
+    Zona: "Africa/Abidjan"
+  -
+    IDZona: 38
+    Zona: "Pacific/Rarotonga"
+  -
+    IDZona: 39
+    Zona: "Africa/Douala"
+  -
+    IDZona: 40
+    Zona: "America/Bogota"
+  -
+    IDZona: 41
+    Zona: "America/Costa_Rica"
+  -
+    IDZona: 42
+    Zona: "America/Havana"
+  -
+    IDZona: 43
+    Zona: "Atlantic/Cape_Verde"
+  -
+    IDZona: 44
+    Zona: "America/Curacao"
+  -
+    IDZona: 45
+    Zona: "Indian/Christmas"
+  -
+    IDZona: 46
+    Zona: "Asia/Nicosia"
+  -
+    IDZona: 47
+    Zona: "Europe/Prague"
+  -
+    IDZona: 48
+    Zona: "Europe/Berlin"
+  -
+    IDZona: 49
+    Zona: "Africa/Djibouti"
+  -
+    IDZona: 50
+    Zona: "Europe/Copenhagen"
+  -
+    IDZona: 51
+    Zona: "America/Dominica"
+  -
+    IDZona: 52
+    Zona: "America/Santo_Domingo"
+  -
+    IDZona: 53
+    Zona: "Africa/Algiers"
+  -
+    IDZona: 54
+    Zona: "Europe/Tallinn"
+  -
+    IDZona: 55
+    Zona: "Africa/Cairo"
+  -
+    IDZona: 56
+    Zona: "Africa/El_Aaiun"
+  -
+    IDZona: 57
+    Zona: "Africa/Asmara"
+  -
+    IDZona: 58
+    Zona: "Africa/Addis_Ababa"
+  -
+    IDZona: 59
+    Zona: "Europe/Helsinki"
+  -
+    IDZona: 60
+    Zona: "Pacific/Fiji"
+  -
+    IDZona: 61
+    Zona: "Atlantic/Stanley"
+  -
+    IDZona: 62
+    Zona: "Atlantic/Faroe"
+  -
+    IDZona: 63
+    Zona: "Europe/Paris"
+  -
+    IDZona: 64
+    Zona: "Africa/Libreville"
+  -
+    IDZona: 65
+    Zona: "Europe/London"
+  -
+    IDZona: 66
+    Zona: "America/Grenada"
+  -
+    IDZona: 67
+    Zona: "Asia/Tbilisi"
+  -
+    IDZona: 68
+    Zona: "America/Cayenne"
+  -
+    IDZona: 69
+    Zona: "Europe/Guernsey"
+  -
+    IDZona: 70
+    Zona: "Africa/Accra"
+  -
+    IDZona: 71
+    Zona: "Europe/Gibraltar"
+  -
+    IDZona: 72
+    Zona: "Africa/Banjul"
+  -
+    IDZona: 73
+    Zona: "Africa/Conakry"
+  -
+    IDZona: 74
+    Zona: "America/Guadeloupe"
+  -
+    IDZona: 75
+    Zona: "Africa/Malabo"
+  -
+    IDZona: 76
+    Zona: "Europe/Athens"
+  -
+    IDZona: 77
+    Zona: "Atlantic/South_Georgia"
+  -
+    IDZona: 78
+    Zona: "America/Guatemala"
+  -
+    IDZona: 79
+    Zona: "Pacific/Guam"
+  -
+    IDZona: 80
+    Zona: "Africa/Bissau"
+  -
+    IDZona: 81
+    Zona: "America/Guyana"
+  -
+    IDZona: 82
+    Zona: "Asia/Hong_Kong"
+  -
+    IDZona: 83
+    Zona: "America/Tegucigalpa"
+  -
+    IDZona: 84
+    Zona: "Europe/Zagreb"
+  -
+    IDZona: 85
+    Zona: "America/Port  -au  -Prince"
+  -
+    IDZona: 86
+    Zona: "Europe/Budapest"
+  -
+    IDZona: 87
+    Zona: "Europe/Dublin"
+  -
+    IDZona: 88
+    Zona: "Asia/Jerusalem"
+  -
+    IDZona: 89
+    Zona: "Europe/Isle_of_Man"
+  -
+    IDZona: 90
+    Zona: "Asia/Kolkata"
+  -
+    IDZona: 91
+    Zona: "Indian/Chagos"
+  -
+    IDZona: 92
+    Zona: "Asia/Baghdad"
+  -
+    IDZona: 93
+    Zona: "Asia/Tehran"
+  -
+    IDZona: 94
+    Zona: "Atlantic/Reykjavik"
+  -
+    IDZona: 95
+    Zona: "Europe/Rome"
+  -
+    IDZona: 96
+    Zona: "Europe/Jersey"
+  -
+    IDZona: 97
+    Zona: "America/Jamaica"
+  -
+    IDZona: 98
+    Zona: "Asia/Amman"
+  -
+    IDZona: 99
+    Zona: "Asia/Tokyo"
+  -
+    IDZona: 100
+    Zona: "Africa/Nairobi"
+  -
+    IDZona: 101
+    Zona: "Asia/Bishkek"
+  -
+    IDZona: 102
+    Zona: "Asia/Phnom_Penh"
+  -
+    IDZona: 103
+    Zona: "Indian/Comoro"
+  -
+    IDZona: 104
+    Zona: "America/St_Kitts"
+  -
+    IDZona: 105
+    Zona: "Asia/Pyongyang"
+  -
+    IDZona: 106
+    Zona: "Asia/Seoul"
+  -
+    IDZona: 107
+    Zona: "Asia/Kuwait"
+  -
+    IDZona: 108
+    Zona: "America/Cayman"
+  -
+    IDZona: 109
+    Zona: "Asia/Vientiane"
+  -
+    IDZona: 110
+    Zona: "Asia/Beirut"
+  -
+    IDZona: 111
+    Zona: "America/St_Lucia"
+  -
+    IDZona: 112
+    Zona: "Europe/Vaduz"
+  -
+    IDZona: 113
+    Zona: "Asia/Colombo"
+  -
+    IDZona: 114
+    Zona: "Africa/Monrovia"
+  -
+    IDZona: 115
+    Zona: "Africa/Maseru"
+  -
+    IDZona: 116
+    Zona: "Europe/Vilnius"
+  -
+    IDZona: 117
+    Zona: "Europe/Luxembourg"
+  -
+    IDZona: 118
+    Zona: "Europe/Riga"
+  -
+    IDZona: 119
+    Zona: "Africa/Tripoli"
+  -
+    IDZona: 120
+    Zona: "Africa/Casablanca"
+  -
+    IDZona: 121
+    Zona: "Europe/Monaco"
+  -
+    IDZona: 122
+    Zona: "Europe/Chisinau"
+  -
+    IDZona: 123
+    Zona: "Europe/Podgorica"
+  -
+    IDZona: 124
+    Zona: "America/Marigot"
+  -
+    IDZona: 125
+    Zona: "Indian/Antananarivo"
+  -
+    IDZona: 126
+    Zona: "Europe/Skopje"
+  -
+    IDZona: 127
+    Zona: "Africa/Bamako"
+  -
+    IDZona: 128
+    Zona: "Asia/Rangoon"
+  -
+    IDZona: 129
+    Zona: "Asia/Macau"
+  -
+    IDZona: 130
+    Zona: "Pacific/Saipan"
+  -
+    IDZona: 131
+    Zona: "America/Martinique"
+  -
+    IDZona: 132
+    Zona: "Africa/Nouakchott"
+  -
+    IDZona: 133
+    Zona: "America/Montserrat"
+  -
+    IDZona: 134
+    Zona: "Europe/Malta"
+  -
+    IDZona: 135
+    Zona: "Indian/Mauritius"
+  -
+    IDZona: 136
+    Zona: "Indian/Maldives"
+  -
+    IDZona: 137
+    Zona: "Africa/Blantyre"
+  -
+    IDZona: 138
+    Zona: "Africa/Maputo"
+  -
+    IDZona: 139
+    Zona: "Africa/Windhoek"
+  -
+    IDZona: 140
+    Zona: "Pacific/Noumea"
+  -
+    IDZona: 141
+    Zona: "Africa/Niamey"
+  -
+    IDZona: 142
+    Zona: "Pacific/Norfolk"
+  -
+    IDZona: 143
+    Zona: "Africa/Lagos"
+  -
+    IDZona: 144
+    Zona: "America/Managua"
+  -
+    IDZona: 145
+    Zona: "Europe/Amsterdam"
+  -
+    IDZona: 146
+    Zona: "Europe/Oslo"
+  -
+    IDZona: 147
+    Zona: "Asia/Kathmandu"
+  -
+    IDZona: 148
+    Zona: "Pacific/Nauru"
+  -
+    IDZona: 149
+    Zona: "Pacific/Niue"
+  -
+    IDZona: 150
+    Zona: "Asia/Muscat"
+  -
+    IDZona: 151
+    Zona: "America/Panama"
+  -
+    IDZona: 152
+    Zona: "America/Lima"
+  -
+    IDZona: 153
+    Zona: "Pacific/Port_Moresby"
+  -
+    IDZona: 154
+    Zona: "Asia/Manila"
+  -
+    IDZona: 155
+    Zona: "Asia/Karachi"
+  -
+    IDZona: 156
+    Zona: "Europe/Warsaw"
+  -
+    IDZona: 157
+    Zona: "America/Miquelon"
+  -
+    IDZona: 158
+    Zona: "Pacific/Pitcairn"
+  -
+    IDZona: 159
+    Zona: "America/Puerto_Rico"
+  -
+    IDZona: 160
+    Zona: "Pacific/Palau"
+  -
+    IDZona: 161
+    Zona: "America/Asuncion"
+  -
+    IDZona: 162
+    Zona: "Asia/Qatar"
+  -
+    IDZona: 163
+    Zona: "Indian/Reunion"
+  -
+    IDZona: 164
+    Zona: "Europe/Bucharest"
+  -
+    IDZona: 165
+    Zona: "Europe/Belgrade"
+  -
+    IDZona: 166
+    Zona: "Africa/Kigali"
+  -
+    IDZona: 167
+    Zona: "Asia/Riyadh"
+  -
+    IDZona: 168
+    Zona: "Pacific/Guadalcanal"
+  -
+    IDZona: 169
+    Zona: "Indian/Mahe"
+  -
+    IDZona: 170
+    Zona: "Africa/Khartoum"
+  -
+    IDZona: 171
+    Zona: "Europe/Stockholm"
+  -
+    IDZona: 172
+    Zona: "Asia/Singapore"
+  -
+    IDZona: 173
+    Zona: "Atlantic/St_Helena"
+  -
+    IDZona: 174
+    Zona: "Europe/Ljubljana"
+  -
+    IDZona: 175
+    Zona: "Arctic/Longyearbyen"
+  -
+    IDZona: 176
+    Zona: "Europe/Bratislava"
+  -
+    IDZona: 177
+    Zona: "Africa/Freetown"
+  -
+    IDZona: 178
+    Zona: "Europe/San_Marino"
+  -
+    IDZona: 179
+    Zona: "Africa/Dakar"
+  -
+    IDZona: 180
+    Zona: "Africa/Mogadishu"
+  -
+    IDZona: 181
+    Zona: "America/Paramaribo"
+  -
+    IDZona: 182
+    Zona: "Africa/Juba"
+  -
+    IDZona: 183
+    Zona: "Africa/Sao_Tome"
+  -
+    IDZona: 184
+    Zona: "America/El_Salvador"
+  -
+    IDZona: 185
+    Zona: "America/Lower_Princes"
+  -
+    IDZona: 186
+    Zona: "Asia/Damascus"
+  -
+    IDZona: 187
+    Zona: "Africa/Mbabane"
+  -
+    IDZona: 188
+    Zona: "America/Grand_Turk"
+  -
+    IDZona: 189
+    Zona: "Africa/Ndjamena"
+  -
+    IDZona: 190
+    Zona: "Indian/Kerguelen"
+  -
+    IDZona: 191
+    Zona: "Africa/Lome"
+  -
+    IDZona: 192
+    Zona: "Asia/Bangkok"
+  -
+    IDZona: 193
+    Zona: "Asia/Dushanbe"
+  -
+    IDZona: 194
+    Zona: "Pacific/Fakaofo"
+  -
+    IDZona: 195
+    Zona: "Asia/Dili"
+  -
+    IDZona: 196
+    Zona: "Asia/Ashgabat"
+  -
+    IDZona: 197
+    Zona: "Africa/Tunis"
+  -
+    IDZona: 198
+    Zona: "Pacific/Tongatapu"
+  -
+    IDZona: 199
+    Zona: "Europe/Istanbul"
+  -
+    IDZona: 200
+    Zona: "America/Port_of_Spain"
+  -
+    IDZona: 201
+    Zona: "Pacific/Funafuti"
+  -
+    IDZona: 202
+    Zona: "Asia/Taipei"
+  -
+    IDZona: 203
+    Zona: "Africa/Dar_es_Salaam"
+  -
+    IDZona: 204
+    Zona: "Africa/Kampala"
+  -
+    IDZona: 205
+    Zona: "America/Montevideo"
+  -
+    IDZona: 206
+    Zona: "Europe/Vatican"
+  -
+    IDZona: 207
+    Zona: "America/St_Vincent"
+  -
+    IDZona: 208
+    Zona: "America/Caracas"
+  -
+    IDZona: 209
+    Zona: "America/Tortola"
+  -
+    IDZona: 210
+    Zona: "America/St_Thomas"
+  -
+    IDZona: 211
+    Zona: "Asia/Ho_Chi_Minh"
+  -
+    IDZona: 212
+    Zona: "Pacific/Efate"
+  -
+    IDZona: 213
+    Zona: "Pacific/Wallis"
+  -
+    IDZona: 214
+    Zona: "Pacific/Apia"
+  -
+    IDZona: 215
+    Zona: "Asia/Aden"
+  -
+    IDZona: 216
+    Zona: "Indian/Mayotte"
+  -
+    IDZona: 217
+    Zona: "Africa/Johannesburg"
+  -
+    IDZona: 218
+    Zona: "Africa/Lusaka"
+  -
+    IDZona: 219
+    Zona: "Africa/Harare"
+  -
+    IDZona: 220
+    Zona: "Antarctica/South_Pole"
+  -
+    IDZona: 221
+    Zona: "Pacific/Chuuk"
+  -
+    IDZona: 222
+    Zona: "Pacific/Wake"
+  -
+    IDZona: 223
+    Zona: "America/Argentina/Buenos_Aires"
+  -
+    IDZona: 224
+    Zona: "Australia/Sydney"
+  -
+    IDZona: 225
+    Zona: "Australia/Darwin"
+  -
+    IDZona: 226
+    Zona: "Australia/Brisbane"
+  -
+    IDZona: 227
+    Zona: "Australia/Adelaide"
+  -
+    IDZona: 228
+    Zona: "Australia/Hobart"
+  -
+    IDZona: 229
+    Zona: "Australia/Melbourne"
+  -
+    IDZona: 230
+    Zona: "Australia/Perth"
+  -
+    IDZona: 231
+    Zona: "America/Rio_Branco"
+  -
+    IDZona: 232
+    Zona: "America/Maceio"
+  -
+    IDZona: 233
+    Zona: "America/Sao_Paulo"
+  -
+    IDZona: 234
+    Zona: "America/Manaus"
+  -
+    IDZona: 235
+    Zona: "America/Bahia"
+  -
+    IDZona: 236
+    Zona: "America/Fortaleza"
+  -
+    IDZona: 237
+    Zona: "America/Campo_Grande"
+  -
+    IDZona: 238
+    Zona: "America/Belem"
+  -
+    IDZona: 239
+    Zona: "America/Cuiaba"
+  -
+    IDZona: 240
+    Zona: "America/Recife"
+  -
+    IDZona: 241
+    Zona: "America/Porto_Velho"
+  -
+    IDZona: 242
+    Zona: "America/Boa_Vista"
+  -
+    IDZona: 243
+    Zona: "America/Araguaina"
+  -
+    IDZona: 244
+    Zona: "America/Edmonton"
+  -
+    IDZona: 245
+    Zona: "America/Vancouver"
+  -
+    IDZona: 246
+    Zona: "America/Winnipeg"
+  -
+    IDZona: 247
+    Zona: "America/Halifax"
+  -
+    IDZona: 248
+    Zona: "America/St_Johns"
+  -
+    IDZona: 249
+    Zona: "America/Yellowknife"
+  -
+    IDZona: 250
+    Zona: "America/Rankin_Inlet"
+  -
+    IDZona: 251
+    Zona: "America/Toronto"
+  -
+    IDZona: 252
+    Zona: "America/Montreal"
+  -
+    IDZona: 253
+    Zona: "America/Regina"
+  -
+    IDZona: 254
+    Zona: "America/Whitehorse"
+  -
+    IDZona: 255
+    Zona: "Africa/Kinshasa"
+  -
+    IDZona: 256
+    Zona: "Africa/Lubumbashi"
+  -
+    IDZona: 257
+    Zona: "America/Santiago"
+  -
+    IDZona: 258
+    Zona: "Asia/Shanghai"
+  -
+    IDZona: 259
+    Zona: "Asia/Harbin"
+  -
+    IDZona: 260
+    Zona: "Asia/Chongqing"
+  -
+    IDZona: 261
+    Zona: "Asia/Urumqi"
+  -
+    IDZona: 262
+    Zona: "America/Guayaquil"
+  -
+    IDZona: 263
+    Zona: "Europe/Madrid"
+  -
+    IDZona: 264
+    Zona: "America/Thule"
+  -
+    IDZona: 265
+    Zona: "America/Godthab"
+  -
+    IDZona: 266
+    Zona: "Asia/Pontianak"
+  -
+    IDZona: 267
+    Zona: "Asia/Makassar"
+  -
+    IDZona: 268
+    Zona: "Asia/Jakarta"
+  -
+    IDZona: 269
+    Zona: "Asia/Jayapura"
+  -
+    IDZona: 270
+    Zona: "Pacific/Tarawa"
+  -
+    IDZona: 271
+    Zona: "Asia/Almaty"
+  -
+    IDZona: 272
+    Zona: "Asia/Qyzylorda"
+  -
+    IDZona: 273
+    Zona: "Asia/Aqtobe"
+  -
+    IDZona: 274
+    Zona: "Asia/Aqtau"
+  -
+    IDZona: 275
+    Zona: "Asia/Oral"
+  -
+    IDZona: 276
+    Zona: "Pacific/Majuro"
+  -
+    IDZona: 277
+    Zona: "Asia/Choibalsan"
+  -
+    IDZona: 278
+    Zona: "America/Mexico_City"
+  -
+    IDZona: 279
+    Zona: "America/Tijuana"
+  -
+    IDZona: 280
+    Zona: "America/Mazatlan"
+  -
+    IDZona: 281
+    Zona: "America/Chihuahua"
+  -
+    IDZona: 282
+    Zona: "America/Merida"
+  -
+    IDZona: 283
+    Zona: "America/Monterrey"
+  -
+    IDZona: 284
+    Zona: "America/Cancun"
+  -
+    IDZona: 285
+    Zona: "America/Hermosillo"
+  -
+    IDZona: 286
+    Zona: "America/Matamoros"
+  -
+    IDZona: 287
+    Zona: "Asia/Kuala_Lumpur"
+  -
+    IDZona: 288
+    Zona: "Asia/Kuching"
+  -
+    IDZona: 289
+    Zona: "Pacific/Auckland"
+  -
+    IDZona: 290
+    Zona: "Pacific/Marquesas"
+  -
+    IDZona: 291
+    Zona: "Asia/Gaza"
+  -
+    IDZona: 292
+    Zona: "Europe/Lisbon"
+  -
+    IDZona: 293
+    Zona: "Europe/Volgograd"
+  -
+    IDZona: 294
+    Zona: "Asia/Irkutsk"
+  -
+    IDZona: 295
+    Zona: "Asia/Novokuznetsk"
+  -
+    IDZona: 296
+    Zona: "Asia/Novosibirsk"
+  -
+    IDZona: 297
+    Zona: "Asia/Vladivostok"
+  -
+    IDZona: 298
+    Zona: "Europe/Moscow"
+  -
+    IDZona: 299
+    Zona: "Europe/Samara"
+  -
+    IDZona: 300
+    Zona: "Asia/Yekaterinburg"
+  -
+    IDZona: 301
+    Zona: "Asia/Anadyr"
+  -
+    IDZona: 302
+    Zona: "Asia/Krasnoyarsk"
+  -
+    IDZona: 303
+    Zona: "Europe/Kaliningrad"
+  -
+    IDZona: 304
+    Zona: "Asia/Kamchatka"
+  -
+    IDZona: 305
+    Zona: "Asia/Omsk"
+  -
+    IDZona: 306
+    Zona: "Asia/Magadan"
+  -
+    IDZona: 307
+    Zona: "Asia/Yakutsk"
+  -
+    IDZona: 308
+    Zona: "Asia/Sakhalin"
+  -
+    IDZona: 309
+    Zona: "Europe/Kiev"
+  -
+    IDZona: 310
+    Zona: "Europe/Uzhgorod"
+  -
+    IDZona: 311
+    Zona: "Europe/Zaporozhye"
+  -
+    IDZona: 312
+    Zona: "Europe/Simferopol"
+  -
+    IDZona: 313
+    Zona: "America/Chicago"
+  -
+    IDZona: 314
+    Zona: "America/Anchorage"
+  -
+    IDZona: 315
+    Zona: "America/Phoenix"
+  -
+    IDZona: 316
+    Zona: "America/Los_Angeles"
+  -
+    IDZona: 317
+    Zona: "America/Denver"
+  -
+    IDZona: 318
+    Zona: "America/New_York"
+  -
+    IDZona: 319
+    Zona: "Pacific/Honolulu"
+  -
+    IDZona: 320
+    Zona: "America/Indiana/Indianapolis"
+  -
+    IDZona: 321
+    Zona: "Asia/Tashkent"
+  -
+    IDZona: 322
+    Zona: "Asia/Samarkand"
+  -
+    IDZona: 323
+    Zona: "Pacific/Galapagos"
+  -
+    IDZona: 324
+    Zona: "Africa/Ceuta"
+  -
+    IDZona: 325
+    Zona: "Atlantic/Canary"
+  -
+    IDZona: 326
+    Zona: "Pacific/Chatham"
+  -
+    IDZona: 327
+    Zona: "Atlantic/Madeira"
+  -
+    IDZona: 328
+    Zona: "Atlantic/Azores"

@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO Monedas
+#
+# Module: Monedas
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 02-02-2014 01:15:20
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

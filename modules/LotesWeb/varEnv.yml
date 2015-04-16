@@ -1,0 +1,11 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO LotesWeb
+#
+# Module: LotesWeb
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 20-06-2014 18:30:08
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

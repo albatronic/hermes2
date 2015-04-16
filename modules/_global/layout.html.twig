@@ -1,0 +1,42 @@
+{% import "_global/macros.html.twig" as macro %}
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="es" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="es" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="es">
+<!--<![endif]-->
+
+<head>
+<meta charset="utf-8"/>
+<title>Vips {% block title %}{% endblock %}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1">
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+{% include values.archivoCss %}
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content page-style-square">     
+{% include '_global/header.html.twig' %}
+
+<div class="clearfix"></div>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    {% include '_global/sidebarLeft.html.twig' %}        
+    <div class="page-content-wrapper">
+        <div class="page-content" style="min-height:1029px">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    {# include '_global/sidebarRight.html.twig' #}
+</div>
+<!-- END CONTAINER -->
+
+{% include '_global/footer.html.twig' %}
+{% include values.archivoJs %}
+</body>
+</html>

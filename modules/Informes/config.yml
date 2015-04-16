@@ -1,0 +1,21 @@
+# Module: Informes
+#
+# @author Sergio Perez <sergio.perez@albatronic.com>
+# @copyright Informatica ALBATRONIC
+# @since: 19-05-2012
+#
+---
+Informes:
+  login_required: YES
+  permission_control: YES
+  favourite_control: YES
+  help_file: help.html.twig
+  title: Generador de Informes
+  conection: 
+  entity: 
+  table: 
+  primarykey: 
+  records_per_page: 
+  order_by:
+  search_default:
+  columns:

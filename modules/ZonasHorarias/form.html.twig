@@ -1,0 +1,14 @@
+{#
+  Module: ErpZonasHorarias
+  Document : modules\ErpZonasHorarias\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 02.02.2014 13:12:28
+#}
+
+{{ macro.input(values.atributos.Zona,'Etiqueta','text',values.controller ~ '[Zona]',values.controller ~ '_Zona',datos.Zona,'255','CampoTextoLargo','1') }}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_Zona') }}

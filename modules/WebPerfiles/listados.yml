@@ -1,0 +1,24 @@
+# Module: WebPerfiles
+# Document : modules\WebPerfiles\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 18.03.2014 18:36:33
+#
+---
+listados:
+  -
+    title: Perfiles de los usuarios Web
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Perfil: { field: Perfil, title: Perfil, length: '50', align: L, type: string, total: NO, formula: null, format: null }

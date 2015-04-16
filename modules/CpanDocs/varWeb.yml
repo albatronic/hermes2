@@ -1,0 +1,11 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO CpanDocs
+#
+# Module: CpanDocs
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 02-10-2012 18:58:03
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

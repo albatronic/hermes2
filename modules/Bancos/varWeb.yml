@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO ErpBancos
+#
+# Module: ErpBancos
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 01-04-2013 16:52:12
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

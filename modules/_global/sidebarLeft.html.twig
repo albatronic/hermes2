@@ -1,0 +1,221 @@
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse">
+            <!-- BEGIN SIDEBAR MENU -->
+            <ul class="page-sidebar-menu" data-keep-expanded="true" data-auto-scroll="false" data-slide-speed="0">
+                <li class="sidebar-toggler-wrapper">
+                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                    <div class="sidebar-toggler"></div>
+                    <!-- END SIDEBAR TOGGLER BUTTON -->
+                </li>
+                <li class="{% if "" == values.enCurso.app%}start active open{% endif %}">
+                    <a href="{{app.path}}/">
+                    <i class="fa fa-home"></i>
+                    <span class="title">Inicio</span>
+                    <span class="arrow"></span>
+                    </a>    
+                </li>
+                {% for opcion in menu %}
+                <li class="{% if opcion.NombreModulo == values.enCurso.app%}start active open{% endif %}">
+                    <a href="javascript:;">
+                    <i class="{{opcion.Icon}}"></i>
+                    <span class="title">{{opcion.Titulo}}</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                    </a>
+                    <ul class="sub-menu">
+                    {% for subopcion in opcion.hijos %}
+                        <li class="{% if subopcion.NombreModulo == values.controller%}active{% endif %}">
+                            <a href="{{app.path}}/{{subopcion.NombreModulo}}">{{subopcion.Titulo}}</a>
+                        </li>                        
+                    {% endfor %}                        
+                    </ul>
+                </li>
+                {% endfor %}
+{#
+                <li>
+                    <a href="javascript:;">
+                    <i class="icon-basket"></i>
+                    <span class="title">E-Commerce</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="active">
+                            <a href="#.html">
+                            <i class="icon-users "></i>
+                            Clientes</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            <i class="icon-basket-loaded"></i>
+                            Pedidos</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            <i class="icon-credit-card "></i>
+                            Formas de pago y envío</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                    <i class="icon-book-open "></i>
+                    <span class="title">Catálogo</span>
+                    <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#">
+                            Materias</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            Familias objetos</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            Disponibilidad</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            Descuentos</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                           Información alternativa</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                    <i class="icon-grid "></i>
+                    <span class="title">Bloques</span>
+                    <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#">
+                            Carrusel</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Más vendidos lateral</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Publicidad izquierda</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Slider</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Faqs</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                    <i class="icon-list"></i>
+                    <span class="title">Navegación</span>
+                    <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#.html">
+                            Menú superior</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Menú inicio</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Menú libros</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Menú ebooks</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Menú papelería</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Menú videojuegos</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Menú electrónica</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Menú juegos</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Menú lateral</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Menú pie</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                    <i class="icon-docs"></i>
+                    <span class="title">Páginas</span>
+                    <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#.html">
+                            Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Escaparates</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Noticias</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                    <i class="icon-settings"></i>
+                    <span class="title">Configuración</span>
+                    <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="#.html">
+                            Datos contacto</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Personalización</a>
+                        </li>
+                        <li>
+                            <a href="#.html">
+                            Administradores</a>
+                        </li>
+                     </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                    <i class="icon-cloud-upload"></i>
+                    <span class="title">Archivos</span>
+                    </a>
+               </li>
+#}
+            </ul>
+            <!-- END SIDEBAR MENU -->
+        </div>
+    </div>
+    <!-- END SIDEBAR -->

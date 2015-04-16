@@ -1,0 +1,123 @@
+{# Template list.html.twig for Existencias #}
+{# -------------------------------------------------------#}
+{% extends 'Existencias/index.html.twig' %}
+
+{% set mostrarUbicaciones = values.listado.data[0].IDAlmacen.ControlUbicaciones.IDTipo %}
+{% set unidadMedida = values.listado.filter.flags.unidadMedida %}
+
+{% block listado %}
+<div class='Listado'>
+
+    {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'Existencias','position':'izq'}%}
+
+    <table width="100%">
+        <tr class='Titulos'>
+            <td class='Item'>Articulo</td>
+            <td class='Item'>Lote</td>
+            {% if mostrarUbicaciones %}
+            <td class='Item'>Ubicación</td>
+            {% endif %}
+            <td class='Item'>Disponibles</td>
+            <td class='Item'>Reales</td>
+            <td class='Item'>Reservadas</td>
+            <td class='Item'>Entrando</td>
+            <td class='Item'>Dpto</td>
+        </tr>
+
+        <tbody class='Cuerpo'>
+            {% set almacenAnt = 0 %}
+            {% for key,objeto in values.listado.data %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+
+                {% set disponibles = objeto.reales - objeto.reservadas %}
+                {% if almacenAnt != objeto.IDAlmacen.IDAlmacen%}
+                    <tr><td colspan="9"><div class="InterLinea">{{objeto.IDAlmacen}}</div></td></tr>
+                {% endif%}
+                {% set almacenAnt = objeto.IDAlmacen.IDAlmacen %}
+                {% set reservas = objeto.IDArticulo.getReservas(objeto.IDAlmacen.IDAlmacen) %}
+                {% set entrando = objeto.IDArticulo.getEntrando(objeto.IDAlmacen.IDAlmacen) %}
+                <tr class='{{classFila}}' style="font-size: 11px;">
+                    <td class='Item'>
+                        <table style="width: 100%;"><tr><td style="width: 110px;">{{objeto.IDArticulo.Codigo}}</td><td>{{objeto.IDArticulo|slice(0,60)}}</td></tr></table>
+                    </td>
+                    <td class='Item'>{{objeto.IDLote}}</td>
+                    {% if mostrarUbicaciones %}
+                    <td class='Item'>{{objeto.IDUbicacion}}</td>
+                    {% endif %}
+                    <td class="existencias">{{objeto.IDArticulo.convertUnit('UMA',unidadMedida,disponibles)|number_format(2)}}</td>
+                    <td class="existencias">{{objeto.IDArticulo.convertUnit('UMA',unidadMedida,objeto.Reales)|number_format(2)}}</td>
+                    <td class="existencias">
+                        {% if reservas|length>0 %}
+                            <a href="#" onclick="$('#reservas{{key}}').toggle();">{{objeto.IDArticulo.convertUnit('UMA',unidadMedida,objeto.Reservadas)|number_format(2)}}</a>
+                        {% else %}
+                            {{objeto.IDArticulo.convertUnit('UMA',unidadMedida,objeto.Reservadas)|number_format(2)}}                            
+                        {% endif %}
+                    </td>
+                    <td class="existencias">
+                        {% if entrando|length>0 %}
+                            <a href="#" onclick="$('#entrando{{key}}').toggle();">{{objeto.IDArticulo.convertUnit('UMA',unidadMedida,objeto.Entrando)|number_format(2)}}</a>
+                        {% else %}
+                            {{objeto.IDArticulo.convertUnit('UMA',unidadMedida,objeto.Entrando)|number_format(2)}}                            
+                        {% endif %}                        
+                    </td>
+                    <td align='center'>{{objeto.EnDeposito}}</td>                
+                </tr>
+
+                {% if reservas|length > 0 %}
+                    <tr id="reservas{{key}}" style="display:none;">
+                        <td colspan="7">
+                            <table style="width: 70%;margin-left: 30%;margin-bottom: 10px;border: 1px solid;">
+                                <tr>
+                                    <td>Albarán</td>
+                                    <td>Fecha</td>
+                                    <td style="width:60%">Cliente</td>
+                                    <td>Reserva</td>
+                                </tr>
+                                {% for reserva in reservas %}
+                                    <tr>
+                                        <td><a href="{{app.path}}/AlbaranesCab/edit/{{reserva.PrimaryKeyMD5}}" target="_blank">{{reserva.NumeroAlbaran}}</a></td>
+                                        <td>{{reserva.Fecha}}</td>
+                                        <td>{{reserva.RazonSocial}}</td>
+                                        <td>{{reserva.Reservas}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+                {% endif %}
+                {% if entrando|length > 0 %}
+                    <tr id="entrando{{key}}" style="display:none;">
+                        <td colspan="7">
+                            <table style="width: 70%;margin-left: 30%;margin-bottom: 10px;border: 1px solid;">
+                                <tr>
+                                    <td>Pedido</td>
+                                    <td>Fecha</td>
+                                    <td>Fecha Prev. Entrada</td>
+                                    <td style="width:60%">Proveedor</td>
+                                    <td>Entrando</td>
+                                </tr>
+                                {% for item in entrando %}
+                                    <tr>
+                                        <td><a href="{{app.path}}/PedidosCab/edit/{{item.PrimaryKeyMD5}}" target="_blank">{{item.IDPedido}}</a></td>
+                                        <td>{{item.Fecha}}</td>
+                                        <td>{{item.FechaEntrega}}</td>
+                                        <td>{{item.RazonSocial}}</td>
+                                        <td>{{item.Entrando}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% else %}
+            <tr><td colspan='7'>No hay informacion que cumpla esos criterios</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

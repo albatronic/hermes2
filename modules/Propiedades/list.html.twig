@@ -1,0 +1,32 @@
+{# Template list.html.twig for Propiedades #}
+{# -------------------------------------------------------#}
+{% extends 'Propiedades/index.html.twig' %}
+
+{% block listado %}
+<div class='Listado'>
+    {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'Propiedades','position':'izq'}%}   
+        <table width="100%">
+            <tr class='Titulos'>
+                <td class='Item'>Titulo</td>
+                <td class='Item'>Tipo</td>
+            </tr>
+
+            <tbody class='Cuerpo'>
+            {% for key,objeto in values.listado.data %}
+                {% if (key is even) %}
+                    {% set classFila = 'Impar' %}
+                {% else %}
+                    {% set classFila = 'Par' %}
+                {% endif %}
+            <tr onclick="location.href='{{app.path}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}'>
+                <td class='Item'><a href="{{app.path}}/Propiedades/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Titulo|slice(0,40)}}</a></td>
+                <td class="Item">{{objeto.IDTipo.Descripcion}}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan='2'>No hay informaci&oacute;n que cumpla esos criterios</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+</div>
+{% endblock %}

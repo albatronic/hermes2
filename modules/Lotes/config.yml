@@ -1,0 +1,213 @@
+# Module: ErpLotes
+# Document : modules/ErpLotes/config.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: Informática ALBATRONIC SL
+# @date 25.03.2013 20:02:27
+#
+---
+Lotes:
+  app: ''
+  isModuleRoot: 0
+  linkModule:
+    fromColumn: ''
+    toEntity: ''
+    toColumn: ''
+  translatable: false
+  searchable: false
+  showCommonFields: false
+  numMaxRecords: ''
+  numberOfImages: '0'
+  withGalery: '0'
+  withDocuments: '0'
+  withVideos: 0
+  withAudios: '0'
+  maxSizes:
+    image: '400000'
+    document: ''
+    video: ''
+    audio: ''
+  galery:
+    maxWidthImage: '500'
+    maxHeightImage: '400'
+    generateThumbnail: '0'
+    widthThumbnail: '50'
+    heightThumbnail: '50'
+  urlFriendlyManagement: false
+  fieldGeneratorUrlFriendly: IDArticulo
+  metatagTitleManagement: false
+  fieldGeneratorMetatagTitle: IDArticulo
+  controller: Lotes
+  action: Index
+  template: index.html.twig
+  parametros: ''
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: YES
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Lotes
+  id_video: lotes
+  url_video: null
+  feature_list: YES
+  conection: ''
+  entity: Lotes
+  table: ErpLotes
+  primarykey: IDLote
+  linkBy: ''
+  records_per_page: 15
+  order_by:
+    -
+      title: Lote a-z
+      criteria: Lote ASC
+    -
+      title: Lote z-a
+      criteria: Lote DESC
+    -
+      title: F. Fabricacion a-z
+      criteria: FechaFabricacion ASC
+    -
+      title: F. Fabricacion z-a
+      criteria: FechaFabricacion DESC
+    -
+      title: F. Caducidad a-z
+      criteria: FechaCaducidad ASC
+    -
+      title: F. Caducidad z-a
+      criteria: FechaCaducidad DESC
+  search_default: IDLote
+  referenced_entities:
+    - ErpArticulos
+    - ValoresSN
+    - ValoresPrivacy
+    - ValoresDchaIzq
+    - ValoresChangeFreq
+    - RequestMethods
+    - RequestOrigins
+    - CpanAplicaciones
+  columns:
+    IDLote:
+      title: IDLote
+      visible: false
+      updatable: false
+      filter: NO
+      list: NO
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+    IDArticulo:
+      title: Artículo
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 1, caption: Cod. Artículo (%), entity: Articulos, method: fetchAll, params: Codigo, type: input, operator: '=', event: null }
+      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+    IDArticulo:
+      title: Artículo
+      filter: NO
+      list: YES
+      form: YES
+      link:
+        route: null
+        param: null
+        title: null
+        target: null
+      default: null
+      validator:
+        nullable: NO
+        type: string
+        length: 50
+        min: 1
+        max: 99999999
+        message: Valor Requerido
+      aditional_filter:
+        order: 2
+        caption: Artículo (%)
+        entity: Articulos
+        method: fetchAll
+        params: Descripcion
+        type: input      
+    Lote:
+      title: Lote
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true
+      default: null
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      validator: { nullable: NO, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
+    FechaFabricacion:
+      title: Fecha Fabricación
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0000-00-00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 3
+        caption: Fecha Fabricación
+        entity: null
+        type: range
+        operator: '>='
+      validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
+    FechaCaducidad:
+      title: Fecha Caducidad
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '0000-00-00'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 4
+        caption: Fecha Caducidad
+        entity: null
+        type: range
+        operator: '>='
+      validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
+    Vigente:
+      title: Vigente
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true
+      default: '1'
+      help: null
+      permission: null
+      translatable: false
+      searchable: false
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter:
+        order: 99
+        caption: Vigente
+        entity: ValoresSN
+        method: fetchAll
+        type: select
+        default: 1
+      validator: { nullable: NO, type: tinyint, length: '2', min: null, max: null, message: 'Valor Requerido' }
+ 

@@ -1,0 +1,20 @@
+{#
+  Module: ErpPedidosWebLog
+  Document : modules\ErpPedidosWebLog\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 20.09.2014 17:49:23
+#}
+
+{{ macro.select(values.atributos.IDPedido,'Etiqueta',values.controller ~ '[IDPedido]',values.controller ~ '_IDPedido',none,datos.IDPedido.IDPedido,datos.IDPedido.fetchAll('IDPedido'),'chzn-select','1')}}
+{{ macro.fecha(values.atributos.Fecha,'Etiqueta',values.controller ~ '[Fecha]',values.controller ~ '_Fecha',datos.Fecha,'19','datepicker','2')}}
+{{ macro.input(values.atributos.IpAddress,'Etiqueta','text',values.controller ~ '[IpAddress]',values.controller ~ '_IpAddress',datos.IpAddress,'20','CampoTextoCorto','3') }}
+{{ macro.input(values.atributos.Accion,'Etiqueta','text',values.controller ~ '[Accion]',values.controller ~ '_Accion',datos.Accion,'100','CampoTextoLargo','4') }}
+{{ macro.select(values.atributos.IDEstado,'Etiqueta',values.controller ~ '[IDEstado]',values.controller ~ '_IDEstado',none,datos.IDEstado.IDEstado,datos.IDEstado.fetchAll('IDTipo'),'chzn-select','5')}}
+{{ macro.input(values.atributos.Pasarela,'Etiqueta','text',values.controller ~ '[Pasarela]',values.controller ~ '_Pasarela',datos.Pasarela,'50','CampoTextoLargo','6') }}
+{{ macro.textarea(values.atributos.ResultadoPasarela,'Etiqueta',values.controller ~ '[ResultadoPasarela]',values.controller ~ '_ResultadoPasarela',datos.ResultadoPasarela,none,none,'textarea','7')}}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_IDPedido') }}

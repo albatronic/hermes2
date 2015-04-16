@@ -1,0 +1,14 @@
+# VARIABLES WEB ESPECIFICAS DEL MODULO ServFamilias
+#
+# Module: ServFamilias
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright Informática ALBATRONIC, SL
+# date 04-02-2013 19:23:25
+#
+# ejemplo:
+#
+# nombreVariable:
+#   caption: el texto del caption
+#   values: array Id, Value con los valores posibles de la variable (opcional)
+#   default: valor por defecto
+---

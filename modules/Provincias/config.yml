@@ -1,0 +1,152 @@
+# Module: Provincias
+#
+# @author Sergio Perez <sergio.perez@albatronic.com>
+# @copyright Informatica ALBATRONIC
+# @since: 27-11-2011
+#
+---
+Provincias:
+  app: ''
+  isModuleRoot: 0
+  linkModule:
+    fromColumn: ''
+    toEntity: ''
+    toColumn: ''
+  translatable: false
+  searchable: false
+  showCommonFields: false
+  numMaxRecords: ''
+  numberOfImages: '0'
+  withGalery: '0'
+  withDocuments: '0'
+  withVideos: 0
+  withAudios: '0'
+  maxSizes:
+    image: '400000'
+    document: ''
+    video: ''
+    audio: ''
+  galery:
+    maxWidthImage: '500'
+    maxHeightImage: '400'
+    generateThumbnail: '0'
+    widthThumbnail: '50'
+    heightThumbnail: '50'
+  urlFriendlyManagement: false
+  fieldGeneratorUrlFriendly: Provincia
+  metatagTitleManagement: false
+  fieldGeneratorMetatagTitle: Provincia
+  controller: Provincias
+  action: Index
+  template: index.html.twig
+  parametros: ''
+  includesHead:
+    twigCss: _global/css.html.twig
+    twigJs: _global/js.html.twig
+  login_required: YES
+  permission_control: YES
+  favourite_control: NO
+  help_file: help.html.twig
+  title: Provincias
+  id_video: provincias
+  url_video: null
+  feature_list: YES
+  conection: ''
+  entity: Provincias
+  table: ErpProvincias
+  primarykey: IDProvincia
+  linkBy: ''
+  records_per_page: 15
+  order_by:
+    -
+      title: Provincia a-z
+      criteria: Provincia ASC
+    -
+      title: Provincia z-a
+      criteria: Provincia DESC
+  search_default: Provincia  
+  columns:
+    IDPais:
+      title: País
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      link:
+        route: null
+        param: null
+        title: null
+        target: null
+      default: null
+      validator: null
+      aditional_filter: { order: 1, caption: Pais, entity: Paises, method: fetchAll, params: Pais, type: select, operator: '=', event: null }
+    IDProvincia:
+      title: Provincia
+      filter: NO
+      list: NO
+      visible: true
+      updatable: true
+      link:
+        route: null
+        param: null
+        title: null
+        target: null
+      default: null
+      validator: null
+    Codigo:
+      title: Código
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true      
+      link:
+        route: null
+        param: null
+        title: null
+        target: null
+      default: null
+      validator:
+        nullable: NO
+        type: string
+        length: 5
+        min: null
+        max: null
+        message: Valor Requerido
+    Provincia:
+      title: Provincia
+      filter: YES
+      list: YES
+      visible: true
+      updatable: true       
+      link:
+        route: null
+        param: null
+        title: null
+        target: null
+      default: null
+      validator:
+        nullable: NO
+        type: string
+        length: 30
+        min: null
+        max: null
+        message: Valor Requerido
+    IDZona:
+      title: Zona
+      filter: NO
+      list: YES
+      visible: true
+      updatable: true 
+      link:
+        route: null
+        param: null
+        title: null
+        target: null
+      default: 0
+      validator:
+        nullable: NO
+        type: integer
+        length: 15
+        min: 0
+        max: 999
+        message: Valor Requerido

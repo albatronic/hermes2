@@ -1,0 +1,14 @@
+{# Template index.html.twig for PropiedadesValores #}
+{# ----------------------------------------------------#}
+{% extends popup %}
+
+{% block content %}
+    {% include "_global/alertas.html.twig" with {'alertas': values.alertas,'errores': values.errores} %}
+
+    <div id="div_listado">
+    {% block listado %}
+    {% endblock %}
+    </div>
+
+    <div id="notificacion"></div>
+{% endblock %}

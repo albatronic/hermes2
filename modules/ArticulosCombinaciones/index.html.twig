@@ -1,0 +1,39 @@
+{# empty Twig template #}
+{% extends popup %}
+
+{% block content %}
+
+<form name="formGenerar" id="formGenerar" method="POST" action="">
+    <input name="controller" value="ArticulosCombinaciones" type="hidden" />
+    <input name="action" value="generar" type="hidden" />
+    <input name="idArticulo" value="{{values.idArticulo}}" type="text" />
+    
+    <div style="float: left; margin: 10px; width: 250px;">
+        <h4>Seleccione las propiedades a combinar:</h4>
+        <select id="grupoPropiedades" name="grupoPropiedades[]" style="height: 400px; width: 100%; margin-top: 5px; padding: 5px;" multiple="">
+        {% for keyPropiedad,propiedad in values.propiedadesValores %}
+            <optgroup id="{{keyPropiedad}}" label="{{propiedad.Titulo}}">
+            {% for keyValor,valor in propiedad.Valores %}
+                <option name="{{keyValor}}" value="{{keyPropiedad}}|{{propiedad.Titulo}}|{{keyValor}}|{{valor}}">{{valor}}</option>
+            {% endfor %}
+            </optgroup>
+        {% endfor %}
+        </select>
+                        
+    </div>
+    
+    <div style="float: left; margin: 10px;">
+        <input type="submit" value="Generar combinaciones" />
+        
+        <table>
+            {% for articulo in values.articulos %}
+                <tr>
+                    <td>{{articulo.Codigo}}</td>
+                    <td>{{articulo.Descripcion}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+
+{% endblock %}

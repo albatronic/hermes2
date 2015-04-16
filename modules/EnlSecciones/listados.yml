@@ -1,0 +1,27 @@
+# Module: EnlSecciones
+# Document : modules\EnlSecciones\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 05.12.2012 10:14:17
+#
+---
+listados:
+  -
+    title: EnlSecciones
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Titulo: { title: Titulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Subtitulo: { title: Subtitulo, length: '255', align: L, type: string, total: NO, formula: null, format: null }
+      Resumen: { title: Resumen, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      IdTipo: { title: IdTipo, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }

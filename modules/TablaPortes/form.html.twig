@@ -1,0 +1,41 @@
+{# TEMPLATE TablaPortes/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+
+{% extends 'TablaPortes/index.html.twig' %}
+
+{% block listado %}
+<div class='Listado'>
+
+    <table width='100%'>
+        <tr class='Titulos'>
+            <td class="Item">Zona / Kilos</td>
+            {% for kilos in values.tramosKilos %}
+            <td class='Item'>{{kilos.Value}}</td>
+            {% endfor %}
+        </tr>
+
+        <tbody class="Cuerpo">
+            {% for zona in values.zonasTransporte %}
+
+                <tr class="ItemListado">
+                    <td>{{zona.Value}}</td>
+                    {% for kilos in values.tramosKilos %}
+                    <td align="right">
+                        <input 
+                            name="{{zona.Id}}_{{kilos.Id}}" 
+                            value="{{values.tablaPortes[zona.Id]['Tarifa'][kilos.Value]}}" 
+                            type="text" 
+                            style="text-align: right;width: 33px;"
+                            onchange="actualizaTablaPortes('{{values.idAgencia}}','{{zona.Id}}','{{kilos.Value}}',this.value);"
+                        />
+                    </td>
+                    {% endfor %}
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="resultado"></div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{# _global/escandallo.html.twig 
+
+    SE UTILIZA PARA MOSTRAR EL ESCANDALLO DE UN PRODUCTO
+    DESDE LAS LINEAS DE PRESUPUESTOS Y ALBARANES
+
+#}
+
+<div id="dialogEscandallo" title="Escandallo del producto">
+    <div id="divEscandallo"></div>
+</div>
+
+<script language='JavaScript' type='text/javascript'>
+    $(function() {
+	$( "#dialogEscandallo" ).dialog({
+            autoOpen: false,
+            width: 700,
+            height: 225,
+            position: ['center','center'],
+            closeOnEscape: true,
+            show: 'slide',
+            //close: function(event, ui) {},
+        });
+    });
+    
+    function cargaEscandallo(idArticulo) {
+        var url = appPath +"/lib/escandallo.php?formato=JSON&idArticulo="+idArticulo;
+        var html = "<tr class='Titulos'><td class='Item'>Codigo</td><td class='Item'>Descripcion</td><td colspan='2' class='Item'>Unidades</td></tr>";
+        
+        $.getJSON( url, function( data ) {
+            for(i=0;i<data.length;i++) {
+                html = html + "<tr><td>"+data[i]['Codigo']+"</td><td>"+data[i]['Descripcion']+"</td><td style='text-align:right;'>"+data[i]['Unidades']+"</td><td>"+data[i]['UMV']+"</td></tr>";
+            }
+            html="<div class='Listado'><table width='100%'>"+html+"</table></div>";
+            $('#divEscandallo').html(html);                 
+        });                      
+    }
+</script>

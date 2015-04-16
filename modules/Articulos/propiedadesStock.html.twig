@@ -1,0 +1,31 @@
+{# PROPIEDADES DE STOCK #}
+<div>
+    <h3>Propiedades de stock</h3>
+    <div>
+        <div style="float:left; width: 32%;">
+        {{ macro.input(values.atributos.AllowsChildren,'Etiqueta','checkbox',values.controller ~ '[AllowsChildren]',values.controller ~ '_AllowsChildren',datos.AllowsChildren.IDTipo,'255','CampoTextoLargo','12') }}
+        {{ macro.input(values.atributos.BajoPedido,'Etiqueta','checkbox',values.controller ~ '[BajoPedido]',values.controller ~ '_BajoPedido',datos.BajoPedido.IDTipo,'255','CampoTextoLargo','20')}}
+        {{ macro.input(values.atributos.Inventario,'Etiqueta','checkbox',values.controller ~ '[Inventario]',values.controller ~ '_Inventario',datos.Inventario.IDTipo,'255','CampoTextoLargo','20')}}
+        {{ macro.input(values.atributos.BloqueoStock,'Etiqueta','checkbox',values.controller ~ '[BloqueoStock]',values.controller ~ '_BloqueoStock',datos.BloqueoStock.IDTipo,'255','CampoTextoLargo','20')}}
+        {{ macro.input(values.atributos.Trazabilidad,'Etiqueta','checkbox',values.controller ~ '[Trazabilidad]',values.controller ~ '_Trazabilidad',datos.Trazabilidad.IDTipo,'255','CampoTextoLargo','20')}}
+        {{ macro.input(values.atributos.StockMinimo,'Etiqueta','text',values.controller ~ '[StockMinimo]',values.controller ~ '_StockMinimo',datos.StockMinimo,'10','CampoImporte','29') }}
+        {{ macro.input(values.atributos.StockMaximo,'Etiqueta','text',values.controller ~ '[StockMaximo]',values.controller ~ '_StockMaximo',datos.StockMaximo,'10','CampoImporte','30') }}
+        </div>
+        <div style="float: left; width: 32%;">
+        {{ macro.input(values.atributos.MinimoVentaAlto,'Etiqueta','text',values.controller ~ '[MinimoVentaAlto]',values.controller ~ '_MinimoVentaAlto',datos.MinimoVentaAlto,'10','CampoImporte','31') }}
+        {{ macro.input(values.atributos.MinimoVentaAncho,'Etiqueta','text',values.controller ~ '[MinimoVentaAncho]',values.controller ~ '_MinimoVentaAncho',datos.MinimoVentaAncho,'10','CampoImporte','32') }}
+        {{ macro.input(values.atributos.MinimoVenta,'Etiqueta','text',values.controller ~ '[MinimoVenta]',values.controller ~ '_MinimoVenta',datos.MinimoVenta,'10','CampoImporte','33') }}
+        {{ macro.input(values.atributos.MultiploAlto,'Etiqueta','text',values.controller ~ '[MultiploAlto]',values.controller ~ '_MultiploAlto',datos.MultiploAlto,'10','CampoImporte','34') }}
+        {{ macro.input(values.atributos.MultiploAncho,'Etiqueta','text',values.controller ~ '[MultiploAncho]',values.controller ~ '_MultiploAncho',datos.MultiploAncho,'10','CampoImporte','35') }}
+        {{ macro.input(values.atributos.RecargoEnergetico,'Etiqueta','checkbox','Articulos[RecargoEnergetico]','Articulos_RecargoEnergetico',datos.RecargoEnergetico.IDTipo,'255','CampoTextoLargo','20')}}                          
+        </div>
+        <div style="float: left; width: 32%;">            
+        {{ macro.input(values.atributos.PackingCompras,'Etiqueta','text',values.controller ~ '[PackingCompras]',values.controller ~ '_PackingCompras',datos.PackingCompras,'10','CampoImporte','24') }}
+        {{ macro.input(values.atributos.PackingVentas,'Etiqueta','text',values.controller ~ '[PackingVentas]',values.controller ~ '_PackingVentas',datos.PackingVentas,'10','CampoImporte','25') }}
+        {{ macro.input(values.atributos.Caducidad,'Etiqueta','text',values.controller ~ '[Caducidad]',values.controller ~ '_Caducidad',datos.Caducidad,'4','CampoUnidades','14') }}
+        {{ macro.input(values.atributos.Merma,'Etiqueta','text',values.controller ~ '[Merma]',values.controller ~ '_Merma',datos.Merma,'10','CampoImporte','16') }}
+        {{ macro.input(values.atributos.Peso,'Etiqueta','text',values.controller ~ '[Peso]',values.controller ~ '_Peso',datos.Peso,'10','CampoImporte','16') }}
+        {{ macro.input(values.atributos.Volumen,'Etiqueta','text',values.controller ~ '[Volumen]',values.controller ~ '_Volumen',datos.Volumen,'10','CampoImporte','17') }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<script type="text/javascript" src="{{app.path}}/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="{{app.path}}/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script type="text/javascript" src="{{app.path}}/js/script.min.js"></script>  
+<script type="text/javascript" src="{{app.path}}/js/thickbox.min.js"></script>
+<script type="text/javascript" src="{{app.path}}/js/tinymce/tinymce.min.js"></script>           
+
+<script type="text/javascript">
+
+    tinymce.init({
+        selector: "textarea.TextAreatiny",
+        theme : "modern",
+        language: "es",
+        spellchecker_language: 'es',
+        browser_spellcheck: true,
+        //width: 300,
+        height: 250,
+        plugins: [
+             "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+             "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+             "save table contextmenu directionality emoticons template paste textcolor"
+        ],        
+        image_advtab: true,
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",       
+        // Drop lists for link/image/media/template dialogs
+        template_external_list_url : "lists/template_list.js",
+        external_link_list_url : "lists/link_list.js",
+        external_image_list_url : "lists/image_list.js",
+        media_external_list_url : "lists/media_list.js",
+
+        // Style formats
+        style_formats : [
+                {title : 'Bold text', inline : 'b'},
+                {title : 'Red text', inline : 'span', styles : {color : '#ff0000'}},
+                {title : 'Red header', block : 'h1', styles : {color : '#ff0000'}},
+                {title : 'Example 1', inline : 'span', classes : 'example1'},
+                {title : 'Example 2', inline : 'span', classes : 'example2'},
+                {title : 'Table styles'},
+                {title : 'Table row 1', selector : 'tr', classes : 'tablerow1'}
+        ],
+
+        // Replace values for the template plugin
+        template_replace_values : {
+                username : "Some User",
+                staffid : "991234"
+        }
+});
+</script>

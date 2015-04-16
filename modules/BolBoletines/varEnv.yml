@@ -1,0 +1,11 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO BolBoletines
+#
+# Module: BolBoletines
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright ARTICO ESTUDIO, SL
+# date 06-07-2013 15:53:44
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

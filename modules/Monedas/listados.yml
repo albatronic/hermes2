@@ -1,0 +1,26 @@
+# Module: Monedas
+# Document : modules\Monedas\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 02.02.2014 01:15:20
+#
+---
+listados:
+  -
+    title: Monedas
+    order_by: IDMoneda
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Codigo: { field: Codigo, title: Codigo, length: '6', align: L, type: string, total: NO, formula: null, format: null }
+      Moneda: { field: Moneda, title: Moneda, length: '60', align: L, type: string, total: NO, formula: null, format: null }
+      Simbolo: { field: Simbolo, title: Simbolo, length: '5', align: L, type: string, total: NO, formula: null, format: null }

@@ -1,0 +1,27 @@
+{# BEGIN QUICK SIDEBAR #}
+<div class="page-sidebar-reversed">
+    <a href="javascript:;" class="page-quick-sidebar-toggler"><i class="icon-close"></i></a>
+    <div class="page-quick-sidebar-wrapper">
+        {# BEGIN SIDEBAR #}
+        <div class="page-sidebar-wrapper">
+            <div class="page-sidebar">
+                {# BEGIN SIDEBAR MENU #}
+                <ul class="page-sidebar-menu" data-keep-expanded="true" data-auto-scroll="false" data-slide-speed="0">
+                    <li>
+<!--                         <p>
+                            <i class="icon-basket"></i>
+                            <span class="title">Carrito</span>
+                        </p> -->
+                        <ul id="cajaMinicarrito">
+                            {% include 'Carrito/miniCarrito.html.twig' with {'carrito': values.carrito}%}
+                        </ul>
+                    </li>
+                 </ul>
+             </div>
+             {# END SIDEBAR MENU #}
+        </div>
+        {# END SIDEBAR #}
+     </div>
+ {# END QUICK SIDEBAR #}
+</div>
+{# END QUICK SIDEBAR #}

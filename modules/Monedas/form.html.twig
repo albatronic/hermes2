@@ -1,0 +1,16 @@
+{#
+  Module: ErpMonedas
+  Document : modules\ErpMonedas\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 02.02.2014 01:15:20
+#}
+
+{{ macro.input(values.atributos.Codigo,'Etiqueta','text',values.controller ~ '[Codigo]',values.controller ~ '_Codigo',datos.Codigo,'3','CampoTextoCorto','1') }}
+{{ macro.input(values.atributos.Moneda,'Etiqueta','text',values.controller ~ '[Moneda]',values.controller ~ '_Moneda',datos.Moneda,'255','CampoTextoLargo','2') }}
+{{ macro.input(values.atributos.Simbolo,'Etiqueta','text',values.controller ~ '[Simbolo]',values.controller ~ '_Simbolo',datos.Simbolo,'255','CampoTextoLargo','3') }}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_Codigo') }}

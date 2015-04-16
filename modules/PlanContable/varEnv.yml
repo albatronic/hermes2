@@ -1,0 +1,11 @@
+# VARIABLES DE ENTORNO ESPECIFICAS DEL MODULO ErpPlanContable
+#
+# Module: ErpPlanContable
+# author Sergio Pérez <sergio.perez@albatronic.com>
+# copyright ARTICO ESTUDIO, SL
+# date 26-01-2014 19:54:31
+#
+# ejemplo:
+#
+# nombreVariable: el texto del caption
+---

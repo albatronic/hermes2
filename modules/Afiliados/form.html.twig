@@ -1,0 +1,32 @@
+{#
+  Module: ErpAfiliados
+  Document : modules\ErpAfiliados\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 13.07.2014 17:39:52
+#}
+{% set atributos = values.atributos %}
+    
+{{ macro.input(atributos.RazonSocial,'Etiqueta','text',values.controller ~ '[RazonSocial]',values.controller ~ '_RazonSocial',datos.RazonSocial,'100','CampoTextoLargo','1') }}
+{{ macro.input(atributos.NombreComercial,'Etiqueta','text',values.controller ~ '[NombreComercial]',values.controller ~ '_NombreComercial',datos.NombreComercial,'100','CampoTextoLargo','2') }}
+{{ macro.input(atributos.Cif,'Etiqueta','text',values.controller ~ '[Cif]',values.controller ~ '_Cif',datos.Cif,'15','CampoTextoCorto','3') }}
+{{ macro.input(atributos.Direccion,'Etiqueta','text',values.controller ~ '[Direccion]',values.controller ~ '_Direccion',datos.Direccion,'100','CampoTextoLargo','4') }}
+{{ macro.input(atributos.IDPais,'Etiqueta','text','Afiliados[IDPais]','Afiliados_IDPais',datos.IDPais.IDPais,'255','CampoTextoMedio','',"limpia('Afiliados_IDPais','Afiliados_IDProvincia');limpia('Afiliados_IDPais','Afiliados_IDPoblacion');",['paises','Pais',datos.IDPais.Pais]) }}
+{{ macro.input(atributos.IDProvincia,'Etiqueta','text','Afiliados[IDProvincia]','Afiliados_IDProvincia',datos.IDProvincia.IDProvincia,'255','CampoTextoLargo','',"limpia('Afiliados_IDProvincia','Afiliados_IDPoblacion');",['provincias','Provincia',datos.IDProvincia.Provincia,'Afiliados_IDPais']) }}
+{{ macro.input(atributos.IDPoblacion,'Etiqueta','text','Afiliados[IDPoblacion]','Afiliados_IDPoblacion',datos.IDPoblacion.IDMunicipio,'255','CampoTextoLargo','','',['municipios','Municipio',datos.IDPoblacion.Municipio,'Afiliados_IDProvincia']) }} 
+{{ macro.input(atributos.CodigoPostal,'Etiqueta','text',values.controller ~ '[CodigoPostal]',values.controller ~ '_CodigoPostal',datos.CodigoPostal,'10','CampoTextoCorto','8') }}
+{{ macro.input(atributos.Telefono,'Etiqueta','text',values.controller ~ '[Telefono]',values.controller ~ '_Telefono',datos.Telefono,'30','CampoTextoLargo','9') }}
+{{ macro.input(atributos.Fax,'Etiqueta','text',values.controller ~ '[Fax]',values.controller ~ '_Fax',datos.Fax,'30','CampoTextoLargo','10') }}
+{{ macro.input(atributos.Movil,'Etiqueta','text',values.controller ~ '[Movil]',values.controller ~ '_Movil',datos.Movil,'30','CampoTextoLargo','11') }}
+{{ macro.input(atributos.EMail,'Etiqueta','text',values.controller ~ '[EMail]',values.controller ~ '_EMail',datos.EMail,'50','CampoTextoLargo','12') }}
+{{ macro.input(atributos.Web,'Etiqueta','text',values.controller ~ '[Web]',values.controller ~ '_Web',datos.Web,'50','CampoTextoLargo','13') }}
+{{ macro.input(atributos.Comision,'Etiqueta','text',values.controller ~ '[Comision]',values.controller ~ '_Comision',datos.Comision,'10','CampoImporte','14') }}
+{{ macro.input(atributos.Iban,'Etiqueta','text',values.controller ~ '[Iban]',values.controller ~ '_Iban',datos.Iban,'34','CampoTextoLargo','15') }}
+{{ macro.input(atributos.Bic,'Etiqueta','text',values.controller ~ '[Bic]',values.controller ~ '_Bic',datos.Bic,'11','CampoTextoCorto','16') }}
+{{ macro.input(atributos.Mandato,'Etiqueta','text',values.controller ~ '[Mandato]',values.controller ~ '_Mandato',datos.Mandato,'35','CampoTextoLargo','17') }}
+{{ macro.fecha(atributos.FechaMandato,'Etiqueta',values.controller ~ '[FechaMandato]',values.controller ~ '_FechaMandato',datos.FechaMandato,'10','datepicker','18')}}
+
+{# include '_global/fieldsComunes.html.twig' #}
+
+{{ macro.foco(values.controller ~ '_RazonSocial') }}

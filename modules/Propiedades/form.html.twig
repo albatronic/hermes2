@@ -1,0 +1,40 @@
+{# TEMPLATE Propiedades/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+<div id="tabs" style="font-size: 11px;">
+    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" /> 
+    <ul>
+        <li><a href="#tabs-1">Propiedad</a></li>
+        {% if datos.Id %}
+        <li><a href="#tabs-2" onclick="cargaValores('tabs-2');">Valores de {{datos.Titulo}}</a></li>
+        {% endif %}
+    </ul>
+
+    <div id="tabs-1">
+        {{ macro.input(values.atributos.Titulo,'Etiqueta','text','Propiedades[Titulo]','Propiedades_Titulo',datos.Titulo,'50','CampoTextoLargo') }}
+        {{ macro.select(values.atributos.IDTipo,'Etiqueta','Propiedades[IDTipo]','Propiedades_IDTipo',200,datos.IDTipo.IDTipo,datos.IDTipo.fetchAll(none,0),'Select') }}
+    </div>
+
+    {% if datos.Id %}
+    <div id="tabs-2"></div>
+    {% endif %}
+
+</div>
+
+
+<script type="text/javascript">
+function limpia(idOrigen,idInput) {
+
+    if ( $('#'+idOrigen+'_valorAnterior').val() !== $('#'+idOrigen).val() ) {
+        $('#'+idInput).val('');
+        $('#'+idInput+'_autoComplete').val('');  
+    }
+    
+}
+
+function cargaValores(idDiv) {
+
+    $('#'+idDiv).html("<iframe width='100%' height='330' scrolling='yes' style='margin-top:5px; border:0;' src='{{app.path}}/PropiedadesValores/list/{{datos.Id}}'></iframe>");
+
+}
+</script>

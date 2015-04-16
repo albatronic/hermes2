@@ -1,0 +1,34 @@
+{#
+  Module: SldZonas
+  Document : modules\SldZonas\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 10.12.2012 17:38:03
+#}
+
+{% set atributos = values.atributos %}
+
+<div id="tabs">
+    <ul>
+        <li class="ui-state-default ui-corner-top{%if values.solapaActiva == 'general'%}  ui-tabs-selected ui-state-active{%endif%}">
+            <a href="#general">{%if datos.Titulo%}<b>{{datos.Titulo|slice(0,40)}}</b> ...{%else%}Zona{%endif%}</a>
+            {{ macro.publicar(atributos.Publish,values.controller ~ '[Publish]',values.controller ~ '_Publish',datos.Publish.IDTipo) }}            
+        </li>
+        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+        <li class="ui-state-default ui-corner-top{%if values.solapaActiva == 'fieldsComunes'%}  ui-tabs-selected ui-state-active{%endif%}">
+            <a href="#fieldsComunes" onclick='$( "#solapaActiva" ).val("fieldsComunes");'>Más detalles...</a>
+        </li>        
+        {% endif %}
+    </ul>
+                
+    <div id="general">
+        {{ macro.input(atributos.Titulo,'EtiquetaMedia','text',values.controller ~ '[Titulo]',values.controller ~ '_Titulo',datos.Titulo,'255','CampoTextoLargo','1') }}
+        {{ macro.input(atributos.NumeroMaximoSliders,'EtiquetaMedia','text',values.controller ~ '[NumeroMaximoSliders]',values.controller ~ '_NumeroMaximoSliders',datos.NumeroMaximoSliders,'4','CampoUnidades','2') }}
+        {{ macro.input(atributos.NumeroPosicionesSliders,'EtiquetaMedia','text',values.controller ~ '[NumeroPosicionesSliders]',values.controller ~ '_NumeroPosicionesSliders',datos.NumeroPosicionesSliders,'4','CampoUnidades','2') }}
+    </div>
+        
+    {% include '_global/fieldsComunes.html.twig' %}        
+</div>
+
+{{ macro.foco(values.controller ~ '_Titulo') }}

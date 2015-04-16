@@ -1,0 +1,120 @@
+{#
+  Module: Escaparates
+  Document : modules\Escaparates\list.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 07.02.2013 15:32:56
+#}
+
+{% extends values.controller  ~ '/index.html.twig' %}
+
+{% block listado %}
+
+<div class='Listado'>
+<table class="Listado">
+    <tr class='Titulos'>
+        {% if values.atributos.Controller.visible == '1' or user.IdPerfil.Id == '1' %}
+        <td class='Item'>Página</td>
+        {% endif %}
+        <td class='Item'>Zona</td>
+        <td class='Item'>Lote</td>
+        <td class='Item'>Estado</td>
+        <td class='Item'>Marca</td>        
+        <td class='Item'>Categoría</td>  
+        <td class='Item'>Familia</td>  
+        <td class='Item'>Subfamilia</td> 
+        <td class='Item'>N. Items</td> 
+        <td class='Item'>Items/Pág</td>        
+        <td>&nbsp;</td>
+    </tr>    
+
+    <tbody class="Cuerpo">
+    {% for key,zona in values.zonas %}         
+        <tr>
+        <form name="linea{{key}}" id="linea{{key}}" action="" method="POST">
+            <input name="controller" value="{{values.controller}}" type="hidden" />
+            <input name="action" id="action" value="edit" type="hidden" />
+            <input name="accion" id="accion{{key}}" value="" type="hidden" />
+            <input name="{{values.controller}}[Id]" value="{{zona.Id}}" type="hidden" />
+
+            {% if values.atributos.Controller.visible == '1' or user.IdPerfil.Id == '1' %}
+            <td>
+                <select name="{{values.controller}}[Controller]" style="width: 110px;"/>
+                    {% for controller in values.controllers %}
+                        <option value="{{controller.Controller}}" {%if controller.Controller==zona.Controller%} SELECTED{%endif%}>{{controller.Controller}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            {% endif %}
+            <td><input name="{{values.controller}}[Zona]" value="{{zona.Zona}}" type="text" style="width: 20px;"/></td>
+            <td>
+                <select name="{{values.controller}}[IDLote]" style="width:90px;">
+                    {% for lote in zona.IDLote.fetchAll('Titulo') %}
+                        <option value="{{lote.Id}}" {%if lote.Id==zona.IDLote.Id%} SELECTED{%endif%}>{{lote.Value}}</option>
+                    {% endfor %}
+                </select>
+            </td>  
+            <td>
+                <select name="{{values.controller}}[IDEstado]" style="width:90px;">
+                    {% for estado in zona.IDEstado.fetchAll('Estado') %}
+                        <option value="{{estado.Id}}" {%if estado.Id==zona.IDEstado.IDEstado%} SELECTED{%endif%}>{{estado.Value}}</option>
+                    {% endfor %}
+                </select>
+            </td>  
+            <td>
+                <select name="{{values.controller}}[IDFabricante]" style="width:90px;">
+                    {% for marca in zona.IDFabricante.fetchAll('Titulo') %}
+                        <option value="{{marca.Id}}" {%if marca.Id==zona.IDFabricante.IDFabricante%} SELECTED{%endif%}>{{marca.Value}}</option>
+                    {% endfor %}
+                </select>
+            </td>             
+            <td>
+                <input id="{{values.controller}}_IDCategoria{{key}}" type="hidden" value="{{zona.IDCategoria.IDFamilia}}" name="{{values.controller}}[IDCategoria]"/>
+                <input id="{{values.controller}}_IDCategoria_autoComplete{{key}}" class="tip_top" type="text"
+                       style="width: 120px;"
+                       onchange="$('.title_icon span').css('background','url({{app.path}}/images/alert.png)');" 
+                       onkeyup="autoComplete('{{values.controller}}_IDCategoria_autoComplete{{key}}','{{values.controller}}_IDCategoria{{key}}','{{values.controller}}_IDCategoria_autoComplete{{key}}','categorias','Familia');" 
+                       onblur="if (this.value === '') $('#{{values.controller}}_IDCategoria{{key}}').val('0');"
+                       maxlength="255" value="{{zona.IDCategoria.Familia}}"
+                />
+            </td>            
+            <td>           
+                <input id="{{values.controller}}_IDFamilia{{key}}" type="hidden" value="{{zona.IDFamilia.IDFamilia}}" name="{{values.controller}}[IDFamilia]"/>
+                <input id="{{values.controller}}_IDFamilia_autoComplete{{key}}" class="tip_top" type="text" 
+                       style="width: 120px;"
+                       onchange=" $('.title_icon span').css('background','url({{app.path}}/images/alert.png)');" 
+                       onkeyup="autoComplete('{{values.controller}}_IDFamilia_autoComplete{{key}}','{{values.controller}}_IDFamilia{{key}}','{{values.controller}}_IDFamilia_autoComplete{{key}}','familias','Familia',$('#{{values.controller}}_IDCategoria{{key}}').val());" 
+                       onblur="if (this.value === '') $('#{{values.controller}}_IDFamilia{{key}}').val('0');"                       
+                       maxlength="255" value="{{zona.IDFamilia.Familia}}"
+                />                
+            </td>           
+            <td>
+                <input id="{{values.controller}}_IDSubfamilia{{key}}" type="hidden" value="{{zona.IDSubfamilia.IDFamilia}}" name="{{values.controller}}[IDSubfamilia]"/>
+                <input id="{{values.controller}}_IDSubfamilia_autoComplete{{key}}" class="tip_top" type="text" 
+                       style="width: 120px;"
+                       onchange=" $('.title_icon span').css('background','url({{app.path}}/images/alert.png)');" 
+                       onkeyup="autoComplete('{{values.controller}}_IDSubfamilia_autoComplete{{key}}','{{values.controller}}_IDSubfamilia{{key}}','{{values.controller}}_IDSubfamilia_autoComplete{{key}}','subfamilias','Titulo',$('#{{values.controller}}_IDFamilia{{key}}').val());" 
+                       onblur="if (this.value === '') $('#{{values.controller}}_IDSubfamilia{{key}}').val('0');"                       
+                       maxlength="255" value="{{zona.IDSubfamilia.Familia}}"
+                />             
+            </td>
+            <td><input name="{{values.controller}}[NItems]" value="{{zona.NItems}}" type="text" style="width: 30px;"/></td>
+            <td><input name="{{values.controller}}[ItemsPagina]" value="{{zona.ItemsPagina}}" type="text" style="width: 30px;"/></td>           
+            <td align="center">
+                {% if zona.Id > 0 %}
+                <input type="image" src="{{app.path}}/images/botonsave.png" onclick="$('#accion{{key}}').val('G');" alt="Guardar" title="Guardar Zona Web" />
+                <input type="image" src="{{app.path}}/images/papelera.gif" onclick="if (!confirm('Desea eliminar zona web?')) {return false;} else {$('#accion{{key}}').val('B');}" alt="Borrar" title="Borrar la Zona Web" />
+                {{ macro.ordenarPopup('OrdenesArticulos','IDRegla',zona.Id,'Observations')}}               
+                {% else %}
+                <input type="image" src="{{app.path}}/images/nuevo.png" onclick="$('#action').val('new');" alt="Nuevo" title="Crear Zona Web" />
+                {% endif %}            
+            </td>
+        </form>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

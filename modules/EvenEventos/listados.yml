@@ -1,0 +1,28 @@
+# Module: EvenEventos
+# Document : modules\EvenEventos\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 08.12.2012 01:14:51
+#
+---
+listados:
+  -
+    title: EvenEventos
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Entidad: { title: Entidad, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      IdEntidad: { title: IdEntidad, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Fecha: { title: Fecha, length: 10, align: R, type: date, total: NO, formula: null, format: null }
+      HoraInicio: { title: HoraInicio, length: false, align: R, type: null, total: NO, formula: null, format: null }
+      HoraFin: { title: HoraFin, length: false, align: R, type: null, total: NO, formula: null, format: null }

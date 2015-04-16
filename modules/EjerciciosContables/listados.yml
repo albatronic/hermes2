@@ -1,0 +1,28 @@
+# Module: ErpEjerciciosContables
+# Document : modules\ErpEjerciciosContables\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 26.01.2014 21:12:08
+#
+---
+listados:
+  -
+    title: ErpEjerciciosContables
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Titulo: { title: Titulo, length: '50', align: L, type: string, total: NO, formula: null, format: null }
+      FechaInicio: { title: FechaInicio, length: 10, align: R, type: date, total: NO, formula: null, format: null }
+      FechaFin: { title: FechaFin, length: 10, align: R, type: date, total: NO, formula: null, format: null }
+      Activo: { title: Activo, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      Cerrado: { title: Cerrado, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }

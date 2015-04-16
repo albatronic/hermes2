@@ -1,0 +1,39 @@
+{# Dialogo emergente para facturar un pedido #}
+<div id="dialogFacturar" class="FormManto" title="Conformar Pedido">
+    <div class="Cuerpo">
+        <form name="formPedidosFacturar" id="formPedidosFacturar" action=""enctype="multipart/form-data" method="POST">
+            <input name="controller" value="PedidosCab" type="hidden" />
+            <input name="action" id="action" value="Facturar" type="hidden" />
+            <input name="PedidosCab[IDPedido]" value="{{ pedido.IDPedido }}" type="hidden" />            
+            {{ macro.input({'caption':'Su factura','visible':'1','varEnv':'0'},'Etiqueta','text','PedidosCab[SuFactura]','PedidosCab_SuFactura',none,'15','CampoTextoCorto') }}
+            {{ macro.fecha({'caption':'Fecha factura','visible':'1','varEnv':'0'},'Etiqueta','PedidosCab[FechaFactura]','PedidosCab_FechaFactura',none,'10','CampoFecha') }}
+            {{ macro.select({'caption':'Forma de pago','visible':'1','updatable':'1','varEnv':'1'},'Etiqueta','PedidosCab[FormaPagoFactura]','PedidosCab_FormaPagoFactura',200,pedido.IDFP.IDFP,pedido.IDFP.fetchAll('Descripcion'),'Select') }}           
+            <div style="text-align: center;">
+            <input type="submit" id="botonSubmitConformar" value="Conformar" class="Comando" style="margin-top: 20px;" alt="Facturar" title="Facturar Pedido"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script language='JavaScript' type='text/javascript'>
+    $(function() {
+        
+        $('#botonSubmitConformar').click(function(){
+            if ( $('#PedidosCab_SuFactura').val() !== '' ) {
+                $('#formPedidosFacturar').submit();
+            } else return false;            
+        });
+        
+        $( "#dialogFacturar" ).dialog({
+            autoOpen: false,
+            width: 430,
+            height: 200,
+            position: ['center'],
+            closeOnEscape: true,
+            resizable: false,
+            draggable:false,
+            modal: true,
+            show: "slide",
+            });
+    });
+</script>

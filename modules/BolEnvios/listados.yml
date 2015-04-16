@@ -1,0 +1,30 @@
+# Module: BolEnvios
+# Document : modules\BolEnvios\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 12.07.2013 12:30:18
+#
+---
+listados:
+  -
+    title: BolEnvios
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      IDBoletin: { title: IDBoletin, length: '11', align: R, type: integer, total: NO, formula: null, format: null }
+      Para: { title: Para, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      Cc: { title: Cc, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      Cco: { title: Cco, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      Estado: { title: Estado, length: '1', align: L, type: tinyint, total: NO, formula: null, format: null }
+      Errores: { title: Errores, length: 20, align: L, type: string, total: NO, formula: null, format: null }
+      ArchivoHtml: { title: ArchivoHtml, length: '255', align: L, type: string, total: NO, formula: null, format: null }

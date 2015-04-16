@@ -1,0 +1,26 @@
+{#
+  Module: ErpCarrito
+  Document : modules\ErpCarrito\fields.html.twig
+
+  author: Sergio Pérez <sergio.perez@albatronic.com>
+  copyright: INFORMATICA ALBATRONIC SL
+  date 08.02.2014 19:37:17
+#}
+
+{{ macro.input(values.atributos.sesion,'Etiqueta','text',values.controller ~ '[sesion]',values.controller ~ '_sesion',datos.sesion,'50','CampoTextoLargo','1') }}
+{{ macro.input(values.atributos.IpOrigen,'Etiqueta','text',values.controller ~ '[IpOrigen]',values.controller ~ '_IpOrigen',datos.IpOrigen,'20','CampoTextoCorto','2') }}
+{{ macro.input(values.atributos.UserAgent,'Etiqueta','text',values.controller ~ '[UserAgent]',values.controller ~ '_UserAgent',datos.UserAgent,'100','CampoTextoLargo','3') }}
+{{ macro.select(values.atributos.IDArticulo,'Etiqueta',values.controller ~ '[IDArticulo]',values.controller ~ '_IDArticulo',none,datos.IDArticulo.IDArticulo,datos.IDArticulo.fetchAll('IDArticulo'),'chzn-select','4')}}
+{{ macro.input(values.atributos.Descripcion,'Etiqueta','text',values.controller ~ '[Descripcion]',values.controller ~ '_Descripcion',datos.Descripcion,'255','CampoTextoLargo','5') }}
+{{ macro.input(values.atributos.Unidades,'Etiqueta','text',values.controller ~ '[Unidades]',values.controller ~ '_Unidades',datos.Unidades,'10','CampoImporte','6') }}
+{{ macro.input(values.atributos.UnidadMedida,'Etiqueta','text',values.controller ~ '[UnidadMedida]',values.controller ~ '_UnidadMedida',datos.UnidadMedida,'3','CampoTextoCorto','7') }}
+{{ macro.input(values.atributos.Precio,'Etiqueta','text',values.controller ~ '[Precio]',values.controller ~ '_Precio',datos.Precio,'10','CampoImporte','8') }}
+{{ macro.input(values.atributos.Descuento,'Etiqueta','text',values.controller ~ '[Descuento]',values.controller ~ '_Descuento',datos.Descuento,'10','CampoImporte','9') }}
+{{ macro.input(values.atributos.Importe,'Etiqueta','text',values.controller ~ '[Importe]',values.controller ~ '_Importe',datos.Importe,'10','CampoImporte','10') }}
+{{ macro.input(values.atributos.Iva,'Etiqueta','text',values.controller ~ '[Iva]',values.controller ~ '_Iva',datos.Iva,'10','CampoImporte','11') }}
+{{ macro.input(values.atributos.Recargo,'Etiqueta','text',values.controller ~ '[Recargo]',values.controller ~ '_Recargo',datos.Recargo,'10','CampoImporte','12') }}
+{{ macro.select(values.atributos.Estado,'Etiqueta',values.controller ~ '[Estado]',values.controller ~ '_Estado',none,datos.Estado.Estado,datos.Estado.fetchAll(),'chzn-select','13')}}
+
+{% include '_global/fieldsComunes.html.twig' %}
+
+{{ macro.foco(values.controller ~ '_sesion') }}

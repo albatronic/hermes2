@@ -1,0 +1,39 @@
+{# TEMPLATE RecibosProveedores/form.html.twig #}
+{# Muestra los campos editables de la entidad        #}
+
+{% set digitosCta = emp.DigitosCuentaContable %}
+{% set atributos = values.atributos %}
+
+<div class="Izquierda" style="width:51%;">
+{{ macro.select(atributos.IDEstado,'Etiqueta','RecibosProveedores[IDEstado]','RecibosProveedores_IDEstado',none,datos.IDEstado.IDTipo,datos.IDEstado.fetchAll,'Select') }}
+{{ macro.input(atributos.Recibo,'Etiqueta','text','RecibosProveedores[Recibo]','RecibosProveedores_Recibo',datos.Recibo,'4','CampoUnidades') }}
+{{ macro.etiqueta(atributos.IDSucursal,'Etiqueta',datos.IDSucursal.Nombre) }}
+{{ macro.etiqueta(atributos.IDFactura,'Etiqueta',datos.IDFactura.NumeroFactura) }}
+{{ macro.etiqueta(atributos.IDProveedor,'Etiqueta',datos.IDProveedor.RazonSocial) }}
+{{ macro.etiqueta(atributos.Fecha,'Etiqueta',datos.Fecha) }}
+{{ macro.fecha(atributos.Vencimiento,'Etiqueta','RecibosProveedores[Vencimiento]','RecibosProveedores_Vencimiento',datos.Vencimiento,'10','CampoFecha') }}
+{{ macro.input(atributos.Importe,'Etiqueta','text','RecibosProveedores[Importe]','RecibosProveedores_Importe',datos.Importe,'10','CampoImporte') }}
+{{ macro.input(atributos.Iban,'Etiqueta','text','RecibosProveedores[Iban]','RecibosProveedores_Iban',datos.Iban,'34','CampoTextoMedio') }}
+{{ macro.input(atributos.Bic,'Etiqueta','text','RecibosProveedores[Bic]','RecibosProveedores_Bic',datos.Bic,'11','CampoTextoMedio') }}
+{{ macro.input(atributos.Mandato,'Etiqueta','text','RecibosProveedores[Mandato]','RecibosProveedores_Mandato',datos.Mandato,'35','CampoTextoMedio') }}
+{{ macro.fecha(atributos.FechaMandato,'Etiqueta','RecibosProveedores[FechaMandato]','RecibosProveedores_FechaMandato',datos.FechaMandato,'10','CampoFecha') }}
+{{ macro.input(atributos.Concepto,'Etiqueta','text','RecibosProveedores[Concepto]','RecibosProveedores_Concepto',datos.Concepto,'255','CampoTextoLargo') }}
+{{ macro.input(atributos.IDRemesa,'Etiqueta','text','RecibosProveedores[IDRemesa]','RecibosProveedores_IDRemesa',datos.IDRemesa,'14','CampoTextoCorto') }}
+{{ macro.input(atributos.Remesar,'Etiqueta','checkbox','RecibosProveedores[Remesar]','RecibosProveedores_Remesar',datos.Remesar.IDTipo,'255','CampoTextoLargo','20')}} 
+{{ macro.input(atributos.CContable,'Etiqueta','text','RecibosProveedores[CContable]','RecibosProveedores_CContable',datos.CContable,digitosCta,'CampoTextoCorto') }}
+{{ macro.input(atributos.Asiento,'Etiqueta','text','RecibosProveedores[Asiento]','RecibosProveedores_Asiento',datos.Asiento,'6','CampoUnidades') }}
+{{ macro.foco('RecibosProveedores_IDEstado') }}
+</div>
+
+{% if datos.IDRecibo %}
+<div class="Derecha" style="width:49%;">
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Documentos</a></li>
+        </ul>
+        <div id="tabs-1">
+            {{ macro.documentos(values.controller,datos.getPrimaryKeyValue)}}
+        </div>
+    </div>
+</div>
+{% endif %}

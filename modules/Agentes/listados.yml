@@ -1,0 +1,82 @@
+# Module: Agentes
+#
+# @author Sergio Perez <sergio.perez@albatronic.com>
+# @copyright Informatica ALBATRONIC
+# @since: 27-11-2011
+#
+---
+listados:
+  - 
+    title: Usuarios del Sistema
+    order_by: IDAgente ASC
+    break_field: null
+    idPerfil: null
+    orientation: L
+    unit: mm
+    format: A4
+    margins: 10, 10, 15, 10
+    body_font: Courier, ,8
+    columns:
+      - 
+        title: Nombre
+        field: Nombre
+        length: 35
+        align: L
+        type: string
+        total: NO
+        formula: null
+        format: null
+      - 
+        title: EMail
+        field: EMail
+        length: 35
+        align: L
+        type: string
+        total: NO
+        formula: null
+        format: null
+      - 
+        title: Activo
+        field: Activo
+        length: 6
+        align: C
+        type: integer
+        total: NO
+        formula: null
+        format: null
+      - 
+        title: Rol
+        field: IDRol
+        length: 15
+        align: L
+        type: integer
+        total: NO
+        formula: null
+        format: null
+      - 
+        title: Perfil
+        field: IDPerfil
+        length: 15
+        align: L
+        type: integer
+        total: NO
+        formula: null
+        format: null
+      - 
+        title: Sucursal
+        field: IDSucursal
+        length: 25
+        align: L
+        type: integer
+        total: NO
+        formula: null
+        format: null
+      - 
+        title: Almacen
+        field: IDAlmacen
+        length: 25
+        align: L
+        type: integer
+        total: NO
+        formula: null
+        format: null

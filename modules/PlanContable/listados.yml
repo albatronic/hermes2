@@ -1,0 +1,25 @@
+# Module: ErpPlanContable
+# Document : modules\ErpPlanContable\listados.yml
+#
+# @author: Sergio Pérez <sergio.perez@albatronic.com>
+# @copyright: INFORMATICA ALBATRONIC SL
+# @date 26.01.2014 19:54:31
+#
+---
+listados:
+  -
+    title: ErpPlanContable
+    order_by: Id
+    break_field: null
+    idPerfil: null
+    orientation: P
+    unit: mm
+    format: A4
+    margins: '10, 10, 15, 10'
+    body_font: 'Courier, , 8'
+    line_height: 4
+    print_interline: null
+    legend_bottom: null
+    columns:
+      Cuenta: { title: Cuenta, length: '10', align: L, type: string, total: NO, formula: null, format: null }
+      Titulo: { title: Titulo, length: '100', align: L, type: string, total: NO, formula: null, format: null }
