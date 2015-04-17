@@ -5,9 +5,7 @@
 {% block title parent() ~ " - " ~ values.titulo %}
 
 {% block content %}
-	<div class='Titulo'>{{ values.titulo }}
-        {% include '_global/comandosHelp.html.twig' with {'controller': values.controller} %}
-        </div>
+        {% include '_global/TituloGenerico.html.twig' with {'controller':  values.controller, 'linkValue': values.linkBy.value} %}
 
 	{% block filtro %}
         {% if values.permisos.permisosModulo['CO'] %}

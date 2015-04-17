@@ -3,10 +3,8 @@
 {% extends 'Promociones/index.html.twig' %}
 
 {% block listado %}
-<div class='Listado'>
-
-    {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'Promociones','position':'izq'}%}
-    {% include '_global/listGenerico.html.twig' with {'listado':values.listado,'controller':'Promociones'} %}
-
-</div>
+    <div class='Listado'>
+        {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'Promociones','position':'izq'}%}
+        {% include '_global/listGenerico.html.twig' with {'listado':values.listado,'controller':'Promociones'} %}
+    </div>
 {% endblock %}

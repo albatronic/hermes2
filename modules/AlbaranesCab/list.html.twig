@@ -6,20 +6,22 @@
 <div class='Listado'>
 
     {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':values.controller,'position':'izq'}%}
-    <div id="Listado">
-        <table width='100%'>
+
+        <table class="table table-striped">
+            <thead>
             <tr class='Titulos'>
-                <td width='16px'><input id="imprimirTodo" type="checkbox"/></td>
-                <td width='16px'>&nbsp;</td>
-                <td class='Item'>Número</td>
-                <td class='Item'>Sucursal</td>
-                <td class='Item'>Fecha</td>
-                <td class='Item'>Cliente</td>
-                <td class='Item'>Comercial</td>
-                <td class='Item'>Estado</td>
-                <td class='Item'>Factura</td>
-                <td class='Item'>Total</td>
+                <th width='16px'><input id="imprimirTodo" type="checkbox"/></th>
+                <th width='16px'>&nbsp;</th>
+                <th>Número</th>
+                <th>Sucursal</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Comercial</th>
+                <th>Estado</th>
+                <th>Factura</th>
+                <th>Total</th>
             </tr>
+            </thead>
 
             <tbody class="Cuerpo">
             {% for key,objeto in values.listado.data %}
@@ -53,12 +55,12 @@
                         </a>
                     {% endif %}
                     </td>
-                    <td align="right">{{objeto.Total}}</td>
+                    <td align="right">{{macro.moneda(objeto.Total)}}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-    </div>
+
 
     <div id="imprimirEmail" style="display: none;">
         <span>Imprimir</span>

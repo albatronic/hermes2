@@ -102,7 +102,7 @@ Contadores:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 1, caption: IDSucursal, entity: ErpSucursales, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: NO, type: integer, length: '20', min: null, max: null, message: 'Valor Requerido' }
     IDTipo:
       title: Tipo
       filter: NO
@@ -115,8 +115,8 @@ Contadores:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      #aditional_filter: { order: 2, caption: IDTipo, entity: ErpTiposContadores, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      aditional_filter: { order: 2, caption: Tipo, entity: TiposContadores, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
+      validator: { nullable: NO, type: tinyint, length: '15', min: null, max: null, message: 'Valor Requerido' }
     Serie:
       title: Serie
       filter: YES
@@ -156,4 +156,4 @@ Contadores:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 3, caption: Predefinido, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: NO, type: tinyint, length: '2', min: null, max: null, message: 'Valor Requerido' }

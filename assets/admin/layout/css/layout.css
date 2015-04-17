@@ -2654,7 +2654,9 @@ Page Loading
 }
 
 #paginacionizq{
-  margin-bottom: 8px;
+  background-color: #eee;
+  margin: 16px 0 16px;
+  padding: 11px 16px;  
 }
 
 #manto_Index .form-control {

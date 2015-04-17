@@ -23,8 +23,8 @@
                     <th>PVP C/I</th>
                     <th>IVA</th>
                     <th>Estado1</th>
-                        {#<th>Estado2</th>#}
-                        {#<th>Fotos</th>#}
+                    {#<th>Estado2</th>#}
+                    {#<th>Fotos</th>#}
                 </tr>
             </thead>
 
@@ -46,10 +46,10 @@
                         <td class='Item'>{{objeto.IDFamilia.Familia|slice(0,25)}}</td>
                         {% if user.IDRol.IDTipo == '0'%}
                             <td class='Item' align="right">
-                                {{objeto.Pvd|number_format(3, '.', ',')}}
+                                {{macro.moneda(objeto.Pvd)}}
                             </td>
                         {% endif %}
-                        <td class="Item" align="right">{{objeto.PrecioVentaConImpuestos('UMV',3)|number_format(3, '.', ',')}}</td>
+                        <td class="Item" align="right">{{macro.moneda(objeto.PrecioVentaConImpuestos('UMV',3))}}</td>
                         <td class="Item" align="right">{{objeto.IDIva.Iva}}</td>
                         <td class="Item">
                             <select id="IDEstado1{{key}}" style="width: 100px" onchange="actualizaColumna('Articulos', '{{objeto.PrimaryKeyValue}}', 'IDEstado1', $('#IDEstado1{{key}}').val());">

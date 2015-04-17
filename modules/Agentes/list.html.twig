@@ -6,20 +6,22 @@
 <div class='Listado'>
 
 	{% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'Agentes','position':'izq'}%}
-
-        <table width="100%">
+        <table class="table table-striped">
+            <thead>
             <tr class='Titulos'>
-                <td class='Item'>Nombre</td>
-                <td class='Item'>Activo</td>
-                <td class='Item'>Rol</td>
-                <td class='Item'>Perfil</td>
-                <td class='Item'>Sucursal</td>
-                <td class='Item'>Almacen</td>
-                <td class='Item'>Logins</td>
-                <td class='Item'>Último Login</td>                
+                <th></th>
+                <th>Nombre</th>
+                <th>Activo</th>
+                <th>Rol</th>
+                <th>Perfil</th>
+                <th>Sucursal</th>
+                <th>Almacen</th>
+                <th>Logins</th>
+                <th>Último Login</th>                
             </tr>
+            </thead>
 
-            <tbody class='Cuerpo'>
+            <tbody>
             {% for key,objeto in values.listado.data %}
                 {% if (key is even) %}
                     {% set classFila = 'Impar' %}
@@ -27,17 +29,22 @@
                     {% set classFila = 'Par' %}
                 {% endif %}
             <tr onclick="location.href='{{app.path}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}'>
-                <td class='Item'><a href="{{app.path}}/Agentes/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Nombre|slice(0,30)}}</a></td>
-                <td class='Item' align='center'>{{objeto.Activo.Descripcion}}</td>
-                <td class='Item'>{{objeto.IDRol.Descripcion}}</td>
-                <td class='Item'>{{objeto.IDPerfil.Perfil}}</td>
+                <th>
+                    <a class="btn-edit" href='{{app.path}}/{{values.controller}}/Edit/{{objeto.getPrimaryKeyMD5()}}' title='Editar'>
+                        <i class="fa fa-pencil"></i>
+                    <a>                    
+                </th>
+                <td><a href="{{app.path}}/Agentes/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Nombre|slice(0,30)}}</a></td>
+                <td align='center'>{{objeto.Activo.Descripcion}}</td>
+                <td>{{objeto.IDRol.Descripcion}}</td>
+                <td>{{objeto.IDPerfil.Perfil}}</td>
                 <td class="Item">{{objeto.IDSucursal.Nombre|slice(0,20)}}</td>
                 <td class="Item">{{objeto.IDAlmacen.Nombre|slice(0,20)}}</td>
-                <td class='Item' align='right'>{{objeto.IDAgente.NLogin}}</td>
-                <td class='Item' align='center'> {{objeto.IDAgente.UltimoLogin}}</td>                
+                <td align='right'>{{objeto.IDAgente.NLogin}}</td>
+                <td align='center'> {{objeto.IDAgente.UltimoLogin|date('d/m/Y H:i:s')}}</td>                
             </tr>
             {% else %}
-            <tr><td colspan='10'>No hay información que cumpla esos criterios</td></tr>
+            <tr><td colspan='9'>No hay información que cumpla esos criterios</td></tr>
             {% endfor %}
             </tbody>
         </table>

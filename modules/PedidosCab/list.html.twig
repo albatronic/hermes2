@@ -5,20 +5,23 @@
 {% block listado %}
 <div class='Listado'>
 	{% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'PedidosCab','position':'izq'}%}
-        <table width='100%'>
+
+        <table class="table table-striped">
+            <thead>
             <tr class='Titulos'>
-                <td width='16px'>&nbsp;</td>
-                <td class='Item'>Número</td>
-                <td class='Item'>Sucursal</td>
-                <td class='Item'>Almacén</td>
-                <td class='Item'>Fecha Pedido</td>
-                <td class='Item'>Fecha Prev</td>
-                <td class='Item'>Fecha Recep</td>
-                <td class='Item'>Proveedor</td>
-                <td class='Item'>Estado</td>
-                <td class='Item'>Factura</td>
-                <td class='Item'>Total</td>
+                <th></th>
+                <th>Número</th>
+                <th>Sucursal</th>
+                <th>Almacén</th>
+                <th>Fecha Pedido</th>
+                <th>Fecha Prev</th>
+                <th>Fecha Recep</th>
+                <th>Proveedor</th>
+                <th>Estado</th>
+                <th>Factura</th>
+                <th>Total</th>
             </tr>
+            </thead>
 
             <tbody class="Cuerpo">
             {% for key,objeto in values.listado.data %}
@@ -53,7 +56,7 @@
                         </a>
                     {% endif %}
                 </td>
-                <td align="right">{{objeto.Total}}</td>
+                <td align="right">{{macro.moneda(objeto.Total)}}</td>
             </tr>
             {% endfor %}
             </tbody>

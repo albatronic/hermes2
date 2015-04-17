@@ -3,54 +3,56 @@
 {% extends 'FrecibidasCab/index.html.twig' %}
 
 {% block listado %}
-<div class='Listado'>
+    <div class='Listado'>
 
-	{% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'FrecibidasCab','position':'izq'}%}
-        <div id="Listado">
-        <table width='100%'>
-            <tr class='Titulos'>
-                <td width='16px'>&nbsp;</td>
-                <td class='Item'>Número</td>
-                <td class='Item'>Su Factura</td>
-                <td class='Item'>Sucursal</td>
-                <td class='Item'>Fecha</td>
-                <td class='Item'>Proveedor</td>
-                <td class='Item'>Base Imp.</td>
-                <td class='Item'>Cuota Iva</td>
-                <td class='Item'>Cuota Rec.</td>
-                <td class='Item'>Total</td>
-                <td class='Item'>Cta. Compras</td>
-                <td class='Item'>Asto.</td>
-            </tr>
+        {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'FrecibidasCab','position':'izq'}%}
+
+        <table class="table table-striped">
+            <thead>
+                <tr class='Titulos'>
+                    <th></th>
+                    <th>Número</th>
+                    <th>Su Factura</th>
+                    <th>Sucursal</th>
+                    <th>Fecha</th>
+                    <th>Proveedor</th>
+                    <th>Base Imp.</th>
+                    <th>Cuota Iva</th>
+                    <th>Cuota Rec.</th>
+                    <th>Total</th>
+                    <th>Cta. Compras</th>
+                    <th>Asto.</th>
+                </tr>
+            </thead>
 
             <tbody class="Cuerpo">
-            {% for key,objeto in values.listado.data %}
-                {% if (key is even) %}
-                    {% set classFila = 'Impar' %}
-                {% else %}
-                    {% set classFila = 'Par' %}
-                {% endif %}
-            <tr onclick="location.href='{{app.path}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}' style="cursor: pointer;">
-                <td>
-                    <a href='{{app.path}}/FrecibidasCab/Edit/{{objeto.PrimaryKeyMD5}}' title='Editar ...'>
-                        <img src="{{app.path}}/images/botoneditar.png" width="16px" height="16px" />
-                    </a>
-                </td>
-                <td>{{objeto.NumeroFactura}}</td>
-                <td>{{objeto.SuFactura|slice(0,15)}}</td>
-                <td>{{objeto.IDSucursal.Nombre|slice(0,10)}}</td>
-                <td>{{objeto.Fecha}}</td>
-                <td>{{objeto.IDProveedor.RazonSocial|slice(0,30)}}</td>
-                <td align="right">{{objeto.TotalBases}}</td>
-                <td align="right">{{objeto.TotalIva}}</td>
-                <td align="right">{{objeto.TotalRecargo}}</td>
-                <td align="right">{{objeto.Total}}</td>
-                <td align="left">{{objeto.CuentaCompras}}</td>
-                <td align="right">{{objeto.Asiento}}</td>
-            </tr>
-            {% endfor %}
+                {% for key,objeto in values.listado.data %}
+                    {% if (key is even) %}
+                        {% set classFila = 'Impar' %}
+                    {% else %}
+                        {% set classFila = 'Par' %}
+                    {% endif %}
+                    <tr onclick="location.href = '{{app.patd}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}' style="cursor: pointer;">
+                        <td>
+                            <a href='{{app.path}}/FrecibidasCab/Edit/{{objeto.PrimaryKeyMD5}}' title='Editar ...'>
+                                <img src="{{app.path}}/images/botoneditar.png" widtd="16px" height="16px" />
+                            </a>
+                        </td>
+                        <td>{{objeto.NumeroFactura}}</td>
+                        <td>{{objeto.SuFactura|slice(0,15)}}</td>
+                        <td>{{objeto.IDSucursal.Nombre|slice(0,10)}}</td>
+                        <td>{{objeto.Fecha}}</td>
+                        <td>{{objeto.IDProveedor.RazonSocial|slice(0,30)}}</td>
+                        <td align="text-right">{{macro.moneda(objeto.TotalBases)}}</td>
+                        <td align="text-right">{{macro.moneda(objeto.TotalIva)}}</td>
+                        <td align="text-right">{{macro.moneda(objeto.TotalRecargo)}}</td>
+                        <td align="text-right">{{macro.moneda(objeto.Total)}}</td>
+                        <td align="text-left">{{objeto.CuentaCompras}}</td>
+                        <td align="text-right">{{objeto.Asiento}}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
-        </div>
-</div>
+
+    </div>
 {% endblock %}

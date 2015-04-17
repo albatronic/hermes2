@@ -11,11 +11,7 @@
         <input name="action" id="action_{{values.controller}}" value="edit" type="hidden" />
         <input name="Proveedores[IDProveedor]" value="{{ values.datos.IDProveedor }}" type="hidden" />
         <input name="accion" id="accion_{{values.controller}}" value="" type="hidden" />
-    <div class='Comandos'>
-
-        <div class="Titulo">
-
-        <div style="float: left;">
+        <div class='row detail-actions'>
             {% include "_global/comandosSave.html.twig" %}
             {% include "_global/comandosDelete.html.twig" %}
             {% if values.permisos.permisosModulo['CO'] %}
@@ -23,12 +19,7 @@
                 <img src="{{app.path}}/images/historico.png" width="24px" height="24px" alt="Historico" title="Historico de Compras...">
             </a>
             {% endif %}
-        </div>
-
-        {% include '_global/comandosAuditoria.html.twig' with {'controller': values.controller} %}
-
-        <div style="clear: both;"></div>
-
+            {% include '_global/comandosAuditoria.html.twig' with {'controller': values.controller} %}
         </div>
     </div>
 

@@ -77,7 +77,7 @@ PcaeEmpresas:
     IdGrupo:
       title: Grupo
       filter: NO
-      list: YES
+      list: NO
       visible: true
       updatable: true
       default: '0'
@@ -156,7 +156,7 @@ PcaeEmpresas:
     IdPais:
       title: País
       filter: NO
-      list: YES
+      list: NO
       visible: true
       updatable: true
       default: '0'
@@ -190,7 +190,7 @@ PcaeEmpresas:
     Web:
       title: Web
       filter: YES
-      list: YES
+      list: NO
       visible: true
       updatable: true
       default: null
@@ -201,7 +201,7 @@ PcaeEmpresas:
     EMail:
       title: EMail
       filter: YES
-      list: YES
+      list: NO
       visible: true
       updatable: true
       default: null
