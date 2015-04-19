@@ -7,17 +7,5 @@
 {% block navegador %}{% endblock %}
 
 {% block mantenimiento %}
-<div class="FormManto">
-    <form name="manto_{{values.controller}}" id="manto_{{values.controller}}" action="" method="POST" enctype="multipart/form-data">
-        <input name="controller" value="Tarifas" type="hidden" />
-        <input name="action" value="new" type="hidden" />
-        <input name="Tarifas[IDTarifa]" value="{{ values.datos.IDTarifa }}" type="hidden" />
-        {% include '_global/comandosCreate.html.twig' %}
-
-        <div class="Cuerpo">
-	{% include '_global/FormErrores.html.twig' with {'errores': values.errores} %}
-	{% include "Tarifas/form.html.twig" with {'datos': values.datos} %}
-        </div>
-    </form>
-</div>
+    {% include '_global/formNew.html.twig' with {'values': values} %} 
 {% endblock %}

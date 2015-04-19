@@ -9,6 +9,7 @@
     <form name="manto_{{values.controller}}" id="manto_{{values.controller}}" action="" method="POST" enctype="multipart/form-data">
         <input name="controller" value="Zonas" type="hidden" />
         <input name="action" value="edit" type="hidden" />
+        <input name="accion" value="" type="hidden" />
         <input name="Zonas[IDZona]" value="{{ values.datos.IDZona }}" type="hidden" />
         {% include "_global/comandosSaveDelete.html.twig" %}
 

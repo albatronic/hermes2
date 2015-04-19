@@ -8,7 +8,7 @@
         {% include '_global/TituloGenerico.html.twig' with {'controller':  values.controller, 'linkValue': values.linkBy.value} %}
 
 	{% block filtro %}
-		{% include 'Zonas/filtro.html.twig' with {'filter':values.listado.filter} %}
+		{% include '_global/filtro.html.twig' with {'filter':values.listado.filter} %}
 	{% endblock %}
 
         <div id="div_listado">

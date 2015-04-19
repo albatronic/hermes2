@@ -9,7 +9,7 @@
 
 	{% block filtro %}
         {% if values.permisos.permisosModulo['CO'] %}
-            {% include 'UnidadesMedida/filtro.html.twig' with {'filter':values.listado.filter} %}
+            {% include '_global/filtro.html.twig' with {'filter':values.listado.filter} %}
         {%endif%}
 	{% endblock %}
 

@@ -88,9 +88,9 @@ Propiedades:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
     Titulo:
-      title: Titulo
+      title: Título
       filter: YES
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: null
@@ -103,7 +103,7 @@ Propiedades:
     IDTipo:
       title: Tipo
       filter: NO
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: '0'
@@ -113,5 +113,5 @@ Propiedades:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 2, caption: Tipo, entity: TiposPropiedades, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: NO, type: tinyint, length: '20', min: null, max: null, message: 'Valor Requerido' }
       
