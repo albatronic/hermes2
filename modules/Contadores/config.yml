@@ -60,11 +60,11 @@ Contadores:
   records_per_page: 15
   order_by:
     -
-      title: 'IDContador a-z'
-      criteria: 'IDContador ASC'
+      title: 'Tpo a-z'
+      criteria: 'IDSucursal ASC,IDTipo ASC'
     -
-      title: 'IDContador z-a'
-      criteria: 'IDContador DESC'
+      title: 'Tipo z-a'
+      criteria: 'IDSucursal DESC,IDTipo DESC'
   search_default: IDContador
   referenced_entities:
     - Sucursales
@@ -116,7 +116,7 @@ Contadores:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       aditional_filter: { order: 2, caption: Tipo, entity: TiposContadores, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '15', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: NO, type: tinyint, length: '20', min: null, max: null, message: 'Valor Requerido' }
     Serie:
       title: Serie
       filter: YES
