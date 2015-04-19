@@ -1,21 +1,22 @@
 {# Template index.html.twig for Agentes #}
 {# -------------------------------------#}
+
 {% extends layout %}
 
-{% block title parent() ~ " - " ~ values.titulo %}
+{% block title parent() ~ ' - '  ~ values.titulo %}
 
 {% block content %}
-        {% include '_global/TituloGenerico.html.twig' with {'controller':  values.controller, 'linkValue': values.linkBy.value} %}
+    {% include '_global/TituloGenerico.html.twig' with {'controller': values.controller, 'linkValue': values.linkBy.value} %}
+    {% block filtro %}
+        {% if values.permisos.permisosModulo['CO'] and values.tieneListado %}
+            {% include '_global/filtro.html.twig' with {'filter': values.listado.filter} %}
+        {% endif %}
+    {% endblock %}
 
-	{% block filtro %}
-            {% if values.permisos.permisosModulo['CO'] %}
-		{% include 'Agentes/filtro.html.twig' with {'filter':values.listado.filter} %}
-            {% endif %}
-	{% endblock %}
+    <div id='div_listado'>
+        {% block listado %}
+        {% endblock %}
+    </div>
 
-	{% block listado %}
-	{% endblock %}
-
-	{% block mantenimiento %}
-	{% endblock %}
+    {% block mantenimiento %}{% endblock %}
 {% endblock %}

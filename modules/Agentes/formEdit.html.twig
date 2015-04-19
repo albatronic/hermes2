@@ -3,7 +3,7 @@
 
 {% set atributos = values.atributos %}
 
-<div style="float: left; width: 45%;">
+<div class="col-md-6">
 {{ macro.etiqueta({'caption':'Nombre','visible':1},'Etiqueta',datos.IDAgente.Nombre) }}
 {{ macro.etiqueta({'caption':'Apellidos','visible':1},'Etiqueta',datos.IDAgente.Apellidos) }}
 
@@ -32,7 +32,7 @@
 {{ macro.etiqueta({'caption':'Último Login','visible':1},'Etiqueta',datos.IDAgente.UltimoLogin) }}
 </div>
 
-<div style="float: left; margin-right: 20px;">
+<div class="col-md-6">
 <h3>Configuración de la cuenta de correo electrónico</h3>
 {{ macro.etiqueta({'caption':'EMail','visible':1},'Etiqueta',datos.IDAgente.EMail) }}
 {{ macro.etiqueta({'caption':'Servidor de correo','visible':1},'Etiqueta',datos.IDAgente.EMailHost) }}

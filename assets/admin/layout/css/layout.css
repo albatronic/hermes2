@@ -2856,18 +2856,17 @@ Page Loading
     font-size: 13px;
 }
 
-.auditoria {
-    background-color: #fff;
-    border: 1px solid #eee;
-    border-radius: 6px;
-    padding: 20px;
-    position: absolute;
-    right: 40px;
-    width: 220px;
-    z-index: 9;
+.auditoria li {
+    text-decoration: none;
+    font-size: 13px;
 }
-.auditoria .Subtitulo{
-  font-weight: bold;
+.auditoria {
+  list-style-type: none;
+  margin-left: -20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+}
+.auditoria .separator {
+    height: 5px;
 }
 
 

@@ -14,9 +14,9 @@
 {% set pvpconiva = datos.Pvp * (1 + datos.IDIva.Iva/100)%}
 <input id="valoriva" type="hidden" value="{{datos.IDIva.Iva}}" />
 
-<div id="tabs">
+<div id="tabbable">
     <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
-    <ul>        
+    <ul class="nav nav-tabs">        
         <li>
             <a href="#general">{%if datos.Descripcion%}<b>{{macro.recortaTexto(datos.Descripcion,32)}}</b>{%else%}Artículo{%endif%}</a>
             {% if values.atributos.Publish.visible > '0' %}
@@ -45,12 +45,14 @@
         {% endif %}
     </ul>
 
-    <div id="general">
+    <div class="tab-content no-space">
+    <div class="tab-pane" id="general">
+        <div class="from-body">
         {# ALERTA DE MARGEN BAJO #}
         {% if datos.Margen < values.varWebPro.erp.alertaMargen %}
             <div class="alertaMargen">Alerta!! Margen comercial inferior al permitido ({{values.varWebPro.erp.alertaMargen}}%)</div>
         {% endif %}        
-        <div style="width: 51%; float:left;">
+        <div class="col-md-6">
         {{ macro.input(values.atributos.Vigente,'Etiqueta','checkbox','Articulos[Vigente]','Articulos_Vigente',datos.Vigente.IDTipo,'255','CampoTextoLargo','20')}}                        
         {{ macro.input(values.atributos.Codigo,'Etiqueta','text','Articulos[Codigo]','Articulos_Codigo',values.datos.Codigo,'25','CampoTextoMedio') }}
         {{ macro.input(values.atributos.Descripcion,'Etiqueta','text','Articulos[Descripcion]','Articulos_Descripcion',datos.Descripcion,'255','CampoTextoLargo') }}
@@ -87,10 +89,10 @@
             </div>
         {% endif %}                
         {{ macro.input(values.atributos.Garantia,'Etiqueta','text','Articulos[Garantia]','Articulos_Garantia',datos.Garantia,'10','CampoTextoCorto') }}
-        {{ macro.input(values.atributos.FechaUltimoPrecio,'Etiqueta','text','Articulos[FechaUltimoPrecio]','Articulos_FechaUltimoPrecio',datos.FechaUltimoPrecio,'19','LiteralFechaHora','disabled') }}                                                  
+        {{ macro.input(values.atributos.FechaUltimoPrecio,'Etiqueta','text','Articulos[FechaUltimoPrecio]','Articulos_FechaUltimoPrecio',datos.FechaUltimoPrecio,'19','LiteralFechaHora','disabled') }}      
         </div>
             
-        <div style="float: left; width: 47%;">
+        <div class="col-md-6">
         {% include '_global/metaDatos.html.twig' %}
                 
         {% if (datos.PrimaryKeyValue > 0) %}
@@ -130,10 +132,11 @@
         {% endif %}
         
         <p style="clear: both; font-weight: bold; margin-top: 10px;">Importante:</p>
-        <p>Los precios se deben expresar respecto a la unidad de medida básica. El stock máximo y mínimo se ha de indicar en la unidad de almacenaje.</p>            
+        <p>Los precios se deben expresar respecto a la unidad de medida básica. El stock máximo y mínimo se ha de indicar en la unidad de almacenaje.</p> 
+        </div>
     </div>      
 
-    <div id="stock" style="overflow: hidden;">
+    <div class="tab-pane" id="stock">
         <div id="acordeonStock">
             {% include values.controller ~ '/propiedadesStock.html.twig' %}
             {% include values.controller ~ '/existencias.html.twig' %}
@@ -142,12 +145,13 @@
     </div>
 
     {% if datos.PrimaryKeyValue and datos.AllowsChildren.IDTipo == '1' and datos.IDEscandallo.PrimaryKeyValue == 0 %}
-        <div id="divEscandallo"></div>  
+        <div class="tab-pane" id="divEscandallo"></div>  
     {% endif %}         
         
     {% if values.atributos.UMB.visible == '1' %}
-    <div id="unidadesMedida">
-        <table width='95%'>
+    <div class="tab-pane" id="unidadesMedida">
+        <div class="form-body">
+        <table class="table">
             <tr>
                 <td>{{ macro.select(values.atributos.UMB,'Etiqueta','Articulos[UMB]','Articulos_UMB',none,datos.UMB.Id,datos.UMB.fetchAll('UnidadMedida',false),'Select80')}}</td>
                 <td class="Subtitulo" style="text-align: center;">Factores de Conversión</td>
@@ -165,25 +169,30 @@
                 <td style="text-align: center;">{{ macro.input('de unidad de Venta a Básica','EtiquetaMedia','text','Articulos[CUMV]','Articulos_CUMV',datos.CUMV,'4','CampoImporte') }}</td>
             </tr>
         </table>
+        </div>
     </div>
     {% endif %}    
 
-    <div id="caracteristicas">
+    <div class="tab-pane" id="caracteristicas">
+        <div class="form-body">
         {{ macro.input(values.atributos.Subtitulo,'Etiqueta','text',values.controller ~ '[Subtitulo]',values.controller ~ '_Subtitulo',datos.Subtitulo,'255','CampoTextoLargo','1') }}
         {{ macro.textarea(values.atributos.Resumen,'Etiqueta',values.controller ~ '[Resumen]',values.controller ~ '_Resumen',datos.Resumen,none,none,'textarea','2')}}        
         {{ macro.textarea(values.atributos.ReclamoCorto,'Etiqueta',values.controller ~ '[ReclamoCorto]',values.controller ~ '_ReclamoCorto',datos.ReclamoCorto,none,none,'textarea','3')}}          
         {{ macro.textarea(values.atributos.ReclamoLargo,'Etiqueta',values.controller ~ '[ReclamoLargo]',values.controller ~ '_ReclamoLargo',datos.ReclamoLargo,none,none,'textarea','4')}}          
-        {{ macro.textarea(values.atributos.Caracteristicas,'Etiqueta',values.controller ~ '[Caracteristicas]',values.controller ~ '_Caracteristicas',datos.Caracteristicas,none,none,'textarea','5')}}        
+        {{ macro.textarea(values.atributos.Caracteristicas,'Etiqueta',values.controller ~ '[Caracteristicas]',values.controller ~ '_Caracteristicas',datos.Caracteristicas,none,none,'textarea','5')}}
+        </div>
     </div>
         
-    <div id="avisos">     
+    <div class="tab-pane" id="avisos">    
+        <div class="form-body">
         {{ macro.textarea(values.atributos.AvisosPedidos,'Etiqueta',values.controller ~ '[AvisosPedidos]',values.controller ~ '_AvisosPedidos',datos.AvisosPedidos,none,none,'textarea','3')}}          
         {{ macro.textarea(values.atributos.AvisosPresupuestos,'Etiqueta',values.controller ~ '[AvisosPresupuestos]',values.controller ~ '_AvisosPresupuestos',datos.AvisosPresupuestos,none,none,'textarea','4')}}          
-        {{ macro.textarea(values.atributos.AvisosAlbaranes,'Etiqueta',values.controller ~ '[AvisosAlbaranes]',values.controller ~ '_AvisosAlbaranes',datos.AvisosAlbaranes,none,none,'textarea','5')}}        
+        {{ macro.textarea(values.atributos.AvisosAlbaranes,'Etiqueta',values.controller ~ '[AvisosAlbaranes]',values.controller ~ '_AvisosAlbaranes',datos.AvisosAlbaranes,none,none,'textarea','5')}}       
+        </div>
     </div>
         
     {% if datos.PrimaryKeyValue and datos.BelongsTo.PrimaryKeyValue == 0 %}
-        <div id="divCombinaciones"></div>
+        <div class="tab-pane" id="divCombinaciones"></div>
         {% if values.varWebMod.especificas.permitirComentariosWeb == '1' %}
             <div id="divComentarios">
                 {% include '_global/comentariosBlog.html.twig' with {'comentarios': datos.getComentarios} %}
@@ -192,6 +201,7 @@
     {% endif %} 
         
     {% include '_global/fieldsComunes.html.twig' %}
+    </div>
     
 </div>
 

@@ -10,17 +10,5 @@
 {% endblock %}
 
 {% block mantenimiento %}
-<div class="FormManto">
-    <form name="manto_{{values.controller}}" id="manto_{{values.controller}}" action="" enctype="multipart/form-data" method="POST">
-        <input name="controller" value="Almacenes" type="hidden" />
-        <input name="action" id="action" value="edit" type="hidden" />
-        <input name="Almacenes[IDAlmacen]" value="{{ values.datos.IDAlmacen }}" type="hidden" />
-        {% include "_global/comandosSaveDelete.html.twig" %}
-
-        <div class='Cuerpo'>
-        {% include "_global/alertas.html.twig" with {'alertas': values.alertas,'errores': values.errores} %}               
-	{% include "Almacenes/form.html.twig" with {'datos': values.datos} %}
-        </div>
-    </form>
-</div>
+    {% include '_global/formEdit.html.twig' with {'values': values} %}    
 {% endblock %}

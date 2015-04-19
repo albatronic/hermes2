@@ -30,9 +30,9 @@ $(function(){
     /**
      * Para las solapas
      */
-    $( "#tabs" ).tabs({active: parseInt($('#solapaActiva').val(),10)});
-    $('#tabs ul li').click(function(){
-        $('#solapaActiva').val( $("#tabs").tabs("option","active") );
+    $( "#tabbable" ).tabs({active: parseInt($('#solapaActiva').val(),10)});
+    $('#tabbable ul li').click(function(){
+        $('#solapaActiva').val( $("#tabbable").tabs("option","active") );
     });     
     $( "#tabs1" ).tabs(); 
     $( "#tabsMostrarEnMenu" ).tabs();

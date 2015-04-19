@@ -33,12 +33,6 @@
         {% endfor %}
         </select>
     {%endif%}
-            
-    {% if values.permisos.permisosModulo['LI'] %}
-        <button class="btn btn-primary btn-bottom pull-right" onClick="$('#action{{position}}').val('listado');
-        $('#Listado').html('<div class=ListadoAnimation><img src={{app.path}}/images/loadingAnimation.gif /></div>');
-        $('#paginacion{{position}}').submit();"><i class="fa fa-print"></i> Imprimir</button>
-    {%endif%}
 
     {% if values.permisos.permisosModulo['EX'] and values.listado.export_types|length>0%}
         <a href="#exportar" class="btn btn-primary btn-bottom pull-right" data-toggle="modal"><i class="fa fa-file"></i>Exportar</a>
