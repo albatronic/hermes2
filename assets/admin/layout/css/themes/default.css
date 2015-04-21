@@ -3,7 +3,8 @@ Page Header
 ***********/
 /* Header search bar, toggler button & top menu */
 .page-header.navbar {
-  background-color: #cf1d28;
+  /*background-color: #cf1d28;*/
+  background-color: #47729A;
   box-shadow: 0 -3px 3px 2px rgba(0, 0, 0, 0.086) inset;
   /* Top notification menu/bar */
   /* Header seaech box */
@@ -379,7 +380,8 @@ Page Header
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.active.open > a,
 .page-sidebar .page-sidebar-menu > li.active > a,
 .page-sidebar .page-sidebar-menu > li.active.open > a {
-  background: #cf1d28;
+  /*background: #cf1d28;*/
+  background: #47729A;
   border-top-color: transparent;
   color: #ffffff;
 }

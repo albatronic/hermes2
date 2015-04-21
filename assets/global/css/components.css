@@ -1191,10 +1191,11 @@ Customized Bootstrap Buttons
 }
 
 .btn-primary {
-/*    background-color: #f5c52a;
-    border-color: #e3b521;*/
+    background-color: #47729a;
+    border-color: #47729a;
+    /*
     background-color: #cf1d28;
-    border-color: #cf1d28;
+    border-color: #cf1d28;*/
     border-radius: 3px !important;
     color: #fff;
     padding: 4px 12px;
@@ -1208,8 +1209,8 @@ Customized Bootstrap Buttons
 }*/
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
   color: #fff;
-  background-color: #ab0d18;
-  border-color: #ab0d18;
+  /**background-color: #ab0d18;
+  border-color: #ab0d18;*/
 }
 .open .btn-primary.dropdown-toggle {
   color: #fff;

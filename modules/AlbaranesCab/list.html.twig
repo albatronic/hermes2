@@ -6,7 +6,8 @@
 <div class='Listado'>
 
     {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':values.controller,'position':'izq'}%}
-
+    {% include '_global/listGenerico.html.twig' with {'listado':values.listado, 'controller': values.controller}%}
+    {#
         <table class="table table-striped">
             <thead>
             <tr class='Titulos'>
@@ -94,4 +95,5 @@
         });
     });
 </script>
+#}
 {% endblock %}

@@ -34,10 +34,10 @@
         </select>
     {%endif%}
 
-    {% if values.permisos.permisosModulo['EX'] and values.listado.export_types|length>0%}
+    {# if values.permisos.permisosModulo['EX'] and values.listado.export_types|length>0%}
         <a href="#exportar" class="btn btn-primary btn-bottom pull-right" data-toggle="modal"><i class="fa fa-file"></i>Exportar</a>
         {% include "_Emergente/dialogoExportar.html.twig" with {'filter': filter, 'export_types': values.listado.export_types} %}
-    {%endif%}
+    {%endif#}
 
 
     {% for key,value in filter.columnsSelected %}

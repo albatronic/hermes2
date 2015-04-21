@@ -107,7 +107,7 @@ Clientes:
     RazonSocial:
       title: Razón Social
       filter: YES
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: null
@@ -120,7 +120,7 @@ Clientes:
     NombreComercial:
       title: Nombre Comercial
       filter: YES
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: null
@@ -146,7 +146,7 @@ Clientes:
     Direccion:
       title: Dirección
       filter: YES
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: null
@@ -173,7 +173,7 @@ Clientes:
     IDProvincia:
       title: Provincia
       filter: NO
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: '18'
@@ -193,7 +193,7 @@ Clientes:
     IDPoblacion:
       title: Población
       filter: YES
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: null
@@ -219,7 +219,7 @@ Clientes:
     Telefono:
       title: Teléfono
       filter: YES
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: null

@@ -91,7 +91,7 @@ Page Header
   float: left;
 }
 .page-header.navbar .page-logo .logo-default {
-    margin: 13px 0 0 17px;
+    margin: 3px 0 3px 3px;
 }
 .page-header.navbar .page-logo .logo-mini {
   display: none;

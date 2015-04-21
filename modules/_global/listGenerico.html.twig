@@ -2,7 +2,7 @@
 {# ES INCLUIDO POR LOS list.html.twig DE CADA CONTROLADOR #}
 
 
-<table class="table table-striped">
+<table id="table-listado" class="table table-striped">
     <thead>
         <tr>
             <th width='16px'>&nbsp;</th>
@@ -36,7 +36,7 @@
             {% endif %}
             <td class='text-{{align}}'>
             {% if value.link.route %}
-                <a class="thickbox" title="{{value.link.title}}" href="{{app.path}}/{{value.link.route}}/{{objeto.getPrimaryKeyValue()}}/?TB_iframe=true&height=430&width=1000">
+                <a title="{{value.link.title}}" href="{{app.path}}/{{value.link.route}}/{{objeto.getPrimaryKeyMD5()}}">
                     {{objeto.getColumnValue(field,value.length)}}
                 </a>
             {% else %}
@@ -56,8 +56,7 @@
             {% endif %}            
 	   </tr>
     	{% else %}
-    	<tr><td colspan="8">No hay información que cumpla esos criterios</td></tr>
+    	<tr><td colspan="8">No hay información que cumpla esos criterios de búsqueda</td></tr>
     {% endfor %}
     </tbody>
 </table>
-

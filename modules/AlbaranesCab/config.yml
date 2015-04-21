@@ -120,9 +120,9 @@ AlbaranesCab:
       #aditional_filter: { order: 1, caption: IDContador, entity: ErpContadores, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
       validator: { nullable: NO, type: string, length: '15', min: 1, max: 999999, message: 'Valor Requerido' }
     NumeroAlbaran:
-      title: Número Albarán
+      title: Número
       filter: YES
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: null
@@ -135,7 +135,7 @@ AlbaranesCab:
     IDSucursal:
       title: Sucursal
       filter: NO
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: '0'
@@ -188,7 +188,7 @@ AlbaranesCab:
     IDComercial:
       title: Comercial
       filter: NO
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: '0'
@@ -208,7 +208,7 @@ AlbaranesCab:
     Fecha:
       title: Fecha
       filter: NO
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: null
@@ -241,7 +241,7 @@ AlbaranesCab:
     IDCliente:
       title: Cliente
       filter: NO
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: null
@@ -561,7 +561,7 @@ AlbaranesCab:
     Total:
       title: Total
       filter: YES
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: '0.00'
@@ -574,7 +574,7 @@ AlbaranesCab:
     IDEstado:
       title: Estado
       filter: NO
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: '0'
@@ -594,7 +594,7 @@ AlbaranesCab:
     IDFactura:
       title: Factura
       filter: NO
-      list: NO
+      list: YES
       visible: true
       updatable: true
       default: '0'
@@ -602,7 +602,7 @@ AlbaranesCab:
       permission: null
       translatable: false
       searchable: false
-      link: { route: null, param: null, title: null, target: null, link: null }
+      link: { route: FemitidasCab/Edit, param: null, title: Editar Factura, target: null, link: null }
       aditional_filter:
         order: 27
         caption: Factura (%)

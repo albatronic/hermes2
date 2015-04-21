@@ -4,47 +4,7 @@
 
 {% block listado %}
     <div class='Listado'>
-
         {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller': values.controller,'position':'izq'}%}
-
-        <table class="table table-striped">
-            <thead>
-                <tr class='Titulos'>
-                    <th></th>
-                    <th>Razón Social</th>
-                    <th>Nombre Comercial</th>
-                    <th>Dirección</th>
-                    <th>Población</th>
-                    <th>Provincia</th>
-                    <th>Teléfono</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {% for key,objeto in values.listado.data %}
-                    {% if (key is even) %}
-                        {% set classFila = 'Impar' %}
-                    {% else %}
-                        {% set classFila = 'Par' %}
-                    {% endif %}
-                    <tr onclick="location.href = '{{app.path}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}'>
-                        <td>
-                            <a href="{{app.path}}/Clientes/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">
-                                <img src="{{app.path}}/images/botoneditar.png" width="16px" height="16px" />
-                            </a>
-                        </td>
-                        <td>{{objeto.RazonSocial|slice(0,32)}}</td>
-                        <td>{{objeto.NombreComercial|slice(0,28)}}</td>
-                        <td>{{objeto.Direccion|slice(0,28)}}</td>
-                        <td>{{objeto.IDPoblacion|slice(0,25)}}</td>
-                        <td>{{objeto.IDProvincia.Provincia|slice(0,25)}}</td>
-                        <td>{{objeto.Telefono|slice(0,25)}}</td>
-                    </tr>
-                {% else %}
-                    <tr><td colspan='7'>No hay informaci&oacute;n que cumpla esos criterios</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
+        {% include '_global/listGenerico.html.twig' with {'listado': values.listado, 'controller': values.controller} %}
     </div>
 {% endblock %}

@@ -785,7 +785,7 @@ class Listado {
         }
         unset($objeto);
         
-        $archivo = "docs/docs" . $_SESSION['emp'] . "/cvs/" . md5(date('d-m-Y H:i:s')) . ".csv";
+        $archivo = "docs/docs" . $_SESSION['emp'] . "/csv/" . md5(date('d-m-Y H:i:s')) . ".csv";
 
         $fp = @fopen($archivo, "w");
         if ($fp) {

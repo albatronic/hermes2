@@ -4,43 +4,7 @@
 
 {% block listado %}
     <div class='Listado'>
-
         {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller': values.controller,'position':'izq'}%}
-
-        <table class="table table-striped">
-            <thead>
-                <tr class='Titulos'>
-                    <td>Nombre</th>
-                    <th>Direcci&oacute;n</th>
-                    <th>Provincia</th>                
-                    <th>Poblaci&oacute;n</th>
-                    <th>Tel&eacute;fono</th>
-                    <th>Tipo</th>
-                    <th>Ubicaciones</th>
-                </tr>
-            </thead>
-
-            <tbody class='Cuerpo'>
-                {% for key,objeto in values.listado.data %}
-                    {% if (key is even) %}
-                        {% set classFila = 'Impar' %}
-                    {% else %}
-                        {% set classFila = 'Par' %}
-                    {% endif %}
-                    <tr onclick="location.href = '{{app.path}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}'>
-                        <td><a href="{{app.path}}/Almacenes/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Nombre|slice(0,40)}}</a></td>
-                        <td>{{objeto.Direccion|slice(0,40)}}</td>
-                        <td>{{objeto.IDProvincia.Provincia}}</td>                
-                        <td>{{objeto.IDPoblacion|slice(0,30)}}</td>
-                        <td>{{objeto.Telefono}}</td>
-                        <td class="Item">{{objeto.Tipo.Descripcion}}</td>
-                        <td class="Item" align="center">{{objeto.ControlUbicaciones.Descripcion}}</td>
-                    </tr>
-                {% else %}
-                    <tr><td colspan='7'>No hay informaci&oacute;n que cumpla esos criterios</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
+        {% include '_global/listGenerico.html.twig' with {'listado': values.listado, 'controller': values.controller} %}
     </div>
 {% endblock %}
