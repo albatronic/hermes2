@@ -14,216 +14,222 @@
 
 {% block template %}
 
-{# DEFINICION DE CONSTANTE CUYOS VALORES PUEDEN SER ADQUIRIDOS POR LOS CAMPOS ------------------------ #}
+    {# DEFINICION DE CONSTANTE CUYOS VALORES PUEDEN SER ADQUIRIDOS POR LOS CAMPOS ------------------------ #}
 
-{% set ValoresSN = { '0':{'Id':'0','Value':'No'}, '1':{'Id':'1','Value':'Si'} }  %}
-{% set ValoresIzqDcha = { '0':{'Id':'0','Value':'Izquierda'}, '1':{'Id':'1','Value':'Derecha'} }  %}
+    {% set ValoresSN = { '0':{'Id':'0','Value':'No'}, '1':{'Id':'1','Value':'Si'} }  %}
+    {% set ValoresIzqDcha = { '0':{'Id':'0','Value':'Izquierda'}, '1':{'Id':'1','Value':'Derecha'} }  %}
 
-{# ----------------------------------------------------------------------------------------------------#}
+    {# ----------------------------------------------------------------------------------------------------#}
 
-<div id="tabs">
-    <ul>
+    <div class="col-md-12">
+        <ul class="nav nav-tabs">
 
-        <li><a href="#tabs-global">Global</a></li>
-        <li><a href="#tabs-urlAmigable">URL's</a></li>
-        <li><a href="#tabs-siteMap">SiteMap</a></li>
-        <li><a href="#tabs-meta">Meta Información</a></li>
+            <li><a href="#tabs-global" data-toggle="tab">Global</a></li>
+            <li><a href="#tabs-urlAmigable" data-toggle="tab">URL's</a></li>
+            <li><a href="#tabs-siteMap" data-toggle="tab">SiteMap</a></li>
+            <li><a href="#tabs-meta" data-toggle="tab">Meta Información</a></li>
 
-        {% if values.d.numberOfImages > 0 %}
-            {% for i in 1..values.d.numberOfImages %}
-            <li class="ui-state-default ui-corner-tope">
-                <a href="#tabs-imagen{{i}}">
-                {% if values.d.images[i].caption %}
-                    {{values.d.images[i].caption}}
-                {% else %}
-                    Imagen {{i}}
-                {% endif %}
-                </a>
-            </li>
-            {% endfor %}
-        {% endif %}
-            
-        {% if values.d.withGalery > 0 %}
-        <li><a href="#tabs-galeria">Galería</a></li>
-        {% endif %}
-        {% if values.d.withTiny > 0 %}
-        <li><a href="#tabs-tiny">Imágenes Tiny</a></li>   
-        {% endif %}    
-        {% if values.d.withDocuments > 0 %}
-        <li><a href="#tabs-document">Documentos</a></li>
-        {% endif %}
-        {% if values.d.withVideos > 0 %}
-        <li><a href="#tabs-video">Vídeos</a></li>   
-        {% endif %}  
-        {% if values.d.withAudios > 0 %}
-        <li><a href="#tabs-audio">Audios</a></li>   
-        {% endif %}           
-        <li><a href="#tabs-columnas">Columnas</a></li>
-        <li><a href="#tabs-especificas">Específicas</a></li>
-        <li><a href="#tabs-ordenesWeb">Órdenes Web</a></li>        
-        <li><a href="#tabs-controller">Controller</a></li>
-        <li><a href="#tabs-relaciones">Relacionar con ...</a></li>        
-        <!--<li><a href="#tabs-editorTiny">Editor Tiny</a></li>-->
-        <li><a href="#tabs-varWeb">Visibilidad Var Web</a></li>
-    </ul>
-
-    {# GLOBAL #}
-    <div id="tabs-global">
-        {{ macro.input({'caption':'[isModuleRoot] Es el módulo padre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[isModuleRoot]','d_isModuleRoot',values.d.isModuleRoot)}}
-        {{ macro.input({'caption':'[translatable] Es multi idioma','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[translatable]','d_translatable',values.d.translatable)}}
-        {{ macro.input({'caption':'[searchable] Es buscable','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[searchable]','d_searchable',values.d.searchable)}}
-        {{ macro.input({'caption':'[showCommonFields] Mostrar campos comunes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showCommonFields]','d_showCommonFields',values.d.showCommonFields)}}
-        {{ macro.input({'caption':'[numMaxRecords] Número máximo registros','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[numMaxRecords]','d_numMaxRecords',values.d.numMaxRecords,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[numberOfImages] Número de imágenes de diseño (0=sin imágenes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[numberOfImages]','d_numberOfImages',values.d.numberOfImages,'3','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[withMetadata] Hay meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withMetadata]','d_withMetadata',values.d.withMetadata)}}
-        {{ macro.input({'caption':'[addMetadata] Puede añadir meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[addMetadata]','d_addMetadata',values.d.addMetadata)}}
-        {{ macro.input({'caption':'[deleteMetadata] Puede borrar meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[deleteMetadata]','d_deleteMetadata',values.d.deleteMetadata)}}        
-        {{ macro.input({'caption':'[withTiny] Hay imágenes Tiny','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withTiny]','d_withTiny',values.d.withTiny)}}
-        {{ macro.input({'caption':'[withGalery] Hay Galeria','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withGalery]','d_withGalery',values.d.withGalery)}}
-        {{ macro.input({'caption':'[withDocuments] Hay Documentos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withDocuments]','d_withDocuments',values.d.withDocuments)}}
-        {{ macro.input({'caption':'[withVideos] Hay Videos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withVideos]','d_withVideos',values.d.withVideos)}}
-        {{ macro.input({'caption':'[withAudios] Hay Audios','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withAudios]','d_withAudios',values.d.withAudios)}}
-        {{ macro.input({'caption':'[maxSizes][image] Tamaño máximo de las imágenes (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][image]','d_maxSizes_image',values.d.maxSizes.image,'10','CampoTextoMedio','1') }}          
-        {{ macro.input({'caption':'[maxSizes][document] Tamaño máximo documento (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][document]','d_maxSizes_document',values.d.maxSizes.document,'10','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[maxSizes][video] Tamaño máximo video (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][video]','d_maxSizes_video',values.d.maxSizes.video,'10','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[maxSizes][audio] Tamaño máximo Audio (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][audio]','d_maxSizes_audio',values.d.maxSizes.audio,'10','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[maxSizes][audio] Tamaño máximo Audio (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][audio]','d_maxSizes_audio',values.d.maxSizes.audio,'10','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[video][ancho] Anchura video','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[video][ancho]','d_video_ancho',values.d.video.ancho,'10','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[video][alto] Altura video','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[video][alto]','d_video_alto',values.d.video.alto,'10','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[video][borde] Borde video','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[video][borde]','d_video_borde',values.d.video.borde,'10','CampoTextoMedio','1') }}
-    </div>
-
-    {# URL AMIGABLE #}
-    <div id="tabs-urlAmigable">
-        {{ macro.input({'caption':'[urlFriendlyManagement] Gestionar URL amigables','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[urlFriendlyManagement]','d_urlFriendlyManagement',values.d.urlFriendlyManagement)}}
-        {{ macro.input({'caption':'[showUrlFriendlyManagement] Mostrar gestión URLs amigables','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showUrlFriendlyManagement]','d_showUrlFriendlyManagement',values.d.showUrlFriendlyManagement)}}            
-        {{ macro.select({'caption':'[fieldGeneratorUrlFriendly] Campo generador URL amigable','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[fieldGeneratorUrlFriendly]','d_fieldGeneratorUrlFriendly',200,values.d.fieldGeneratorUrlFriendly,values.columnas,'chzn-select')}}   
-        {{ macro.input({'caption':'[showUrlFriendly] Mostrar Url amigable','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showUrlFriendly]','d_showUrlFriendly',values.d.showUrlFriendly)}}
-    </div>
-
-    {# MOSTAR GESTION SITEMAP #}
-    <div id="tabs-siteMap">
-        {{ macro.input({'caption':'[showSiteMapManagement] Mostrar gestión Sitemap','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showSiteMapManagement]','d_showSiteMapManagement',values.d.showSiteMapManagement)}}
-    </div>
-
-    {# MOSTAR GESTION META #}
-    <div id="tabs-meta">     
-        {{ macro.input({'caption':'[metatagTitleManagement] Gestionar MetatagTitles','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[metatagTitleManagement]','d_metatagTitleManagement',values.d.metatagTitleManagement)}}
-        {{ macro.input({'caption':'[showMetaManagement] Mostrar gestión Meta','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showMetaManagement]','d_showMetaManagement',values.d.showMetaManagement)}}
-        {{ macro.select({'caption':'[fieldGeneratorMetatagTitle] Campo generador Metatag Title','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[fieldGeneratorMetatagTitle]','d_fieldGeneratorMetatagTitle',200,values.d.fieldGeneratorMetatagTitle,values.columnas,'chzn-select')}}
-        {{ macro.select({'caption':'[fieldGeneratorMetatagDescription] Campo generador Metatag Description','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[fieldGeneratorMetatagDescription]','d_fieldGeneratorMetatagDescription',200,values.d.fieldGeneratorMetatagDescription,values.columnas,'chzn-select')}}
-        {{ macro.select({'caption':'[fieldGeneratorMetatagKeywords] Campo generador Metatag Keywords','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[fieldGeneratorMetatagKeywords]','d_fieldGeneratorMetatagKeywords',200,values.d.fieldGeneratorMetatagKeywords,values.columnas,'chzn-select')}}
-    </div>
-
-    {# IMAGENES #}
-    {% if values.d.numberOfImages > 0 %}
-    {% for i in 1..values.d.numberOfImages %}
-    <div id="tabs-imagen{{i}}">
-        {{ macro.input({'caption':'[images]['~i~'][visible] Visible','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][visible]','d_images_' ~ i ~ '_visible',values.d.images[i].visible)}}
-        {{ macro.input({'caption':'[images]['~i~'][caption] Caption','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][caption]','d_images_'~i~'_caption',values.d.images[i].caption,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[images]['~i~'][width] Width','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][width]','d_images_'~i~'_width',values.d.images[i].width,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[images]['~i~'][height] Height','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][height]','d_images_'~i~'_height',values.d.images[i].height,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[images]['~i~'][generateThumbnail] Generar Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][generateThumbnail]','d_images_' ~ i ~ 'generateThumbnail',values.d.images[i].generateThumbnail)}}
-        {{ macro.input({'caption':'[images]['~i~'][widthThumbnail] Anchura Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][widthThumbnail]','d_images_' ~ i ~ '_widthThumbnail',values.d.images[i].widthThumbnail,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[images]['~i~'][heightThumbnail] Altura Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][heightThumbnail]','d_images_' ~ i ~ '_heightThumbnail',values.d.images[i].heightThumbnail,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[images]['~i~'][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][mostrarTitulo]','d_images_' ~ i ~ 'mostrarTitulo',values.d.images[i].mostrarTitulo)}}            
-        {{ macro.input({'caption':'[images]['~i~'][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][mostrarNombre]','d_images_' ~ i ~ 'mostrarNombre',values.d.images[i].mostrarNombre)}}
-        {{ macro.input({'caption':'[images]['~i~'][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][mostrarPieDeFoto]','d_images_' ~ i ~ 'mostrarPieDeFoto',values.d.images[i].mostrarPieDeFoto)}}
-        {{ macro.input({'caption':'[images]['~i~'][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][mostrarPublicar]','d_images_' ~ i ~ 'mostrarPublicar',values.d.images[i].mostrarPublicar)}}        
-        {{ macro.input({'caption':'[images]['~i~'][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][valorDefectoPublicar]','d_images_' ~ i ~ 'valorDefectoPublicar',values.d.images[i].valorDefectoPublicar)}}        
-    </div>
-    {% endfor %}
-    {% endif %}
-
-    {# GALERIA #}
-    {% if values.d.withGalery > 0 %}        
-    <div id="tabs-galeria">
-        {{ macro.input({'caption':'[galery][maxWidthImage] Anchura máxima imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[galery][maxWidthImage]','d_galery_maxWidthImage',values.d.galery.maxWidthImage,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[galery][maxHeightImage] Altura máxima imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[galery][maxHeightImage]','d_galery_maxHeightImage',values.d.galery.maxHeightImage,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[galery][generateThumbnail] Generar Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][generateThumbnail]','d_galery_generateThumbnail',values.d.galery.generateThumbnail)}}
-        {{ macro.input({'caption':'[galery][widthThumbnail] Anchura Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[galery][widthThumbnail]','d_galery_widthThumbnail',values.d.galery.widthThumbnail,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[galery][heightThumbnail] Altura Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[galery][heightThumbnail]','d_galery_heightThumbnail',values.d.galery.heightThumbnail,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[galery][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][mostrarTitulo]','d_galery_mostrarTitulo',values.d.galery.mostrarTitulo)}}            
-        {{ macro.input({'caption':'[galery][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][mostrarNombre]','d_galery_mostrarNombre',values.d.galery.mostrarNombre)}}
-        {{ macro.input({'caption':'[galery][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][mostrarPieDeFoto]','d_galery_mostrarPieDeFoto',values.d.galery.mostrarPieDeFoto)}}
-        {{ macro.input({'caption':'[galery][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][mostrarPublicar]','d_galery_mostrarPublicar',values.d.galery.mostrarPublicar)}}        
-        {{ macro.input({'caption':'[galery][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][valorDefectoPublicar]','d_galery_valorDefectoPublicar',values.d.galery.valorDefectoPublicar)}}        
-    </div>
-    {% endif %}
-        
-    {# IMÁGENES TINY #}
-    {% if values.d.withTiny > 0 %}         
-    <div id="tabs-tiny">
-        {{ macro.input({'caption':'[tiny][maxWidthImage] Anchura máxima imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[tiny][maxWidthImage]','d_tiny_maxWidthImage',values.d.tiny.maxWidthImage,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[tiny][maxHeightImage] Altura máxima imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[tiny][maxHeightImage]','d_tiny_maxHeightImage',values.d.tiny.maxHeightImage,'15','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[tiny][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][mostrarTitulo]','d_tiny_mostrarTitulo',values.d.tiny.mostrarTitulo)}}            
-        {{ macro.input({'caption':'[tiny][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][mostrarNombre]','d_tiny_mostrarNombre',values.d.tiny.mostrarNombre)}}
-        {{ macro.input({'caption':'[tiny][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][mostrarPieDeFoto]','d_tiny_mostrarPieDeFoto',values.d.tiny.mostrarPieDeFoto)}}
-        {{ macro.input({'caption':'[tiny][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][mostrarPublicar]','d_tiny_mostrarPublicar',values.d.tiny.mostrarPublicar)}}   
-        {{ macro.input({'caption':'[tiny][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][valorDefectoPublicar]','d_tiny_valorDefectoPublicar',values.d.tiny.valorDefectoPublicar)}}            
-    </div>
-    {% endif %}
-        
-     {# DOCUMENTOS #}
-    {% if values.d.withDocuments > 0 %}         
-    <div id="tabs-document">
-        {{ macro.input({'caption':'[document][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][mostrarTitulo]','d_document_mostrarTitulo',values.d.document.mostrarTitulo)}}            
-        {{ macro.input({'caption':'[document][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][mostrarNombre]','d_document_mostrarNombre',values.d.document.mostrarNombre)}}
-        {{ macro.input({'caption':'[document][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][mostrarPieDeFoto]','d_document_mostrarPieDeFoto',values.d.document.mostrarPieDeFoto)}}
-        {{ macro.input({'caption':'[document][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][mostrarPublicar]','d_document_mostrarPublicar',values.d.document.mostrarPublicar)}}   
-        {{ macro.input({'caption':'[document][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][valorDefectoPublicar]','d_document_valorDefectoPublicar',values.d.document.valorDefectoPublicar)}}            
-    </div>
-    {% endif %} 
-        
-     {# VÍDEOS #}
-    {% if values.d.withVideos > 0 %}         
-    <div id="tabs-video">
-        {{ macro.input({'caption':'[video][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][mostrarTitulo]','d_video_mostrarTitulo',values.d.video.mostrarTitulo)}}            
-        {{ macro.input({'caption':'[video][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][mostrarNombre]','d_video_mostrarNombre',values.d.video.mostrarNombre)}}
-        {{ macro.input({'caption':'[video][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][mostrarPieDeFoto]','d_video_mostrarPieDeFoto',values.d.video.mostrarPieDeFoto)}}
-        {{ macro.input({'caption':'[video][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][mostrarPublicar]','d_video_mostrarPublicar',values.d.video.mostrarPublicar)}}   
-        {{ macro.input({'caption':'[video][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][valorDefectoPublicar]','d_video_valorDefectoPublicar',values.d.video.valorDefectoPublicar)}}            
-    </div>
-    {% endif %}   
-        
-     {# AUDIOS #}
-    {% if values.d.withAudios > 0 %}         
-    <div id="tabs-audio">
-        {{ macro.input({'caption':'[audio][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][mostrarTitulo]','d_audio_mostrarTitulo',values.d.audio.mostrarTitulo)}}            
-        {{ macro.input({'caption':'[audio][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][mostrarNombre]','d_audio_mostrarNombre',values.d.audio.mostrarNombre)}}
-        {{ macro.input({'caption':'[audio][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][mostrarPieDeFoto]','d_audio_mostrarPieDeFoto',values.d.audio.mostrarPieDeFoto)}}
-        {{ macro.input({'caption':'[audio][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][mostrarPublicar]','d_audio_mostrarPublicar',values.d.audio.mostrarPublicar)}}   
-        {{ macro.input({'caption':'[audio][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][valorDefectoPublicar]','d_audio_valorDefectoPublicar',values.d.audio.valorDefectoPublicar)}}            
-    </div>
-    {% endif %} 
-        
-    {# VARIABLES DE ENTORNO DE CADA COLUMNA DE LA ENTIDAD DE DATOS #}
-    <div id="tabs-columnas">
-
-        <div id="acordeonColumnas" style="margin-top:10px;">
-            {% for columna,variables in values.d.columns %}
-                <h3 style="{% if (variables.visible) %} color: blue; font-weight: bold; {% endif %}">
-                    [columns][{{columna}}] :: [{{variables.caption}} = {{variables.default }}] [permission: {{variables.permission }}]
-                </h3>
-                <div>
-
-                    {% set hayListaValores = (variables.listaValores is iterable) %}
-
-                    {% for variable,valor in variables %}
-                        {% if variable != 'listaValores' %}
-                        <p>
-                        {% if ( (hayListaValores and (variable == 'default') ) or ( (variable == 'visible') or (variable == 'updatable') or (variable == 'translatable') or (variable == 'searchable') or (variable == 'editorTiny') or (variable == 'filter') or (variable == 'list') ) ) %}
-
-                            {% if (variable == 'default') %}
-                                {% set listaValores = variables.listaValores %}
-                                {% set tipoTag = 'select' %}
+            {% if values.d.numberOfImages > 0 %}
+                {% for i in 1..values.d.numberOfImages %}
+                    <li>
+                        <a href="#tabs-imagen{{i}}" data-toggle="tab">
+                            {% if values.d.images[i].caption %}
+                                {{values.d.images[i].caption}}
                             {% else %}
-                                {% set listaValores = ValoresSN %}
-                                {% set tipoTag = 'checkbox' %}
+                                Imagen {{i}}
                             {% endif %}
+                        </a>
+                    </li>
+                {% endfor %}
+            {% endif %}
 
-                            {% if tipoTag == 'select' %}
-                            {{ macro.select(
+            {% if values.d.withGalery > 0 %}
+                <li><a href="#tabs-galeria" data-toggle="tab">Galería</a></li>
+                {% endif %}
+                {% if values.d.withTiny > 0 %}
+                <li><a href="#tabs-tiny" data-toggle="tab">Imágenes Tiny</a></li>   
+                {% endif %}    
+                {% if values.d.withDocuments > 0 %}
+                <li><a href="#tabs-document" data-toggle="tab">Documentos</a></li>
+                {% endif %}
+                {% if values.d.withVideos > 0 %}
+                <li><a href="#tabs-video" data-toggle="tab">Vídeos</a></li>   
+                {% endif %}  
+                {% if values.d.withAudios > 0 %}
+                <li><a href="#tabs-audio" data-toggle="tab">Audios</a></li>   
+                {% endif %}           
+            <li><a href="#tabs-columnas" data-toggle="tab">Columnas</a></li>
+            <li><a href="#tabs-especificas" data-toggle="tab">Específicas</a></li>
+            <li><a href="#tabs-ordenesWeb" data-toggle="tab">Órdenes Web</a></li>        
+            <li><a href="#tabs-controller" data-toggle="tab">Controller</a></li>
+            <li><a href="#tabs-relaciones" data-toggle="tab">Relacionar con ...</a></li>        
+            <!--<li><a href="#tabs-editorTiny">Editor Tiny</a></li>-->
+            <li><a href="#tabs-varWeb" data-toggle="tab">Visibilidad Var Web</a></li>
+        </ul>
+
+        <div class="tab-content">
+            {# GLOBAL #}
+            <div class="tab-pane fade" id="tabs-global">
+                {{ macro.input({'caption':'[isModuleRoot] Es el módulo padre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[isModuleRoot]','d_isModuleRoot',values.d.isModuleRoot)}}
+                {{ macro.input({'caption':'[translatable] Es multi idioma','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[translatable]','d_translatable',values.d.translatable)}}
+                {{ macro.input({'caption':'[searchable] Es buscable','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[searchable]','d_searchable',values.d.searchable)}}
+                {{ macro.input({'caption':'[showCommonFields] Mostrar campos comunes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showCommonFields]','d_showCommonFields',values.d.showCommonFields)}}
+                {{ macro.input({'caption':'[numMaxRecords] Número máximo registros','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[numMaxRecords]','d_numMaxRecords',values.d.numMaxRecords,'15','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[numberOfImages] Número de imágenes de diseño (0=sin imágenes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[numberOfImages]','d_numberOfImages',values.d.numberOfImages,'3','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[withMetadata] Hay meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withMetadata]','d_withMetadata',values.d.withMetadata)}}
+                {{ macro.input({'caption':'[addMetadata] Puede añadir meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[addMetadata]','d_addMetadata',values.d.addMetadata)}}
+                {{ macro.input({'caption':'[deleteMetadata] Puede borrar meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[deleteMetadata]','d_deleteMetadata',values.d.deleteMetadata)}}        
+                {{ macro.input({'caption':'[withTiny] Hay imágenes Tiny','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withTiny]','d_withTiny',values.d.withTiny)}}
+                {{ macro.input({'caption':'[withGalery] Hay Galeria','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withGalery]','d_withGalery',values.d.withGalery)}}
+                {{ macro.input({'caption':'[withDocuments] Hay Documentos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withDocuments]','d_withDocuments',values.d.withDocuments)}}
+                {{ macro.input({'caption':'[withVideos] Hay Videos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withVideos]','d_withVideos',values.d.withVideos)}}
+                {{ macro.input({'caption':'[withAudios] Hay Audios','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withAudios]','d_withAudios',values.d.withAudios)}}
+                {{ macro.input({'caption':'[maxSizes][image] Tamaño máximo de las imágenes (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][image]','d_maxSizes_image',values.d.maxSizes.image,'10','CampoTextoMedio','1') }}          
+                {{ macro.input({'caption':'[maxSizes][document] Tamaño máximo documento (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][document]','d_maxSizes_document',values.d.maxSizes.document,'10','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[maxSizes][video] Tamaño máximo video (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][video]','d_maxSizes_video',values.d.maxSizes.video,'10','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[maxSizes][audio] Tamaño máximo Audio (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][audio]','d_maxSizes_audio',values.d.maxSizes.audio,'10','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[maxSizes][audio] Tamaño máximo Audio (bytes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[maxSizes][audio]','d_maxSizes_audio',values.d.maxSizes.audio,'10','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[video][ancho] Anchura video','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[video][ancho]','d_video_ancho',values.d.video.ancho,'10','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[video][alto] Altura video','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[video][alto]','d_video_alto',values.d.video.alto,'10','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[video][borde] Borde video','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[video][borde]','d_video_borde',values.d.video.borde,'10','CampoTextoMedio','1') }}
+            </div>
+
+            {# URL AMIGABLE #}
+            <div class="tab-pane fade" id="tabs-urlAmigable">
+                {{ macro.input({'caption':'[urlFriendlyManagement] Gestionar URL amigables','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[urlFriendlyManagement]','d_urlFriendlyManagement',values.d.urlFriendlyManagement)}}
+                {{ macro.input({'caption':'[showUrlFriendlyManagement] Mostrar gestión URLs amigables','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showUrlFriendlyManagement]','d_showUrlFriendlyManagement',values.d.showUrlFriendlyManagement)}}            
+                {{ macro.select({'caption':'[fieldGeneratorUrlFriendly] Campo generador URL amigable','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[fieldGeneratorUrlFriendly]','d_fieldGeneratorUrlFriendly',200,values.d.fieldGeneratorUrlFriendly,values.columnas,'chzn-select')}}   
+                {{ macro.input({'caption':'[showUrlFriendly] Mostrar Url amigable','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showUrlFriendly]','d_showUrlFriendly',values.d.showUrlFriendly)}}
+            </div>
+
+            {# MOSTAR GESTION SITEMAP #}
+            <div class="tab-pane fade" id="tabs-siteMap">
+                {{ macro.input({'caption':'[showSiteMapManagement] Mostrar gestión Sitemap','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showSiteMapManagement]','d_showSiteMapManagement',values.d.showSiteMapManagement)}}
+            </div>
+
+            {# MOSTAR GESTION META #}
+            <div class="tab-pane fade" id="tabs-meta">     
+                {{ macro.input({'caption':'[metatagTitleManagement] Gestionar MetatagTitles','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[metatagTitleManagement]','d_metatagTitleManagement',values.d.metatagTitleManagement)}}
+                {{ macro.input({'caption':'[showMetaManagement] Mostrar gestión Meta','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showMetaManagement]','d_showMetaManagement',values.d.showMetaManagement)}}
+                {{ macro.select({'caption':'[fieldGeneratorMetatagTitle] Campo generador Metatag Title','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[fieldGeneratorMetatagTitle]','d_fieldGeneratorMetatagTitle',200,values.d.fieldGeneratorMetatagTitle,values.columnas,'chzn-select')}}
+                {{ macro.select({'caption':'[fieldGeneratorMetatagDescription] Campo generador Metatag Description','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[fieldGeneratorMetatagDescription]','d_fieldGeneratorMetatagDescription',200,values.d.fieldGeneratorMetatagDescription,values.columnas,'chzn-select')}}
+                {{ macro.select({'caption':'[fieldGeneratorMetatagKeywords] Campo generador Metatag Keywords','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[fieldGeneratorMetatagKeywords]','d_fieldGeneratorMetatagKeywords',200,values.d.fieldGeneratorMetatagKeywords,values.columnas,'chzn-select')}}
+            </div>
+
+            {# IMAGENES #}
+            {% if values.d.numberOfImages > 0 %}
+                {% for i in 1..values.d.numberOfImages %}
+                    <div class="tab-pane fade" id="tabs-imagen{{i}}">
+                        {{ macro.input({'caption':'[images]['~i~'][visible] Visible','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][visible]','d_images_' ~ i ~ '_visible',values.d.images[i].visible)}}
+                        {{ macro.input({'caption':'[images]['~i~'][caption] Caption','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][caption]','d_images_'~i~'_caption',values.d.images[i].caption,'50','CampoTextoMedio','1') }}
+                        {{ macro.input({'caption':'[images]['~i~'][width] Width','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][width]','d_images_'~i~'_width',values.d.images[i].width,'15','CampoTextoMedio','1') }}
+                        {{ macro.input({'caption':'[images]['~i~'][height] Height','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][height]','d_images_'~i~'_height',values.d.images[i].height,'15','CampoTextoMedio','1') }}
+                        {{ macro.input({'caption':'[images]['~i~'][generateThumbnail] Generar Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][generateThumbnail]','d_images_' ~ i ~ 'generateThumbnail',values.d.images[i].generateThumbnail)}}
+                        {{ macro.input({'caption':'[images]['~i~'][widthThumbnail] Anchura Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][widthThumbnail]','d_images_' ~ i ~ '_widthThumbnail',values.d.images[i].widthThumbnail,'15','CampoTextoMedio','1') }}
+                        {{ macro.input({'caption':'[images]['~i~'][heightThumbnail] Altura Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[images]['~i~'][heightThumbnail]','d_images_' ~ i ~ '_heightThumbnail',values.d.images[i].heightThumbnail,'15','CampoTextoMedio','1') }}
+                        {{ macro.input({'caption':'[images]['~i~'][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][mostrarTitulo]','d_images_' ~ i ~ 'mostrarTitulo',values.d.images[i].mostrarTitulo)}}            
+                        {{ macro.input({'caption':'[images]['~i~'][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][mostrarNombre]','d_images_' ~ i ~ 'mostrarNombre',values.d.images[i].mostrarNombre)}}
+                        {{ macro.input({'caption':'[images]['~i~'][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][mostrarPieDeFoto]','d_images_' ~ i ~ 'mostrarPieDeFoto',values.d.images[i].mostrarPieDeFoto)}}
+                        {{ macro.input({'caption':'[images]['~i~'][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][mostrarPublicar]','d_images_' ~ i ~ 'mostrarPublicar',values.d.images[i].mostrarPublicar)}}        
+                        {{ macro.input({'caption':'[images]['~i~'][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[images]['~i~'][valorDefectoPublicar]','d_images_' ~ i ~ 'valorDefectoPublicar',values.d.images[i].valorDefectoPublicar)}}        
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {# GALERIA #}
+            {% if values.d.withGalery > 0 %}        
+                <div class="tab-pane fade" id="tabs-galeria">
+                    {{ macro.input({'caption':'[galery][maxWidthImage] Anchura máxima imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[galery][maxWidthImage]','d_galery_maxWidthImage',values.d.galery.maxWidthImage,'15','CampoTextoMedio','1') }}
+                    {{ macro.input({'caption':'[galery][maxHeightImage] Altura máxima imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[galery][maxHeightImage]','d_galery_maxHeightImage',values.d.galery.maxHeightImage,'15','CampoTextoMedio','1') }}
+                    {{ macro.input({'caption':'[galery][generateThumbnail] Generar Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][generateThumbnail]','d_galery_generateThumbnail',values.d.galery.generateThumbnail)}}
+                    {{ macro.input({'caption':'[galery][widthThumbnail] Anchura Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[galery][widthThumbnail]','d_galery_widthThumbnail',values.d.galery.widthThumbnail,'15','CampoTextoMedio','1') }}
+                    {{ macro.input({'caption':'[galery][heightThumbnail] Altura Thumbnail','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[galery][heightThumbnail]','d_galery_heightThumbnail',values.d.galery.heightThumbnail,'15','CampoTextoMedio','1') }}
+                    {{ macro.input({'caption':'[galery][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][mostrarTitulo]','d_galery_mostrarTitulo',values.d.galery.mostrarTitulo)}}            
+                    {{ macro.input({'caption':'[galery][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][mostrarNombre]','d_galery_mostrarNombre',values.d.galery.mostrarNombre)}}
+                    {{ macro.input({'caption':'[galery][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][mostrarPieDeFoto]','d_galery_mostrarPieDeFoto',values.d.galery.mostrarPieDeFoto)}}
+                    {{ macro.input({'caption':'[galery][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][mostrarPublicar]','d_galery_mostrarPublicar',values.d.galery.mostrarPublicar)}}        
+                    {{ macro.input({'caption':'[galery][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[galery][valorDefectoPublicar]','d_galery_valorDefectoPublicar',values.d.galery.valorDefectoPublicar)}}        
+                </div>
+            {% endif %}
+
+            {# IMÁGENES TINY #}
+            {% if values.d.withTiny > 0 %}         
+                <div class="tab-pane fade" id="tabs-tiny">
+                    {{ macro.input({'caption':'[tiny][maxWidthImage] Anchura máxima imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[tiny][maxWidthImage]','d_tiny_maxWidthImage',values.d.tiny.maxWidthImage,'15','CampoTextoMedio','1') }}
+                    {{ macro.input({'caption':'[tiny][maxHeightImage] Altura máxima imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[tiny][maxHeightImage]','d_tiny_maxHeightImage',values.d.tiny.maxHeightImage,'15','CampoTextoMedio','1') }}
+                    {{ macro.input({'caption':'[tiny][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][mostrarTitulo]','d_tiny_mostrarTitulo',values.d.tiny.mostrarTitulo)}}            
+                    {{ macro.input({'caption':'[tiny][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][mostrarNombre]','d_tiny_mostrarNombre',values.d.tiny.mostrarNombre)}}
+                    {{ macro.input({'caption':'[tiny][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][mostrarPieDeFoto]','d_tiny_mostrarPieDeFoto',values.d.tiny.mostrarPieDeFoto)}}
+                    {{ macro.input({'caption':'[tiny][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][mostrarPublicar]','d_tiny_mostrarPublicar',values.d.tiny.mostrarPublicar)}}   
+                    {{ macro.input({'caption':'[tiny][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[tiny][valorDefectoPublicar]','d_tiny_valorDefectoPublicar',values.d.tiny.valorDefectoPublicar)}}            
+                </div>
+            {% endif %}
+
+            {# DOCUMENTOS #}
+            {% if values.d.withDocuments > 0 %}         
+                <div class="tab-pane fade" id="tabs-document">
+                    {{ macro.input({'caption':'[document][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][mostrarTitulo]','d_document_mostrarTitulo',values.d.document.mostrarTitulo)}}            
+                    {{ macro.input({'caption':'[document][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][mostrarNombre]','d_document_mostrarNombre',values.d.document.mostrarNombre)}}
+                    {{ macro.input({'caption':'[document][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][mostrarPieDeFoto]','d_document_mostrarPieDeFoto',values.d.document.mostrarPieDeFoto)}}
+                    {{ macro.input({'caption':'[document][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][mostrarPublicar]','d_document_mostrarPublicar',values.d.document.mostrarPublicar)}}   
+                    {{ macro.input({'caption':'[document][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[document][valorDefectoPublicar]','d_document_valorDefectoPublicar',values.d.document.valorDefectoPublicar)}}            
+                </div>
+            {% endif %} 
+
+            {# VÍDEOS #}
+            {% if values.d.withVideos > 0 %}         
+                <div class="tab-pane fade" id="tabs-video">
+                    {{ macro.input({'caption':'[video][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][mostrarTitulo]','d_video_mostrarTitulo',values.d.video.mostrarTitulo)}}            
+                    {{ macro.input({'caption':'[video][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][mostrarNombre]','d_video_mostrarNombre',values.d.video.mostrarNombre)}}
+                    {{ macro.input({'caption':'[video][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][mostrarPieDeFoto]','d_video_mostrarPieDeFoto',values.d.video.mostrarPieDeFoto)}}
+                    {{ macro.input({'caption':'[video][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][mostrarPublicar]','d_video_mostrarPublicar',values.d.video.mostrarPublicar)}}   
+                    {{ macro.input({'caption':'[video][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[video][valorDefectoPublicar]','d_video_valorDefectoPublicar',values.d.video.valorDefectoPublicar)}}            
+                </div>
+            {% endif %}   
+
+            {# AUDIOS #}
+            {% if values.d.withAudios > 0 %}         
+                <div class="tab-pane fade" id="tabs-audio">
+                    {{ macro.input({'caption':'[audio][mostrarTitulo] Mostrar Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][mostrarTitulo]','d_audio_mostrarTitulo',values.d.audio.mostrarTitulo)}}            
+                    {{ macro.input({'caption':'[audio][mostrarNombre] Mostrar Nombre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][mostrarNombre]','d_audio_mostrarNombre',values.d.audio.mostrarNombre)}}
+                    {{ macro.input({'caption':'[audio][mostrarPieDeFoto] Mostrar Pie de Foto','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][mostrarPieDeFoto]','d_audio_mostrarPieDeFoto',values.d.audio.mostrarPieDeFoto)}}
+                    {{ macro.input({'caption':'[audio][mostrarPublicar] Mostrar Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][mostrarPublicar]','d_audio_mostrarPublicar',values.d.audio.mostrarPublicar)}}   
+                    {{ macro.input({'caption':'[audio][valorDefectoPublicar] Valor defecto Publicar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[audio][valorDefectoPublicar]','d_audio_valorDefectoPublicar',values.d.audio.valorDefectoPublicar)}}            
+                </div>
+            {% endif %} 
+
+            {# VARIABLES DE ENTORNO DE CADA COLUMNA DE LA ENTIDAD DE DATOS #}
+            <div class="tab-pane fade" id="tabs-columnas">
+
+                <div id="acordeonColumnas" class="panel-group">
+                    {% for columna,variables in values.d.columns %}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 style="{% if (variables.visible) %} color: blue; font-weight: bold; {% endif %}">
+                                    <a data-toggle="collapse" data-parent="#acordeonColumnas" href="#{{columna}}">
+                                        [columns][{{columna}}] :: [{{variables.caption}} = {{variables.default }}] [permission: {{variables.permission }}]
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="{{columna}}" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    {% set hayListaValores = (variables.listaValores is iterable) %}
+
+                                    {% for variable,valor in variables %}
+                                        {% if variable != 'listaValores' %}
+                                            <p>
+                                                {% if ( (hayListaValores and (variable == 'default') ) or ( (variable == 'visible') or (variable == 'updatable') or (variable == 'translatable') or (variable == 'searchable') or (variable == 'editorTiny') or (variable == 'filter') or (variable == 'list') ) ) %}
+
+                                                    {% if (variable == 'default') %}
+                                                        {% set listaValores = variables.listaValores %}
+                                                        {% set tipoTag = 'select' %}
+                                                    {% else %}
+                                                        {% set listaValores = ValoresSN %}
+                                                        {% set tipoTag = 'checkbox' %}
+                                                    {% endif %}
+
+                                                    {% if tipoTag == 'select' %}
+                                                        {{ macro.select(
                                 {'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},
                                 'Etiqueta',
                                 'd[columns]['~columna~']['~variable~']',
@@ -233,9 +239,9 @@
                                 listaValores,
                                 'chzn-select'
                                 )
-                            }}
-                        {% else %}
-                            {{ macro.input(
+                                                        }}
+                                                    {% else %}
+                                                        {{ macro.input(
                                 {'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},
                                 'Etiqueta',
                                 'checkbox',
@@ -245,11 +251,11 @@
                                 '255',
                                 'CampoTextoMedio'
                                 )
-                            }}
-                        {% endif %}
+                                                        }}
+                                                    {% endif %}
 
-                        {% else %}
-                            {{ macro.input(
+                                                {% else %}
+                                                    {{ macro.input(
                                 {'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},
                                 'Etiqueta',
                                 'text',
@@ -259,22 +265,23 @@
                                 '255',
                                 'CampoTextoLargo'
                                 )
-                            }}
-                        {% endif %}
-                        </p>
-                        {% endif %}
+                                                    }}
+                                                {% endif %}
+                                            </p>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
                     {% endfor %}
-
                 </div>
-            {% endfor %}
-        </div>
-    </div>
+            </div>
 
-    {# VARIABLES DE ENTORNO ESPECIFICAS AL MODULO EN CURSO nombreModulo/varEnv.yml #}
-    <div id="tabs-especificas">
-        {% for nombre,atributos in values.d.especificas %}
-            {% if atributos.values|length>0 %}
-                {{ macro.select(
+            {# VARIABLES DE ENTORNO ESPECIFICAS AL MODULO EN CURSO nombreModulo/varEnv.yml #}
+            <div class="tab-pane fade" id="tabs-especificas">
+                {% for nombre,atributos in values.d.especificas %}
+                    {% if atributos.values|length>0 %}
+                        {{ macro.select(
                     {'caption':'[especificas]['~nombre~'] '~atributos.caption,'visible':'1','updatable':'1','varEnv':'0'},
                     'EtiquetaLarga',
                     'd[especificas]['~nombre~']',
@@ -282,9 +289,9 @@
                     atributos.value,
                     atributos.values,
                     'chzn-select')
-                }}
-            {% else %}
-                {{ macro.input(
+                        }}
+                    {% else %}
+                        {{ macro.input(
                     {'caption':'[especificas]['~nombre~'] '~atributos.caption,'visible':'1','updatable':'1','varEnv':'0'},
                     'EtiquetaLarga',
                     'text',
@@ -294,19 +301,19 @@
                     '50',
                     'CampoTextoMedio'
                     )
-                }}
-            {% endif %}
-        {% endfor %}
-    </div>
+                        }}
+                    {% endif %}
+                {% endfor %}
+            </div>
 
-    {# ÓRDENES WEB #}
-    <div id="tabs-ordenesWeb">
-        <div id="acordeonOrdenesWeb" style="margin-top:10px;">
-        {% for nombre,orden in values.d.ordenesWeb %}
-            <h3>{{nombre}}</h3>
-            <div>
-                {% for key,value in orden %}
-                {{ macro.input(
+            {# ÓRDENES WEB #}
+            <div class="tab-pane fade" id="tabs-ordenesWeb">
+                <div id="acordeonOrdenesWeb" style="margin-top:10px;">
+                    {% for nombre,orden in values.d.ordenesWeb %}
+                        <h3>{{nombre}}</h3>
+                        <div>
+                            {% for key,value in orden %}
+                                {{ macro.input(
                     {'caption':'[ordenesWeb]['~nombre~']['~key~']','visible':'1','updatable':'1','varEnv':'0'},
                     'EtiquetaLarga',
                     'text',
@@ -316,63 +323,64 @@
                     '50',
                     'CampoTextoMedio'
                     )
-                }}
-                {% endfor %}
-            </div>
-        {% endfor %}
-        </div>            
-    </div>
-        
-    {# CONTROLLER #}
-    <div id="tabs-controller">
-        {{ macro.input({'caption':'[controller] Controller','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[controller]','d_controller',values.d.controller,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[action] Action','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[action]','d_action',values.d.action,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[template] Template','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[template]','d_template',values.d.template,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[parametros] Parametros','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[parametros]','d_parametros',values.d.parametros,'50','CampoTextoMedio','1') }}
-     </div>
-        
-    {# RELACIONAR CON ... #}
-    <div id="tabs-relaciones">
-        {{ macro.input({'caption':'[modulosRelacionables] Módulos relacionables separados por coma','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[modulosRelacionables]','d_modulosRelacionables',values.d.modulosRelacionables,'100','CampoTextoLargo','1') }}
-    </div>
-        
-    {# EDITOR TINY #}
-    <!--
-    <div id="tabs-editorTiny"> 
-        {{ macro.input({'caption':'[editorTiny][biu] Bold,Italic,Underline','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][bui]','d_editorTiny_bui',values.d.editorTiny.bui)}}
-        {{ macro.input({'caption':'[editorTiny][alignment] Alineación','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][alignment]','d_editorTiny_alignment',values.d.editorTiny.alignment)}}
-        {{ macro.input({'caption':'[editorTiny][lists] Listas','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][lists]','d_editorTiny_lists',values.d.editorTiny.lists)}}
-        {{ macro.input({'caption':'[editorTiny][links] Enlaces','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][links]','d_editorTiny_links',values.d.editorTiny.links)}}
-        {{ macro.input({'caption':'[editorTiny][images] Imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][images]','d_editorTiny_images',values.d.editorTiny.images)}}
-        {{ macro.input({'caption':'[editorTiny][preview] Vista preliminar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][preview]','d_editorTiny_preview',values.d.editorTiny.preview)}}
-        {{ macro.input({'caption':'[editorTiny][colors] Colores','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][colors]','d_editorTiny_colors',values.d.editorTiny.colors)}}
-        {{ macro.input({'caption':'[editorTiny][tables] Tablas','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][tables]','d_editorTiny_tables',values.d.editorTiny.tables)}}
-        {{ macro.input({'caption':'[editorTiny][superIndex] Super/sub índices','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][superIndex]','d_editorTiny_superIndex',values.d.editorTiny.superIndex)}}
-        {{ macro.input({'caption':'[editorTiny][symbols] Símbolos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][symbols]','d_editorTiny_symbols',values.d.editorTiny.symbols)}}
-        {{ macro.input({'caption':'[editorTiny][media] Media','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][media]','d_editorTiny_media',values.d.editorTiny.media)}}
-        {{ macro.input({'caption':'[editorTiny][fullMode] Pantalla completa','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][fullMode]','d_editorTiny_fullMode',values.d.editorTiny.fullMode)}}
-    </div>
-    -->
-
-    {# CONTROL VISIBILIDAD VARIABLES WEB #}
-    <div id="tabs-varWeb">
-        <h4>Control de visibilidad de variables web</h4>
-        <div id="acordeonVW" style="margin-top:10px;">
-            <h3>Globales [showVarWeb][globales]</h3>
-            <div>
-                {% for nombre,valor in values.d.showVarWeb.globales %}
-                    {{ macro.input({'caption':'['~nombre~']','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showVarWeb][globales]['~nombre~']','d_showVarWeb_globales_'~nombre,valor)}}
-                {% endfor %}            
+                                }}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>            
             </div>
 
-            <h3>Específicas [showVarWeb][especificas]</h3>
-            <div>
-            {% for nombre,valor in values.d.showVarWeb.especificas %}
-                {{ macro.input({'caption':'['~nombre~']','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showVarWeb][especificas]['~nombre~']','d_showVarWeb_especificas_'~nombre,valor)}}
-            {% endfor %}
+            {# CONTROLLER #}
+            <div class="tab-pane fade" id="tabs-controller">
+                {{ macro.input({'caption':'[controller] Controller','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[controller]','d_controller',values.d.controller,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[action] Action','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[action]','d_action',values.d.action,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[template] Template','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[template]','d_template',values.d.template,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[parametros] Parametros','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[parametros]','d_parametros',values.d.parametros,'50','CampoTextoMedio','1') }}
+            </div>
+
+            {# RELACIONAR CON ... #}
+            <div class="tab-pane fade" id="tabs-relaciones">
+                {{ macro.input({'caption':'[modulosRelacionables] Módulos relacionables separados por coma','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[modulosRelacionables]','d_modulosRelacionables',values.d.modulosRelacionables,'100','CampoTextoLargo','1') }}
+            </div>
+
+            {# EDITOR TINY #}
+            <!--
+            <div id="tabs-editorTiny"> 
+            {{ macro.input({'caption':'[editorTiny][biu] Bold,Italic,Underline','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][bui]','d_editorTiny_bui',values.d.editorTiny.bui)}}
+            {{ macro.input({'caption':'[editorTiny][alignment] Alineación','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][alignment]','d_editorTiny_alignment',values.d.editorTiny.alignment)}}
+            {{ macro.input({'caption':'[editorTiny][lists] Listas','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][lists]','d_editorTiny_lists',values.d.editorTiny.lists)}}
+            {{ macro.input({'caption':'[editorTiny][links] Enlaces','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][links]','d_editorTiny_links',values.d.editorTiny.links)}}
+            {{ macro.input({'caption':'[editorTiny][images] Imágenes','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][images]','d_editorTiny_images',values.d.editorTiny.images)}}
+            {{ macro.input({'caption':'[editorTiny][preview] Vista preliminar','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][preview]','d_editorTiny_preview',values.d.editorTiny.preview)}}
+            {{ macro.input({'caption':'[editorTiny][colors] Colores','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][colors]','d_editorTiny_colors',values.d.editorTiny.colors)}}
+            {{ macro.input({'caption':'[editorTiny][tables] Tablas','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][tables]','d_editorTiny_tables',values.d.editorTiny.tables)}}
+            {{ macro.input({'caption':'[editorTiny][superIndex] Super/sub índices','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][superIndex]','d_editorTiny_superIndex',values.d.editorTiny.superIndex)}}
+            {{ macro.input({'caption':'[editorTiny][symbols] Símbolos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][symbols]','d_editorTiny_symbols',values.d.editorTiny.symbols)}}
+            {{ macro.input({'caption':'[editorTiny][media] Media','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][media]','d_editorTiny_media',values.d.editorTiny.media)}}
+            {{ macro.input({'caption':'[editorTiny][fullMode] Pantalla completa','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[editorTiny][fullMode]','d_editorTiny_fullMode',values.d.editorTiny.fullMode)}}
+        </div>
+            -->
+
+            {# CONTROL VISIBILIDAD VARIABLES WEB #}
+            <div class="tab-pane fade" id="tabs-varWeb">
+                <h4>Control de visibilidad de variables web</h4>
+                <div id="acordeonVW" style="margin-top:10px;">
+                    <h3>Globales [showVarWeb][globales]</h3>
+                    <div>
+                        {% for nombre,valor in values.d.showVarWeb.globales %}
+                            {{ macro.input({'caption':'['~nombre~']','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showVarWeb][globales]['~nombre~']','d_showVarWeb_globales_'~nombre,valor)}}
+                        {% endfor %}            
+                    </div>
+
+                    <h3>Específicas [showVarWeb][especificas]</h3>
+                    <div>
+                        {% for nombre,valor in values.d.showVarWeb.especificas %}
+                            {{ macro.input({'caption':'['~nombre~']','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[showVarWeb][especificas]['~nombre~']','d_showVarWeb_especificas_'~nombre,valor)}}
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

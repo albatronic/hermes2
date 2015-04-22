@@ -21,23 +21,17 @@
 {% if user.IDPerfil.IDPerfil == '1'%} {% set type='text' %} {% else %} {% set type = 'hidden' %} {% endif %}
 
 {% block mantenimiento %}
-<div class="FormManto">
-    <div class="Cuerpo">
-	<form name="manto_{{ values.controller}}" id="manto_{{ values.controller }}" action="" method="POST" class="form_container left_label">
-		<input name="controller" value="{{ values.controller }}" type="hidden" />
-                <input name="action" id="action_{{ values.controller }}" value="{{action}}" type="hidden" />
-		<input name="accion" id="accion_{{ values.controller }}" value="" type="hidden" />
-                <input name="tipo" value="{{ values.tipo }}" type="hidden" />
-                <input name="ambito" value="{{ values.ambito }}" type="hidden" />
-                <input name="nombre" value="{{ values.nombre }}" type="hidden" />
+<form class="form-horizontal margin-top-40" name="manto_{{ values.controller}}" id="manto_{{ values.controller }}" action="" method="POST" class="form_container left_label">
+    <input name="controller" value="{{ values.controller }}" type="hidden" />
+    <input name="action" id="action_{{ values.controller }}" value="{{action}}" type="hidden" />
+    <input name="accion" id="accion_{{ values.controller }}" value="" type="hidden" />
+    <input name="tipo" value="{{ values.tipo }}" type="hidden" />
+    <input name="ambito" value="{{ values.ambito }}" type="hidden" />
+    <input name="nombre" value="{{ values.nombre }}" type="hidden" />
 
-		{% include '_global/FormErrores.html.twig' with {'errores': values.errores} %}
-		{% include '_global/alertas.html.twig' with {'alertas': values.alertas} %}
+    {% include '_global/FormErrores.html.twig' with {'errores': values.errores} %}
+    {% include '_global/alertas.html.twig' with {'alertas': values.alertas} %}
 
-		<ul>
-                    {% block template %}{% endblock %}
-		</ul>
-	</form>
-    </div>
-</div>
+    {% block template %}{% endblock %}
+</form>
 {% endblock %}

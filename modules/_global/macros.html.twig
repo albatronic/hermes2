@@ -142,7 +142,7 @@
         
     {% if not autoComplete %}
         {% if (type == 'checkbox') %}
-        <div class="checkbox">          
+        <div class="col-sm-9">          
         <input name="{{name}}" id="{{ id|default(name)}}" type="hidden" value="{{value}}" />
         <input type="checkbox"              
                id="checkbox_{{ id|default(name)}}"
@@ -168,6 +168,9 @@
                {{extra}}
                {% if atributos.updatable == '0' %} disabled {% endif %}
         />
+        {% if atributos.validator.nullable == 'NO' %}
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        {% endif %}
         </div>
         {% endif %}
     {% else %}
@@ -219,19 +222,18 @@
 {% macro radio(atributos, classLabel, name, id, valueSelected, arrayOptions, class, tabIndex, extra, onchange) %}
 
 <div id="div_{{id|default(name)}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.Id == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="form-group"{% else %}class="oculto"{% endif %}>
-
     {% if atributos.caption %}
-        {{ _self.label(atributos, classLabel, name, id) }}
+        {{ _self.label(atributos,"col-sm-3 control-label", name, id) }}
     {% endif %}
 
-    <div class="form_input">
+    <div class="col-sm-9">
         {% for value in arrayOptions %}
         <input  
            type="radio"
            name="{{ name }}"
            id="{{ id|default(name)}}"
            value="{{value.Id}}"
-           class="{{ class |default('input_grow') }}"
+           class="{{ class |default('form-control') }}"
            tabindex="{{ tabindex }}"
            onchange="{{ onchange}} {{ _self.alertSave }}"
            {% if atributos.updatable == '0' %} disabled {% endif %}

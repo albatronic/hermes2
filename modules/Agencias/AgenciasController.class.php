@@ -19,4 +19,3 @@ class AgenciasController extends Controller {
     }
         
 }
-?>

@@ -103,7 +103,7 @@ Afiliados:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
     RazonSocial:
-      title: RazonSocial
+      title: Razón Social
       filter: YES
       list: YES
       visible: true
