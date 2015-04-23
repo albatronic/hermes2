@@ -129,27 +129,28 @@ if ($rq->isOldBrowser()) {
 // SI LA PETICION ES 'GET' O 'POST', ASI COMO EL CONTROLADOR Y
 // ACCION SOLICITADA.
 //-----------------------------------------------------------------
-    switch ($rq->getMethod()) {
-        case 'GET':
-            $request = $rq->getParameters($app['path']);
-            $request['METHOD'] = "GET";
-            $controller = ucfirst($request[0]);
-            $action = (isset($request[1])) ? $request[1] : "";
-            break;
-
-        case 'POST':
-            $request = $rq->getRequest();
-            $request['METHOD'] = "POST";
-            $controller = ucfirst($request['controller']);
-            $action = $request['action'];
-            break;
-    }
-
-    if (! $_SESSION['usuarioPortal']['Id']) {
-
+    if (!$_SESSION['usuarioPortal']['Id']) {
         // No está logeado
+        $request = ($rq->getMethod() == 'GET') ? $rq->getParameters($app['path']) : $rq->getRequest();
+        $request['METHOD'] = $rq->getMethod();
         $controller = "Index";
-        $action = "Login";
+        $action = ($request[1] != '') ? "Index" : "Login";
+    } else {
+        switch ($rq->getMethod()) {
+            case 'GET':
+                $request = $rq->getParameters($app['path']);
+                $request['METHOD'] = "GET";
+                $controller = ucfirst($request[0]);
+                $action = (isset($request[1])) ? $request[1] : "";
+                break;
+
+            case 'POST':
+                $request = $rq->getRequest();
+                $request['METHOD'] = "POST";
+                $controller = ucfirst($request['controller']);
+                $action = $request['action'];
+                break;
+        }
     }
 }
 
@@ -187,7 +188,7 @@ $result['values']['archivoJs'] = getArchivoJs($result['template']);
 
 // Cargo los valores para el modo debuger
 if ($config['debug_mode']) {
-    $result['values']['_enCurso'] = $result['values']['enCurso'];    
+    $result['values']['_enCurso'] = $result['values']['enCurso'];
     $result['values']['_debugMode'] = true;
     $result['values']['_auditMode'] = (string) $config['audit_mode'];
     $result['values']['_session'] = print_r(array('emp' => $_SESSION['emp'], 'suc' => $_SESSION['suc'], 'tpv' => $_SESSION['tpv']), true);
@@ -196,7 +197,7 @@ if ($config['debug_mode']) {
 }
 
 // Si el método no devuelve template o no exite, muestro un template de error.
-if (!file_exists($config['twig']['templates_folder'] . '/' . $result['template']) or ($result['template'] == '')) {
+if (!file_exists($config['twig']['templates_folder'] . '/' . $result['template']) or ( $result['template'] == '')) {
     $result['values']['error'] = 'No existe el template: "' . $result['template'] . '" devuelto por el método "' . $clase . ':' . $action . 'Action"';
     $result['template'] = '_global/error.html.twig';
 }
@@ -213,6 +214,7 @@ $twig->addGlobal('appPath', $app['path']);
 $twig->addGlobal('varEnvMod', $result['values']['varEnvMod']);
 $twig->addGlobal('permisosModulo', $result['values']['permisos']['permisosModulo']);
 $twig->addGlobal('idiomas', $_SESSION['idiomas']);
+$twig->addGlobal('urlRetorno', $_SESSION['usuarioPortal']['urlRetorno']);
 $twig->loadTemplate($result['template'])
         ->display(array(
             'layout' => $layout,
@@ -223,7 +225,7 @@ $twig->loadTemplate($result['template'])
             'emp' => new PcaeEmpresas($_SESSION['project']['IdEmpresa']),
             'suc' => $_SESSION['suc'],
             'tpv' => new Tpvs($_SESSION['tpv']),
-            'project' => $_SESSION['project'],            
+            'project' => $_SESSION['project'],
         ));
 
 //------------------------------------------------------------

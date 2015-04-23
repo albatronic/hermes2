@@ -21,7 +21,7 @@ class IndexController extends Controller {
         // Cargar la configuracion del modulo (modules/moduloName/config.yaml)
         $this->form = new Form($this->entity);
 
-        $this->cargaValores();
+        $this->cargaValores($this->request[1]);
 
         // Instanciar el objeto listado con los parametros del modulo
         // y los eventuales valores del filtro enviados en el request
@@ -79,6 +79,7 @@ class IndexController extends Controller {
 
         switch ($this->request['METHOD']) {
             case 'GET':
+                // Entra directamente sin pasar por el portal
                 $template = $this->entity . '/login.html.twig';
                 break;
             case 'POST':
@@ -96,26 +97,25 @@ class IndexController extends Controller {
                             'Nombre' => $usuario->getNombre(),
                         );
 
-                        //Actualizar el registro de entradas
-                        $usuario->setNLogin($usuario->getNLogin() + 1);
-                        $usuario->setUltimoLogin(date('Y-m-d H:i:s'));
-                        $usuario->save();
+                        // Coger la primera app del primer proyecto de la primera empresa
+                        $array = $usuario->getArrayAccesos();
+                        $empresa = each($array['empresas'])['value'];
+                        $proyecto = each($empresa['proyectos'])['value'];
+                        $app = each($proyecto['apps'])['value'];
+                        $tokenProyectoApp = $app['IdProyectoApp'];
 
-                        // Crear la variable de sesion con el array de
-                        // las empresas, proyectos y apps accesibles.
-                        $_SESSION['usuarioPortal']['accesosPortal'] = $usuario->getArrayAccesos();
-
-                        $this->values['accesosPortal'] = $_SESSION['usuarioWeb']['accesosPortal'];
-                        //print_r($this->values['accesosPortal']);
-                        $template = $this->entity . "/proyectos.html.twig";
+                        $this->cargaValores($tokenProyectoApp);
+                        $_SESSION['usuarioPortal']['urlRetorno'] = $_SESSION['appPath'] . "/Index/logout";
+                        
+                        $template = $this->entity . "/index.html.twig";
                     } else {
                         $this->values['email'] = $this->request['email'];
-                        $this->values['errorPassword'] = true;
-                        return $this->IndexAction();
+                        $this->values['mensaje'] = "Contraseña incorrecta";
+                        $template = $this->entity . '/login.html.twig';
                     }
                 } else {
-                    $this->values['errorUsuario'] = true;
-                    return $this->IndexAction();
+                    $this->values['mensaje'] = "Usuario incorrecto";
+                    $template = $this->entity . '/login.html.twig';
                 }
                 break;
         }
@@ -173,86 +173,85 @@ class IndexController extends Controller {
         return $this->IndexAction();
     }
 
-    protected function cargaValores() {
-        if (!isset($_SESSION['usuarioPortal']['menu'])) {
-            // Está logeado (viene del portal), pero es la primera vez que entra
-            $_SESSION['usuarioPortal']['accesosPortal'] = array();
+    protected function cargaValores($tokenProyectoApp = '') {
 
-            // Carga la cadena de conexion a la base de datos del proyecto
-            $proyectoApp = new PcaeProyectosApps();
-            $proyectoApp = $proyectoApp->find('PrimaryKeyMD5', $this->request[1]);
-            //print_r($proyectoApp);
-            $_SESSION['project']['Id'] = $proyectoApp->getId();
-            $_SESSION['project']['IdEmpresa'] = $proyectoApp->getIdProyecto()->getIdEmpresa()->getId();
-            $_SESSION['project']['empresa'] = $proyectoApp->getIdProyecto()->getIdEmpresa()->getRazonSocial();
-            $_SESSION['project']['title'] = $proyectoApp->getIdProyecto()->getProyecto();
-            $_SESSION['project']['url'] = $proyectoApp->getUrl();
-            $_SESSION['project']['conection'] = array(
-                'dbEngine' => $proyectoApp->getDbEngine(),
-                'host' => $proyectoApp->getHost(),
-                'user' => $proyectoApp->getUser(),
-                'password' => $proyectoApp->getPassword(),
-                'database' => $proyectoApp->getDatabase(),
-            );
-            // Carga la cadena de conexión al servidor ftp del proyecto
-            $_SESSION['project']['ftp'] = array(
-                'server' => $proyectoApp->getFtpServer(),
-                'port' => $proyectoApp->getFtpPort(),
-                'timeout' => $proyectoApp->getFtpTimeout(),
-                'folder' => $proyectoApp->getFtpFolder(),
-                'user' => $proyectoApp->getFtpUser(),
-                'password' => $proyectoApp->getFtpPassword(),
-            );
+        // Está logeado (viene del portal), pero es la primera vez que entra
+        $_SESSION['usuarioPortal']['accesosPortal'] = array();
 
-            unset($proyectoApp);
+        // Carga la cadena de conexion a la base de datos del proyecto
+        $proyectoApp = new PcaeProyectosApps();
+        $proyectoApp = $proyectoApp->find('PrimaryKeyMD5', $tokenProyectoApp);
+        //print_r($_SESSION['usuarioPortal']);exit;
+        $_SESSION['projecst']['Id'] = $proyectoApp->getId();
+        $_SESSION['project']['IdEmpresa'] = $proyectoApp->getIdProyecto()->getIdEmpresa()->getId();
+        $_SESSION['project']['empresa'] = $proyectoApp->getIdProyecto()->getIdEmpresa()->getRazonSocial();
+        $_SESSION['project']['title'] = $proyectoApp->getIdProyecto()->getProyecto();
+        $_SESSION['project']['url'] = $proyectoApp->getUrl();
+        $_SESSION['project']['conection'] = array(
+            'dbEngine' => $proyectoApp->getDbEngine(),
+            'host' => $proyectoApp->getHost(),
+            'user' => $proyectoApp->getUser(),
+            'password' => $proyectoApp->getPassword(),
+            'database' => $proyectoApp->getDatabase(),
+        );
+        // Carga la cadena de conexión al servidor ftp del proyecto
+        $_SESSION['project']['ftp'] = array(
+            'server' => $proyectoApp->getFtpServer(),
+            'port' => $proyectoApp->getFtpPort(),
+            'timeout' => $proyectoApp->getFtpTimeout(),
+            'folder' => $proyectoApp->getFtpFolder(),
+            'user' => $proyectoApp->getFtpUser(),
+            'password' => $proyectoApp->getFtpPassword(),
+        );
 
-            // Establece el perfil del usuario para el proyecto y carga
-            // el menú en base a su perfil
-            $usuario = new Agentes($_SESSION['usuarioPortal']['Id']); //print_r($usuario);
-            if ($usuario->getStatus()) {
-                $idPerfil = $usuario->getIDPerfil()->getPrimaryKeyValue();
-                $_SESSION['usuarioPortal']['IdPerfil'] = $idPerfil;
-                $_SESSION['usuarioPortal']['IdRol'] = $usuario->getIDRol()->getIDTipo();
-                $_SESSION['usuarioPortal']['email'] = $usuario->getEMail();
+        unset($proyectoApp);
 
-                $_SESSION['emp'] = $_SESSION['project']['IdEmpresa'];
-                $_SESSION['usuarioPortal']['sucursales'] = $usuario->getSucursales('', false);
-                $_SESSION['suc'] = $_SESSION['usuarioPortal']['sucursales'][0]['Id'];
-                $_SESSION['usuarioPortal']['menu'] = $usuario->getArrayMenu();
-                // Carga las variables de entorno y web del proyecto
-                $this->cargaVariables();
+        // Establece el perfil del usuario para el proyecto y carga
+        // el menú en base a su perfil
+        $usuario = new Agentes($_SESSION['usuarioPortal']['Id']); //print_r($usuario);
+        if ($usuario->getStatus()) {
+            $idPerfil = $usuario->getIDPerfil()->getPrimaryKeyValue();
+            $_SESSION['usuarioPortal']['IdPerfil'] = $idPerfil;
+            $_SESSION['usuarioPortal']['IdRol'] = $usuario->getIDRol()->getIDTipo();
+            $_SESSION['usuarioPortal']['email'] = $usuario->getEMail();
 
-                // Activar la versión
-                $var = new CpanVariables('Pro', 'Web');
-                $erp = $var->getNode('erp');
-                $_SESSION['ver'] = ($erp['version'] != '') ? $erp['version'] : '0';
+            $_SESSION['emp'] = $_SESSION['project']['IdEmpresa'];
+            $_SESSION['usuarioPortal']['sucursales'] = $usuario->getSucursales('', false);
+            $_SESSION['suc'] = $_SESSION['usuarioPortal']['sucursales'][0]['Id'];
+            $_SESSION['usuarioPortal']['menu'] = $usuario->getArrayMenu();
+            // Carga las variables de entorno y web del proyecto
+            $this->cargaVariables();
 
-                // Activar o no la posibilidad de cambiar precios
-                $rolesCambioPrecio = explode(",", trim($erp['rolesCambioPrecios']));
-                $_SESSION['usuarioPortal']['cambioPrecios'] = in_array($_SESSION['usuarioPortal']['IdRol'], $rolesCambioPrecio);
+            // Activar la versión
+            $var = new CpanVariables('Pro', 'Web');
+            $erp = $var->getNode('erp');
+            $_SESSION['ver'] = ($erp['version'] != '') ? $erp['version'] : '0';
 
-                // Poner en la sesión la política de actualización de precios en base
-                $_SESSION['usuarioPortal']['actuPrecios'] = ($erp['actuPrecios'] != '') ? $erp['actuPrecios'] : 'PVP';
+            // Activar o no la posibilidad de cambiar precios
+            $rolesCambioPrecio = explode(",", trim($erp['rolesCambioPrecios']));
+            $_SESSION['usuarioPortal']['cambioPrecios'] = in_array($_SESSION['usuarioPortal']['IdRol'], $rolesCambioPrecio);
 
-                // Poner en la sesión el margén mínimo de venta
-                $_SESSION['usuarioPortal']['margenMinimo'] = ($erp['alertaMargen'] > 0) ? $erp['alertaMargen'] : 0;
+            // Poner en la sesión la política de actualización de precios en base
+            $_SESSION['usuarioPortal']['actuPrecios'] = ($erp['actuPrecios'] != '') ? $erp['actuPrecios'] : 'PVP';
 
-                // Poner en la sesión si se generar alertas o no por falta de stock
-                $_SESSION['usuarioPortal']['alertaStock'] = $erp['alertaStock'];
+            // Poner en la sesión el margén mínimo de venta
+            $_SESSION['usuarioPortal']['margenMinimo'] = ($erp['alertaMargen'] > 0) ? $erp['alertaMargen'] : 0;
 
-                // Establece los idiomas en base a la varible web del proyecto
-                /**
-                  $langs = trim($_SESSION['VARIABLES']['WebPro']['globales']['lang']);
-                  $_SESSION['idiomas']['disponibles'] = ($langs == '') ? array('0' => 'es') : explode(",", $langs);
+            // Poner en la sesión si se generar alertas o no por falta de stock
+            $_SESSION['usuarioPortal']['alertaStock'] = $erp['alertaStock'];
 
-                  if (!isset($_SESSION['idiomas']['actual'])) {
-                  $_SESSION['idiomas']['actual'] = 0;
-                  }
-                 */
-            }
-            //print_r($_SESSION);
-            unset($usuario);
+            // Establece los idiomas en base a la varible web del proyecto
+            /**
+              $langs = trim($_SESSION['VARIABLES']['WebPro']['globales']['lang']);
+              $_SESSION['idiomas']['disponibles'] = ($langs == '') ? array('0' => 'es') : explode(",", $langs);
+
+              if (!isset($_SESSION['idiomas']['actual'])) {
+              $_SESSION['idiomas']['actual'] = 0;
+              }
+             */
         }
+        //print_r($_SESSION['usuarioPortal']);
+        unset($usuario);
     }
 
     /**
@@ -263,12 +262,12 @@ class IndexController extends Controller {
      *
      * @return array Array template, values
      */
-    public function NoLogedAction() {
+    public function LogoutAction() {
 
-        unset($_SESSION);
+        unset($_SESSION['usuarioPortal']);
 
         return array(
-            'template' => $this->entity . '/noLoged.html.twig',
+            'template' => $this->entity . '/login.html.twig',
             'values' => $this->values,
         );
     }
