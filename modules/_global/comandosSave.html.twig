@@ -1,6 +1,6 @@
-{# COMANDO PARA GUARDAR UN REGISTRO #}
-{% if values.permisos.permisosModulo['UP'] %}
-<a class="btn btn-primary btn-actions" href="#" onclick="$('#accion_{{values.controller}}').val('Guardar'); submitForm('manto_{{ values.controller}}');" title="Guardar">
-    <i class="fa fa-save"></i>Guardar
-</a>
+{# BOTON PARA GUARDAR #}
+{% if values.permisos.permisosModulo['UP'] and (values.datos.getPrimaryKeyValue) %}
+    <button class="btn green" onclick="$('#accion_{{values.controller}}').val('Guardar');submitForm('manto_{{values.controller}}');">
+        <i class="fa fa-save"></i>&nbsp;Guardar
+    </button>        
 {% endif %}

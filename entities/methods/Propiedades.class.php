@@ -38,5 +38,3 @@ class Propiedades extends PropiedadesEntity {
     }
 
 }
-
-?>

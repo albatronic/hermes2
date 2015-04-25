@@ -5,19 +5,31 @@
 {% block title parent() ~ " - " ~ values.titulo %}
 
 {% block content %}
-        {% include '_global/TituloGenerico.html.twig' with {'controller':  values.controller, 'linkValue': values.linkBy.value} %}
+    {% if values.datos.PrimaryKeyValue and values.permisos.permisosModulo['CO']%}
+        {% set adittionalCommands = 
+            { 
+                '0': {
+                        'type' : 'popup',
+                        'url'  : "window.open('"~app.path~"/_Emergente/HistoricoCompras/0/"~values.datos.PrimaryKeyValue~"','HistoricoCompras','width=850,height=500,resizable=yes,scrollbars=yes');", 
+                        'title': 'Histórico de Compras'
+                      },
+             } 
+        %}
+    {% endif %}
+    
+    {% include '_global/TituloGenerico.html.twig' with {'controller':  values.controller, 'linkValue': values.linkBy.value, 'adittionalCommands': adittionalCommands} %}
 
-	{% block filtro %}
+    {% block filtro %}
         {% if values.permisos.permisosModulo['CO'] %}
-		{% include '_global/filtro.html.twig' with {'filter':values.listado.filter} %}
+            {% include '_global/filtro.html.twig' with {'filter':values.listado.filter} %}
         {%endif%}
-	{% endblock %}
+    {% endblock %}
 
-        <div id="div_listado">
+    <div id="div_listado">
         {% block listado %}
-	{% endblock %}
-        </div>
+        {% endblock %}
+    </div>
 
-	{% block mantenimiento %}
-	{% endblock %}
+    {% block mantenimiento %}
+    {% endblock %}
 {% endblock %}

@@ -1,4 +1,6 @@
-{# Template para el comando New#}
-{% if values.permisos.permisosModulo['IN'] %}
-<a href='{{app.path}}/{{controller}}/new/{{linkValue}}'><img src="{{app.path}}/images/new_cmd.png" width="24px" height="24px" alt="Nuevo" title="Nuevo" /></a>
-{%endif%}
+{# BOTON PARA REGISTROS NUEVO#}
+{% if values.permisos.permisosModulo['IN'] and (values.template != values.controller ~ '/new.html.twig') %}
+    <button class="btn green" onclick="location.href = 'http://{{app.url}}/{{controller}}/new/{{linkValue}}'">
+        <i class="fa fa-newspaper-o"></i>&nbsp;Nuevo
+    </button>        
+{% endif %}

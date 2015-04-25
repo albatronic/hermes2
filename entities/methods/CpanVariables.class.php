@@ -21,7 +21,6 @@ class CpanVariables extends CpanVariablesEntity {
      * @var type 
      */
     protected $Privacy = '2';
-    
     protected $_tiposDeVariables = array('Web', 'Env');
     protected $_ambitosDeVariables = array('Pro', 'App', 'Mod');
     protected $_objeto = array();
@@ -190,19 +189,17 @@ class CpanVariables extends CpanVariablesEntity {
      */
     public function save() {
 
-        if (is_array($this->_objeto['datos']))
+        if (is_array($this->_objeto['datos'])) {
             $this->setYml(sfYaml::dump($this->_objeto['datos'], 3));
+        }
 
         $this->Publish = '1';
 
-        if ($this->Id)
-            $ok = parent::save();
-        else {
-            $ok = parent::create();
-        }
+        $ok = ($this->Id) ? parent::save() : parent::create();
 
-        if ($ok and ($this->_objeto['tipo'] == 'Web'))
+        if ($ok and ( $this->_objeto['tipo'] == 'Web')) {
             $this->ponVisibilidad();
+        }
 
         return $ok;
     }
@@ -213,8 +210,9 @@ class CpanVariables extends CpanVariablesEntity {
      */
     public function erase() {
         $ok = parent::erase();
-        if ($ok and ($this->_objeto['ambito'] == 'Mod') and ($this->_objeto['tipo'] == 'Web'))
+        if ($ok and ( $this->_objeto['ambito'] == 'Mod') and ( $this->_objeto['tipo'] == 'Web')) {
             $this->quitaVisibilidad();
+        }
 
         return $ok;
     }
@@ -232,7 +230,7 @@ class CpanVariables extends CpanVariablesEntity {
      */
     public function carga($ambito, $tipo, $nombre) {
 
-        $ok = ( (in_array($ambito, $this->_ambitosDeVariables)) and (in_array($tipo, $this->_tiposDeVariables)) );
+        $ok = ( (in_array($ambito, $this->_ambitosDeVariables)) and ( in_array($tipo, $this->_tiposDeVariables)) );
 
         if ($ok) {
             switch ($ambito) {

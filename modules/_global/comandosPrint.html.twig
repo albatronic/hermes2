@@ -1,0 +1,8 @@
+{# BOTON PARA IMPRIMIR LISTADO #}
+{% if values.permisos.permisosModulo['LI'] and (values.template == values.controller ~ '/list.html.twig') %}
+    <button class="btn green" onclick="$('#actionizq').val('listado');submitForm('paginacionizq');
+        $('#div_listado').html('<div class=ListadoAnimation><img src={{app.path}}/images/loadingAnimation.gif /></div>');
+        ">
+        <i class="fa fa-print"></i>&nbsp;Imprimir
+    </button>        
+{% endif %}

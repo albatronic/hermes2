@@ -1,9 +1,6 @@
-{# Template para el Comando Crear #}
-<input name="accion" id="accion_{{values.controller}}" value="" type="hidden" />
-<div class='Comandos'>
-    <p class="Titulo">
-    {% if values.permisos.permisosModulo['IN'] %}
-        <input type="image" src="{{app.path}}/images/save_cmd.png" width="24px" onclick="$('#accion_{{values.controller}}').val('Crear');" alt="Guardar" title="Guardar" />
-    {% endif %}
-    </p>
-</div>
+{# BOTON PARA CREAR REGSITRO #}
+{% if values.permisos.permisosModulo['IN'] and (values.template == values.controller ~ '/new.html.twig') %}
+    <button class="btn green" onclick="$('#accion_{{values.controller}}').val('Crear');submitForm('manto_{{values.controller}}');">
+        <i class="fa fa-newspaper-o"></i>&nbsp;Guardar
+    </button>        
+{% endif %}

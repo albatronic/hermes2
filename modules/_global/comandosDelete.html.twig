@@ -1,23 +1,25 @@
 {# COMANDO PARA BORRAR UN REGISTRO #}
-{% if values.permisos.permisosModulo['DE'] %}
-<a class="btn btn-primary btn-actions" data-toggle="modal" href="#confirmacionBorrado">
-    <i class="fa fa-trash-o"></i>Borrar
-</a>
+{% if values.permisos.permisosModulo['DE'] and values.datos.PrimaryKeyValue %}
+    <a class="btn btn-primary btn-actions" data-toggle="modal" href="#confirmacionBorrado">
+        <i class="fa fa-trash-o"></i>Borrar
+    </a>
 
-<div class="modal fade" id="confirmacionBorrado" tabindex="-1" role="confirmacionBorrado" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">¿Realmente desea borrar el registro?</h4>
+    <div class="modal fade" id="confirmacionBorrado" tabindex="-1" role="confirmacionBorrado" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">¿Realmente desea borrar el registro?</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>{{values.datos.__toString}}</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="$('#accion_{{values.controller}}').val('Borrar');
+                            submitForm('manto_{{ values.controller}}');">Borrar</button>
+                </div>                
             </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" onclick="$('#accion_{{values.controller}}').val('Borrar');
-                submitForm('manto_{{ values.controller}}');">Borrar</button>
-            </div>                
         </div>
-    </div>
-</div>           
+    </div>           
 {% endif %} 

@@ -11,120 +11,14 @@
         </div>
 
         <div class="actions btn-set"> 
-            {# BOTON PARA REGISTROS NUEVO#}
-            {% if values.permisos.permisosModulo['IN'] and (values.template != values.controller ~ '/new.html.twig') %}
-                <button class="btn green" onclick="location.href = 'http://{{app.url}}/{{controller}}/new/{{linkValue}}'">
-                    <i class="fa fa-newspaper-o"></i>&nbsp;Nuevo
-                </button>        
-            {% endif %}
+           
+            {% include "_global/comandosNew.html.twig" %}
+            {% include "_global/comandosCreate.html.twig" %}
+            {% include "_global/comandosSave.html.twig" %}
+            {% include "_global/comandosDelete.html.twig" %}
+            {% include "_global/comandosPrint.html.twig" %}
+            {% include "_global/comandosMoreActions.html.twig" with {'adittionalCommands': adittionalCommands} %}
             
-            {# BOTON PARA CREAR REGSITRO #}
-            {% if values.permisos.permisosModulo['IN'] and (values.template == values.controller ~ '/new.html.twig') %}
-                <button class="btn green" onclick="$('#accion_{{values.controller}}').val('Crear');submitForm('manto_{{values.controller}}');">
-                    <i class="fa fa-newspaper-o"></i>&nbsp;Guardar
-                </button>        
-            {% endif %}
-            
-            {# BOTON PARA GUARDAR #}
-            {% if values.permisos.permisosModulo['UP'] and (values.datos.getPrimaryKeyValue) %}
-                <button class="btn green" onclick="$('#accion_{{values.controller}}').val('Guardar');submitForm('manto_{{values.controller}}');">
-                    <i class="fa fa-save"></i>&nbsp;Guardar
-                </button>        
-            {% endif %}
-            
-            {# BOTON PARA BORRAR REGISTRO #}
-            {% if values.permisos.permisosModulo['DE'] and (values.datos.getPrimaryKeyValue) %}
-            <a class="btn btn-primary btn-actions" data-toggle="modal" href="#confirmacionBorrado">
-                <i class="fa fa-trash-o"></i>Borrar
-            </a>
-
-            <div class="modal fade" id="confirmacionBorrado" tabindex="-1" role="confirmacionBorrado" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                            <h4 class="modal-title">¿Realmente desea borrar el registro?</h4>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn default" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" onclick="$('#accion_{{values.controller}}').val('Borrar');
-                            submitForm('manto_{{ values.controller}}');">Borrar</button>
-                        </div>                
-                    </div>
-                </div>
-            </div>           
-            {% endif %}
-            
-            {# BOTON PARA IMPRIMIR LISTADO #}
-            {% if values.permisos.permisosModulo['LI'] and (values.template == values.controller ~ '/list.html.twig') %}
-                <button class="btn green" onclick="$('#actionizq').val('listado');submitForm('paginacionizq');
-                    $('#div_listado').html('<div class=ListadoAnimation><img src={{app.path}}/images/loadingAnimation.gif /></div>');
-                    ">
-                    <i class="fa fa-print"></i>&nbsp;Imprimir
-                </button>        
-            {% endif %}
-
-            <div class="btn-group">
-                <a class="btn yellow dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-share"></i> Más <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="dropdown-menu pull-right">
-                    {# AYUDA #}
-                    <li><a href="#" onclick="window.open('{{app.path}}/{{controller}}/help', 'Ayuda', 'width=850,height=610,scrollbars=1,location=0,menubar=1,resizable=1');">Ayuda</a></li>
-                    {# AÑADIR A FAVORITOS #}
-                    <li><a href="{{app.path}}/{{values.controller}}/Favoritos/add">Añadir a favoritos</a></li>  
-                    {# AUDITORIA #}
-                    {% if app.audit and (values.datos.getPrimaryKeyValue) %} 
-                    <li class="divider"></li>
-                    <li><a href="#">Auditoría</a>
-                        <ul class="auditoria">
-                            <li>Creado por:</li>
-                            <li>{{values.datos.CreatedBy}}</li>
-                            <li>{{values.datos.CreatedAt}}</li>
-                            <li class="separator"></li>
-                            <li>Modificado por:</li>
-                            <li>{{values.datos.ModifiedBy}}</li>
-                            <li>{{values.datos.ModifiedAt}}</li>
-                            <li class="separator"></li>
-                            <li>Impreso por:</li>
-                            <li>{{values.datos.PrintedBy}}</li>
-                            <li>{{values.datos.PrintedAt}}</li>
-                            <li class="separator"></li>
-                            <li>Email por:</li>
-                            <li>{{values.datos.EmailedBy}}</li>
-                            <li>{{values.datos.EmailedAt}}</li>
-                        </ul>
-                    </li>
-                    {% endif %}
-                    {% if values.permisos.permisosModulo['EX'] and values.listado.export_types %}
-                    <li class="divider"></li>
-                    <li><a href="#">Exportar</a>
-                        <ul class="auditoria">
-                            {% for value in values.listado.export_types %}
-                            <li><a href="#" onclick="$('#actionizq').val('exportar');$('#exportTypeizq').val('{{value}}');$('#paginacionizq').submit();">{{value}}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </li>                        
-                    {% endif %}
-                    {# VARIABLES DE ENTORNO Y WEB #}
-                    {%if controller != "CpanVariables" %}
-                        {% if user.IDPerfil.IDPerfil == '1' %}
-                            <li class="divider"></li>
-                            <li><a href="{{app.path}}/CpanVariables/Env/Pro">Var. Env Proyecto</a></li>
-                            <li><a href="{{app.path}}/CpanVariables/Web/Pro">Var. Web Proyecto</a></li>          
-                            <li><a href="{{app.path}}/CpanVariables/Env/Mod/{{values.controller}}">Var. Env Módulo</a></li>
-                            {% endif %}
-                            {% if user.IDPerfil.IDPerfil == '1' or values.permisos.permisosModulo['VW'] == '1' %}     
-                            <li class="divider"></li>
-                            <li><a href="{{app.path}}/CpanVariables/Web/Mod/{{values.controller}}">Var. Web Módulo</a><li>
-                            {% endif %}       
-                        {% endif %}    
-
-                </ul>
-            </div>
-
-
             {# BANDERAS DE IDIOMAS #}
             {% if ((varEnvMod.translatable == 1) and (idiomas.disponibles|length > 1) )%}
                 [

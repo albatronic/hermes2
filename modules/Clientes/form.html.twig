@@ -6,7 +6,7 @@
 
 <div id="tabs">
     <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
-    <ul>
+    <ul class="nav nav-tabs">
         <li><a href="#general">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Cliente{%endif%}</a></li>            
         <li><a href="#tabs-1">Facturación</a></li>
         {% if datos.IDCliente %}
@@ -21,8 +21,9 @@
             {% endif %}              
         {% endif %}
     </ul>
-    <div id="general">
-        <div style="float: left; width: 51%;">
+    <div class="tab-content no-space">    
+    <div class="tab-pane" id="general">
+        <div class="col-md-6">
         {{ macro.input(atributos.RazonSocial,'Etiqueta','text','Clientes[RazonSocial]','Clientes_RazonSocial',datos.RazonSocial,'50','CampoTextoLargo') }}
         {{ macro.input(atributos.NombreComercial,'Etiqueta','text','Clientes[NombreComercial]','Clientes_NombreComercial',datos.NombreComercial,'50','CampoTextoLargo') }}
         {{ macro.cif(atributos.Cif,'Etiqueta','text','Clientes[Cif]','Clientes_Cif',datos.Cif,'CampoCif') }}
@@ -37,7 +38,7 @@
         {{ macro.input(atributos.EMail,'Etiqueta','text','Clientes[EMail]','Clientes_EMail',datos.EMail,'50','CampoTextoLargo') }}
         {{ macro.input(atributos.Web,'Etiqueta','text','Clientes[Web]','Clientes_Web',datos.Web,'50','CampoTextoLargo') }}
         </div>
-        <div style="float: left; width: 47%;">
+        <div class="col-md-6">
         {{ macro.input(atributos.Vigente,'Etiqueta','checkbox','Clientes[Vigente]','Clientes_Vigente',datos.Vigente.IDTipo,'255','CampoTextoLargo','20')}}          
         {{ macro.select(atributos.IDPerfilWeb,'Etiqueta','Clientes[IDPerfilWeb]','Clientes_IDPerfilWeb',200,datos.IDPerfilWeb.Id,datos.IDPerfilWeb.fetchAll('Perfil',false),'Select')}}
         {{ macro.select(atributos.IDTipo,'Etiqueta','Clientes[IDTipo]','Clientes_IDTipo',200,datos.IDTipo.IDTipo,datos.IDTipo.fetchAll('Tipo'),'Select',[app.path,'ClientesTipos','Tipos de clientes',390,450])}}
@@ -48,8 +49,8 @@
         {% include '_global/metaDatos.html.twig' %}
         </div>
     </div>            
-    <div id="tabs-1">
-        <div style="float: left; width: 47%">
+    <div class="tab-pane" id="tabs-1">
+        <div class="col-md-6">
         {{ macro.input(atributos.FacturacionAgrupada,'EtiquetaMedia','checkbox','Clientes[FacturacionAgrupada]','Clientes_FacturacionAgrupada',datos.FacturacionAgrupada.IDTipo,'255','CampoTextoLargo','20')}}                    
         {{ macro.select(atributos.IDTarifa,'EtiquetaMedia','Clientes[IDTarifa]','Clientes_IDTarifa',150,datos.IDTarifa.IDTarifa,datos.IDTarifa.fetchAll('Descripcion',false),'Select100')}}
         {{ macro.select(atributos.IDFP,'EtiquetaMedia','Clientes[IDFP]','Clientes_IDFP',150,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'Select220')}}
@@ -58,7 +59,7 @@
         {{ macro.input(atributos.RecargoEqu,'EtiquetaMedia','checkbox','Clientes[RecargoEqu]','Clientes_RecargoEqu',datos.RecargoEqu.IDTipo,'255','CampoTextoLargo','20')}}                                   
         {{ macro.input(atributos.CContable,'EtiquetaMedia','text','Clientes[CContable]','Clientes_CContable',datos.CContable,digitosCta,'CampoTextoCorto') }}        
         </div>
-        <div style="float: left; margin-left: 5px;">
+        <div class="col-md-6">
         {{ macro.cc(atributos.Banco,'EtiquetaMedia','cc','Clientes',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) }}        
         {{ macro.input(atributos.Iban,'EtiquetaMedia','text','Clientes[Iban]','Clientes_Iban',datos.Iban,'34','CampoTextoMedio') }}
         {{ macro.input(atributos.Bic,'EtiquetaMedia','text','Clientes[Bic]','Clientes_Bic',datos.Bic,'11','CampoTextoCorto') }}        
@@ -71,10 +72,10 @@
         <div class="salto"></div>
     </div>
     {% if datos.IDCliente %}            
-    <div id="tabs-2"></div>
-    <div id="tabs-3"></div>
-    <div id="tabs-4">
-        <div style="float: left; width: 46%">
+    <div class="tab-pane" id="tabs-2"></div>
+    <div class="tab-pane" id="tabs-3"></div>
+    <div class="tab-pane" id="tabs-4">
+        <div class="col-md-6">
         {{ macro.radio(atributos.Sexo,'Etiqueta','Clientes[Sexo]','Clientes_Sexo',datos.Sexo.IDTipo,datos.Sexo.fetchAll(none,false),'Select') }}        
         {{ macro.radio(atributos.Tratamiento,'Etiqueta','Clientes[Tratamiento]','Clientes_Tratamiento',datos.Tratamiento.IDTipo,datos.Tratamiento.fetchAll(none,false),'Select') }}  
         {{ macro.fecha(atributos.FechaNacimiento,'Etiqueta','Clientes[FechaNacimiento]','Clientes_FechaNacimiento',datos.FechaNacimiento,'10','CampoFecha') }}
@@ -84,16 +85,16 @@
             {{ macro.input(atributos.Password,'Etiqueta','text','Clientes[Password]','Clientes_Password',datos.Password,'50','CampoTextoCorto') }}        
         {% endif %}
         </div>
-        <div style="float: left; margin-left: 5px;">            
+        <div class="col-md-6">            
         {{ macro.textarea(atributos.Observaciones,'Etiqueta','Clientes[Observaciones]','Clientes_Observaciones',datos.Observaciones,none,none,'TextArea')}}
         {{ macro.textarea(atributos.Avisos,'Etiqueta','Clientes[Avisos]','Clientes_Avisos',datos.Avisos,none,none,'TextArea')}}
         </div> 
         <div class="salto"></div>            
     </div>
-    <div id="tabs-5"></div>
+    <div class="tab-pane" id="tabs-5"></div>
     {% include '_global/fieldsComunes.html.twig' %}    
-
-    {% endif %}            
+    {% endif %}  
+    </div>
 </div>
 
 

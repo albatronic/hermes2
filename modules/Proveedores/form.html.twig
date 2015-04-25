@@ -6,7 +6,7 @@
 
 <div id="tabs">
     <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
-    <ul>
+    <ul class="nav nav-tabs">
         <li>
             <a href="#general">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Proveedor{%endif%}</a>
         </li>  
@@ -19,9 +19,9 @@
         <li><a href="#divDocs" id="docs">Docs ({{datos.getNumberOfDocuments('document')}})</a></li>
         {% endif %}  
     </ul>
-
-    <div id="general">
-        <div style="float: left; width: 51%;">        
+    <div class="tab-content no-space">
+    <div class="tab-pane" id="general">
+        <div class="col-md-7">        
             {{ macro.input(atributos.RazonSocial,'Etiqueta','text','Proveedores[RazonSocial]','Proveedores_RazonSocial',datos.RazonSocial,'50','CampoTextoLargo') }}
             {{ macro.input(atributos.NombreComercial,'Etiqueta','text','Proveedores[NombreComercial]','Proveedores_NombreComercial',datos.NombreComercial,'50','CampoTextoLargo') }}
             {{ macro.cif(atributos.Cif,'Etiqueta','text','Proveedores[Cif]','Proveedores_Cif',datos.Cif,'CampoCif') }}
@@ -43,7 +43,7 @@
             {{ macro.select(atributos.IDFP,'Etiqueta','Proveedores[IDFP]','Proveedores_IDFP',200,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'Select') }}
             {{ macro.input(atributos.Iva,'Etiqueta','checkbox','Proveedores[Iva]','Proveedores[Iva]',datos.Iva.IDTipo,'255','CampoTextoLargo') }}                        
         </div>
-        <div style="float: left; width: 47%;">
+        <div class="col-md-5">
             {{ macro.textarea(atributos.Observaciones,'Etiqueta','Proveedores[Observaciones]','Proveedores_Observaciones',datos.Observaciones,none,none,'TextArea')}}             
             {% include '_global/metaDatos.html.twig' %}
         </div>
@@ -55,7 +55,8 @@
         {% if values.varEnvMod.withDocuments == '1' or user.IDPerfil.IDPerfilPerfil == '1' %}              
         <div id="divDocs"></div>
         {% endif %}
-    {% endif %}    
+    {% endif %}  
+    </div>
 
 </div>  
  

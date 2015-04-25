@@ -182,7 +182,7 @@ class IndexController extends Controller {
         $proyectoApp = new PcaeProyectosApps();
         $proyectoApp = $proyectoApp->find('PrimaryKeyMD5', $tokenProyectoApp);
         //print_r($_SESSION['usuarioPortal']);exit;
-        $_SESSION['projecst']['Id'] = $proyectoApp->getId();
+        $_SESSION['project']['Id'] = $proyectoApp->getId();
         $_SESSION['project']['IdEmpresa'] = $proyectoApp->getIdProyecto()->getIdEmpresa()->getId();
         $_SESSION['project']['empresa'] = $proyectoApp->getIdProyecto()->getIdEmpresa()->getRazonSocial();
         $_SESSION['project']['title'] = $proyectoApp->getIdProyecto()->getProyecto();
