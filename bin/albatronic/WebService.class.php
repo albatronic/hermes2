@@ -42,8 +42,8 @@ class WebService {
 
         $objetoJson = $resultado['result'];
         $traduccion = $objetoJson->responseData;
-        
-        return ($traduccion != null)? utf8_decode($traduccion->translatedText): "";
+
+        return ($traduccion != null) ? utf8_decode($traduccion->translatedText) : "";
     }
 
     /**
@@ -172,5 +172,3 @@ class WebService {
     }
 
 }
-
-?>

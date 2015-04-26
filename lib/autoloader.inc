@@ -1,14 +1,7 @@
 <?php
 
-/*
- * DEVUELVE UN ARTICULO EN EL FORMATO
- * INDICADO EN EL PARÁMETRO 'formato'
- *
- * Es llamado por AJAX
- *
- * @author Sergio Perez <sergio.perez@albatronic.com>
- * @copyright Informatica ALBATRONIC
- * @since 02.11.2013
+/* 
+ * CARGA EL CONFIG.YML Y ACTIVA EL AUTOLOADER
  */
 
 session_start();
@@ -44,37 +37,3 @@ Autoloader::setClassPaths(array(
     '../lib/',
 ));
 spl_autoload_register(array('Autoloader', 'loadClass'));
-
-$v = $_GET;
-
-$formato = strtoupper($v['formato']);
-$columna = trim($_GET['columna']);
-$valor = trim($_GET['valor']);
-
-if ($columna === '') {
-    // Busco el artículo por código o por EAN
-    $filtro = "(Codigo='{$valor}' or CodigoEAN='{$valor}') and Vigente='1'";
-} else {
-    // Busco el artículo por la columna indicada
-    $filtro = "{$columna}='{$valor}' and Vigente='1'";
-}
-
-$articulo = new Articulos();
-$rows = $articulo->cargaCondicion("IDArticulo",$filtro);
-$articulo = new Articulos($rows[0]['IDArticulo']);
-$array = $articulo->iterator();
-$array['Iva'] = $articulo->getIDIva()->getIva();
-$array['PvpConImpuestos'] = $articulo->getPrecioVentaConImpuestos();
-unset($articulo);
-
-switch ($formato) {
-    case '':
-    case 'JSON':
-        $tag = json_encode($array);
-        break;
-    default:
-        $tag = "";
-        break;
-}
-
-echo $tag;

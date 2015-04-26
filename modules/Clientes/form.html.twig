@@ -97,41 +97,6 @@
     </div>
 </div>
 
-
 {{ macro.foco('Clientes_RazonSocial') }}
 
-<script type="text/javascript">
-
-function cargaDireccionesEntrega(idDiv) {
-
-    $('#'+idDiv).html("<iframe width='100%' height='380' scrolling='yes' style='border: 0px dotted grey;' src='{{app.path}}/ClientesDentrega/list/{{datos.IDCliente}}'></iframe>");
-
-}
-
-function cargaContactos(idDiv) {
-
-    $('#'+idDiv).html("<iframe width='100%' height='380' scrolling='yes' style='border: 0px dotted grey;' src='{{app.path}}/ClientesContactos/list/{{datos.IDCliente}}'></iframe>");
-
-}
-
-function cargaVencimientos(idDiv) {
-
-    $('#'+idDiv).html("<iframe width='100%' height='380' scrolling='yes' style='border: 0px dotted grey;' src='{{app.path}}/Clientes/listVencimientos/{{datos.IDCliente}}'></iframe>");
-
-}
-
-
-$("#docs").click(function(){
-    url = "<iframe src='{{app.path}}/CpanDocs/listPopup/{{values.controller}}/{{datos.PrimaryKeyValue}}/document/1' width='100%' height='270' scrolling='yes' style='border: 0px dotted grey;'></iframe>"; 
-    $("#divDocs").html(url);
-});
-
-function limpia(idOrigen,idInput) {
-
-    if ( $('#'+idOrigen+'_valorAnterior').val() !== $('#'+idOrigen).val() ) {
-        $('#'+idInput).val('');
-        $('#'+idInput+'_autoComplete').val('');  
-    }
-    
-}
-</script>
+{% include values.controller ~ '/js.html.twig' %}

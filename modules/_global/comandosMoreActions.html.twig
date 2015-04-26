@@ -21,7 +21,7 @@
                     {% elseif command.type == 'href' %}
                         <a href="{{app.path}}/{{command.url}}">{{command.title}}</a>
                     {% elseif command.type == 'modal' %}
-                        <a data-toggle="modal" href="{{command.url}}">{{command.title}}</a>
+                        <a data-toggle="modal" href="{{command.url}}" onclick="{{command.onclick}}">{{command.title}}</a>
                     {% endif %}
                 </li>
             {% endfor %}          

@@ -5,13 +5,13 @@
 {% extends layout %}
 
 {% block content %}
-    <div class="Izquierda">
+    <div class="col-md-6">
         {{ macro.input('Para','Etiqueta','text','Para','Para',values.email.Para,'255','CampoTextoLargo') }}
         {{ macro.input('Con Copia','Etiqueta','text','Cc','Cc',values.email.Cc,'255','CampoTextoLargo') }}
 
     </div>
 
-    <div class="Derecha">
+    <div class="col-md-6">
         <iframe width="100%" height="500" src="{{app.path}}/{{values.archivo}}"></iframe>
     </div>
 {% endblock %}

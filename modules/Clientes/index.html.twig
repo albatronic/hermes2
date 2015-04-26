@@ -9,9 +9,10 @@
         {% set adittionalCommands = 
             { 
                 '0': {
-                        'type' : 'popup',
-                        'url'  : "window.open('"~app.path~"/_Emergente/HistoricoVentas/0/"~values.datos.PrimaryKeyValue~"','HistoricoVentas','width=850,height=500,resizable=yes,scrollbars=yes');", 
-                        'title': 'Histórico de Ventas'
+                        'type'    : 'modal',
+                        'url'     : "#dialogHistoricoVentas", 
+                        'onclick' : "ajaxHistoricoVentas(0,'"~ values.datos.PrimaryKeyValue~"',0);",
+                        'title'   : 'Histórico de Ventas'
                       },
                 '1': {
                         'type' : 'modal',

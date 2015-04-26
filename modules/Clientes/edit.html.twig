@@ -4,7 +4,22 @@
 {# -------------------------------------------------------#}
 {% extends values.controller ~ '/index.html.twig' %}
 
-{% block mantenimiento %}{{values.datos.IDCliente.RazonSocial}}
+{% block mantenimiento %}
     {% include '_global/formEdit.html.twig' with {'values': values} %} 
-    {% include values.controller ~ "/rutasVentaReparto.html.twig" with {'cliente' : values.datos }%}
+    {% include values.controller ~ "/rutasVentaReparto.html.twig" with {'cliente' : values.datos } %}
+    
+    <div class="modal fade" id="dialogHistoricoVentas" tabindex="-1" role="dialogHistoricoVentas" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Histórico de Ventas (no incluye albaranes sin confirmar)</h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">Cerrar</button>
+                </div>                  
+            </div>
+        </div>
+    </div>                  
 {% endblock %}
