@@ -1,7 +1,7 @@
 # VALORES POR DEFECTO PARA LA TABLA ZONASHORARIAS
 #
 # ESTAN INCLUIDAS TODAS LAS ZONAS HORARIAS MUNDIALES
-ErpZonasHorarias:
+ZonasHorarias:
   -
     IDZona: 1
     Zona: "Europe/Andorra"

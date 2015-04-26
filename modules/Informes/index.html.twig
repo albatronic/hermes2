@@ -9,11 +9,10 @@
     {% include '_global/comandosHelp.html.twig' with {'controller': values.controller} %}
 </div>
 
-<div class="FormManto">
 
-<div class="Cuerpo">
+<div class="row">
 
-    <div class="informesTipos">
+    <div class="col-md-6">
         <p>Tipos de informes</p>        
         <ul>
             {% for key,report in values.reports %}
@@ -25,7 +24,7 @@
         </ul>
     </div>
 
-    <div class="informesParametros">
+    <div class="col-md-6">
         
     {% if not values.report is empty %}
         <p style="text-align: center;">{{values.report.title}}</p>
@@ -100,7 +99,6 @@
         
     </div>
 
-</div>
 </div>
 
 <script>

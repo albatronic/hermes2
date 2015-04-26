@@ -138,10 +138,10 @@ ErpAvisadorStock:
   comment: Avisador de stock
   columns:
     IDCliente:  { type: bigint(11), notnull: true, default: 0, index: index, comment: 'db,Clientes,IDCliente' }
-    Email:      { type: string(50), notnul: true }
+    Email:      { type: varchar(50), notnul: true }
     IDArticulo: { type: bigint(11), notnull: true, default: 0, index: index, comment: 'db,Articulos,IDArticulo' }
     <?php include '../../entities/schema/schemaColumnsCommon.yml'; echoln('');?>  
-    relations:
+  relations:
         
 # PedidosWebCab
 ErpPedidosWebCab:
@@ -290,7 +290,7 @@ ErpAlmacenesMapas:
 ErpAplicaciones:
   engine:
   charSet:
-  comment: Sub apps del Cpanel
+  comment: Aplicaciones del 
   columns:
     CodigoApp:   {type: string(15), notnull: true, index: unique}
     NombreApp:   {type: string(100), notnull: true}
@@ -1017,7 +1017,7 @@ ErpManufacLineas:
 ErpModulos:
   comment: Módulos del ERP
   columns:
-    CodigoApp:       { type: string(15), notnull: true, index: index, comment: 'db,ErpAplicaciones,CodigoApp' }
+    CodigoApp:       { type: string(15), notnull: true, index: index, comment: 'db,Aplicaciones,CodigoApp' }
     NombreModulo:    { type: string(255), notnull: true, index: unique }
     Nivel:           { type: integer(4), notnull: true, default: 0 }
     Titulo:          { type: string(100), notnull: true }
@@ -1025,7 +1025,7 @@ ErpModulos:
     Funcionalidades: { type: string(255), notnull: true }
     <?php include '../../entities/schema/schemaColumnsCommon.yml'; echoln('');?>
   relations:
-    CodigoApp : { ForeignEntity: ErpAplicaciones, ForeignId: CodigoApp } 
+    CodigoApp : { ForeignEntity: Aplicaciones, ForeignId: CodigoApp } 
     
 # Municipios de España
 ErpMunicipios:
@@ -1690,13 +1690,13 @@ ErpPerfiles:
 
 ErpPermisos:
   columns:
-    IdPerfil:        { type: integer, notnull: true, index: index, comment: 'db,ErpPerfiles,Id' }
-    NombreModulo:    { type: string(255), notnull: true, index: index, comment: 'db,ErpModulos,NombreModulo' }
+    IdPerfil:        { type: integer, notnull: true, index: index, comment: 'db,Perfiles,Id' }
+    NombreModulo:    { type: string(255), notnull: true, index: index, comment: 'db,Modulos,NombreModulo' }
     Funcionalidades: { type: string(255), notnull: true }
     <?php include '../../entities/schema/schemaColumnsCommon.yml'; echoln('');?>
   relations:
-    IdPerfil:     { ForeignEntity: ErpPerfiles, ForeignId: Id }
-    NombreModulo: { ForeignEntity: ErpModulos, ForeignId: NombreModulo }
+    IdPerfil:     { ForeignEntity: Perfiles, ForeignId: Id }
+    NombreModulo: { ForeignEntity: Modulos, ForeignId: NombreModulo }
 
 ErpFuncionalidades:
   columns:
@@ -1818,7 +1818,7 @@ ErpEjerciciosContables:
 ErpPlanContable:
   comment: Cuentas y subcuentas contables
   columns:
-    IDEjercicio: { type: bigint(11), notnull: true, default: 0, index: index, comment: 'db,ErpEjerciciosContables,Id' }
+    IDEjercicio: { type: bigint(11), notnull: true, default: 0, index: index, comment: 'db,EjerciciosContables,Id' }
     Cuenta:      { type: string(10), notnull: true, index: index }
     Titulo:      { type: string(100, notnull: true }
     Debe:        { type: decimal, notnul: true, default: 0 }
@@ -1832,4 +1832,4 @@ ErpPlanContable:
  #------------------------------
  # TABLAS DEL CMS
  #------------------------------
-<?php include '../Cpanel/entities/schema/schemaAll.yml'; echoln('');?>  
+<?php include '../../entities/schema/schemaCMS.yml'; echoln('');?>  

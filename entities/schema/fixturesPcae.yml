@@ -1,0 +1,34 @@
+# VALORES POR DEFECTO PARA LAS TABLAS DE LA APP Pcae
+#
+# SE DEFINE UNA EMPRESA CON DOS PROYECTOS Y LA APP CPANEL PARA QUE A PARTIR
+# DE AHI, EL SUPER ADMINISTRADOR PUEDA IR CREANDO NUEVAS EMPRESAS Y PROYECTOS
+#
+PcaeGruposEmpresas:
+  1: { Id: 1, Descripcion: 'Grupo Albatronic', Publish: 1}
+  
+PcaeEmpresas:
+  1: { Id: 1, IdGrupo: 1, RazonSocial: 'Informática ALBATRONIC, SL', IdPais: 68, IdProvincia: 18, UrlPrefix: /, LockUrlPrefix: 1, Slug: acs, LockSlug: 1, UrlFriendly: /acs, Publish: 1 }
+  
+PcaeProyectos:
+  1: { Id: 1, IdEmpresa: 1, Proyecto: 'Albatronic Cloud Solutions', Publish: 1}  
+  
+PcaeApps:
+  1: { Id: 1, Aplicacion: 'Panel de Control', Url: 'http://albatronic.local/Cpanel', Publish: 1 }
+  2: { Id: 2, Aplicacion: 'Hermes2', Url: 'http://albatronic.local/Hermes2', Publish: 1 }
+
+PcaeProyectosApps:
+  1: { IdProyecto: 1, IdApp: 1, NumeroLicencias: 99, FtpServer: '', FtpFolder: '', FtpUser: '', FtpPassword: '', FtpTimeOut: 30, Url: '', DbEngine: mysql, Host: localhost, User: ss-sistelsur, Password: fortuna, Database: ss_sistelsur, Publish: 1 }
+
+PcaePerfiles:
+  1: { Id: 1, Perfil: Super, Publish: 1 }
+  2: { Id: 2, Perfil: Adm, Publish: 1 }
+  3: { Id: 3, Perfil: Acceso, Publish: 1 }
+
+PcaeUsuarios:
+  1: { Id: 1, Nombre: Super, Apellidos: Super, IdPais: 68, IdProvincia: 18, IdMunicipio: 2747, EMail: info@albatronic.com, Password: '1234', Publish: 1}
+
+PcaeEmpresasUsuarios:
+  1: { IdEmpresa: 1, IdUsuario: 1, IdPerfil: 1, Publish: 1 }
+  
+PcaePermisos:
+  1: { IdUsuario: 1, IdEmpresa: 1, IdProyecto: 1, IdApp: 1, Publish: 1 }

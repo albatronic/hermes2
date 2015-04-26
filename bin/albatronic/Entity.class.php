@@ -659,6 +659,20 @@ class Entity {
     }
 
     /**
+     * Borra todos los registros de la tabla
+     * 
+     * @return void
+     */
+    public function truncate() {
+
+        $this->conecta();
+        if (is_resource($this->_dbLink)) {
+            $query = "TRUNCATE TABLE `{$this->_dataBaseName}`.`{$this->_tableName}`";
+            $this->_em->query($query);
+        }
+    }
+
+    /**
      * Devuelve un objeto cuyo valor de la columna $columna es igual a $valor
      *
      * @param string $columna El nombre de la columna

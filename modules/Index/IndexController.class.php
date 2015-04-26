@@ -40,6 +40,7 @@ class IndexController extends Controller {
         $this->values['titulo'] = $this->form->getTitle();
         $this->values['ayuda'] = $this->form->getHelpFile();
         $this->values['permisos'] = $this->permisos->getPermisos();
+        $this->values['enCurso'] = $this->values['permisos']['enCurso'];        
         $this->values['request'] = $this->request;
         $this->values['linkBy'] = array(
             'id' => $this->form->getLinkBy(),

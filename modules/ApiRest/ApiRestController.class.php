@@ -187,9 +187,9 @@ class ApiRestController {
                 if ($idArticulo == '0') {
                     $idArticulo = '';
                 }
-                $IDProveedor = $this->request['3'];
-                if ($IDProveedor == '0') {
-                    $IDProveedor = '';
+                $idProveedor = $this->request['3'];
+                if ($idProveedor == '0') {
+                    $idProveedor = '';
                 }
                 $periodo = $this->request['4'];
                 $formato = $this->request['5'];
@@ -281,7 +281,7 @@ class ApiRestController {
         // Solo muestra los pedidos que están confirmador o facturados
         $em = new EntityManager($articulo->getConectionName());
         if ($em->getDbLink()) {
-            $query = "SELECT t2.IDLinea,t1.IDPedido,t1.PrimaryKeyMD5,DATE_FORMAT(t1.FechaEntrada,'%d-%m-%Y') as FechaEntrada,t4.Descripcion,t2.Unidades,t2.Precio,t2.Descuento,t2.Importe
+            $query = "SELECT t2.IDLinea,t1.IDPedido,t1.PrimaryKeyMD5,DATE_FORMAT(t1.FechaEntrada,'%d-%m-%Y') as FechaEntrada,t2.Descripcion,t2.Unidades,t2.Precio,t2.Descuento,t2.Importe
                 FROM {$pedidosTabla} as t1, {$lineasTabla} as t2";
             if ($idProveedor !== '') {
                 $query .= ", {$proveedorTabla} as t3";
@@ -301,7 +301,7 @@ class ApiRestController {
                 AND t1.IDEstado>='2'
                 AND t1.FechaEntrada>='{$desdeFecha}'
                 ORDER BY t1.FechaEntrada, t1.IDPedido DESC";
-            //echo $query;
+            //$values['query'] = $query;
             $em->query($query);
             $rows = $em->fetchResult();
             $em->desConecta();

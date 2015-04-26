@@ -8,15 +8,15 @@
                     <div class="sidebar-toggler"></div>
                     <!-- END SIDEBAR TOGGLER BUTTON -->
                 </li>
-                <li class="{% if "" == values.enCurso.app%}start active open{% endif %}">
-                    <a href="{{app.path}}/">
-                    <i class="fa fa-home"></i>
+                <li class="{% if values.enCurso.app == '' %}active{% endif %}">
+                    <a href="{{app.path}}/Index">
+                    <i class="glyphicon glyphicon-home"></i>
                     <span class="title">Inicio</span>
                     <span class="arrow"></span>
                     </a>    
                 </li>
                 {% for opcion in menu %}
-                <li class="{% if opcion.NombreModulo == values.enCurso.app%}start active open{% endif %}">
+                <li class="{% if opcion.CodigoApp == values.enCurso.app%}start active open{% endif %}">
                     <a href="javascript:;">
                         <i class="{{opcion.Icon}}"></i>
                         <span class="title">{{opcion.Titulo}}</span><span class="selected"></span>
@@ -29,7 +29,7 @@
                                 <a href="{{app.path}}/{{subopcion.NombreModulo}}">{{subopcion.Titulo}}</a>
                             {% else %}
                                 <a href="javascript:;">
-                                    <i class="{{opcion.Icon}}"></i>
+                                    <i class="{{subopcion.Icon}}"></i>
                                     <span class="title">{{subopcion.Titulo}}</span><span class="selected"></span>
                                     <span class="arrow open"></span>
                                 </a>

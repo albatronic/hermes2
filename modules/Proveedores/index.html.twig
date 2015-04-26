@@ -5,17 +5,18 @@
 {% block title parent() ~ " - " ~ values.titulo %}
 
 {% block content %}
-    {% if values.datos.PrimaryKeyValue and values.permisos.permisosModulo['CO']%}
+    {% if values.datos.PrimaryKeyValue and values.permisos.permisosModulo['CO'] %}
         {% set adittionalCommands = 
             { 
                 '0': {
-                        'type' : 'popup',
-                        'url'  : "window.open('"~app.path~"/_Emergente/HistoricoCompras/0/"~values.datos.PrimaryKeyValue~"','HistoricoCompras','width=850,height=500,resizable=yes,scrollbars=yes');", 
-                        'title': 'Histórico de Compras'
+                        'type'    : 'modal',
+                        'url'     : "#dialogHistoricoCompras", 
+                        'onclick' : "ajaxHistoricoCompras(0,'"~ values.datos.PrimaryKeyValue~"',0);",
+                        'title'   : 'Histórico de Compras'
                       },
              } 
         %}
-    {% endif %}
+    {% endif %}  
     
     {% include '_global/TituloGenerico.html.twig' with {'controller':  values.controller, 'linkValue': values.linkBy.value, 'adittionalCommands': adittionalCommands} %}
 

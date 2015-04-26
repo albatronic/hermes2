@@ -128,7 +128,7 @@ class Agentes extends AgentesEntity {
         $em = new EntityManager($this->getConectionName());
         if ($em->getDbLink()) {
             $query = "
-                select m.Id,m.CodigoApp,m.Titulo ,p.NombreModulo, p.Funcionalidades, m.Publish
+                select m.Id,m.CodigoApp,m.Titulo ,p.NombreModulo, p.Funcionalidades, m.Publish, m.Observations as Icon
                 from {$this->getDataBaseName()}.ErpPermisos as p, {$this->getDataBaseName()}.ErpModulos as m
                 where  m.NombreModulo = p.NombreModulo and m.BelongsTo='{$de}' and m.Nivel='{$nivel}' and
                 p.IdPerfil = '{$this->getIDPerfil()->getIDPerfil()}' AND
@@ -137,8 +137,9 @@ class Agentes extends AgentesEntity {
             $em->query($query);
             $rows = $em->fetchResult();
             $em->desConecta();
-        } else
+        } else {
             echo "NO HAY CONEXION CON LA BASE DE DATOS";
+        }
         unset($em);
 
         return $rows;
@@ -156,12 +157,15 @@ class Agentes extends AgentesEntity {
 
         // Añadir los favoritos
         $fav = new Favoritos();
-        $rows = $fav->cargaCondicion("Controller,Titulo", "IDUsuario='{$_SESSION['usuarioPortal']['Id']}'", "SortOrder");
+        $rows = $fav->cargaCondicion("Controller,Titulo,Observations as Icon", "IDUsuario='{$_SESSION['usuarioPortal']['Id']}'", "SortOrder");
         unset($fav);
         if (count($rows)) {
+            $arrayFavoritos['Id'] = '0';
+            $arrayFavoritos['CodigoApp'] = 'Fav';
             $arrayFavoritos['Titulo'] = "Favoritos";
+            $arrayFavoritos['Icon'] = "glyphicon glyphicon-star";
             foreach ($rows as $row) {
-                $arrayFavoritos['hijos'][] = array('Titulo' => $row['Titulo'], 'NombreModulo' => $row['Controller']);
+                $arrayFavoritos['hijos'][] = array('Titulo' => $row['Titulo'], 'NombreModulo' => $row['Controller'], 'Icon' => $row['Icon']);
             }
             array_unshift($menu, $arrayFavoritos);
         }

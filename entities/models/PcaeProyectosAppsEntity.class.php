@@ -50,25 +50,25 @@ class PcaeProyectosAppsEntity extends EntityComunes {
      * @var string
      * @assert NotBlank(groups="PcaeProyectosApps")
      */
-    protected $FtpFolder;
+    protected $FtpFolder = '';
 
     /**
      * @var string
      * @assert NotBlank(groups="PcaeProyectosApps")
      */
-    protected $FtpUser;
+    protected $FtpUser = '';
 
     /**
      * @var string
      * @assert NotBlank(groups="PcaeProyectosApps")
      */
-    protected $FtpPassword;
+    protected $FtpPassword = '';
 
     /**
      * @var integer
      * @assert NotBlank(groups="PcaeProyectosApps")
      */
-    protected $FtpTimeout;
+    protected $FtpTimeout = 30;
     
     /**
      * @var string

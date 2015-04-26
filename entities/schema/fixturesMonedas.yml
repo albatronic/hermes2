@@ -1,6 +1,6 @@
 # VALORES POR DEFECTO PARA LA TABLA MONEDAS
 #
-ErpMonedas:
+Monedas:
   -
     IDMoneda: 1
     Codigo: "AED"

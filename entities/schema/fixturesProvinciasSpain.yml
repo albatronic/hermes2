@@ -2,7 +2,7 @@
 #
 # SOLO SE INCLUYEN LAS PROVINCIAS ESPAÑOLAS
 #
-ErpProvincias:
+Provincias:
   -
     IDPais: 68
     Codigo: 01

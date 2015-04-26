@@ -1,94 +1,100 @@
 {# _Emergente/HistoricoVentas.html.twig #}
 
+{% import "_global/macros.html.twig" as macro %}
+
 <div class="row">
-<form class="form-control" name="consulta" id="formConsulta" action="" method="POST" enctype="multipart/form-data">
-    <input name="controller" value="ApiRest" type="hidden" />
-    <input name="action" id="action" value="HistoricoVentas" type="hidden" />
-    <input name="formato" id="formato" value="html" type="hidden" />
+    <div class="col-md-12">
+        <form class="form-control" name="consulta" id="formConsulta" action="" method="POST" enctype="multipart/form-data">
+            <input name="controller" value="ApiRest" type="hidden" />
+            <input name="action" id="action" value="HistoricoVentas" type="hidden" />
+            <input name="formato" id="formato" value="html" type="hidden" />
 
-        <div class="Item" id="div_idCliente" style="margin-top: 3px;">
-            <div style="float: left; width: 50px; font-size: 11px;">Cliente</div>
-            <input name="idCliente" id="idCliente" value="{{values.datos.cliente.IDCliente}}" type="hidden" />
-            <input value="{{values.datos.cliente.RazonSocial}}" id="RazonSocial" type="text" maxlength="50" class="CampoTextoLargo"
-                   onkeyup="autoCompletar('RazonSocial', 'idCliente', 'RazonSocial', 'clientes',{{suc}} , '');"/>
-            <span onclick="ajaxHistoricoVentas($('#idArticulo').val(),$('#idCliente').val(),$('#periodo').val());">Consulta</span>
-        </div>
-        <div style="clear: both;"></div>
+            <div class="Item" id="div_idCliente" style="margin-top: 3px;">
+                <div style="float: left; width: 50px; font-size: 11px;">Cliente</div>
+                <input name="idCliente" id="idCliente" value="{{values.datos.cliente.IDCliente}}" type="hidden" />
+                <input value="{{values.datos.cliente.RazonSocial}}" id="RazonSocial" type="text" maxlength="50" class="CampoTextoLargo"
+                       onkeyup="autoCompletar('RazonSocial', 'idCliente', 'RazonSocial', 'clientes',{{suc}} , '');"/>
+                <span onclick="ajaxHistoricoVentas($('#idArticulo').val(), $('#idCliente').val(), $('#periodo').val());">Consulta</span>
+            </div>
+            <div style="clear: both;"></div>
 
-        <div class="Item" id="div_idArticulo" style="margin-top: 3px;">
-            <div style="float: left; width: 50px; font-size: 11px;">Artículo</div>
-            <input name="idArticulo" id="idArticulo" value="{{values.datos.articulo.IDArticulo}}" type="hidden" />
-            <input value="{{values.datos.articulo.Descripcion}}" id="Descripcion" type="text" maxlength="50" class="CampoTextoLargo"
-                   onkeyup="autoCompletar('Descripcion', 'idArticulo', 'Descripcion', 'articulos', '', '');"
-                   onblur="if (this.value === '') {
-                                   $('#idArticulo').val('');
-                               }
-                               $('#formConsulta').submit();"/>
-            Dejar en blanco para ver todos los artículos vendidos
-        </div>
-        <div style="clear: both;"></div>
+            <div class="Item" id="div_idArticulo" style="margin-top: 3px;">
+                <div style="float: left; width: 50px; font-size: 11px;">Artículo</div>
+                <input name="idArticulo" id="idArticulo" value="{{values.datos.articulo.IDArticulo}}" type="hidden" />
+                <input value="{{values.datos.articulo.Descripcion}}" id="Descripcion" type="text" maxlength="50" class="CampoTextoLargo"
+                       onkeyup="autoCompletar('Descripcion', 'idArticulo', 'Descripcion', 'articulos', '', '');"
+                       onblur="if (this.value === '') {
+                               $('#idArticulo').val('');
+                           }
+                           $('#formConsulta').submit();"/>
+                Dejar en blanco para ver todos los artículos vendidos
+            </div>
+            <div style="clear: both;"></div>
 
-        <div class="Item" id="div_periodo" style="margin-top: 3px;">
-            <div style="float: left; width: 50px; font-size: 11px;">Periodo</div>
-            <select name="periodo" id="periodo" onchange="ajaxHistoricoVentas($('#idArticulo').val(),$('#idCliente').val(),$('#periodo').val());">
-                {% for periodo in values.datos.periodos%}
-                    <option value="{{periodo.Id}}" {% if periodo.Id == values.datos.periodo %} SELECTED {% endif %}>{{periodo.Value}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div style="clear: both; margin: 5px;"></div>
-        {% if values.datos.articulo.IDArticulo %}
-            <hr>
-            <p>Unidades Vendidas: {{values.datos.unidades}}</p>
-            <p>Precio Medio: {{values.datos.precioMedio}} €</p>
-        {% endif %}
-</form>
+            <div class="Item" id="div_periodo" style="margin-top: 3px;">
+                <div style="float: left; width: 50px; font-size: 11px;">Periodo</div>
+                <select name="periodo" id="periodo" onchange="ajaxHistoricoVentas($('#idArticulo').val(), $('#idCliente').val(), $('#periodo').val());">
+                    {% for periodo in values.datos.periodos%}
+                        <option value="{{periodo.Id}}" {% if periodo.Id == values.datos.periodo %} SELECTED {% endif %}>{{periodo.Value}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div style="clear: both; margin: 5px;"></div>
+            {% if values.datos.articulo.IDArticulo %}
+                <hr>
+                <p>Unidades Vendidas: {{values.datos.unidades}}</p>
+                <p>Precio Medio: {{values.datos.precioMedio}} €</p>
+            {% endif %}
+        </form>
+    </div>
 </div>
 
 {% if values.listado %}
-<div class="row">
-    <table id="table-listado" class="table table-striped">
-        <thead>
-            <tr>
-                <th>Albarán</th>
-                <th>Fecha</th>
-                <th>Artículo</th>
-                <th>Unidades</th>
-                <th>Precio</th>
-                <th>Dcto</th>
-                <th>Importe</th>
-                <th>Estado</th>
-                <th>Factura</th>
-                <th>Promo</th>
-            </tr>
-        </thead>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="table-listado" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Albarán</th>
+                        <th>Fecha</th>
+                        <th>Artículo</th>
+                        <th>Udes</th>
+                        <th>Precio</th>
+                        <th>Dcto</th>
+                        <th>Importe</th>
+                        <th>Estado</th>
+                        <th>Factura</th>
+                        <th>Promo</th>
+                    </tr>
+                </thead>
 
-        <tbody>
-            {% for linea in values.listado %}
-                <tr>
-                    <td style="width: 60px;">
-                        <a href="{{app.path}}/AlbaranesCab/edit/{{linea.PrimaryKeyMD5}}" target="_blank" title="Ver Albarán">{{linea.NumeroAlbaran}}</a>
-                    </td>
-                    <td>{{linea.Fecha}}</td>
-                    <td>{{linea.Descripcion}}</td>
-                    <td>{{linea.Unidades}}</td>
-                    <td>{{linea.Precio}}</td>
-                    <td>{{linea.Descuento}}%</td>
-                    <td>{{linea.Importe}}</td>
-                    <td>{{linea.Estado}}</td>
-                    <td>
-                        {% if (linea.Factura.NumeroFactura) %}
-                            <a href="{{app.path}}/FemitidasCab/edit/{{linea.Factura.PrimaryKeyMD5}}" target="_blank" title="Ver Factura">{{linea.Factura.NumeroFactura}}</a>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if linea.IDPromocion.IDPromocion %}
-                            {% include "_Emergente/dialogoPromocion.html.twig" with {'linea': linea} %}
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+                <tbody>
+                    {% for linea in values.listado %}
+                        <tr>
+                            <td>
+                                <a href="{{app.path}}/AlbaranesCab/edit/{{linea.PrimaryKeyMD5}}" target="_blank" title="Ver Albarán">{{linea.NumeroAlbaran}}</a>
+                            </td>
+                            <td>{{linea.Fecha}}</td>
+                            <td>{{macro.recortaTexto(linea.Descripcion,22)}}</td>
+                            <td class="text-right">{{linea.Unidades}}</td>
+                            <td class="text-right">{{macro.moneda(linea.Precio)}}</td>
+                            <td class="text-right">{{linea.Descuento}}%</td>
+                            <td class="text-right">{{macro.moneda(linea.Importe)}}</td>
+                            <td>{{linea.Estado}}</td>
+                            <td>
+                                {% if (linea.Factura.NumeroFactura) %}
+                                    <a href="{{app.path}}/FemitidasCab/edit/{{linea.Factura.PrimaryKeyMD5}}" target="_blank" title="Ver Factura">{{linea.Factura.NumeroFactura}}</a>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if linea.IDPromocion.IDPromocion %}
+                                    {% include "_Emergente/dialogoPromocion.html.twig" with {'linea': linea} %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endif %}

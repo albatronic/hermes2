@@ -2,7 +2,7 @@
 #
 # SOLO SE INCLUYEN LOS MUNICIPIOS ESPAÑOLES
 #
-ErpMunicipios:
+Municipios:
   -
     IDPais: 68
     IDProvincia: 1

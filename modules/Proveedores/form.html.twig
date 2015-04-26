@@ -62,25 +62,4 @@
  
 {{ macro.foco('Proveedores_RazonSocial') }}
 
-<script type="text/javascript">
-function cargaVencimientos(idDiv) {
-
-    $('#'+idDiv).html("<iframe width='100%' height='270' scrolling='yes' style='border: 0px dotted grey;' src='{{app.path}}/Proveedores/listVencimientos/{{datos.IDProveedor}}'></iframe>");
-
-}
-
-function limpia(idOrigen,idInput) {
-
-    if ( $('#'+idOrigen+'_valorAnterior').val() !== $('#'+idOrigen).val() ) {
-        $('#'+idInput).val('');
-        $('#'+idInput+'_autoComplete').val('');  
-    }
-    
-}
-
-$("#docs").click(function(){
-    url = "<iframe src='{{app.path}}/CpanDocs/listPopup/{{values.controller}}/{{datos.PrimaryKeyValue}}/document/1' width='100%' height='270' scrolling='yes' style='border: 0px dotted grey;'></iframe>"; 
-    $("#divDocs").html(url);
-});
- 
-</script>
+{% include values.controller ~ '/js.html.twig' %}

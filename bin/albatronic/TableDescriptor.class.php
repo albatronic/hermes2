@@ -1,4 +1,5 @@
 <?php
+
 /**
  * GENERAR EL DESCRIPTOR DE UNA TABLA Y LAS RELACIONES CON OTRAS
  *
@@ -34,13 +35,14 @@
  * @copyright Informatica ALBATRONIC, SL 22.10.2010
  * @version 1.0
  */
-class TableDescriptor {
 
+class TableDescriptor
+{
     /**
      *
-     * @var string El nombre de la base de datos
+     * @var array Array con los parámetros de conexión
      */
-    private $db;
+    private $conection;
     /**
      *
      * @var string El nombre de la tabla a describir
@@ -67,63 +69,83 @@ class TableDescriptor {
      */
     private $primary_key;
     /**
-     *
+     * Array con el nombre de las entidades que
+     * depende (hijas) de esta.
      * @var array con las entidades referenciadas
      */
-    private $referencedEntities = array();
+    private $ChildEntities = array();
+    /**
+     * Array con el nombre de las entidades que
+     * hacen referencia (padres) a esta.
+     * @var array con las entidades que la referencia
+     */
+    private $ParentEntities = array();
 
     /**
      * Constructor
-     * @param string $db      El nombre de la base de datos
-     * @param string $table   El nombre de la tabla
+     * @param array $conection Los parametros de conexion
+     * @param string $table El nombre de la tabla
      */
-    public function __construct($db, $table) {
-        $this->db = $db;
+    public function __construct($conection, $table)
+    {
+        $this->conection = $conection;
         $this->table = $table;
-        if ($this->Connect())
+        $this->ChildEntities = array();
+        if ($this->Connect()) {
             $this->Load();
+        }
     }
 
     /**
      * Desctructor. Cierra el link a la base de datos
      */
-    public function __destruct() {
-        if (is_resource($this->dblink))
+    public function __destruct()
+    {
+        if (is_resource($this->dblink)) {
             mysql_close($this->dblink);
+        }
     }
 
-    private function Connect() {
-        if (($this->db != '') and ($this->table != '')) {
+    private function Connect()
+    {
+        if (($this->conection['database'] != '') && ($this->table != '')) {
             return $this->getDbLink();
         }
     }
 
-    private function Query($query) {
+    private function Query($query)
+    {
         $result = mysql_query($query, $this->Connect());
+
         return $result;
     }
 
-    private function GetRow($result) {
+    private function GetRow($result)
+    {
         return mysql_fetch_array($result);
     }
 
-    public function getDbLink() {
+    public function getDbLink()
+    {
         if (!is_resource($this->dblink)) {
-            $dblink = mysql_connect(DB_HOST, DB_USER, DB_PASS);
+            $dblink = mysql_connect($this->conection['host'], $this->conection['user'], $this->conection['password']);
             //mysql_select_db(DB_BASE);
             $this->dblink = $dblink;
         }
+
         return $this->dblink;
     }
 
-    private function AddColumn($column) {
+    private function AddColumn($column)
+    {
         $pattern = "([a-z]{1,})[\(]{0,}([0-9]{0,})[\)]{0,}";
         $matches = array();
         ereg($pattern, $column['COLUMN_TYPE'], $matches);
-        if ($matches[1] == 'enum')
+        if ($matches[1] == 'enum') {
             $aux = substr($column['COLUMN_TYPE'], 5);
-        else
+        } else {
             $aux='';
+        }
 
         $columna['Field'] = $column['COLUMN_NAME'];
         $columna['Type'] = $matches[1];
@@ -134,21 +156,24 @@ class TableDescriptor {
         $columna['Default'] = $column['COLUMN_DEFAULT'];
         $columna['Extra'] = $column['EXTRA'];
 
-        if ($column['COLUMN_KEY'] == 'PRI')
-            $this->primary_key = $column['COLUMN_NAME'];
+        if ($column['COLUMN_KEY'] == 'PRI') {
+            $this->primary_key .= $column['COLUMN_NAME'].",";
+        }
 
         if ($column['COLUMN_KEY'] == 'MUL') { //Buscar la relacion con otra tabla
             switch ($this->getEngine()) {
                 case 'MyISAM':
-                    if ($column['COLUMN_COMMENT'] != '') {
+                    if ($column['COLUMN_COMMENT'] !== '') {
                         $referencias = explode(",", $column['COLUMN_COMMENT']);
-                        $columna['ReferencedSchema'] = $referencias[0];
-                        $columna['ReferencedEntity'] = $referencias[1];
-                        $columna['ReferencedColumn'] = $referencias[2];
-                        //Pongo el nombre la la tabla refenciada en notacion entidad
+                        $columna['ReferencedSchema'] = trim($referencias[0]);
+                        $columna['ReferencedEntity'] = trim($referencias[1]);
+                        $columna['ReferencedColumn'] = trim($referencias[2]);
+                        //Pongo el nombre de la tabla refenciada en notacion entidad
                         $aux = str_replace("_", " ", $columna['ReferencedEntity']);
                         $columna['ReferencedEntity'] = str_replace(" ", "", ucwords($aux));
-                        $this->referencedEntities[] = $columna['ReferencedEntity'];
+                        if (!in_array($columna['ReferencedEntity'], $this->ParentEntities)) {
+                            $this->ParentEntities[] = $columna['ReferencedEntity'];
+                        }
                     }
                     break;
 
@@ -158,14 +183,16 @@ class TableDescriptor {
                         WHERE (TABLE_NAME='{$this->getTable()}') AND (COLUMN_NAME='{$column['Field']}') AND (NOT ISNULL( REFERENCED_TABLE_SCHEMA ))";
                     $result = $this->Query($query);
                     $row = $this->GetRow($result);
-                    if ($row['TABLE_SCHEMA'] != '') {
+                    if ($row['TABLE_SCHEMA'] !== '') {
                         $columna['ReferencedSchema'] = $row['REFERENCED_TABLE_SCHEMA'];
                         $columna['ReferencedEntity'] = $row['REFERENCED_TABLE_NAME'];
                         $columna['ReferencedColumn'] = $row['REFERENCED_COLUMN_NAME'];
                         //Pongo el nombre la la tabla refenciada en notacion entidad
                         $aux = str_replace("_", " ", $columna['ReferencedEntity']);
                         $columna['ReferencedEntity'] = str_replace(" ", "", ucwords($aux));
-                        $this->referencedEntities[] = $columna['ReferencedEntity'];
+                        if (!in_array($columna['ReferencedEntity'], $this->ParentEntities)) {
+                            $this->ParentEntities[] = $columna['ReferencedEntity'];
+                        }
                     }
                     break;
             }
@@ -174,7 +201,8 @@ class TableDescriptor {
         $this->columns[] = $columna;
     }
 
-    private function Load() {
+    private function Load()
+    {
         // Miro qué tipo de motor se utiliza para la tabla (MyISAM ó InnoDB)
         $query = "SELECT ENGINE FROM information_schema.TABLES WHERE TABLE_SCHEMA='{$this->getDataBase()}' AND TABLE_NAME='{$this->getTable()}';";
         $result = $this->Query($query);
@@ -183,38 +211,86 @@ class TableDescriptor {
 
         $query = "SELECT * FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='{$this->getDataBase()}' AND TABLE_NAME='{$this->getTable()}' ORDER BY ORDINAL_POSITION ASC;";
         $result = $this->Query($query);
-        while ($row = $this->GetRow($result))
+        while ($row = $this->GetRow($result)) {
             $this->AddColumn($row);
+        }
     }
 
-    public function getEngine() {
+    public function getEngine()
+    {
         return $this->engine;
     }
 
-    public function getDataBase() {
-        return $this->db;
-    }
-
-    public function getTable() {
-        return $this->table;
-    }
-
-    public function getColumns() {
-        return $this->columns;
-    }
-
-    public function getPrimaryKey() {
-        return $this->primary_key;
+    public function getDataBase()
+    {
+        return $this->conection['database'];
     }
 
     /**
-     * Devuelve un array con las entidades referenciadas
+     * Devuelve el nombre de la tabla
+     * @return string El nombre de la tabla
+     */
+    public function getTable()
+    {
+        return $this->table;
+    }
+
+    public function getColumns()
+    {
+        return $this->columns;
+    }
+
+    public function getPrimaryKey()
+    {
+        return substr($this->primary_key,0,-1);
+    }
+
+    /**
+     * Devuelve un array con los nombres de las entidades
+     * referenciadas (padres) por esta
      * @return array
      */
-    public function getReferencedEntities() {
-        return $this->referencedEntities;
+    public function getParentEntities()
+    {
+        return $this->ParentEntities;
+    }
+
+    /**
+     * Devuelve un array con los nombres de las entidades
+     * que hacen referencia (hijas) a esta entidad.
+     *
+     *  array (
+     *      array (
+     *          'OrignColumn' => 'nombre de la columna origen',
+     *          'Schema' => 'nombre de la base de datos destino',
+     *          'Table' => 'nombre de la tabla física destino',
+     *          'Entity' => 'nombre de la entidad destino',
+     *          'Column' => 'nombre de la columna destino',
+     *          )
+     *  ......
+     * )
+     *
+     * @return array
+     */
+    public function getChildEntities()
+    {
+        $query = "SELECT * FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='{$this->getDataBase()}' AND COLUMN_COMMENT LIKE '%{$this->getTable()}%' ORDER BY ORDINAL_POSITION ASC;";
+        $result = $this->Query($query);
+        while ($row = $this->GetRow($result)) {
+            $referencia = explode(",", $row['COLUMN_COMMENT']);
+            //Pongo el nombre la la tabla refenciada en notacion entidad
+            $entidad = str_replace("_", " ", $row['TABLE_NAME']);
+            $entidad = str_replace(" ", "", ucwords($entidad));
+            $this->ChildEntities[] = array(
+                'OrignColumn' => $referencia[2],
+                'Schema' => $row['TABLE_SCHEMA'],
+                'Table' => $row['TABLE_NAME'],
+                'Entity' => $entidad,
+                'Column' => $row['COLUMN_NAME']
+            );
+        }
+
+        return $this->ChildEntities;
     }
 
 }
-
-?>

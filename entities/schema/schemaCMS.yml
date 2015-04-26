@@ -1,0 +1,28 @@
+## CREAR EL ESQUEMA DE TODAS LAS APPS
+##
+## Este archivo hay que ir actualizandolo a medida que se creen más Apps
+##
+## @author Sergio Pérez <sergio.perez@albatronic.com>
+## @copyright INFORMATICA ALBATRONIC, SL
+## @date 25-01-2013
+
+<?php include '../../../Cpanel/entities/schema/schemaAppAlbm.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppBann.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppBlog.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppBoletin.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppComm.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppCpan.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppEncargos.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppEnl.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppEtiq.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppEven.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppGcon.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppNetworking.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppPcae.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppRrhh.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppServ.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppSld.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppVid.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppVisit.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaAppWidget.yml'; echoln('');?>
+<?php include '../../../Cpanel/entities/schema/schemaMapeoUrls.yml'; echoln('');?>

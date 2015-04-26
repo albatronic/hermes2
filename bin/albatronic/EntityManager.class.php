@@ -185,6 +185,7 @@ class EntityManager {
 
         switch (self::$dbEngine) {
             case 'mysql':
+                echo $query,"\n";
                 //mysql_select_db($this->getdataBase());
                 $this->result = mysql_query($query, self::$dbLinkInstance);
                 if (!$this->result)

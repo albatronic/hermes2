@@ -1,6 +1,6 @@
 # VALORES POR DEFECTO PARA LA TABLA DE IDIOMAS
 #
-ErpIdiomas:
+Idiomas:
   -
     IDIdioma: 1
     Codigo: "AA"

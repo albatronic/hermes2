@@ -6,4 +6,18 @@
 
 {% block mantenimiento %}
     {% include '_global/formEdit.html.twig' with {'values': values} %}
+    <div class="modal fade" id="dialogHistoricoCompras" tabindex="-1" role="dialogHistoricoCompras" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Histórico de Compras (pedidos recepcionados y/o facturados)</h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">Cerrar</button>
+                </div>                  
+            </div>
+        </div>
+    </div>    
 {% endblock %}
