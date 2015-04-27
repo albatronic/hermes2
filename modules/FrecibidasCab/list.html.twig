@@ -7,7 +7,7 @@
 
         {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller':'FrecibidasCab','position':'izq'}%}
 
-        <table class="table table-striped">
+        <table id="table-listado" class="table table-striped">
             <thead>
                 <tr class='Titulos'>
                     <th></th>
@@ -18,7 +18,6 @@
                     <th>Proveedor</th>
                     <th>Base Imp.</th>
                     <th>Cuota Iva</th>
-                    <th>Cuota Rec.</th>
                     <th>Total</th>
                     <th>Cta. Compras</th>
                     <th>Asto.</th>
@@ -32,7 +31,7 @@
                     {% else %}
                         {% set classFila = 'Par' %}
                     {% endif %}
-                    <tr onclick="location.href = '{{app.patd}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}' style="cursor: pointer;">
+                    <tr onclick="location.href = '{{app.path}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}' style="cursor: pointer;">
                         <td>
                             <a href='{{app.path}}/FrecibidasCab/Edit/{{objeto.PrimaryKeyMD5}}' title='Editar ...'>
                                 <img src="{{app.path}}/images/botoneditar.png" widtd="16px" height="16px" />
@@ -43,12 +42,11 @@
                         <td>{{objeto.IDSucursal.Nombre|slice(0,10)}}</td>
                         <td>{{objeto.Fecha}}</td>
                         <td>{{objeto.IDProveedor.RazonSocial|slice(0,30)}}</td>
-                        <td align="text-right">{{macro.moneda(objeto.TotalBases)}}</td>
-                        <td align="text-right">{{macro.moneda(objeto.TotalIva)}}</td>
-                        <td align="text-right">{{macro.moneda(objeto.TotalRecargo)}}</td>
-                        <td align="text-right">{{macro.moneda(objeto.Total)}}</td>
-                        <td align="text-left">{{objeto.CuentaCompras}}</td>
-                        <td align="text-right">{{objeto.Asiento}}</td>
+                        <td class="text-right">{{macro.moneda(objeto.TotalBases)}}</td>
+                        <td class="text-right">{{macro.moneda(objeto.TotalIva)}}</td>
+                        <td class="text-right">{{macro.moneda(objeto.Total)}}</td>
+                        <td class="text-left">{{objeto.CuentaCompras}}</td>
+                        <td class="text-right">{{objeto.Asiento}}</td>
                     </tr>
                 {% endfor %}
             </tbody>
