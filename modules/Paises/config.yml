@@ -43,20 +43,20 @@ Paises:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Paises
   id_video: paises
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: Paises
   table: ErpPaises
   primarykey: IDPais
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: País a-z
@@ -68,8 +68,8 @@ Paises:
   columns:
     IDPais: 
       title: IDPais
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: false
       updatable: false
       link:
@@ -81,8 +81,8 @@ Paises:
       validator: null
     Codigo: 
       title: Código
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true      
       link:
@@ -92,7 +92,7 @@ Paises:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: integer
         length: 6
         min: null
@@ -100,8 +100,8 @@ Paises:
         message: Valor Requerido
     Pais: 
       title: País
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true        
       link:
@@ -111,7 +111,7 @@ Paises:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: null
         length: 30
         min: null
@@ -119,8 +119,8 @@ Paises:
         message: Valor Requerido
     IDMoneda: 
       title: Moneda
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true        
       link:
@@ -130,7 +130,7 @@ Paises:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: null
         length: 15
         min: null
@@ -139,8 +139,8 @@ Paises:
       aditional_filter: { order: 1, caption: Moneda, entity: Monedas, method: fetchAll, params: Moneda, type: select, operator: '=', event: null }        
     IDZonaHoraria: 
       title: Zona Horaria
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true        
       default: null
@@ -154,8 +154,8 @@ Paises:
       aditional_filter: { order: 2, caption: Zona Horaria, entity: ZonasHorarias, method: fetchAll, params: Zona, type: select, operator: '=', event: null }        
     Latitud: 
       title: Latitud
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true        
       default: null
@@ -168,8 +168,8 @@ Paises:
         message: Valor Requerido        
     Longitud: 
       title: Longitud
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true        
       default: null

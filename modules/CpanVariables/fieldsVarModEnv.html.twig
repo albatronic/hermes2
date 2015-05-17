@@ -70,6 +70,11 @@
         <div class="tab-content">
             {# GLOBAL #}
             <div class="tab-pane fade" id="tabs-global">
+                <div class="col-md-6">
+                {{ macro.input({'caption':'[title] Título','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[title]','d_title',values.d.title,'15','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[help_file] Fichero de ayuda','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[help_file]','d_help_file',values.d.help_file,'15','CampoTextoMedio','1') }}                
+                {{ macro.input({'caption':'[permission_control] Sujeto a control de permisos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[permission_control]','d_permission_control',values.d.permission_control)}}
+                {{ macro.input({'caption':'[feature_list] Se muestra el listado','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[feature_list]','d_feature_list',values.d.feature_list)}}
                 {{ macro.input({'caption':'[isModuleRoot] Es el módulo padre','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[isModuleRoot]','d_isModuleRoot',values.d.isModuleRoot)}}
                 {{ macro.input({'caption':'[translatable] Es multi idioma','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[translatable]','d_translatable',values.d.translatable)}}
                 {{ macro.input({'caption':'[searchable] Es buscable','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[searchable]','d_searchable',values.d.searchable)}}
@@ -78,7 +83,9 @@
                 {{ macro.input({'caption':'[numberOfImages] Número de imágenes de diseño (0=sin imágenes)','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[numberOfImages]','d_numberOfImages',values.d.numberOfImages,'3','CampoTextoMedio','1') }}
                 {{ macro.input({'caption':'[withMetadata] Hay meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withMetadata]','d_withMetadata',values.d.withMetadata)}}
                 {{ macro.input({'caption':'[addMetadata] Puede añadir meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[addMetadata]','d_addMetadata',values.d.addMetadata)}}
-                {{ macro.input({'caption':'[deleteMetadata] Puede borrar meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[deleteMetadata]','d_deleteMetadata',values.d.deleteMetadata)}}        
+                {{ macro.input({'caption':'[deleteMetadata] Puede borrar meta datos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[deleteMetadata]','d_deleteMetadata',values.d.deleteMetadata)}}                   
+                </div>
+                <div class="col-md-6">     
                 {{ macro.input({'caption':'[withTiny] Hay imágenes Tiny','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withTiny]','d_withTiny',values.d.withTiny)}}
                 {{ macro.input({'caption':'[withGalery] Hay Galeria','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withGalery]','d_withGalery',values.d.withGalery)}}
                 {{ macro.input({'caption':'[withDocuments] Hay Documentos','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[withDocuments]','d_withDocuments',values.d.withDocuments)}}
@@ -92,6 +99,7 @@
                 {{ macro.input({'caption':'[video][ancho] Anchura video','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[video][ancho]','d_video_ancho',values.d.video.ancho,'10','CampoTextoMedio','1') }}
                 {{ macro.input({'caption':'[video][alto] Altura video','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[video][alto]','d_video_alto',values.d.video.alto,'10','CampoTextoMedio','1') }}
                 {{ macro.input({'caption':'[video][borde] Borde video','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','text','d[video][borde]','d_video_borde',values.d.video.borde,'10','CampoTextoMedio','1') }}
+                </div>
             </div>
 
             {# URL AMIGABLE #}
@@ -201,17 +209,17 @@
             {# VARIABLES DE ENTORNO DE CADA COLUMNA DE LA ENTIDAD DE DATOS #}
             <div class="tab-pane fade" id="tabs-columnas">
 
-                <div id="acordeonColumnas" class="panel-group">
+                <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
                     {% for columna,variables in values.d.columns %}
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 style="{% if (variables.visible) %} color: blue; font-weight: bold; {% endif %}">
-                                    <a data-toggle="collapse" data-parent="#acordeonColumnas" href="#{{columna}}">
+                            <div class="panel-heading" role="tab" id="heading{{columna}}">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#{{columna}}" aria-expanded="true" aria-controls="collapseOne">
                                         [columns][{{columna}}] :: [{{variables.caption}} = {{variables.default }}] [permission: {{variables.permission }}]
                                     </a>
                                 </h4>
                             </div>
-                            <div id="{{columna}}" class="panel-collapse collapse">
+                            <div id="{{columna}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{columna}}">
                                 <div class="panel-body">
                                     {% set hayListaValores = (variables.listaValores is iterable) %}
 
@@ -229,43 +237,13 @@
                                                     {% endif %}
 
                                                     {% if tipoTag == 'select' %}
-                                                        {{ macro.select(
-                                {'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},
-                                'Etiqueta',
-                                'd[columns]['~columna~']['~variable~']',
-                                'd_columns_' ~ columna ~ '_'~ variable,
-                                none,
-                                valor,
-                                listaValores,
-                                'chzn-select'
-                                )
-                                                        }}
+                                                        {{ macro.select({'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','d[columns]['~columna~']['~variable~']','d_columns_' ~ columna ~ '_'~ variable,none,valor,listaValores,'chzn-select')}}
                                                     {% else %}
-                                                        {{ macro.input(
-                                {'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},
-                                'Etiqueta',
-                                'checkbox',
-                                'd[columns]['~columna~']['~variable~']',
-                                'd_columns_' ~ columna ~ '_'~ variable,
-                                valor,
-                                '255',
-                                'CampoTextoMedio'
-                                )
-                                                        }}
+                                                        {{ macro.input({'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','checkbox','d[columns]['~columna~']['~variable~']','d_columns_' ~ columna ~ '_'~ variable,valor,'255','CampoTextoMedio')}}
                                                     {% endif %}
 
                                                 {% else %}
-                                                    {{ macro.input(
-                                {'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},
-                                'Etiqueta',
-                                'text',
-                                'd[columns]['~columna~']['~variable~']',
-                                'd_columns_' ~ columna ~ '_'~ variable,
-                                valor,
-                                '255',
-                                'CampoTextoLargo'
-                                )
-                                                    }}
+                                                    {{ macro.input({'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','text','d[columns]['~columna~']['~variable~']','d_columns_' ~ columna ~ '_'~ variable,valor,'255','CampoTextoLargo')}}
                                                 {% endif %}
                                             </p>
                                         {% endif %}

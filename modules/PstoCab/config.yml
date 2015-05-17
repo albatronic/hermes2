@@ -44,20 +44,20 @@ PstoCab:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Presupuestos
   id_video: pstocab
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: PstoCab
   table: ErpPstoCab
   primarykey: IDPsto
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Fecha z-a 
@@ -95,8 +95,8 @@ PstoCab:
       title: IDPsto
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -105,8 +105,8 @@ PstoCab:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDContador:
       title: Serie
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -119,8 +119,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     NumeroPsto:
       title: Número Psto
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -129,11 +129,11 @@ PstoCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
     IDSucursal:
       title: Sucursal
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -146,8 +146,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDAlmacen:
       title: Almacen
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -160,8 +160,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDAgente:
       title: IDAgente
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -174,8 +174,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDComercial:
       title: Comercial
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -188,8 +188,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Fecha:
       title: Fecha
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -202,8 +202,8 @@ PstoCab:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     FechaAceptacion:
       title: Fecha Aceptación
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00'
@@ -216,8 +216,8 @@ PstoCab:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     IDCliente:
       title: Cliente
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -230,8 +230,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDDirec:
       title: Dirección
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -244,8 +244,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Importe:
       title: Importe
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -257,8 +257,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Descuento:
       title: Descuento
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -270,8 +270,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     BaseImponible1:
       title: BaseImponible1
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -283,8 +283,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Iva1:
       title: Iva1
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -296,8 +296,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaIva1:
       title: CuotaIva1
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -309,8 +309,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Recargo1:
       title: Recargo1
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -322,8 +322,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaRecargo1:
       title: CuotaRecargo1
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -335,8 +335,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     BaseImponible2:
       title: BaseImponible2
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -348,8 +348,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Iva2:
       title: Iva2
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -361,8 +361,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaIva2:
       title: CuotaIva2
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -374,8 +374,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Recargo2:
       title: Recargo2
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -387,8 +387,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaRecargo2:
       title: CuotaRecargo2
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -400,8 +400,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     BaseImponible3:
       title: BaseImponible3
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -413,8 +413,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Iva3:
       title: Iva3
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -426,8 +426,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaIva3:
       title: CuotaIva3
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -439,8 +439,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Recargo3:
       title: Recargo3
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -452,8 +452,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaRecargo3:
       title: CuotaRecargo3
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -465,8 +465,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     TotalBases:
       title: Total Bases
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -478,8 +478,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     TotalIva:
       title: Total Iva
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -491,8 +491,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     TotalRecargo:
       title: Total Recargo
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -504,8 +504,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     RecargoFinanciero:
       title: RecargoFinanciero
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -517,8 +517,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaRecargoFinanciero:
       title: CuotaRecargoFinanciero
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -530,8 +530,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Total:
       title: Total
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -543,8 +543,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     IDEstado:
       title: Estado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -557,8 +557,8 @@ PstoCab:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     IDAlbaran:
       title: IDAlbaran
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -571,8 +571,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Observaciones:
       title: Observaciones
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -581,11 +581,11 @@ PstoCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     Peso:
       title: Peso
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -597,8 +597,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Volumen:
       title: Volumen
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -610,8 +610,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Bultos:
       title: Bultos
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -623,8 +623,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Expedicion:
       title: Expedición
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -633,11 +633,11 @@ PstoCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     IDAgencia:
       title: Agencia
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -650,8 +650,8 @@ PstoCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDFP:
       title: Forma de pago
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'

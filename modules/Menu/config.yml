@@ -6,8 +6,8 @@
 #
 ---
 Menu:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Menu
   conection: empresas
@@ -27,16 +27,16 @@ Menu:
     - 
       title: IDOpcion
       field: IDOpcion
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       default: null
     - 
       title: Script
       field: Script
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -44,7 +44,7 @@ Menu:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 50
         min: null
@@ -53,9 +53,9 @@ Menu:
     - 
       title: Titulo
       field: Titulo
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -72,8 +72,8 @@ Menu:
     - 
       title: Orden
       field: Orden
-      filter: YES
-      form: YES
+      filter: true
+      form: true
       link:
         route: null
         param: null
@@ -90,9 +90,9 @@ Menu:
     - 
       title: Administrador
       field: Administrador
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -109,9 +109,9 @@ Menu:
     - 
       title: Icono
       field: Icono
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -119,7 +119,7 @@ Menu:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 50
         min: null

@@ -48,6 +48,7 @@ $app = $config['app'];
 $app['audit'] = $_SESSION['audit'];
 
 $_SESSION['appPath'] = $app['path'];
+$_SESSION['memcache'] = $config['memcache'];
 
 // ---------------------------------------------------------------
 // ACTIVAR EL AUTOLOADER DE CLASES Y FICHEROS A INCLUIR
@@ -183,8 +184,8 @@ $result = $con->{$metodo}();
 $result['values']['controller'] = $controller;
 $result['values']['action'] = $metodo;
 $result['values']['template'] = $result['template'];
-$result['values']['archivoCss'] = getArchivoCss($result['template']);
-$result['values']['archivoJs'] = getArchivoJs($result['template']);
+$result['values']['archivoCss'] = Controller::getArchivoCss($result['template']);
+$result['values']['archivoJs'] = Controller::getArchivoJs($result['template']);
 
 // Cargo los valores para el modo debuger
 if ($config['debug_mode']) {
@@ -208,7 +209,6 @@ $layout = "_global/layout.html.twig";
 $popup = "_global/layoutPopup.html.twig";
 
 // Renderizo el template y los valores devueltos por el método
-
 $twig->addGlobal('user', new Agentes($_SESSION['usuarioPortal']['Id']));
 $twig->addGlobal('appPath', $app['path']);
 $twig->addGlobal('varEnvMod', $result['values']['varEnvMod']);
@@ -236,29 +236,3 @@ unset($loader);
 unset($twig);
 unset($config);
 unset($browser);
-
-/**
- * Devuelve el nombre del archivo css asociado al template
- * @param string $template
- * @return string
- */
-function getArchivoCss($template) {
-    $archivoTemplate = str_replace('html', 'css', $template);
-    if (!file_exists("modules/" . $archivoTemplate)) {
-        $archivoTemplate = "_global/css.html.twig";
-    }
-    return $archivoTemplate;
-}
-
-/**
- * Devuelve el nombre del archivo js asociado al template
- * @param string $template
- * @return string
- */
-function getArchivoJs($template) {
-    $archivoTemplate = str_replace('html', 'js', $template);
-    if (!file_exists("modules/" . $archivoTemplate)) {
-        $archivoTemplate = "_global/js.html.twig";
-    }
-    return $archivoTemplate;
-}

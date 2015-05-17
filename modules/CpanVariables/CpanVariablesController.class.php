@@ -127,7 +127,7 @@ class CpanVariablesController {
         // PUEDE VER LAS VARIABLES DE ENTORNO Y WEB ÚNICAMENTE SI ES DE PERFIL 1
         // PUEDE VER LAS VARIABLES WEB SI TIENE PERMISO
         $idPerfil = $_SESSION['usuarioPortal']['IdPerfil'];
-        $permiso = ( ($idPerfil == '1') or ( ($tipo == 'Web') and ($this->values['permisos']['permisosModulo']['VW'])) );
+        $permiso = ( ($idPerfil == '1') or ( ($tipo == 'Web') and ( $this->values['permisos']['permisosModulo']['VW'])) );
 
         if ($permiso) {
 
@@ -205,8 +205,9 @@ class CpanVariablesController {
             $this->values['yml'] = $this->variables->getYml();
             $this->values['template'] = $this->variables->getTemplate();
             unset($this->variables);
-        } else
+        } else {
             $template = '_global/forbiden.html.twig';
+        }
 
         return array(
             'template' => $template,
@@ -339,8 +340,9 @@ class CpanVariablesController {
                     $template = $this->entity . '/formPlantillaVariables.html.twig';
                     break;
             }
-        } else
+        } else {
             $template = '_global/forbiden.html.twig';
+        }
 
         return array('template' => $template, 'values' => $this->values);
     }
@@ -357,7 +359,7 @@ class CpanVariablesController {
     public function helpAction() {
         $template = $this->entity . '/' . $this->form->getHelpFile();
         $file = "modules/" . $template;
-        if (!is_file($file) or ($this->form->getHelpFile() == '')) {
+        if (!is_file($file) or ( $this->form->getHelpFile() == '')) {
             $template = "_help/noFound.html.twig";
         }
 
@@ -459,7 +461,7 @@ class CpanVariablesController {
                     if ($datos['translatable'] == '')
                         $datos['translatable'] = $archivoConfig->getNode('translatable');
                     if ($datos['searchable'] == '')
-                        $datos['searchable'] = $archivoConfig->getNode('searchable');                    
+                        $datos['searchable'] = $archivoConfig->getNode('searchable');
                     if ($datos['showCommonFields'] == '')
                         $datos['showCommonFields'] = $archivoConfig->getNode('showCommonFields');
                     if ($datos['numMaxRecords'] == '')
@@ -471,7 +473,7 @@ class CpanVariablesController {
                     if ($datos['addMetadata'] == '')
                         $datos['addMetadata'] = $archivoConfig->getNode('addMetadata');
                     if ($datos['deleteMetadata'] == '')
-                        $datos['deleteMetadata'] = $archivoConfig->getNode('deleteMetadata');                    
+                        $datos['deleteMetadata'] = $archivoConfig->getNode('deleteMetadata');
                     if ($datos['withGalery'] == '')
                         $datos['withGalery'] = $archivoConfig->getNode('withGalery');
                     if ($datos['withDocuments'] == '')
@@ -523,7 +525,18 @@ class CpanVariablesController {
                         $datos['fieldGeneratorMetatagDescription'] = $archivoConfig->getNode('fieldGeneratorMetatagDescription');
                     if ($datos['fieldGeneratorMetatagKeywords'] == '')
                         $datos['fieldGeneratorMetatagKeywords'] = $archivoConfig->getNode('fieldGeneratorMetatagKeywords');
-
+                    if ($datos['feature_list'] == '') {
+                        $datos['feature_list'] = $archivoConfig->getNode('feature_list');
+                    }
+                    if ($datos['permission_control'] == '') {
+                        $datos['permission_control'] = $archivoConfig->getNode('permission_control');
+                    }
+                    if ($datos['title'] == '') {
+                        $datos['title'] = $archivoConfig->getNode('title');
+                    }
+                    if($datos['help_file'] == '') {
+                        $datos['help_file'] = $archivoConfig->getNode('help_file');
+                    }
                     //if ($datos['ordenesWeb'] == '')
                     //    $datos['ordenesWeb'] = $archivoConfig->getNode('ordenes_web');
                     $ordenesWeb = $archivoConfig->getNode('ordenes_web');
@@ -595,8 +608,8 @@ class CpanVariablesController {
                 $datos[$keyVar] = $atributosConfig[$keyColumnaConfig];
         }
         // SI LA COLUMNA ESTA VINCULADA A UNA ENTIDAD, CREA LA LISTA DE VALORES
-        if (($atributosConfig['aditional_filter']['entity'] != '') and ($atributosConfig['aditional_filter']['type'] == 'select')) {
-            $entidad = $atributosConfig['aditional_filter']['entity'];          
+        if (($atributosConfig['aditional_filter']['entity'] != '') and ( $atributosConfig['aditional_filter']['type'] == 'select')) {
+            $entidad = $atributosConfig['aditional_filter']['entity'];
             $claseConId = explode(',', $entidad);
             if (class_exists($claseConId[0]))
                 $objeto = new $claseConId[0]($claseConId[1]);

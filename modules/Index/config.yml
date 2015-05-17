@@ -7,6 +7,6 @@
 ---
 Index:
   login_required: 'true'
-  permission_control: YES
+  permission_control: true
   help_file: help.html.twig
   title: Introduccion

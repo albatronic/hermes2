@@ -6,8 +6,8 @@
 #
 ---
 Submenu:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Submenu
   conection: empresas
@@ -22,9 +22,9 @@ Submenu:
     - 
       title: Id
       field: Id
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -35,9 +35,9 @@ Submenu:
     - 
       title: IDOpcion
       field: IDOpcion
-      filter: YES
-      list: NO
-      form: YES
+      filter: true
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -54,9 +54,9 @@ Submenu:
     - 
       title: Script
       field: Script
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -73,9 +73,9 @@ Submenu:
     - 
       title: Titulo
       field: Titulo
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -92,9 +92,9 @@ Submenu:
     - 
       title: Orden
       field: Orden
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -111,9 +111,9 @@ Submenu:
     - 
       title: Administrador
       field: Administrador
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -130,9 +130,9 @@ Submenu:
     - 
       title: Emergente
       field: Emergente
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null

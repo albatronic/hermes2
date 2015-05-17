@@ -14,7 +14,7 @@ ArticulosEstados:
   entity: ArticulosEstados
   table: articulos_estados
   primarykey: IDEstado
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Estado a-z

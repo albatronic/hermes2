@@ -7,7 +7,7 @@
 #
 ---
 Favoritos:
-  login_required: NO
+  login_required: false
   permission_control: false
   help_file: help.html.twig
   title: Favoritos
@@ -17,7 +17,7 @@ Favoritos:
   entity: Favoritos
   table: favoritos
   primarykey: Id
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Titulo a-z
@@ -33,9 +33,9 @@ Favoritos:
     -
       title: Id
       field: Id
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -46,9 +46,9 @@ Favoritos:
     -
       title: Agente
       field: IDAgente
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -66,7 +66,7 @@ Favoritos:
         operator: =
         event: null
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 50
         min: null
@@ -75,9 +75,9 @@ Favoritos:
     -
       title: Titulo
       field: Titulo
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -86,7 +86,7 @@ Favoritos:
         link: null
       default: 
       validator:
-        nullable: NO
+        nullable: false
         type: string
         length: 50
         min: null
@@ -95,9 +95,9 @@ Favoritos:
     -
       title: Url
       field: Url
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -106,7 +106,7 @@ Favoritos:
         link: null
       default: 
       validator:
-        nullable: NO
+        nullable: false
         type: string
         length: 100
         min: null
@@ -115,9 +115,9 @@ Favoritos:
     -
       title: Accesos
       field: Accesos
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -126,7 +126,7 @@ Favoritos:
         link: null
       default: 
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 5
         min: null

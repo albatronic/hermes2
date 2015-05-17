@@ -6,8 +6,8 @@
 #
 ---
 ExpedirCab:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Expedir Mercancía
   conection: 'datos<?php echo $_SESSION['emp'];?>'
@@ -21,9 +21,9 @@ ExpedirCab:
     - 
       title: Albaran
       field: IDAlbaran
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -34,9 +34,9 @@ ExpedirCab:
     - 
       title: Sucursal
       field: IDSucursal
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -44,7 +44,7 @@ ExpedirCab:
         target: null
       default: 000
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 3
         min: null
@@ -53,9 +53,9 @@ ExpedirCab:
     - 
       title: Almacen
       field: IDAlmacen
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -63,7 +63,7 @@ ExpedirCab:
         target: null
       default: 000
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 3
         min: null
@@ -72,9 +72,9 @@ ExpedirCab:
     - 
       title: Agente
       field: IDAgente
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -82,7 +82,7 @@ ExpedirCab:
         target: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 4
         min: null
@@ -91,9 +91,9 @@ ExpedirCab:
     - 
       title: Comercial
       field: IDComercial
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -101,7 +101,7 @@ ExpedirCab:
         target: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 4
         min: null
@@ -110,9 +110,9 @@ ExpedirCab:
     - 
       title: Fecha
       field: Fecha
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -120,7 +120,7 @@ ExpedirCab:
         target: null
       default: 0000-00-00
       validator:
-        nullable: NO
+        nullable: false
         type: date
         length: null
         min: null
@@ -129,9 +129,9 @@ ExpedirCab:
     - 
       title: Fecha de Entrega
       field: FechaEntrega
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -139,7 +139,7 @@ ExpedirCab:
         target: null
       default: 0000-00-00
       validator:
-        nullable: NO
+        nullable: false
         type: date
         length: null
         min: null
@@ -148,9 +148,9 @@ ExpedirCab:
     - 
       title: Cliente
       field: IDCliente
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -158,7 +158,7 @@ ExpedirCab:
         target: null
       default: null
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -167,9 +167,9 @@ ExpedirCab:
     - 
       title: Direccion de Entrega
       field: IDDirec
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -177,7 +177,7 @@ ExpedirCab:
         target: null
       default: null
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -186,9 +186,9 @@ ExpedirCab:
     - 
       title: Importe
       field: Importe
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -196,7 +196,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -205,9 +205,9 @@ ExpedirCab:
     - 
       title: Descuento
       field: Descuento
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -215,7 +215,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -224,9 +224,9 @@ ExpedirCab:
     - 
       title: BaseImponible1
       field: BaseImponible1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -234,7 +234,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: YES
+        nullable: true
         type: decimal
         length: 10
         min: null
@@ -243,9 +243,9 @@ ExpedirCab:
     - 
       title: Iva1
       field: Iva1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -253,7 +253,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: YES
+        nullable: true
         type: decimal
         length: 10
         min: null
@@ -262,9 +262,9 @@ ExpedirCab:
     - 
       title: CuotaIva1
       field: CuotaIva1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -272,7 +272,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: YES
+        nullable: true
         type: decimal
         length: 10
         min: null
@@ -281,9 +281,9 @@ ExpedirCab:
     - 
       title: Recargo1
       field: Recargo1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -291,7 +291,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: YES
+        nullable: true
         type: decimal
         length: 10
         min: null
@@ -300,9 +300,9 @@ ExpedirCab:
     - 
       title: CuotaRecargo1
       field: CuotaRecargo1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -310,7 +310,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: YES
+        nullable: true
         type: decimal
         length: 10
         min: null
@@ -319,9 +319,9 @@ ExpedirCab:
     - 
       title: BaseImponible2
       field: BaseImponible2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -329,7 +329,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -338,9 +338,9 @@ ExpedirCab:
     - 
       title: Iva2
       field: Iva2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -348,7 +348,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -357,9 +357,9 @@ ExpedirCab:
     - 
       title: CuotaIva2
       field: CuotaIva2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -367,7 +367,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -376,9 +376,9 @@ ExpedirCab:
     - 
       title: Recargo2
       field: Recargo2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -386,7 +386,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -395,9 +395,9 @@ ExpedirCab:
     - 
       title: CuotaRecargo2
       field: CuotaRecargo2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -405,7 +405,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -414,9 +414,9 @@ ExpedirCab:
     - 
       title: BaseImponible3
       field: BaseImponible3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -424,7 +424,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -433,9 +433,9 @@ ExpedirCab:
     - 
       title: Iva3
       field: Iva3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -443,7 +443,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -452,9 +452,9 @@ ExpedirCab:
     - 
       title: CuotaIva3
       field: CuotaIva3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -462,7 +462,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -471,9 +471,9 @@ ExpedirCab:
     - 
       title: Recargo3
       field: Recargo3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -481,7 +481,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -490,9 +490,9 @@ ExpedirCab:
     - 
       title: CuotaRecargo3
       field: CuotaRecargo3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -500,7 +500,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -509,9 +509,9 @@ ExpedirCab:
     - 
       title: TotalBases
       field: TotalBases
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -519,7 +519,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -528,9 +528,9 @@ ExpedirCab:
     - 
       title: TotalIva
       field: TotalIva
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -538,7 +538,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -547,9 +547,9 @@ ExpedirCab:
     - 
       title: TotalRecargo
       field: TotalRecargo
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -557,7 +557,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -566,9 +566,9 @@ ExpedirCab:
     - 
       title: Total
       field: Total
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -576,7 +576,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -585,9 +585,9 @@ ExpedirCab:
     - 
       title: Estado
       field: IDEstado
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -595,7 +595,7 @@ ExpedirCab:
         target: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 1
         min: null
@@ -604,9 +604,9 @@ ExpedirCab:
     - 
       title: Factura
       field: IDFactura
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -614,7 +614,7 @@ ExpedirCab:
         target: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: string
         length: 8
         min: null
@@ -623,9 +623,9 @@ ExpedirCab:
     - 
       title: Observaciones
       field: Observaciones
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -633,7 +633,7 @@ ExpedirCab:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: null
         min: null
@@ -642,9 +642,9 @@ ExpedirCab:
     - 
       title: Peso
       field: Peso
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -652,7 +652,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -661,9 +661,9 @@ ExpedirCab:
     - 
       title: Volumen
       field: Volumen
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -671,7 +671,7 @@ ExpedirCab:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -680,9 +680,9 @@ ExpedirCab:
     - 
       title: Bultos
       field: Bultos
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -690,7 +690,7 @@ ExpedirCab:
         target: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 4
         min: null
@@ -699,9 +699,9 @@ ExpedirCab:
     - 
       title: Expedicion
       field: Expedicion
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -709,7 +709,7 @@ ExpedirCab:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 50
         min: null
@@ -718,9 +718,9 @@ ExpedirCab:
     - 
       title: Agencia
       field: IDAgencia
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -728,7 +728,7 @@ ExpedirCab:
         target: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 4
         min: null
@@ -737,9 +737,9 @@ ExpedirCab:
     - 
       title: Clave
       field: Clave
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -747,7 +747,7 @@ ExpedirCab:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 50
         min: null
@@ -756,9 +756,9 @@ ExpedirCab:
     - 
       title: FActualizacion
       field: FActualizacion
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -766,7 +766,7 @@ ExpedirCab:
         target: null
       default: 0000-00-00 00:00:00
       validator:
-        nullable: NO
+        nullable: false
         type: datetime
         length: null
         min: null
@@ -775,9 +775,9 @@ ExpedirCab:
     - 
       title: Facturar
       field: Facturar
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -785,7 +785,7 @@ ExpedirCab:
         target: null
       default: 1
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 1
         min: null
@@ -794,9 +794,9 @@ ExpedirCab:
     - 
       title: Forma de Pago
       field: IDFP
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -804,7 +804,7 @@ ExpedirCab:
         target: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 4
         min: null

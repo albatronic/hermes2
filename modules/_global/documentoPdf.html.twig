@@ -5,8 +5,12 @@
 {% extends popup %}
 
 {% block content %}
-    <p style="padding: 10px; font-size: 12px;">
-        <a href="{{app.path}}/{{values.archivo}}">Descargar</a>
-    </p>
-    <iframe width="99%" height="600" src="{{app.path}}/{{values.archivo}}"></iframe>
+    {% if values.archivo %}
+        <p style="padding: 10px; font-size: 12px;">
+            <a href="{{app.path}}/{{values.archivo}}">Descargar</a>
+        </p>
+        <iframe width="99%" height="600" src="{{app.path}}/{{values.archivo}}"></iframe>
+    {% else %}
+        <h2>HUBO UN ERROR AL GENERAR EL DOCUMENTO</h2>
+    {% endif %}
 {% endblock %}

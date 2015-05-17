@@ -50,20 +50,20 @@ PedidosWebLineas:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: PedidosWebLineas
   id_video: pedidosweblineas
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: PedidosWebLineas
   table: ErpPedidosWebLineas
   primarykey: IDLinea
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'IDLinea a-z'
@@ -92,8 +92,8 @@ PedidosWebLineas:
       title: IDLinea
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -102,8 +102,8 @@ PedidosWebLineas:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDPedido:
       title: IDPedido
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -116,8 +116,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDArticulo:
       title: IDArticulo
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -130,8 +130,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Descripcion:
       title: Descripcion
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -143,8 +143,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     Unidades:
       title: Unidades
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -156,8 +156,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     UnidadMedida:
       title: UnidadMedida
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: UMV
@@ -169,8 +169,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: string, length: '3', min: null, max: null, message: 'Valor Requerido' }
     Precio:
       title: Precio
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -182,8 +182,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     PvpVigente:
       title: PvpVigente
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -195,8 +195,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Descuento:
       title: Descuento
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -208,8 +208,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Importe:
       title: Importe
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -221,8 +221,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     ImporteCosto:
       title: ImporteCosto
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -234,8 +234,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     IDAlmacen:
       title: IDAlmacen
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -248,8 +248,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Iva:
       title: Iva
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -261,8 +261,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Recargo:
       title: Recargo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -274,8 +274,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     ComisionAgente:
       title: ComisionAgente
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -287,8 +287,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     ComisionMontador:
       title: ComisionMontador
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -300,8 +300,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     IDVenta:
       title: IDVenta
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -314,8 +314,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Comisionar:
       title: Comisionar
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -328,8 +328,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     IDAgente:
       title: IDAgente
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -342,8 +342,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDAfiliado:
       title: IDAfiliado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -356,8 +356,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDPromocion:
       title: IDPromocion
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -370,8 +370,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDEstado:
       title: IDEstado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -384,8 +384,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     AltoAl:
       title: AltoAl
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -397,8 +397,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     AnchoAl:
       title: AnchoAl
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -410,8 +410,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     MtsAl:
       title: MtsAl
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -423,8 +423,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     AltoFa:
       title: AltoFa
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -436,8 +436,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     AnchoFa:
       title: AnchoFa
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -449,8 +449,8 @@ PedidosWebLineas:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     MtsFa:
       title: MtsFa
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'

@@ -3,9 +3,9 @@
 {# label: MUESTRA UN <DIV> CONTENIENDO EL TEXTO value Y APLICANDO LA CLASE class #}
 {# ----------------------------------------------------------------------------- #}
 {% macro label(atributos, class, name, id) %}
-    {#<span class="{{ class|default('Etiqueta') }}" title="{{atributos.help}}">
+    <span class="{{ class|default('Etiqueta') }}" title="{{atributos.help}}">
 
-    {% if (atributos.varEnv == '') and (user.getIDPerfil.Id == '1') and (idiomas.actual == 0) %}
+    {% if (atributos.varEnv == '') and (user.IDPerfil.PrimaryKeyValue == '1') and (idiomas.actual == 0) %}
         <input
             title="Poner/Quitar visibilidad"
             id="checkVisibilidad{{id}}"
@@ -15,10 +15,10 @@
             onchange="
               if ($('#checkVisibilidad{{id}}').is(':checked')) {
                   $('#checkVisibilidad{{id}}').val('1');
-                  $('#spanVisibilidad{{id}}').removeClass('invisible');
+                  $('#spanVisibilidad{{id}}').removeClass('tachado');
               } else {
                   $('#checkVisibilidad{{id}}').val('0');
-                  $('#spanVisibilidad{{id}}').addClass('invisible');
+                  $('#spanVisibilidad{{id}}').addClass('tachado');
               }
               actualizaVarEntorno('{{id}}_visible',$('#checkVisibilidad{{id}}').val());
             "
@@ -39,16 +39,15 @@
             "
         />           
     {% endif %}   
-    #}
-    <label for="{{id}}" class="{{class}}" 
-        {% if (user.getIDPerfil.Id == '1') and (atributos.visible == '0') and (atributos.varEnv == '') %} class="invisible"{% endif %}
-        {% if (atributos.varEnv == '') and (user.getIDPerfil.Id == '1') and (idiomas.actual == 0) %}
+    
+    <label for="{{id}}" id="spanVisibilidad{{id}}" class="{{class}}{% if (user.IDPerfil.PrimaryKeyValue == '1') and (atributos.visible == '0') and (atributos.varEnv == '') %} tachado{% endif %}"
+        {% if (atributos.varEnv == '') and (user.getIDPerfil.PrimaryKeyValue == '1') and (idiomas.actual == 0) %}
              style="cursor: pointer;"
              onclick="popUpVariablesEnv('Env','Mod','{{id}}');"
         {% endif %}              >            
         {{ atributos.caption }}
     </label>
-{#</span>#}
+    </span>
 {% endmacro %}
 
 {% macro labelPopup(caption, url, objetoEnlazado, ancho, alto, class) %}
@@ -131,18 +130,27 @@
 {# input: MUESTRA UN <INPUT> #}
 {# ------------------------- #}
 {% macro input(atributos,classLabel, type, name, id, value, maxLength, class, extra, onchange, autoComplete, tabIndex) %}
+    
+    {% if classLabel == 'EtiquetaLarga' %}
+        {% set classLabel = 'col-sm-8 control-label'%}
+        {% set class = 'col-sm-4' %}
+    {% else %}
+        {% set classLabel = 'col-sm-3 control-label'%}
+        {% set class = 'col-sm-9' %}        
+    {% endif %}
+    
 {% if not(atributos is iterable) %}
     {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
 {% endif %}
 {% if atributos.editorTiny != '1' %}
 <div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.Id == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="form-group"{% else %}class="oculto"{% endif %}>
     {% if atributos.caption %}
-        {{ _self.label(atributos,"col-sm-3 control-label", name, id) }}
+        {{ _self.label(atributos,classLabel, name, id) }}
     {% endif %}
         
     {% if not autoComplete %}
         {% if (type == 'checkbox') %}
-        <div class="col-sm-9">          
+        <div class="{{class}}">          
         <input name="{{name}}" id="{{ id|default(name)}}" type="hidden" value="{{value}}" />
         <input type="checkbox"              
                id="checkbox_{{ id|default(name)}}"
@@ -150,7 +158,7 @@
                 {% if (value == '1') %} CHECKED {% endif %}
                class="tip_top" title="{{ atributos.help }}" tabindex="{{ tabIndex }}"
                onchange="
-                    {{ onchange }} {{ _self.alertSave }}
+                    {{ onchange }} 
                     if ($('#checkbox_{{ id|default(name)}}').is(':checked')) {$('#{{ id|default(name)}}').val('1');} else {$('#{{ id|default(name)}}').val('0');}
                "
                {{extra}}
@@ -158,7 +166,7 @@
         />
         </div>  
         {% else %}
-        <div class="col-sm-9">
+        <div class="{{class}}">
         <input type="{{ type|default('text') }}"
                name="{{ name }}"
                id="{{ id|default(name)}}"
@@ -166,15 +174,13 @@
                class="form-control" {{extra}} title="{{ atributos.help }}" tabindex="{{ tabIndex }}"
                onchange="{{ onchange }} {{ _self.alertSave }}"
                {{extra}}
-               {% if atributos.updatable == '0' %} disabled {% endif %}
+               {% if atributos.updatable == '0' %} disabled{% endif %}
+               {% if atributos.validator.nullable == 'NO' %} required{% endif %}               
         />
-        {% if atributos.validator.nullable == 'NO' %}
-        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-        {% endif %}
         </div>
         {% endif %}
     {% else %}
-        <div class="col-sm-9">        
+        <div class="{{class}}">        
         {#
         <input type="hidden"
                id="{{ id|default(name)}}_valorAnterior"
@@ -220,29 +226,37 @@
    INPUT RADIO 
 ---------------------------#}
 {% macro radio(atributos, classLabel, name, id, valueSelected, arrayOptions, class, tabIndex, extra, onchange) %}
-
-<div id="div_{{id|default(name)}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.Id == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="form-group"{% else %}class="oculto"{% endif %}>
-    {% if atributos.caption %}
-        {{ _self.label(atributos,"col-sm-3 control-label", name, id) }}
+    
+    {% if classLabel == 'EtiquetaLarga' %}
+        {% set classLabel = 'col-sm-8 control-label'%}
+        {% set class = 'col-sm-4' %}
+    {% else %}
+        {% set classLabel = 'col-sm-3 control-label'%}
+        {% set class = 'col-sm-9' %}        
     {% endif %}
+    
+    <div id="div_{{id|default(name)}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.Id == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="form-group"{% else %}class="oculto"{% endif %}>
+        {% if atributos.caption %}
+            {{ _self.label(atributos,classLabel, name, id) }}
+        {% endif %}
 
-    <div class="col-sm-9">
-        {% for value in arrayOptions %}
-        <input  
-           type="radio"
-           name="{{ name }}"
-           id="{{ id|default(name)}}"
-           value="{{value.Id}}"
-           class="{{ class |default('form-control') }}"
-           tabindex="{{ tabindex }}"
-           onchange="{{ onchange}} {{ _self.alertSave }}"
-           {% if atributos.updatable == '0' %} disabled {% endif %}
-           {{extra}}
-           {% if valueSelected == value.Id %} checked{% endif %}
-        />&nbsp;{{value.Value}}&nbsp;
-        {% endfor %}
+        <div class="{{class}}">
+            {% for value in arrayOptions %}
+            <input  
+               type="radio"
+               name="{{ name }}"
+               id="{{ id|default(name)}}"
+               value="{{value.Id}}"
+               class="{{ class |default('form-control') }}"
+               tabindex="{{ tabindex }}"
+               onchange="{{ onchange}} {{ _self.alertSave }}"
+               {% if atributos.updatable == '0' %} disabled {% endif %}
+               {{extra}}
+               {% if valueSelected == value.Id %} checked{% endif %}
+            />&nbsp;{{value.Value}}&nbsp;
+            {% endfor %}
+        </div>
     </div>
-</div>
    
 {% endmacro %}
 
@@ -320,17 +334,26 @@
 {# select: MUESTRA UN <SELECT> #}
 {# --------------------------- #}
 {% macro select(atributos, classLabel, name, id, width, defecto, opciones, class, popup, onchange, onblur) %}
+    
+    {% if classLabel == 'EtiquetaLarga' %}
+        {% set classLabel = 'col-sm-8 control-label'%}
+        {% set class = 'col-sm-4' %}
+    {% else %}
+        {% set classLabel = 'col-sm-3 control-label'%}
+        {% set class = 'col-sm-9' %}        
+    {% endif %}
+    
     {% if not(atributos is iterable) %}
         {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
     {% endif %}
     <div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.Id == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="form-group"{% else %}class="oculto"{% endif %}>
     {% if atributos.caption %}
-        {{ _self.label(atributos, "col-sm-3 control-label", name, id) }}
+        {{ _self.label(atributos, classLabel, name, id) }}
     {% endif %}
     {% if (atributos.updatable == '0') %}
         <input type="hidden" name="{{ name }}" value="{{ defecto }}" />
     {% endif %}
-    <div class="col-sm-9">
+    <div class="{{class}}">
     <select
         {% if (atributos.updatable == '1') %}name="{{ name }}" id="{{ id|default(name)}}"{% endif %}
         {% if (atributos.updatable == '0') %}disabled{% endif %}
@@ -414,13 +437,22 @@
 
 {# fecha: MUESTRA UN INPUT DE TIPO FECHA. UTILIZA UN POPUP DE CALENDARIO #}
 {% macro fecha(atributos,classLabel,name,id,value,size,class,extra) %}
-{% if not(atributos is iterable) %}
-    {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
-{% endif %}
-<div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.Id == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="form-group"{% else %}class="oculto"{% endif %}>    
-     
+    
+    {% if classLabel == 'EtiquetaLarga' %}
+        {% set classLabel = 'col-sm-8 control-label'%}
+        {% set class = 'col-sm-4' %}
+    {% else %}
+        {% set classLabel = 'col-sm-3 control-label'%}
+        {% set class = 'col-sm-9' %}        
+    {% endif %}
+    
+    {% if not(atributos is iterable) %}
+        {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
+    {% endif %}
+    <div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.Id == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="form-group"{% else %}class="oculto"{% endif %}>    
+
         {% if atributos.caption %}
-            {{ _self.label(atributos,"col-sm-2 control-label", name, id) }}
+            {{ _self.label(atributos,classLabel, name, id) }}
         {% endif %}
         <script>
             $(function() {
@@ -429,14 +461,13 @@
                     );}
              );
         </script>
-        <div class="col-sm-10">
+        <div class="{{class}}">
         <input name="{{name}}" type="text" id="{{id|default(label)}}" value="{{value}}"
                size="{{size|default("10")}}" class="{{class|default("form-control")}}"
                onKeyUp="" {% if atributos.updatable == '0' %} disabled {% endif %} {{extra}}
         />
         </div>
-
-</div>
+    </div>
 {% endmacro %}
 
 {# foco: PONE EL FOCO EN EL ID INDICADO #}

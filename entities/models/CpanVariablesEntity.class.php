@@ -23,7 +23,7 @@ class CpanVariablesEntity extends EntityComunes {
      * @var integer
      * @assert NotBlank(groups="CpanVariables")
      */
-    protected $IdProyectosApps;
+    protected $IdPerfil;
 
     /**
      * @var string
@@ -91,12 +91,12 @@ class CpanVariablesEntity extends EntityComunes {
         return $this->Id;
     }
 
-    public function setIdProyectosApps($IdProyectosApps) {
-        $this->IdProyectosApps = $IdProyectosApps;
+    public function setIdPerfil($IdPerfil) {
+        $this->IdPerfil = $IdPerfil;
     }
 
-    public function getIdProyectosApps() {
-        return $this->IdProyectosApps;
+    public function getIdPerfil() {
+        return $this->IdPerfil;
     }
 
     public function setVariable($Variable) {
@@ -118,4 +118,3 @@ class CpanVariablesEntity extends EntityComunes {
 }
 
 // END class CpanVariables
-?>

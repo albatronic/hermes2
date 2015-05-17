@@ -44,20 +44,20 @@ Promociones:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Promociones
   id_video: promociones
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: Promociones
   table: ErpPromociones
   primarykey: IDPromocion
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Título a-z'
@@ -83,8 +83,8 @@ Promociones:
       title: IDPromocion
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -93,8 +93,8 @@ Promociones:
       link: { route: null, param: null, title: null, target: null, link: null }
     Titulo:
       title: Título
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -106,8 +106,8 @@ Promociones:
       validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     IDFamilia:
       title: Categoría
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: null
@@ -117,11 +117,11 @@ Promociones:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       aditional_filter': { order: 1, caption: IDFamilia, entity: Familias, method: fetchAll, params: Familia, type: select, operator: '=', event: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDArticulo:
       title: Artículo
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: null
@@ -131,11 +131,11 @@ Promociones:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       aditional_filter': { order: 2, caption: IDArticulo, entity: Articulos, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     FinPromocion:
       title: Fin Promoción
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0000-00-00'
@@ -148,8 +148,8 @@ Promociones:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     CantidadMinima:
       title: Cantidad Mínima
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: '1.00'
@@ -161,8 +161,8 @@ Promociones:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     TipoPromocion:
       title: Tipo Promoción
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -175,8 +175,8 @@ Promociones:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Valor:
       title: Valor
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: '0.000'
@@ -188,8 +188,8 @@ Promociones:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     IDFP:
       title: Forma de pago
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'

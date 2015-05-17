@@ -6,8 +6,8 @@
 #
 ---
 ConformarFacturas:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Conformar Facturas de Proveedores
   conection: 'datos<?php echo $_SESSION['emp'];?>'

@@ -7,8 +7,8 @@
 #
 ---
 RecalculaStock:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Recalcular Stock
@@ -18,7 +18,7 @@ RecalculaStock:
   entity: RecalculaStock
   table:
   primarykey:
-  records_per_page: 15
+  records_per_page: 10
   order_by:
   search_default:
   referenced_entities:

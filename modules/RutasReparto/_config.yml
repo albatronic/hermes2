@@ -18,7 +18,7 @@ RutasReparto:
   entity: RutasReparto
   table: rutas_reparto
   primarykey: IDRuta
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Descripción a-z

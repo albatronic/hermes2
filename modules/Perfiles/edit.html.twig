@@ -6,16 +6,5 @@
 
 {% block mantenimiento %}
 <div class="FormManto">
-    <form name="manto_{{values.controller}}" id="manto_{{values.controller}}" action="" method="POST" enctype="multipart/form-data">
-        <input name="controller" value="Perfiles" type="hidden" />
-        <input name="action" value="edit" type="hidden" />
-        <input name="Perfiles[IDPerfil]" value="{{ values.datos.IDPerfil }}" type="hidden" />
-        {% include "_global/comandosSaveDelete.html.twig" %}
-
-        <div class='Cuerpo'>
-	{% include "_global/FormErrores.html.twig" with {'errores': values.errores} %}
-	{% include "Perfiles/form.html.twig" with {'datos': values.datos} %}
-        </div>
-    </form>
-</div>
+    {% include '_global/formEdit.html.twig' with {'values': values} %}
 {% endblock %}

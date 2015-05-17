@@ -14,7 +14,7 @@ FrecibidasCab:
   entity: FrecibidasCab
   table: frecibidas_cab
   primarykey: IDFactura
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Número z-a

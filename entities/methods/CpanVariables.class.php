@@ -34,10 +34,13 @@ class CpanVariables extends CpanVariablesEntity {
      * @param string $ambito El ambito de las variables: Pro, App ó Mod
      * @param string $tipo El tipo de variable: Env, Web
      * @param string $nombre El nombre de la app o del modulo según $ambito
+     * @param integer $idPerfil El id del perfil 
      */
-    public function __construct($ambito = '', $tipo = '', $nombre = '') {
+    public function __construct($ambito = '', $tipo = '', $nombre = '', $idPerfil='') {
 
-        if ($this->carga($ambito, $tipo, $nombre)) {
+        $idPerfil = ($idPerfil == '') ? $_SESSION['usuarioPortal']['IdPerfil'] : $idPerfil;
+        
+        if ($this->carga($ambito, $tipo, $nombre, $idPerfil)) {
 
             $this->_objeto = array(
                 'ambito' => $ambito,
@@ -126,11 +129,13 @@ class CpanVariables extends CpanVariablesEntity {
      */
     public function getArrayEspecificas() {
 
-        if (file_exists($this->_fileEspecificas))
+        if (file_exists($this->_fileEspecificas)) {
             $arrayEspecificas = sfYaml::load($this->_fileEspecificas);
+        }
 
-        if (!is_array($arrayEspecificas))
+        if (!is_array($arrayEspecificas)) {
             $arrayEspecificas = array();
+        }
 
         return $arrayEspecificas;
     }
@@ -225,10 +230,11 @@ class CpanVariables extends CpanVariablesEntity {
      * @param string $ambito El ambito de las variables: Pro, App ó Mod
      * @param string $tipo El tipo de variable: Env, Web
      * @param string $nombre El nombre de la app o del modulo
+     * @param integer $idPerfil El id del perfil de usuario
      *
      * @return boolean TRUE si el ambito y tipo son válidos
      */
-    public function carga($ambito, $tipo, $nombre) {
+    public function carga($ambito, $tipo, $nombre, $idPerfil) {
 
         $ok = ( (in_array($ambito, $this->_ambitosDeVariables)) and ( in_array($tipo, $this->_tiposDeVariables)) );
 
@@ -262,18 +268,18 @@ class CpanVariables extends CpanVariablesEntity {
             }
 
             $variable .= "_{$tipo}";
-            //$filtro = "IdProyectosApps='{$_SESSION['project']['Id']}' AND Variable='{$variable}'";
-            $filtro = "Variable='{$variable}'";
+            $filtro = "IdPerfil='{$idPerfil}' AND Variable='{$variable}'";
             $rows = $this->cargaCondicion('*', $filtro);
 
             if (isset($rows[0])) {
                 $this->bind($rows[0]);
             } else {
-                $this->setIdProyectosApps($_SESSION['project']['Id']);
+                $this->setIdPerfil($idPerfil);
                 $this->setVariable($variable);
             }
-        } else
+        } else {
             $this->errores[] = "Los valores indicados en ambito y/o tipo no son válidos";
+        }
 
         return $ok;
     }
@@ -333,4 +339,3 @@ class CpanVariables extends CpanVariablesEntity {
 
 }
 
-?>

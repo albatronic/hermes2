@@ -18,7 +18,7 @@ AlmacenesMapas:
   table: almacenes_mapas
   primarykey: IDUbicacion
   linkBy: IDAlmacen
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Ubicacion a-z

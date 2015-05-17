@@ -35,7 +35,7 @@
                         {# SE MUESTRAN SOLO LAS COLUMNAS QUE SON VISIBLES SEGUN LAS VARIABLES DE ENTORNO #}
                         {# ADEMÁS EL CAPTION SE QUE SE MUESTRA NO ES EL DEFINIDO CON EL CONFIG.YML SINO #}
                         {# EL INDICADO EN LA VARIABLE DE ENTORNO #}
-                        {% if (values.varEnvMod.columns[value.field].visible) or (user.IdPerfil.Id == 1) %}
+                        {% if (values.varEnvMod.columns[value.field].visible) or (user.IDPerfil.PrimaryKeyValue == 1) %}
 
                             {% set i = i+1 %}
                             {% if filter.valuesSelected[i] %}
@@ -45,7 +45,7 @@
                             {% endif %}
                     
                             <div class="form-group">
-                                <label for="orden" class="col-sm-4 control-label">{{value.caption}}</label>
+                                <label for="filter[columnsSelected][{{i}}]" class="col-sm-4 control-label">{{value.caption}}</label>
                                 <div class="col-sm-4">
                                     
                                 {% if value.type == 'select' %}

@@ -151,21 +151,21 @@ class Entity {
             $values = '';
             foreach ($this as $key => $value) {
                 if ((substr($key, 0, 1) != '_') and ( $key != $this->getPrimaryKeyName())) {
-                    if (is_null($value))
+                    if (is_null($value)) {
                         $values .= "`" . $key . "` = NULL,";
-                    else
+                    } else {
                         $values .= "`" . $key . "` = '" . mysql_real_escape_string($value, $this->_dbLink) . "',";
+                    }
                 }
             }
             // Quito la coma final
             $values = substr($values, 0, -1);
             $query = "UPDATE `{$this->_dataBaseName}`.`{$this->_tableName}` SET {$values} WHERE `{$this->getPrimaryKeyName()}` = '{$this->getPrimaryKeyValue()}'";
             //echo $query;
-            if (!$this->_em->query($query))
+            if (!$this->_em->query($query)) {
                 $this->_errores = $this->_em->getError();
-            //$this->_em->desConecta();
+            }
         }
-        //unset($this->_em);
 
         return ( count($this->_errores) == 0);
     }
@@ -192,7 +192,10 @@ class Entity {
             foreach ($this as $key => $value) {
                 if (substr($key, 0, 1) != '_') {
                     $columns .= "`" . $key . "`,";
-                    if (( ($key == $this->getPrimaryKeyName()) and ( $_SESSION['idiomas']['actual'] == 0)) or ( is_null($value))) {
+                    if ($key == "PrimaryKeyMD5") {
+                        $this->PrimaryKeyMD5 = str_replace(".", "-", uniqid($_SESSION['usuarioPortal']['Id'], true));
+                        $values .= "'{$this->PrimaryKeyMD5}',";
+                    } elseif (is_null($value) or ( ($key == $this->getPrimaryKeyName()) and ( $value == '') )) {
                         $values .= "NULL,";
                     } else {
                         $values .= "'" . mysql_real_escape_string($value, $this->_dbLink) . "',";
@@ -204,15 +207,13 @@ class Entity {
             $values = substr($values, 0, -1);
 
             $query = "INSERT INTO `{$this->_dataBaseName}`.`{$this->_tableName}` ({$columns}) VALUES ({$values})";
-            //echo $query,"<br/>";
+            //echo $query, "\n";
             if (!$this->_em->query($query)) {
                 $this->_errores = $this->_em->getError();
             } else {
                 $lastId = (!$this->getPrimaryKeyValue()) ? $this->_em->getInsertId() : $this->getPrimaryKeyValue();
                 // ***** Comentar para importar
                 $this->setPrimaryKeyValue($lastId);
-                // Calcular la clave md5
-                $this->setPrimaryKeyMD5(md5($lastId));
                 // Poner el orden
                 if ($this->getSortOrder() == '0') {
                     $this->setSortOrder($lastId);
@@ -222,8 +223,9 @@ class Entity {
                     $objetoPadre = new $this($this->BelongsTo);
                     $perfilesCpan = $objetoPadre->getAccessProfileList();
                     unset($objetoPadre);
-                } else
+                } else {
                     $perfilesCpan = $this->getAccessProfileList();
+                }
 
                 $perfilesCpan['perfiles'][$_SESSION['usuarioPortal']['IdPerfil']] = $_SESSION['usuarioPortal']['IdPerfil'];
                 $this->setAccessProfileList($perfilesCpan);
@@ -232,7 +234,7 @@ class Entity {
                 // hasta aquí *******
             }
         }
-        //unset($this->_em);
+
         return $lastId;
     }
 
@@ -267,10 +269,10 @@ class Entity {
                     $doc->borraDocs($this->getClassName(), $this->getPrimaryKeyValue(), "%");
                     unset($doc);
                 }
-                //$this->_em->desConecta();
-            } else
+            } else {
                 $this->_errores = $this->_em->getError();
-            //unset($this->_em);
+            }
+
             $validacion = (count($this->_errores) == 0);
         }
 
@@ -305,11 +307,10 @@ class Entity {
                     $doc->borraDocs($this->getClassName(), $this->getPrimaryKeyValue(), "%");
                     unset($doc);
                 }
-                //$this->_em->desConecta();
             } else {
                 $this->_errores = $this->_em->getError();
             }
-            //unset($this->_em);
+
             $validacion = (count($this->_errores) == 0);
         }
 
@@ -350,8 +351,9 @@ class Entity {
      */
     public function setDefaultValues(array $valores) {
         foreach ($valores as $key => $values) {
-            if ($values['default'])
+            if ($values['default']) {
                 $this->{"set$key"}($values['default']);
+            }
         }
     }
 
@@ -602,9 +604,7 @@ class Entity {
             $query = "UPDATE `{$this->_dataBaseName}`.`{$this->_tableName}` SET {$valores} WHERE ({$condicion})";
             $this->_em->query($query); //echo $query;
             $filasAfectadas = $this->_em->getAffectedRows();
-            //$this->_em->desConecta();
         }
-        //unset($this->_em);
 
         return $filasAfectadas;
     }
@@ -1155,7 +1155,7 @@ class Entity {
      * Es de gran utilidad para el listado genérico por pantalla.
      *
      * @param string $column El nombre de la columna
-     * @param integer $lenght El numero de caracteres a devolver
+     * @param integer $length El numero de caracteres a devolver
      * @return variant
      */
     public function getColumnValue($column, $length = 0) {
@@ -1165,6 +1165,18 @@ class Entity {
         if ($length > 0)
             $cadena = substr($cadena, 0, $length);
         return $cadena;
+    }
+
+    /**
+     * Devuelve el objeto correspondiente al valor
+     * de la columna indicada.
+     * Es de gran utilidad para el listado genérico por pantalla.
+     *
+     * @param string $column El nombre de la columna
+     * @return variant Objeto
+     */
+    public function getColumnObject($column) {
+        return $this->{"get$column"}();
     }
 
     /**
@@ -1295,7 +1307,15 @@ class Entity {
     public function getConectionName() {
 
         if ($this->_conectionName == '') {
-            $this->_conectionName = $_SESSION['project']['conection'];
+            if ($_SESSION['project']['conection'] != '') {
+                $this->_conectionName = $_SESSION['project']['conection'];
+            } else {
+                // Si no se ha indicado explicatamente, se toma la
+                // primera conexión definidad en config/config.yml
+                reset($_SESSION['conections']);
+                list($conection, $nada) = each($_SESSION['conections']);
+                $this->_conectionName = $conection;
+            }
         }
         return $this->_conectionName;
     }

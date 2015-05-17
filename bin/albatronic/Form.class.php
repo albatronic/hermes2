@@ -25,6 +25,10 @@ class Form {
         $this->yaml = sfYaml::load($file);
     }
 
+    public function getAll() {
+        return $this->yaml[$this->moduleName];
+    }
+
     /**
      * Devuelve el contenido del nodo $node que debe de estar
      * dentro del nodo principal ($moduleName pasado al constructor).
@@ -113,7 +117,7 @@ class Form {
 
         $sufijo = "";
 
-        if (($_SESSION['VARIABLES']['EnvMod']['translatable'] == 1) and ($_SESSION['idiomas']['actual'] > 0))
+        if (($_SESSION['VARIABLES']['EnvMod']['translatable'] == 1) and ( $_SESSION['idiomas']['actual'] > 0))
             $sufijo = $_SESSION['idiomas']['actual'];
 
         return $this->getNode('table') . $sufijo;
@@ -177,7 +181,7 @@ class Form {
     public function getLoginRequired() {
         $valor = strtoupper($this->getNode('login_required'));
 
-        return ( ($valor == 'YES') or ($valor == 'TRUE') );
+        return ( ($valor == 'YES') or ( $valor) );
     }
 
     /**
@@ -189,7 +193,7 @@ class Form {
     public function getPermissionControl() {
         $valor = strtoupper($this->getNode('permission_control'));
 
-        return ( ($valor == 'YES') or ($valor == 'TRUE') );
+        return ( ($valor == 'YES') or ( $valor) );
     }
 
     /**
@@ -201,7 +205,7 @@ class Form {
     public function getFavouriteControl() {
         $valor = strtoupper($this->getNode('favourite_control'));
 
-        return ( ($valor == 'YES') or ($valor == 'TRUE') );
+        return ( ($valor == 'YES') or ( $valor) );
     }
 
     /**
@@ -253,7 +257,7 @@ class Form {
 
         if ($this->getNode('columns')) {
             foreach ($this->getNode('columns') as $key => $value) {
-                if ((strtoupper($value['list']) == 'YES') or ($value['list'] === true)) {
+                if ((strtoupper($value['list']) == 'YES') or ( $value['list'])) {
                     if ($columnas != '')
                         $columnas .= ", ";
                     $columnas .= (string) $key;
@@ -274,8 +278,8 @@ class Form {
         $titulos = array();
 
         if ($this->getNode('columns')) {
-            foreach ($this->getNode('columns') as $key => $value) {
-                if ((strtoupper($value['list']) == 'YES') or ($value['list'] === true)) {
+            foreach ($this->getAtributos($this->moduleName) as $key => $value) {
+                if ((strtoupper($value['list']) == 'YES') or ( $value['list'])) {
                     $titulos[$key] = array(
                         'title' => $value['title'],
                         'type' => $value['validator']['type'],
@@ -298,10 +302,10 @@ class Form {
      */
     public function getListArrayColumns() {
         $columns = array();
-
+        
         if ($this->getNode('columns')) {
             foreach ($this->getAtributos($this->moduleName) as $key => $value)
-                if ((strtoupper($value['filter']) == 'YES') or ($value['filter'] === 1))
+                if ((strtoupper($value['filter']) == 'YES') or ($value['filter']))
                     $columns[$key] = $value['caption'];
         }
 
@@ -331,9 +335,11 @@ class Form {
 
         $titles = array();
 
-        if ($this->getNode('columns'))
-            foreach ($this->getNode('columns') as $key => $value)
+        if ($this->getNode('columns')) {
+            foreach ($this->getNode('columns') as $key => $value) {
                 $titles[$key] = $value['title'];
+            }
+        }
 
         return $titles;
     }
@@ -395,7 +401,7 @@ class Form {
     public function getTieneListado() {
         $valor = strtoupper($this->getNode('feature_list'));
 
-        return ( ($valor == 'YES') or ($valor == 'TRUE') );
+        return ( ($valor == 'YES') or ( $valor) );
     }
 
     /**
@@ -428,10 +434,10 @@ class Form {
                     $type = strtolower(trim((string) $value['aditional_filter']['type']));
                     if (!$type)
                         $type = "input";
-                    if (($type != 'input') and ($type != 'select') and ($type != 'check') and ($type != 'range'))
+                    if (($type != 'input') and ( $type != 'select') and ( $type != 'check') and ( $type != 'range'))
                         $type = 'input';
                     $event = (isset($value['aditional_filter']['event'])) ? trim((string) $value['aditional_filter']['event']) : '';
-                    $default = (isset($value['aditional_filter']['default']))? trim((string) $value['aditional_filter']['default']) : '';
+                    $default = (isset($value['aditional_filter']['default'])) ? trim((string) $value['aditional_filter']['default']) : '';
                     $operator = (isset($value['aditional_filter']['operator'])) ? trim((string) $value['aditional_filter']['operator']) : '';
                     if ($operator == '')
                         $operator = '=';
@@ -503,7 +509,7 @@ class Form {
             foreach ($this->yaml['listados'] as $value) {
                 $perfiles = (string) $value['idPerfil'];
                 $arrayPerfiles = explode(',', $perfiles);
-                if (($perfiles == '') or (in_array($perfilUsuario, $arrayPerfiles)))
+                if (($perfiles == '') or ( in_array($perfilUsuario, $arrayPerfiles)))
                     $formatos[] = (string) $value['title'];
             }
         }
@@ -554,17 +560,20 @@ class Form {
 
                 if (is_array($columnasConfig[$key])) {
                     foreach ($columnasConfig[$key] as $keyConfig => $valueConfig) {
-                        if (!isset($atributos[$key][$keyConfig]))
+                        if (!isset($atributos[$key][$keyConfig])) {
                             $atributos[$key][$keyConfig] = $valueConfig;
+                        }
                     }
                 }
             }
         } else {
             // Aún no se han definido las variables, por lo tanto cargo los atributos
             // en base al array de correspondencia de atributos predeterminados
-            foreach ($columnasConfig as $keyColumna => $valueColumna)
-                foreach (VariablesEnv::$varEnvMod as $keyVar => $keyColumnaConfig)
+            foreach ($columnasConfig as $keyColumna => $valueColumna) {
+                foreach (VariablesEnv::$varEnvMod as $keyVar => $keyColumnaConfig) {
                     $atributos[$keyColumna][$keyVar] = (isset($valueColumna[$keyColumnaConfig])) ? $valueColumna[$keyColumnaConfig] : "";
+                }
+            }
         }
 
         unset($variables);

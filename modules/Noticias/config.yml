@@ -6,8 +6,8 @@
 #
 ---
 Noticias:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Noticias
   conection: 'datos<?php echo $_SESSION['emp'];?>'
@@ -21,9 +21,9 @@ Noticias:
     - 
       title: IDNoticia
       field: IDNoticia
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -34,9 +34,9 @@ Noticias:
     - 
       title: IDSucursal
       field: IDSucursal
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -53,9 +53,9 @@ Noticias:
     - 
       title: Noticia
       field: Noticia
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -72,9 +72,9 @@ Noticias:
     - 
       title: Vigencia
       field: Vigencia
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -91,9 +91,9 @@ Noticias:
     - 
       title: Emergente
       field: Emergente
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null

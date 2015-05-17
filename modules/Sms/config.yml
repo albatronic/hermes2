@@ -6,8 +6,8 @@
 #
 ---
 Sms:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Sms
   conection: 'datos<?php echo $_SESSION['emp'];?>'
@@ -21,9 +21,9 @@ Sms:
     - 
       title: IDSms
       field: IDSms
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -34,9 +34,9 @@ Sms:
     - 
       title: CuentaSms
       field: CuentaSms
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -53,9 +53,9 @@ Sms:
     - 
       title: IDUsuario
       field: IDUsuario
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -72,9 +72,9 @@ Sms:
     - 
       title: Fecha
       field: Fecha
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -91,9 +91,9 @@ Sms:
     - 
       title: Remite
       field: Remite
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -101,7 +101,7 @@ Sms:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 11
         min: null
@@ -110,9 +110,9 @@ Sms:
     - 
       title: Para
       field: Para
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -129,9 +129,9 @@ Sms:
     - 
       title: Mensaje
       field: Mensaje
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -148,9 +148,9 @@ Sms:
     - 
       title: EnviadoOk
       field: EnviadoOk
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -167,9 +167,9 @@ Sms:
     - 
       title: Resultado
       field: Resultado
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -177,7 +177,7 @@ Sms:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 50
         min: null
@@ -186,9 +186,9 @@ Sms:
     - 
       title: NDestinatarios
       field: NDestinatarios
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null

@@ -18,7 +18,7 @@ TraspasosCab:
   entity: TraspasosCab
   table: traspasos_cab
   primarykey: IDTraspaso
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Numero z-a

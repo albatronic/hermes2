@@ -44,20 +44,20 @@ CajaArqueos:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Arqueos de Caja
   id_video: cajaarqueos
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: CajaArqueos
   table: ErpCajaArqueos
   primarykey: IDArqueo
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Sucursal,Tpv,Dia z-a
@@ -82,8 +82,8 @@ CajaArqueos:
       title: IDArqueo
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -92,8 +92,8 @@ CajaArqueos:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDSucursal:
       title: Sucursal
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -103,11 +103,11 @@ CajaArqueos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 1, caption: IDSucursal, entity: ErpSucursales, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDTpv:
       title: Tpv
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -123,11 +123,11 @@ CajaArqueos:
         type: input
         default: 0
         operator: '>='   
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Dia:
       title: Dia
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: null
@@ -137,11 +137,11 @@ CajaArqueos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       aditional_filter: { order: 1, caption: Fecha, entity: null, type: range, operator: '>=' }     
-      validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     CajaCerrada:
       title: Caja Cerrada
-      filter: NO
-      list: YES 
+      filter: false
+      list: true 
       visible: true
       updatable: true
       default: '0'
@@ -151,11 +151,11 @@ CajaArqueos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 5, caption: CajaCerrada, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     SaldoApertura:
       title: Saldo Apertura
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: '0.00'
@@ -164,11 +164,11 @@ CajaArqueos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     SumaMvtos:
       title: Suma Mvtos
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: '0.00'
@@ -177,11 +177,11 @@ CajaArqueos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     SaldoCierre:
       title: Saldo Cierre
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: '0.00'
@@ -190,11 +190,11 @@ CajaArqueos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Observaciones:
       title: Observaciones
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -203,4 +203,4 @@ CajaArqueos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }

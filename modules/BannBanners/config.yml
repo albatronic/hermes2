@@ -35,20 +35,20 @@ BannBanners:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Banners
   id_video: bannbanners
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: BannBanners
   table: BannBanners
   primarykey: Id
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Título a-z'
@@ -76,27 +76,27 @@ BannBanners:
       title: Id
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
     Titulo:
       title: Título
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     IdZona:
       title: Zona
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: null
@@ -104,33 +104,33 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 1, caption: Zona, entity: BannZonas, method: fetchAll, params: Titulo, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: 40, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: 40, min: null, max: null, message: 'Valor Requerido' }
     Subtitulo:
       title: Subtítulo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     Resumen:
       title: Resumen
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     IdTipo:
       title: 'Tipo de Banner'
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -138,11 +138,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 2, caption: Tipo, entity: TiposBanners, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: 10, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: 10, min: null, max: null, message: 'Valor Requerido' }
     MostrarEnListado:
       title: 'Mostrar en Listado'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -150,66 +150,66 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 1, caption: MostrarEnListado, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     OrdenMostrarEnListado:
       title: 'Orden Listado'
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     Entidad:
       title: Entidad
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: ''
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     IdEntidad:
       title: IdEntidad
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Observations:
       title: Observations
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     PrimaryKeyMD5:
       title: PrimaryKeyMD5
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     IsDefault:
       title: IsDefault
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -217,11 +217,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 3, caption: IsDefault, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     IsSuper:
       title: IsSuper
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -229,11 +229,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 4, caption: IsSuper, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Checked:
       title: Checked
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -241,11 +241,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 5, caption: Checked, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Publish:
       title: Publicar
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -253,66 +253,66 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 6, caption: Publish, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     BelongsTo:
       title: BelongsTo
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     CreatedBy:
       title: CreatedBy
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     CreatedAt:
       title: CreatedAt
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ModifiedBy:
       title: ModifiedBy
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     ModifiedAt:
       title: ModifiedAt
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     Deleted:
       title: Deleted
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -320,33 +320,33 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 7, caption: Deleted, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     DeletedBy:
       title: DeletedBy
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     DeletedAt:
       title: DeletedAt
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     Privacy:
       title: Privacy
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -354,66 +354,66 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 8, caption: Privacy, entity: ValoresPrivacy, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     SortOrder:
       title: SortOrder
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     PublishedAt:
       title: PublishedAt
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ActiveFrom:
       title: ActiveFrom
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ActiveTo:
       title: ActiveTo
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     UrlPrefix:
       title: UrlPrefix
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockUrlPrefix:
       title: LockUrlPrefix
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -421,22 +421,22 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 9, caption: LockUrlPrefix, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Slug:
       title: Slug
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockSlug:
       title: LockSlug
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -444,22 +444,22 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 10, caption: LockSlug, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlFriendly:
       title: UrlFriendly
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlHeritable:
       title: UrlHeritable
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -467,33 +467,33 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 11, caption: UrlHeritable, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     NumberVisits:
       title: NumberVisits
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitle:
       title: MetatagTitle
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockMetatagTitle:
       title: LockMetatagTitle
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -501,33 +501,33 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 12, caption: LockMetatagTitle, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MetatagKeywords:
       title: MetatagKeywords
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     MetatagDescription:
       title: MetatagDescription
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitleSimple:
       title: MetatagTitleSimple
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -535,11 +535,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 13, caption: MetatagTitleSimple, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitlePosition:
       title: MetatagTitlePosition
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -547,11 +547,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 14, caption: MetatagTitlePosition, entity: ValoresDchaIzq, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowOnSitemap:
       title: ShowOnSitemap
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -559,22 +559,22 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 15, caption: ShowOnSitemap, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ImportanceSitemap:
       title: ImportanceSitemap
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.5'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '5', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '5', min: null, max: null, message: 'Valor Requerido' }
     ChangeFreqSitemap:
       title: ChangeFreqSitemap
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: monthly
@@ -582,11 +582,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 16, caption: ChangeFreqSitemap, entity: ValoresChangeFreq, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
     ShowGalery:
       title: ShowGalery
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -594,11 +594,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 17, caption: ShowGalery, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowDocuments:
       title: ShowDocuments
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -606,11 +606,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 18, caption: ShowDocuments, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowRelatedLinks:
       title: ShowRelatedLinks
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -618,11 +618,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 19, caption: ShowRelatedLinks, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowRelatedContents:
       title: ShowRelatedContents
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -630,11 +630,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 20, caption: ShowRelatedContents, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowPublishedAt:
       title: ShowPublishedAt
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -642,44 +642,44 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 21, caption: ShowPublishedAt, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     AccessProfileList:
       title: AccessProfileList
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1,2'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     UrlTarget:
       title: UrlTarget
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlParameters:
       title: UrlParameters
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlRequestMethod:
       title: UrlRequestMethod
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -687,11 +687,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 22, caption: UrlRequestMethod, entity: RequestMethods, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlOrigin:
       title: UrlOrigin
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -699,11 +699,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 23, caption: UrlOrigin, entity: RequestOrigins, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlTargetBlank:
       title: UrlTargetBlank
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -711,11 +711,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 24, caption: UrlTargetBlank, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlIsHttps:
       title: UrlIsHttps
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -723,11 +723,11 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 25, caption: UrlIsHttps, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     CodigoAppAsociada:
       title: CodigoAppAsociada
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -735,51 +735,51 @@ BannBanners:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 26, caption: CodigoAppAsociada, entity: CpanAplicaciones, method: fetchAll, params: NombreApp, type: select, operator: '=', event: null }
-      validator: { nullable: YES, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
     IdAlbumExterno:
       title: IdAlbumExterno
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSliderAsociado:
       title: IdSliderAsociado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     DateTimeLastVisit:
       title: DateTimeLastVisit
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     RevisitAfter:
       title: RevisitAfter
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: ''
     AccessProfileListWeb:
       title: 'Perfiles Web'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: "perfiles:\n  - 1\n"

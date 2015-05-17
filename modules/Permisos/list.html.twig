@@ -5,19 +5,19 @@
 {% import '_global/macros.html.twig' as macro %}
 
 {% block listado %}
-<div class='Listado'>
+<div class='row margin-top-15'>
 
-    <div class="Izquierda" style="width:30%;">
-    <div class='Subtitulo'>:: MÓDULOS</div>
-    <table width='100%'>
-            <tbody class="Cuerpo">
+    <div class="col-md-4">
+    <h4>MÓDULOS</h4>
+    <table class="table">
+        <tbody class="Cuerpo">
 
             {% for key,objeto in values.listado.opciones %}
             <form name="opcion{{objeto.Id}}" action="" method="POST" enctype="multipart/form-data">
                 <input name="controller" value="Permisos" type="hidden">
                 <input name="action" value="listopciones" type="hidden">
                 <input name="IDPerfil" value="{{values.linkBy.value}}" type="hidden">
-                <input name="IDOpcion" value="{{objeto.Id}}" type="hidden">
+                <input name="IDOpcion" value="{{objeto.CodigoApp}}" type="hidden">
 
                 <tr class="ItemListado">
                     <td align="center"><input type="image" img src="{{app.path}}/images/botonborrar.png" alt="Borrar Opción" onclick="if (confirm('Desea eliminar la opcion {{objeto.Value}}')) {action.value='borraropcion'; submit();} else return(false);"></td>
@@ -27,7 +27,7 @@
             </form>
             {% endfor %}
             
-            </tbody>
+        </tbody>
     </table>
 
     <form name="opcion0" action="" method="POST" enctype="multipart/form-data">
@@ -40,10 +40,10 @@
 
     {% if values.IDOpcion %}
 
-    <div class="Derecha" style="width:69%; border-left: 1px dotted; padding-left: 3px;">
-    <div class='Subtitulo'>:: OPCIONES DE '{{values.opciones.Titulo}}'</div>
+    <div class="col-md-8">
+        <h4>OPCIONES DE {{values.IDOpcion}}</h4>
 
-    <table width='100%'>
+    <table class="table">
 
         <tr style="text-color: black; border-bottom: 1px dotted #525252;">
             <th>&nbsp;</th>

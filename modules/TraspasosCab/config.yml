@@ -44,20 +44,20 @@ TraspasosCab:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Traspasos entre almacenes
   id_video: traspasoscab
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: TraspasosCab
   table: ErpTraspasosCab
   primarykey: IDTraspaso
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Número z-a
@@ -96,8 +96,8 @@ TraspasosCab:
       title: Traspaso
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -106,8 +106,8 @@ TraspasosCab:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDSucursal:
       title: Sucursal
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -120,8 +120,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDContador:
       title: Serie
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -134,8 +134,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     NumeroTraspaso:
       title: N. Traspaso
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -144,11 +144,11 @@ TraspasosCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
     FechaOrden:
       title: Fecha Orden
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '<?php echo '01/01/'.date('Y').',31/12/'.date('Y');?>'
@@ -161,8 +161,8 @@ TraspasosCab:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     FechaSalida:
       title: Fecha Salida
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00'
@@ -175,8 +175,8 @@ TraspasosCab:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     FechaEntrada:
       title: Fecha Entrada
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00'
@@ -189,8 +189,8 @@ TraspasosCab:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     IDAlmacenOrigen:
       title: Almacén Origen
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -203,8 +203,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDAlmacenDestino:
       title: Almacén Destino
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -217,8 +217,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDAgencia:
       title: Agencia
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -231,8 +231,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Descripcion:
       title: Descripción
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -241,11 +241,11 @@ TraspasosCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     GastosTransporte:
       title: Gastos Transporte
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -257,8 +257,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     GastosVarios:
       title: Gastos Varios
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -270,8 +270,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     TotalGastos:
       title: Total Gastos
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -283,8 +283,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     TotalCosto:
       title: Total Costo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -296,8 +296,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Peso:
       title: Peso
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -309,8 +309,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Volumen:
       title: Volumen
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -322,8 +322,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Bultos:
       title: Bultos
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -335,8 +335,8 @@ TraspasosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Expedicion:
       title: Expedición
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: ''
@@ -345,11 +345,11 @@ TraspasosCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     IDEstado:
       title: Estado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -362,8 +362,8 @@ TraspasosCab:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Observaciones:
       title: Observaciones
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -372,11 +372,11 @@ TraspasosCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     Incidencias:
       title: Incidencias
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -385,4 +385,4 @@ TraspasosCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }

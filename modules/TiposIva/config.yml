@@ -43,20 +43,20 @@ TiposIva:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Tipos de Iva
   id_video: tiposIva
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: TiposIva
   table: ErpTiposIva
   primarykey: IDIva
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Tipo a-z
@@ -68,8 +68,8 @@ TiposIva:
   columns:
     IDIva:
       title: Codigo
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: false
       updatable: false
       link:
@@ -81,8 +81,8 @@ TiposIva:
       validator: null
     Tipo:
       title: Tipo
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true    
       link:
@@ -100,8 +100,8 @@ TiposIva:
         message: Valor Requerido
     Iva:
       title: Iva
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true    
       link:
@@ -119,8 +119,8 @@ TiposIva:
         message: Valor Requerido (0-99)
     Recargo:
       title: Recargo
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true      
       link:
@@ -138,8 +138,8 @@ TiposIva:
         message: Valor Requerido (0-20)
     Retencion:
       title: Retención
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true     
       link:

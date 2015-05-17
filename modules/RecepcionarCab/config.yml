@@ -6,8 +6,8 @@
 #
 ---
 RecepcionarCab:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Recepcionar Mercancía
   conection: ''
@@ -21,9 +21,9 @@ RecepcionarCab:
     - 
       title: Pedido
       field: IDPedido
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -34,9 +34,9 @@ RecepcionarCab:
     - 
       title: Sucursal
       field: IDSucursal
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -53,9 +53,9 @@ RecepcionarCab:
     - 
       title: Almacen
       field: IDAlmacen
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -72,9 +72,9 @@ RecepcionarCab:
     - 
       title: Agente
       field: IDAgente
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -91,9 +91,9 @@ RecepcionarCab:
     - 
       title: Su Pedido
       field: SuPedido
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -101,7 +101,7 @@ RecepcionarCab:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 15
         min: null
@@ -110,9 +110,9 @@ RecepcionarCab:
     - 
       title: Referencia
       field: Referencia
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -120,7 +120,7 @@ RecepcionarCab:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 15
         min: null
@@ -129,9 +129,9 @@ RecepcionarCab:
     - 
       title: Fecha Pedido
       field: Fecha
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -148,9 +148,9 @@ RecepcionarCab:
     - 
       title: Fecha Prev. Entrega
       field: FechaEntrega
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -167,9 +167,9 @@ RecepcionarCab:
     - 
       title: Fecha Recepcion
       field: FechaEntrada
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -186,9 +186,9 @@ RecepcionarCab:
     - 
       title: Proveedor
       field: IDProveedor
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -205,9 +205,9 @@ RecepcionarCab:
     - 
       title: Importe
       field: Importe
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -224,9 +224,9 @@ RecepcionarCab:
     - 
       title: Descuento
       field: Descuento
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -243,9 +243,9 @@ RecepcionarCab:
     - 
       title: BaseImponible1
       field: BaseImponible1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -253,7 +253,7 @@ RecepcionarCab:
         target: null
       default: 0.00
       validator:
-        nullable: YES
+        nullable: true
         type: decimal
         length: 10
         min: null
@@ -262,9 +262,9 @@ RecepcionarCab:
     - 
       title: Iva1
       field: Iva1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -281,9 +281,9 @@ RecepcionarCab:
     - 
       title: CuotaIva1
       field: CuotaIva1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -291,7 +291,7 @@ RecepcionarCab:
         target: null
       default: 0.00
       validator:
-        nullable: YES
+        nullable: true
         type: decimal
         length: 10
         min: null
@@ -300,9 +300,9 @@ RecepcionarCab:
     - 
       title: Recargo1
       field: Recargo1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -310,7 +310,7 @@ RecepcionarCab:
         target: null
       default: 0.00
       validator:
-        nullable: YES
+        nullable: true
         type: decimal
         length: 10
         min: null
@@ -319,9 +319,9 @@ RecepcionarCab:
     - 
       title: CuotaRecargo1
       field: CuotaRecargo1
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -329,7 +329,7 @@ RecepcionarCab:
         target: null
       default: 0.00
       validator:
-        nullable: YES
+        nullable: true
         type: decimal
         length: 10
         min: null
@@ -338,9 +338,9 @@ RecepcionarCab:
     - 
       title: BaseImponible2
       field: BaseImponible2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -357,9 +357,9 @@ RecepcionarCab:
     - 
       title: Iva2
       field: Iva2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -376,9 +376,9 @@ RecepcionarCab:
     - 
       title: CuotaIva2
       field: CuotaIva2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -395,9 +395,9 @@ RecepcionarCab:
     - 
       title: Recargo2
       field: Recargo2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -414,9 +414,9 @@ RecepcionarCab:
     - 
       title: CuotaRecargo2
       field: CuotaRecargo2
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -433,9 +433,9 @@ RecepcionarCab:
     - 
       title: BaseImponible3
       field: BaseImponible3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -452,9 +452,9 @@ RecepcionarCab:
     - 
       title: Iva3
       field: Iva3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -471,9 +471,9 @@ RecepcionarCab:
     - 
       title: CuotaIva3
       field: CuotaIva3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -490,9 +490,9 @@ RecepcionarCab:
     - 
       title: Recargo3
       field: Recargo3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -509,9 +509,9 @@ RecepcionarCab:
     - 
       title: CuotaRecargo3
       field: CuotaRecargo3
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -528,9 +528,9 @@ RecepcionarCab:
     - 
       title: TotalBases
       field: TotalBases
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -547,9 +547,9 @@ RecepcionarCab:
     - 
       title: TotalIva
       field: TotalIva
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -566,9 +566,9 @@ RecepcionarCab:
     - 
       title: TotalRecargo
       field: TotalRecargo
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -585,9 +585,9 @@ RecepcionarCab:
     - 
       title: Total
       field: Total
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -604,9 +604,9 @@ RecepcionarCab:
     - 
       title: Observaciones
       field: Observaciones
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -614,7 +614,7 @@ RecepcionarCab:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: null
         min: null
@@ -623,9 +623,9 @@ RecepcionarCab:
     - 
       title: Clave
       field: Clave
-      filter: YES
-      list: NO
-      form: YES
+      filter: true
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -633,7 +633,7 @@ RecepcionarCab:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 50
         min: null
@@ -642,9 +642,9 @@ RecepcionarCab:
     - 
       title: FActualizacion
       field: FActualizacion
-      filter: YES
-      list: NO
-      form: YES
+      filter: true
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -652,7 +652,7 @@ RecepcionarCab:
         target: null
       default: 0000-00-00 00:00:00
       validator:
-        nullable: YES
+        nullable: true
         type: datetime
         length: null
         min: null
@@ -661,9 +661,9 @@ RecepcionarCab:
     - 
       title: Estado
       field: IDEstado
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -680,9 +680,9 @@ RecepcionarCab:
     - 
       title: IDFP
       field: IDFP
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -699,9 +699,9 @@ RecepcionarCab:
     - 
       title: Agencia de Tpte.
       field: IDAgencia
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null

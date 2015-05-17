@@ -37,14 +37,14 @@ GconSecciones:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: 'Gestor de Contenidos: Secciones'
   id_video: gconsecciones
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: GconSecciones
   table: GconSecciones
@@ -101,16 +101,16 @@ GconSecciones:
       title: Id
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
     Titulo:
       title: Título
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       searchable: true
@@ -118,11 +118,11 @@ GconSecciones:
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     Subtitulo:
       title: Subtítulo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       searchable: true      
@@ -130,11 +130,11 @@ GconSecciones:
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     Introduccion:
       title: Introducción
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       searchable: true      
@@ -142,11 +142,11 @@ GconSecciones:
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     MostrarTitulo:
       title: 'Mostrar título'
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -154,11 +154,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 1, caption: MostrarTitulo, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MostrarSubtitulo:
       title: 'Mostrar subtítulo'
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -166,11 +166,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 2, caption: MostrarSubtitulo, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MostrarIntroduccion:
       title: 'Mostrar introducción'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -178,11 +178,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 3, caption: MostrarIntroduccion, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MostrarEnMenu1:
       title: 'Menú principal'
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '1'
@@ -190,11 +190,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 4, caption: MostrarEnMenu1, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MostrarEnMenu2:
       title: 'Menú Cabecera'
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -202,11 +202,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 5, caption: MostrarEnMenu2, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MostrarEnMenu3:
       title: 'Menú Pie de Página'
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -214,11 +214,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 6, caption: MostrarEnMenu3, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MostrarEnMenu4:
       title: MostrarEnMenu4
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -226,11 +226,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 7, caption: MostrarEnMenu4, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MostrarEnMenu5:
       title: MostrarEnMenu5
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -238,176 +238,176 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 8, caption: MostrarEnMenu5, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     EtiquetaWeb1:
       title: 'Etiqueta menú principal'
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     SubetiquetaWeb1:
       title: 'Subetiqueta menú principal'
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: false
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     EtiquetaWeb2:
       title: EtiquetaWeb2
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     SubetiquetaWeb2:
       title: Subetiqueta2
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: false
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     EtiquetaWeb3:
       title: EtiquetaWeb3
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     SubetiquetaWeb3:
       title: Subetiqueta3
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: false
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     EtiquetaWeb4:
       title: EtiquetaWeb4
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     SubetiquetaWeb4:
       title: Subetiqueta4
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: false
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     EtiquetaWeb5:
       title: EtiquetaWeb5
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     SubetiquetaWeb5:
       title: Subetiqueta5
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: false
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     OrdenMenu1:
       title: OrdenMenu1
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     OrdenMenu2:
       title: OrdenMenu2
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     OrdenMenu3:
       title: OrdenMenu3
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     OrdenMenu4:
       title: OrdenMenu4
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     OrdenMenu5:
       title: OrdenMenu5
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     ModoMostrarContenidos:
       title: 'Modo mostrar contenidos'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -415,11 +415,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 9, caption: ModoMostrarContenidos, entity: ModosMostrarContenidos, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     CriterioOrdenContenidosHijos:
       title: 'Criterio orden contenidos hijos'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: 'SortOrder ASC'
@@ -427,11 +427,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 10, caption: CriterioOrdenContenidosHijos, entity: CriteriosOrdenContenidosHijos, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     MostrarSubsecciones:
       title: 'Mostrar subsecciones'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -439,33 +439,33 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 11, caption: MostrarSubsecciones, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Observations:
       title: Observaciones
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     PrimaryKeyMD5:
       title: PrimaryKeyMD5
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     IsDefault:
       title: 'Valor por defecto'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -473,11 +473,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 12, caption: IsDefault, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     IsSuper:
       title: 'Uso Super'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -485,11 +485,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 13, caption: IsDefault, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Checked:
       title: Chequeado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -497,11 +497,11 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 14, caption: Checked, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Publish:
       title: Publicar
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -509,22 +509,22 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 15, caption: Publish, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     BelongsTo:
       title: 'Pertenece a ...'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     AllowsChildren:
       title: 'Permite hijos'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -532,55 +532,55 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 16, caption: IsDefault, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     CreatedBy:
       title: 'Creado por'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     CreatedAt:
       title: 'Creado el'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ModifiedBy:
       title: 'Modificado por'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     ModifiedAt:
       title: 'Modificado el'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     Deleted:
       title: Borrado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -588,33 +588,33 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 17, caption: Deleted, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     DeletedBy:
       title: 'Borrado por'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     DeletedAt:
       title: 'Borrado el'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     Privacy:
       title: Privacidad
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -622,44 +622,44 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 18, caption: Privacy, entity: ValoresPrivacy, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     SortOrder:
       title: SortOrder
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     PublishedAt:
       title: 'Publicado el'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ActiveFrom:
       title: 'Vigente desde'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ActiveTo:
       title: 'Vigente hasta'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -669,19 +669,19 @@ GconSecciones:
       validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     UrlPrefix:
       title: UrlPrefix
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockUrlPrefix:
       title: LockUrlPrefix
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -691,8 +691,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Slug:
       title: Slug
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -700,11 +700,11 @@ GconSecciones:
       permission: null
       translatable: true
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockSlug:
       title: LockSlug
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -714,8 +714,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlFriendly:
       title: UrlFriendly
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: null
@@ -723,11 +723,11 @@ GconSecciones:
       permission: null
       translatable: true      
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlHeritable:
       title: 'Url heredable'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -738,8 +738,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     NumberVisits:
       title: 'Número de visitas'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -749,19 +749,19 @@ GconSecciones:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitle:
       title: MetatagTitle
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockMetatagTitle:
       title: LockMetatagTitle
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -772,30 +772,30 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MetatagKeywords:
       title: MetatagKeywords
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     MetatagDescription:
       title: MetatagDescription
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitleSimple:
       title: MetatagTitleSimple
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -806,8 +806,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitlePosition:
       title: MetatagTitlePosition
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -818,8 +818,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowOnSitemap:
       title: ShowOnSitemap
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -830,19 +830,19 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ImportanceSitemap:
       title: ImportanceSitemap
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.5'
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '5', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '5', min: null, max: null, message: 'Valor Requerido' }
     ChangeFreqSitemap:
       title: ChangeFreqSitemap
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: monthly
@@ -853,8 +853,8 @@ GconSecciones:
       validator: { nullable: NO, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
     ShowGalery:
       title: ShowGalery
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -865,8 +865,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowDocuments:
       title: ShowDocuments
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -877,8 +877,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowRelatedLinks:
       title: ShowRelatedLinks
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -889,8 +889,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowRelatedContents:
       title: ShowRelatedContents
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -901,8 +901,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowPublishedAt:
       title: ShowPublishedAt
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -913,8 +913,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     AccessProfileList:
       title: AccessProfileList
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1,2'
@@ -924,30 +924,30 @@ GconSecciones:
       validator: { nullable: NO, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     UrlTarget:
       title: UrlTarget
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlParameters:
       title: UrlParameters
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlRequestMethod:
       title: UrlRequestMethod
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -958,8 +958,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlOrigin:
       title: UrlOrigin
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -970,8 +970,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlTargetBlank:
       title: UrlTargetBlank
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -982,8 +982,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlIsHttps:
       title: UrlIsHttps
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -994,8 +994,8 @@ GconSecciones:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     CodigoAppAsociada:
       title: CodigoAppAsociada
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1003,62 +1003,62 @@ GconSecciones:
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 34, caption: CodigoAppAsociada, entity: CpanAplicaciones, method: fetchAll, params: NombreApp, type: select, operator: '=', event: null }
-      validator: { nullable: YES, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
     IdAlbumExterno:
       title: 'Álbum asociado'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSliderAsociado:
       title: 'Slider asociado'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSeccionEnlaces:
       title: 'Sección de enlaces asociada'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSeccionVideos:
       title: 'Sección de vídeos asociada'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     RevisitAfter:
       title: RevisitAfter
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: ''
     AccessProfileListWeb:
       title: 'Perfiles Web'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: "perfiles:\n  - 1\n"

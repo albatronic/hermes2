@@ -72,5 +72,3 @@ class PerfilesEntity extends EntityComunes {
 	}
 
 } // END class ErpPerfiles
-
-?>

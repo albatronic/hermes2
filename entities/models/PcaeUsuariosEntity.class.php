@@ -78,7 +78,7 @@ class PcaeUsuariosEntity extends EntityComunes {
      * DATOS SERVIDOR DE CORREO
      */
     protected $EMailSocket = "smtp";
-    protected $EMailHost;
+    protected $EMailHost = 'mail.demo.com';
     protected $EMailPort = 25;
     protected $EMailSmtpAuth = true;
     protected $EMailPassword = '';

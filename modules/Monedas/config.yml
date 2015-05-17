@@ -50,20 +50,20 @@ Monedas:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Monedas
   id_video: monedas
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: Monedas
   table: ErpMonedas
   primarykey: IDMoneda
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Moneda a-z'
@@ -85,8 +85,8 @@ Monedas:
       title: IDMoneda
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -95,8 +95,8 @@ Monedas:
       link: { route: null, param: null, title: null, target: null, link: null }
     Codigo:
       title: Codigo
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -108,8 +108,8 @@ Monedas:
       validator: { nullable: NO, type: string, length: '3', min: null, max: null, message: 'Valor Requerido' }
     Moneda:
       title: Moneda
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -121,8 +121,8 @@ Monedas:
       validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     Simbolo:
       title: Simbolo
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -131,4 +131,4 @@ Monedas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }

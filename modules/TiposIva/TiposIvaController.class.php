@@ -18,5 +18,3 @@ class TiposIvaController extends Controller {
     }
 
 }
-
-?>

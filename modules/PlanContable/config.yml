@@ -50,20 +50,20 @@ PlanContable:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Plan Contable
   id_video: erpplancontable
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: PlanContable
   table: ErpPlanContable
   primarykey: Id
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Cuenta a-z'
@@ -85,8 +85,8 @@ PlanContable:
       title: Id
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -95,8 +95,8 @@ PlanContable:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDEjercicio:
       title: Ejercicio
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -115,8 +115,8 @@ PlanContable:
         type: select      
     Cuenta:
       title: Cuenta
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -128,8 +128,8 @@ PlanContable:
       validator: { nullable: NO, type: string, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Titulo:
       title: Título
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -141,8 +141,8 @@ PlanContable:
       validator: { nullable: NO, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     Debe:
       title: Debe
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: false
       default: null
@@ -154,8 +154,8 @@ PlanContable:
       validator: { nullable: NO, type: integer, length: '15', min: null, max: null, message: 'Valor Requerido' }
     Haber:
       title: Haber
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: false
       default: null
@@ -167,8 +167,8 @@ PlanContable:
       validator: { nullable: NO, type: integer, length: '15', min: null, max: null, message: 'Valor Requerido' }
     Saldo:
       title: Saldo
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: false
       default: null

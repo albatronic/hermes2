@@ -11,5 +11,3 @@
 class PermisosController extends NbPermisosController {
 
 }
-
-?>

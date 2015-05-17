@@ -44,20 +44,20 @@ ClientesDentrega:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Direcciones de entrega
   id_video: clientesdentrega
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: ClientesDentrega
   table: ErpClientesDentrega
   primarykey: IDDirec
   linkBy: IDCliente
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'IDDirec a-z'
@@ -85,8 +85,8 @@ ClientesDentrega:
       title: IDDirec
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -95,8 +95,8 @@ ClientesDentrega:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDCliente:
       title: Cliente
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -106,11 +106,11 @@ ClientesDentrega:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 1, caption: IDCliente, entity: ErpClientes, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Nombre:
       title: Nombre
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -119,11 +119,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     Direccion:
       title: Dirección
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -132,11 +132,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     IDPais:
       title: País
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: 68'
@@ -146,11 +146,11 @@ ClientesDentrega:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 2, caption: IDPais, entity: CommPaises, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDProvincia:
       title: Provincia
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '18'
@@ -160,11 +160,11 @@ ClientesDentrega:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 3, caption: IDProvincia, entity: CommProvincias, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDPoblacion:
       title: Población
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -174,11 +174,11 @@ ClientesDentrega:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 4, caption: IDPoblacion, entity: CommMunicipios, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     CodigoPostal:
       title: Código Postal
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: ''
@@ -187,11 +187,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Telefono:
       title: Teléfono
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -200,11 +200,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
     Fax:
       title: Fax
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -213,11 +213,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
     Movil:
       title: Móvil
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -226,11 +226,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
     EMail:
       title: EMail
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -239,11 +239,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     Responsable:
       title: Responsable
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -252,11 +252,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     Horario:
       title: Horario reparto
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -265,11 +265,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     HorarioLlamadas:
       title: Horario llamadas
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -278,11 +278,11 @@ ClientesDentrega:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     IDComercial:
       title: Comercial
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -292,11 +292,11 @@ ClientesDentrega:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 5, caption: IDComercial, entity: ErpAgentes, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDZona:
       title: Zona
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -306,11 +306,11 @@ ClientesDentrega:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 6, caption: IDZona, entity: ErpZonas, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Vigente:
       title: Vigente
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'

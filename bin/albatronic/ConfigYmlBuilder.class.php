@@ -71,18 +71,18 @@ class ConfigYmlBuilder {
                 if ($column['Field'] == $this->td->getPrimaryKey()) {
                     $arrayColumns[$column['Field']]['visible'] = FALSE;
                     $arrayColumns[$column['Field']]['updatable'] = FALSE;
-                    $arrayColumns[$column['Field']]['filter'] = 'NO';
-                    $arrayColumns[$column['Field']]['list'] = 'NO';
+                    $arrayColumns[$column['Field']]['filter'] = FALSE;
+                    $arrayColumns[$column['Field']]['list'] = FALSE;
                 } else {
                     if ($this->primeraColumna == '')
                         $this->primeraColumna = $column['Field'];
                     if (
                             (!isset($column['ReferencedColumn'])) and ( $column['Type'] != 'date') and ( $column['Type'] != 'tinyint') and ( !in_array($column['Field'], columnasComunes::$columnasExcepcion))
                     )
-                        $arrayColumns[$column['Field']]['filter'] = 'YES';
+                        $arrayColumns[$column['Field']]['filter'] = TRUE;
                     else
-                        $arrayColumns[$column['Field']]['filter'] = 'NO';
-                    $arrayColumns[$column['Field']]['list'] = 'NO';
+                        $arrayColumns[$column['Field']]['filter'] = FALSE;
+                    $arrayColumns[$column['Field']]['list'] = FALSE;
                     $arrayColumns[$column['Field']]['visible'] = TRUE;
                     $arrayColumns[$column['Field']]['updatable'] = TRUE;
                 }
@@ -222,19 +222,19 @@ class ConfigYmlBuilder {
             //    'twigCss' => '_global/css.html.twig',
             //    'twigJs' => '_global/js.html.twig',
             //),
-            'login_required' => 'YES',
-            'permission_control' => 'YES',
-            'favourite_control' => 'NO',
+            'login_required' => TRUE,
+            'permission_control' => TRUE,
+            'favourite_control' => FALSE,
             'help_file' => 'help.html.twig',
             'title' => ucwords($sinPrefijo),
             'id_video' => strtolower($sinPrefijo),
             'url_video' => null,
-            'feature_list' => 'YES',
+            'feature_list' => TRUE,
             'entity' => $sinPrefijo,
             'table' => $this->td->getTable(),
             'primarykey' => $this->td->getPrimaryKey(),
             'linkBy' => '',
-            'records_per_page' => 15,
+            'records_per_page' => 10,
             'export' => 'false',
             'isModuleRoot' => 0,
             'order_by' => array(

@@ -14,7 +14,7 @@ Bancos:
   entity: Bancos
   table: bancos
   primarykey: IDBanco
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Banco a-z

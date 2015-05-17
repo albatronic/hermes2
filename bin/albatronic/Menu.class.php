@@ -76,7 +76,7 @@ class Menu {
 
         if (is_resource($em->getDbLink())) {
             if ($idPerfil != '')
-                $query = "select DISTINCT t1.NombreModulo as Id,t2.Titulo as Value 
+                $query = "select DISTINCT t1.NombreModulo as Id,t2.Titulo as Value, t2.CodigoApp 
                     from {$tablaPermisos} as t1, {$tablaModulos} as t2 
                     where (t1.IDPerfil='{$idPerfil}' and t1.NombreModulo=t2.NombreModulo and Nivel='0') 
                     order by t2.SortOrder";

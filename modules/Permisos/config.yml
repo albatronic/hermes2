@@ -6,8 +6,8 @@
 #
 ---
 Permisos:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Permisos
   conection: empresas
@@ -28,9 +28,9 @@ Permisos:
     - 
       title: Id
       field: Id
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -41,9 +41,9 @@ Permisos:
     - 
       title: IDPerfil
       field: IDPerfil
-      filter: YES
-      list: NO
-      form: YES
+      filter: true
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -60,9 +60,9 @@ Permisos:
     - 
       title: IDOpcion
       field: IDOpcion
-      filter: YES
-      list: NO
-      form: YES
+      filter: true
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -79,9 +79,9 @@ Permisos:
     - 
       title: IDSubopcion
       field: IDSubopcion
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -98,9 +98,9 @@ Permisos:
     - 
       title: Permisos
       field: Permisos
-      filter: YES
-      list: NO
-      form: YES
+      filter: true
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -108,7 +108,7 @@ Permisos:
         target: null
       default: 111111
       validator:
-        nullable: YES
+        nullable: true
         type: string
         length: 6
         min: null

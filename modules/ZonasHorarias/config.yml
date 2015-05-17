@@ -50,20 +50,20 @@ ZonasHorarias:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Zonas Horarias
   id_video: zonashorarias
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: ZonasHorarias
   table: ErpZonasHorarias
   primarykey: IDZona
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Zona a-z'
@@ -85,8 +85,8 @@ ZonasHorarias:
       title: IDZona
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -95,8 +95,8 @@ ZonasHorarias:
       link: { route: null, param: null, title: null, target: null, link: null }
     Zona:
       title: Zona
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -105,4 +105,4 @@ ZonasHorarias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }

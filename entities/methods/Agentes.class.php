@@ -207,8 +207,9 @@ class Agentes extends AgentesEntity {
         if ($this->IDSucursal < 1) { //Puede acceder a todas
             $sucursal = new Sucursales();
             $sucursales = $sucursal->cargaCondicion("IDSucursal as Id, Nombre as Value");
-            if ($opcionTodas)
+            if ($opcionTodas) {
                 $sucursales[] = array('Id' => '', 'Value' => '** Todas **');
+            }
             unset($sucursal);
         } else { //Puede acceder solo a una
             $sucursal = $this->getIDSucursal();

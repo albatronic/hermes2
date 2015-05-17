@@ -6,8 +6,8 @@
 #
 ---
 Listas:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Listas
   conection: 'datos<?php echo $_SESSION['emp'];?>'
@@ -21,9 +21,9 @@ Listas:
     - 
       title: IDLista
       field: IDLista
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -34,9 +34,9 @@ Listas:
     - 
       title: Descripcion
       field: Descripcion
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -53,9 +53,9 @@ Listas:
     - 
       title: Vigencia
       field: Vigencia
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -72,9 +72,9 @@ Listas:
     - 
       title: Periodicidad
       field: Periodicidad
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -82,7 +82,7 @@ Listas:
         target: null
       default: null
       validator:
-        nullable: YES
+        nullable: true
         type: integer
         length: 4
         min: null
@@ -91,9 +91,9 @@ Listas:
     - 
       title: UltimoEnvio
       field: UltimoEnvio
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -110,9 +110,9 @@ Listas:
     - 
       title: ProximoEnvio
       field: ProximoEnvio
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -129,9 +129,9 @@ Listas:
     - 
       title: Tabla
       field: Tabla
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -148,9 +148,9 @@ Listas:
     - 
       title: Condiciones
       field: Condiciones
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -167,9 +167,9 @@ Listas:
     - 
       title: Columnas
       field: Columnas
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null

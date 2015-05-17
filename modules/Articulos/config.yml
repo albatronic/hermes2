@@ -49,14 +49,14 @@ Articulos:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Artículos
   id_video: articulos
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: Articulos
   table: ErpArticulos
@@ -101,8 +101,8 @@ Articulos:
       title: IDArticulo
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -111,8 +111,8 @@ Articulos:
       link: { route: null, param: null, title: null, target: null, link: null }
     Codigo:
       title: Código
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -121,11 +121,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
     Descripcion:
       title: Descripción
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -134,11 +134,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     Subtitulo:
       title: Subtítulo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -147,11 +147,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     Resumen:
       title: Resumen
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -160,11 +160,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '500', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '500', min: null, max: null, message: 'Valor Requerido' }
     ReclamoCorto:
       title: Reclamo Corto
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -174,11 +174,11 @@ Articulos:
       searchable: false
       editorTiny: true      
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     ReclamoLargo:
       title: Reclamo Largo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -188,11 +188,11 @@ Articulos:
       searchable: false
       editorTiny: true      
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '500', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '500', min: null, max: null, message: 'Valor Requerido' }
     IDCategoria:
       title: Categoría
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -208,11 +208,11 @@ Articulos:
         method: getCategorias
         params: Familia
         type: select
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDFamilia:
       title: Familia
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -228,11 +228,11 @@ Articulos:
         method: getFamilias
         params: Familia
         type: select
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDSubfamilia:
       title: Subfamilia
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -242,11 +242,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 3, caption: IDSubfamilia, entity: ErpFamilias, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDFabricante:
       title: Fabricante
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -262,11 +262,11 @@ Articulos:
         method: fetchAll
         params: Titulo
         type: select
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Pvd:
       title: Precio de costo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -275,11 +275,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Pvp:
       title: Pvp
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -288,11 +288,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Margen:
       title: Margen
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -301,11 +301,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Pmc:
       title: Pr.Med.Costo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -314,11 +314,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     IDIva:
       title: %Iva
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -334,11 +334,11 @@ Articulos:
         method: fetchAll
         params: Iva
         type: select
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     PvpAnterior:
       title: Pvp Anterior
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -347,11 +347,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }      
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }      
     Etiqueta:
       title: Etiqueta
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -360,11 +360,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
     CodigoEAN:
       title: Código EAN
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -373,11 +373,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '13', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '13', min: null, max: null, message: 'Valor Requerido' }
     Caducidad:
       title: Caducidad
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -386,11 +386,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     Garantia:
       title: Garantía
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: 's/f'
@@ -399,11 +399,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Peso:
       title: Peso
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -412,11 +412,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Volumen:
       title: Volumen
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -425,11 +425,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Caracteristicas:
       title: Características
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -439,11 +439,11 @@ Articulos:
       searchable: false
       editorTiny: true
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     FechaUltimoPrecio:
       title: Último Precio
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -452,11 +452,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     Vigente:
       title: Vigente
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -473,11 +473,11 @@ Articulos:
         params: Descripcion
         type: select
         default: 1
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Inventario:
       title: Inventariable
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -493,11 +493,11 @@ Articulos:
         method: fetchAll
         params: Descripcion
         type: select
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Trazabilidad:
       title: Trazabilidad
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -513,11 +513,11 @@ Articulos:
         method: fetchAll
         params: Descripcion
         type: select
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     BajoPedido:
       title: Bajo Pedido
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -533,11 +533,11 @@ Articulos:
         method: fetchAll
         params: Descripcion
         type: select
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     PackingCompras:
       title: Packing Compras
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '1.00'
@@ -546,11 +546,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     PackingVentas:
       title: Packing Ventas
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '1.00'
@@ -559,11 +559,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Merma:
       title: Merma
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -572,11 +572,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     BloqueoStock:
       title: Bloqueo Stock
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -592,11 +592,11 @@ Articulos:
         method: fetchAll
         params: Descripcion
         type: select
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     IDEstado1:
       title: Estados
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -612,11 +612,11 @@ Articulos:
         method: fetchAll
         params: Estado
         type: select
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDEstado2:
       title: Estado2
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -632,11 +632,11 @@ Articulos:
         method: fetchAll
         params: Estado
         type: select
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDEstado3:
       title: Estado3
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -652,11 +652,11 @@ Articulos:
         method: fetchAll
         params: Estado
         type: select
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDEstado4:
       title: Estado4
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -672,11 +672,11 @@ Articulos:
         method: fetchAll
         params: Estado
         type: select
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDEstado5:
       title: Estado5
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -692,11 +692,11 @@ Articulos:
         method: fetchAll
         params: Estado
         type: select
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     StockMinimo:
       title: Stock Mínimo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -705,11 +705,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     StockMaximo:
       title: Stock Máximo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -718,11 +718,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     MinimoVentaAlto:
       title: Mím. Venta Alto
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -731,11 +731,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     MinimoVentaAncho:
       title: Mín. Venta Ancho
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -744,11 +744,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     MinimoVenta:
       title: Mím. Venta
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -757,11 +757,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     MultiploAlto:
       title: Múltiplo Alto
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -770,11 +770,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     MultiploAncho:
       title: Múltiplo Ancho
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -783,11 +783,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     RecargoEnergetico:
       title: Rec. Energético
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -797,11 +797,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 16, caption: RecargoEnergetico, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UMB:
       title: Básica
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -811,11 +811,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 17, caption: UMB, entity: ErpUnidadesMedida, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     UMC:
       title: Compra
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -825,11 +825,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 18, caption: UMC, entity: ErpUnidadesMedida, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     CUMC:
       title: CUMC
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '1.00'
@@ -838,11 +838,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     UMA:
       title: Almacenaje
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -852,11 +852,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 19, caption: UMA, entity: ErpUnidadesMedida, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     CUMA:
       title: CUMA
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '1.00'
@@ -865,11 +865,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     UMV:
       title: Venta
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -879,11 +879,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 20, caption: UMV, entity: ErpUnidadesMedida, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     CUMV:
       title: CUMV
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '1.00'
@@ -892,11 +892,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     AvisosPedidos:
       title: Avisos en Pedidos
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -906,11 +906,11 @@ Articulos:
       searchable: false
       editorTiny: true
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }      
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }      
     AvisosPresupuestos:
       title: Avisos en Presupuestos
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -920,11 +920,11 @@ Articulos:
       searchable: false
       editorTiny: true
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }      
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }      
     AvisosAlbaranes:
       title: Avisos en Albaranes
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -934,11 +934,11 @@ Articulos:
       searchable: false
       editorTiny: true
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }         
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }         
     Observations:
       title: Observaciones
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -947,11 +947,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     PrimaryKeyMD5:
       title: PrimaryKeyMD5
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -960,11 +960,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     IsDefault:
       title: Valor por defecto
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -974,11 +974,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 21, caption: IsDefault, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     IsSuper:
       title: Valor SuperAdm
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -988,11 +988,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 22, caption: IsSuper, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Checked:
       title: Chequeado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1002,11 +1002,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 23, caption: Checked, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Publish:
       title: Publicar
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1016,11 +1016,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       aditional_filter: { order: 24, caption: Publicar, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     BelongsTo:
       title: Pertenece a
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1029,11 +1029,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     AllowsChildren:
       title: Es compuesto
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1043,11 +1043,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       aditional_filter: { order: 25, caption: Es compuesto, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     CreatedBy:
       title: Creado por
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1056,11 +1056,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     CreatedAt:
       title: Fecha creación
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -1069,11 +1069,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ModifiedBy:
       title: Modificado por
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1082,11 +1082,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     ModifiedAt:
       title: Fecha modificación
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -1095,11 +1095,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     Deleted:
       title: Borrado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1109,11 +1109,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 26, caption: Deleted, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     DeletedBy:
       title: Borrado por
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1122,11 +1122,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     DeletedAt:
       title: Fecha borrado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -1135,11 +1135,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     PrintedBy:
       title: PrintedBy
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1148,11 +1148,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     PrintedAt:
       title: PrintedAt
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -1161,11 +1161,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     EmailedBy:
       title: EmailedBy
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1174,11 +1174,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     EmailedAt:
       title: EmailedAt
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -1187,11 +1187,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     Privacy:
       title: Privacidad
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1201,11 +1201,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       aditional_filter: { order: 27, caption: Privacidad, entity: ValoresPrivacy, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     SortOrder:
       title: SortOrder
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1214,11 +1214,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     PublishedAt:
       title: Publicado el
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -1227,11 +1227,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ActiveFrom:
       title: Vigente desde
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -1240,11 +1240,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ActiveTo:
       title: Vigente hasta
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -1253,11 +1253,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     UrlPrefix:
       title: UrlPrefix
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1266,11 +1266,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockUrlPrefix:
       title: LockUrlPrefix
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -1280,11 +1280,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 28, caption: LockUrlPrefix, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Slug:
       title: Slug
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1293,11 +1293,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockSlug:
       title: LockSlug
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -1307,11 +1307,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 29, caption: LockSlug, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlFriendly:
       title: UrlFriendly
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1320,11 +1320,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlHeritable:
       title: UrlHeritable
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1334,11 +1334,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 30, caption: UrlHeritable, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     NumberVisits:
       title: Número de visitas
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1347,11 +1347,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitle:
       title: 'Título Meta'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1360,11 +1360,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockMetatagTitle:
       title: 'Autogenerar título meta'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -1374,11 +1374,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 31, caption: LockMetatagTitle, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MetatagKeywords:
       title: Keywords
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1387,11 +1387,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     MetatagDescription:
       title: Description
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1400,11 +1400,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitleSimple:
       title: 'Título simple'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1414,11 +1414,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 32, caption: MetatagTitleSimple, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitlePosition:
       title: 'Posición del título'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1428,11 +1428,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 33, caption: MetatagTitlePosition, entity: ValoresDchaIzq, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowOnSitemap:
       title: 'Mostrar en sitemap'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1442,11 +1442,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 34, caption: ShowOnSitemap, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ImportanceSitemap:
       title: Importancia
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.5'
@@ -1455,11 +1455,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '5', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '5', min: null, max: null, message: 'Valor Requerido' }
     ChangeFreqSitemap:
       title: 'Frecuencia de cambio'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: monthly
@@ -1469,11 +1469,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 35, caption: ChangeFreqSitemap, entity: ValoresChangeFreq, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
     ShowGalery:
       title: 'Mostrar galería'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1483,11 +1483,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 36, caption: ShowGalery, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowDocuments:
       title: 'Mostrar documentos'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1497,11 +1497,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 37, caption: ShowDocuments, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowRelatedLinks:
       title: 'Mostrar enlaces relacionados'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1511,11 +1511,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 38, caption: ShowRelatedLinks, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowRelatedContents:
       title: 'Mostrar contenidos relacionados'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1525,11 +1525,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 39, caption: ShowRelatedContents, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowPublishedAt:
       title: 'Mostrar fecha publicación'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1539,11 +1539,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 40, caption: ShowPublishedAt, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     AccessProfileList:
       title: AccessProfileList
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: 'perfiles: {1:1,2:2}'
@@ -1552,11 +1552,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     AccessProfileListWeb:
       title: AccessProfileListWeb
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: 'perfiles: {1:1}'
@@ -1565,11 +1565,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     UrlTarget:
       title: UrlTarget
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1578,11 +1578,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlParameters:
       title: UrlParameters
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1591,11 +1591,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlRequestMethod:
       title: UrlRequestMethod
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1605,11 +1605,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 41, caption: UrlRequestMethod, entity: RequestMethods, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlOrigin:
       title: UrlOrigin
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1619,11 +1619,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 42, caption: UrlOrigin, entity: RequestOrigins, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlTargetBlank:
       title: UrlTargetBlank
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1633,11 +1633,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 43, caption: UrlTargetBlank, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlIsHttps:
       title: UrlIsHttps
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1647,11 +1647,11 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 44, caption: UrlIsHttps, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     CodigoAppAsociada:
       title: App asociada
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -1661,55 +1661,55 @@ Articulos:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 45, caption: CodigoAppAsociada, entity: CpanAplicaciones, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: YES, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
     IdAlbumExterno:
       title: 'Álbum asociado'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSliderAsociado:
       title: 'Slider asociado'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSeccionEnlaces:
       title: 'Sección de enlaces asociada'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSeccionVideos:
       title: 'Sección de vídeos asociada'
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
       help: null
       permission: null
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     DateTimeLastVisit:
       title: Fecha última visita
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -1718,11 +1718,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     RevisitAfter:
       title: Revisar después de
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '10 days'
@@ -1731,11 +1731,11 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
     NivelJerarquico:
       title: NivelJerarquico
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -1744,4 +1744,4 @@ Articulos:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }

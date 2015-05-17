@@ -7,8 +7,8 @@
 #
 ---
 RutasRepartoDetalle:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: RutasRepartoDetalle
@@ -19,7 +19,7 @@ RutasRepartoDetalle:
   table: rutas_reparto_detalle
   primarykey: Id
   linkBy: IDRuta
-  records_per_page: 15
+  records_per_page: 10
   order_by: Id
   search_default: Id
   referenced_entities:
@@ -35,9 +35,9 @@ RutasRepartoDetalle:
     -
       title: Id
       field: Id
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -48,9 +48,9 @@ RutasRepartoDetalle:
     -
       title: Ruta
       field: IDRuta
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -77,9 +77,9 @@ RutasRepartoDetalle:
     -
       title: Repartidor
       field: IDRepartidor
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -106,9 +106,9 @@ RutasRepartoDetalle:
     -
       title: Dia
       field: Dia
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -135,9 +135,9 @@ RutasRepartoDetalle:
     -
       title: OrdenZona
       field: OrdenZona
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -155,9 +155,9 @@ RutasRepartoDetalle:
     -
       title: IDZona
       field: IDZona
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -184,9 +184,9 @@ RutasRepartoDetalle:
     -
       title: OrdenDirec
       field: OrdenDirec
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -204,9 +204,9 @@ RutasRepartoDetalle:
     -
       title: IDDirec
       field: IDDirec
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null

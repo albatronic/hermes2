@@ -26,7 +26,7 @@
             <td>
                 <a class="btn-edit" href='{{app.path}}/{{controller}}/Edit/{{objeto.getPrimaryKeyMD5()}}' title='Editar'>
                     <i class="fa fa-pencil"></i>
-                <a>
+                </a>
             </td>
             {% for field,value in listado.titles %}
             {% if (value.type == 'decimal' or value.type == 'currency') %}
@@ -36,7 +36,7 @@
             {% endif %}
             <td class='text-{{align}}'>
             {% if value.link.route %}
-                <a title="{{value.link.title}}" href="{{app.path}}/{{value.link.route}}/{{objeto.getPrimaryKeyMD5()}}">
+                <a title="{{value.link.title}}" href="{{app.path}}/{{value.link.route}}/{{objeto.getColumnObject(field).PrimaryKeyMD5}}">
                     {{objeto.getColumnValue(field,value.length)}}
                 </a>
             {% else %}
@@ -54,9 +54,7 @@
                     {{ macro.actualizaColumna(controller,objeto.getPrimaryKeyValue,'Publish',objeto.Publish.IDTipo,'Publicar/Despublicar')}}  
                 </td>
             {% endif %}            
-	   </tr>
-    	{% else %}
-    	<tr><td colspan="8">No hay información que cumpla esos criterios de búsqueda</td></tr>
+       </tr>
     {% endfor %}
     </tbody>
 </table>

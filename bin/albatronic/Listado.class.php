@@ -18,7 +18,7 @@ class Listado {
     public $arrayQuery = array();
     public $query;
 
-    public function __construct(Form $form, $request) {
+    public function __construct(Form $form, $request, $varEnvMod = array()) {
 
         $this->form = $form;
         $this->request = $request;
@@ -1032,5 +1032,3 @@ class listadoPDF extends FPDF {
     }
 
 }
-
-?>

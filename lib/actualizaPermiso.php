@@ -38,9 +38,7 @@ if ($idPermiso) {
         if (substr($permisos,0,1) == ",")
             $permisos = substr($permisos, 1);
     }
-    $permiso = new Permisos($idPermiso);
-    $permiso->setFuncionalidades($permisos);
-    $permiso->save();
+    $permiso->queryUpdate(array('Funcionalidades' => $permisos),"Id='{$idPermiso}'");
 }
 
 unset($permiso);

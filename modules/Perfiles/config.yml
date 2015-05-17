@@ -43,20 +43,20 @@ Perfiles:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Perfiles de usuarios
   id_video: perfiles
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: Perfiles
   table: ErpPerfiles
   primarykey: IDPerfil
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Perfil a-z
@@ -68,8 +68,8 @@ Perfiles:
   columns:
     IDPerfil:
       title: IDPerfil
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       link:
         route: null
         param: null
@@ -79,8 +79,8 @@ Perfiles:
       validator: null
     Perfil:
       title: Perfil
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       link:

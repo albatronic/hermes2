@@ -233,6 +233,3 @@ class SucursalesEntity extends EntityComunes {
         return $this->CtaContableCompras;
     }
 }
-
-// END class sucursales
-?>

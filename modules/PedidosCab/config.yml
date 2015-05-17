@@ -44,20 +44,20 @@ PedidosCab:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Pedidos a proveedores
   id_video: pedidoscab
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: PedidosCab
   table: ErpPedidosCab
   primarykey: IDPedido
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Fecha z-a
@@ -93,8 +93,8 @@ PedidosCab:
       title: N.Pedido
       visible: false
       updatable: false
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       default: null
       help: null
       permission: null
@@ -103,8 +103,8 @@ PedidosCab:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDSucursal:
       title: Sucursal
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -122,8 +122,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDAlmacen:
       title: Almacén
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -142,8 +142,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDAgente:
       title: Agente
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -162,8 +162,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     SuPedido:
       title: Su Pedido
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -172,11 +172,11 @@ PedidosCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
     Referencia:
       title: Referencia
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -185,11 +185,11 @@ PedidosCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
     Fecha:
       title: Fecha Pedido
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -208,8 +208,8 @@ PedidosCab:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     FechaEntrega:
       title: Fecha Prev
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00'
@@ -222,8 +222,8 @@ PedidosCab:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     FechaEntrada:
       title: Fecha Entrada
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00'
@@ -236,8 +236,8 @@ PedidosCab:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     IDProveedor:
       title: Proveedor
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -256,8 +256,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Importe:
       title: Importe
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -269,8 +269,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Descuento:
       title: Descuento
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -282,8 +282,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     BaseImponible1:
       title: BaseImponible1
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -295,8 +295,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Iva1:
       title: Iva1
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -308,8 +308,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaIva1:
       title: CuotaIva1
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -321,8 +321,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Recargo1:
       title: Recargo1
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -334,8 +334,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaRecargo1:
       title: CuotaRecargo1
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -347,8 +347,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     BaseImponible2:
       title: BaseImponible2
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -360,8 +360,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Iva2:
       title: Iva2
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -373,8 +373,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaIva2:
       title: CuotaIva2
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -386,8 +386,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Recargo2:
       title: Recargo2
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -399,8 +399,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaRecargo2:
       title: CuotaRecargo2
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -412,8 +412,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     BaseImponible3:
       title: BaseImponible3
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -425,8 +425,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Iva3:
       title: Iva3
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -438,8 +438,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaIva3:
       title: CuotaIva3
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -451,8 +451,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Recargo3:
       title: Recargo3
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -464,8 +464,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaRecargo3:
       title: CuotaRecargo3
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -477,8 +477,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     TotalBases:
       title: TotalBases
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -490,8 +490,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     TotalIva:
       title: TotalIva
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -503,8 +503,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     TotalRecargo:
       title: TotalRecargo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -516,8 +516,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     RecargoFinanciero:
       title: RecargoFinanciero
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -529,8 +529,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CuotaRecargoFinanciero:
       title: CuotaRecargoFinanciero
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -542,8 +542,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Total:
       title: Total
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -555,8 +555,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Observaciones:
       title: Observaciones
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -565,11 +565,11 @@ PedidosCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     Incidencias:
       title: Incidencias
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -578,11 +578,11 @@ PedidosCab:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     IDEstado:
       title: Estado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -601,8 +601,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDFactura:
       title: Factura
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -621,8 +621,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDFP:
       title: Forma de pago
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -635,8 +635,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDAgencia:
       title: Agencia
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -649,8 +649,8 @@ PedidosCab:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Deposito:
       title: Depósito
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -669,8 +669,8 @@ PedidosCab:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     FlagFacturar:
       title: FlagFacturar
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'

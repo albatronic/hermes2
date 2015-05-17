@@ -7,8 +7,8 @@
 #
 ---
 FemitidasLineas:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: FemitidasLineas
   id_video: femitidaslineas
@@ -17,7 +17,7 @@ FemitidasLineas:
   entity: FemitidasLineas
   table: femitidas_lineas
   primarykey: IDLinea
-  records_per_page: 15
+  records_per_page: 10
   order_by: IDLinea
   search_default: IDLinea
   referenced_entities:
@@ -37,9 +37,9 @@ FemitidasLineas:
     -
       title: IDFactura
       field: IDFactura
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -48,7 +48,7 @@ FemitidasLineas:
         link: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -57,9 +57,9 @@ FemitidasLineas:
     -
       title: IDLinea
       field: IDLinea
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -70,9 +70,9 @@ FemitidasLineas:
     -
       title: IDArticulo
       field: IDArticulo
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -81,7 +81,7 @@ FemitidasLineas:
         link: null
       default: 
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -90,9 +90,9 @@ FemitidasLineas:
     -
       title: Descripcion
       field: Descripcion
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -101,7 +101,7 @@ FemitidasLineas:
         link: null
       default: 
       validator:
-        nullable: NO
+        nullable: false
         type: string
         length: 255
         min: null
@@ -110,9 +110,9 @@ FemitidasLineas:
     -
       title: Unidades
       field: Unidades
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -121,7 +121,7 @@ FemitidasLineas:
         link: null
       default: 1.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -130,9 +130,9 @@ FemitidasLineas:
     -
       title: Precio
       field: Precio
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -141,7 +141,7 @@ FemitidasLineas:
         link: null
       default: 0.000
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -150,9 +150,9 @@ FemitidasLineas:
     -
       title: Dcto
       field: Descuento
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -161,7 +161,7 @@ FemitidasLineas:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -170,9 +170,9 @@ FemitidasLineas:
     -
       title: Importe
       field: Importe
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -181,7 +181,7 @@ FemitidasLineas:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -190,9 +190,9 @@ FemitidasLineas:
     -
       title: ImporteCosto
       field: ImporteCosto
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -201,7 +201,7 @@ FemitidasLineas:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -210,9 +210,9 @@ FemitidasLineas:
     -
       title: IDAlbaran
       field: IDAlbaran
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -221,7 +221,7 @@ FemitidasLineas:
         link: null
       default: 00000000000
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -230,9 +230,9 @@ FemitidasLineas:
     -
       title: IDLineaAlbaran
       field: IDLineaAlbaran
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -241,7 +241,7 @@ FemitidasLineas:
         link: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -250,9 +250,9 @@ FemitidasLineas:
     -
       title: Iva
       field: Iva
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -261,7 +261,7 @@ FemitidasLineas:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 5
         min: null
@@ -270,9 +270,9 @@ FemitidasLineas:
     -
       title: Recargo
       field: Recargo
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -281,7 +281,7 @@ FemitidasLineas:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 5
         min: null
@@ -290,9 +290,9 @@ FemitidasLineas:
     -
       title: ComisionAgente
       field: ComisionAgente
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -301,7 +301,7 @@ FemitidasLineas:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 5
         min: null
@@ -310,9 +310,9 @@ FemitidasLineas:
     -
       title: ComisionMontador
       field: ComisionMontador
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -321,7 +321,7 @@ FemitidasLineas:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 5
         min: null
@@ -330,9 +330,9 @@ FemitidasLineas:
     -
       title: IDVenta
       field: IDVenta
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -341,7 +341,7 @@ FemitidasLineas:
         link: null
       default: 
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 4
         min: null
@@ -350,9 +350,9 @@ FemitidasLineas:
     -
       title: Comisionar
       field: Comisionar
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -361,7 +361,7 @@ FemitidasLineas:
         link: null
       default: 
       validator:
-        nullable: NO
+        nullable: false
         type: tinyint
         length: 1
         min: null
@@ -370,9 +370,9 @@ FemitidasLineas:
     -
       title: IDAgente
       field: IDAgente
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -381,7 +381,7 @@ FemitidasLineas:
         link: null
       default: 
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 4
         min: null
@@ -390,9 +390,9 @@ FemitidasLineas:
     -
       title: IDComercial
       field: IDComercial
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -401,7 +401,7 @@ FemitidasLineas:
         link: null
       default: 
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 4
         min: null
@@ -410,9 +410,9 @@ FemitidasLineas:
     -
       title: IDPromocion
       field: IDPromocion
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -421,7 +421,7 @@ FemitidasLineas:
         link: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -430,9 +430,9 @@ FemitidasLineas:
     -
       title: AltoAl
       field: AltoAl
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -441,7 +441,7 @@ FemitidasLineas:
         link: null
       default: 0.000
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 6
         min: null
@@ -450,9 +450,9 @@ FemitidasLineas:
     -
       title: AnchoAl
       field: AnchoAl
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -461,7 +461,7 @@ FemitidasLineas:
         link: null
       default: 0.000
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 6
         min: null
@@ -470,9 +470,9 @@ FemitidasLineas:
     -
       title: MtsAl
       field: MtsAl
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -481,7 +481,7 @@ FemitidasLineas:
         link: null
       default: 0.000
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 6
         min: null
@@ -490,9 +490,9 @@ FemitidasLineas:
     -
       title: AltoFa
       field: AltoFa
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -501,7 +501,7 @@ FemitidasLineas:
         link: null
       default: 0.000
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 6
         min: null
@@ -510,9 +510,9 @@ FemitidasLineas:
     -
       title: AnchoFa
       field: AnchoFa
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -521,7 +521,7 @@ FemitidasLineas:
         link: null
       default: 0.000
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 6
         min: null
@@ -530,9 +530,9 @@ FemitidasLineas:
     -
       title: MtsFa
       field: MtsFa
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -541,7 +541,7 @@ FemitidasLineas:
         link: null
       default: 0.000
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 6
         min: null

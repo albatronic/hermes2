@@ -171,6 +171,3 @@ class AgentesEntity extends EntityComunes {
     }
 
 }
-
-// END class agentes
-?>

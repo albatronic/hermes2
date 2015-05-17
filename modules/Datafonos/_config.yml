@@ -18,7 +18,7 @@ Datafonos:
   entity: Datafonos
   table: datafonos
   primarykey: IDDatafono
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Datafono a-z

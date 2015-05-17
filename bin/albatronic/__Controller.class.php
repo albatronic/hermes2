@@ -88,22 +88,36 @@ class Controller {
 
     public function __construct($request) {
 
-        // Cargar lo que viene en el request, incluidos los eventuales
-        // ficheros a subir
+        if ($this->entity == '') {
+            $this->entity = str_replace('Controller', '', get_class($this));
+        }
+
+        // Cargar lo que viene en el request
         $this->request = $request;
 
-        // Cargas las variables
-        $this->cargaVariables();
-
-        // Cargar la configuracion del modulo (modules/moduloName/config.yml)
-        $this->form = new Form($this->entity);
+        
+        $var = new CpanVariables('Pro', 'Env');
+        $this->varEnvPro = $var->getValores();
+        $var = new CpanVariables('Pro', 'Web');
+        $this->varWebPro = $var->getValores();
+        $var = new CpanVariables('App', 'Env');
+        $this->varEnvApp = $var->getValores();
+        $var = new CpanVariables('App', 'Web');
+        $this->varWebApp = $var->getValores();
+        $var = new CpanVariables('Mod', 'Env', $this->entity);
+        $this->varEnvMod = $var->getValores();
+        $var = new CpanVariables('Mod', 'Web', $this->entity);
+        $this->varWebMod = $var->getValores();
+        
+        $this->variables = $this->setVariables($this->entity);
+        print_r($this->variables);
 
         // Pongo la app a la que pertenece
         $this->app = $this->form->getNode('app');
 
         // Instanciar el objeto listado con los parametros del modulo
         // y los eventuales valores del filtro enviados en el request
-        if ($this->varEnvMod['feature_list']) {
+        if ($this->form->getTieneListado()) {
             $this->listado = new Listado($this->form, $this->request);
             $this->values['listado'] = array(
                 'filter' => $this->listado->getFilter(),
@@ -113,26 +127,22 @@ class Controller {
         // Cargar los permisos.
         // Si la entidad no está sujeta a control de permisos, se habilitan todos
         if ($this->form->getPermissionControl()) {
-            if ($this->parentEntity == '') {
-                $this->permisos = new ControlAcceso($this->entity);
-            } else {
-                $this->permisos = new ControlAcceso($this->parentEntity);
-            }
+            $this->permisos = ($this->parentEntity == '') ? new ControlAcceso($this->entity) : new ControlAcceso($this->parentEntity);
         } else {
             $this->permisos = new ControlAcceso();
         }
 
-        $this->values['titulo'] = $this->varEnvMod['title']; //$this->form->getTitle();
-        $this->values['ayuda'] = $this->varEnvMod['jelp_file']; //$this->form->getHelpFile();
+        $this->values['titulo'] = $this->form->getTitle();
+        $this->values['ayuda'] = $this->form->getHelpFile();
         $this->values['permisos'] = $this->permisos->getPermisos();
+        $this->values['adittionalCommands'] = $this->form->getNode('aditional_commands');
         $this->values['enCurso'] = $this->values['permisos']['enCurso'];
-        $this->values['tieneListado'] = $this->varEnvMod['feature_list']; //$this->form->getTieneListado();
+        $this->values['tieneListado'] = $this->form->getTieneListado();
         $this->values['request'] = $this->request;
         $this->values['linkBy'] = array(
             'id' => $this->form->getLinkBy(),
             'value' => '',
         );
-
 
         $this->values['atributos'] = $this->form->getAtributos($this->entity); //$this->values['permisos']['enCurso']['modulo']);
         // Poner la solapa activa del formulario
@@ -148,11 +158,10 @@ class Controller {
 
     public function IndexAction() {
 
-        if ($this->values['permisos']['permisosModulo']['AC']) {
+        if ($this->values['permisos']['permisosModulo']['AC'])
             $template = $this->entity . "/index.html.twig";
-        } else {
+        else
             $template = "_global/forbiden.html.twig";
-        }
 
         return array(
             'template' => $template,
@@ -623,16 +632,15 @@ class Controller {
     public function listAction($aditionalFilter = '') {
 
         if ($this->values['permisos']['permisosModulo']['CO']) {
-            if ($this->varEnvMod['feature_list']) {
-                $objeto = new $this->entity();
-                $tabla = $objeto->getDataBaseName() . "." . $objeto->getTableName();
-                unset($objeto);
 
-                if ($aditionalFilter != '')
-                    $aditionalFilter .= " AND ";
-                $aditionalFilter .= "({$tabla}.Deleted='0')";
-                $this->values['listado'] = $this->listado->getAll($aditionalFilter);
-            }
+            $objeto = new $this->entity();
+            $tabla = $objeto->getDataBaseName() . "." . $objeto->getTableName();
+            unset($objeto);
+
+            if ($aditionalFilter != '')
+                $aditionalFilter .= " AND ";
+            $aditionalFilter .= "({$tabla}.Deleted='0')";
+            $this->values['listado'] = $this->listado->getAll($aditionalFilter);
             $template = $this->entity . '/list.html.twig';
         } else {
             $template = '_global/forbiden.html.twig';
@@ -1252,73 +1260,56 @@ class Controller {
 
     /**
      * Carga las variables web y de entorno del proyecto, app y módulo
+     * Si está activo, se utiliza el servidor de caché.
+     * Las variables se ponen en values.variables
      * @return void
      */
-    protected function cargaVariables() {
+    public function setVariables($entity = '') {
 
-        // Variables de entorno del proyecto
-        if (!isset($_SESSION['VARIABLES']['EnvPro'])) {
-            $variables = new CpanVariables('Pro', 'Env');
-            $this->varEnvPro = $variables->getValores();
-            $_SESSION['VARIABLES']['EnvPro'] = $this->varEnvPro;
-        } else
-            $this->varEnvPro = $_SESSION['VARIABLES']['EnvPro'];
-        $this->values['varEnvPro'] = $this->varEnvPro;
-        if ((count($this->values['varEnvPro']) == 0) and ( $_SESSION['usuarioPortal']['IdPerfil'] == '1'))
-            $this->values['errores'][] = "No se han definido las variables de entorno del proyecto";
+        $entity = ($entity == '') ? $this->entity : $entity;
 
-        // Variables web del proyecto
-        if (!isset($_SESSION['VARIABLES']['WebPro'])) {
-            $variables = new CpanVariables('Pro', 'Web');
-            $this->varWebPro = $variables->getValores();
-            $_SESSION['VARIABLES']['WebPro'] = $this->varWebPro;
-        } else
-            $this->varWebPro = $_SESSION['VARIABLES']['WebPro'];
-        $this->values['varWebPro'] = $this->varWebPro;
-        if ((count($this->values['varWebPro']) == 0) and ( $_SESSION['usuarioPortal']['IdPerfil'] == '1'))
-            $this->values['errores'][] = "No se han definido las variables web del proyecto";
+        if (!$_SESSION['memcache']['active']) {
+            $array = $this->getVariables($entity);
+        } else {
+            $keyMemcache = md5($_SESSION['usuarioPortal']['IdPerfil']);
+            $memCache = new Memcache();
+            $memCache->connect($_SESSION['memcache']['host'], $_SESSION['memcache']['port']);
+            $array = $memCache->get($keyMemcache);
+            if (!$array) {
+                $array = $this->getVariables($entity);
+                $memCache->set($keyMemcache, $array, MEMCACHE_COMPRESSED, $_SESSION['memcache']['expire']);
+                echo "Meto en cache ", $entity, "<br/>";
+            } else {
+                echo "Saco de cache ", $entity, "<br/>";
+            }
+        }
 
-        // Variables de entorno del modulo
-        $variables = new CpanVariables('Mod', 'Env', $this->entity);
-        $this->varEnvMod = $variables->getValores();
-        $this->values['varEnvMod'] = $this->varEnvMod;
-        $_SESSION['VARIABLES']['EnvMod'] = $this->varEnvMod;
-        if ((count($this->values['varEnvMod']) == 0) and ( $_SESSION['usuarioPortal']['IdPerfil'] == '1'))
-            $this->values['errores'][] = "No se han definido las variables de entorno del módulo '{$this->entity}'";
+        return $array;
+    }
 
-        // Variables web del modulo
-        if (!isset($_SESSION['VARIABLES']['WebMod'])) {
-            $variables = new CpanVariables('Mod', 'Web', $this->entity);
-            $this->varWebMod = $variables->getValores();
-            $_SESSION['VARIABLES']['WebMod'] = $this->varWebMod;
-        } else
-            $this->varWebMod = $_SESSION['VARIABLES']['WebMod'];
-        $this->values['varWebMod'] = $this->varWebMod;
-        if ((count($this->values['varWebMod']) == 0) and ( $_SESSION['usuarioPortal']['IdPerfil'] == '1'))
-            $this->values['errores'][] = "No se han definido las variables web del módulo '{$this->entity}'";
+    public function getVariables($entity) {
 
-        // Variables de entorno de la app
-        if (!isset($_SESSION['VARIABLES']['EnvApp'])) {
-            $variables = new CpanVariables('App', 'Env', $this->app);
-            $this->varEnvApp = $variables->getValores();
-            $_SESSION['VARIABLES']['EnvApp'] = $this->varEnvApp;
-        } else
-            $this->varEnvApp = $_SESSION['VARIABLES']['EnvApp'];
-        $this->values['varEnvApp'] = $this->varEnvApp;
-        //if ((count($this->values['varEnvApp']) == 0) and ($_SESSION['usuarioPortal']['IdPerfil'] == '1'))
-        //    $this->values['errores'][] = "No se han definido las variables de entorno de la App '{$this->app}'";
-        // Variables web de la app
-        if (!isset($_SESSION['VARIABLES']['WebApp'])) {
-            $variables = new CpanVariables('App', 'Web', $this->app);
-            $this->varWebApp = $variables->getValores();
-            $_SESSION['VARIABLES']['WebApp'] = $this->varWebApp;
-        } else
-            $this->varWebApp = $_SESSION['VARIABLES']['WebApp'];
-        $this->values['varWebApp'] = $this->varWebApp;
-        //if ((count($this->values['varWebApp']) == 0) and ($_SESSION['usuarioPortal']['IdPerfil'] == '1'))
-        //    $this->values['errores'][] = "No se han definido las variables web de la App '{$this->app}'";
+        $array = array();
 
-        unset($variables);
+        //$var = new CpanVariables('Pro', 'Env');
+        //$array['EnvPro'] = $var->getValores();
+        //$var = new CpanVariables('Pro', 'Web');
+        //$array['WebPro'] = $var->getValores();
+
+        $var = new CpanVariables('Mod', 'Env', $entity);
+        $array['EnvMod'] = $var->getValores();
+        if (count($array['EnvMod']) == 0) {
+            // Cargar la configuracion del modulo (modules/moduloName/config.yml)
+            $form = new Form($this->entity);            
+            $array['EnvMod'] = $form->getAll();
+            $var->setDatosYml($array['EnvMod']);
+            $var->save();
+        }
+
+        //$var = new CpanVariables('Mod', 'Web', $entity);
+        //$array['WebMod'] = $var->getValores();
+
+        return $array;
     }
 
     /**

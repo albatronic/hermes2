@@ -21,7 +21,9 @@ class IndexController extends Controller {
         // Cargar la configuracion del modulo (modules/moduloName/config.yaml)
         $this->form = new Form($this->entity);
 
-        $this->cargaValores($this->request[1]);
+        if (!isset($_SESSION['usuarioPortal']['IdPerfil'])) {
+            $this->cargaValores($this->request[1]);
+        }
 
         // Instanciar el objeto listado con los parametros del modulo
         // y los eventuales valores del filtro enviados en el request

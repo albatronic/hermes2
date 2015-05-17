@@ -6,8 +6,8 @@
 #
 ---
 TiposVenta:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Tipos de Venta
   conection: 'datos<?php echo $_SESSION['emp'];?>'
@@ -27,9 +27,9 @@ TiposVenta:
     - 
       title: IDVenta
       field: IDVenta
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -40,9 +40,9 @@ TiposVenta:
     - 
       title: Tipo de Venta
       field: TipoVenta
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null

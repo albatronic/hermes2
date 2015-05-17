@@ -6,8 +6,8 @@
 #
 ---
 EmpresasAlmacenes:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Almacenes
   conection: empresas
@@ -22,9 +22,9 @@ EmpresasAlmacenes:
     - 
       title: Id
       field: Id
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -35,9 +35,9 @@ EmpresasAlmacenes:
     - 
       title: Empresa
       field: IDEmpresa
-      filter: YES
-      list: NO
-      form: YES
+      filter: true
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -45,7 +45,7 @@ EmpresasAlmacenes:
         target: null
       default: null
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 3
         min: 1
@@ -54,9 +54,9 @@ EmpresasAlmacenes:
     - 
       title: Almacen
       field: IDAlmacen
-      filter: YES
-      list: NO
-      form: YES
+      filter: true
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -64,7 +64,7 @@ EmpresasAlmacenes:
         target: null
       default: null
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 3
         min: 1

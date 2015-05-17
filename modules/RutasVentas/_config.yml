@@ -16,7 +16,7 @@ RutasVentas:
   entity: RutasVentas
   table: rutas_ventas
   primarykey: Id
-  records_per_page: 15
+  records_per_page: 10
   order_by: Id
   search_default: Id
   referenced_entities:

@@ -44,20 +44,20 @@ Existencias:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Existencias
   id_video: erpexistencias
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: Existencias
   table: ErpExistencias
   primarykey: Id
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Id a-z'
@@ -83,8 +83,8 @@ Existencias:
       title: Id
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -93,8 +93,8 @@ Existencias:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDAlmacen:
       title: Almacén
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -104,11 +104,11 @@ Existencias:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 1, caption: IDAlmacen, entity: ErpAlmacenes, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDUbicacion:
       title: Ubicación
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -118,11 +118,11 @@ Existencias:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 2, caption: IDUbicacion, entity: ErpAlmacenesMapas, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDArticulo:
       title: Artículo
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -132,11 +132,11 @@ Existencias:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 3, caption: IDArticulo, entity: ErpArticulos, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDLote:
       title: Lote
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -146,11 +146,11 @@ Existencias:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 4, caption: IDLote, entity: ErpLotes, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Reales:
       title: Reales
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -159,11 +159,11 @@ Existencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Pales:
       title: Pales
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -172,11 +172,11 @@ Existencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Cajas:
       title: Cajas
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -185,11 +185,11 @@ Existencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Reservadas:
       title: Reservadas
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -198,11 +198,11 @@ Existencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Entrando:
       title: Entrando
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -211,11 +211,11 @@ Existencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Maximo:
       title: Máximo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -224,11 +224,11 @@ Existencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Minimo:
       title: Mínimo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -237,11 +237,11 @@ Existencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     EnDeposito:
       title: En Depósito
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -251,4 +251,4 @@ Existencias:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 5, caption: EnDeposito, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }

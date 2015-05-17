@@ -128,5 +128,3 @@ class PDF extends FPDF {
     }
 
 }
-
-?>

@@ -27,13 +27,14 @@ class Sucursales extends SucursalesEntity {
      * @param integer $idUsuario
      * @return array Array de sucursales
      */
-    public function getSucursalesUsuario($idUsuario = '', $opcionTodas=true) {
+    public function getSucursalesUsuario($idUsuario = '', $opcionTodas = true) {
 
-        if ($idUsuario == '')
+        if ($idUsuario == '') {
             $idUsuario = $_SESSION['usuarioPortal']['Id'];
+        }
 
         $usuario = new Agentes($idUsuario);
-        $rows = $usuario->getSucursales($_SESSION['emp'],$opcionTodas);
+        $rows = $usuario->getSucursales($_SESSION['emp'], $opcionTodas);
         unset($usuario);
 
         return $rows;
@@ -54,5 +55,3 @@ class Sucursales extends SucursalesEntity {
     }
 
 }
-
-?>

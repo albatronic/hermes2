@@ -1,7 +1,14 @@
 {# MUESTRAR LOS MENSAJES DE ALERTA DEL FORMULARIO           #}
 {# CONCATENA TODOS LOS ELEMENTOS DEL ARRAY alertas Y SE LOS #}
 {# PASA A LA FUNCION JS SEPARADOS POR EL CARACTER '#'       #}
-
+{% if values.alertas or values.errores %}
+<div class="note note-danger">
+<h4 class="block">Algo no fue bien, revise los siguientes avisos</h4>
+    {% for alerta in alertas %}<p>{{alerta}}</p>{% endfor %}
+    {% for error in errores %}<p>{{error}}</p>{% endfor %}
+</div>
+{% endif%}
+{#
 <script>
     $(function() {
 	$( "#notificacion" ).dialog({
@@ -45,3 +52,4 @@
         {% endif %}
     });
 </script>
+#}

@@ -91,9 +91,9 @@ CpanUrlAmigables:
 CpanVariables:
   comment: Variables de entorno y web del proyecto, subapps y modulos
   columns:
-    IdProyectosApps: { type: bigint(11), notnull: true, index: index }
-    Variable:        { type: string(255), notnull: true, index: index }
-    Yml:             { type: text}
+    IdPerfil: { type: bigint(11), notnull: true, index: index }
+    Variable: { type: string(255), notnull: true, index: index }
+    Yml:      { type: text}
     <?php include '../Cpanel/entities/schema/schemaColumnsCommon.yml'; echoln('');?>
   relations:
 

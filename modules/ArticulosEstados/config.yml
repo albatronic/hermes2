@@ -44,20 +44,20 @@ ArticulosEstados:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Estados de los artículos
   id_video: articulosestados
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: ArticulosEstados
   table: ErpArticulosEstados
   primarykey: IDEstado
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Estado a-z'
@@ -79,8 +79,8 @@ ArticulosEstados:
       title: IDEstado
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -89,8 +89,8 @@ ArticulosEstados:
       link: { route: null, param: null, title: null, target: null, link: null }
     Estado:
       title: Estado
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -99,5 +99,5 @@ ArticulosEstados:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
 

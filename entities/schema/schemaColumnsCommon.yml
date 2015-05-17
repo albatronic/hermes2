@@ -65,11 +65,11 @@
     UrlTargetBlank:       {type: tinyint, notnull: true, default: 0, index: index, comment: 'Abstract,ValoresSN,IDTipo'}
     UrlIsHttps:           {type: tinyint, notnull: true, default: 0, index: index, comment: 'Abstract,ValoresSN,IDTipo'}
 
-    CodigoAppAsociada:    { type: string(15), notnull: false, default: NULL, index: index, comment: 'db,CpanAplicaciones,CodigoApp'}
-    IdAlbumExterno:       { type: bigint(11), notnull: false, default: NULL }
-    IdSliderAsociado:     { type: bigint(11), notnull: false, default: NULL }
-    IdSeccionEnlaces:     { type: bigint(11), notnull: false, default: NULL }
-    IdSeccionVideos:      { type: bigint(11), notnull: false, default: NULL }      
+    CodigoAppAsociada:    { type: string(15), default: NULL, index: index, comment: 'db,CpanAplicaciones,CodigoApp'}
+    IdAlbumExterno:       { type: bigint(11), default: NULL }
+    IdSliderAsociado:     { type: bigint(11), default: NULL }
+    IdSeccionEnlaces:     { type: bigint(11), default: NULL }
+    IdSeccionVideos:      { type: bigint(11), default: NULL }      
     DateTimeLastVisit:    { type: bigint(11), notnull: true,  default: 0 }
     RevisitAfter:         { type: string(25), notnull: false, default: '10' }
     NivelJerarquico:      { type: int(4),     notnull: true,  default: 1 }

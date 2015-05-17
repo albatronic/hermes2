@@ -6,8 +6,8 @@
 #
 ---
 Facturacion:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: Facturación
   conection: ''

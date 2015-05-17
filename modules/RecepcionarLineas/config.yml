@@ -7,8 +7,8 @@
 #
 ---
 Recepciones:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Recepciones
@@ -18,7 +18,7 @@ Recepciones:
   entity: Recepciones
   table: recepciones
   primarykey: IDLinea
-  records_per_page: 15
+  records_per_page: 10
   order_by: IDLinea
   search_default: IDLinea
   referenced_entities:
@@ -38,9 +38,9 @@ Recepciones:
     -
       title: IDLinea
       field: IDLinea
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -51,9 +51,9 @@ Recepciones:
     -
       title: IDPedido
       field: IDPedido
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -71,9 +71,9 @@ Recepciones:
     -
       title: IDLineaPedido
       field: IDLineaPedido
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -91,9 +91,9 @@ Recepciones:
     -
       title: IDAlmacen
       field: IDAlmacen
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -111,9 +111,9 @@ Recepciones:
     -
       title: IDAlmacenero
       field: IDAlmacenero
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -131,9 +131,9 @@ Recepciones:
     -
       title: Unidades
       field: Unidades
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -151,9 +151,9 @@ Recepciones:
     -
       title: Unidades Brutas
       field: UnidadesBrutas
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -171,9 +171,9 @@ Recepciones:
     -
       title: Cajas
       field: Cajas
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -191,9 +191,9 @@ Recepciones:
     -
       title: Pales
       field: Pales
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -211,9 +211,9 @@ Recepciones:
     -
       title: DestareCaja
       field: DestareCaja
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -231,9 +231,9 @@ Recepciones:
     -
       title: DestarePale
       field: DestarePale
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -251,9 +251,9 @@ Recepciones:
     -
       title: Unidades Netas
       field: UnidadesNetas
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -271,9 +271,9 @@ Recepciones:
     -
       title: IDLote
       field: IDLote
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -291,9 +291,9 @@ Recepciones:
     -
       title: IDUbicacion
       field: IDUbicacion
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -311,9 +311,9 @@ Recepciones:
     -
       title: Temperatura
       field: Temperatura
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -331,9 +331,9 @@ Recepciones:
     -
       title: Recepcionada
       field: Recepcionada
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null

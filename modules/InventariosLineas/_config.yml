@@ -19,7 +19,7 @@ InventariosLineas:
   table: inventarios_lineas
   primarykey: IDLinea
   linkBy: IDInventario
-  records_per_page: 15
+  records_per_page: 10
   order_by: IDLinea
   search_default: IDLinea
   referenced_entities:

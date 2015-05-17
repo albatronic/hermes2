@@ -44,20 +44,20 @@ ErpTiposPales:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Tipos de pales
   id_video: erptipospales
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: TiposPales
   table: ErpTiposPales
   primarykey: Id
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Id a-z'
@@ -79,8 +79,8 @@ ErpTiposPales:
       title: Id
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -89,8 +89,8 @@ ErpTiposPales:
       link: { route: null, param: null, title: null, target: null, link: null }
     Descripcion:
       title: Descripción
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -102,8 +102,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     Ancho:
       title: Ancho
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -115,8 +115,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Fondo:
       title: Fondo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -128,8 +128,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Alto:
       title: Alto
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -141,8 +141,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Cubicaje:
       title: Cubicaje
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -154,8 +154,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Tara:
       title: Tara
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -167,8 +167,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Observations:
       title: Observaciones
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -177,11 +177,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     PrimaryKeyMD5:
       title: PrimaryKeyMD5
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -190,11 +190,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     IsDefault:
       title: Valor por defecto
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -207,8 +207,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     IsSuper:
       title: Valor SuperAdm
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -221,8 +221,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Checked:
       title: Chequeado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -235,8 +235,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Publish:
       title: Publicar
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -249,8 +249,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     BelongsTo:
       title: Pertenece a
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -262,8 +262,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     AllowsChildren:
       title: Permite hijos
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -276,8 +276,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     CreatedBy:
       title: Creado por
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -289,8 +289,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     CreatedAt:
       title: Fecha creación
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -302,8 +302,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ModifiedBy:
       title: Modificado por
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -315,8 +315,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     ModifiedAt:
       title: Fecha modificación
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -328,8 +328,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     Deleted:
       title: Borrado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -342,8 +342,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     DeletedBy:
       title: Borrado por
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -355,8 +355,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     DeletedAt:
       title: Fecha borrado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -368,8 +368,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     PrintedBy:
       title: PrintedBy
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -381,8 +381,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     PrintedAt:
       title: PrintedAt
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -394,8 +394,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     EmailedBy:
       title: EmailedBy
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -407,8 +407,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '4', min: null, max: null, message: 'Valor Requerido' }
     EmailedAt:
       title: EmailedAt
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -420,8 +420,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     Privacy:
       title: Privacidad
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -434,8 +434,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     SortOrder:
       title: SortOrder
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -447,8 +447,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     PublishedAt:
       title: Publicado el
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -460,8 +460,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ActiveFrom:
       title: Vigente desde
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -473,8 +473,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     ActiveTo:
       title: Vigente hasta
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -486,8 +486,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     UrlPrefix:
       title: UrlPrefix
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -496,11 +496,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockUrlPrefix:
       title: LockUrlPrefix
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -513,8 +513,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     Slug:
       title: Slug
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -523,11 +523,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockSlug:
       title: LockSlug
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -540,8 +540,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlFriendly:
       title: UrlFriendly
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -550,11 +550,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlHeritable:
       title: UrlHeritable
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -567,8 +567,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     NumberVisits:
       title: Número de visitas
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -580,8 +580,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitle:
       title: MetatagTitle
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -590,11 +590,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     LockMetatagTitle:
       title: LockMetatagTitle
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -607,8 +607,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MetatagKeywords:
       title: MetatagKeywords
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -617,11 +617,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     MetatagDescription:
       title: MetatagDescription
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -630,11 +630,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitleSimple:
       title: MetatagTitleSimple
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -647,8 +647,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     MetatagTitlePosition:
       title: MetatagTitlePosition
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -661,8 +661,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowOnSitemap:
       title: ShowOnSitemap
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -675,8 +675,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ImportanceSitemap:
       title: ImportanceSitemap
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.5'
@@ -685,11 +685,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '5', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '5', min: null, max: null, message: 'Valor Requerido' }
     ChangeFreqSitemap:
       title: ChangeFreqSitemap
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: monthly
@@ -702,8 +702,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
     ShowGalery:
       title: ShowGalery
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -716,8 +716,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowDocuments:
       title: ShowDocuments
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -730,8 +730,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowRelatedLinks:
       title: ShowRelatedLinks
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -744,8 +744,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowRelatedContents:
       title: ShowRelatedContents
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -758,8 +758,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     ShowPublishedAt:
       title: Mostrar fecha publicación
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -772,8 +772,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     AccessProfileList:
       title: AccessProfileList
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: 'perfiles: {1:1,2:2}'
@@ -785,8 +785,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     AccessProfileListWeb:
       title: AccessProfileListWeb
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: 'perfiles: {1:1}'
@@ -798,8 +798,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     UrlTarget:
       title: UrlTarget
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -808,11 +808,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlParameters:
       title: UrlParameters
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -821,11 +821,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     UrlRequestMethod:
       title: UrlRequestMethod
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -838,8 +838,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlOrigin:
       title: UrlOrigin
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -852,8 +852,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlTargetBlank:
       title: UrlTargetBlank
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -866,8 +866,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     UrlIsHttps:
       title: UrlIsHttps
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -880,8 +880,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     CodigoAppAsociada:
       title: App asociada
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -894,8 +894,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: string, length: '15', min: null, max: null, message: 'Valor Requerido' }
     IdAlbumExterno:
       title: IdAlbumExterno
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -904,11 +904,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSliderAsociado:
       title: IdSliderAsociado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -917,11 +917,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSeccionEnlaces:
       title: IdSeccionEnlaces
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -930,11 +930,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IdSeccionVideos:
       title: IdSeccionVideos
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -943,11 +943,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     DateTimeLastVisit:
       title: Fecha última visita
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -959,8 +959,8 @@ ErpTiposPales:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     RevisitAfter:
       title: RevisitAfter
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '10'
@@ -969,11 +969,11 @@ ErpTiposPales:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '25', min: null, max: null, message: 'Valor Requerido' }
     NivelJerarquico:
       title: NivelJerarquico
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'

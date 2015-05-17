@@ -52,11 +52,13 @@ class TemplateBuilder {
 
         $tmp .= "{% extends values.controller  ~ '/index.html.twig' %}\n\n";
         $tmp .= "{% block listado %}\n\n";
+        $tmp .= "{% if values.permisos.permisosModulo['CO'] and values.tieneListado %}\n";
         $tmp .= "<div class='listado'>\n";
         $tmp .= "\t{% include '_global/listGenerico.html.twig' with {'listado': values.listado, 'controller': values.controller} %}\n";
         $tmp .= "\t{% include '_global/paginacion.html.twig' with {'filter': values.listado.filter, 'controller': values.controller, 'position': 'izq'}%}\n";
         //$tmp .= "\t{% include '_global/paginacion.html.twig' with {'filter': values.listado.filter, 'controller': values.controller, 'position': 'der'}%}\n";
         $tmp .= "</div>\n";
+        $tmp .= "{% endif %}\n";        
         $tmp .= "{% endblock %}";
 
         $this->templates['list'] = $tmp;
@@ -359,7 +361,8 @@ class TemplateBuilder {
         } // end foreach
         // Añado el include de los campos comunes
         $tmp .= "\n{% include '_global/fieldsComunes.html.twig' %}\n\n";
-
+        $tmp .= "<div class='clearfix'></div>\n";
+        
         // Añado la macro para situar el foco
         $tmp .= "{{ macro.foco(values.controller ~ '_{$campoFoco}') }}\n";
 

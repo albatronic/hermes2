@@ -50,20 +50,20 @@ AvisadorStock:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Avisador de Stock
   id_video: avisadorstock
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: AvisadorStock
   table: ErpAvisadorStock
   primarykey: Id
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Id a-z'
@@ -87,8 +87,8 @@ AvisadorStock:
       title: Id
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -97,8 +97,8 @@ AvisadorStock:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDCliente:
       title: Cliente
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -108,11 +108,11 @@ AvisadorStock:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       '#aditional_filter': { order: 1, caption: IDCliente, entity: Clientes, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Email:
       title: Email
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -121,11 +121,11 @@ AvisadorStock:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     IDArticulo:
       title: Articulo
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -135,11 +135,11 @@ AvisadorStock:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       aditional_filter: { order: 2, caption: Articulo, entity: Articulos, method: fetchAll, params: Descripcion, type: input, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '45', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '45', min: null, max: null, message: 'Valor Requerido' }
     CreatedAt:
       title: Fecha Petición
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -148,11 +148,11 @@ AvisadorStock:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     EmailedAt:
-      title: Notificado el
-      filter: NO
-      list: YES
+      title: falsetificado el
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0000-00-00 00:00:00'
@@ -161,4 +161,4 @@ AvisadorStock:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }

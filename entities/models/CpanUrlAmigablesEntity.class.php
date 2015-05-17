@@ -23,7 +23,7 @@ class CpanUrlAmigablesEntity extends EntityComunes {
      * @var integer
      * @assert NotBlank(groups="CpanUrlAmigables")
      */
-    protected $Idioma;
+    protected $Idioma = 0;
 
     /**
      * @var string

@@ -4,19 +4,19 @@
 {% set digitosCta = emp.DigitosCuentaContable %}
 {% set atributos = values.atributos %}
 
-<div id="tabs">
+<div class="col-md-12">
     <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
     <ul class="nav nav-tabs">
-        <li><a href="#general">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Cliente{%endif%}</a></li>            
-        <li><a href="#tabs-1">Facturación</a></li>
+        <li><a href="#general" data-toggle="tab">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Cliente{%endif%}</a></li>            
+        <li><a href="#tabs-1" data-toggle="tab">Facturación</a></li>
         {% if datos.IDCliente %}
-            <li><a href="#tabs-2" onclick="cargaDireccionesEntrega('tabs-2');">Dir. Entrega</a></li>
-            <li><a href="#tabs-3" onclick="cargaContactos('tabs-3');">Contactos</a></li>
-            <li><a href="#tabs-4">Varios</a></li>
-            <li><a href="#tabs-5" onclick="cargaVencimientos('tabs-5');">Vencimientos</a></li>
+            <li><a href="#tabs-2" onclick="cargaDireccionesEntrega('tabs-2');" data-toggle="tab">Dir. Entrega</a></li>
+            <li><a href="#tabs-3" onclick="cargaContactos('tabs-3');" data-toggle="tab">Contactos</a></li>
+            <li><a href="#tabs-4" data-toggle="tab">Varios</a></li>
+            <li><a href="#tabs-5" onclick="cargaVencimientos('tabs-5');" data-toggle="tab">Vencimientos</a></li>
             {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
             <li>
-                <a href="#fieldsComunes" onclick='$( "#solapaActiva" ).val("fieldsComunes");'>Más detalles...</a>
+                <a href="#fieldsComunes" onclick='$( "#solapaActiva" ).val("fieldsComunes");' data-toggle="tab">Más detalles...</a>
             </li>        
             {% endif %}              
         {% endif %}
@@ -48,6 +48,7 @@
         {{ macro.select(atributos.IDZona,'Etiqueta','Clientes[IDZona]','Clientes_IDZona',200,datos.IDZona.IDZona,datos.IDZona.fetchAll(datos.IDSucursal.IDSucursal,'Zona',false),'Select') }}            
         {% include '_global/metaDatos.html.twig' %}
         </div>
+        <div class="clearfix"></div>
     </div>            
     <div class="tab-pane" id="tabs-1">
         <div class="col-md-6">

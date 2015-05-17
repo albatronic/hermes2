@@ -7,9 +7,9 @@
 #
 ---
 Expediciones:
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Expediciones
   id_video: expediciones
@@ -18,7 +18,7 @@ Expediciones:
   entity: Expediciones
   table: expediciones
   primarykey: IDLinea
-  records_per_page: 15
+  records_per_page: 10
   order_by: IDLinea
   search_default: IDLinea
   referenced_entities:
@@ -38,9 +38,9 @@ Expediciones:
     -
       title: IDLinea
       field: IDLinea
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -51,9 +51,9 @@ Expediciones:
     -
       title: IDAlbaran
       field: IDAlbaran
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -62,7 +62,7 @@ Expediciones:
         link: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -71,9 +71,9 @@ Expediciones:
     -
       title: IDLineaAlbaran
       field: IDLineaAlbaran
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -82,7 +82,7 @@ Expediciones:
         link: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -91,9 +91,9 @@ Expediciones:
     -
       title: IDAlmacen
       field: IDAlmacen
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -102,7 +102,7 @@ Expediciones:
         link: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 3
         min: null
@@ -111,9 +111,9 @@ Expediciones:
     -
       title: IDAlmacenero
       field: IDAlmacenero
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -122,7 +122,7 @@ Expediciones:
         link: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 4
         min: null
@@ -131,9 +131,9 @@ Expediciones:
     -
       title: Unidades
       field: Unidades
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -142,7 +142,7 @@ Expediciones:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -151,9 +151,9 @@ Expediciones:
     -
       title: Kilos
       field: Kilos
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -162,7 +162,7 @@ Expediciones:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -171,9 +171,9 @@ Expediciones:
     -
       title: Cajas
       field: Cajas
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -182,7 +182,7 @@ Expediciones:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -191,9 +191,9 @@ Expediciones:
     -
       title: Pales
       field: Pales
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -202,7 +202,7 @@ Expediciones:
         link: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -211,9 +211,9 @@ Expediciones:
     -
       title: IDLote
       field: IDLote
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -231,7 +231,7 @@ Expediciones:
         operator: =
         event: null
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 8
         min: null
@@ -240,9 +240,9 @@ Expediciones:
     -
       title: IDUbicacion
       field: IDUbicacion
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -251,7 +251,7 @@ Expediciones:
         link: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 8
         min: null
@@ -260,9 +260,9 @@ Expediciones:
     -
       title: Temperatura
       field: Temperatura
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -271,7 +271,7 @@ Expediciones:
         link: null
       default: -20.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 5
         min: null
@@ -280,9 +280,9 @@ Expediciones:
     -
       title: Expedida
       field: Expedida
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -291,7 +291,7 @@ Expediciones:
         link: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 1
         min: 0

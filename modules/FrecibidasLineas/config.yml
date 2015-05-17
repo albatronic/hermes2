@@ -6,8 +6,8 @@
 #
 ---
 FrecibidasLineas:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   help_file: help.html.twig
   title: FrecibidasLineas
   conection: 'datos<?php echo $_SESSION['emp'];?>'
@@ -22,9 +22,9 @@ FrecibidasLineas:
     - 
       title: IDFactura
       field: IDFactura
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -32,7 +32,7 @@ FrecibidasLineas:
         target: null
       default: 0
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 11
         min: null
@@ -41,9 +41,9 @@ FrecibidasLineas:
     - 
       title: IDLinea
       field: IDLinea
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -54,9 +54,9 @@ FrecibidasLineas:
     - 
       title: IDArticulo
       field: IDArticulo
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -64,7 +64,7 @@ FrecibidasLineas:
         target: null
       default: null
       validator:
-        nullable: NO
+        nullable: false
         type: string
         length: 25
         min: null
@@ -73,9 +73,9 @@ FrecibidasLineas:
     - 
       title: Descripcion
       field: Descripcion
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -83,7 +83,7 @@ FrecibidasLineas:
         target: null
       default: null
       validator:
-        nullable: NO
+        nullable: false
         type: string
         length: 255
         min: null
@@ -92,9 +92,9 @@ FrecibidasLineas:
     - 
       title: Unidades
       field: Unidades
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -102,7 +102,7 @@ FrecibidasLineas:
         target: null
       default: 1.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -111,9 +111,9 @@ FrecibidasLineas:
     - 
       title: Precio
       field: Precio
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -121,7 +121,7 @@ FrecibidasLineas:
         target: null
       default: 0.000
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -130,9 +130,9 @@ FrecibidasLineas:
     - 
       title: Dcto
       field: Descuento
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -140,7 +140,7 @@ FrecibidasLineas:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -149,9 +149,9 @@ FrecibidasLineas:
     - 
       title: Importe
       field: Importe
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -159,7 +159,7 @@ FrecibidasLineas:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 10
         min: null
@@ -168,9 +168,9 @@ FrecibidasLineas:
     - 
       title: Iva
       field: Iva
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -178,7 +178,7 @@ FrecibidasLineas:
         target: null
       default: 0.00
       validator:
-        nullable: NO
+        nullable: false
         type: decimal
         length: 5
         min: null
@@ -187,9 +187,9 @@ FrecibidasLineas:
     - 
       title: IDPedido
       field: IDPedido
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -197,7 +197,7 @@ FrecibidasLineas:
         target: null
       default: 00000000
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 8
         min: null
@@ -206,9 +206,9 @@ FrecibidasLineas:
     - 
       title: IDLineaPedido
       field: IDLineaPedido
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -216,7 +216,7 @@ FrecibidasLineas:
         target: null
       default: 00000000
       validator:
-        nullable: NO
+        nullable: false
         type: integer
         length: 8
         min: null

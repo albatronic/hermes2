@@ -4,7 +4,7 @@ Ordenar:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
+  login_required: true
   permission_control: NO
   favourite_control: NO
   help_file: help.html.twig

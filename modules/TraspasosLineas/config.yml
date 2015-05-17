@@ -7,8 +7,8 @@
 #
 ---
 TraspasosLineas:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: TraspasosLineas
@@ -18,7 +18,7 @@ TraspasosLineas:
   entity: TraspasosLineas
   table: traspasos_lineas
   primarykey: IDLinea
-  records_per_page: 15
+  records_per_page: 10
   order_by: IDLinea
   search_default: IDLinea
   referenced_entities:
@@ -36,9 +36,9 @@ TraspasosLineas:
     -
       title: IDLinea
       field: IDLinea
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -49,9 +49,9 @@ TraspasosLineas:
     -
       title: IDTraspaso
       field: IDTraspaso
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -78,9 +78,9 @@ TraspasosLineas:
     -
       title: Tipo
       field: Tipo
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -107,9 +107,9 @@ TraspasosLineas:
     -
       title: IDArticulo
       field: IDArticulo
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -136,9 +136,9 @@ TraspasosLineas:
     -
       title: Descripcion
       field: Descripcion
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -156,9 +156,9 @@ TraspasosLineas:
     -
       title: Unidades
       field: Unidades
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -176,9 +176,9 @@ TraspasosLineas:
     -
       title: UnidadMedida
       field: UnidadMedida
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -196,9 +196,9 @@ TraspasosLineas:
     -
       title: IDAlmacen
       field: IDAlmacen
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -225,9 +225,9 @@ TraspasosLineas:
     -
       title: Precio
       field: Precio
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -245,9 +245,9 @@ TraspasosLineas:
     -
       title: Importe
       field: Importe
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -265,9 +265,9 @@ TraspasosLineas:
     -
       title: IDEstado
       field: IDEstado
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null

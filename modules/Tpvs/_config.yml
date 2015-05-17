@@ -18,7 +18,7 @@ Tpvs:
   entity: Tpvs
   table: tpvs
   primarykey: IDTpv
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Sucursal a-z

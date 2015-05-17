@@ -7,8 +7,8 @@
 #
 ---
 ManufacLineas:
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: ManufacLineas
@@ -18,7 +18,7 @@ ManufacLineas:
   entity: ManufacLineas
   table: manufac_lineas
   primarykey: IDLinea
-  records_per_page: 15
+  records_per_page: 10
   order_by: IDLinea
   search_default: IDLinea
   referenced_entities:
@@ -38,9 +38,9 @@ ManufacLineas:
     -
       title: IDLinea
       field: IDLinea
-      filter: NO
-      list: NO
-      form: YES
+      filter: false
+      list: false
+      form: true
       link:
         route: null
         param: null
@@ -51,9 +51,9 @@ ManufacLineas:
     -
       title: IDManufac
       field: IDManufac
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -80,9 +80,9 @@ ManufacLineas:
     -
       title: Tipo
       field: Tipo
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -109,9 +109,9 @@ ManufacLineas:
     -
       title: IDArticulo
       field: IDArticulo
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -138,9 +138,9 @@ ManufacLineas:
     -
       title: Descripcion
       field: Descripcion
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -158,9 +158,9 @@ ManufacLineas:
     -
       title: Unidades
       field: Unidades
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -178,8 +178,8 @@ ManufacLineas:
     -
       title: UnidadMedida
       field: UnidadeMedida
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       form: NO
       link:
         route: null
@@ -198,9 +198,9 @@ ManufacLineas:
     -
       title: Cajas
       field: Cajas
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -218,9 +218,9 @@ ManufacLineas:
     -
       title: Kilos
       field: Kilos
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -238,9 +238,9 @@ ManufacLineas:
     -
       title: IDAlmacen
       field: IDAlmacen
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -267,9 +267,9 @@ ManufacLineas:
     -
       title: IDLote
       field: IDLote
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -296,9 +296,9 @@ ManufacLineas:
     -
       title: IDUbicacion
       field: IDUbicacion
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -325,9 +325,9 @@ ManufacLineas:
     -
       title: Precio
       field: Precio
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -345,9 +345,9 @@ ManufacLineas:
     -
       title: Importe
       field: Importe
-      filter: YES
-      list: YES
-      form: YES
+      filter: true
+      list: true
+      form: true
       link:
         route: null
         param: null
@@ -365,9 +365,9 @@ ManufacLineas:
     -
       title: IDEstado
       field: IDEstado
-      filter: NO
-      list: YES
-      form: YES
+      filter: false
+      list: true
+      form: true
       link:
         route: null
         param: null

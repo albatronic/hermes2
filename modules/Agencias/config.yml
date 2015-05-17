@@ -44,20 +44,20 @@ Agencias:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Agencias / Formas de Envío
   id_video: erpagencias
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: Agencias
   table: ErpAgencias
   primarykey: IDAgencia
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Agencia a-z'
@@ -79,8 +79,8 @@ Agencias:
       title: IDAgencia
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -89,8 +89,8 @@ Agencias:
       link: { route: null, param: null, title: null, target: null, link: null }
     Agencia:
       title: Agencia
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -99,11 +99,11 @@ Agencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     Telefono:
       title: Teléfono
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: null
@@ -112,11 +112,11 @@ Agencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
     Fax:
       title: Fax
       filter: false
-      list: NO
+      list: false
       visible: true
       updatable: true
       default: null
@@ -125,7 +125,7 @@ Agencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '30', min: null, max: null, message: 'Valor Requerido' }
     Web:
       title: Web
       filter: true
@@ -138,11 +138,11 @@ Agencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     EMail:
       title: EMail
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -151,11 +151,11 @@ Agencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     CosteEstandar:
       title: Coste Estandar
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -164,11 +164,11 @@ Agencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     UrlTracking:
       title: Url Tracking
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -177,10 +177,10 @@ Agencias:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: '100', min: null, max: null, message: 'Valor Requerido' }
     Uso:
       title: Disponible en
-      filter: NO
+      filter: false
       list: true
       visible: true
       updatable: true
@@ -191,4 +191,4 @@ Agencias:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       aditional_filter: { order: 2, caption: Disponible en, entity: UsoWeb, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '15', min: null, max: null, message: 'Valor Requerido' }       
+      validator: { nullable: false, type: tinyint, length: '15', min: null, max: null, message: 'Valor Requerido' }       

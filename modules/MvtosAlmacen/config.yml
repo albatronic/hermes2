@@ -44,20 +44,20 @@ MvtosAlmacen:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Movimientos de almacén
   id_video: mvtosalmacen
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: MvtosAlmacen
   table: ErpMvtosAlmacen
   primarykey: Id
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Fecha z-a
@@ -85,8 +85,8 @@ MvtosAlmacen:
       title: Id
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -95,8 +95,8 @@ MvtosAlmacen:
       link: { route: null, param: null, title: null, target: null, link: null }
     Fecha:
       title: Fecha
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0000-00-00'
@@ -109,8 +109,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: date, length: 10, min: null, max: null, message: 'Valor Requerido' }
     Hora:
       title: Hora
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '00:00:00'
@@ -122,8 +122,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: null, length: false, min: null, max: null, message: 'Valor Requerido' }
     IDAgente:
       title: Usuario
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -136,8 +136,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDAlmacen:
       title: Almacén
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -150,8 +150,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: integer, length: '17', min: null, max: null, message: 'Valor Requerido' }
     IDUbicacion:
       title: Ubicación
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -164,8 +164,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDLote:
       title: Lote
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -178,8 +178,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDArticulo:
       title: Artículo
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -192,8 +192,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: integer, length: '45', min: null, max: null, message: 'Valor Requerido' }
     Descripcion:
       title: Descripción
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -205,8 +205,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     IDTipo:
       title: Tipo
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -219,8 +219,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: integer, length: '23', min: null, max: null, message: 'Valor Requerido' }
     IDDocumento:
       title: Documento
-      filter: YES
-      list: YES
+      filter: true
+      list: true
       visible: true
       updatable: true
       default: '0'
@@ -232,8 +232,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     UnidadesE:
       title: UnidadesE
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0.000'
@@ -245,8 +245,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
     PalesE:
       title: PalesE
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -258,8 +258,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CajasE:
       title: CajasE
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -271,8 +271,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
     UnidadesS:
       title: UnidadesS
-      filter: NO
-      list: YES
+      filter: false
+      list: true
       visible: true
       updatable: true
       default: '0.000'
@@ -284,8 +284,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
     PalesS:
       title: PalesS
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -297,8 +297,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
     CajasS:
       title: CajasS
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -310,8 +310,8 @@ MvtosAlmacen:
       validator: { nullable: NO, type: decimal, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Observaciones:
       title: Observaciones
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: null
@@ -320,4 +320,4 @@ MvtosAlmacen:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: YES, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }

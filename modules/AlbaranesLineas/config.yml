@@ -44,20 +44,20 @@ AlbaranesLineas:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
-  favourite_control: NO
+  login_required: true
+  permission_control: true
+  favourite_control: false
   help_file: help.html.twig
   title: Líneas de albaranes
   id_video: albaraneslineas
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: AlbaranesLineas
   table: ErpAlbaranesLineas
   primarykey: IDLinea
   linkBy: IDAlbaran
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'IDLinea a-z'
@@ -86,8 +86,8 @@ AlbaranesLineas:
       title: IDLinea
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -96,8 +96,8 @@ AlbaranesLineas:
       link: { route: null, param: null, title: null, target: null, link: null }
     IDAlbaran:
       title: Albarán
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -107,11 +107,11 @@ AlbaranesLineas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 1, caption: IDAlbaran, entity: ErpAlbaranesCab, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDArticulo:
       title: Artículo
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -121,11 +121,11 @@ AlbaranesLineas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 2, caption: IDArticulo, entity: ErpArticulos, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Descripcion:
       title: Descripción
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: null
@@ -134,11 +134,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     Unidades:
       title: Unidades
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -147,11 +147,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     UnidadMedida:
       title: Unidad Medida
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: UMV
@@ -160,11 +160,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: string, length: '3', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: string, length: '3', min: null, max: null, message: 'Valor Requerido' }
     Precio:
       title: Precio
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -173,11 +173,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     PvpVigente:
       title: Pvp Vigente
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -186,11 +186,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Descuento:
       title: Dctto
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -199,11 +199,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Importe:
       title: Importe
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -212,11 +212,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     ImporteCosto:
       title: Importe Costo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -225,11 +225,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     IDAlmacen:
       title: Almacén
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -239,11 +239,11 @@ AlbaranesLineas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 3, caption: IDAlmacen, entity: ErpAlmacenes, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Iva:
       title: Iva
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -252,11 +252,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     Recargo:
       title: Recargo
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -265,11 +265,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     ComisionAgente:
       title: Comision Agente
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -278,11 +278,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     ComisionMontador:
       title: Comision Montador
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.00'
@@ -291,11 +291,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     IDVenta:
       title: Tipo Venta
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '1'
@@ -305,11 +305,11 @@ AlbaranesLineas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 4, caption: IDVenta, entity: ErpTiposVenta, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Comisionar:
       title: Comisionar
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -319,11 +319,11 @@ AlbaranesLineas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 5, caption: Comisionar, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     IDAgente:
       title: Agente
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -333,11 +333,11 @@ AlbaranesLineas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 6, caption: IDAgente, entity: ErpAgentes, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDComercial:
       title: Comercial
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -347,11 +347,11 @@ AlbaranesLineas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 7, caption: IDComercial, entity: ErpAgentes, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDPromocion:
       title: Promoción
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -361,11 +361,11 @@ AlbaranesLineas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 8, caption: IDPromocion, entity: ErpPromociones, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     IDEstado:
       title: Estado
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       visible: true
       updatable: true
       default: '0'
@@ -375,11 +375,11 @@ AlbaranesLineas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
       #aditional_filter: { order: 9, caption: IDEstado, entity: EstadosLineasAlbaranes, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
-      validator: { nullable: NO, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
     AltoAl:
       title: Alto Albarán
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -388,11 +388,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     AnchoAl:
       title: Ancho Albarán
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -401,11 +401,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     MtsAl:
       title: Mts Albarán
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -414,11 +414,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     AltoFa:
       title: Alto Factura
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -427,11 +427,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     AnchoFa:
       title: Ancho Factura
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -440,11 +440,11 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
     MtsFa:
       title: Mts Factura
-      filter: YES
-      list: NO
+      filter: true
+      list: false
       visible: true
       updatable: true
       default: '0.000'
@@ -453,4 +453,4 @@ AlbaranesLineas:
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      validator: { nullable: NO, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }
+      validator: { nullable: false, type: integer, length: '10', min: null, max: null, message: 'Valor Requerido' }

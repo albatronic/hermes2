@@ -44,20 +44,20 @@ Tarifas:
   includesHead:
     twigCss: _global/css.html.twig
     twigJs: _global/js.html.twig
-  login_required: YES
-  permission_control: YES
+  login_required: true
+  permission_control: true
   favourite_control: NO
   help_file: help.html.twig
   title: Tarifas
   id_video: tarifas
   url_video: null
-  feature_list: YES
+  feature_list: true
   conection: ''
   entity: Tarifas
   table: ErpTarifas
   primarykey: IDTarifa
   linkBy: ''
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: 'Descripción a-z'
@@ -80,8 +80,8 @@ Tarifas:
       title: IDTarifa
       visible: false
       updatable: false
-      filter: NO
-      list: NO
+      filter: false
+      list: false
       default: null
       help: null
       permission: null
@@ -90,7 +90,7 @@ Tarifas:
       link: { route: null, param: null, title: null, target: null, link: null }
     Descripcion:
       title: Descripción
-      filter: YES
+      filter: true
       list: true
       visible: true
       updatable: true
@@ -103,7 +103,7 @@ Tarifas:
       validator: { nullable: NO, type: string, length: '50', min: null, max: null, message: 'Valor Requerido' }
     Tipo:
       title: Tipo
-      filter: NO
+      filter: false
       list: true
       visible: true
       updatable: true
@@ -117,7 +117,7 @@ Tarifas:
       validator: { nullable: NO, type: tinyint, length: '8', min: null, max: null, message: 'Valor Requerido' }
     Valor:
       title: Valor
-      filter: YES
+      filter: true
       list: true
       visible: true
       updatable: true

@@ -18,7 +18,7 @@ Contadores:
   entity: Contadores
   table: contadores
   primarykey: IDContador
-  records_per_page: 15
+  records_per_page: 10
   order_by:
     -
       title: Sucursal a-z
