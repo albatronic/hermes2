@@ -1,16 +1,15 @@
 {# LISTADO GENERICO listGenerico.html.twig                #}
 {# ES INCLUIDO POR LOS list.html.twig DE CADA CONTROLADOR #}
 
-
 <table id="table-listado" class="table table-striped">
     <thead>
         <tr>
             <th width='16px'>&nbsp;</th>
             {% for title in listado.titles %}
-                <th class='Item'>{{ title.title }}</th>
+                <th>{{ title.title }}</th>
             {% endfor%}
             {% if mostrarPublicar == '1' %}
-                <td class='Item'>Publicar</td>
+                <th>Publicar</td>
             {% endif %}
         </tr>
     </thead>
@@ -26,27 +25,31 @@
             <td>
                 <a class="btn-edit" href='{{app.path}}/{{controller}}/Edit/{{objeto.getPrimaryKeyMD5()}}' title='Editar'>
                     <i class="fa fa-pencil"></i>
-                </a>
+                <a>
             </td>
             {% for field,value in listado.titles %}
-            {% if (value.type == 'decimal' or value.type == 'currency') %}
-                {% set align = 'right' %}
-            {% else %}
-                {% set align = 'left' %}
-            {% endif %}
-            <td class='text-{{align}}'>
-            {% if value.link.route %}
-                <a title="{{value.link.title}}" href="{{app.path}}/{{value.link.route}}/{{objeto.getColumnObject(field).PrimaryKeyMD5}}">
-                    {{objeto.getColumnValue(field,value.length)}}
-                </a>
-            {% else %}
-                {% if value.type == 'currency' %}
-                    {{ macro.moneda(objeto.getColumnValue(field,value.length)) }}                
+                {% if (value.type == 'decimal' or value.type == 'currency') %}
+                    {% set align = 'right' %}
+                {% elseif value.type == 'tinyint' %}
+                    {% set align = 'center' %}
                 {% else %}
-                    {{objeto.getColumnValue(field,value.length)}}
+                    {% set align = 'left' %}
                 {% endif %}
-            {% endif%}
-            </td>
+                <td class='text-{{align}}'>
+                {% if value.link.route %}
+                    <a title="{{value.link.title}}" href="{{app.path}}/{{value.link.route}}/{{objeto.getColumnObject(field).PrimaryKeyMD5}}">
+                        {{objeto.getColumnValue(field,value.length)}}
+                    </a>
+                {% else %}
+                    {% if value.type == 'currency' %}
+                        {{ macro.moneda(objeto.getColumnValue(field,value.length)) }}  
+                    {% elseif value.type == 'datetime' %}
+                        {{ objeto.getColumnValue(field)|date('d/m/Y H:i:s') }}
+                    {% else %}
+                        {{ objeto.getColumnValue(field,value.length) }}
+                    {% endif %}
+                {% endif%}
+                </td>
             {% endfor %}
             
             {% if mostrarPublicar == '1' %}
@@ -54,7 +57,8 @@
                     {{ macro.actualizaColumna(controller,objeto.getPrimaryKeyValue,'Publish',objeto.Publish.IDTipo,'Publicar/Despublicar')}}  
                 </td>
             {% endif %}            
-       </tr>
+	   </tr>
     {% endfor %}
     </tbody>
 </table>
+

@@ -594,6 +594,8 @@ class Entity {
         $this->conecta();
         if (is_resource($this->_dbLink)) {
 
+            $valores = "";
+            
             foreach ($array as $key => $value) {
                 $valores .= "{$key}='{$value}',";
             }
