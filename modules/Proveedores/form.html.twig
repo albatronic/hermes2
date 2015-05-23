@@ -4,62 +4,61 @@
 {% set digitosCta = emp.DigitosCuentaContable %}
 {% set atributos = values.atributos %}
 
-<div id="tabs">
-    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
-    <ul class="nav nav-tabs">
-        <li>
-            <a href="#general">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Proveedor{%endif%}</a>
-        </li>  
-        {% if datos.PrimaryKeyValue %}
-        <li>
-            <a href="#vctos" onclick='cargaVencimientos("vctos");'>Vencimientos</a>
-        </li>
-        {% endif %}
-        {% if (values.varEnvMod.withDocuments == '1' or user.IDPerfil.IDPerfilPerfil == '1') and (datos.PrimaryKeyValue ) %}            
-        <li><a href="#divDocs" id="docs">Docs ({{datos.getNumberOfDocuments('document')}})</a></li>
-        {% endif %}  
-    </ul>
-    <div class="tab-content no-space">
-    <div class="tab-pane" id="general">
-        <div class="col-md-7">        
-            {{ macro.input(atributos.RazonSocial,'Etiqueta','text','Proveedores[RazonSocial]','Proveedores_RazonSocial',datos.RazonSocial,'50','CampoTextoLargo') }}
-            {{ macro.input(atributos.NombreComercial,'Etiqueta','text','Proveedores[NombreComercial]','Proveedores_NombreComercial',datos.NombreComercial,'50','CampoTextoLargo') }}
-            {{ macro.cif(atributos.Cif,'Etiqueta','text','Proveedores[Cif]','Proveedores_Cif',datos.Cif,'CampoCif') }}
-            {{ macro.input(atributos.Direccion,'Etiqueta','text','Proveedores[Direccion]','Proveedores_Direccion',datos.Direccion,'50','CampoTextoLargo') }}
-            {{ macro.input(atributos.IDPais,'Etiqueta','text','Proveedores[IDPais]','Proveedores_IDPais',datos.IDPais.IDPais,'255','CampoTextoMedio','',"limpia('Proveedores_IDPais','Proveedores_IDProvincia');limpia('Proveedores_IDPais','Proveedores_IDPoblacion');",['paises','Pais',datos.IDPais.Pais]) }}
-            {{ macro.input(atributos.IDProvincia,'Etiqueta','text','Proveedores[IDProvincia]','Proveedores_IDProvincia',datos.IDProvincia.IDProvincia,'255','CampoTextoLargo','',"limpia('Proveedores_IDProvincia','Proveedores_IDPoblacion');",['provincias','Provincia',datos.IDProvincia.Provincia,'Proveedores_IDPais']) }}
-            {{ macro.input(atributos.IDPoblacion,'Etiqueta','text','Proveedores[IDPoblacion]','Proveedores_IDPoblacion',datos.IDPoblacion.IDMunicipio,'255','CampoTextoLargo','','',['municipios','Municipio',datos.IDPoblacion.Municipio,'Proveedores_IDProvincia']) }}       
-            {{ macro.input(atributos.Telefono,'Etiqueta','text','Proveedores[Telefono]','Proveedores_Telefono',datos.Telefono,'30','CampoTextoLargo') }}
-            {{ macro.input(atributos.Fax,'Etiqueta','text','Proveedores[Fax]','Proveedores_Fax',datos.Fax,'30','CampoTextoLargo') }}
-            {{ macro.input(atributos.Movil,'Etiqueta','text','Proveedores[Movil]','Proveedores_Movil',datos.Movil,'30','CampoTextoLargo') }}
-            {{ macro.input(atributos.EMail,'Etiqueta','text','Proveedores[EMail]','Proveedores_EMail',datos.EMail,'50','CampoTextoLargo') }}
-            {{ macro.input(atributos.Web,'Etiqueta','text','Proveedores[Web]','Proveedores_Web',datos.Web,'50','CampoTextoLargo') }}
-            {{ macro.input(atributos.CContable,'Etiqueta','text','Proveedores[CContable]','Proveedores_CContable',datos.CContable,digitosCta,'CampoTextoCorto') }}
-            {{ macro.cc(atributos.Banco,'Etiqueta','cc','Proveedores',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) }}
-            {{ macro.input(atributos.Iban,'Etiqueta','text','Proveedores[Iban]','Proveedores_Iban',datos.Iban,'34','CampoTextoMedio') }}
-            {{ macro.input(atributos.Bic,'Etiqueta','text','Proveedores[Bic]','Proveedores_Bic',datos.Bic,'11','CampoTextoCorto') }}         
-            {{ macro.input(atributos.Mandato,'Etiqueta','text','Proveedores[Mandato]','Proveedores_Mandato',datos.Mandato,'35','CampoTextoCorto') }}        
-            {{ macro.fecha(atributos.FechaMandato,'Etiqueta','Proveedores[FechaMandato]','Proveedores_FechaMandato',datos.FechaMandato,'10','CampoFecha') }}               
-            {{ macro.select(atributos.IDFP,'Etiqueta','Proveedores[IDFP]','Proveedores_IDFP',200,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'Select') }}
-            {{ macro.input(atributos.Iva,'Etiqueta','checkbox','Proveedores[Iva]','Proveedores[Iva]',datos.Iva.IDTipo,'255','CampoTextoLargo') }}                        
+<div class="row">
+    <div class="col-md-12">
+        <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#general" data-toggle="tab">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Proveedor{%endif%}</a>
+            </li>  
+            {% if datos.PrimaryKeyValue %}
+                <li>
+                    <a href="#vctos" data-toggle="tab" onclick='cargaVencimientos("vctos");'>Vencimientos</a>
+                </li>
+            {% endif %}
+            {% if (values.varEnvMod.withDocuments == '1' or user.IDPerfil.PrimaryKeyValue == '1') and (datos.PrimaryKeyValue ) %}            
+                <li><a href="#divDocs" data-toggle="tab" id="docs">Docs ({{datos.getNumberOfDocuments('document')}})</a></li>
+                {% endif %}  
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="general">
+                <div class="col-md-7">        
+                    {{ macro.input(atributos.RazonSocial,'Etiqueta','text','Proveedores[RazonSocial]','Proveedores_RazonSocial',datos.RazonSocial,'50','CampoTextoLargo') }}
+                    {{ macro.input(atributos.NombreComercial,'Etiqueta','text','Proveedores[NombreComercial]','Proveedores_NombreComercial',datos.NombreComercial,'50','CampoTextoLargo') }}
+                    {{ macro.cif(atributos.Cif,'Etiqueta','text','Proveedores[Cif]','Proveedores_Cif',datos.Cif,'CampoCif') }}
+                    {{ macro.input(atributos.Direccion,'Etiqueta','text','Proveedores[Direccion]','Proveedores_Direccion',datos.Direccion,'50','CampoTextoLargo') }}
+                    {{ macro.input(atributos.IDPais,'Etiqueta','text','Proveedores[IDPais]','Proveedores_IDPais',datos.IDPais.IDPais,'255','CampoTextoMedio','',"limpia('Proveedores_IDPais','Proveedores_IDProvincia');limpia('Proveedores_IDPais','Proveedores_IDPoblacion');",['paises','Pais',datos.IDPais.Pais]) }}
+                    {{ macro.input(atributos.IDProvincia,'Etiqueta','text','Proveedores[IDProvincia]','Proveedores_IDProvincia',datos.IDProvincia.IDProvincia,'255','CampoTextoLargo','',"limpia('Proveedores_IDProvincia','Proveedores_IDPoblacion');",['provincias','Provincia',datos.IDProvincia.Provincia,'Proveedores_IDPais']) }}
+                    {{ macro.input(atributos.IDPoblacion,'Etiqueta','text','Proveedores[IDPoblacion]','Proveedores_IDPoblacion',datos.IDPoblacion.IDMunicipio,'255','CampoTextoLargo','','',['municipios','Municipio',datos.IDPoblacion.Municipio,'Proveedores_IDProvincia']) }}       
+                    {{ macro.input(atributos.Telefono,'Etiqueta','text','Proveedores[Telefono]','Proveedores_Telefono',datos.Telefono,'30','CampoTextoLargo') }}
+                    {{ macro.input(atributos.Fax,'Etiqueta','text','Proveedores[Fax]','Proveedores_Fax',datos.Fax,'30','CampoTextoLargo') }}
+                    {{ macro.input(atributos.Movil,'Etiqueta','text','Proveedores[Movil]','Proveedores_Movil',datos.Movil,'30','CampoTextoLargo') }}
+                    {{ macro.input(atributos.EMail,'Etiqueta','text','Proveedores[EMail]','Proveedores_EMail',datos.EMail,'50','CampoTextoLargo') }}
+                    {{ macro.input(atributos.Web,'Etiqueta','text','Proveedores[Web]','Proveedores_Web',datos.Web,'50','CampoTextoLargo') }}
+                    {{ macro.input(atributos.CContable,'Etiqueta','text','Proveedores[CContable]','Proveedores_CContable',datos.CContable,digitosCta,'CampoTextoCorto') }}
+                    {{ macro.cc(atributos.Banco,'Etiqueta','cc','Proveedores',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) }}
+                    {{ macro.input(atributos.Iban,'Etiqueta','text','Proveedores[Iban]','Proveedores_Iban',datos.Iban,'34','CampoTextoMedio') }}
+                    {{ macro.input(atributos.Bic,'Etiqueta','text','Proveedores[Bic]','Proveedores_Bic',datos.Bic,'11','CampoTextoCorto') }}         
+                    {{ macro.input(atributos.Mandato,'Etiqueta','text','Proveedores[Mandato]','Proveedores_Mandato',datos.Mandato,'35','CampoTextoCorto') }}        
+                    {{ macro.fecha(atributos.FechaMandato,'Etiqueta','Proveedores[FechaMandato]','Proveedores_FechaMandato',datos.FechaMandato,'10','CampoFecha') }}               
+                    {{ macro.select(atributos.IDFP,'Etiqueta','Proveedores[IDFP]','Proveedores_IDFP',200,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'Select') }}
+                    {{ macro.input(atributos.Iva,'Etiqueta','checkbox','Proveedores[Iva]','Proveedores[Iva]',datos.Iva.IDTipo,'255','CampoTextoLargo') }}                        
+                </div>
+                <div class="col-md-5">
+                    {{ macro.textarea(atributos.Observaciones,'Etiqueta','Proveedores[Observaciones]','Proveedores_Observaciones',datos.Observaciones,none,none,'TextArea')}}             
+                    {% include '_global/metaDatos.html.twig' %}
+                </div>
+            </div>  
+
+            {% if datos.PrimaryKeyValue %}
+                <div id="vctos" class="tab-pane"></div>
+
+                {% if values.varEnvMod.withDocuments == '1' or user.IDPerfil.PrimaryKeyValue == '1' %}              
+                    <div id="divDocs" class="tab-pane"></div>
+                {% endif %}
+            {% endif %}  
         </div>
-        <div class="col-md-5">
-            {{ macro.textarea(atributos.Observaciones,'Etiqueta','Proveedores[Observaciones]','Proveedores_Observaciones',datos.Observaciones,none,none,'TextArea')}}             
-            {% include '_global/metaDatos.html.twig' %}
-        </div>
+
     </div>  
-
-    {% if datos.PrimaryKeyValue %}
-        <div id="vctos"></div>
-
-        {% if values.varEnvMod.withDocuments == '1' or user.IDPerfil.IDPerfilPerfil == '1' %}              
-        <div id="divDocs"></div>
-        {% endif %}
-    {% endif %}  
-    </div>
-
-</div>  
- 
+</div>
 {{ macro.foco('Proveedores_RazonSocial') }}
-
-{% include values.controller ~ '/js.html.twig' %}

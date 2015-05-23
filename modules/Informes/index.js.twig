@@ -1,0 +1,14 @@
+{% extends '_global/js.html.twig' %}
+{% block js %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#botonGenerar').click(function () {
+                var html = "<img src='" + appPath + "/images/loadingAnimation.gif'>";
+                $('#div_botonGenerar').html(html);
+                $('#informe').submit();
+            });
+        });
+    </script> 
+{% endblock %}

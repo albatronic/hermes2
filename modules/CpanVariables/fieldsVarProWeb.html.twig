@@ -19,93 +19,95 @@
 3 = ALMACENERO" %}
 
 {% block template %}
-<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
-    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-        <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tabs-global">Global [globales]</a></li>
-        <li class="ui-state-default ui-corner-top"><a href="#tabs-mail">Mail [mail]</a></li>
-        <li class="ui-state-default ui-corner-top"><a href="#tabs-meta">SEO [meta]</a></li>
-        <li class="ui-state-default ui-corner-top"><a href="#tabs-firmas">Firmas [signatures]</a></li>
-        <li class="ui-state-default ui-corner-top"><a href="#tabs-contenidosFijos">Contenidos fijos [staticContents]</a></li>        
-        <li class="ui-state-default ui-corner-top"><a href="#tabs-erp">Erp [erp]</a></li>        
-        <li class="ui-state-default ui-corner-top"><a href="#tabs-shop">Shop [shop]</a></li>        
-    </ul>
+    <div class="col-md-12">
+        <ul class="nav nav-tabs">
+            <li><a href="#tabs-global" data-toggle="tab">Global [globales]</a></li>
+            <li><a href="#tabs-mail" data-toggle="tab">Mail [mail]</a></li>
+            <li><a href="#tabs-meta" data-toggle="tab">SEO [meta]</a></li>
+            <li><a href="#tabs-firmas" data-toggle="tab">Firmas [signatures]</a></li>
+            <li><a href="#tabs-contenidosFijos" data-toggle="tab">Contenidos fijos [staticContents]</a></li>        
+            <li><a href="#tabs-erp" data-toggle="tab">Erp [erp]</a></li>        
+            <li><a href="#tabs-shop" data-toggle="tab">Shop [shop]</a></li>        
+        </ul>
 
-    <div id="tabs-global" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-        
-        {{ macro.input({'caption':'[dominio] Dominio','visible':(values.visibilidad.globales['dominio'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][dominio]','d_global_dominio',values.d.globales.dominio,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[empresa] Empresa / Titular','visible':(values.visibilidad.globales['empresa'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][empresa]','d_global_empresa',values.d.globales.empresa,'50','CampoTextoMedio','1') }}            
-        {{ macro.input({'caption':'[direccion] Dirección','visible':(values.visibilidad.globales['direccion'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][direccion]','d_global_direccion',values.d.globales.direccion,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[poblacion] Población','visible':(values.visibilidad.globales['poblacion'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][poblacion]','d_global_poblacion',values.d.globales.poblacion,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[provincia] Provincia','visible':(values.visibilidad.globales['provincia'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][provincia]','d_global_provincia',values.d.globales.provincia,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[codigoPostal] Código Postal','visible':(values.visibilidad.globales['codigoPostal'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][codigoPostal]','d_global_codigoPostal',values.d.globales.codigoPostal,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[telefono1] Teléfono1','visible':(values.visibilidad.globales['telefono1'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][telefono1]','d_global_telefono1',values.d.globales.telefono1,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[telefono2] Teléfono2','visible':(values.visibilidad.globales['telefono2'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][telefono2]','d_global_telefono2',values.d.globales.telefono2,'50','CampoTextoMedio','1') }}            
-        {{ macro.input({'caption':'[emailInfo] Email Info','visible':(values.visibilidad.globales['emailInfo'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][emailInfo]','d_global_emailInfo',values.d.globales.emailInfo,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[logoOldBrowser] Archivo imagen logo navegador antiguo','visible':(values.visibilidad.globales['logoOldBrowser'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][logoOldBrowser]','d_global_logoOldBrowser',values.d.globales.logoOldBrowser,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[lang] Idiomas disponibles','visible':(values.visibilidad.globales['lang'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][lang]','d_global_lang',values.d.globales.lang,'50','CampoTextoMedio','1') }}
+        <div class="tab-content">
+            {# GLOBAL #}
+            <div id="tabs-global" class="tab-pane fade">
 
-    </div>
+                {{ macro.input({'caption':'[dominio] Dominio','visible':(values.visibilidad.globales['dominio'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][dominio]','d_global_dominio',values.d.globales.dominio,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[empresa] Empresa / Titular','visible':(values.visibilidad.globales['empresa'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][empresa]','d_global_empresa',values.d.globales.empresa,'50','CampoTextoMedio','1') }}            
+                {{ macro.input({'caption':'[direccion] Dirección','visible':(values.visibilidad.globales['direccion'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][direccion]','d_global_direccion',values.d.globales.direccion,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[poblacion] Población','visible':(values.visibilidad.globales['poblacion'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][poblacion]','d_global_poblacion',values.d.globales.poblacion,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[provincia] Provincia','visible':(values.visibilidad.globales['provincia'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][provincia]','d_global_provincia',values.d.globales.provincia,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[codigoPostal] Código Postal','visible':(values.visibilidad.globales['codigoPostal'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][codigoPostal]','d_global_codigoPostal',values.d.globales.codigoPostal,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[telefono1] Teléfono1','visible':(values.visibilidad.globales['telefono1'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][telefono1]','d_global_telefono1',values.d.globales.telefono1,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[telefono2] Teléfono2','visible':(values.visibilidad.globales['telefono2'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][telefono2]','d_global_telefono2',values.d.globales.telefono2,'50','CampoTextoMedio','1') }}            
+                {{ macro.input({'caption':'[emailInfo] Email Info','visible':(values.visibilidad.globales['emailInfo'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][emailInfo]','d_global_emailInfo',values.d.globales.emailInfo,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[logoOldBrowser] Archivo imagen logo navegador antiguo','visible':(values.visibilidad.globales['logoOldBrowser'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][logoOldBrowser]','d_global_logoOldBrowser',values.d.globales.logoOldBrowser,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[lang] Idiomas disponibles','visible':(values.visibilidad.globales['lang'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][lang]','d_global_lang',values.d.globales.lang,'50','CampoTextoMedio','1') }}
 
-    <div id="tabs-mail" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-        {{ macro.input({'caption':'[socket] Tipo de servidor (smtp)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][socket]','d_mail_socket',values.d.mail.socket,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[host] Servidor mail','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][host]','d_mail_host',values.d.mail.host,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[smtp_auth] Requiere autenticación (true)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][smtp_auth]','d_mail_smtp_auth',values.d.mail.smtp_auth,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[port] Puerto (25)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][port]','d_mail_port',values.d.mail.port,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[user_name] Usuario','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][user_name]','d_mail_user_name',values.d.mail.user_name,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[password] Password','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][password]','d_mail_password',values.d.mail.password,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[from] Email envío','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][from]','d_mail_from',values.d.mail.from,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[from_name] Nombre','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][from_name]','d_mail_from_name',values.d.mail.from_name,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[timeout] Tiempo espera (30seg)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][timeout]','d_mail_timeout',values.d.mail.timeout,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[mensajeConfirmacion] Mensaje de confirmación','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][mensajeConfirmacion]','d_mail_mensajeConfirmacion',values.d.mail.mensajeConfirmacion,'255','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[mensajeExito] Mensaje de éxito','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][mensajeExito]','d_mail_mensajeExito',values.d.mail.mensajeExito,'255','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[mensajeError] Mensaje de error','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][mensajeError]','d_mail_mensajeError',values.d.mail.mensajeError,'255','CampoTextoMedio','1') }}
-        {{ macro.textarea({'caption':'[textoLOPD] Texto LOPD','visible':'1','varEnv':'0'},'EtiquetaLarga','d[mail][textoLOPD]','d_mail_textoLOPD',values.d.mail.textoLOPD,none,none,'TextArea',100)}}           
-    </div>
-        
-    <div id="tabs-meta" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-        {{ macro.input({'caption':'[webName] Nombre de la Web','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][webName]','d_meta_webName',values.d.meta.webName,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[title] Título','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][title]','d_meta_title',values.d.meta.title,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[description] Description','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][description]','d_meta_description',values.d.meta.description,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[keyWords] Keywords (separados por coma)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][keyWords]','d_meta_keyWords',values.d.meta.keyWords,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[titleSimple] TitleSimple','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[meta][titleSimple]','d_meta_titleSimple',values.d.meta.titleSimple,'1','CampoTextoLargo','1') }}
-        {{ macro.select({'caption':'[titlePosition] TitlePosition','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[meta][titlePosition]','d_meta_titlePosition',none,values.d.meta.titlePosition,ValoresIzqDcha,'chzn-select')}}                
-        {{ macro.input({'caption':'[revisitAfter] revisitAfter','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][revisitAfter]','d_meta_revisitAfter',values.d.meta.revisitAfter,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[author] Author','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][author]','d_meta_author',values.d.meta.author,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[geoRegion] geoRegion','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][geoRegion]','d_meta_geoRegion',values.d.meta.geoRegion,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[geoPlaceName] geoPlaceName','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][geoPlaceName]','d_meta_geoPlaceName',values.d.meta.geoPlaceName,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[geoPositionLongitude] geoPositionLongitude','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][geoPositionLongitude]','d_meta_geoPositionLongitude',values.d.meta.geoPositionLongitude,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[geoPositionLatitude] geoPositionLatitude','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][geoPositionLatitude]','d_meta_geoPositionLatitude',values.d.meta.geoPositionLatitude,'50','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[idGoogleAnalytics] Identificador de Google Analytics','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][idGoogleAnalytics]','d_meta_idGoogleAnalytics',values.d.meta.idGoogleAnalytics,'50','CampoTextoMedio','1') }}
+            </div>
+
+            <div id="tabs-mail" class="tab-pane fade">
+                {{ macro.input({'caption':'[socket] Tipo de servidor (smtp)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][socket]','d_mail_socket',values.d.mail.socket,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[host] Servidor mail','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][host]','d_mail_host',values.d.mail.host,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[smtp_auth] Requiere autenticación (true)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][smtp_auth]','d_mail_smtp_auth',values.d.mail.smtp_auth,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[port] Puerto (25)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][port]','d_mail_port',values.d.mail.port,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[user_name] Usuario','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][user_name]','d_mail_user_name',values.d.mail.user_name,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[password] Password','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][password]','d_mail_password',values.d.mail.password,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[from] Email envío','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][from]','d_mail_from',values.d.mail.from,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[from_name] Nombre','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][from_name]','d_mail_from_name',values.d.mail.from_name,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[timeout] Tiempo espera (30seg)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][timeout]','d_mail_timeout',values.d.mail.timeout,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[mensajeConfirmacion] Mensaje de confirmación','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][mensajeConfirmacion]','d_mail_mensajeConfirmacion',values.d.mail.mensajeConfirmacion,'255','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[mensajeExito] Mensaje de éxito','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][mensajeExito]','d_mail_mensajeExito',values.d.mail.mensajeExito,'255','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[mensajeError] Mensaje de error','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[mail][mensajeError]','d_mail_mensajeError',values.d.mail.mensajeError,'255','CampoTextoMedio','1') }}
+                {{ macro.textarea({'caption':'[textoLOPD] Texto LOPD','visible':'1','varEnv':'0'},'EtiquetaLarga','d[mail][textoLOPD]','d_mail_textoLOPD',values.d.mail.textoLOPD,none,none,'TextArea',100)}}           
+            </div>
+
+            <div id="tabs-meta" class="tab-pane fade">
+                {{ macro.input({'caption':'[webName] Nombre de la Web','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][webName]','d_meta_webName',values.d.meta.webName,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[title] Título','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][title]','d_meta_title',values.d.meta.title,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[description] Description','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][description]','d_meta_description',values.d.meta.description,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[keyWords] Keywords (separados por coma)','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][keyWords]','d_meta_keyWords',values.d.meta.keyWords,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[titleSimple] TitleSimple','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[meta][titleSimple]','d_meta_titleSimple',values.d.meta.titleSimple,'1','CampoTextoLargo','1') }}
+                {{ macro.select({'caption':'[titlePosition] TitlePosition','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[meta][titlePosition]','d_meta_titlePosition',none,values.d.meta.titlePosition,ValoresIzqDcha,'chzn-select')}}                
+                {{ macro.input({'caption':'[revisitAfter] revisitAfter','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][revisitAfter]','d_meta_revisitAfter',values.d.meta.revisitAfter,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[author] Author','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][author]','d_meta_author',values.d.meta.author,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[geoRegion] geoRegion','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][geoRegion]','d_meta_geoRegion',values.d.meta.geoRegion,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[geoPlaceName] geoPlaceName','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][geoPlaceName]','d_meta_geoPlaceName',values.d.meta.geoPlaceName,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[geoPositionLongitude] geoPositionLongitude','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][geoPositionLongitude]','d_meta_geoPositionLongitude',values.d.meta.geoPositionLongitude,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[geoPositionLatitude] geoPositionLatitude','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][geoPositionLatitude]','d_meta_geoPositionLatitude',values.d.meta.geoPositionLatitude,'50','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[idGoogleAnalytics] Identificador de Google Analytics','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[meta][idGoogleAnalytics]','d_meta_idGoogleAnalytics',values.d.meta.idGoogleAnalytics,'50','CampoTextoMedio','1') }}
+            </div>
+
+            <div id="tabs-firmas" class="tab-pane fade">
+                {{ macro.input({'caption':'[links] Links separados por coma','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[signatures][links]','d_signatures_links',values.d.signatures.links,'255','CampoTextoMedio','1') }}
+                {{ macro.input({'caption':'[locations] Localizaciones geográficas separadas por coma','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[signatures][locations]','d_signatures_links',values.d.signatures.locations,'255','CampoTextoMedio','1') }}
+
+                {% for language,services in values.d.signatures.services %}
+                    {{ macro.input({'caption':'[services]['~language~'] Servicios separados por coma','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[signatures][services]['~language~']','d_signatures_services_'~language,services,'70','CampoTextoMedio','1') }}
+                {% endfor %}
+            </div>
+
+            <div id="tabs-contenidosFijos" class="tab-pane fade">
+                {% for i in 0..numeroContenidosFijos %}
+                    {{ macro.input({'caption':'['~i~'] Contenido fijo '~i,'visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[staticContents]['~i~']','d_staticContents_sc'~i,values.d.staticContents[i],'255','CampoTextoMedio','1') }}
+                {% endfor %}
+            </div>
+
+            <div id="tabs-erp" class="tab-pane fade">
+                {{ macro.select({'caption':'[version] Versión','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[erp][version]','d_erp_version',300,values.d.erp.version,versionesErp,'Select')}}                    
+                {{ macro.select({'caption':'[actuPrecios] Política actualización de precios','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[erp][actuPrecios]','d_erp_actuPrecios',300,values.d.erp.actuPrecios,actuPreciosErp,'Select')}}                    
+                {{ macro.input({'caption':'[rolesCambioPrecios] Roles separados por coma que pueden cambiar precios','visible':'1','varEnv':'0','help':ayudaRolCp},'EtiquetaLarga','text','d[erp][rolesCambioPrecios]','d_erp_rolesCambioPrecios',values.d.erp.rolesCambioPrecios,'255','CampoTextoMedio','1') }}            
+                {{ macro.input({'caption':'[alertaMargen] Alertar cuando el margen sea inferior a ...%','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[erp][alertaMargen]','d_erp_alertaMargen',values.d.erp.alertaMargen,'255','CampoTextoMedio','1') }}            
+                {{ macro.input({'caption':'[alertaStock] Generar alertas por falta de stock','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[erp][alertaStock]','d_erp_alertaStock',values.d.erp.alertaStock,'255','CampoTextoMedio','1') }}            
+                {{ macro.input({'caption':'[idClienteWeb] ID del cliente por defecto de la Web','visible':'1','varEnv':'0','help':''},'EtiquetaLarga','text','d[erp][idClienteWeb]','d_erp_idClienteWeb',values.d.erp.idClienteWeb,'255','CampoTextoMedio','1') }}                        
+            </div>        
+
+            <div id="tabs-shop" class="tab-pane fade">                                           
+                {{ macro.input({'caption':'[carrito][nArticulosRelacionadosFamilia] Cúantos artículos relacionados se muestran en el carrito por familia','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[shop][carrito][nArticulosRelacionadosFamilia]','d_shop_carrito_nArticulosRelacionadosFamilia',values.d.shop.carrito.nArticulosRelacionadosFamilia,'255','CampoTextoMedio','1') }}            
+                {{ macro.input({'caption':'[carrito][nArticulosRelacionadosTotal] Cúantos artículos relacionados se muestran en el carrito en total','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[shop][carrito][nArticulosRelacionadosTotal]','d_shop_carrito_nArticulosRelacionadosTotal',values.d.shop.carrito.nArticulosRelacionadosTotal,'255','CampoTextoMedio','1') }}            
+            </div>        
         </div>
-
-    <div id="tabs-firmas" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-        {{ macro.input({'caption':'[links] Links separados por coma','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[signatures][links]','d_signatures_links',values.d.signatures.links,'255','CampoTextoMedio','1') }}
-        {{ macro.input({'caption':'[locations] Localizaciones geográficas separadas por coma','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[signatures][locations]','d_signatures_links',values.d.signatures.locations,'255','CampoTextoMedio','1') }}
-
-        {% for language,services in values.d.signatures.services %}
-            {{ macro.input({'caption':'[services]['~language~'] Servicios separados por coma','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[signatures][services]['~language~']','d_signatures_services_'~language,services,'70','CampoTextoMedio','1') }}
-        {% endfor %}
     </div>
-
-    <div id="tabs-contenidosFijos" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-        {% for i in 0..numeroContenidosFijos %}
-        {{ macro.input({'caption':'['~i~'] Contenido fijo '~i,'visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[staticContents]['~i~']','d_staticContents_sc'~i,values.d.staticContents[i],'255','CampoTextoMedio','1') }}
-        {% endfor %}
-    </div>
-
-    <div id="tabs-erp" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-        {{ macro.select({'caption':'[version] Versión','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[erp][version]','d_erp_version',300,values.d.erp.version,versionesErp,'Select')}}                    
-        {{ macro.select({'caption':'[actuPrecios] Política actualización de precios','visible':'1','updatable':'1','varEnv':'0'},'EtiquetaLarga','d[erp][actuPrecios]','d_erp_actuPrecios',300,values.d.erp.actuPrecios,actuPreciosErp,'Select')}}                    
-        {{ macro.input({'caption':'[rolesCambioPrecios] Roles separados por coma que pueden cambiar precios','visible':'1','varEnv':'0','help':ayudaRolCp},'EtiquetaLarga','text','d[erp][rolesCambioPrecios]','d_erp_rolesCambioPrecios',values.d.erp.rolesCambioPrecios,'255','CampoTextoMedio','1') }}            
-        {{ macro.input({'caption':'[alertaMargen] Alertar cuando el margen sea inferior a ...%','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[erp][alertaMargen]','d_erp_alertaMargen',values.d.erp.alertaMargen,'255','CampoTextoMedio','1') }}            
-        {{ macro.input({'caption':'[alertaStock] Generar alertas por falta de stock','visible':'1','varEnv':'0'},'EtiquetaLarga','checkbox','d[erp][alertaStock]','d_erp_alertaStock',values.d.erp.alertaStock,'255','CampoTextoMedio','1') }}            
-        {{ macro.input({'caption':'[idClienteWeb] ID del cliente por defecto de la Web','visible':'1','varEnv':'0','help':''},'EtiquetaLarga','text','d[erp][idClienteWeb]','d_erp_idClienteWeb',values.d.erp.idClienteWeb,'255','CampoTextoMedio','1') }}                        
-    </div>        
-
-    <div id="tabs-shop" class="ui-tabs-panel ui-widget-content ui-corner-bottom">                                           
-        {{ macro.input({'caption':'[carrito][nArticulosRelacionadosFamilia] Cúantos artículos relacionados se muestran en el carrito por familia','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[shop][carrito][nArticulosRelacionadosFamilia]','d_shop_carrito_nArticulosRelacionadosFamilia',values.d.shop.carrito.nArticulosRelacionadosFamilia,'255','CampoTextoMedio','1') }}            
-        {{ macro.input({'caption':'[carrito][nArticulosRelacionadosTotal] Cúantos artículos relacionados se muestran en el carrito en total','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[shop][carrito][nArticulosRelacionadosTotal]','d_shop_carrito_nArticulosRelacionadosTotal',values.d.shop.carrito.nArticulosRelacionadosTotal,'255','CampoTextoMedio','1') }}            
-    </div>        
-        
-</div>
 {% endblock %}

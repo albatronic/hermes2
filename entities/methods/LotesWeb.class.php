@@ -35,6 +35,8 @@ class LotesWeb extends LotesWebEntity {
      */
     public function getArrayLotesArticulo($idArticulo) {
 
+        $array = array();
+
         $relacion = new CpanRelaciones();
         $lotes = $relacion->cargaCondicion("IdEntidadOrigen", "EntidadDestino='Articulos' AND IdEntidadDestino='{$idArticulo}' AND EntidadOrigen='LotesWeb'", "EntidadOrigen,SortOrder ASC");
         unset($relacion);

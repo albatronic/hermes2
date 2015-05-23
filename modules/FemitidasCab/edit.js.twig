@@ -1,0 +1,27 @@
+{% extends '_global/js.html.twig' %}
+
+{% block js %}
+
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $("#detalle").click(function () {
+            url = "<iframe src='{{app.path}}/FemitidasLineas/list/{{datos.PrimaryKeyValue}}' width='100%' height='400' margin='0' scrolling='yes' style='border: 0px dotted grey;'></iframe>";
+            $("#divDetalle").html(url);
+        });
+        $('#vctos').click(function () {
+            url = "<iframe src='{{app.path}}/FemitidasCab/listVencimientos/{{datos.PrimaryKeyMD5}}' width='100%' height='156' scrolling='yes' style='border: 0px dotted grey;'></iframe>";
+            $("#divVctos").html(url);
+        });
+
+        $('#caja').click(function () {
+            url = "<iframe src='{{app.path}}/CajaArqueos/listMvtosEntidad/{{values.controller}}/{{datos.PrimaryKeyValue}}' width='100%' height='156' scrolling='yes' style='border: 0px dotted grey;'></iframe>";
+            $("#divCaja").html(url);
+        });
+
+        $("#docs").click(function () {
+            url = "<iframe src='{{app.path}}/CpanDocs/listPopup/{{values.controller}}/{{datos.PrimaryKeyValue}}/document/1' width='100%' height='270' scrolling='yes' style='border: 0px dotted grey;'></iframe>";
+            $("#divDocs").html(url);
+        });
+    </script>      
+{% endblock %}

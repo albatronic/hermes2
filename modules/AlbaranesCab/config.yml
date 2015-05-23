@@ -639,7 +639,7 @@ AlbaranesCab:
       link: { route: null, param: null, title: null, target: null, link: null }
       validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }
     NotasInternas:
-      title: falsetas Internas
+      title: Notas Internas
       filter: true
       list: false
       visible: true

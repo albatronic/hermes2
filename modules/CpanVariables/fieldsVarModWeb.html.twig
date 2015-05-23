@@ -13,96 +13,98 @@
 
 {% block template %}
 
-{# ----------------------------------------------------------------------------------------------------#}
+    <div class="col-md-12">
+        <ul class="nav nav-tabs">
+            {% if user.IDPerfil.PrimaryKeyValue == '1' %}
+                <li><a href="#tabs-global" data-toggle="tab">Globales [globales]</a></li>
+                {% endif %}        
+                {% if values.d.especificas %}
+                <li><a href="#tabs-especificas" data-toggle="tab">Específicas{% if user.IDPerfil.PrimaryKeyValue == '1' %}  [especificas]{% endif %}</a></li>
+                {% endif %}
+        </ul>
 
-<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
-    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-        {% if user.IdPerfil.Id == '1' %}
-        <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#tabs-global">Globales [globales]</a></li>
-        {% endif %}        
-        {% if values.d.especificas %}
-        <li class="ui-state-default ui-corner-top"><a href="#tabs-especificas">Específicas{% if user.IdPerfil.Id == '1' %}  [especificas]{% endif %}</a></li>
-        {% endif %}
-    </ul>
+        <div class="tab-content">
 
-    {# VARIABLES WEB GLOBALES A TODOS LOS MODULOS #}
-    {% if user.IdPerfil.Id == '1' %}        
-    <div id="tabs-global" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-        {{ macro.input(
-            {'caption': 'linkFromColumn','visible':'1','varEnv':'0'},
-            'EtiquetaLarga',
-            'text',
-            'd[globales][linkFromColumn]',
-            'd_globales_linkFromColumn',
-            values.d.globales.linkFromColumn,
-            '50',
-            'CampoTextoMedio'
-            )
-        }}
-        {{ macro.input(
-            {'caption': 'linkToEntity','visible':'1','varEnv':'0'},
-            'EtiquetaLarga',
-            'text',
-            'd[globales][linkToEntity]',
-            'd_globales_linkToEntity',
-            values.d.globales.linkToEntity,
-            '50',
-            'CampoTextoMedio'
-            )
-        }} 
-        {{ macro.input(
-            {'caption': 'linkToColumn','visible':'1','varEnv':'0'},
-            'EtiquetaLarga',
-            'text',
-            'd[globales][linkToColumn]',
-            'd_globales_linkToColumn',
-            values.d.globales.linkToColumn,
-            '50',
-            'CampoTextoMedio'
-            )
-        }}         
-    </div>
-    {% endif %}
-
-    {# VARIABLES WEB ESPECIFICAS AL MODULO EN CURSO #}
-    {% if values.d.especificas %}
-    <div id="tabs-especificas" class="ui-tabs-panel ui-widget-content ui-corner-bottom">
-        {% for nombre,atributos in values.d.especificas %}
-            {% if user.IdPerfil.Id == '1' %} 
-                {% set prefijo = '['~nombre~']' %}
-                {% set visibilidad = '1' %}
-            {% else %} 
-                {% set prefijo = '' %} 
-                {% set visibilidad = values.visibilidad.especificas[nombre] %}
-            {% endif %}
-            {% if atributos.values is iterable %}
-                {{ macro.select(
-                    {'caption': prefijo~' '~atributos.caption,'visible':visibilidad,'varEnv':'0','updatable':'1'},
-                    'EtiquetaLarga',
-                    'd[especificas]['~nombre~']',
-                    'd_especificas_'~nombre,
-                    250,
-                    atributos.value,
-                    atributos.values,
-                    'Select')
-                }}            
-            {% else %}
-                {{ macro.input(
-                    {'caption': prefijo~' '~atributos.caption,'visible':visibilidad,'varEnv':'0','updatable':'1'},
+            {# VARIABLES WEB GLOBALES A TODOS LOS MODULOS #}
+            {% if user.IDPerfil.PrimaryKeyValue == '1' %}        
+                {# GLOBAL #}
+                <div id="tabs-global" class="tab-pane fade">  
+                            {{ macro.input(
+                    {'caption': 'linkFromColumn','visible':'1','varEnv':'0'},
                     'EtiquetaLarga',
                     'text',
-                    'd[especificas]['~nombre~']',
-                    'd_especificas_'~nombre,
-                    atributos.value,
+                    'd[globales][linkFromColumn]',
+                    'd_globales_linkFromColumn',
+                    values.d.globales.linkFromColumn,
                     '50',
                     'CampoTextoMedio'
                     )
-                }}
+                            }}
+                            {{ macro.input(
+                    {'caption': 'linkToEntity','visible':'1','varEnv':'0'},
+                    'EtiquetaLarga',
+                    'text',
+                    'd[globales][linkToEntity]',
+                    'd_globales_linkToEntity',
+                    values.d.globales.linkToEntity,
+                    '50',
+                    'CampoTextoMedio'
+                    )
+                            }} 
+                            {{ macro.input(
+                    {'caption': 'linkToColumn','visible':'1','varEnv':'0'},
+                    'EtiquetaLarga',
+                    'text',
+                    'd[globales][linkToColumn]',
+                    'd_globales_linkToColumn',
+                    values.d.globales.linkToColumn,
+                    '50',
+                    'CampoTextoMedio'
+                    )
+                    }}         
+                </div>
             {% endif %}
-        {% endfor %}
-    </div>
-    {% endif %}
 
-</div>
+            {# VARIABLES WEB ESPECIFICAS AL MODULO EN CURSO #}
+            {% if values.d.especificas %}
+                <div id="tabs-especificas" class="tab-pane fade">
+                    {% for nombre,atributos in values.d.especificas %}
+                        {% if user.IDPerfil.PrimaryKeyValue == '1' %} 
+                            {% set prefijo = '['~nombre~']' %}
+                            {% set visibilidad = '1' %}
+                        {% else %} 
+                            {% set prefijo = '' %} 
+                            {% set visibilidad = values.visibilidad.especificas[nombre] %}
+                        {% endif %}
+                        {% if atributos.values is iterable %}
+                                    {{ macro.select(
+                            {'caption': prefijo~' '~atributos.caption,'visible':visibilidad,'varEnv':'0','updatable':'1'},
+                            'EtiquetaLarga',
+                            'd[especificas]['~nombre~']',
+                            'd_especificas_'~nombre,
+                            250,
+                            atributos.value,
+                            atributos.values,
+                            'Select')
+                                    }}            
+                                {% else %}
+                                    {{ macro.input(
+                            {'caption': prefijo~' '~atributos.caption,'visible':visibilidad,'varEnv':'0','updatable':'1'},
+                            'EtiquetaLarga',
+                            'text',
+                            'd[especificas]['~nombre~']',
+                            'd_especificas_'~nombre,
+                            atributos.value,
+                            '50',
+                            'CampoTextoMedio'
+                            )
+                                    }}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
 
 {% endblock %}

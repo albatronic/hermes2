@@ -21,28 +21,28 @@
 
   <?xml version="1.0"?>
   <datos>
-    <producto>
-        <codigo_mayorista>116</codigo_mayorista>
-        <part_number>6881A002-CHQ</part_number>
-        <ean>8435350705992</ean>
-        <categoria_1>Consumibles</categoria_1>
-        <categoria_2>Consumible Compatible</categoria_2>
-        <categoria_3>Compatible con Canon</categoria_3>
-        <marca>Generica</marca>
-        <precio>0.75</precio>
-        <canon>0</canon>
-        <pvpr>1.27</pvpr>
-        <stock>2</stock>
-        <peso>0.04</peso>
-        <nombre>CARTUCHO COMPAT. CON CANON BCI-24 BK NEGRO HQ</nombre>
-        <descripcion/>
-        <caracteristicas><![CDATA[<p>Descripción:<br />
-        CANON CARGA COMPATIBLE INYECCION TINTA NEGRO BCI-24BK 9ML</p>
-        <p>Modelos:</p>
-        <p>S 200 200X 300 330 PHOTO *I 250 320 350 450 455 470D 475D *MPC- 190 200 360 370 390 *IP       - 1000 1500 2000 *MP 110 </p>
-        ]]></caracteristicas>
-        <imagen><![CDATA[http://recursos.infowork.es/img/000/000/000000006.jpg]]></imagen>
-    </producto>
+  <producto>
+  <codigo_mayorista>116</codigo_mayorista>
+  <part_number>6881A002-CHQ</part_number>
+  <ean>8435350705992</ean>
+  <categoria_1>Consumibles</categoria_1>
+  <categoria_2>Consumible Compatible</categoria_2>
+  <categoria_3>Compatible con Canon</categoria_3>
+  <marca>Generica</marca>
+  <precio>0.75</precio>
+  <canon>0</canon>
+  <pvpr>1.27</pvpr>
+  <stock>2</stock>
+  <peso>0.04</peso>
+  <nombre>CARTUCHO COMPAT. CON CANON BCI-24 BK NEGRO HQ</nombre>
+  <descripcion/>
+  <caracteristicas><![CDATA[<p>Descripción:<br />
+  CANON CARGA COMPATIBLE INYECCION TINTA NEGRO BCI-24BK 9ML</p>
+  <p>Modelos:</p>
+  <p>S 200 200X 300 330 PHOTO *I 250 320 350 450 455 470D 475D *MPC- 190 200 360 370 390 *IP       - 1000 1500 2000 *MP 110 </p>
+  ]]></caracteristicas>
+  <imagen><![CDATA[http://recursos.infowork.es/img/000/000/000000006.jpg]]></imagen>
+  </producto>
 
   ...
   </datos> --> Fin del Datafeed
@@ -60,6 +60,12 @@ class importar {
      * @return boolean
      */
     static function getXml() {
+
+        $filePath = "feedInfowork20150523_012157.xml";
+        $result = file_get_contents($filePath);
+        $result = preg_replace("/\<\!\[CDATA\[(.*?)\]\]\>/ies", "'[CDATA]'.base64_encode('$1').'[/CDATA]'", $result);
+        self::$xml = new SimpleXMLElement($result);
+        return true;
 
         //El nombre del archivo donde se almacenara los datos descargados.
         $filePath = dirname(__FILE__) . '/feedInfowork' . date('Ymd_His') . ".xml";
@@ -79,7 +85,6 @@ class importar {
 
         if ($ok) {
             $fp = fopen($filePath, "w");
-            echo $fp, " ", $filePath;
             fwrite($fp, $result);
             fclose($fp);
             $result = preg_replace("/\<\!\[CDATA\[(.*?)\]\]\>/ies", "'[CDATA]'.base64_encode('$1').'[/CDATA]'", $result);
@@ -139,19 +144,48 @@ class importar {
         $margenweb = 10;
 
         foreach ($familias as $familia => $value) {
+            $slug = Textos::limpia($familia);
             $fam = new Familias();
             $fam->setFamilia($familia);
             $fam->setMargenWeb($margenweb);
             $fam->setPublish(1);
-            $idfam = $fam->create();
-            if ($idfam > 0) {
+            $fam->setNivelJerarquico(1);
+            $fam->setSlug($slug);
+            $fam->setUrlFriendly("/" . $slug);
+            $id = $fam->create();
+
+            if ($id > 0) {
+
+                $urls = new CpanUrlAmigables();
+                $urls->setUrlFriendly("/" . $slug);
+                $urls->setController("Familias");
+                $urls->setAction("Index");
+                $urls->setTemplate("index.html.twig");
+                $urls->setEntity("Familias");
+                $urls->setIdEntity($id);
+                $urls->create();
+
                 foreach ($value as $subfamilia => $value) {
+                    $slug = Textos::limpia($subfamilia);
                     $sub = new Familias();
                     $sub->setFamilia($subfamilia);
                     $sub->setMargenWeb($margenweb);
-                    $sub->setBelongsTo($idfam);
+                    $sub->setBelongsTo($id);
                     $sub->setPublish(1);
-                    $sub->create();
+                    $sub->setNivelJerarquico(2);
+                    $sub->setSlug($slug);
+                    $sub->setUrlFriendly("/" . $slug);
+                    $idsub = $sub->create();
+                    if ($idsub > 0) {
+                        $urls = new CpanUrlAmigables();
+                        $urls->setUrlFriendly("/" . $slug);
+                        $urls->setController("Familias");
+                        $urls->setAction("Index");
+                        $urls->setTemplate("index.html.twig");
+                        $urls->setEntity("Familias");
+                        $urls->setIdEntity($idsub);
+                        $urls->create();
+                    }
                 }
                 unset($sub);
             }
@@ -162,9 +196,23 @@ class importar {
     static function CrearFabricantes($fabricantes) {
 
         foreach ($fabricantes as $fabricante) {
+            $slug = Textos::limpia($fabricante);
             $fab = new Fabricantes();
             $fab->setTitulo($fabricante);
-            $fab->create();
+            $fab->setPublish(1);
+            $fab->setSlug($slug);
+            $fab->setUrlFriendly("/" . $slug);
+            $id = $fab->create();
+            if ($id) {
+                $urls = new CpanUrlAmigables();
+                $urls->setUrlFriendly("/" . $slug);
+                $urls->setController("Fabricantes");
+                $urls->setAction("Index");
+                $urls->setTemplate("index.html.twig");
+                $urls->setEntity("Fabricantes");
+                $urls->setIdEntity($id);
+                $urls->create();
+            }
         }
     }
 
@@ -201,23 +249,55 @@ class importar {
      * @param url $imagen
      * @return int $copiado Flag true o false según el éxito de la copia
      */
-    static function DescargaImagen($referencia, $imagen) {
+    static function DescargaImagen($origen, $destino) {
 
         $copiado = 0;
 
-        //$aux=str_replace("http://","",$imagen);
-        //$url=split("/",$aux);
-        $imagenname = "catalogo/" . $referencia . ".jpg";
-        $imagendescargada = file_get_contents($imagen);
+        $imagendescargada = file_get_contents($origen);
 
-        if ($imagendescargada):
-            $copiado = file_put_contents($imagenname, $imagendescargada);
-            if (!$copiado):
-                echo "<tr><td>$referencia</td><td>$categoria</td><td>$nombre</td><td>$pvd</td><td>$pvp</td><td><a href='$imagen' target='_blank'>$imagen</a></td><td>$imagenname</td></tr>";
-            endif;
-        endif;
+        if ($imagendescargada) {
+            $copiado = file_put_contents($destino, $imagendescargada);
+            if (!$copiado) {
+                echo "FALLO al descargar {$origen} => {$destino}\n";
+            } else {
+                echo "DESCARGA {$origen} => {$destino}\n";
+            }
+        }
 
         return ($copiado);
+    }
+
+    static function DescargaImagenes() {
+        foreach (self::$xml->producto as $item) {
+            $slug = Textos::limpia($item->nombre);
+            $origen = str_replace("Albatronic", "infowork", self::Limpia($item->imagen));
+            $carpeta = "/Users/sergio/www/tienda/themes/theme3/docs/Articulos/" . substr($slug, 0, 3);
+            $pathName = "docs/Articulos/" . substr($slug, 0, 3) . "/" . $slug . ".jpg";
+            @mkdir($carpeta, 0755, true);
+            $urlDestino = $carpeta . "/" . $slug . ".jpg";
+            
+            if (!file_exists($urlDestino)) {
+                $ok = self::DescargaImagen($origen, $urlDestino);
+            } else {
+                $ok = true;
+            }
+            
+            if ($ok) {
+                $art = new Articulos();
+                $rows = $art->querySelect("IDArticulo", "Codigo='{$item->part_number}'");
+                $docs = new CpanDocs();
+                $docs->setEntity('Articulos');
+                $docs->setIdEntity($rows[0]['IDArticulo']);
+                $docs->setType('image1');
+                $docs->setPathName($pathName);
+                $docs->setName($slug);
+                $docs->setExtension("jpg");
+                $docs->setTitle(self::Limpia($item->nombre));
+                $docs->setMimeType("image/jpeg");
+                $docs->setPublish(1);
+                $docs->create();
+            }
+        }
     }
 
     /**
@@ -227,76 +307,113 @@ class importar {
      * @param OBJETOXML $xml
      * @return int
      */
-    static function CargaArticulos($xml) {
-        global $DB;
-
-        $columnas = "IDArticulo,IDFabricante,IDFamilia,IDSubfamilia,Descripcion,Pvd,Margen,Pvp,IDIva,Peso,Caracteristicas";
-        $margen = '20';
+    static function CrearArticulos() {
 
         $fallos = 0;
-        echo "<table>";
-        foreach ($xml->producto as $item) {
-            $referencia = str_replace("/", "_", trim($item->referencia));
-            $familia = Limpia($item->categoria_1);
+
+        foreach (self::$xml->producto as $item) {
+            $codigo = str_replace("/", "_", trim($item->part_number));
+            $categoria = self::Limpia($item->categoria_1);
+            if ($categoria == '') {
+                $categoria = 'varios';
+            }
+            $familia = self::Limpia($item->categoria_2);
             if ($familia == '') {
                 $familia = 'varios';
             }
-            $subfamilia = Limpia($item->categoria_2);
-            if ($subfamilia == '') {
-                $subfamilia = 'varios';
-            }
+            $subfamilia = self::Limpia($item->categoria_3);
+
             $tmp = $item->nombre;
-            $nombre = Limpia($tmp);
+            $nombre = self::Limpia($tmp);
             $tmp = $item->descripcion;
-            $descripcion = Limpia($tmp);
+            $descripcion = self::Limpia($tmp);
             $pvd = str_replace(",", ".", $item->precio);
-            $pvp = $pvd * (1 + $margen / 100);
+            $pvp = str_replace(",", ".", $item->pvpr); //$pvd * (1 + $margen / 100);
             $peso = str_replace(",", ".", $item->peso);
-            //Le quito los espacios en blanco al principio y al final
-            //Los espacios en blanco intermedios los sustituyo por %20 para que la url sea correcta.
-            $imagen = str_replace(" ", "%20", trim($item->urlimagen));
+//Le quito los espacios en blanco al principio y al final
+//Los espacios en blanco intermedios los sustituyo por %20 para que la url sea correcta.
+            $imagen = self::Limpia($item->imagen);
 
-            $idfabricante = Fabricante(Limpia($item->fabricante));
+            $fab = new Fabricantes();
+            $fab = $fab->find("Titulo", self::Limpia($item->marca));
+            $idFabricante = $fab->getIDFabricante();
 
-            //Buscar el id de familia
-            $sql = "select IDFamilia from $DB.familias where Familia='$familia';";
-            $res = mysql_query($sql);
-            $row = mysql_fetch_array($res);
-            $idfamilia = $row[0];
+//Buscar el id de categoria
+            $fam = new Familias();
+            $fam = $fam->find("Familia", $categoria);
+            $idCategoria = $fam->getIDFamilia();
 
-            //Buscar el id de subfamilia
-            $sql = "select IDSubfamilia from $DB.subfamilias where IDFamilia='$idfamilia' and Subfamilia='$subfamilia';";
-            $res = mysql_query($sql);
-            $row = mysql_fetch_array($res);
-            $idsubfamilia = $row[0];
+//Buscar el id de familia
+            $fam = $fam->find("Familia", $familia);
+            $idFamilia = $fam->getIDFamilia();
 
-            //CREAR ARTICULO EN LA TABLA TEMPORAL
-            $valores = "'$referencia','$idfabricante','$idfamilia','$idsubfamilia','$nombre','$pvd','$margen','$pvp','1','$peso','$descripcion'";
-            $sql = "insert into $DB.articulos ($columnas) values ($valores);";
-            $res = mysql_query($sql);
-            if (!$res) {
+//Buscar el id de subfamilia
+            $idSubfamilia = 0;
+            if ($subfamilia != '') {
+                $fam = $fam->find("Familia", $subfamilia);
+                $idSubfamilia = $fam->getIDFamilia();
+            }
+
+            $slug = Textos::limpia($nombre);
+
+            $art = new Articulos();
+            $art->setCodigo($codigo);
+            $art->setDescripcion($nombre);
+            $art->setSubtitulo($nombre);
+            $art->setResumen($descripcion);
+            $art->setIDCategoria($idCategoria);
+            $art->setIDFamilia($idFamilia);
+            $art->setIDSubfamilia($idSubfamilia);
+            $art->setIDFabricante($idFabricante);
+            $art->setPvd($pvd);
+            $art->setPvp($pvp / 1.21);
+            $art->setIDIva(1);
+            $art->setCodigoEAN($item->ean);
+            $art->setPeso($peso);
+            $art->setCaracteristicas(self::Limpia($item->caracteristicas));
+            $art->setPublish(1);
+            $art->setSlug($slug);
+            $art->setUrlFriendly("/" . $slug);
+            $id = $art->create();
+//print_r($art->getErrores());
+            if (!$id) {
                 $fallos++;
-                echo "<tr><td>", $referencia, "</td><td>", $nombre, "</td><td>", $familia, "</td><td>", $subfamilia, "</td></tr>";
-                echo "<tr><td colspan=4>", $sql, "</td></tr>";
+                echo "<tr><td>", $codigo, "</td><td>", $nombre, "</td><td>", $categoria, "</td><td>", $familia, "</td></tr>";
             } else {
-                //COPIAR IMAGEN EN LOCALHOST SI NO EXISTE PREVIAMENTE.
-                if ($imagen !== '') {
-                    //if(!file_exists("catalogo/".$referencia.".jpg")) DescargaImagen($referencia,$imagen);
+                $urls = new CpanUrlAmigables();
+                $urls->setUrlFriendly("/" . $slug);
+                $urls->setController("Producto");
+                $urls->setAction("Index");
+                $urls->setTemplate("index.html.twig");
+                $urls->setEntity("Articulos");
+                $urls->setIdEntity($id);
+                $urls->create();
+
+//COPIAR IMAGEN EN LOCALHOST SI NO EXISTE PREVIAMENTE.
+                if (false) {
+//if ($imagen !== '') {
+                    $carpeta = "/Users/sergio/www/tienda/themes/theme3/docs/Articulos/" . substr($slug, 0, 3);
+                    mkdir($carpeta, 0755, true);
+                    $urlDestino = $carpeta . "/" . $slug . ".jpg";
+                    if (!file_exists($urlDestino)) {
+                        self::DescargaImagen($imagen, $urlDestino);
+                    }
                 }
             }
         }
-        echo "</table>";
+
         return $fallos;
     }
 
     /**
-     * Vacia las tablas de familias,subfamilias,fabricantes y articulos
-     * @global <type> $DB
+     * Vacia las tablas de familias,subfamilias,fabricantes, articulos
      */
     static function VaciarTablas() {
 
         $tabla = new CpanUrlAmigables();
-        $tabla->queryDelete("Controller='Familias' or Controller='Articulos' or Controller='Fabricantes'");
+        $tabla->queryDelete("Controller='Familias' or Controller='Producto' or Controller='Fabricantes'");
+        $tabla = new CpanDocs();
+        $tabla->queryDelete("Entity='Articulos'");
         $tabla = new Familias();
         $tabla->truncate();
         $tabla = new Fabricantes();
@@ -314,32 +431,32 @@ class importar {
      * @return <type>
      */
     static function SubeImagenServidor($source_file, $destination_file, $carpeta_destino) {
-        // set up basic connection
+// set up basic connection
         $ftp_server = "www.albatronic.com";
         $ftp_user_name = "albatro";
         $ftp_user_pass = "p17s26a26";
         $resultado = "";
 
-        // login with username and password
+// login with username and password
         $conn_id = ftp_connect($ftp_server);
         $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
 
-        // check connection
+// check connection
         if ((!$conn_id) || (!$login_result)) {
             return("La conexi&oacute;n FTP ha fallado!");
             exit;
         }
 
-        // upload the file
+// upload the file
         ftp_chdir($conn_id, $carpeta_destino);
         $upload = ftp_put($conn_id, $destination_file, $source_file, FTP_IMAGE);
 
-        // check upload status
+// check upload status
         if (!$upload) {
             $resultado = "FTP upload has failed!";
         }
 
-        // close the FTP stream
+// close the FTP stream
         ftp_close($conn_id);
         return ($resultado);
     }
@@ -365,8 +482,7 @@ importar::VaciarTablas();
 
 //Creo un array bidimensional con las familias y subfamilias que viene en el XML
 $familiasFabricantes = importar::getFamiliasFabriantes();
-print_r($familiasFabricantes);
-
+//print_r($familiasFabricantes);
 //Creo las familias y subfamilias en las tablas de la BD en base al array bidemensional
 importar::CrearFamilias($familiasFabricantes['familias']);
 
@@ -375,6 +491,8 @@ importar::CrearFabricantes($familiasFabricantes['fabricantes']);
 
 
 //Cargo los articulos en la BD.
-//$fallos=CargaArticulos($xml);
+$fallos = importar::CrearArticulos();
 echo "Articulos Fallidos: ", $fallos;
+
+importar::DescargaImagenes();
 

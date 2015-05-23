@@ -209,47 +209,37 @@
             {# VARIABLES DE ENTORNO DE CADA COLUMNA DE LA ENTIDAD DE DATOS #}
             <div class="tab-pane fade" id="tabs-columnas">
 
-                <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
+                <div id="acordeonColumnas" style="margin-top:10px;">
                     {% for columna,variables in values.d.columns %}
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="heading{{columna}}">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#{{columna}}" aria-expanded="true" aria-controls="collapseOne">
-                                        [columns][{{columna}}] :: [{{variables.caption}} = {{variables.default }}] [permission: {{variables.permission }}]
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="{{columna}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{columna}}">
-                                <div class="panel-body">
-                                    {% set hayListaValores = (variables.listaValores is iterable) %}
+                        <h3>[columns][{{columna}}] :: [{{variables.caption}} = {{variables.default }}] [permission: {{variables.permission }}]</h3>
+                        <div>
+                            {% set hayListaValores = (variables.listaValores is iterable) %}
 
-                                    {% for variable,valor in variables %}
-                                        {% if variable != 'listaValores' %}
-                                            <p>
-                                                {% if ( (hayListaValores and (variable == 'default') ) or ( (variable == 'visible') or (variable == 'updatable') or (variable == 'translatable') or (variable == 'searchable') or (variable == 'editorTiny') or (variable == 'filter') or (variable == 'list') ) ) %}
+                            {% for variable,valor in variables %}
+                                {% if variable != 'listaValores' %}
+                                    <p>
+                                        {% if ( (hayListaValores and (variable == 'default') ) or ( (variable == 'visible') or (variable == 'updatable') or (variable == 'translatable') or (variable == 'searchable') or (variable == 'editorTiny') or (variable == 'filter') or (variable == 'list') ) ) %}
 
-                                                    {% if (variable == 'default') %}
-                                                        {% set listaValores = variables.listaValores %}
-                                                        {% set tipoTag = 'select' %}
-                                                    {% else %}
-                                                        {% set listaValores = ValoresSN %}
-                                                        {% set tipoTag = 'checkbox' %}
-                                                    {% endif %}
+                                            {% if (variable == 'default') %}
+                                                {% set listaValores = variables.listaValores %}
+                                                {% set tipoTag = 'select' %}
+                                            {% else %}
+                                                {% set listaValores = ValoresSN %}
+                                                {% set tipoTag = 'checkbox' %}
+                                            {% endif %}
 
-                                                    {% if tipoTag == 'select' %}
-                                                        {{ macro.select({'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','d[columns]['~columna~']['~variable~']','d_columns_' ~ columna ~ '_'~ variable,none,valor,listaValores,'chzn-select')}}
-                                                    {% else %}
-                                                        {{ macro.input({'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','checkbox','d[columns]['~columna~']['~variable~']','d_columns_' ~ columna ~ '_'~ variable,valor,'255','CampoTextoMedio')}}
-                                                    {% endif %}
+                                            {% if tipoTag == 'select' %}
+                                                {{ macro.select({'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','d[columns]['~columna~']['~variable~']','d_columns_' ~ columna ~ '_'~ variable,none,valor,listaValores,'chzn-select')}}
+                                            {% else %}
+                                                {{ macro.input({'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','checkbox','d[columns]['~columna~']['~variable~']','d_columns_' ~ columna ~ '_'~ variable,valor,'255','CampoTextoMedio')}}
+                                            {% endif %}
 
-                                                {% else %}
-                                                    {{ macro.input({'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','text','d[columns]['~columna~']['~variable~']','d_columns_' ~ columna ~ '_'~ variable,valor,'255','CampoTextoLargo')}}
-                                                {% endif %}
-                                            </p>
+                                        {% else %}
+                                            {{ macro.input({'caption':variable,'visible':'1','updatable':'1','varEnv':'0'},'Etiqueta','text','d[columns]['~columna~']['~variable~']','d_columns_' ~ columna ~ '_'~ variable,valor,'255','CampoTextoLargo')}}
                                         {% endif %}
-                                    {% endfor %}
-                                </div>
-                            </div>
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     {% endfor %}
                 </div>

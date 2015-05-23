@@ -4,100 +4,98 @@
 {% set digitosCta = emp.DigitosCuentaContable %}
 {% set atributos = values.atributos %}
 
-<div class="col-md-12">
-    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
-    <ul class="nav nav-tabs">
-        <li><a href="#general" data-toggle="tab">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Cliente{%endif%}</a></li>            
-        <li><a href="#tabs-1" data-toggle="tab">Facturación</a></li>
-        {% if datos.IDCliente %}
-            <li><a href="#tabs-2" onclick="cargaDireccionesEntrega('tabs-2');" data-toggle="tab">Dir. Entrega</a></li>
-            <li><a href="#tabs-3" onclick="cargaContactos('tabs-3');" data-toggle="tab">Contactos</a></li>
-            <li><a href="#tabs-4" data-toggle="tab">Varios</a></li>
-            <li><a href="#tabs-5" onclick="cargaVencimientos('tabs-5');" data-toggle="tab">Vencimientos</a></li>
-            {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
-            <li>
-                <a href="#fieldsComunes" onclick='$( "#solapaActiva" ).val("fieldsComunes");' data-toggle="tab">Más detalles...</a>
-            </li>        
-            {% endif %}              
-        {% endif %}
-    </ul>
-    <div class="tab-content no-space">    
-    <div class="tab-pane" id="general">
-        <div class="col-md-6">
-        {{ macro.input(atributos.RazonSocial,'Etiqueta','text','Clientes[RazonSocial]','Clientes_RazonSocial',datos.RazonSocial,'50','CampoTextoLargo') }}
-        {{ macro.input(atributos.NombreComercial,'Etiqueta','text','Clientes[NombreComercial]','Clientes_NombreComercial',datos.NombreComercial,'50','CampoTextoLargo') }}
-        {{ macro.cif(atributos.Cif,'Etiqueta','text','Clientes[Cif]','Clientes_Cif',datos.Cif,'CampoCif') }}
-        {{ macro.input(atributos.Direccion,'Etiqueta','text','Clientes[Direccion]','Clientes_Direccion',datos.Direccion,'50','CampoTextoLargo') }}
-        {{ macro.input(atributos.IDPais,'Etiqueta','text','Clientes[IDPais]','Clientes_IDPais',datos.IDPais.IDPais,'255','CampoTextoMedio','',"limpia('Clientes_IDPais','Clientes_IDProvincia');limpia('Clientes_IDPais','Clientes_IDPoblacion');",['paises','Pais',datos.IDPais.Pais]) }}
-        {{ macro.input(atributos.IDProvincia,'Etiqueta','text','Clientes[IDProvincia]','Clientes_IDProvincia',datos.IDProvincia.IDProvincia,'255','CampoTextoLargo','',"limpia('Clientes_IDProvincia','Clientes_IDPoblacion');",['provincias','Provincia',datos.IDProvincia.Provincia,'Clientes_IDPais']) }}
-        {{ macro.input(atributos.IDPoblacion,'Etiqueta','text','Clientes[IDPoblacion]','Clientes_IDPoblacion',datos.IDPoblacion.IDMunicipio,'255','CampoTextoLargo','','',['municipios','Municipio',datos.IDPoblacion.Municipio,'Clientes_IDProvincia']) }}       
-        {{ macro.input(atributos.CodigoPostal,'Etiqueta','text','Clientes[CodigoPostal]','Clientes_CodigoPostal',datos.CodigoPostal,'10','CampoCPostal') }}
-        {{ macro.input(atributos.Telefono,'Etiqueta','text','Clientes[Telefono]','Clientes_Telefono',datos.Telefono,'30','CampoTextoLargo') }}
-        {{ macro.input(atributos.Fax,'Etiqueta','text','Clientes[Fax]','Clientes_Fax',datos.Fax,'30','CampoTextoLargo') }}
-        {{ macro.input(atributos.Movil,'Etiqueta','text','Clientes[Movil]','Clientes_Movil',datos.Movil,'30','CampoTextoLargo') }}
-        {{ macro.input(atributos.EMail,'Etiqueta','text','Clientes[EMail]','Clientes_EMail',datos.EMail,'50','CampoTextoLargo') }}
-        {{ macro.input(atributos.Web,'Etiqueta','text','Clientes[Web]','Clientes_Web',datos.Web,'50','CampoTextoLargo') }}
+<div class="row">
+    <div class="col-md-12">
+        <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
+        <ul class="nav nav-tabs">
+            <li><a href="#general" data-toggle="tab">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Cliente{%endif%}</a></li>            
+            <li><a href="#tabs-1" data-toggle="tab">Facturación</a></li>
+                {% if datos.IDCliente %}
+                <li><a href="#tabs-2" onclick="cargaDireccionesEntrega('tabs-2');" data-toggle="tab">Dir. Entrega</a></li>
+                <li><a href="#tabs-3" onclick="cargaContactos('tabs-3');" data-toggle="tab">Contactos</a></li>
+                <li><a href="#tabs-4" data-toggle="tab">Varios</a></li>
+                <li><a href="#tabs-5" onclick="cargaVencimientos('tabs-5');" data-toggle="tab">Vencimientos</a></li>
+                    {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
+                    <li>
+                        <a href="#fieldsComunes" onclick='$("#solapaActiva").val("fieldsComunes");' data-toggle="tab">Más detalles...</a>
+                    </li>        
+                {% endif %}              
+            {% endif %}
+        </ul>
+
+        <div class="tab-content">    
+
+            <div class="tab-pane" id="general">
+                <div class="col-md-6">
+                    {{ macro.input(atributos.RazonSocial,'Etiqueta','text','Clientes[RazonSocial]','Clientes_RazonSocial',datos.RazonSocial,'50','CampoTextoLargo') }}
+                    {{ macro.input(atributos.NombreComercial,'Etiqueta','text','Clientes[NombreComercial]','Clientes_NombreComercial',datos.NombreComercial,'50','CampoTextoLargo') }}
+                    {{ macro.cif(atributos.Cif,'Etiqueta','text','Clientes[Cif]','Clientes_Cif',datos.Cif,'CampoCif') }}
+                    {{ macro.input(atributos.Direccion,'Etiqueta','text','Clientes[Direccion]','Clientes_Direccion',datos.Direccion,'50','CampoTextoLargo') }}
+                    {{ macro.input(atributos.IDPais,'Etiqueta','text','Clientes[IDPais]','Clientes_IDPais',datos.IDPais.IDPais,'255','CampoTextoMedio','',"limpia('Clientes_IDPais','Clientes_IDProvincia');limpia('Clientes_IDPais','Clientes_IDPoblacion');",['paises','Pais',datos.IDPais.Pais]) }}
+                    {{ macro.input(atributos.IDProvincia,'Etiqueta','text','Clientes[IDProvincia]','Clientes_IDProvincia',datos.IDProvincia.IDProvincia,'255','CampoTextoLargo','',"limpia('Clientes_IDProvincia','Clientes_IDPoblacion');",['provincias','Provincia',datos.IDProvincia.Provincia,'Clientes_IDPais']) }}
+                    {{ macro.input(atributos.IDPoblacion,'Etiqueta','text','Clientes[IDPoblacion]','Clientes_IDPoblacion',datos.IDPoblacion.IDMunicipio,'255','CampoTextoLargo','','',['municipios','Municipio',datos.IDPoblacion.Municipio,'Clientes_IDProvincia']) }}       
+                    {{ macro.input(atributos.CodigoPostal,'Etiqueta','text','Clientes[CodigoPostal]','Clientes_CodigoPostal',datos.CodigoPostal,'10','CampoCPostal') }}
+                    {{ macro.input(atributos.Telefono,'Etiqueta','text','Clientes[Telefono]','Clientes_Telefono',datos.Telefono,'30','CampoTextoLargo') }}
+                    {{ macro.input(atributos.Fax,'Etiqueta','text','Clientes[Fax]','Clientes_Fax',datos.Fax,'30','CampoTextoLargo') }}
+                    {{ macro.input(atributos.Movil,'Etiqueta','text','Clientes[Movil]','Clientes_Movil',datos.Movil,'30','CampoTextoLargo') }}
+                    {{ macro.input(atributos.EMail,'Etiqueta','text','Clientes[EMail]','Clientes_EMail',datos.EMail,'50','CampoTextoLargo') }}
+                    {{ macro.input(atributos.Web,'Etiqueta','text','Clientes[Web]','Clientes_Web',datos.Web,'50','CampoTextoLargo') }}               
+                </div>
+                <div class="col-md-6">
+                    {{ macro.input(atributos.Vigente,'Etiqueta','checkbox','Clientes[Vigente]','Clientes_Vigente',datos.Vigente.IDTipo,'255','CampoTextoLargo','20')}}          
+                    {{ macro.select(atributos.IDPerfilWeb,'Etiqueta','Clientes[IDPerfilWeb]','Clientes_IDPerfilWeb',200,datos.IDPerfilWeb.Id,datos.IDPerfilWeb.fetchAll('Perfil',false),'Select')}}
+                    {{ macro.select(atributos.IDTipo,'Etiqueta','Clientes[IDTipo]','Clientes_IDTipo',200,datos.IDTipo.IDTipo,datos.IDTipo.fetchAll('Tipo'),'Select',[app.path,'ClientesTipos','Tipos de clientes',390,450])}}
+                    {{ macro.select(atributos.IDGrupo,'Etiqueta','Clientes[IDGrupo]','Clientes_IDGrupo',200,datos.IDGrupo.IDGrupo,datos.IDGrupo.fetchAll('Grupo'),'Select',[app.path,'ClientesGrupos','Grupos de clientes',390,450])}}
+                    {{ macro.select(atributos.IDSucursal,'Etiqueta','Clientes[IDSucursal]','Clientes_IDSucursal',200,datos.IDSucursal.IDSucursal,user.getSucursales('',0),'Select',none,'DesplegableAjax("div_Clientes_IDZona","Clientes_IDZona","Clientes[IDZona]","zonassucursal",this.value);DesplegableAjax("div_Clientes_IDComercial","Clientes_IDComercial","Clientes[IDComercial]","comercialessucursal",this.value);') }}
+                    {{ macro.select(atributos.IDComercial,'Etiqueta','Clientes[IDComercial]','Clientes_IDComercial',200,datos.IDComercial.IDAgente,datos.IDComercial.getComerciales('',datos.IDSucursal.IDSucursal,false),'Select') }}
+                    {{ macro.select(atributos.IDZona,'Etiqueta','Clientes[IDZona]','Clientes_IDZona',200,datos.IDZona.IDZona,datos.IDZona.fetchAll(datos.IDSucursal.IDSucursal,'Zona',false),'Select') }}            
+                    {% include '_global/metaDatos.html.twig' %}
+                </div>
+            </div>            
+            <div class="tab-pane" id="tabs-1">
+                <div class="col-md-6">
+                    {{ macro.input(atributos.FacturacionAgrupada,'EtiquetaMedia','checkbox','Clientes[FacturacionAgrupada]','Clientes_FacturacionAgrupada',datos.FacturacionAgrupada.IDTipo,'255','CampoTextoLargo','20')}}                    
+                    {{ macro.select(atributos.IDTarifa,'EtiquetaMedia','Clientes[IDTarifa]','Clientes_IDTarifa',150,datos.IDTarifa.IDTarifa,datos.IDTarifa.fetchAll('Descripcion',false),'Select100')}}
+                    {{ macro.select(atributos.IDFP,'EtiquetaMedia','Clientes[IDFP]','Clientes_IDFP',150,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'Select220')}}
+                    {{ macro.input(atributos.DiaDePago,'EtiquetaMedia','text','Clientes[DiaDePago]','Clientes_DiaDePago',datos.DiaDePago,'2','CampoUnidades') }}
+                    {{ macro.input(atributos.Iva,'EtiquetaMedia','checkbox','Clientes[Iva]','Clientes_Iva',datos.Iva.IDTipo,'255','CampoTextoLargo','20')}}                                   
+                    {{ macro.input(atributos.RecargoEqu,'EtiquetaMedia','checkbox','Clientes[RecargoEqu]','Clientes_RecargoEqu',datos.RecargoEqu.IDTipo,'255','CampoTextoLargo','20')}}                                   
+                    {{ macro.input(atributos.CContable,'EtiquetaMedia','text','Clientes[CContable]','Clientes_CContable',datos.CContable,digitosCta,'CampoTextoCorto') }}        
+                </div>
+                <div class="col-md-6">
+                    {{ macro.cc(atributos.Banco,'EtiquetaMedia','cc','Clientes',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) }}        
+                    {{ macro.input(atributos.Iban,'EtiquetaMedia','text','Clientes[Iban]','Clientes_Iban',datos.Iban,'34','CampoTextoMedio') }}
+                    {{ macro.input(atributos.Bic,'EtiquetaMedia','text','Clientes[Bic]','Clientes_Bic',datos.Bic,'11','CampoTextoCorto') }}        
+                    {{ macro.input(atributos.Mandato,'EtiquetaMedia','text','Clientes[Mandato]','Clientes_Mandato',datos.Mandato,'35','CampoTextoCorto') }}        
+                    {{ macro.fecha(atributos.FechaMandato,'EtiquetaMedia','Clientes[FechaMandato]','Clientes_FechaMandato',datos.FechaMandato,'10','CampoFecha') }}        
+                    {{ macro.input(atributos.LimiteRiesgo,'EtiquetaMedia','text','Clientes[LimiteRiesgo]','Clientes_LimiteRiesgo',datos.LimiteRiesgo,'10','CampoImporte') }}
+                    {{ macro.fecha(atributos.FechaRiesgo,'EtiquetaMedia','Clientes[FechaRiesgo]','Clientes_FechaRiesgo',datos.FechaRiesgo,'10','CampoFecha') }}
+                    {{ macro.input(atributos.CodigoRiesgo,'EtiquetaMedia','text','Clientes[CodigoRiesgo]','Clientes_CodigoRiesgo',datos.CodigoRiesgo,'20','CampoTextoCorto') }}
+                </div> 
+            </div>
+            {% if datos.IDCliente %}            
+                <div class="tab-pane" id="tabs-2"></div>
+                <div class="tab-pane" id="tabs-3"></div>
+                <div class="tab-pane" id="tabs-4">
+                    <div class="col-md-6">
+                        {{ macro.radio(atributos.Sexo,'Etiqueta','Clientes[Sexo]','Clientes_Sexo',datos.Sexo.IDTipo,datos.Sexo.fetchAll(none,false),'Select') }}        
+                        {{ macro.radio(atributos.Tratamiento,'Etiqueta','Clientes[Tratamiento]','Clientes_Tratamiento',datos.Tratamiento.IDTipo,datos.Tratamiento.fetchAll(none,false),'Select') }}  
+                        {{ macro.fecha(atributos.FechaNacimiento,'Etiqueta','Clientes[FechaNacimiento]','Clientes_FechaNacimiento',datos.FechaNacimiento,'10','CampoFecha') }}
+                        {{ macro.input(atributos.Login,'Etiqueta','text','Clientes[Login]','Clientes_Login',datos.Login,'50','CampoTextoMedio') }} 
+                        {# EL PASSW SE PIDE SOLO AL CREAR EL CLIENTE, SI NO SE INDICA SE PONE "1234" #}
+                        {% if not datos.PrimaryKeyValue %}
+                            {{ macro.input(atributos.Password,'Etiqueta','text','Clientes[Password]','Clientes_Password',datos.Password,'50','CampoTextoCorto') }}        
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">            
+                        {{ macro.textarea(atributos.Observaciones,'Etiqueta','Clientes[Observaciones]','Clientes_Observaciones',datos.Observaciones,none,none,'TextArea')}}
+                        {{ macro.textarea(atributos.Avisos,'Etiqueta','Clientes[Avisos]','Clientes_Avisos',datos.Avisos,none,none,'TextArea')}}
+                    </div>            
+                </div>
+                <div class="tab-pane" id="tabs-5"></div>
+                {% include '_global/fieldsComunes.html.twig' %}    
+            {% endif %}  
         </div>
-        <div class="col-md-6">
-        {{ macro.input(atributos.Vigente,'Etiqueta','checkbox','Clientes[Vigente]','Clientes_Vigente',datos.Vigente.IDTipo,'255','CampoTextoLargo','20')}}          
-        {{ macro.select(atributos.IDPerfilWeb,'Etiqueta','Clientes[IDPerfilWeb]','Clientes_IDPerfilWeb',200,datos.IDPerfilWeb.Id,datos.IDPerfilWeb.fetchAll('Perfil',false),'Select')}}
-        {{ macro.select(atributos.IDTipo,'Etiqueta','Clientes[IDTipo]','Clientes_IDTipo',200,datos.IDTipo.IDTipo,datos.IDTipo.fetchAll('Tipo'),'Select',[app.path,'ClientesTipos','Tipos de clientes',390,450])}}
-        {{ macro.select(atributos.IDGrupo,'Etiqueta','Clientes[IDGrupo]','Clientes_IDGrupo',200,datos.IDGrupo.IDGrupo,datos.IDGrupo.fetchAll('Grupo'),'Select',[app.path,'ClientesGrupos','Grupos de clientes',390,450])}}
-        {{ macro.select(atributos.IDSucursal,'Etiqueta','Clientes[IDSucursal]','Clientes_IDSucursal',200,datos.IDSucursal.IDSucursal,user.getSucursales('',0),'Select',none,'DesplegableAjax("div_Clientes_IDZona","Clientes_IDZona","Clientes[IDZona]","zonassucursal",this.value);DesplegableAjax("div_Clientes_IDComercial","Clientes_IDComercial","Clientes[IDComercial]","comercialessucursal",this.value);') }}
-        {{ macro.select(atributos.IDComercial,'Etiqueta','Clientes[IDComercial]','Clientes_IDComercial',200,datos.IDComercial.IDAgente,datos.IDComercial.getComerciales('',datos.IDSucursal.IDSucursal,false),'Select') }}
-        {{ macro.select(atributos.IDZona,'Etiqueta','Clientes[IDZona]','Clientes_IDZona',200,datos.IDZona.IDZona,datos.IDZona.fetchAll(datos.IDSucursal.IDSucursal,'Zona',false),'Select') }}            
-        {% include '_global/metaDatos.html.twig' %}
-        </div>
-        <div class="clearfix"></div>
-    </div>            
-    <div class="tab-pane" id="tabs-1">
-        <div class="col-md-6">
-        {{ macro.input(atributos.FacturacionAgrupada,'EtiquetaMedia','checkbox','Clientes[FacturacionAgrupada]','Clientes_FacturacionAgrupada',datos.FacturacionAgrupada.IDTipo,'255','CampoTextoLargo','20')}}                    
-        {{ macro.select(atributos.IDTarifa,'EtiquetaMedia','Clientes[IDTarifa]','Clientes_IDTarifa',150,datos.IDTarifa.IDTarifa,datos.IDTarifa.fetchAll('Descripcion',false),'Select100')}}
-        {{ macro.select(atributos.IDFP,'EtiquetaMedia','Clientes[IDFP]','Clientes_IDFP',150,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'Select220')}}
-        {{ macro.input(atributos.DiaDePago,'EtiquetaMedia','text','Clientes[DiaDePago]','Clientes_DiaDePago',datos.DiaDePago,'2','CampoUnidades') }}
-        {{ macro.input(atributos.Iva,'EtiquetaMedia','checkbox','Clientes[Iva]','Clientes_Iva',datos.Iva.IDTipo,'255','CampoTextoLargo','20')}}                                   
-        {{ macro.input(atributos.RecargoEqu,'EtiquetaMedia','checkbox','Clientes[RecargoEqu]','Clientes_RecargoEqu',datos.RecargoEqu.IDTipo,'255','CampoTextoLargo','20')}}                                   
-        {{ macro.input(atributos.CContable,'EtiquetaMedia','text','Clientes[CContable]','Clientes_CContable',datos.CContable,digitosCta,'CampoTextoCorto') }}        
-        </div>
-        <div class="col-md-6">
-        {{ macro.cc(atributos.Banco,'EtiquetaMedia','cc','Clientes',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) }}        
-        {{ macro.input(atributos.Iban,'EtiquetaMedia','text','Clientes[Iban]','Clientes_Iban',datos.Iban,'34','CampoTextoMedio') }}
-        {{ macro.input(atributos.Bic,'EtiquetaMedia','text','Clientes[Bic]','Clientes_Bic',datos.Bic,'11','CampoTextoCorto') }}        
-        {{ macro.input(atributos.Mandato,'EtiquetaMedia','text','Clientes[Mandato]','Clientes_Mandato',datos.Mandato,'35','CampoTextoCorto') }}        
-        {{ macro.fecha(atributos.FechaMandato,'EtiquetaMedia','Clientes[FechaMandato]','Clientes_FechaMandato',datos.FechaMandato,'10','CampoFecha') }}        
-        {{ macro.input(atributos.LimiteRiesgo,'EtiquetaMedia','text','Clientes[LimiteRiesgo]','Clientes_LimiteRiesgo',datos.LimiteRiesgo,'10','CampoImporte') }}
-        {{ macro.fecha(atributos.FechaRiesgo,'EtiquetaMedia','Clientes[FechaRiesgo]','Clientes_FechaRiesgo',datos.FechaRiesgo,'10','CampoFecha') }}
-        {{ macro.input(atributos.CodigoRiesgo,'EtiquetaMedia','text','Clientes[CodigoRiesgo]','Clientes_CodigoRiesgo',datos.CodigoRiesgo,'20','CampoTextoCorto') }}
-        </div> 
-        <div class="salto"></div>
-    </div>
-    {% if datos.IDCliente %}            
-    <div class="tab-pane" id="tabs-2"></div>
-    <div class="tab-pane" id="tabs-3"></div>
-    <div class="tab-pane" id="tabs-4">
-        <div class="col-md-6">
-        {{ macro.radio(atributos.Sexo,'Etiqueta','Clientes[Sexo]','Clientes_Sexo',datos.Sexo.IDTipo,datos.Sexo.fetchAll(none,false),'Select') }}        
-        {{ macro.radio(atributos.Tratamiento,'Etiqueta','Clientes[Tratamiento]','Clientes_Tratamiento',datos.Tratamiento.IDTipo,datos.Tratamiento.fetchAll(none,false),'Select') }}  
-        {{ macro.fecha(atributos.FechaNacimiento,'Etiqueta','Clientes[FechaNacimiento]','Clientes_FechaNacimiento',datos.FechaNacimiento,'10','CampoFecha') }}
-        {{ macro.input(atributos.Login,'Etiqueta','text','Clientes[Login]','Clientes_Login',datos.Login,'50','CampoTextoMedio') }} 
-        {# EL PASSW SE PIDE SOLO AL CREAR EL CLIENTE, SI NO SE INDICA SE PONE "1234" #}
-        {% if not datos.PrimaryKeyValue %}
-            {{ macro.input(atributos.Password,'Etiqueta','text','Clientes[Password]','Clientes_Password',datos.Password,'50','CampoTextoCorto') }}        
-        {% endif %}
-        </div>
-        <div class="col-md-6">            
-        {{ macro.textarea(atributos.Observaciones,'Etiqueta','Clientes[Observaciones]','Clientes_Observaciones',datos.Observaciones,none,none,'TextArea')}}
-        {{ macro.textarea(atributos.Avisos,'Etiqueta','Clientes[Avisos]','Clientes_Avisos',datos.Avisos,none,none,'TextArea')}}
-        </div> 
-        <div class="salto"></div>            
-    </div>
-    <div class="tab-pane" id="tabs-5"></div>
-    {% include '_global/fieldsComunes.html.twig' %}    
-    {% endif %}  
     </div>
 </div>
-
 {{ macro.foco('Clientes_RazonSocial') }}
-
-{% include values.controller ~ '/js.html.twig' %}

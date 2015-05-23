@@ -136,7 +136,7 @@ class ArticulosEntity extends EntityComunes {
      * @orm:Column(type="integer")
      * @assert:NotBlank(groups="articulos")
      */
-    protected $Garantia;
+    protected $Garantia = 'S/F';
 
     /**
      * @orm:Column(type="integer")

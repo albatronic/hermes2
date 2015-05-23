@@ -1,0 +1,59 @@
+{# edit.js #}
+
+{% extends '_global/js.html.twig' %}
+
+{% block js %}
+
+    {{ parent() }}
+
+    <script type="text/javascript">
+        function RecalculaPrecios(campo) {
+            if ((campo === 'Pvd') || (campo === 'Margen'))
+                document.getElementById('Articulos_Pvp').value = Redondear(document.getElementById('Articulos_Pmc').value * (1 + document.getElementById('Articulos_Margen').value / 100), 3);
+            if (campo === 'Pvp') {
+                if (document.getElementById('Articulos_Pmc').value !== 0)
+                    document.getElementById('Articulos_Margen').value = Redondear(100 * (document.getElementById('Articulos_Pvp').value - document.getElementById('Articulos_Pmc').value) / document.getElementById('Articulos_Pmc').value, 3);
+                else
+                    document.getElementById('Articulos_Margen').value = 100;
+            }
+            document.getElementById('pvpconiva').value = Redondear(document.getElementById('Articulos_Pvp').value * (1 + document.getElementById('valoriva').value / 100), 3);
+        }
+
+        function VerDatosLogisticos(seccion, SiNo) {
+            if (SiNo === 'S') {
+                seccion.style.display = "";
+            }
+            else {
+                seccion.style.display = "none";
+            }
+        }
+
+        function limpia(idOrigen, idInput) {
+
+            if ($('#' + idOrigen + '_valorAnterior').val() !== $('#' + idOrigen).val()) {
+                $('#' + idInput).val('');
+                $('#' + idInput + '_autoComplete').val('');
+            }
+
+            if ($('#' + idOrigen + '_autoComplete').val() === '') {
+                $('#' + idOrigen).val('');
+            }
+        }
+        $("#acordeonStock").accordion({
+            header: "> div > h3",
+            collapsible: true,
+            autoHeight: false,
+            active: 0
+        });
+
+        $('#escandallo').click(function () {
+            url = "<iframe src='{{app.path}}/ArticulosEscandallos/list/{{datos.PrimaryKeyValue}}' width='100%' height='500px' scrolling='yes' style='border: 0px dotted grey;'></iframe>";
+            $("#divEscandallo").html(url);
+        });
+
+        $('#combinaciones').click(function () {
+            url = "<iframe src='{{app.path}}/ArticulosCombinaciones/index/{{datos.PrimaryKeyValue}}' width='100%' height='500px' scrolling='yes' style='border: 0px dotted grey;'></iframe>";
+            $("#divCombinaciones").html(url);
+        });
+    </script>   
+{% endblock %}

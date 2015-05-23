@@ -13,11 +13,10 @@
 {% set atributos = values.atributos %}
 <input name="acordeonActivo" id="acordeonActivo" value="{{ values.acordeonActivo }}" type="hidden" />
 
-<div id="fieldsComunes">
-        
+<div class="tab-pane" id="fieldsComunes">
+    <div id="acordeonColumnas" style="margin-top:10px;">        
         {# PERFILES CON PERMISO DE ACCESO DESDE CPANEL#}
         {% if (idiomas.actual == 0) and ((user.IDPerfil.IDPerfil == '1') or ((values.permisos.permisosModulo['PC'] and atributos.AccessProfileList.visible == 1))) %}
-        <div>
             <h3>Perfiles acceso panel de control</h3>
             <div>
                 <p>Marque los perfiles de usuarios que tendrán acceso a esta información desde el Cpanel</p>
@@ -25,12 +24,10 @@
                     <input type="checkbox" name="{{values.controller}}[AccessProfileList][perfiles][{{perfil.Id}}]" value="{{perfil.Id}}" {% if perfil.Valor|length %}CHECKED{% endif %} /> {{perfil.Value}}<br/>
                 {% endfor %}
             </div>
-        </div>
         {% endif %}
     
         {# PERFILES CON PERMISO DE ACCESO DESDE LA WEB #}
         {% if (idiomas.actual == 0) and ((user.IDPerfil.IDPerfil == '1') or ((values.permisos.permisosModulo['PW'] and atributos.AccessProfileListWeb.visible == 1))) %}    
-        <div>
             <h3>Perfiles acceso web</h3>
             <div>
                 <p>Marque los perfiles de usuarios que tendrán acceso a esta información desde la web</p>                
@@ -38,12 +35,10 @@
                     <input type="checkbox" name="{{values.controller}}[AccessProfileListWeb][perfiles][{{perfil.Id}}]" value="{{perfil.Id}}" {% if perfil.Valor|length %}CHECKED{% endif %} /> {{perfil.Value}}<br/>
                 {% endfor %}
             </div>           
-        </div>
         {% endif %}
     
         {# GENERAL #}
         {% if (idiomas.actual == 0) and (user.IDPerfil.IDPerfil == '1' or atributos.AllowsChildren.visible or atributos.BelongsTo.visible or atributos.CodigoAppAsociada.visible or atributos.IdAlbumExterno.visible or atributos.IdSliderAsociado.visible or atributos.IdSeccionEnlaces.visible or atributos.IdSeccionVideos.visible or atributos.Observations.visible) %}        
-        <div>
             <h3>General</h3>
             <div>
                 <p>
@@ -64,12 +59,10 @@
                 {{ macro.textarea(atributos.Observations,'EtiquetaMedia',values.controller ~ '[Observations]',values.controller ~ '_Observations',datos.Observations,none,none,'textarea',100)}}                
                 </p>
             </div>
-        </div>
         {% endif %}
         
         {# FECHAS #}
         {% if (idiomas.actual == 0) and (user.IDPerfil.IDPerfil == '1' or atributos.PublishedAt.visible or atributos.ActiveFrom.visible or atributos.ActiveTo.visible) %}
-        <div>
             <h3>Fechas</h3>
             <div>
                 <p>
@@ -79,12 +72,10 @@
                 {{ macro.fecha(atributos.ActiveTo,'EtiquetaMedia',values.controller ~ '[ActiveTo]',values.controller ~ '_ActiveTo',datos.ActiveTo,'19','datepicker',105) }}                
                 </p>
             </div>
-        </div>
         {% endif %}
         
         {# POSICIONAMIENTO SEO #}
         {% if user.IDPerfil.IDPerfil == '1' or values.varEnvMod.showMetaManagement == '1' %}
-        <div>
             <h3>Posicionamiento (SEO)</h3>
             <div>
                 <p>
@@ -98,13 +89,11 @@
                 {{ macro.input(atributos.RevisitAfter,'EtiquetaMedia','text',values.controller ~ '[RevisitAfter]',values.controller ~ '_RevisitAfter',datos.RevisitAfter,255,'CampoTextoCorto') }}                    
                 </p>
             </div>
-        </div>
         {% endif %}
         
         {% if datos.getPrimaryKeyValue %}
             {# IMÁGENES #}
             {% if values.varEnvMod.numberOfImages > '0' or user.IDPerfil.IDPerfil == '1' %}
-            <div>
             <h3>Imágenes ({{datos.getNumberOfDocuments('image%','IsThumbnail=0')}})</h3>
             <div>
                 {% if idiomas.actual == 0 %}
@@ -206,52 +195,40 @@
                     {% endfor %}
                 </div>                    
             </div>
-            </div>
             {% endif %}
             
             {# SOLAPA TINY #}
             {% if values.varEnvMod.withTiny == '1' or user.IDPerfil.IDPerfil == '1' %}
-            <div>
                 <h3 id="tiny">Imágenes para Tiny ({{datos.getNumberOfDocuments('tiny')}})</h3>
                 <div id="divTiny"></div>
-            </div>
             {% endif %}
 
             {# SOLAPA GALERIA #}
             {% if values.varEnvMod.withGalery == '1' or user.IDPerfil.IDPerfil == '1' %}
-            <div>
                 <h3 id="galeria">Galería de imágenes ({{datos.getNumberOfDocuments('galery','IsThumbnail=0')}})</h3>
                 <div id="divGaleria"></div>
-            </div>
             {% endif %}
 
             {# SOLAPA DOCUMENTOS #}
             {% if values.varEnvMod.withDocuments == '1' or user.IDPerfil.IDPerfil == '1' %}
-            <div>
                 <h3 id="docs">Documentos ({{datos.getNumberOfDocuments('document')}})</h3>
                 <div id="divDocs"></div>
-            </div>
             {% endif %}
 
             {# SOLAPA VIDEOS #}
             {% if values.varEnvMod.withVideos == '1' or user.IDPerfil.IDPerfil == '1' %}
-            <div>
                 <h3 id="videos">Vídeos ({{datos.getNumberOfDocuments('video')}})</h3>
                 <div id="divVideos"></div>
-            </div>
             {% endif %}
 
             {# SOLAPA AUDIOS #}
             {% if values.varEnvMod.withAudios == '1' or user.IDPerfil.IDPerfil == '1' %}
-            <div>
                 <h3 id="audios">Audios ({{datos.getNumberOfDocuments('audio')}})</h3>
                 <div id="divAudios"></div>
-            </div>
             {% endif %}
 
             {# SOLAPA URLS #}
             {% if user.IDPerfil.IDPerfil == '1' or values.varEnvMod.showUrlFriendlyManagement == '1' %}            
-            <div>
                 <h3>Url Amigable {% if datos.UrlFriendly %}({{datos.UrlFriendly}}){% endif %}</h3>
                 <div>
                     {{ macro.input(atributos.LockUrlPrefix,'EtiquetaMedia','checkbox',values.controller ~ '[LockUrlPrefix]',values.controller ~ '_LockUrlPrefix',datos.LockUrlPrefix.IDTipo,'255','CampoTextoLargo','12') }}
@@ -275,12 +252,10 @@
                         {{ macro.input({'caption':'Parameters','visible':'1','updatable':'1','varEnv':'0','translatable':'1'},'EtiquetaMedia','text','objetoUrlAmigable[Parameters]','CpanUrlAmigables_Parameters',objetoUrlAmigable.Parameters,'255','CampoTextoLargo','12') }}
                     {% endif %}
                 </div>
-            </div>
             {% endif %}
             
             {# SOLAPA URL DESTINO #}
             {% if (idiomas.actual == 0) and (user.IDPerfil.IDPerfil == 1 or atributos.UrlTarget.visible == 1 or atributos.UrlParameters.visible == 1 or atributos.UrlRequestMethod.visible == 1 or atributos.UrlOrigin.visible == 1 or atributos.UrlTargetBlank.visible == 1 or atributos.UrlIsHttps.visible == 1) %}
-            <div>
                 <h3>Url Destino {% if datos.UrlTarget %}({{datos.UrlTarget}}){% endif %}</h3>
                 <div>
                     {{ macro.input(atributos.UrlTarget,'EtiquetaMedia','text',values.controller ~ '[UrlTarget]',values.controller ~ '_UrlTarget',datos.UrlTarget,'255','CampoTextoLargo',112) }}
@@ -290,32 +265,26 @@
                     {{ macro.input(atributos.UrlTargetBlank,'EtiquetaMedia','checkbox',values.controller ~ '[UrlTargetBlank]',values.controller ~ '_UrlTargetBlank',datos.UrlTargetBlank.IDTipo,'255','CampoTextoLargo','12') }}
                     {{ macro.input(atributos.UrlIsHttps,'EtiquetaMedia','checkbox',values.controller ~ '[UrlIsHttps]',values.controller ~ '_UrlIsHttps',datos.UrlIsHttps.IDTipo,'255','CampoTextoLargo','12') }}
                 </div>
-            </div>
             {% endif %}
             
             {# SOLAPA SITEMAP #}
             {% if (idiomas.actual == 0) and (user.IDPerfil.IDPerfil == '1' or values.varEnvMod.showSiteMapManagement == '1') %}              
-            <div>
                 <h3>Site Map</h3>
                 <div>
                     {{ macro.input(atributos.ShowOnSitemap,'EtiquetaMedia','checkbox',values.controller ~ '[ShowOnSitemap]',values.controller ~ '_ShowOnSitemap',datos.ShowOnSitemap.IDTipo,'255','CampoTextoLargo','12') }}
                     {{ macro.input(atributos.ImportanceSitemap,'EtiquetaMedia','text',values.controller ~ '[ImportanceSitemap]',values.controller ~ '_ImportanceSitemap',datos.ImportanceSitemap,'5','CampoTextoCorto',120) }}
                     {{ macro.select(atributos.ChangeFreqSitemap,'EtiquetaMedia',values.controller ~ '[ChangeFreqSitemap]',values.controller ~ '_ChangeFreqSitemap',none,datos.ChangeFreqSitemap.IDTipo,datos.ChangeFreqSitemap.fetchAll(none,0),'Select') }}
                 </div>
-            </div>
             {% endif %}
             
             {# SOLAPA ENTIDADES RELACIONADAS #}
             {% if (idiomas.actual == 0) and (user.IdPerfil.IDPerfil == '1' or values.varEnvMod.modulosRelacionables ) %}        
-            <div>
                 <h3 id="relacionar">Relacionar con ...</h3>
                 <div id="divRelacionar"></div>
-            </div>
             {% endif %}
             
             {# SOLAPA AUDITORIA #}
             {% if (idiomas.actual == 0) and (user.IDPerfil.IDPerfil == 1 or atributos.Checked.visible == 1 or atributos.Privacy.visible == 1 or atributos.NumberVisits.visible == 1 or atributos.DateTimeLastVisit.visible == 1) %}
-            <div>
                 <h3>Auditoría</h3>
                 <div>
                     {{ macro.input(atributos.Checked,'EtiquetaMedia','checkbox',values.controller ~ '[Checked]',values.controller ~ '_Checked',datos.Checked.IDTipo,'255','CampoTextoLargo','12') }}
@@ -335,13 +304,11 @@
                         {% endif %}
                     {% endif %}
                 </div>
-            </div>
             {% endif %}
         {% endif %}
     
         {# SOLAPA MOSTRAR... #}
         {% if (idiomas.actual == 0) and (user.IDPerfil.IDPerfil == 1 or atributos.ShowGalery.visible == 1 or atributos.ShowDocuments.visible == 1 or atributos.ShowRelatedLinks.visible == 1 or atributos.ShowRelatedContents == 1) %}
-        <div>
             <h3>Mostrar ...</h3>
             <div>
                 {{ macro.input(atributos.ShowGalery,'EtiquetaMedia','checkbox',values.controller ~ '[ShowGalery]',values.controller ~ '_ShowGalery',datos.ShowGalery.IDTipo,'255','CampoTextoLargo','12') }}
@@ -349,10 +316,9 @@
                 {{ macro.input(atributos.ShowRelatedLinks,'EtiquetaMedia','checkbox',values.controller ~ '[ShowRelatedLinks]',values.controller ~ '_ShowRelatedLinks',datos.ShowRelatedLinks.IDTipo,'255','CampoTextoLargo','12') }}
                 {{ macro.input(atributos.ShowRelatedContents,'EtiquetaMedia','checkbox',values.controller ~ '[ShowRelatedContents]',values.controller ~ '_ShowRelatedContents',datos.ShowRelatedContents.IDTipo,'255','CampoTextoLargo','12') }}
             </div>
-        </div>
-        {% endif %}    
-        <div class="clearfix"></div>    
+        {% endif %}      
 </div>
+<div class="clearfix"></div>  
 
 <script type="text/javascript"> 
 $(function(){ 
