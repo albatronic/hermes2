@@ -47,9 +47,6 @@ Monedas:
   action: Index
   template: index.html.twig
   parametros: ''
-  includesHead:
-    twigCss: _global/css.html.twig
-    twigJs: _global/js.html.twig
   login_required: true
   permission_control: true
   favourite_control: NO
@@ -94,7 +91,7 @@ Monedas:
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
     Codigo:
-      title: Codigo
+      title: Código
       filter: true
       list: true
       visible: true
@@ -120,7 +117,7 @@ Monedas:
       link: { route: null, param: null, title: null, target: null, link: null }
       validator: { nullable: NO, type: string, length: '255', min: null, max: null, message: 'Valor Requerido' }
     Simbolo:
-      title: Simbolo
+      title: Símbolo
       filter: true
       list: true
       visible: true

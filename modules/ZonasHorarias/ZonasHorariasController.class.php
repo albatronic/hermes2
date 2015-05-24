@@ -18,5 +18,3 @@ class ZonasHorariasController extends Controller {
     }
 
 }
-
-?>

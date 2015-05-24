@@ -3,7 +3,7 @@
 
 {% set atributos = values.atributos %}
 
-<div style="float:left; width: 50%">
+<div class="col-md-6">
 {% if datos.IDTpv %}
     {{ macro.etiqueta(atributos.IDSucursal,'Etiqueta',datos.IDSucursal,'Tpvs_IDSucursal') }}
 {% else %}
@@ -21,7 +21,7 @@
 {{ macro.foco('Tpvs_Nombre') }}
 </div>
 
-<div style="float: left; width: 48%; border: 1px dotted;">
+<div class="col-md-6">
     <div class="Subtitulo" style="text-align: center;">Datáfonos</div>
     <iframe width="100%" height="227" scrolling="yes" style="margin-top:5px; border:0;"
         src="{{app.path}}/Datafonos/list">

@@ -120,10 +120,7 @@ class Familias extends FamiliasEntity {
                 // Actualizar familias y subfamilias
                 $filtro = "BelongsTo='{$this->IDFamilia}'";
                 $this->queryUpdate(array("MostrarPortada" => $this->MostrarPortada, "MostrarEnTpv" => $this->MostrarEnTpv), $filtro);
-
-                //$this->_em->desConecta();
             }
-            //unset($this->_em);
         }
 
         return $ok;

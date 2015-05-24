@@ -9,16 +9,18 @@
 {% block listado %}
 
 <div class='Listado'> 
-    <table width='100%'>
-        <tr class='Titulos'>
-            <td class='Item'>Valor</td>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Valor</th>
             {% if conColor %}
-            <td class='Item'>Color</td>
+            <th>Color</th>
             {% endif %}
-            <td>&nbsp;</td>
+            <th>&nbsp;</th>
         </tr>
+        </thead>
 
-        <tbody class="Cuerpo">
+        <tbody>
             {% for key,objeto in values.listado.data %}
                 {% set puntero = key %}
                 {% if (key is even) %}

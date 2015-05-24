@@ -48,14 +48,12 @@ class FamiliasController extends Controller {
                 unset($fp);
             }
             $archivo->close();
-        }
-        else
+        } else {
             $this->values['errores'][] = "El fichero de importación " . $fileName . " no existe";
+        }
 
         echo "Aciertos: {$nAciertos}, Errores: {$nErrores}";
         unset($archivo);
     }
 
 }
-
-?>

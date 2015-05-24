@@ -1,0 +1,21 @@
+{# js Familias #}
+
+{% extends '_global/js.html.twig' %}
+
+{% block js %}
+
+    {{ parent() }}
+    <script>
+
+        $(function () {
+            $('#menuArbol').menu();
+
+            if ($('#solapaActiva').val() === '0') {
+                $('#solapaActiva').val('1');
+            }
+            $("#tabs").tabs({active: $('#solapaActiva').val()});
+
+        });
+
+    </script> 
+{% endblock %}

@@ -2,7 +2,7 @@
 {# -------------------------------------------------------#}
 {# EDITAR UN REGISTRO. ACCIONES: GUARDAR Y BORRAR         #}
 {# -------------------------------------------------------#}
-{% extends 'Propiedades/index.html.twig' %}
+{% extends values.controller ~ '/index.html.twig' %}
 
 {% block mantenimiento %}
     {% include '_global/formEdit.html.twig' with {'values': values} %}

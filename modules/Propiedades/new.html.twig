@@ -2,8 +2,10 @@
 {# -------------------------------------------------------#}
 {# CREAR UN REGISTRO NUEVO                                #}
 {# -------------------------------------------------------#}
-{% extends 'Propiedades/index.html.twig' %}
+{% extends values.controller ~ '/index.html.twig' %}
+
+{% block navegador %}{% endblock %}
 
 {% block mantenimiento %}
-    {% include '_global/formNew.html.twig' with {'values': values} %} 
+    {% include '_global/formNew.html.twig' with {'values': values} %}    
 {% endblock %}

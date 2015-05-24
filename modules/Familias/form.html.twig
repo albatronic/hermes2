@@ -1,107 +1,106 @@
 {# TEMPLATE Familias/form.html.twig #}
 {# Muestra los campos editables de la entidad        #}
 
-                
-<div id="tabs">
-    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />
-    <ul>
-        <li><a href="#arbol">Árbol de Categorias/Familias/Subfamilias</a></li>
-        <li>
-            <a href="#general">{%if datos.Familia%}<b>{{macro.recortaTexto(datos.Familia,40)}}</b>{%else%}Familia{%endif%}</a>
-            {% if values.atributos.Publish.visible > '0' %}
-            {{ macro.actualizaColumna(values.controller,datos.getPrimaryKeyValue,'Publish',datos.Publish.IDTipo,'Publicar/Despublicar')}}              
-            {% endif %}
-        </li>     
-        {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.IDPerfil == '1' %}
-        <li>
-            <a href="#fieldsComunes">Más detalles...</a>
-        </li>        
-        {% endif %}                      
-    </ul>
+<div class="row">
+    <div class="col-md-12">
+        <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
+        <ul class="nav nav-tabs">
+            <li><a href="#arbol" data-toggle="tab">Árbol de Categorias/Familias/Subfamilias</a></li>
+            <li>
+                <a href="#general" data-toggle="tab">
+                    {%if datos.Familia%}
+                        <b>{{macro.recortaTexto(datos.Familia,40)}}</b>
+                        {% if values.atributos.Publish.visible > '0' %}
+                        {{ macro.actualizaColumna(values.controller,datos.getPrimaryKeyValue,'Publish',datos.Publish.IDTipo,'Publicar/Despublicar')}}              
+                        {% endif %}                        
+                    {%else%}
+                        Familia
+                    {%endif%}
+                </a>
+            </li>     
+            {% if values.varEnvMod.showCommonFields == '1'  or user.IDPerfil.PrimaryKeyValue == '1' %}
+            <li>
+                <a href="#fieldsComunes" data-toggle="tab">Más detalles...</a>
+            </li>        
+            {% endif %}                      
+        </ul>
 
-    <div id="arbol">
-        {% include values.controller ~ '/arbol.html.twig' with {'arbol': datos.getArbolHijos, 'subtemplate':'arbolEditar.html.twig'} %}        
-    </div>
-        
-    <div id="general">
-        <div style="width: 49%; float:left;">
-        {{ macro.input(values.atributos.Familia,'Etiqueta','text','Familias[Familia]','Familias_Familia',datos.Familia,'50','CampoTextoLargo') }}
-        {{ macro.input(values.atributos.Subtitulo,'Etiqueta','text','Familias[Subtitulo]','Familias_Subtitulo',datos.Subtitulo,'50','CampoTextoLargo') }}
-        {{ macro.input(values.atributos.Descripcion1,'Etiqueta','text','Familias[Descripcion1]','Familias_Descripcion1',datos.Descripcion1,'50','CampoTextoLargo') }}
-        {{ macro.input(values.atributos.Descripcion2,'Etiqueta','text','Familias[Descripcion2]','Familias_Descripcion2',datos.Descripcion2,'50','CampoTextoLargo') }}
-        {{ macro.input(values.atributos.MostrarPortada,'Etiqueta','checkbox','Familias[MostrarPortada]','Familias_MostrarPortada',datos.MostrarPortada.IDTipo,'255','CampoTextoLargo') }}             
-        {{ macro.input(values.atributos.MostrarEnTpv,'Etiqueta','checkbox','Familias[MostrarEnTpv]','Familias_MostrarEnTpv',datos.MostrarEnTpv.IDTipo,'255','CampoTextoLargo') }}             
-        {{ macro.input(values.atributos.Inventario,'Etiqueta','checkbox','Familias[Inventario]','Familias_Inventario',datos.Inventario.IDTipo,'255','CampoTextoLargo') }}             
-        {{ macro.input(values.atributos.Trazabilidad,'Etiqueta','checkbox','Familias[Trazabilidad]','Familias_Trazabilidad',datos.Trazabilidad.IDTipo,255,'CampoTextoLargo') }}
-        {{ macro.input(values.atributos.BloqueoStock,'Etiqueta','checkbox','Familias[BloqueoStock]','Familias_BloqueoStock',datos.BloqueoStock.IDTipo,255,'CampoTextoLargo') }}
-        {{ macro.input(values.atributos.BajoPedido,'Etiqueta','checkbox','Familias[BajoPedido]','Familias_BajoPedido',datos.BajoPedido.IDTipo,255,'CampoTextoLargo') }}
-        {{ macro.input(values.atributos.MargenMinimo,'Etiqueta','text','Familias[MargenMinimo]','Familias_MargenMinimo',datos.MargenMinimo,'5','CampoUnidades') }}
-        {{ macro.input(values.atributos.MargenWeb,'Etiqueta','text','Familias[MargenWeb]','Familias_MargenWeb',datos.MargenWeb,'5','CampoUnidades') }}
-        {{ macro.input(values.atributos.Caducidad,'Etiqueta','text','Familias[Caducidad]','Familias_Caducidad',datos.Caducidad,'3','CampoUnidades') }}       
-        </div>
-    
-        {% if datos.PrimaryKeyValue > 0%}
-        <div style="width: 39%; float:left;margin-left: 30px;">
-            <h3>Propiedades asociadas a la familia</h2>
-            <table style="margin-top: 10px; width: 100%;">
-                <tr><th>Propiedad</th><th>Interviene en los filtros</th></tr>
-                {% for key,propiedad in datos.getPropiedades(1) %}
-                    <tr>
-                        <td>
-                        <input title="Poner/Quitar propiedad" id="checkPropiedad{{key}}" type="checkbox" value="{{propiedad.Asignada}}" {%if propiedad.Asignada%}checked{%endif%} 
-                               onchange="
-                              if ($('#checkPropiedad{{key}}').is(':checked')) {
-                                  $('#checkPropiedad{{key}}').val('1');
-                              } else {
-                                  $('#checkPropiedad{{key}}').val('0');
-                              }
-                              actualizaFamiliaPropiedad('{{datos.PrimaryKeyValue}}','{{key}}',$('#checkPropiedad{{key}}').val());
-                        ">
-                        {{propiedad.Titulo}}
-                        </td>
-                        <td style="text-align: center;">
-                        <input title="Activar/Desactivar la aparición en el filtro" id="checkFiltrable{{key}}" type="checkbox" value="{{propiedad.Filtrable}}" {%if propiedad.Filtrable%}checked{%endif%} 
-                               onchange="
-                              if ($('#checkFiltrable{{key}}').is(':checked')) {
-                                  $('#checkFiltrable{{key}}').val('1');
-                              } else {
-                                  $('#checkFiltrable{{key}}').val('0');
-                              }
-                              actualizaFamiliaPropiedadFiltrable('{{datos.PrimaryKeyValue}}','{{key}}',$('#checkFiltrable{{key}}').val());
-                        ">                            
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>  
-            <p style="margin-top: 5px;">Para definir más propiedades, así como sus valores posibles, vaya a <a href="{{app.path}}/Propiedades"><span class="subrrayado">Ficheros/Propiedades</span>.</a></p>                
-                 
-            {# MUESTRO LA IMAGEN DE DISEÑO 1 #}
-            {% set pathImagen = datos.getPathNameImagenN(1) %}
-            {% if pathImagen != '' %}
-                <div style="margin-left: 110px;margin-top: 10px;">
-                <img src="{{project.url}}/{{pathImagen}}" alt="{{pathImagen}}" title="{{pathImagen}}"/>
-                </div>               
-            {% endif %}
-            
-        </div>
-        <div id="resultado"></div>        
-        
-        {% endif %}
-    </div>
+        <div class="tab-content">    
 
-    {% include '_global/fieldsComunes.html.twig' %}
+            <div class="tab-pane" id="arbol">        
+                {% include values.controller ~ '/arbol.html.twig' with {'arbol': datos.getArbolHijos, 'subtemplate':'arbolEditar.html.twig'} %}        
+            </div>
+        
+            <div class="tab-pane" id="general">
+                <div class="col-md-7">
+                {{ macro.input(values.atributos.Familia,'Etiqueta','text','Familias[Familia]','Familias_Familia',datos.Familia,'50','CampoTextoLargo') }}
+                {{ macro.input(values.atributos.Subtitulo,'Etiqueta','text','Familias[Subtitulo]','Familias_Subtitulo',datos.Subtitulo,'50','CampoTextoLargo') }}
+                {{ macro.input(values.atributos.Descripcion1,'Etiqueta','text','Familias[Descripcion1]','Familias_Descripcion1',datos.Descripcion1,'50','CampoTextoLargo') }}
+                {{ macro.input(values.atributos.Descripcion2,'Etiqueta','text','Familias[Descripcion2]','Familias_Descripcion2',datos.Descripcion2,'50','CampoTextoLargo') }}
+                {{ macro.input(values.atributos.MostrarPortada,'Etiqueta','checkbox','Familias[MostrarPortada]','Familias_MostrarPortada',datos.MostrarPortada.IDTipo,'255','CampoTextoLargo') }}             
+                {{ macro.input(values.atributos.MostrarEnTpv,'Etiqueta','checkbox','Familias[MostrarEnTpv]','Familias_MostrarEnTpv',datos.MostrarEnTpv.IDTipo,'255','CampoTextoLargo') }}             
+                {{ macro.input(values.atributos.Inventario,'Etiqueta','checkbox','Familias[Inventario]','Familias_Inventario',datos.Inventario.IDTipo,'255','CampoTextoLargo') }}             
+                {{ macro.input(values.atributos.Trazabilidad,'Etiqueta','checkbox','Familias[Trazabilidad]','Familias_Trazabilidad',datos.Trazabilidad.IDTipo,255,'CampoTextoLargo') }}
+                {{ macro.input(values.atributos.BloqueoStock,'Etiqueta','checkbox','Familias[BloqueoStock]','Familias_BloqueoStock',datos.BloqueoStock.IDTipo,255,'CampoTextoLargo') }}
+                {{ macro.input(values.atributos.BajoPedido,'Etiqueta','checkbox','Familias[BajoPedido]','Familias_BajoPedido',datos.BajoPedido.IDTipo,255,'CampoTextoLargo') }}
+                {{ macro.input(values.atributos.MargenMinimo,'Etiqueta','text','Familias[MargenMinimo]','Familias_MargenMinimo',datos.MargenMinimo,'5','CampoUnidades') }}
+                {{ macro.input(values.atributos.MargenWeb,'Etiqueta','text','Familias[MargenWeb]','Familias_MargenWeb',datos.MargenWeb,'5','CampoUnidades') }}
+                {{ macro.input(values.atributos.Caducidad,'Etiqueta','text','Familias[Caducidad]','Familias_Caducidad',datos.Caducidad,'3','CampoUnidades') }}       
+                </div>
+
+                {% if datos.PrimaryKeyValue > 0%}
+                <div class="col-md-5">
+                    <h3 class="text-center">Propiedades asociadas a la familia</h2>
+                    <table class="table">
+                        <thead><tr><th>Propiedad</th><th>Interviene en los filtros</th></tr></thead>
+                        <tbody>
+                        {% for key,propiedad in datos.getPropiedades(1) %}
+                            <tr>
+                                <td>
+                                <input title="Poner/Quitar propiedad" id="checkPropiedad{{key}}" type="checkbox" value="{{propiedad.Asignada}}" {%if propiedad.Asignada%}checked{%endif%} 
+                                       onchange="
+                                      if ($('#checkPropiedad{{key}}').is(':checked')) {
+                                          $('#checkPropiedad{{key}}').val('1');
+                                      } else {
+                                          $('#checkPropiedad{{key}}').val('0');
+                                      }
+                                      actualizaFamiliaPropiedad('{{datos.PrimaryKeyValue}}','{{key}}',$('#checkPropiedad{{key}}').val());
+                                ">
+                                {{propiedad.Titulo}}
+                                </td>
+                                <td style="text-align: center;">
+                                <input title="Activar/Desactivar la aparición en el filtro" id="checkFiltrable{{key}}" type="checkbox" value="{{propiedad.Filtrable}}" {%if propiedad.Filtrable%}checked{%endif%} 
+                                       onchange="
+                                      if ($('#checkFiltrable{{key}}').is(':checked')) {
+                                          $('#checkFiltrable{{key}}').val('1');
+                                      } else {
+                                          $('#checkFiltrable{{key}}').val('0');
+                                      }
+                                      actualizaFamiliaPropiedadFiltrable('{{datos.PrimaryKeyValue}}','{{key}}',$('#checkFiltrable{{key}}').val());
+                                ">                            
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>  
+                    <p style="margin-top: 5px;">Para definir más propiedades, así como sus valores posibles, vaya a <a href="{{app.path}}/Propiedades"><span class="subrrayado">Ficheros/Propiedades</span>.</a></p>                
+
+                    {# MUESTRO LA IMAGEN DE DISEÑO 1 #}
+                    {% set pathImagen = datos.getPathNameImagenN(1) %}
+                    {% if pathImagen != '' %}
+                        <div style="margin-left: 110px;margin-top: 10px;">
+                        <img src="{{project.url}}/{{pathImagen}}" alt="{{pathImagen}}" title="{{pathImagen}}"/>
+                        </div>               
+                    {% endif %}
+
+                </div>
+                <div id="resultado"></div>        
+                {% endif %}
+            </div>
+
+            {% include '_global/fieldsComunes.html.twig' %}
+        </div>
+    </div>
 </div>
-<script>
 
-    $(function(){
-        $('#menuArbol').menu();
-
-        if ($('#solapaActiva').val() === '0') {
-            $('#solapaActiva').val('1');
-        }
-        $("#tabs").tabs({ active: $('#solapaActiva').val() });
-               
-    });
-    
-</script> 
 {{ macro.foco('Familias_Familia') }}

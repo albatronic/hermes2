@@ -43,9 +43,6 @@ Familias:
   action: Index
   template: index.html.twig
   parametros: ''
-  includesHead:
-    twigCss: _global/css.html.twig
-    twigJs: _global/js.html.twig
   login_required: true
   permission_control: true
   favourite_control: false

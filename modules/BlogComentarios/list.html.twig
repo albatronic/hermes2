@@ -15,42 +15,41 @@
     {% include '_global/paginacion.html.twig' with {'filter': values.listado.filter, 'controller': values.controller, 'position': 'izq'}%}
 
     <div id="Listado">
-    <table width='100%'>
-        <tr class='Titulos'>
-            <td class='Item'>&nbsp;</td>            
-            <td class='Item'>Contenido</td>
-            <td class='Item'>Título</td>
-            <td class='Item'>Usuario</td> 
-            <td class='Item'>Fecha</td>             
-            <td class='Item'>Ip</td>   
-            <td class='Item'>Publicar</td> 
-            <td class='Item'>Chequeado</td> 
-            <td class='Item'>Comentario</td> 
+    <table class="table">
+        <thead>
+        <tr>
+            <th>&nbsp;</th>            
+            <th>Contenido</th>
+            <th>Título</th>
+            <th>Usuario</th> 
+            <th>Fecha</th>             
+            <th>Ip</th>   
+            <th>Publicar</th> 
+            <th>Chequeado</th> 
+            <th>Comentario</th> 
         </tr>
+        </thead>
 
         <tbody class='Cuerpo'>
         {% for key,objeto in values.listado.data %}
             <tr style="height: 20px;">
                 <td>
-                    <a href='{{app.path}}/{{values.controller}}/Edit/{{objeto.PrimaryKeyMD5}}' title='Editar ...'>
-                        <img src="{{app.path}}/images/botoneditar.png" width="16px" height="16px" />
+                    <a class="btn-edit" href='{{app.path}}/{{values.controller}}/Edit/{{objeto.getPrimaryKeyMD5()}}' title='Editar'>
+                        <i class="fa fa-pencil"></i>
                     <a>
                 </td>
-                <td class="item">{{objeto.Entidad}}</td>  
-                <td class="item">{{macro.recortaTexto(objeto.objetoAsociado,35)}}</td>  
-                <td class="item">{{objeto.Nombre}}</td> 
-                <td class="item">{{objeto.TiempoUnix|date('d-m-Y H:i')}}</td>                
-                <td class="item">{{objeto.IpAddress}}</td>                                
-                <td class="item">{{ macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'Publish',objeto.Publish.IDTipo,'Publicar/Despublicar')}} </td>                                              
-                <td class="item">{{ macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'Checked',objeto.Checked.IDTipo,'Validar')}} </td>                                              
-                <td class="item">{{objeto.Comentario}}</td>                  
+                <td>{{objeto.Entidad}}</td>  
+                <td>{{macro.recortaTexto(objeto.objetoAsociado,35)}}</td>  
+                <td>{{objeto.Nombre}}</td> 
+                <td>{{objeto.TiempoUnix|date('d/m/Y H:i')}}</td>                
+                <td>{{objeto.IpAddress}}</td>                                
+                <td>{{macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'Publish',objeto.Publish.IDTipo,'Publicar/Despublicar')}} </td>                                              
+                <td>{{macro.actualizaColumna(values.controller,objeto.getPrimaryKeyValue,'Checked',objeto.Checked.IDTipo,'Validar')}} </td>                                              
+                <td>{{objeto.Comentario}}</td>                  
             </tr>
-            {% else %}
-            <tr><td colspan='8'>No hay información que cumpla esos criterios</td></tr>
         {% endfor %}
         </tbody>
     </table>
     </div>        
-</div>
 </div>
 {% endblock %}
