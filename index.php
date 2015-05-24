@@ -223,7 +223,7 @@ $twig->loadTemplate($result['template'])
             'app' => $app,
             'menu' => $_SESSION['usuarioPortal']['menu'],
             'emp' => new PcaeEmpresas($_SESSION['project']['IdEmpresa']),
-            'suc' => $_SESSION['suc'],
+            'suc' => new Sucursales($_SESSION['suc']),
             'tpv' => new Tpvs($_SESSION['tpv']),
             'project' => $_SESSION['project'],
         ));

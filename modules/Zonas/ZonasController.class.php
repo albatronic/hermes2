@@ -35,5 +35,3 @@ class ZonasController extends Controller {
     }
 
 }
-
-?>

@@ -4,9 +4,9 @@
 {% set atributos = values.atributos %}
 
 {% if not datos.IDTraspaso %}
-    {% set sucursalDefecto = suc %}
+    {% set sucursalDefecto = suc.PrimaryKeyValue %}
 {% else %}
-    {% set sucursalDefecto = datos.IDSucursal.IDSucursal %}
+    {% set sucursalDefecto = datos.IDSucursal.PrimaryKeyValue %}
 {% endif %}
 
 <div>

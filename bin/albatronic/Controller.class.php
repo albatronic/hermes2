@@ -395,8 +395,9 @@ class Controller {
                     //SI EN LA POSICION 2 DEL REQUEST VIENE ALGO,
                     //SE ENTIENDE QUE ES EL VALOR DE LA CLAVE PARA LINKAR CON LA ENTIDAD PADRE
                     //ESTO SE UTILIZA PARA LOS FORMULARIOS PADRE->HIJO
-                    if ($this->request['2'] != '')
+                    if ($this->request['2'] !== '') {
                         $this->values['linkBy']['value'] = $this->request['2'];
+                    }
 
                     $datos = new $this->entity();
                     $datos->setDefaultValues((array) $this->varEnvMod['columns']);

@@ -2,7 +2,7 @@
 {# Muestra los campos editables de la entidad #}
 
 {% if (not datos.IDSucursal.IDSucursal) %}
-    {% set IDSucursal = suc %}
+    {% set IDSucursal = suc.PrimaryKeyValue %}
 {% else %}
     {% set IDSucursal = datos.IDSucursal.IDSucursal %}
 {% endif %}

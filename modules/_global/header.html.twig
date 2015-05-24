@@ -19,11 +19,11 @@
                 <li class="dropdown dropdown-user dropdown-user dropdown-stores">
                     {% if user.Sucursales | length > 1%}                    
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                         <span class="username username-hide-on-mobile">{{suc.Value}}</span><i class="fa fa-angle-down"></i>
+                         <span class="username username-hide-on-mobile">{{suc.Nombre}}</span><i class="fa fa-angle-down"></i>
                         </a>
                     {% else %}
                         <a href="#" class="dropdown-toggle">
-                        <span class="username username-hide-on-mobile">{{suc.Value}}</span>
+                        <span class="username username-hide-on-mobile">{{suc.Nombre}}</span>
                         </a>
                     {% endif %}
                      {% if user.Sucursales | length > 1%}
@@ -31,7 +31,7 @@
                         {% for sucursal in user.Sucursales %}
                             <li>
                                 <a href="{{app.path}}/index/cambiaTienda/{{sucursal.Id}}">
-                                    {% if sucursal.Id == suc.Id %}{% endif %}
+                                    {% if sucursal.Id == suc.PrimaryKeyValue %}{% endif %}
                                     {{sucursal.Value}}
                                 </a>
                             </li>

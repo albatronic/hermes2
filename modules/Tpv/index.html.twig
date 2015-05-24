@@ -2,9 +2,9 @@
 
 {% set albaran = values.albaran %}
 {% if not albaran.IDAlbaran %}
-    {% set sucursalDefecto = suc %}
+    {% set sucursalDefecto = suc.PrimaryKeyValue %}
 {% else %}
-    {% set sucursalDefecto = albaran.IDSucursal.IDSucursal %}
+    {% set sucursalDefecto = albaran.IDSucursal.PrimaryKeyValue %}
 {% endif %}
 
 {% block content %}

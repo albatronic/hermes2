@@ -7,18 +7,19 @@
 {% block listado %}
 <div class='Listado'>
 
-    <table width='100%'>
-        <tr class='Titulos'>
-            <td class="Item">Zona / Kilos</td>
-            {% for kilos in values.tramosKilos %}
-            <td class='Item'>{{kilos.Value}}</td>
-            {% endfor %}
-        </tr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center">Zona / Kilos</th>
+                {% for kilos in values.tramosKilos %}
+                <th class='text-center'>{{kilos.Value}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
 
         <tbody class="Cuerpo">
             {% for zona in values.zonasTransporte %}
-
-                <tr class="ItemListado">
+                <tr>
                     <td>{{zona.Value}}</td>
                     {% for kilos in values.tramosKilos %}
                     <td align="right">
@@ -32,7 +33,6 @@
                     </td>
                     {% endfor %}
                 </tr>
-
             {% endfor %}
         </tbody>
     </table>

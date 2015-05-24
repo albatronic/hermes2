@@ -41,14 +41,11 @@ Zonas:
   action: Index
   template: index.html.twig
   parametros: ''
-  includesHead:
-    twigCss: _global/css.html.twig
-    twigJs: _global/js.html.twig
   login_required: true
   permission_control: true
   favourite_control: NO
   help_file: help.html.twig
-  title: Zonas
+  title: Zonas comerciales y de reparto
   id_video: zonas
   url_video: null
   feature_list: true
@@ -94,13 +91,13 @@ Zonas:
       list: true
       visible: true
       updatable: true
-      default: '0'
+      default: 0
       help: null
       permission: null
       translatable: false
       searchable: false
       link: { route: null, param: null, title: null, target: null, link: null }
-      #aditional_filter: { order: 1, caption: IDSucursal, entity: ErpSucursales, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
+      aditional_filter: { order: 1, caption: Sucursal, entity: Sucursales, method: fetchAll, params: Nombre, type: select, operator: '=', event: null }
       validator: { nullable: NO, type: integer, length: '11', min: null, max: null, message: 'Valor Requerido' }
     Zona:
       title: Zona

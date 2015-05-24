@@ -7,17 +7,5 @@
 {% block navegador %}{% endblock %}
 
 {% block mantenimiento %}
-<div class="FormManto">
-    <form name="manto_{{values.controller}}" id="manto_{{values.controller}}" action="" method="POST" enctype="multipart/form-data">
-        <input name="controller" value="Zonas" type="hidden" />
-        <input name="action" value="new" type="hidden" />
-        <input name="Zonas[IDZona]" value="{{ values.datos.IDZona }}" type="hidden" />
-        {% include '_global/comandosCreate.html.twig' %}
-
-        <div class="Cuerpo">
-        {% include "_global/alertas.html.twig" with {'alertas': values.alertas,'errores': values.errores} %}
-	{% include "Zonas/form.html.twig" with {'datos': values.datos} %}
-        </div>
-    </form>
-</div>
+    {% include '_global/formNew.html.twig' with {'values': values} %}    
 {% endblock %}

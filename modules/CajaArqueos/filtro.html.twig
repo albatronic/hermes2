@@ -2,7 +2,7 @@
 {# -------------------------------------------------------#}
 
 {% if (values.listado.filter.valuesSelected[0] == '') %}
-    {% set IDSucursal = suc %}
+    {% set IDSucursal = suc.PrimaryKeyValue %}
 {% else %}
     {% set IDSucursal = values.listado.filter.valuesSelected[0] %}
 {% endif %}

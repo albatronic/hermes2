@@ -85,6 +85,3 @@ class ZonasEntity extends EntityComunes {
     }
 
 }
-
-// END class zonas
-?>

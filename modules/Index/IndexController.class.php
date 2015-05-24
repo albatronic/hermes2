@@ -220,7 +220,7 @@ class IndexController extends Controller {
 
             $_SESSION['emp'] = $_SESSION['project']['IdEmpresa'];
             $_SESSION['usuarioPortal']['sucursales'] = $usuario->getSucursales('', false);
-            $_SESSION['suc'] = $_SESSION['usuarioPortal']['sucursales'][0];
+            $_SESSION['suc'] = $_SESSION['usuarioPortal']['sucursales'][0]['Id'];
             $_SESSION['usuarioPortal']['menu'] = $usuario->getArrayMenu();
             // Carga las variables de entorno y web del proyecto
             $this->cargaVariables();

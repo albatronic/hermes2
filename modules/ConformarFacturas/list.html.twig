@@ -3,7 +3,7 @@
 {% extends 'ConformarFacturas/index.html.twig' %}
 
 {% if values.filtro.idSucursal == ''%}
-    {% set idSucursal = suc %}
+    {% set idSucursal = suc.PrimaryKeyValue %}
 {% else %}
     {% set idSucursal = values.filtro.idSucursal %}
 {% endif %}

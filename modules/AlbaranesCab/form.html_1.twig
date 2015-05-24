@@ -4,7 +4,7 @@
 {% set atributos = values.atributos %}
 
 {% if not datos.IDAlbaran %}
-    {% set sucursalDefecto = suc %}
+    {% set sucursalDefecto = sucPrimaryKeyValue %}
 {% else %}
     {% set sucursalDefecto = datos.IDSucursal.IDSucursal %}
 {% endif %}
