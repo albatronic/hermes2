@@ -6,7 +6,7 @@
         <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
         <ul class="nav nav-tabs">
             <li><a href="#arbol" data-toggle="tab">Árbol de Categorias/Familias/Subfamilias</a></li>
-            <li>
+            <li class="active">
                 <a href="#general" data-toggle="tab">
                     {%if datos.Familia%}
                         <b>{{macro.recortaTexto(datos.Familia,40)}}</b>
@@ -31,7 +31,7 @@
                 {% include values.controller ~ '/arbol.html.twig' with {'arbol': datos.getArbolHijos, 'subtemplate':'arbolEditar.html.twig'} %}        
             </div>
         
-            <div class="tab-pane" id="general">
+            <div class="tab-pane active" id="general">
                 <div class="col-md-7">
                 {{ macro.input(values.atributos.Familia,'Etiqueta','text','Familias[Familia]','Familias_Familia',datos.Familia,'50','CampoTextoLargo') }}
                 {{ macro.input(values.atributos.Subtitulo,'Etiqueta','text','Familias[Subtitulo]','Familias_Subtitulo',datos.Subtitulo,'50','CampoTextoLargo') }}

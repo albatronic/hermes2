@@ -10,9 +10,10 @@
 
         {% include '_global/paginacion.html.twig' with {'filter':values.listado.filter,'controller': values.controller,'position':'izq'}%}
 
-        <table class="table table-striped">
+        <table id="table-listado" class="table table-striped">
             <thead>
-                <tr class='Titulos'>
+                <tr>
+                    <th></th>
                     <th>Código</th>
                     <th>Descripción</th>
                     <th>CategorÍa</th>
@@ -30,22 +31,22 @@
 
             <tbody class='Cuerpo'>
                 {% for key,objeto in values.listado.data %}
-                    {% if (key is even) %}
-                        {% set classFila = 'Impar' %}
-                    {% else %}
-                        {% set classFila = 'Par' %}
-                    {% endif %}
                     {% set urlAmigable = objeto.getHref.url %}
                     <tr>
-                        <td class='Item'><a href="{{app.path}}/Articulos/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Codigo}}</a></td>
-                        <td class='Item'>
+                        <td>
+                            <a class="btn-edit" href='{{app.path}}/{{values.controller}}/Edit/{{objeto.getPrimaryKeyMD5()}}' title='Editar'>
+                                <i class="fa fa-pencil"></i>
+                            <a>                    
+                        </td>                        
+                        <td>{{objeto.Codigo}}</td>
+                        <td>
                             {{ macro.actualizaColumna('Articulos',objeto.getPrimaryKeyValue,'Publish',objeto.Publish.IDTipo,'Publicar/Despublicar')}}  
-                            <a href="{{app.path}}/Articulos/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Descripcion|slice(0,30)}}</a>
+                            {{objeto.Descripcion|slice(0,50)}}
                         </td>
-                        <td class='Item'>{{objeto.IDCategoria.Familia|slice(0,25)}}</td>
-                        <td class='Item'>{{objeto.IDFamilia.Familia|slice(0,25)}}</td>
+                        <td>{{objeto.IDCategoria.Familia|slice(0,25)}}</td>
+                        <td>{{objeto.IDFamilia.Familia|slice(0,25)}}</td>
                         {% if user.IDRol.IDTipo == '0'%}
-                            <td class='Item' align="right">
+                            <td align="right">
                                 {{macro.moneda(objeto.Pvd)}}
                             </td>
                         {% endif %}

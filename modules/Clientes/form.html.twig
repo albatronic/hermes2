@@ -8,7 +8,7 @@
     <div class="col-md-12">
         <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
         <ul class="nav nav-tabs">
-            <li><a href="#general" data-toggle="tab">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Cliente{%endif%}</a></li>            
+            <li class="active"><a href="#general" data-toggle="tab">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Cliente{%endif%}</a></li>            
             <li><a href="#tabs-1" data-toggle="tab">Facturación</a></li>
                 {% if datos.IDCliente %}
                 <li><a href="#tabs-2" onclick="cargaDireccionesEntrega('tabs-2');" data-toggle="tab">Dir. Entrega</a></li>
@@ -25,7 +25,7 @@
 
         <div class="tab-content">    
 
-            <div class="tab-pane" id="general">
+            <div class="tab-pane active" id="general">
                 <div class="col-md-6">
                     {{ macro.input(atributos.RazonSocial,'Etiqueta','text','Clientes[RazonSocial]','Clientes_RazonSocial',datos.RazonSocial,'50','CampoTextoLargo') }}
                     {{ macro.input(atributos.NombreComercial,'Etiqueta','text','Clientes[NombreComercial]','Clientes_NombreComercial',datos.NombreComercial,'50','CampoTextoLargo') }}
@@ -63,7 +63,7 @@
                     {{ macro.input(atributos.CContable,'EtiquetaMedia','text','Clientes[CContable]','Clientes_CContable',datos.CContable,digitosCta,'CampoTextoCorto') }}        
                 </div>
                 <div class="col-md-6">
-                    {{ macro.cc(atributos.Banco,'EtiquetaMedia','cc','Clientes',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) }}        
+                    {# macro.cc(atributos.Banco,'EtiquetaMedia','cc','Clientes',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) #}        
                     {{ macro.input(atributos.Iban,'EtiquetaMedia','text','Clientes[Iban]','Clientes_Iban',datos.Iban,'34','CampoTextoMedio') }}
                     {{ macro.input(atributos.Bic,'EtiquetaMedia','text','Clientes[Bic]','Clientes_Bic',datos.Bic,'11','CampoTextoCorto') }}        
                     {{ macro.input(atributos.Mandato,'EtiquetaMedia','text','Clientes[Mandato]','Clientes_Mandato',datos.Mandato,'35','CampoTextoCorto') }}        

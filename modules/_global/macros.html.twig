@@ -299,13 +299,22 @@
 {# cif: MUESTRA UN <INPUT> #}
 {# ------------------------- #}
 {% macro cif(atributos,classLabel, type, name, id, value, class) %}
+    {% if classLabel == 'EtiquetaLarga' %}
+        {% set classLabel = 'col-sm-8 control-label'%}
+        {% set class = 'col-sm-4' %}
+    {% else %}
+        {% set classLabel = 'col-sm-3 control-label'%}
+        {% set class = 'col-sm-9' %}        
+    {% endif %}    
 <div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.Id == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="form-group"{% else %}class="oculto"{% endif %}>
     {% if atributos.caption %}
         {{ _self.label(atributos,classLabel, name, id) }}
     {% endif %}
+    <div class="{{class}}">
     <input type="{{ type|default('text') }}" name="{{ name }}"  id="{{ id|default(name)}}"
-           value="{{ value }}" class="{{ class }}" maxlength="15"
+           value="{{ value }}" class="form-control" maxlength="15"
            onchange="ValidaNif('{{ id|default(name)}}'); {{ _self.alertSave }}" />
+    </div>
 </div>
 {% endmacro %}
 

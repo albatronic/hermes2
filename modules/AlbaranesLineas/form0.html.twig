@@ -15,17 +15,19 @@
     </div>
 
     <div style="position:relative; top:18px;clear:both;">
-    <table width='100%'>
-        <tr class='Titulos'>
-            <td class='Item'>{{values.atributos.IDArticulo.caption}}</td>
-            <td class='Item'>{{values.atributos.Descripcion.caption}}</td>
-            <td class='Item'>{{values.atributos.Unidades.caption}}</td>
-            <td class='Item'>{{values.atributos.Precio.caption}}</td>
-            <td class='Item'>{{values.atributos.Descuento.caption}}</td>
-            <td class='Item'>{{values.atributos.Iva.caption}}</td>
-            <td class='Item'>{{values.atributos.Importe.caption}}</td>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td>{{values.atributos.IDArticulo.caption}}</td>
+            <td>{{values.atributos.Descripcion.caption}}</td>
+            <td>{{values.atributos.Unidades.caption}}</td>
+            <td>{{values.atributos.Precio.caption}}</td>
+            <td>{{values.atributos.Descuento.caption}}</td>
+            <td>{{values.atributos.Iva.caption}}</td>
+            <td>{{values.atributos.Importe.caption}}</td>
             <td>&nbsp;</td>
         </tr>
+        </thead>
 
         <tbody class="Cuerpo">
             {% for key,objeto in values.listado.data %}
@@ -39,7 +41,7 @@
                 <input name="AlbaranesLineas[IDEstado]" value="{{ objeto.IDEstado.IDTipo }}" type="hidden" />
                 <input name="AlbaranesLineas[IDAgente]" value="{{ objeto.IDAgente.IDAgente }}" type="hidden" />
                 <input name="accion" id="accion{{puntero}}" value="" type="hidden" />
-                <tr class="ItemListado"
+                <tr
                     onmouseover="getElementById('precios').value='[{{objeto.Importe}}][{{objeto.ImporteCosto}}][{{beneficioLinea}}]';"
                     onmouseout="getElementById('precios').value='';" >
                     <td>
@@ -63,7 +65,7 @@
                     </td>
                     <td><input name="AlbaranesLineas[Precio]" value="{{objeto.Precio}}" type="text" style="width:60px;text-align:right;" /></td>
                     <td><input name="AlbaranesLineas[Descuento]" value="{{objeto.Descuento}}" type="text" style="width:40px;text-align:right;" /></td>
-                    <td><input name="AlbaranesLineas[Iva]" value="{{objeto.Iva}}" type="text" style="width:35px;text-align:right;" /></td>
+                    <td><input name="AlbaranesLineas[Iva]" value="{{objeto.Iva}}" type="text" style="width:40px;text-align:right;" /></td>
                     <td><input name="AlbaranesLineas[Importe]" value="{{objeto.Importe}}" type="text" style="width:60px;text-align:right;" disabled /></td>
                     <td align="center">
                         {% if objeto.IDLinea > 0 %}

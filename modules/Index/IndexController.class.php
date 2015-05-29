@@ -42,7 +42,7 @@ class IndexController extends Controller {
         $this->values['titulo'] = $this->form->getTitle();
         $this->values['ayuda'] = $this->form->getHelpFile();
         $this->values['permisos'] = $this->permisos->getPermisos();
-        $this->values['enCurso'] = $this->values['permisos']['enCurso'];        
+        $this->values['enCurso'] = $this->values['permisos']['enCurso'];
         $this->values['request'] = $this->request;
         $this->values['linkBy'] = array(
             'id' => $this->form->getLinkBy(),
@@ -109,7 +109,7 @@ class IndexController extends Controller {
 
                         $this->cargaValores($tokenProyectoApp);
                         $_SESSION['usuarioPortal']['urlRetorno'] = $_SESSION['appPath'] . "/Index/logout";
-                        
+
                         $template = $this->entity . "/index.html.twig";
                     } else {
                         $this->values['email'] = $this->request['email'];
@@ -244,16 +244,20 @@ class IndexController extends Controller {
             $_SESSION['usuarioPortal']['alertaStock'] = $erp['alertaStock'];
 
             // Establece los idiomas en base a la varible web del proyecto
-            /**
-              $langs = trim($_SESSION['VARIABLES']['WebPro']['globales']['lang']);
-              $_SESSION['idiomas']['disponibles'] = ($langs == '') ? array('0' => 'es') : explode(",", $langs);
+            if (!count($_SESSION['idiomas']['disponibles'])) {
+                $langs = trim($_SESSION['VARIABLES']['WebPro']['globales']['lang']);
+                $idiomas = ($langs == '') ? array('0' => 'es') : explode(",", $langs);
+                $language = new Idiomas();
+                foreach ($idiomas as $idioma) {
+                    $lang = $language->find("Codigo", strtoupper($idioma));
+                    $_SESSION['idiomas']['disponibles'][] = array('codigo' => $lang->getCodigo(), 'titulo' => $lang->getIdioma());
+                }
+            }
 
-              if (!isset($_SESSION['idiomas']['actual'])) {
-              $_SESSION['idiomas']['actual'] = 0;
-              }
-             */
+            if (!isset($_SESSION['idiomas']['actual'])) {
+                $_SESSION['idiomas']['actual'] = 0;
+            }
         }
-        //print_r($_SESSION['usuarioPortal']);
         unset($usuario);
     }
 
@@ -268,6 +272,7 @@ class IndexController extends Controller {
     public function LogoutAction() {
 
         unset($_SESSION['usuarioPortal']);
+        unset($_SESSION['idiomas']);
 
         return array(
             'template' => $this->entity . '/login.html.twig',

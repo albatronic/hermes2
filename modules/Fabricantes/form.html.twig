@@ -1,46 +1,47 @@
 {# TEMPLATE Fabricantes/form.html.twig #}
 {# Muestra los campos editables de la entidad        #}
 
-<div id="tabs">
-    <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
-    <ul>
-        <li>
-            <a href="#general">{%if datos.Titulo%}<b>{{macro.recortaTexto(datos.Titulo,40)}}</b>{%else%}Fabricante{%endif%}</a>
-            {% if values.atributos.Publish.visible > '0' %}
-            {{ macro.actualizaColumna(values.controller,datos.getPrimaryKeyValue,'Publish',datos.Publish.IDTipo,'Publicar/Despublicar')}}              
-            {% endif %}
-        </li>        
-        
-        {% if values.varEnvMod.showCommonFields == '1' or user.IDPerfil.IDPerfil == '1' %}
-        <li>
-            <a href="#fieldsComunes">Más detalles...</a>
-        </li>        
-        {% endif %} 
-    </ul>
+<div class="row">
+    <div class="col-md-12">
+        <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
+        <ul class="nav nav-tabs"> 
+            <li class="active">
+                <a href="#general" data-toggle="tab">{%if datos.Titulo%}<b>{{macro.recortaTexto(datos.Titulo,40)}}</b>{%else%}Fabricante{%endif%}
+                {% if values.atributos.Publish.visible > '0' %}
+                    {{ macro.actualizaColumna(values.controller,datos.getPrimaryKeyValue,'Publish',datos.Publish.IDTipo,'Publicar/Despublicar')}}   
+                {% endif %}
+                </a>
+            </li>        
 
-    <div id="general">
-        <div style="width: 51%; float:left;">           
-            {{ macro.input(values.atributos.Titulo,'Etiqueta','text','Fabricantes[Titulo]','Fabricantes_Titulo',datos.Titulo,'50','CampoTextoLargo') }}
-            {{ macro.textarea(values.atributos.Descripcion1,'Etiqueta','Fabricantes[Descripcion1]','Fabricantes_Descripcion1',datos.Descripcion1) }}
-            {{ macro.textarea(values.atributos.Descripcion2,'Etiqueta','Fabricantes[Descripcion2]','Fabricantes_Descripcion2',datos.Descripcion2) }}
-            {{ macro.input(values.atributos.Telefono,'Etiqueta','text','Fabricantes[Telefono]','Fabricantes_Telefono',datos.Telefono,'30','CampoTextoLargo') }}
-            {{ macro.input(values.atributos.Web,'Etiqueta','text','Fabricantes[Web]','Fabricantes_Web',datos.Web,'50','CampoTextoLargo') }}
-            {{ macro.input(values.atributos.Email,'Etiqueta','text','Fabricantes[Email]','Fabricantes_Email',datos.Email,'50','CampoTextoLargo') }}
-            {{ macro.input(values.atributos.MostrarPortada,'Etiqueta','checkbox','Familias[MostrarPortada]','Familias_MostrarPortada',datos.MostrarPortada.IDTipo,'255','CampoTextoLargo') }}                             
+            {% if values.varEnvMod.showCommonFields == '1' or user.IDPerfil.IDPerfil == '1' %}
+                <li><a href="#fieldsComunes" data-toggle="tab">Más detalles...</a></li>        
+            {% endif %} 
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="general">
+                <div class="col-md-6">           
+                    {{ macro.input(values.atributos.Titulo,'Etiqueta','text','Fabricantes[Titulo]','Fabricantes_Titulo',datos.Titulo,'50','CampoTextoLargo') }}
+                    {{ macro.input(values.atributos.Telefono,'Etiqueta','text','Fabricantes[Telefono]','Fabricantes_Telefono',datos.Telefono,'30','CampoTextoLargo') }}
+                    {{ macro.input(values.atributos.Web,'Etiqueta','text','Fabricantes[Web]','Fabricantes_Web',datos.Web,'50','CampoTextoLargo') }}
+                    {{ macro.input(values.atributos.Email,'Etiqueta','text','Fabricantes[Email]','Fabricantes_Email',datos.Email,'50','CampoTextoLargo') }}
+                    {{ macro.input(values.atributos.MostrarPortada,'Etiqueta','checkbox','Familias[MostrarPortada]','Familias_MostrarPortada',datos.MostrarPortada.IDTipo,'255','CampoTextoLargo') }} 
+                    {# MUESTRO LA IMAGEN DE DISEÑO 1 #}
+                    {% set pathImagen = datos.getPathNameImagenN(1) %}
+                    {% if pathImagen != '' %}
+                        <div style="margin-left: 60px;margin-top: 10px;">
+                            <img src="{{project.url}}/{{pathImagen}}" alt="{{pathImagen}}" title="{{pathImagen}}"/>
+                        </div>               
+                    {% endif %}            
+                    {% include '_global/metaDatos.html.twig' %}                     
+                </div>
+                <div class="col-md-6">
+                    {{ macro.textarea(values.atributos.Descripcion1,'Etiqueta','Fabricantes[Descripcion1]','Fabricantes_Descripcion1',datos.Descripcion1) }}
+                    {{ macro.textarea(values.atributos.Descripcion2,'Etiqueta','Fabricantes[Descripcion2]','Fabricantes_Descripcion2',datos.Descripcion2) }}                                   
+                </div>
+            </div>
+
+            {% include '_global/fieldsComunes.html.twig' %}
         </div>
-        <div style="float: left; width: 47%;">
-            {# MUESTRO LA IMAGEN DE DISEÑO 1 #}
-            {% set pathImagen = datos.getPathNameImagenN(1) %}
-            {% if pathImagen != '' %}
-                <div style="margin-left: 60px;margin-top: 10px;">
-                <img src="{{project.url}}/{{pathImagen}}" alt="{{pathImagen}}" title="{{pathImagen}}"/>
-                </div>               
-            {% endif %}            
-            {% include '_global/metaDatos.html.twig' %}            
-        </div>
-    </div>
-
-    {% include '_global/fieldsComunes.html.twig' %}
-
-</div>  
+    </div>  
+</div>
 {{ macro.foco('Fabricantes_Titulo') }}

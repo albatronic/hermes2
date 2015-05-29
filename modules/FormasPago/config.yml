@@ -13,7 +13,7 @@ FormasPago:
     fromColumn: ''
     toEntity: ''
     toColumn: ''
-  translatable: true
+  translatable: false
   searchable: false
   showCommonFields: false
   numMaxRecords: ''

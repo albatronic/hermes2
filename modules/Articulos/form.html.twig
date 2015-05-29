@@ -18,11 +18,11 @@
     <div class="col-md-12">
         <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
         <ul class="nav nav-tabs">        
-            <li>
+            <li class="active">
                 <a href="#general" data-toggle="tab">{%if datos.Descripcion%}<b>{{macro.recortaTexto(datos.Descripcion,32)}}</b>{%else%}Artículo{%endif%}</a>
-                        {% if values.atributos.Publish.visible > '0' %}
-                            {{ macro.actualizaColumna(values.controller,datos.getPrimaryKeyValue,'Publish',datos.Publish.IDTipo,'Publicar/Despublicar')}}              
-                        {% endif %}                
+                {% if values.atributos.Publish.visible > '0' %}
+                    {{ macro.actualizaColumna(values.controller,datos.getPrimaryKeyValue,'Publish',datos.Publish.IDTipo,'Publicar/Despublicar')}}              
+                {% endif %}                
             </li>            
             <li><a href="#stock" data-toggle="tab">Stock</a></li>
                 {% if datos.AllowsChildren.IDTipo == '1' %}
@@ -47,7 +47,7 @@
         </ul>
 
         <div class="tab-content">
-            <div class="tab-pane" id="general">
+            <div class="tab-pane active" id="general">
                 <div class="from-body">
                     {# ALERTA DE MARGEN BAJO #}
                     {% if datos.Margen < values.varWebPro.erp.alertaMargen %}

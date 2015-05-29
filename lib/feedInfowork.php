@@ -61,14 +61,16 @@ class importar {
      */
     static function getXml() {
 
-        $filePath = "feedInfowork20150523_012157.xml";
-        $result = file_get_contents($filePath);
-        $result = preg_replace("/\<\!\[CDATA\[(.*?)\]\]\>/ies", "'[CDATA]'.base64_encode('$1').'[/CDATA]'", $result);
-        self::$xml = new SimpleXMLElement($result);
-        return true;
-
+        /**
+          $filePath = "../tmp/feedInfowork.xml";
+          $result = file_get_contents($filePath);
+          $result = preg_replace("/\<\!\[CDATA\[(.*?)\]\]\>/ies", "'[CDATA]'.base64_encode('$1').'[/CDATA]'", $result);
+          self::$xml = new SimpleXMLElement($result);
+          return true;
+         * 
+         */
         //El nombre del archivo donde se almacenara los datos descargados.
-        $filePath = dirname(__FILE__) . '/feedInfowork' . date('Ymd_His') . ".xml";
+        $filePath = '../tmp/feedInfowork' . date('Ymd_His') . ".xml";
         //Inicializa Curl.
         $ch = curl_init();
 
@@ -275,13 +277,13 @@ class importar {
             $pathName = "docs/Articulos/" . substr($slug, 0, 3) . "/" . $slug . ".jpg";
             @mkdir($carpeta, 0755, true);
             $urlDestino = $carpeta . "/" . $slug . ".jpg";
-            
+
             if (!file_exists($urlDestino)) {
                 $ok = self::DescargaImagen($origen, $urlDestino);
             } else {
                 $ok = true;
             }
-            
+
             if ($ok) {
                 $art = new Articulos();
                 $rows = $art->querySelect("IDArticulo", "Codigo='{$item->part_number}'");
@@ -329,6 +331,12 @@ class importar {
             $descripcion = self::Limpia($tmp);
             $pvd = str_replace(",", ".", $item->precio);
             $pvp = str_replace(",", ".", $item->pvpr); //$pvd * (1 + $margen / 100);
+            $pvp = $pvp / 1.21;
+            $margen = 0;
+            if ($pvd > 0) {
+                $margen = $pvp / $pvd * 100 - 100;
+            }
+
             $peso = str_replace(",", ".", $item->peso);
 //Le quito los espacios en blanco al principio y al final
 //Los espacios en blanco intermedios los sustituyo por %20 para que la url sea correcta.
@@ -366,7 +374,8 @@ class importar {
             $art->setIDSubfamilia($idSubfamilia);
             $art->setIDFabricante($idFabricante);
             $art->setPvd($pvd);
-            $art->setPvp($pvp / 1.21);
+            $art->setMargen($margen);
+            $art->setPvp($pvp);
             $art->setIDIva(1);
             $art->setCodigoEAN($item->ean);
             $art->setPeso($peso);
@@ -431,32 +440,32 @@ class importar {
      * @return <type>
      */
     static function SubeImagenServidor($source_file, $destination_file, $carpeta_destino) {
-// set up basic connection
+        // set up basic connection
         $ftp_server = "www.albatronic.com";
         $ftp_user_name = "albatro";
         $ftp_user_pass = "p17s26a26";
         $resultado = "";
 
-// login with username and password
+        // login with username and password
         $conn_id = ftp_connect($ftp_server);
         $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
 
-// check connection
+        // check connection
         if ((!$conn_id) || (!$login_result)) {
             return("La conexi&oacute;n FTP ha fallado!");
             exit;
         }
 
-// upload the file
+        // upload the file
         ftp_chdir($conn_id, $carpeta_destino);
         $upload = ftp_put($conn_id, $destination_file, $source_file, FTP_IMAGE);
 
-// check upload status
+        // check upload status
         if (!$upload) {
             $resultado = "FTP upload has failed!";
         }
 
-// close the FTP stream
+        // close the FTP stream
         ftp_close($conn_id);
         return ($resultado);
     }
@@ -494,5 +503,6 @@ importar::CrearFabricantes($familiasFabricantes['fabricantes']);
 $fallos = importar::CrearArticulos();
 echo "Articulos Fallidos: ", $fallos;
 
+// Descargar las imágenes. Las que ya existen no se descargan
 importar::DescargaImagenes();
 

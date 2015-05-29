@@ -192,9 +192,11 @@ if ($config['debug_mode']) {
     $result['values']['_enCurso'] = $result['values']['enCurso'];
     $result['values']['_debugMode'] = true;
     $result['values']['_auditMode'] = (string) $config['audit_mode'];
+    $result['values']['_idiomas'] = print_r($_SESSION['idiomas'], true);    
     $result['values']['_session'] = print_r(array('emp' => $_SESSION['emp'], 'suc' => $_SESSION['suc'], 'tpv' => $_SESSION['tpv']), true);
     $result['values']['_user'] = print_r($_SESSION['usuarioPortal'], true);
     $result['values']['_debugValues'] = print_r($result['values'], true);
+
 }
 
 // Si el método no devuelve template o no exite, muestro un template de error.

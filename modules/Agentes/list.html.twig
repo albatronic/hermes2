@@ -23,18 +23,13 @@
 
             <tbody>
             {% for key,objeto in values.listado.data %}
-                {% if (key is even) %}
-                    {% set classFila = 'Impar' %}
-                {% else %}
-                    {% set classFila = 'Par' %}
-                {% endif %}
-            <tr onclick="location.href='{{app.path}}/{{values.controller}}/edit/{{objeto.PrimaryKeyMD5}}'" class='{{classFila}}'>
-                <th>
+            <tr>
+                <td>
                     <a class="btn-edit" href='{{app.path}}/{{values.controller}}/Edit/{{objeto.getPrimaryKeyMD5()}}' title='Editar'>
                         <i class="fa fa-pencil"></i>
                     <a>                    
-                </th>
-                <td><a href="{{app.path}}/Agentes/edit/{{objeto.PrimaryKeyMD5}}" title="Editar...">{{objeto.Nombre|slice(0,30)}}</a></td>
+                </td>
+                <td>{{objeto.Nombre|slice(0,30)}}</td>
                 <td align='center'>{{objeto.Activo.Descripcion}}</td>
                 <td>{{objeto.IDRol.Descripcion}}</td>
                 <td>{{objeto.IDPerfil.Perfil}}</td>

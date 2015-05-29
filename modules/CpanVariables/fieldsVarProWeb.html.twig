@@ -21,7 +21,7 @@
 {% block template %}
     <div class="col-md-12">
         <ul class="nav nav-tabs">
-            <li><a href="#tabs-global" data-toggle="tab">Global [globales]</a></li>
+            <li class="active"><a href="#tabs-global" data-toggle="tab">Global [globales]</a></li>
             <li><a href="#tabs-mail" data-toggle="tab">Mail [mail]</a></li>
             <li><a href="#tabs-meta" data-toggle="tab">SEO [meta]</a></li>
             <li><a href="#tabs-firmas" data-toggle="tab">Firmas [signatures]</a></li>
@@ -32,7 +32,7 @@
 
         <div class="tab-content">
             {# GLOBAL #}
-            <div id="tabs-global" class="tab-pane fade">
+            <div id="tabs-global" class="tab-pane active">
 
                 {{ macro.input({'caption':'[dominio] Dominio','visible':(values.visibilidad.globales['dominio'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][dominio]','d_global_dominio',values.d.globales.dominio,'50','CampoTextoMedio','1') }}
                 {{ macro.input({'caption':'[empresa] Empresa / Titular','visible':(values.visibilidad.globales['empresa'] or esSuper),'varEnv':'0'},'EtiquetaLarga','text','d[globales][empresa]','d_global_empresa',values.d.globales.empresa,'50','CampoTextoMedio','1') }}            

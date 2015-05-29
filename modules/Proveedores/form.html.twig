@@ -8,10 +8,11 @@
     <div class="col-md-12">
         <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />    
         <ul class="nav nav-tabs">
-            <li>
+            <li class="active">
                 <a href="#general" data-toggle="tab">{%if datos.RazonSocial%}<b>{{macro.recortaTexto(datos.RazonSocial,40)}}</b>{%else%}Proveedor{%endif%}</a>
             </li>  
             {% if datos.PrimaryKeyValue %}
+                <li><a href="#facturacion" data-toggle="tab">Facturación</a></li>
                 <li>
                     <a href="#vctos" data-toggle="tab" onclick='cargaVencimientos("vctos");'>Vencimientos</a>
                 </li>
@@ -21,7 +22,7 @@
                 {% endif %}  
         </ul>
         <div class="tab-content">
-            <div class="tab-pane" id="general">
+            <div class="tab-pane active" id="general">
                 <div class="col-md-7">        
                     {{ macro.input(atributos.RazonSocial,'Etiqueta','text','Proveedores[RazonSocial]','Proveedores_RazonSocial',datos.RazonSocial,'50','CampoTextoLargo') }}
                     {{ macro.input(atributos.NombreComercial,'Etiqueta','text','Proveedores[NombreComercial]','Proveedores_NombreComercial',datos.NombreComercial,'50','CampoTextoLargo') }}
@@ -34,15 +35,7 @@
                     {{ macro.input(atributos.Fax,'Etiqueta','text','Proveedores[Fax]','Proveedores_Fax',datos.Fax,'30','CampoTextoLargo') }}
                     {{ macro.input(atributos.Movil,'Etiqueta','text','Proveedores[Movil]','Proveedores_Movil',datos.Movil,'30','CampoTextoLargo') }}
                     {{ macro.input(atributos.EMail,'Etiqueta','text','Proveedores[EMail]','Proveedores_EMail',datos.EMail,'50','CampoTextoLargo') }}
-                    {{ macro.input(atributos.Web,'Etiqueta','text','Proveedores[Web]','Proveedores_Web',datos.Web,'50','CampoTextoLargo') }}
-                    {{ macro.input(atributos.CContable,'Etiqueta','text','Proveedores[CContable]','Proveedores_CContable',datos.CContable,digitosCta,'CampoTextoCorto') }}
-                    {{ macro.cc(atributos.Banco,'Etiqueta','cc','Proveedores',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) }}
-                    {{ macro.input(atributos.Iban,'Etiqueta','text','Proveedores[Iban]','Proveedores_Iban',datos.Iban,'34','CampoTextoMedio') }}
-                    {{ macro.input(atributos.Bic,'Etiqueta','text','Proveedores[Bic]','Proveedores_Bic',datos.Bic,'11','CampoTextoCorto') }}         
-                    {{ macro.input(atributos.Mandato,'Etiqueta','text','Proveedores[Mandato]','Proveedores_Mandato',datos.Mandato,'35','CampoTextoCorto') }}        
-                    {{ macro.fecha(atributos.FechaMandato,'Etiqueta','Proveedores[FechaMandato]','Proveedores_FechaMandato',datos.FechaMandato,'10','CampoFecha') }}               
-                    {{ macro.select(atributos.IDFP,'Etiqueta','Proveedores[IDFP]','Proveedores_IDFP',200,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'Select') }}
-                    {{ macro.input(atributos.Iva,'Etiqueta','checkbox','Proveedores[Iva]','Proveedores[Iva]',datos.Iva.IDTipo,'255','CampoTextoLargo') }}                        
+                    {{ macro.input(atributos.Web,'Etiqueta','text','Proveedores[Web]','Proveedores_Web',datos.Web,'50','CampoTextoLargo') }}                      
                 </div>
                 <div class="col-md-5">
                     {{ macro.textarea(atributos.Observaciones,'Etiqueta','Proveedores[Observaciones]','Proveedores_Observaciones',datos.Observaciones,none,none,'TextArea')}}             
@@ -51,6 +44,17 @@
             </div>  
 
             {% if datos.PrimaryKeyValue %}
+                <div id="facturacion" class="tab-pane">
+                    {{ macro.input(atributos.CContable,'Etiqueta','text','Proveedores[CContable]','Proveedores_CContable',datos.CContable,digitosCta,'CampoTextoCorto') }}
+                    {# macro.cc(atributos.Banco,'Etiqueta','cc','Proveedores',datos.Banco,datos.Oficina,datos.Digito,datos.Cuenta) #}
+                    {{ macro.input(atributos.Iban,'Etiqueta','text','Proveedores[Iban]','Proveedores_Iban',datos.Iban,'34','CampoTextoMedio') }}
+                    {{ macro.input(atributos.Bic,'Etiqueta','text','Proveedores[Bic]','Proveedores_Bic',datos.Bic,'11','CampoTextoCorto') }}         
+                    {{ macro.input(atributos.Mandato,'Etiqueta','text','Proveedores[Mandato]','Proveedores_Mandato',datos.Mandato,'35','CampoTextoCorto') }}        
+                    {{ macro.fecha(atributos.FechaMandato,'Etiqueta','Proveedores[FechaMandato]','Proveedores_FechaMandato',datos.FechaMandato,'10','CampoFecha') }}               
+                    {{ macro.select(atributos.IDFP,'Etiqueta','Proveedores[IDFP]','Proveedores_IDFP',200,datos.IDFP.IDFP,datos.IDFP.fetchAll('Descripcion',false),'Select') }}
+                    {{ macro.input(atributos.Iva,'Etiqueta','checkbox','Proveedores[Iva]','Proveedores[Iva]',datos.Iva.IDTipo,'255','CampoTextoLargo') }}                      
+                </div>
+                
                 <div id="vctos" class="tab-pane"></div>
 
                 {% if values.varEnvMod.withDocuments == '1' or user.IDPerfil.PrimaryKeyValue == '1' %}              

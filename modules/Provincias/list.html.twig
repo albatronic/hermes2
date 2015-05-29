@@ -18,12 +18,7 @@
 
         <tbody class="Cuerpo">
         {% for key,objeto in values.listado.data %}
-            {% if (key is even) %}
-                {% set classFila = 'Impar' %}
-            {% else %}
-                {% set classFila = 'Par' %}
-            {% endif %}
-            <tr class='{{classFila}}'>
+            <tr>
             <td>
                 <a class="btn-edit" href='{{app.path}}/{{values.controller}}/Edit/{{objeto.getPrimaryKeyMD5()}}' title='Editar'>
                     <i class="fa fa-pencil"></i>
@@ -33,7 +28,7 @@
             <td>{{objeto.Codigo}}</td>
             <td>{{objeto.Provincia}}</td>
             <td>
-                <select id="zona{{key}}" style="width: 200px" onchange="actualizaColumna('Provincias','{{objeto.PrimaryKeyValue}}','IDZona',$('#zona{{key}}').val());">
+                <select class="form-control" id="zona{{key}}"  onchange="actualizaColumna('Provincias','{{objeto.PrimaryKeyValue}}','IDZona',$('#zona{{key}}').val());">
                     {% for zona in objeto.IDZona.fetchAll('Zona') %}
                         <option value="{{zona.Id}}" {%if zona.Id == objeto.IDZona.IDZona%} SELECTED{%endif%}>{{zona.Value}}</option>
                     {% endfor %}

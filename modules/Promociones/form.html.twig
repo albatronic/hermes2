@@ -3,55 +3,55 @@
 
 {% set atributos = values.atributos %}
 
-<div class="Izquierda" style="width:49%;">
-{{ macro.input(atributos.Titulo,'Etiqueta','text','Promociones[Titulo]','Promociones_Titulo',datos.Titulo,'255','CampoTextoLargo') }}
-{{ macro.select(atributos.IDFamilia,'Etiqueta','Promociones[IDFamilia]','Promociones_IDFamilia',200,datos.IDFamilia.IDFamilia,datos.IDFamilia.fetchAll('Familia'),'Select','','mostrarOcultar();') }}
-<div class="Item" id="div_Promociones_Descripcion">
-    {{ macro.label(atributos.IDArticulo) }}
-    <input name="Promociones[IDArticulo]" value="{{datos.IDArticulo.IDArticulo}}" id="Promociones_IDArticulo" type="hidden" />
-    <input value="{{datos.IDArticulo.Descripcion}}" id="Descripcion" type="text" maxlength="255" style="width:330px;"
-           onkeyup="autocompletarArticulos();"
-    />
-</div>
-{{ macro.fecha(atributos.FinPromocion,'Etiqueta','Promociones[FinPromocion]','Promociones_FinPromocion',datos.FinPromocion,'10','CampoFecha') }}
-{{ macro.input(atributos.CantidadMinima,'Etiqueta','text','Promociones[CantidadMinima]','Promociones_CantidadMinima',datos.CantidadMinima,'6','CampoUnidades') }}
-{{ macro.select(atributos.TipoPromocion,'Etiqueta','Promociones[TipoPromocion]','Promociones_TipoPromocion',none,datos.TipoPromocion.IDTipo,datos.TipoPromocion.fetchAll('Descripcion'),'Select') }}
-{{ macro.input(atributos.Valor,'Etiqueta','text','Promociones[Valor]','Promociones_Valor',datos.Valor,'10','CampoImporte') }}
-{{ macro.select(atributos.IDFP,'Etiqueta','Promociones[IDFP]','Promociones_IDFP',200,datos.IDFP.IDFP,values.formasPago,'Select') }}
+<div class="col-md-6">
+    {{ macro.input(atributos.Titulo,'Etiqueta','text','Promociones[Titulo]','Promociones_Titulo',datos.Titulo,'255','CampoTextoLargo') }}
+    {{ macro.select(atributos.IDFamilia,'Etiqueta','Promociones[IDFamilia]','Promociones_IDFamilia',200,datos.IDFamilia.IDFamilia,datos.IDFamilia.fetchAll('Familia'),'Select','','mostrarOcultar();') }}
+    <div class="Item" id="div_Promociones_Descripcion">
+        {{ macro.label(atributos.IDArticulo) }}
+        <input name="Promociones[IDArticulo]" value="{{datos.IDArticulo.IDArticulo}}" id="Promociones_IDArticulo" type="hidden" />
+        <input value="{{datos.IDArticulo.Descripcion}}" id="Descripcion" type="text" maxlength="255" style="width:330px;"
+               onkeyup="autocompletarArticulos();"
+               />
+    </div>
+    {{ macro.fecha(atributos.FinPromocion,'Etiqueta','Promociones[FinPromocion]','Promociones_FinPromocion',datos.FinPromocion,'10','CampoFecha') }}
+    {{ macro.input(atributos.CantidadMinima,'Etiqueta','text','Promociones[CantidadMinima]','Promociones_CantidadMinima',datos.CantidadMinima,'6','CampoUnidades') }}
+    {{ macro.select(atributos.TipoPromocion,'Etiqueta','Promociones[TipoPromocion]','Promociones_TipoPromocion',none,datos.TipoPromocion.IDTipo,datos.TipoPromocion.fetchAll('Descripcion'),'Select') }}
+    {{ macro.input(atributos.Valor,'Etiqueta','text','Promociones[Valor]','Promociones_Valor',datos.Valor,'10','CampoImporte') }}
+    {{ macro.select(atributos.IDFP,'Etiqueta','Promociones[IDFP]','Promociones_IDFP',200,datos.IDFP.IDFP,values.formasPago,'Select') }}
 
-{% if promoAplicada > 0 %}
-<div style="clear: both; height: 20px;"></div>
-<h3>Esta promoción está aplicada en varias ventas.</h3>
-<h3>No se pueden modificar. Sólo se puden añadir o quitar clientes.</h3>
-{% endif %}
+    {% if promoAplicada > 0 %}
+        <div style="clear: both; height: 20px;"></div>
+        <h3>Esta promoción está aplicada en varias ventas.</h3>
+        <h3>No se pueden modificar. Sólo se puden añadir o quitar clientes.</h3>
+    {% endif %}
 </div>
 
-<div class="Derecha" style="width:51%;">
+<div class="col-md-6">
     {% if datos.IDPromocion %}
-    <iframe width="100%" height="420" scrolling="yes" style="border:0px;margin-bottom:10px;"
-            src="{{app.path}}/PromocionesClientes/list/{{datos.IDPromocion}}">
-    </iframe>
+        <iframe width="100%" height="420" scrolling="yes" style="border:0px;margin-bottom:10px;"
+                src="{{app.path}}/PromocionesClientes/list/{{datos.IDPromocion}}">
+        </iframe>
     {% endif %}
 </div>
 
 <script>
-function autocompletarArticulos() {
+    function autocompletarArticulos() {
 
-    if ($('#Promociones_IDFamilia').val() != '') {
-        autoCompletar('Descripcion','Promociones_IDArticulo','Descripcion','articulosFamilia',$('#Promociones_IDFamilia').val(),'');
-    } else {
-        autoCompletar('Descripcion','Promociones_IDArticulo','Descripcion','articulos','','');
+        if ($('#Promociones_IDFamilia').val() != '') {
+            autoCompletar('Descripcion', 'Promociones_IDArticulo', 'Descripcion', 'articulosFamilia', $('#Promociones_IDFamilia').val(), '');
+        } else {
+            autoCompletar('Descripcion', 'Promociones_IDArticulo', 'Descripcion', 'articulos', '', '');
+        }
+
     }
 
-}
-
-function mostrarOcultar() {
-    if ($('#Promociones_IDFamilia').val() != '') {
-        $('#Promociones_IDArticulo').val('');
-        $('#Descripcion').val('');
-        $('#div_Promociones_Descripcion').hide();
-    } else {
-        $('#div_Promociones_Descripcion').show();
+    function mostrarOcultar() {
+        if ($('#Promociones_IDFamilia').val() != '') {
+            $('#Promociones_IDArticulo').val('');
+            $('#Descripcion').val('');
+            $('#div_Promociones_Descripcion').hide();
+        } else {
+            $('#div_Promociones_Descripcion').show();
+        }
     }
-}
 </script>

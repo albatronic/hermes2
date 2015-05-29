@@ -13,21 +13,20 @@
     <div class="col-md-12">
         <input name="solapaActiva" id="solapaActiva" value="{{ values.solapaActiva }}" type="hidden" />      
         <ul class="nav nav-tabs">
-            <li><a href="#general" data-toggle="tab">General</a></li>
+            <li class="active"><a href="#general" data-toggle="tab">General</a></li>
                 {% if datos.PrimaryKeyValue %}
                 <li><a href="#divDetalle" id="detalle" data-toggle="tab">Detalle</a></li>
                 <li><a href="#envio" data-toggle="tab">Envío</a></li>
-                <li><a href="#observaciones" data-toggle="tab">{% if datos.Observaciones %}<b>{% endif %}Observaciones{% if datos.Observaciones %}</b>{% endif %}</a></li>
-                <li><a href="#notas" data-toggle="tab">{% if datos.NotasInternas %}<b>{% endif %}Notas{% if datos.NotasInternas %}</b>{% endif %}</a></li>
-                    {% if (values.varEnvMod.withDocuments == '1' or user.IDPerfil.PrimaryKeyValue == '1') and (datos.PrimaryKeyValue ) %}            
-                    <li><a href="#divDocs" id="docs" data-toggle="tab">Documentos adjuntos ({{datos.getNumberOfDocuments('document')}})</a></li>
-                    {% endif %}
+                <li><a href="#observaciones" data-toggle="tab">{% if datos.Observaciones or datos.NotasInternas %}<b>{% endif %}Observaciones{% if datos.Observaciones %}</b>{% endif %}</a></li>
+                {% if (values.varEnvMod.withDocuments == '1' or user.IDPerfil.PrimaryKeyValue == '1') and (datos.PrimaryKeyValue ) %}            
+                <li><a href="#divDocs" id="docs" data-toggle="tab">Documentos adjuntos ({{datos.getNumberOfDocuments('document')}})</a></li>
+                {% endif %}
                 {% endif %}
         </ul>
 
         <div class="tab-content">    
 
-            <div class="tab-pane" id="general">
+            <div class="tab-pane active" id="general">
                 <div class="col-md-6">
                     {% if datos.IDEstado.IDTipo == '0' %}
                         {% if datos.IDAlbaran %}
@@ -126,14 +125,16 @@
                     {% endif %}
                 </div>
                 <div id="observaciones" class="tab-pane">
+                    <div class="col-md-6">
                     {{ macro.textarea(atributos.Observaciones,'Etiqueta','AlbaranesCab[Observaciones]','AlbaranesCab_Observaciones',datos.Observaciones,none,none,'TextArea')}}
+                    </div>
+                    <div class="col-md-6">
+                    {{ macro.textarea(atributos.NotasInternas,'Etiqueta','AlbaranesCab[NotasInternas]','AlbaranesCab_NotasInternas',datos.NotasInternas,none,none,'TextArea')}}
+                    </div>
                     {% set beneficio  = datos.getBeneficio() %}
                     <div style="text-align: center;">
                         Referencia [{{ beneficio.Venta}}] [{{ beneficio.Costo}}] [{{ beneficio.Beneficio }}]
                     </div>
-                </div>
-                <div id="notas" class="tab-pane">
-                    {{ macro.textarea(atributos.NotasInternas,'Etiqueta','AlbaranesCab[NotasInternas]','AlbaranesCab_NotasInternas',datos.NotasInternas,none,none,'TextArea')}}
                 </div>
                 {% if (values.varEnvMod.withDocuments == '1' or user.IDPerfil.PrimaryKeyValue == '1') and (datos.PrimaryKeyValue ) %}               
                     <div id="divDocs" class="tab-pane"></div>

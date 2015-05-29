@@ -4,32 +4,30 @@
     <div class="portlet-title">
 
         <div class=caption">
-            {% if (varEnvMod.translatable == 1)%}
-                <img src="{{app.path}}/lang/{{idiomas.disponibles[idiomas.actual].codigo}}.gif" alt="{{idiomas.disponibles[idiomas.actual].texto}}" title="{{idiomas.disponibles[idiomas.actual].texto}}"/>
-            {% endif %}
+            {# if (varEnvMod.translatable == 1)%}
+                <img src="{{app.path}}/lang/{{idiomas.disponibles[idiomas.actual].codigo}}.gif" alt="{{idiomas.disponibles[idiomas.actual].titulo}}" title="{{idiomas.disponibles[idiomas.actual].titulo}}"/>
+            {% endif #}
             <h1>{{ values.titulo }}</h1>
         </div>
 
+        <div class="caption margin-left-10">           
+            {# BANDERAS DE IDIOMAS #}
+            {% if ((varEnvMod.translatable == 1) and (idiomas.disponibles|length > 1) )%}
+                <select class="form-control" style="width: 100px;" name="idioma" id="idioma" onchange="document.location.href='{{app.path}}/{{values.controller}}/lang/'+this.value+'/{{values.datos.getPrimaryKeyMD5}}'">
+                    {% for key,idioma in idiomas.disponibles %}
+                    <option value="{{key}}" {% if key == idiomas.actual %}selected{% endif %}>{{idioma.titulo}}</option>}
+                    {% endfor%}
+                </select>
+            {% endif %}            
+        </div>
+        
         <div class="actions btn-set"> 
-           
             {% include "_global/comandosNew.html.twig" %}
             {% include "_global/comandosCreate.html.twig" %}
             {% include "_global/comandosSave.html.twig" %}
             {% include "_global/comandosDelete.html.twig" %}
             {% include "_global/comandosPrint.html.twig" %}
             {% include "_global/comandosMoreActions.html.twig" with {'adittionalCommands': adittionalCommands} %}
-            
-            {# BANDERAS DE IDIOMAS #}
-            {% if ((varEnvMod.translatable == 1) and (idiomas.disponibles|length > 1) )%}
-                [
-                {% for key,idioma in idiomas.disponibles %}
-                    {% if key != idiomas.actual %}
-                        <a href="{{app.path}}/{{values.controller}}/lang/{{key}}/{{values.datos.getPrimaryKeyMD5}}"><img src="{{app.path}}/lang/{{idioma.codigo}}.gif" alt="{{idioma.texto}}" title="{{idioma.texto}}"/></a>
-                        {% endif %}
-                    {% endfor%}
-                ]
-            {% endif %}
-
         </div>                        
     </div>
 </div>

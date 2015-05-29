@@ -16,7 +16,7 @@
     <div class="col-md-12">
         <ul class="nav nav-tabs">
             {% if user.IDPerfil.PrimaryKeyValue == '1' %}
-                <li><a href="#tabs-global" data-toggle="tab">Globales [globales]</a></li>
+                <li class="active"><a href="#tabs-global" data-toggle="tab">Globales [globales]</a></li>
                 {% endif %}        
                 {% if values.d.especificas %}
                 <li><a href="#tabs-especificas" data-toggle="tab">Específicas{% if user.IDPerfil.PrimaryKeyValue == '1' %}  [especificas]{% endif %}</a></li>
@@ -28,7 +28,7 @@
             {# VARIABLES WEB GLOBALES A TODOS LOS MODULOS #}
             {% if user.IDPerfil.PrimaryKeyValue == '1' %}        
                 {# GLOBAL #}
-                <div id="tabs-global" class="tab-pane fade">  
+                <div id="tabs-global" class="tab-pane active">  
                             {{ macro.input(
                     {'caption': 'linkFromColumn','visible':'1','varEnv':'0'},
                     'EtiquetaLarga',

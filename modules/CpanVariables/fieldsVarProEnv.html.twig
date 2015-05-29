@@ -9,7 +9,7 @@
 {% block template %}
 <div class="col-md-12">
     <ul class="nav nav-tabs">
-        <li><a href="#tabs-global" data-toggle="tab">Global</a></li>
+        <li class="active"><a href="#tabs-global" data-toggle="tab">Global</a></li>
         <li><a href="#tabs-shop" data-toggle="tab">Tienda Online</a></li>
         <li><a href="#tabs-visitas" data-toggle="tab">Control Visitas</a></li>
         <li><a href="#tabs-varWeb" data-toggle="tab">Visibilidad Var Web</a></li>          
@@ -17,7 +17,7 @@
     
     <div class="tab-content">
         
-        <div id="tabs-global" class="tab-pane fade">
+        <div id="tabs-global" class="tab-pane active">
             {{ macro.input({'caption':'[title] Título','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[title]','d_title',values.d.title,'50','CampoTextoMedio','1') }}
             {{ macro.input({'caption':'[url] Url de la web con http://','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[url]','d_url',values.d.url,'50','CampoTextoMedio','1') }}
             {{ macro.input({'caption':'[eMailWebMaster] EMail WebMaster','visible':'1','varEnv':'0'},'EtiquetaLarga','text','d[eMailWebMaster]','d_eMailWebMaster',values.d.eMailWebMaster,'50','CampoTextoMedio','1') }}
@@ -116,7 +116,7 @@
 
         {# CONTROL VISIBILIDAD VARIABLES WEB #}
         <div id="tabs-varWeb" class="tab-pane fade">
-            <h5>Control de visibilidad de variables web</h5>
+            <h4>Control de visibilidad de variables web</h4>
             <div id="acordeonVW" style="margin-top:10px;">
                 <h3>Globales [showVarWeb][globales]</h3>
                 <div>
