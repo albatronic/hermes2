@@ -5,7 +5,7 @@
 {% macro label(atributos, class, name, id) %}
     <span class="{{ class|default('Etiqueta') }}" title="{{atributos.help}}">
 
-    {% if (atributos.varEnv == '') and (user.IDPerfil.PrimaryKeyValue == '1') and (idiomas.actual == 0) %}
+    {# if (atributos.varEnv == '') and (user.IDPerfil.PrimaryKeyValue == '1') and (idiomas.actual == 0) %}
         <input
             title="Poner/Quitar visibilidad"
             id="checkVisibilidad{{id}}"
@@ -38,9 +38,9 @@
               actualizaVarEntorno('{{id}}_translatable',$('#checkMultiIdioma{{id}}').val());
             "
         />           
-    {% endif %}   
+    {% endif #}   
     
-    <label for="{{id}}" id="spanVisibilidad{{id}}" class="{{class}}{% if (user.IDPerfil.PrimaryKeyValue == '1') and (atributos.visible == '0') and (atributos.varEnv == '') %} tachado{% endif %}"
+    <label for="{{id}}" id="spanVisibilidad{{id}}" class="control-label{% if (user.IDPerfil.PrimaryKeyValue == '1') and (atributos.visible == '0') and (atributos.varEnv == '') %} tachado{% endif %}"
         {% if (atributos.varEnv == '') and (user.getIDPerfil.PrimaryKeyValue == '1') and (idiomas.actual == 0) %}
              style="cursor: pointer;"
              onclick="popUpVariablesEnv('Env','Mod','{{id}}');"
@@ -140,7 +140,7 @@
     {% endif %}
     
 {% if not(atributos is iterable) %}
-    {% set atributos = {'caption':atributos,'visible':'1','updatable':1, 'varEnv':'0'}%}
+    {% set atributos = {'caption':atributos,'visible':'1','updatable':'1', 'varEnv':'0'} %}
 {% endif %}
 {% if atributos.editorTiny != '1' %}
 <div id="div_{{id}}" {% if ((atributos.visible == 1) or (user.getIDPerfil.Id == '1')) and (atributos.translatable or idiomas.actual == 0) %}class="form-group"{% else %}class="oculto"{% endif %}>
@@ -156,13 +156,14 @@
                id="checkbox_{{ id|default(name)}}"
                value="{{ value }}"
                 {% if (value == '1') %} CHECKED {% endif %}
-               class="tip_top" title="{{ atributos.help }}" tabindex="{{ tabIndex }}"
+               class="form-control" title="{{ atributos.help }}" tabindex="{{ tabIndex }}"
                onchange="
                     {{ onchange }} 
                     if ($('#checkbox_{{ id|default(name)}}').is(':checked')) {$('#{{ id|default(name)}}').val('1');} else {$('#{{ id|default(name)}}').val('0');}
                "
                {{extra}}
                {% if atributos.updatable == '0' %} disabled {% endif %}
+               {% if atributos.validator.nullable == '0' %} required{% endif %}                 
         />
         </div>  
         {% else %}
@@ -175,7 +176,7 @@
                onchange="{{ onchange }} {{ _self.alertSave }}"
                {{extra}}
                {% if atributos.updatable == '0' %} disabled{% endif %}
-               {% if atributos.validator.nullable == 'NO' %} required{% endif %}               
+               {% if atributos.validator.nullable == '0' %} required{% endif %}               
         />
         </div>
         {% endif %}
@@ -463,17 +464,13 @@
         {% if atributos.caption %}
             {{ _self.label(atributos,classLabel, name, id) }}
         {% endif %}
-        <script>
-            $(function() {
-                    $( "#{{id|default(label)}}" ).datepicker(
-                        {dateFormat: "dd-mm-yy",changeMonth: true, changeYear: true, showWeek: true, firstDay: 1, showAnim: "drop"}
-                    );}
-             );
-        </script>
+
         <div class="{{class}}">
         <input name="{{name}}" type="text" id="{{id|default(label)}}" value="{{value}}"
-               size="{{size|default("10")}}" class="{{class|default("form-control")}}"
-               onKeyUp="" {% if atributos.updatable == '0' %} disabled {% endif %} {{extra}}
+               size="{{size|default("10")}}" class="{{class|default("form-control")}} datepicker"
+               onKeyUp=""  {{extra}}
+               {% if atributos.updatable == '0' %} disabled {% endif %}
+               {% if atributos.nullable == '0' %} required {% endif %}
         />
         </div>
     </div>

@@ -506,7 +506,7 @@ Clientes:
       link: { route: null, param: null, title: null, target: null, link: null }
       validator: { nullable: true, type: string, length: '35', min: null, max: null, message: 'Valor Requerido' }      
     FechaMandato:
-      title: Fecha de mandato
+      title: Fecha mandato
       filter: false
       list: false
       visible: true

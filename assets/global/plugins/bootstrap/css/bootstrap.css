@@ -2730,7 +2730,7 @@ select[multiple].form-group-lg .form-control {
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {
-    padding-top: 7px;
+    padding-top: 2px;
     margin-bottom: 0;
     text-align: right;
   }

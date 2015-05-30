@@ -150,7 +150,7 @@ AvisadorStock:
       link: { route: null, param: null, title: null, target: null, link: null }
       validator: { nullable: false, type: datetime, length: false, min: null, max: null, message: 'Valor Requerido' }
     EmailedAt:
-      title: falsetificado el
+      title: Notificado el
       filter: false
       list: true
       visible: true

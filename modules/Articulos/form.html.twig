@@ -20,9 +20,9 @@
         <ul class="nav nav-tabs">        
             <li class="active">
                 <a href="#general" data-toggle="tab">{%if datos.Descripcion%}<b>{{macro.recortaTexto(datos.Descripcion,32)}}</b>{%else%}Artículo{%endif%}</a>
-                {% if values.atributos.Publish.visible > '0' %}
-                    {{ macro.actualizaColumna(values.controller,datos.getPrimaryKeyValue,'Publish',datos.Publish.IDTipo,'Publicar/Despublicar')}}              
-                {% endif %}                
+                        {% if values.atributos.Publish.visible > '0' %}
+                            {{ macro.actualizaColumna(values.controller,datos.getPrimaryKeyValue,'Publish',datos.Publish.IDTipo,'Publicar/Despublicar')}}              
+                        {% endif %}                
             </li>            
             <li><a href="#stock" data-toggle="tab">Stock</a></li>
                 {% if datos.AllowsChildren.IDTipo == '1' %}
@@ -68,7 +68,7 @@
                         {% endif %}
                         {{ macro.input(values.atributos.Pvp,'Etiqueta','text','Articulos[Pvp]','Articulos_Pvp',datos.Pvp|number_format(3, '.', ''),'10','CampoImporte',none,'RecalculaPrecios("Pvp");') }}
                         {{ macro.select(values.atributos.IDIva,'Etiqueta','Articulos[IDIva]','Articulos_IDIva',150,datos.IDIva.IDIva,datos.IDIva.fetchAll('Tipo',false),'Select')}}
-                        {{ macro.input({'caption':'PVP C/Iva','visible':'2'},'Etiqueta','text','pvpconiva','pvpconiva',pvpconiva|number_format(3, '.', ','),'10','CampoImporte','READONLY') }}
+                        {{ macro.input({'caption':'PVP C/Iva','visible':'1','updatable':'0'},'Etiqueta','text','pvpconiva','pvpconiva',pvpconiva|number_format(3, '.', ','),'10','CampoImporte') }}
                         {{ macro.input(values.atributos.PvpAnterior,'Etiqueta','text','Articulos[PvpAnterior]','Articulos_PvpAnterior',datos.PvpAnterior|number_format(3, '.', ''),'10','CampoImporte') }}
                         {{ macro.input(values.atributos.Etiqueta,'Etiqueta','text','Articulos[Etiqueta]','Articulos_Etiqueta',datos.Etiqueta,'30','CampoTextoLargo') }}
                         {{ macro.input(values.atributos.CodigoEAN,'Etiqueta','text','Articulos[CodigoEAN]','Articulos_CodigoEAN',datos.CodigoEAN,'13','CampoTextoMedio') }}
@@ -138,7 +138,7 @@
             </div>      
 
             <div class="tab-pane" id="stock">
-                <div id="acordeonStock">
+                <div id="accordionStock" class="panel-group">
                     {% include values.controller ~ '/propiedadesStock.html.twig' %}
                     {% include values.controller ~ '/existencias.html.twig' %}
                     {% include values.controller ~ '/movimientosAlmacen.html.twig' %}
@@ -155,19 +155,19 @@
                         <table class="table">
                             <tr>
                                 <td>{{ macro.select(values.atributos.UMB,'Etiqueta','Articulos[UMB]','Articulos_UMB',none,datos.UMB.Id,datos.UMB.fetchAll('UnidadMedida',false),'Select80')}}</td>
-                                <td class="Subtitulo" style="text-align: center;">Factores de Conversión</td>
+                                <td class="Subtitulo" style="text-align: center;"><h3>Factores de Conversión</h3></td>
                             </tr>
                             <tr>
                                 <td>{{ macro.select(values.atributos.UMC,'Etiqueta','Articulos[UMC]','Articulos_UMC',none,datos.UMC.Id,datos.UMC.fetchAll('UnidadMedida',false),'Select80')}}</td>
-                                <td style="text-align: center;">{{ macro.input('de unidad de Compra a Básica','EtiquetaMedia','text','Articulos[CUMC]','Articulos_CUMC',datos.CUMC,'4','CampoImporte') }}</td>
+                                <td style="text-align: center;">{{ macro.input('de unidad de Compra a Básica','EtiquetaLarga','text','Articulos[CUMC]','Articulos_CUMC',datos.CUMC,'4','CampoImporte') }}</td>
                             </tr>
                             <tr>
                                 <td>{{ macro.select(values.atributos.UMA,'Etiqueta','Articulos[UMA]','Articulos_UMA',none,datos.UMA.Id,datos.UMA.fetchAll('UnidadMedida',false),'Select80')}}</td>
-                                <td style="text-align: center;">{{ macro.input('de unidad de Almacenaje a Básica','EtiquetaMedia','text','Articulos[CUMA]','Articulos_CUMA',datos.CUMA,'4','CampoImporte') }}</td>
+                                <td style="text-align: center;">{{ macro.input('de unidad de Almacenaje a Básica','EtiquetaLarga','text','Articulos[CUMA]','Articulos_CUMA',datos.CUMA,'4','CampoImporte') }}</td>
                             </tr>
                             <tr>
                                 <td>{{ macro.select(values.atributos.UMV,'Etiqueta','Articulos[UMV]','Articulos_UMV',none,datos.UMV.Id,datos.UMV.fetchAll('UnidadMedida',false),'Select80')}}</td>
-                                <td style="text-align: center;">{{ macro.input('de unidad de Venta a Básica','EtiquetaMedia','text','Articulos[CUMV]','Articulos_CUMV',datos.CUMV,'4','CampoImporte') }}</td>
+                                <td style="text-align: center;">{{ macro.input('de unidad de Venta a Básica','EtiquetaLarga','text','Articulos[CUMV]','Articulos_CUMV',datos.CUMV,'4','CampoImporte') }}</td>
                             </tr>
                         </table>
                     </div>
@@ -177,18 +177,32 @@
             <div class="tab-pane" id="caracteristicas">
                 <div class="form-body">
                     {{ macro.input(values.atributos.Subtitulo,'Etiqueta','text',values.controller ~ '[Subtitulo]',values.controller ~ '_Subtitulo',datos.Subtitulo,'255','CampoTextoLargo','1') }}
-                    {{ macro.textarea(values.atributos.Resumen,'Etiqueta',values.controller ~ '[Resumen]',values.controller ~ '_Resumen',datos.Resumen,none,none,'textarea','2')}}        
-                    {{ macro.textarea(values.atributos.ReclamoCorto,'Etiqueta',values.controller ~ '[ReclamoCorto]',values.controller ~ '_ReclamoCorto',datos.ReclamoCorto,none,none,'textarea','3')}}          
-                    {{ macro.textarea(values.atributos.ReclamoLargo,'Etiqueta',values.controller ~ '[ReclamoLargo]',values.controller ~ '_ReclamoLargo',datos.ReclamoLargo,none,none,'textarea','4')}}          
-                    {{ macro.textarea(values.atributos.Caracteristicas,'Etiqueta',values.controller ~ '[Caracteristicas]',values.controller ~ '_Caracteristicas',datos.Caracteristicas,none,none,'textarea','5')}}
+                    <div class="col-md-6">
+                        {{ macro.textarea(values.atributos.Resumen,'Etiqueta',values.controller ~ '[Resumen]',values.controller ~ '_Resumen',datos.Resumen,none,none,'textarea','2')}}        
+                    </div>
+                    <div class="col-md-6">
+                        {{ macro.textarea(values.atributos.ReclamoCorto,'Etiqueta',values.controller ~ '[ReclamoCorto]',values.controller ~ '_ReclamoCorto',datos.ReclamoCorto,none,none,'textarea','3')}}          
+                    </div>
+                    <div class="col-md-6">
+                        {{ macro.textarea(values.atributos.ReclamoLargo,'Etiqueta',values.controller ~ '[ReclamoLargo]',values.controller ~ '_ReclamoLargo',datos.ReclamoLargo,none,none,'textarea','4')}}          
+                    </div>
+                    <div class="col-md-6">
+                        {{ macro.textarea(values.atributos.Caracteristicas,'Etiqueta',values.controller ~ '[Caracteristicas]',values.controller ~ '_Caracteristicas',datos.Caracteristicas,none,none,'textarea','5')}}
+                    </div>
                 </div>
             </div>
 
             <div class="tab-pane" id="avisos">    
-                <div class="form-body">
-                    {{ macro.textarea(values.atributos.AvisosPedidos,'Etiqueta',values.controller ~ '[AvisosPedidos]',values.controller ~ '_AvisosPedidos',datos.AvisosPedidos,none,none,'textarea','3')}}          
-                    {{ macro.textarea(values.atributos.AvisosPresupuestos,'Etiqueta',values.controller ~ '[AvisosPresupuestos]',values.controller ~ '_AvisosPresupuestos',datos.AvisosPresupuestos,none,none,'textarea','4')}}          
-                    {{ macro.textarea(values.atributos.AvisosAlbaranes,'Etiqueta',values.controller ~ '[AvisosAlbaranes]',values.controller ~ '_AvisosAlbaranes',datos.AvisosAlbaranes,none,none,'textarea','5')}}       
+                <div class="from-body">
+                    <div class="col-md-6">
+                        {{ macro.textarea(values.atributos.AvisosPedidos,'Etiqueta',values.controller ~ '[AvisosPedidos]',values.controller ~ '_AvisosPedidos',datos.AvisosPedidos,none,none,'textarea','3')}}          
+                    </div>
+                    <div class="col-md-6">
+                        {{ macro.textarea(values.atributos.AvisosPresupuestos,'Etiqueta',values.controller ~ '[AvisosPresupuestos]',values.controller ~ '_AvisosPresupuestos',datos.AvisosPresupuestos,none,none,'textarea','4')}}          
+                    </div>
+                    <div class="col-md-6">                    
+                        {{ macro.textarea(values.atributos.AvisosAlbaranes,'Etiqueta',values.controller ~ '[AvisosAlbaranes]',values.controller ~ '_AvisosAlbaranes',datos.AvisosAlbaranes,none,none,'textarea','5')}}       
+                    </div>
                 </div>
             </div>
 

@@ -935,4 +935,15 @@ Articulos:
       editorTiny: true
       link: { route: null, param: null, title: null, target: null, link: null }
       validator: { nullable: true, type: string, length: false, min: null, max: null, message: 'Valor Requerido' }         
-
+    AllowsChildren:
+      title: Artículo Compuesto
+      filter: false
+      list: false
+      visible: true
+      updatable: true
+      default: '0'
+      help: null
+      permission: null
+      link: { route: null, param: null, title: null, target: null, link: null }
+      aditional_filter: { order: 6, caption: Artículo Compuesto, entity: ValoresSN, method: fetchAll, params: Descripcion, type: select, operator: '=', event: null }
+      validator: { nullable: false, type: tinyint, length: '1', min: null, max: null, message: 'Valor Requerido' }
