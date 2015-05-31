@@ -37,6 +37,7 @@
     <script src="{{app.path}}/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
     <script src="{{app.path}}/assets/admin/pages/scripts/index.js" type="text/javascript"></script>
     <script src="{{app.path}}/assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+    <script src="{{app.path}}/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
     <script src="http://cdn.datatables.net/1.10.6/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="{{app.path}}/assets/script.js" type="text/javascript"></script>
 
@@ -95,15 +96,16 @@
             });
 
             $(".datepicker").datepicker({
-                dateFormat: "dd-mm-yy", 
-                changeMonth: true, 
-                changeYear: true, 
-                showWeek: true, 
-                firstDay: 1, 
+                dateFormat: "dd-mm-yy",
+                changeMonth: true,
+                changeYear: true,
+                showWeek: true,
+                firstDay: 1,
                 showAnim: "drop"
             });
-            
-            
+
+
+
             $("#fc-relacionar").click(function () {
                 url = "<iframe src='{{app.path}}/Relaciones/{{values.controller}}/{{datos.PrimaryKeyValue}}' width='100%' scrolling='yes'></iframe>";
                 $("#divRelacionar").html(url);

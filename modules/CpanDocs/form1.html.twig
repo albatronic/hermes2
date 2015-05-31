@@ -88,7 +88,7 @@
 
 
             <input name="MAX_FILE_SIZE" value="{{values.maxFileSize}}" type="hidden"  />
-            Archivo {% if objeto.type == 'galery'%}({{values.varEnvMod.galery.maxWidthImage}}x{{values.varEnvMod.galery.maxHeightImage}}) {%endif%}<input name="documento" id="documento{{key}}" type="file" />
+            Archivo {% if objeto.type == 'galery'%}({{values.varEnvMod.galery.maxWidthImage}}x{{values.varEnvMod.galery.maxHeightImage}}) {%endif%}<input name="documento" id="documento{{key}}" type="file" class="file-input" title="Seleccione un archivo"/>
             </div>
         {% endif %}
 

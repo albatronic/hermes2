@@ -34,7 +34,7 @@
                         {% else %}
                             <div class="Item" id="div_AlbaranesCab_IDSucursal">
                                 {{ macro.label(atributos.IDSucursal,none,none,'AlbaranesCab_IDSucursal')}}
-                                <select name="AlbaranesCab[IDSucursal]" id="AlbaranesCab_IDSucursal" size="1" class="Select"
+                                <select name="AlbaranesCab[IDSucursal]" id="AlbaranesCab_IDSucursal" size="1" class="form-control"
                                         onchange="DesplegableAjax('div_AlbaranesCab_IDContador', 'AlbaranesCab_IDContador', 'AlbaranesCab[IDContador]', 'contadorAlbaranes', this.value);
                                 DesplegableAjax('div_AlbaranesCab_IDComercial', 'AlbaranesCab_IDComercial', 'AlbaranesCab[IDComercial]', 'comercialAlbaranes', this.value);
                                 $('#AlbaranesCab_IDCliente').val('');

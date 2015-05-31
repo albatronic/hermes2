@@ -44,7 +44,7 @@ class CpanDocsController extends Controller {
                 $tipo = $this->request[4];
             if ($formato == '')
                 $formato = $this->request[5];
-
+echo $formato; print_r($this->request);
             // Leer las variables de entorno del módulo en curso
             $variables = new CpanVariables('Mod', 'Env', $entidad);
             $this->varEnvMod = $variables->getValores();
@@ -59,8 +59,9 @@ class CpanDocsController extends Controller {
             unset($objetoNuevo);
 
             $lis = new CpanDocs();
-            foreach ($lis->getDocs($entidad, $idEntidad, $tipo, "IsThumbnail='0'") as $doc)
+            foreach ($lis->getDocs($entidad, $idEntidad, $tipo, "IsThumbnail='0'") as $doc) {
                 array_push($lineas, $doc);
+            }
 
             unset($lis);
 
@@ -80,11 +81,12 @@ class CpanDocsController extends Controller {
             $this->values['maxFileSize'] = $maxFileSize;
             $this->values['listado']['data'] = $lineas;
             $this->values['formato'] = $formato;
-            $template = "CpanDocs/form{$formato}.html.twig";
+            $template = "CpanDocs/form{$formato}.html.twig";echo $template;
 
             return array('template' => $template, 'values' => $this->values);
-        } else
+        } else {
             return array('template' => '_global/forbiden.html.twig');
+        }
     }
 
     /**

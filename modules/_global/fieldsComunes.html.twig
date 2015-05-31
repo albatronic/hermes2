@@ -64,21 +64,21 @@
                     <div id="fc-general" class="panel-collapse collapse">
                         <div class="panel-body">
                             {% if user.IDPerfil.IDPerfil == 1 %}
-                                {{ macro.input(datos.primaryKeyName,'EtiquetaMedia','text',values.controller ~ '['~datos.primaryKeyName~']',values.controller ~ '_' ~ datos.primaryKeyName,datos.primaryKeyValue,110,none,'disabled') }}                    
-                                {{ macro.input('MD5','EtiquetaMedia','text',values.controller ~ '[PrimaryKeyMD5]',values.controller ~ '_PrimaryKeyMD5',datos.PrimaryKeyMD5,'100','CampoTextoLargo','disabled') }}
-                                {{ macro.input('Valor por defecto','EtiquetaMedia','checkbox',values.controller ~ '[IsDefault]',values.controller ~ '_IsDefault',datos.IsDefault.IDTipo,'255','CampoTextoLargo','12') }}
-                                {{ macro.input('Valor super','EtiquetaMedia','checkbox',values.controller ~ '[IsSuper]',values.controller ~ '_IsSuper',datos.IsSuper.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input(datos.primaryKeyName,'Etiqueta','text',values.controller ~ '['~datos.primaryKeyName~']',values.controller ~ '_' ~ datos.primaryKeyName,datos.primaryKeyValue,110,none,'disabled') }}                    
+                                {{ macro.input('MD5','Etiqueta','text',values.controller ~ '[PrimaryKeyMD5]',values.controller ~ '_PrimaryKeyMD5',datos.PrimaryKeyMD5,'100','CampoTextoLargo','disabled') }}
+                                {{ macro.input('Valor por defecto','Etiqueta','checkbox',values.controller ~ '[IsDefault]',values.controller ~ '_IsDefault',datos.IsDefault.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Valor super','Etiqueta','checkbox',values.controller ~ '[IsSuper]',values.controller ~ '_IsSuper',datos.IsSuper.IDTipo,'255','CampoTextoLargo','12') }}
                             {% endif %}
                             <input name="{{values.controller}}[BelongsTo]" id="{{values.controller}}_BelongsTo" value="{{datos.BelongsTo.getPrimaryKeyValue}}" type="hidden"/>
-                            {# macro.select('Objeto Padre','EtiquetaMedia',values.controller ~ '[BelongsTo]',values.controller ~ '_BelongsTo',300,datos.BelongsTo.getPrimaryKeyValue,datos.BelongsTo.fetchAll(none,true,-1),'Select')#}             
-                            {{ macro.input('Objeto Padre','EtiquetaMedia','text',values.controller ~ '[BelongsTo]',values.controller ~ '_BelongsTo',datos.BelongsTo.PrimaryKeyValue,none,none,110) }}
-                            {{ macro.input('Orden','EtiquetaMedia','text',values.controller ~ '[SortOrder]',values.controller ~ '_SortOrder',datos.SortOrder,none,none,110) }}
-                            {{ macro.select('App Asociada','EtiquetaMedia',values.controller ~ '[CodigoAppAsociada]',values.controller ~ '_CodigoAppAsociada',300,datos.CodigoAppAsociada.Id,datos.CodigoAppAsociada.fetchAll('NombreApp',1),'Select')}}
-                            {{ macro.selectGroup('Albúm externo','EtiquetaMedia',values.controller ~ '[IdAlbumExterno]',values.controller ~ '_IdAlbumExterno',300,datos.IdAlbumExterno.Id,datos.IdAlbumExterno.fetchAll('',1),'Select') }}
-                            {{ macro.selectGroup('Slider asociado','EtiquetaMedia',values.controller ~ '[IdSliderAsociado]',values.controller ~ '_IdSliderAsociado',300,datos.IdSliderAsociado.Id,datos.IdSliderAsociado.fetchAll('',1),'Select') }}
-                            {{ macro.select('Sección de vídeos','EtiquetaMedia',values.controller ~ '[IdSeccionEnlaces]',values.controller ~ '_IdSeccionEnlaces',300,datos.IdValueSeccionEnlaces.Id,datos.IdSeccionEnlaces.fetchAll('Titulo',1),'Select') }}
-                            {# macro.select(atributos.IdSeccionVideos,'EtiquetaMedia',values.controller ~ '[IdSeccionVideos]',values.controller ~ '_IdSeccionVideos',300,datos.IdSeccionVideos.Id,datos.IdSeccionVideos.fetchAll('Titulo',1),'Select') #}
-                            {{ macro.textarea('Observaciones','EtiquetaMedia',values.controller ~ '[Observations]',values.controller ~ '_Observations',datos.Observations,none,none,'textarea',100)}}                
+                            {# macro.select('Objeto Padre','Etiqueta',values.controller ~ '[BelongsTo]',values.controller ~ '_BelongsTo',300,datos.BelongsTo.getPrimaryKeyValue,datos.BelongsTo.fetchAll(none,true,-1),'Select')#}             
+                            {{ macro.input('Objeto Padre','Etiqueta','text',values.controller ~ '[BelongsTo]',values.controller ~ '_BelongsTo',datos.BelongsTo.PrimaryKeyValue,none,none,110) }}
+                            {{ macro.input('Orden','Etiqueta','text',values.controller ~ '[SortOrder]',values.controller ~ '_SortOrder',datos.SortOrder,none,none,110) }}
+                            {{ macro.select('App Asociada','Etiqueta',values.controller ~ '[CodigoAppAsociada]',values.controller ~ '_CodigoAppAsociada',300,datos.CodigoAppAsociada.Id,datos.CodigoAppAsociada.fetchAll('NombreApp',1),'Select')}}
+                            {{ macro.selectGroup('Albúm externo','Etiqueta',values.controller ~ '[IdAlbumExterno]',values.controller ~ '_IdAlbumExterno',300,datos.IdAlbumExterno.Id,datos.IdAlbumExterno.fetchAll('',1),'Select') }}
+                            {{ macro.selectGroup('Slider asociado','Etiqueta',values.controller ~ '[IdSliderAsociado]',values.controller ~ '_IdSliderAsociado',300,datos.IdSliderAsociado.Id,datos.IdSliderAsociado.fetchAll('',1),'Select') }}
+                            {{ macro.select('Sección de vídeos','Etiqueta',values.controller ~ '[IdSeccionEnlaces]',values.controller ~ '_IdSeccionEnlaces',300,datos.IdValueSeccionEnlaces.Id,datos.IdSeccionEnlaces.fetchAll('Titulo',1),'Select') }}
+                            {# macro.select(atributos.IdSeccionVideos,'Etiqueta',values.controller ~ '[IdSeccionVideos]',values.controller ~ '_IdSeccionVideos',300,datos.IdSeccionVideos.Id,datos.IdSeccionVideos.fetchAll('Titulo',1),'Select') #}
+                            {{ macro.textarea('Observaciones','Etiqueta',values.controller ~ '[Observations]',values.controller ~ '_Observations',datos.Observations,none,none,'textarea',100)}}                
                         </div>
                     </div>
                 </div>
@@ -94,10 +94,10 @@
                     </div>
                     <div id="fc-fechas" class="panel-collapse collapse">
                         <div class="panel-body">
-                            {{ macro.fecha('Fecha Publicación','EtiquetaMedia',values.controller ~ '[PublishedAt]',values.controller ~ '_PublishedAt',datos.PublishedAt,'19','datepicker',111) }}
-                            {{ macro.input('Mostrar fecha publicación','EtiquetaMedia','checkbox',values.controller ~ '[ShowPublishedAt]',values.controller ~ '_ShowPublishedAt',datos.ShowPublishedAt.IDTipo,'255','CampoTextoLargo','12') }}
-                            {{ macro.fecha('Vigente desde','EtiquetaMedia',values.controller ~ '[ActiveFrom]',values.controller ~ '_ActiveFrom',datos.ActiveFrom,'19','datepicker',104) }}
-                            {{ macro.fecha('Vigente hasta','EtiquetaMedia',values.controller ~ '[ActiveTo]',values.controller ~ '_ActiveTo',datos.ActiveTo,'19','datepicker',105) }}                
+                            {{ macro.fecha('Fecha Publicación','Etiqueta',values.controller ~ '[PublishedAt]',values.controller ~ '_PublishedAt',datos.PublishedAt,'19','datepicker',111) }}
+                            {{ macro.input('Mostrar fecha publicación','Etiqueta','checkbox',values.controller ~ '[ShowPublishedAt]',values.controller ~ '_ShowPublishedAt',datos.ShowPublishedAt.IDTipo,'255','CampoTextoLargo','12') }}
+                            {{ macro.fecha('Vigente desde','Etiqueta',values.controller ~ '[ActiveFrom]',values.controller ~ '_ActiveFrom',datos.ActiveFrom,'19','datepicker',104) }}
+                            {{ macro.fecha('Vigente hasta','Etiqueta',values.controller ~ '[ActiveTo]',values.controller ~ '_ActiveTo',datos.ActiveTo,'19','datepicker',105) }}                
                         </div>
                     </div>
                 </div>
@@ -113,14 +113,18 @@
                     </div>
                     <div id="fc-seo" class="panel-collapse collapse">
                         <div class="panel-body">
-                            {{ macro.input('Bloquear Etiqueta Meta','EtiquetaMedia','checkbox',values.controller ~ '[LockMetatagTitle]',values.controller ~ '_LockMetatagTitle',datos.LockMetatagTitle.IDTipo,'255','CampoTextoLargo','12') }}
+                            {{ macro.input('Bloquear Etiqueta Meta','Etiqueta','checkbox',values.controller ~ '[LockMetatagTitle]',values.controller ~ '_LockMetatagTitle',datos.LockMetatagTitle.IDTipo,'255','CampoTextoLargo','12') }}
                             {% if datos.LockMetatagTitle.IDTipo == '1' %} {% set disabled = 'DISABLED' %} {% else %} {% set disabled = none %} {% endif %}
-                            {{ macro.input('Valor MetaTitle','EtiquetaMedia','text',values.controller ~ '[MetatagTitle]',values.controller ~ '_MetatagTitle',datos.MetatagTitle,255,'CampoTextoLargo', disabled) }}
-                            {{ macro.textarea('Valor MetaDescription', 'EtiquetaMedia', values.controller ~ '[MetatagDescription]', values.controller ~ '_MetatagDescription', datos.MetatagDescription, none, none, 'textarea',115) }}
-                            {{ macro.textarea('Valor Keywords', 'EtiquetaMedia', values.controller ~ '[MetatagKeywords]', values.controller ~ '_MetatagKeywords', datos.MetatagKeywords, none, none, 'textarea',116) }}                          
-                            {{ macro.input('Title simple','EtiquetaMedia','checkbox',values.controller ~ '[MetatagTitleSimple]',values.controller ~ '_MetatagTitleSimple',datos.MetatagTitleSimple.IDTipo,'255','CampoTextoLargo','12') }}
-                            {{ macro.select('Posición del title','EtiquetaMedia',values.controller ~ '[MetatagTitlePosition]',values.controller ~ '_MetatagTitlePosition',none,datos.MetatagTitlePosition.IDTipo,datos.MetatagTitlePosition.fetchAll(none,0),'Select')}}                
-                            {{ macro.input('RevisedAfter','EtiquetaMedia','text',values.controller ~ '[RevisitAfter]',values.controller ~ '_RevisitAfter',datos.RevisitAfter,255,'CampoTextoCorto') }}                    
+                            {{ macro.input('Valor MetaTitle','Etiqueta','text',values.controller ~ '[MetatagTitle]',values.controller ~ '_MetatagTitle',datos.MetatagTitle,255,'CampoTextoLargo', disabled) }}
+                            {{ macro.input('Title simple','Etiqueta','checkbox',values.controller ~ '[MetatagTitleSimple]',values.controller ~ '_MetatagTitleSimple',datos.MetatagTitleSimple.IDTipo,'255','CampoTextoLargo','12') }}
+                            {{ macro.select('Posición del title','Etiqueta',values.controller ~ '[MetatagTitlePosition]',values.controller ~ '_MetatagTitlePosition',none,datos.MetatagTitlePosition.IDTipo,datos.MetatagTitlePosition.fetchAll(none,0),'Select')}}                
+                            {{ macro.input('RevisedAfter','Etiqueta','text',values.controller ~ '[RevisitAfter]',values.controller ~ '_RevisitAfter',datos.RevisitAfter,255,'CampoTextoCorto') }}                             
+                            <div class="col-md-6">
+                            {{ macro.textarea('MetaDescription', 'Etiqueta', values.controller ~ '[MetatagDescription]', values.controller ~ '_MetatagDescription', datos.MetatagDescription, none, none, 'textarea',115) }}
+                            </div>
+                            <div class="col-md-6">
+                            {{ macro.textarea('Keywords', 'Etiqueta', values.controller ~ '[MetatagKeywords]', values.controller ~ '_MetatagKeywords', datos.MetatagKeywords, none, none, 'textarea',116) }}                                             
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -138,18 +142,25 @@
                         <div id="fc-imagenes" class="panel-collapse collapse">
                             <div class="panel-body">                    
                                 {% if idiomas.actual == 0 %}
-                                    <input name="idImagenEnviar" id="idImagenEnviar" value="" type="hidden" />
-                                    <div class="subirArchivo">
-                                        <div style="float: left;">
-                                            <span>Tratamiento de la imagen:&nbsp;</span>
-                                            <select name="modoRecortar">
-                                                <option value="ajustar">Imagen completa</option>                            
-                                                <option value="center">Recortar al centro</option>
-                                            </select>
-                                            <br/><br/>
+                                    <div class="row">
+                                        <input name="idImagenEnviar" id="idImagenEnviar" value="" type="hidden" />
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="col-sm-5 control-label">
+                                                    <label class="control-label">Tratamiento de la imagen</label>
+                                                </span>
+                                                <div class="col-sm-7">
+                                                    <select name="modoRecortar" class="form-control">
+                                                        <option value="ajustar">Imagen completa</option>                            
+                                                        <option value="center">Recortar al centro</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <span>Imagen Master ({{values.varEnvMod.images[1].width}} x {{values.varEnvMod.images[1].height}}):&nbsp;</span>
                                             <input name="MAX_FILE_SIZE" value="{{values.varEnvMod.maxSizes.image}}" type="hidden"  />      
-                                            <input name="imagenMaster" id="imagenMaster" type="file"
+                                            <input name="imagenMaster" id="imagenMaster" type="file" class="file"
                                                    onchange="
                                                            $('#action_{{ values.controller }}').val('Imagen');
                                                            $('#accion_{{ values.controller }}').val('EnviarMaster');
@@ -157,20 +168,76 @@
                                                            $('#manto_{{ values.controller}}').submit();" 
                                                    />                                   
                                         </div>
-
                                         <div id="foto" style="float: left;">
                                             <div id="botonSubmitImagen"></div>
                                         </div>
                                     </div>
                                 {% endif %}
 
-                                <div id="agrupacionImagenes">            
+                                <table class="table table-striped">
                                     {% for key,imagen in values.datos.getDocuments('image%','IsThumbnail=0') %}
                                         {% set puntero = key + 1%}
-                                        <div class="grupoImagen">
-                                            <div class="visualImagen">
+                                        <tr>
+                                            <td>
+                                                <h3 class="text-center">{{values.varEnvMod.images[puntero].caption}}</h3>
+                                                <div class="form-group">
+                                                    <span class="col-sm-5 control-label">
+                                                        <label class="control-label">Tratamiento de la imagen</label>
+                                                    </span>
+                                                    <div class="col-sm-7">
+                                                        <select name="image[{{puntero}}][modoRecortar]" id="image_{{puntero}}_modoRecortar" class="form-control">
+                                                            <option value="ajustar">Imagen completa</option>                            
+                                                            <option value="center">Recortar al centro</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <input name="image[{{puntero}}][Tipo]" id="image_{{puntero}}_Tipo" value="{{imagen.Type}}" type="hidden" />
+                                                <input name="image[{{puntero}}][Id]" id="image_{{puntero}}_Id" value="{{imagen.Id}}" type="hidden" />
+                                                <input name="image[{{puntero}}][SortOrder]" id="image_{{puntero}}_SortOrder" value="{{imagen.SortOrder}}" type="hidden" />                              
+                                                <div class="subirNuevoArchivo">
+                                                    {% if idiomas.actual == 0 %}
+                                                        <input name="MAX_FILE_SIZE" value="{{values.varEnvMod.maxSizes.image}}" type="hidden"  />
+                                                        <input name="image{{puntero}}" id="imagen_{{puntero}}_Doc" type="file" class="file"/>
+                                                    {% endif %}
+                                                </div>
+
+                                                {{ macro.input({'caption':'Título','visible':values.varEnvMod.images[puntero].mostrarTitulo,'varEnv':'0'},'EtiquetaMedia','text','image['~puntero~'][Title]','image_'~puntero~'_Title',imagen.Title,255,'CampoTextoMedio') }}
+                                                {{ macro.input({'caption':'Nombre','visible':values.varEnvMod.images[puntero].mostrarNombre,'varEnv':'0'},'EtiquetaMedia','text','image['~puntero~'][Name]','image_'~puntero~'_Name',imagen.Name,255,'CampoTextoMedio') }}
+                                                {{ macro.input({'caption':'Mostrar pie de foto','visible':values.varEnvMod.images[puntero].mostrarPieDeFoto,'varEnv':'0'},'EtiquetaMedia','checkbox','image['~puntero~'][ShowCaption]','image_'~puntero~'_ShowCaption',imagen.ShowCaption.IDTipo,'255','CampoTextoLargo') }}
+                                                {{ macro.input({'caption':'Publicar','visible':values.varEnvMod.images[puntero].mostrarPublicar,'varEnv':'0'},'EtiquetaMedia','checkbox','image['~puntero~'][Publish]','image_'~puntero~'_Publish',imagen.Publish.IDTipo,'255','CampoTextoLargo') }}
+
+                                                <div class="actions btn-set text-center" id="botonera{{puntero}}">
+                                                    <button class="btn"
+                                                           onclick="
+                                                                   $('#action_{{ values.controller }}').val('Imagen');
+                                                                   $('#accion_{{ values.controller }}').val('GuardarCambios');
+                                                                   $('#idImagenEnviar').val('{{puntero}}');
+                                                                   loading('botonera{{puntero}}');
+                                                                   submitForm('manto_{{ values.controller}}');">
+                                                       <i class="fa fa-save"></i>&nbsp;Guardar cambios
+                                                   </button>
+                                                    {% if idiomas.actual == 0 %}
+                                                        <button class="btn"
+                                                               onclick="
+                                                                       if (!confirm('¿Desea borrar la imagen?')) {
+                                                                           return false;
+                                                                       }
+                                                                       else {
+                                                                           $('#action_{{ values.controller }}').val('Imagen');
+                                                                           $('#accion_{{ values.controller }}').val('Quitar');
+                                                                           $('#idImagenEnviar').val('{{puntero}}');
+                                                                           submitForm('manto_{{ values.controller}}');
+                                                                       }">
+                                                           <i class="fa fa-trash"></i>&nbsp;Borrar imagen                                                            
+                                                       </button>
+
+                                                    {% endif %}
+                                                </div>                                            
+                                            </td>
+                                            <td>
                                                 <div id="foto{{puntero}}">
-                                                    <img style="border: 1px solid;" src="{{project.url}}/{{imagen.PathName}}" width="{% if imagen.Width>350 %}350px{%else%}{{imagen.Width}}px{%endif%}" />
+                                                    <img style="border: 1px solid;" src="{{project.url}}/{{imagen.PathName}}" width="{% if imagen.Width>350 or imagen.Width == 0%}350px{%else%}{{imagen.Width}}px{%endif%}" />
                                                 </div>
                                                 <br />{{imagen.getSize|number_format(0)}} bytes 
                                                 (
@@ -184,59 +251,10 @@
                                                     <img src="{{app.path}}/images/icono_exclamacion.gif" title="La altura correcta debería ser {{values.varEnvMod.images[puntero].height}}" />                            
                                                 {% endif %} 
                                                 )                                                   
-                                            </div>
-
-                                            <div class="imagenInfo">
-                                                <h4>{{values.varEnvMod.images[puntero].caption}}</h4>
-
-                                                <span>Tratamiento de la imagen:&nbsp;</span>
-                                                <select name="image[{{puntero}}][modoRecortar]" id="image_{{puntero}}_modoRecortar">
-                                                    <option value="ajustar">Imagen completa</option>                            
-                                                    <option value="center">Recortar al centro</option>
-                                                </select>
-                                                <br/><br/>  
-                                                <input name="image[{{puntero}}][Tipo]" id="image_{{puntero}}_Tipo" value="{{imagen.Type}}" type="hidden" />
-                                                <input name="image[{{puntero}}][Id]" id="image_{{puntero}}_Id" value="{{imagen.Id}}" type="hidden" />
-                                                <input name="image[{{puntero}}][SortOrder]" id="image_{{puntero}}_SortOrder" value="{{imagen.SortOrder}}" type="hidden" />                              
-                                                <div class="subirNuevoArchivo">
-                                                    {% if idiomas.actual == 0 %}
-                                                        <input name="MAX_FILE_SIZE" value="{{values.varEnvMod.maxSizes.image}}" type="hidden"  />
-                                                        <input name="image{{puntero}}" id="imagen_{{puntero}}_Doc" type="file"/>
-                                                    {% endif %}
-                                                </div>
-
-                                                {{ macro.input({'caption':'Título','visible':values.varEnvMod.images[puntero].mostrarTitulo,'varEnv':'0'},'Etiqueta','text','image['~puntero~'][Title]','image_'~puntero~'_Title',imagen.Title,255,'CampoTextoMedio') }}
-                                                {{ macro.input({'caption':'Nombre','visible':values.varEnvMod.images[puntero].mostrarNombre,'varEnv':'0'},'Etiqueta','text','image['~puntero~'][Name]','image_'~puntero~'_Name',imagen.Name,255,'CampoTextoMedio') }}
-                                                {{ macro.input({'caption':'Mostrar pie de foto','visible':values.varEnvMod.images[puntero].mostrarPieDeFoto,'varEnv':'0'},'Etiqueta','checkbox','image['~puntero~'][ShowCaption]','image_'~puntero~'_ShowCaption',imagen.ShowCaption.IDTipo,'255',none,'12') }}
-                                                {{ macro.input({'caption':'Publicar','visible':values.varEnvMod.images[puntero].mostrarPublicar,'varEnv':'0'},'Etiqueta','checkbox','image['~puntero~'][Publish]','image_'~puntero~'_Publish',imagen.Publish.IDTipo,'255',none,'12') }}
-
-                                                <div class="botonera" id="botonera{{puntero}}" style="margin-top: 5px;">
-                                                    <input type="button" value="Guardar cambios" class="comando"
-                                                           onclick="
-                                                                   $('#action_{{ values.controller }}').val('Imagen');
-                                                                   $('#accion_{{ values.controller }}').val('GuardarCambios');
-                                                                   $('#idImagenEnviar').val('{{puntero}}');
-                                                                   loading('botonera{{puntero}}');
-                                                                   submitForm('manto_{{ values.controller}}');" />
-                                                    {% if idiomas.actual == 0 %}
-                                                        <input type="button" value="Borrar imagen" class="comando"
-                                                               onclick="
-                                                                       if (!confirm('¿Desea borrar la imagen?')) {
-                                                                           return false;
-                                                                       }
-                                                                       else {
-                                                                           $('#action_{{ values.controller }}').val('Imagen');
-                                                                           $('#accion_{{ values.controller }}').val('Quitar');
-                                                                           $('#idImagenEnviar').val('{{puntero}}');
-                                                                           submitForm('manto_{{ values.controller}}');
-                                                                       }" />
-                                                    </div>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                        <div style="height: 20px;"></div>
-                                    {% endfor %}
-                                </div>                    
+                                            </td>                                        
+                                        </tr>
+                                    {% endfor %}  
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -322,14 +340,14 @@
                         </div>
                         <div id="fc-url" class="panel-collapse collapse">
                             <div class="panel-body">                     
-                                {{ macro.input('Bloqueo Prefijo','EtiquetaMedia','checkbox',values.controller ~ '[LockUrlPrefix]',values.controller ~ '_LockUrlPrefix',datos.LockUrlPrefix.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Bloqueo Prefijo','Etiqueta','checkbox',values.controller ~ '[LockUrlPrefix]',values.controller ~ '_LockUrlPrefix',datos.LockUrlPrefix.IDTipo,'255','CampoTextoLargo','12') }}
                                 {% if datos.LockUrlPrefix.IDTipo == '1' %} {% set disabled = 'DISABLED' %} {% else %} {% set disabled = none %} {% endif %}
-                                {{ macro.input('Prefijo','EtiquetaMedia','text',values.controller ~ '[UrlPrefix]',values.controller ~ '_UrlPrefix',datos.UrlPrefix,'255','CampoTextoLargo',112,disabled) }}
-                                {{ macro.input('Bloqueo Slug?','EtiquetaMedia','checkbox',values.controller ~ '[LockSlug]',values.controller ~ '_LockSlug',datos.LockSlug.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Prefijo','Etiqueta','text',values.controller ~ '[UrlPrefix]',values.controller ~ '_UrlPrefix',datos.UrlPrefix,'255','CampoTextoLargo',112,disabled) }}
+                                {{ macro.input('Bloqueo Slug?','Etiqueta','checkbox',values.controller ~ '[LockSlug]',values.controller ~ '_LockSlug',datos.LockSlug.IDTipo,'255','CampoTextoLargo','12') }}
                                 {% if datos.LockSlug.IDTipo == '1' %} {% set disabled = 'DISABLED' %} {% else %} {% set disabled = none %} {% endif %}
-                                {{ macro.input('Slug','EtiquetaMedia','text',values.controller ~ '[Slug]',values.controller ~ '_Slug',datos.Slug,'255','CampoTextoLargo',112, disabled) }}
-                                {{ macro.input('Url Canonical','EtiquetaMedia','text',values.controller ~ '[UrlFriendly]',values.controller ~ '_UrlFriendly',datos.UrlFriendly,'255','CampoTextoLargo',112,'DISABLED') }}
-                                {{ macro.input('Es hereditable?','EtiquetaMedia','checkbox',values.controller ~ '[UrlHeritable]',values.controller ~ '_UrlHeritable',datos.UrlHeritable.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Slug','Etiqueta','text',values.controller ~ '[Slug]',values.controller ~ '_Slug',datos.Slug,'255','CampoTextoLargo',112, disabled) }}
+                                {{ macro.input('Url Canonical','Etiqueta','text',values.controller ~ '[UrlFriendly]',values.controller ~ '_UrlFriendly',datos.UrlFriendly,'255','CampoTextoLargo',112,'DISABLED') }}
+                                {{ macro.input('Es hereditable?','Etiqueta','checkbox',values.controller ~ '[UrlHeritable]',values.controller ~ '_UrlHeritable',datos.UrlHeritable.IDTipo,'255','CampoTextoLargo','12') }}
 
                                 {# SI EL USUARIO ES SUPER, SE MUESTRAN LOS CAMPOS CONTROLLER, ACTION, TEMPLATE y PARAMETERS
                                    QUE ESTAN EN LA TABLA CpanUrlAmigables
@@ -337,10 +355,10 @@
                                 {% if user.IDPerfil.IDPerfil == 1 %}
                                     {% set objetoUrlAmigable = datos.getObjetoUrlAmigable %}
                                     <input name="objetoUrlAmigable[Id]" value="{{objetoUrlAmigable.Id}}" type="hidden" />
-                                    {{ macro.input({'caption':'Controller','visible':'1','updatable':'1','varEnv':'0','translatable':'1'},'EtiquetaMedia','text','objetoUrlAmigable[Controller]','CpanUrlAmigables_Controller',objetoUrlAmigable.Controller,'255','CampoTextoLargo','12') }}
-                                    {{ macro.input({'caption':'Action','visible':'1','updatable':'1','varEnv':'0','translatable':'1'},'EtiquetaMedia','text','objetoUrlAmigable[Action]','CpanUrlAmigables_Action',objetoUrlAmigable.Action,'255','CampoTextoLargo','12') }}
-                                    {{ macro.input({'caption':'Template','visible':'1','updatable':'1','varEnv':'0','translatable':'1'},'EtiquetaMedia','text','objetoUrlAmigable[Template]','CpanUrlAmigables_Template',objetoUrlAmigable.Template,'255','CampoTextoLargo','12') }}
-                                    {{ macro.input({'caption':'Parámetros','visible':'1','updatable':'1','varEnv':'0','translatable':'1'},'EtiquetaMedia','text','objetoUrlAmigable[Parameters]','CpanUrlAmigables_Parameters',objetoUrlAmigable.Parameters,'255','CampoTextoLargo','12') }}
+                                    {{ macro.input({'caption':'Controller','visible':'1','updatable':'1','varEnv':'0','translatable':'1'},'Etiqueta','text','objetoUrlAmigable[Controller]','CpanUrlAmigables_Controller',objetoUrlAmigable.Controller,'255','CampoTextoLargo','12') }}
+                                    {{ macro.input({'caption':'Action','visible':'1','updatable':'1','varEnv':'0','translatable':'1'},'Etiqueta','text','objetoUrlAmigable[Action]','CpanUrlAmigables_Action',objetoUrlAmigable.Action,'255','CampoTextoLargo','12') }}
+                                    {{ macro.input({'caption':'Template','visible':'1','updatable':'1','varEnv':'0','translatable':'1'},'Etiqueta','text','objetoUrlAmigable[Template]','CpanUrlAmigables_Template',objetoUrlAmigable.Template,'255','CampoTextoLargo','12') }}
+                                    {{ macro.input({'caption':'Parámetros','visible':'1','updatable':'1','varEnv':'0','translatable':'1'},'Etiqueta','text','objetoUrlAmigable[Parameters]','CpanUrlAmigables_Parameters',objetoUrlAmigable.Parameters,'255','CampoTextoLargo','12') }}
                                 {% endif %}
                             </div>
                         </div>
@@ -357,12 +375,12 @@
                         </div>
                         <div id="fc-target" class="panel-collapse collapse">
                             <div class="panel-body">                    
-                                {{ macro.input('Url Destino','EtiquetaMedia','text',values.controller ~ '[UrlTarget]',values.controller ~ '_UrlTarget',datos.UrlTarget,'255','CampoTextoLargo',112) }}
-                                {{ macro.input('Parámetros','EtiquetaMedia','text',values.controller ~ '[UrlParameters]',values.controller ~ '_UrlParameters',datos.UrlParameters,'255','CampoTextoLargo',112) }}
-                                {{ macro.radio('Método','EtiquetaMedia',values.controller ~ '[UrlRequestMethod]',values.controller ~ '_UrlRequestMethod',datos.UrlRequestMethod.IDTipo,datos.UrlRequestMethod.fetchAll(none,0),'chzn-radio',117)}}
-                                {{ macro.radio('Url Origen','EtiquetaMedia',values.controller ~ '[UrlOrigin]',values.controller ~ '_UrlOrigin',datos.UrlOrigin.IDTipo,datos.UrlOrigin.fetchAll(none,0),'chzn-radio',117)}}
-                                {{ macro.input('Se abre en otra solapa?','EtiquetaMedia','checkbox',values.controller ~ '[UrlTargetBlank]',values.controller ~ '_UrlTargetBlank',datos.UrlTargetBlank.IDTipo,'255','CampoTextoLargo','12') }}
-                                {{ macro.input('Es https?','EtiquetaMedia','checkbox',values.controller ~ '[UrlIsHttps]',values.controller ~ '_UrlIsHttps',datos.UrlIsHttps.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Url Destino','Etiqueta','text',values.controller ~ '[UrlTarget]',values.controller ~ '_UrlTarget',datos.UrlTarget,'255','CampoTextoLargo',112) }}
+                                {{ macro.input('Parámetros','Etiqueta','text',values.controller ~ '[UrlParameters]',values.controller ~ '_UrlParameters',datos.UrlParameters,'255','CampoTextoLargo',112) }}
+                                {{ macro.radio('Método','Etiqueta',values.controller ~ '[UrlRequestMethod]',values.controller ~ '_UrlRequestMethod',datos.UrlRequestMethod.IDTipo,datos.UrlRequestMethod.fetchAll(none,0),'chzn-radio',117)}}
+                                {{ macro.radio('Url Origen','Etiqueta',values.controller ~ '[UrlOrigin]',values.controller ~ '_UrlOrigin',datos.UrlOrigin.IDTipo,datos.UrlOrigin.fetchAll(none,0),'chzn-radio',117)}}
+                                {{ macro.input('Se abre en otra solapa?','Etiqueta','checkbox',values.controller ~ '[UrlTargetBlank]',values.controller ~ '_UrlTargetBlank',datos.UrlTargetBlank.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Es https?','Etiqueta','checkbox',values.controller ~ '[UrlIsHttps]',values.controller ~ '_UrlIsHttps',datos.UrlIsHttps.IDTipo,'255','CampoTextoLargo','12') }}
                             </div>
                         </div>
                     </div>
@@ -378,9 +396,9 @@
                         </div>
                         <div id="fc-sitemap" class="panel-collapse collapse">
                             <div class="panel-body">
-                                {{ macro.input('Mostrar en el SiteMap','EtiquetaMedia','checkbox',values.controller ~ '[ShowOnSitemap]',values.controller ~ '_ShowOnSitemap',datos.ShowOnSitemap.IDTipo,'255','CampoTextoLargo','12') }}
-                                {{ macro.input('Importancia','EtiquetaMedia','text',values.controller ~ '[ImportanceSitemap]',values.controller ~ '_ImportanceSitemap',datos.ImportanceSitemap,'5','CampoTextoCorto',120) }}
-                                {{ macro.select('Frecuencia de cambio','EtiquetaMedia',values.controller ~ '[ChangeFreqSitemap]',values.controller ~ '_ChangeFreqSitemap',none,datos.ChangeFreqSitemap.IDTipo,datos.ChangeFreqSitemap.fetchAll(none,0),'Select') }}
+                                {{ macro.input('Mostrar en el SiteMap','Etiqueta','checkbox',values.controller ~ '[ShowOnSitemap]',values.controller ~ '_ShowOnSitemap',datos.ShowOnSitemap.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Importancia','Etiqueta','text',values.controller ~ '[ImportanceSitemap]',values.controller ~ '_ImportanceSitemap',datos.ImportanceSitemap,'5','CampoTextoCorto',120) }}
+                                {{ macro.select('Frecuencia de cambio','Etiqueta',values.controller ~ '[ChangeFreqSitemap]',values.controller ~ '_ChangeFreqSitemap',none,datos.ChangeFreqSitemap.IDTipo,datos.ChangeFreqSitemap.fetchAll(none,0),'Select') }}
                             </div>
                         </div>
                     </div>
@@ -410,20 +428,20 @@
                         </div>
                         <div id="fc-auditoria" class="panel-collapse collapse">
                             <div class="panel-body">
-                                {{ macro.input('Validado','EtiquetaMedia','checkbox',values.controller ~ '[Checked]',values.controller ~ '_Checked',datos.Checked.IDTipo,'255','CampoTextoLargo','12') }}
-                                {{ macro.radio('Privacidad','EtiquetaMedia',values.controller ~ '[Privacy]',values.controller ~ '_Privacy',datos.Privacy.IDTipo,datos.Privacy.fetchAll(none,0),'Select')}}                                 
+                                {{ macro.input('Validado','Etiqueta','checkbox',values.controller ~ '[Checked]',values.controller ~ '_Checked',datos.Checked.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.radio('Privacidad','Etiqueta',values.controller ~ '[Privacy]',values.controller ~ '_Privacy',datos.Privacy.IDTipo,datos.Privacy.fetchAll(none,0),'Select')}}                                 
                                 {% if datos.getPrimaryKeyValue %}
-                                    {{ macro.input('Número de visitas','EtiquetaMedia','text',values.controller ~ '[NumberVisits]',values.controller ~ '_NumberVisits',datos.NumberVisits,none,'CampoImporte','disabled') }}
-                                    {{ macro.fecha('Fecha última visita','EtiquetaMedia',values.controller ~ '[DateTimeLastVisit]',values.controller ~ '_DateTimeLastVisit',datos.DateTimeLastVisit,19,'datepicker','disabled') }}                        
-                                    {{ macro.input('Creado por','EtiquetaMedia','text',values.controller ~ '[CreatedBy]',values.controller ~ '_CreatedBy',datos.CreatedBy,none,none,'disabled') }}
-                                    {{ macro.fecha('Fecha creación','EtiquetaMedia',values.controller ~ '[CreatedAt]',values.controller ~ '_CreatedAt',datos.CreatedAt,19,'datepicker','disabled') }}
-                                    {{ macro.input('Modificado por','EtiquetaMedia','text',values.controller ~ '[ModifiedBy]',values.controller ~ '_ModifiedBy',datos.ModifiedBy,none,none,'disabled') }}
-                                    {{ macro.fecha('Fecha modificación','EtiquetaMedia',values.controller ~ '[ModifiedAt]',values.controller ~ '_ModifiedAt',datos.ModifiedAt,19,'datepicker','disabled') }}
+                                    {{ macro.input('Número de visitas','Etiqueta','text',values.controller ~ '[NumberVisits]',values.controller ~ '_NumberVisits',datos.NumberVisits,none,'CampoImporte','disabled') }}
+                                    {{ macro.fecha('Fecha última visita','Etiqueta',values.controller ~ '[DateTimeLastVisit]',values.controller ~ '_DateTimeLastVisit',datos.DateTimeLastVisit,19,'datepicker','disabled') }}                        
+                                    {{ macro.input('Creado por','Etiqueta','text',values.controller ~ '[CreatedBy]',values.controller ~ '_CreatedBy',datos.CreatedBy,none,none,'disabled') }}
+                                    {{ macro.fecha('Fecha creación','Etiqueta',values.controller ~ '[CreatedAt]',values.controller ~ '_CreatedAt',datos.CreatedAt,19,'datepicker','disabled') }}
+                                    {{ macro.input('Modificado por','Etiqueta','text',values.controller ~ '[ModifiedBy]',values.controller ~ '_ModifiedBy',datos.ModifiedBy,none,none,'disabled') }}
+                                    {{ macro.fecha('Fecha modificación','Etiqueta',values.controller ~ '[ModifiedAt]',values.controller ~ '_ModifiedAt',datos.ModifiedAt,19,'datepicker','disabled') }}
 
-                                    {{ macro.input('Borrado','EtiquetaMedia','text',values.controller ~ '[Deleted]',values.controller ~ '_Deleted',datos.Deleted.Descripcion,none,none,'disabled') }}
+                                    {{ macro.input('Borrado','Etiqueta','text',values.controller ~ '[Deleted]',values.controller ~ '_Deleted',datos.Deleted.Descripcion,none,none,'disabled') }}
                                     {% if datos.Deleted.IDTipo %}
-                                        {{ macro.input('Borrado por','EtiquetaMedia','text',values.controller ~ '[DeletedBy]',values.controller ~ '_DeletedBy',datos.DeletedBy,none,none,'disabled') }}
-                                        {{ macro.fecha('Fecha borrado','EtiquetaMedia',values.controller ~ '[DeletedAt]',values.controller ~ '_DeletedAt',datos.DeletedAt,19,'datepicker','disabled') }}
+                                        {{ macro.input('Borrado por','Etiqueta','text',values.controller ~ '[DeletedBy]',values.controller ~ '_DeletedBy',datos.DeletedBy,none,none,'disabled') }}
+                                        {{ macro.fecha('Fecha borrado','Etiqueta',values.controller ~ '[DeletedAt]',values.controller ~ '_DeletedAt',datos.DeletedAt,19,'datepicker','disabled') }}
                                     {% endif %}
                                 {% endif %}
                             </div>
@@ -443,10 +461,10 @@
                     <div id="fc-mostrar" class="panel-collapse collapse">
                         <div class="panel-body">
                             <div>
-                                {{ macro.input('Mostrar Galería','EtiquetaMedia','checkbox',values.controller ~ '[ShowGalery]',values.controller ~ '_ShowGalery',datos.ShowGalery.IDTipo,'255','CampoTextoLargo','12') }}
-                                {{ macro.input('Mostrar Documentos','EtiquetaMedia','checkbox',values.controller ~ '[ShowDocuments]',values.controller ~ '_ShowDocuments',datos.ShowDocuments.IDTipo,'255','CampoTextoLargo','12') }}
-                                {{ macro.input('Mostrar enlaces relacionados','EtiquetaMedia','checkbox',values.controller ~ '[ShowRelatedLinks]',values.controller ~ '_ShowRelatedLinks',datos.ShowRelatedLinks.IDTipo,'255','CampoTextoLargo','12') }}
-                                {{ macro.input('Mostrar contenidos relacionados','EtiquetaMedia','checkbox',values.controller ~ '[ShowRelatedContents]',values.controller ~ '_ShowRelatedContents',datos.ShowRelatedContents.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Mostrar Galería','Etiqueta','checkbox',values.controller ~ '[ShowGalery]',values.controller ~ '_ShowGalery',datos.ShowGalery.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Mostrar Documentos','Etiqueta','checkbox',values.controller ~ '[ShowDocuments]',values.controller ~ '_ShowDocuments',datos.ShowDocuments.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Mostrar enlaces relacionados','Etiqueta','checkbox',values.controller ~ '[ShowRelatedLinks]',values.controller ~ '_ShowRelatedLinks',datos.ShowRelatedLinks.IDTipo,'255','CampoTextoLargo','12') }}
+                                {{ macro.input('Mostrar contenidos relacionados','Etiqueta','checkbox',values.controller ~ '[ShowRelatedContents]',values.controller ~ '_ShowRelatedContents',datos.ShowRelatedContents.IDTipo,'255','CampoTextoLargo','12') }}
                             </div>
                         </div>
                     </div>

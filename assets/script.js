@@ -510,7 +510,7 @@ function formateafecha(fecha){
         dia=fecha.substr(0,2);
         mes=fecha.substr(3,2);
         ano=fecha.substr(6,4);
-        // A�o no viciesto y es febrero y el dia es mayor a 28
+        // Año no viciesto y es febrero y el dia es mayor a 28
         if ( (ano%4 !== 0) && (mes === 02) && (dia > 28) ) {
             fecha=fecha.substr(0,2)+"/";
         }
