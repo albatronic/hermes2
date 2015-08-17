@@ -801,5 +801,3 @@ class AlbaranesCab extends AlbaranesCabEntity {
     }
 
 }
-
-?>

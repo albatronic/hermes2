@@ -37,8 +37,7 @@ class FemitidasCab extends FemitidasCabEntity {
                     parent::erase();
                 }
             }
-        }
-        else
+        } else
             $this->_errores[] = "No se puede borrar. Está traspasada a contabilidad";
 
         return (count($this->_errores) == 0);
@@ -96,6 +95,10 @@ class FemitidasCab extends FemitidasCabEntity {
      */
     public function recalcula() {
 
+        //Igualar la fecha de emisión de los eventuales recibos a la de la factura
+        $recibos = new RecibosClientes();
+        $recibos->queryUpdate(array("Fecha" => $this->Fecha), "`IDFactura`= '{$this->IDFactura}'");
+
         //Si el cliente no está sujeto a iva
         //pongo el iva a cero en las líneas para evitar que por cambio
         //de cliente se aplique indebidamente
@@ -105,6 +108,7 @@ class FemitidasCab extends FemitidasCabEntity {
             $lineas->queryUpdate(array("Iva" => 0, "Recargo" => 0), "`IDFactura`= '{$this->IDFactura}'");
             unset($lineas);
         }
+        
         //Si el cliente no está sujeto a recargo de equivalencia
         //lo pongo a cero en las líneas para evitar que por cambio
         //de cliente se aplique indebidamente
@@ -174,7 +178,7 @@ class FemitidasCab extends FemitidasCabEntity {
             //Calcular el peso, volumen y n. de bultos de los productos inventariables
             switch ($_SESSION['ver']) {
                 case '1': //Cristal
-                    $columna = "MtsAl";                
+                    $columna = "MtsAl";
                 case '0': //Estandar
                 default:
                     $columna = "Unidades";

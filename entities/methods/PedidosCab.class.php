@@ -107,7 +107,7 @@ class PedidosCab extends PedidosCabEntity {
 
         //Calcular los totales, desglosados por tipo de iva.
         $lineas = new PedidosLineas();
-        $rows = $lineas->cargaCondicion("sum(importe) as Bruto", "IDPedido='{$this->IDPedido}'");
+        $rows = $lineas->cargaCondicion("sum(Importe) as Bruto", "IDPedido='{$this->IDPedido}'");
         $bruto = ($rows[0]['Bruto']) ? $rows[0]['Bruto'] : 0;
 
         $rows = $lineas->cargaCondicion("Iva, Recargo, sum(Importe) as Importe", "(IDPedido='{$this->IDPedido}') group by Iva, Recargo order by Iva");

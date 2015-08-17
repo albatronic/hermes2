@@ -268,4 +268,3 @@ class PedidosLineas extends PedidosLineasEntity {
 
 }
 
-?>

@@ -29,5 +29,3 @@ class RecibosClientes extends RecibosClientesEntity {
         return $rows[0]['IDArqueo'];
     }
 }
-
-?>

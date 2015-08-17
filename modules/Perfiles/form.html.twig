@@ -4,11 +4,11 @@
 
 {{ macro.input(values.atributos.Perfil,'Etiqueta','text','Perfiles[Perfil]','Perfiles_Perfil',datos.Perfil,'50','CampoTextoLargo') }}
 
-{% if datos.IDPerfil %}
+{% if datos.primaryKeyValue %}
 
 <div class="clearfix margin-top-20">
     <iframe width="100%" height="550" scrolling="yes" style="border: 0px; padding: 3px;" 
-            src="{{app.path}}/Permisos/listopciones/{{datos.IDPerfil}}">
+            src="{{app.path}}/Permisos/listopciones/{{datos.primaryKeyValue}}">
     </iframe>
 </div>
 
